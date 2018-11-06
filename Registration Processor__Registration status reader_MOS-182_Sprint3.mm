@@ -1,0 +1,29 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1539321834760" ID="ID_289366166" MODIFIED="1539321863908" TEXT="Registration status reader">
+<node CREATED="1539321879770" ID="ID_1331621794" LINK="https://mosipid.atlassian.net/browse/MOS-194" MODIFIED="1539321984181" POSITION="right" TEXT="MOS-194">
+<arrowlink DESTINATION="ID_1331621794" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_1046021091" STARTARROW="None" STARTINCLINATION="0;0;"/>
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1331621794" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_1046021091" SOURCE="ID_1331621794" STARTARROW="None" STARTINCLINATION="0;0;"/>
+<node COLOR="#339900" CREATED="1539322031959" ID="ID_1249784289" MODIFIED="1539322676797" TEXT="receives a request to check the status of multiple Registration IDs from Registration Client" VSHIFT="14">
+<node COLOR="#339900" CREATED="1539322073711" HGAP="12" ID="ID_1743764494" MODIFIED="1539322681270" TEXT="using the Registration IDs finds the Packet details from Registration Table" VSHIFT="14">
+<node COLOR="#339900" CREATED="1539322122177" HGAP="21" ID="ID_891233806" MODIFIED="1539322685270" TEXT="sends all the Information in Registration Table to Registration client" VSHIFT="21">
+<node COLOR="#cc0000" CREATED="1539322284340" HGAP="18" ID="ID_1229573154" MODIFIED="1539322745599" TEXT="failure in finding a Registration detail" VSHIFT="-7">
+<node COLOR="#cc0000" CREATED="1539322311786" ID="ID_450504916" MODIFIED="1539322713321" TEXT="System sends NULL as the response" VSHIFT="14"/>
+</node>
+<node COLOR="#cc0000" CREATED="1539322369673" ID="ID_1322150468" MODIFIED="1539322718822" TEXT="Registration Packet Id Not Found">
+<node COLOR="#cc0000" CREATED="1539322383661" HGAP="18" ID="ID_204237113" MODIFIED="1539322723179" TEXT="The Registration Packet Id is not present in Registration Table" VSHIFT="11"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1539322412824" ID="ID_111338964" MODIFIED="1539322642507" POSITION="left" TEXT="System exception:">
+<node COLOR="#cc0000" CREATED="1539322412825" ID="ID_718497256" MODIFIED="1539322648980" TEXT="Unexpected Error"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_1871026545" MODIFIED="1539322652334" TEXT="Bad Gateway"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_62534182" MODIFIED="1539322656278" TEXT="Service Unavailable"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_597416733" MODIFIED="1539322659941" TEXT=" Server Error"/>
+<node COLOR="#cc0000" CREATED="1539322412827" ID="ID_1039566042" MODIFIED="1539322664532" TEXT=" Timeout/Session Expiry"/>
+<node COLOR="#cc0000" CREATED="1539322412827" ID="ID_630191292" MODIFIED="1539322668050" TEXT="Others if any"/>
+</node>
+</node>
+</map>
