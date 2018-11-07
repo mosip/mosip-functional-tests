@@ -1,0 +1,25 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1541398643749" ID="ID_320974828" MODIFIED="1541398667681" TEXT="symmetric key pair generation">
+<node COLOR="#339900" CREATED="1541398699279" ID="ID_271292610" LINK="https://mosipid.atlassian.net/browse/MOS-1431" MODIFIED="1541399144768" POSITION="right" TEXT="MOS-1431">
+<node COLOR="#339900" CREATED="1541398690645" ID="ID_196129895" MODIFIED="1541399156472" TEXT="receives a request for symmetric key pair generation" VSHIFT="7">
+<node COLOR="#339900" CREATED="1541398728341" HGAP="19" ID="ID_659694848" MODIFIED="1541399160456" TEXT="generates a key pair  using AES Algorithm" VSHIFT="14">
+<node COLOR="#339900" CREATED="1541398934890" ID="ID_1762866042" MODIFIED="1541399164827" TEXT="Generated key is of 256 bytes">
+<node COLOR="#339900" CREATED="1541398959628" ID="ID_1664296769" MODIFIED="1541399170679" TEXT="Yes">
+<node CREATED="1541398989721" ID="ID_536265126" MODIFIED="1541398989721" TEXT="">
+<node COLOR="#339900" CREATED="1541398812189" HGAP="15" ID="ID_1266034411" MODIFIED="1541399180033" TEXT="Successful generation" VSHIFT="-13">
+<node COLOR="#339900" CREATED="1541398751314" HGAP="16" ID="ID_1554222550" MODIFIED="1541399185280" TEXT="respond with the symmetric key in byte array" VSHIFT="18"/>
+</node>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1541398969574" ID="ID_790380800" MODIFIED="1541399196350" TEXT="No">
+<node COLOR="#cc0000" CREATED="1541398814143" ID="ID_349424947" MODIFIED="1541399200664" TEXT="Failure">
+<node COLOR="#cc0000" CREATED="1541398852425" HGAP="25" ID="ID_1174812922" MODIFIED="1541399215535" TEXT="Error message to be displayed" VSHIFT="20"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>
