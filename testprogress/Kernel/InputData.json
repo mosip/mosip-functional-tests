@@ -1,0 +1,73 @@
+	
+[
+  {
+"ExactMatch":{  
+   "authType":{  
+      "ad":false,
+      "bio":false,
+      "fad":false,
+      "otp":false,
+      "pi":true,
+      "pin":false
+   },
+   "data":"string",
+   "hmac":"string",
+   "id":"426789089018",
+   "idType":"D",
+   "key":{  
+      "publicKeyCert":"string",
+      "sessionKey":"string"
+   },
+   "msaLicenseKey":"string",
+   "muaCode":"1234567890",
+   "pii":{  
+      "demo":{  
+         "pi":{  
+            "namePri":"Mr.Sathish Mohan Kumar"
+            
+         }
+
+      }
+   },
+   "reqTime":"2018-11-13T07:22:57.086+0000",
+   "signature":"string",
+   "txnID":"1234567890",
+   "ver":"1.0"
+},
+"PartialMatch":{  
+   "authType":{  
+      "ad":false,
+      "bio":false,
+      "fad":false,
+      "otp":false,
+      "pi":true,
+      "pin":false
+   },
+   "data":"string",
+   "hmac":"string",
+   "id":"426789089018",
+   "idType":"D",
+   "key":{  
+      "publicKeyCert":"string",
+      "sessionKey":"string"
+   },
+   "msaLicenseKey":"string",
+   "muaCode":"1234567890",
+   "pii":{  
+      "demo":{  
+         "pi":{  
+            "namePri":"Mr.Sathish Kumar",
+            "msPri":"P",
+            "mtPri":60
+            
+         }
+
+      }
+   },
+   "reqTime":"2018-11-13T07:22:57.086+0000",
+   "signature":"string",
+   "txnID":"1234567890",
+   "ver":"1.0"
+}
+}
+]
