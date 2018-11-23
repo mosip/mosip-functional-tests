@@ -1,0 +1,208 @@
+[{
+	"pos": {
+		"identity": {
+			"FullName": [{
+					"language": "Eng",
+					"label": "Firstname",
+					"value": "Arunkumar"
+				}
+
+			],
+			"dateOfBirth": [{
+					"language": "Eng",
+					"label": "dateOfBirth",
+					"value": "14/02/1992"
+				}
+
+			],
+			"gender": [
+
+				{
+					"language": "Eng",
+					"label": "Gender",
+					"value": "Male"
+				}
+			],
+			"addressLine1": [
+
+				{
+					"language": "Eng",
+					"label": "Adresse 1",
+					"value": "West"
+				}
+			],
+			"addressLine2": [
+
+				{
+					"language": "Eng",
+					"label": "Adresse 2",
+					"value": "Campus"
+				}
+			],
+			"addressLine3": [
+
+				{
+					"language": "Eng",
+					"label": "Adresse 3",
+					"value": "Mindtree"
+				}
+			],
+			"region": [
+
+				{
+					"language": "Eng",
+					"label": "region",
+					"value": "Dharwad"
+				}
+			],
+			"province": [
+
+				{
+					"language": "Eng",
+					"label": "province",
+					"value": "Hubli"
+				}
+			],
+			"city": [
+
+				{
+					"language": "Eng",
+					"label": "city",
+					"value": "Hubli"
+				}
+			],
+			"postalcode": [
+
+				{
+					"language": "Eng",
+					"label": "postalcode",
+					"value": "564114"
+				}
+			],
+			"localAdministrativeAuthority": [
+
+				{
+					"language": "Eng",
+					"label": "Prenom",
+					"value": "La gestion"
+				}
+			],
+			"emailId": [
+
+				{
+					"language": "Eng",
+					"label": "Email",
+					"value": "arunk@gmail.com"
+				}
+			],
+			"mobileNumber": [
+
+				{
+					"language": "Eng",
+					"label": "mobile number",
+					"value": "784839879"
+				}
+			],
+			"CNEOrPINNumber": [
+
+				{
+					"language": "Eng",
+					"label": "Code PIN",
+					"value": "4666768"
+				}
+			],
+			"age": [
+
+				{
+					"language": "Eng",
+					"label": "Age",
+					"value": "26"
+				}
+			]
+		}
+	},
+	"neg":{"identity": {
+			"FullName": [{
+					"language": "Eng",
+					"label": "Firstname",
+					"value": ""
+				}
+
+			],
+			"dateOfBirth": [{
+					"language": "Eng",
+					"label": "dateOfBirth",
+					"value": ""
+				}
+
+			],
+			"gender": [
+
+				{
+					"language": "Eng",
+					"label": "Gender",
+					"value": ""
+				}
+			],
+			"addressLine1": [
+
+				{
+					"language": "Eng",
+					"label": "Adresse 1",
+					"value": ""
+				}
+			],
+			
+			"region": [
+
+				{
+					"language": "Eng",
+					"label": "region",
+					"value": ""
+				}
+			],
+			"province": [
+
+				{
+					"language": "Eng",
+					"label": "province",
+					"value": ""
+				}
+			],
+			"city": [
+
+				{
+					"language": "Eng",
+					"label": "city",
+					"value": ""
+				}
+			],
+			"postalcode": [
+
+				{
+					"language": "Eng",
+					"label": "postalcode",
+					"value": ""
+				}
+			],
+			"localAdministrativeAuthority": [
+
+				{
+					"language": "Eng",
+					"label": "Prenom",
+					"value": "La gestion"
+				}
+			],
+			
+			
+			"age": [
+
+				{
+					"language": "Eng",
+					"label": "Age",
+					"value": ""
+				}
+			]
+		}
+	}
+}]
