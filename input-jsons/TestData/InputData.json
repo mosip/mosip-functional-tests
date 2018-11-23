@@ -1,0 +1,28 @@
+[{
+	"pos":{
+	  "id": "426789089018",
+	  "id1":"426789089018",
+	  "id2":"912893708398",
+	  "id3":"215267057625",
+	  "id4":"807698164361",
+	  "id4":"839587168590",
+	  "vid":"5371843613598206",
+	  "idType": "D",
+	  "vidType":"V",
+	  "msaLicenseKey": "MSALICENSE",
+	  "muaCode": "MUALICENSE",
+	  "txnID": "TXNLICENSE",
+	  "ver": "1.0"
+	},
+	"neg":{
+	  "id": "426789089019",
+ 	  "vid":"537184361359820",
+	  "idType": "A",
+	  "vidType":"D",
+	  "msaLicenseKey": "MSALICENSE11",
+	  "muaCode": "MUALICENSE11",
+	  "txnID": "TXNLICENSE11",
+	  "ver": "1.0.0"
+	}
+	}
+	]
