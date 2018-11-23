@@ -1,23 +1,29 @@
+	
+	
 [{
-	"pos":{
-	  "id": "426789089018",
-	  "vid":"5371843613598206",
-	  "idType": "D",
-	  "vidType":"V",
-	  "msaLicenseKey": "MSALICENSE",
-	  "muaCode": "MUALICENSE",
-	  "txnID": "TXNLICENSE",
-	  "ver": "1.0"
-	},
-	"neg":{
-	  "id": "426789089019",
- 	  "vid":"537184361359820",
-	  "idType": "A",
-	  "vidType":"D",
-	  "msaLicenseKey": "MSALICENSE11",
-	  "muaCode": "MUALICENSE11",
-	  "txnID": "TXNLICENSE11",
-	  "ver": "1.0.0"
-	}
-	}
-	]
+	"pos": {
+		"pi": true,
+		"id": "426789089018",
+                "idType": "D",
+  		"vid": "5371843613598206",
+                "vidType": "V",
+                 "namePri_Exact": "Mr.Sathish Mohan Kumar",
+		 "ver": "1.0",
+                 "namePri_Partial": "Mr.Sathish Kumar",
+	         "msPri": "P",
+	         "mtPri": 60
+                },
+
+	"neg": {
+		
+                 "pi": false,
+                 "id": "426789089019",
+		 "idType": "A",
+                 "vid": "537184361359820",
+                 "vidType": "B",
+		 "namePri": "Mr.Naveen",
+		 "msPri": "S",
+		 "mtPri": 120,
+                 "ver": "1.0.0"
+		}
+	}]
