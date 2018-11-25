@@ -1,0 +1,84 @@
+[{
+	
+"smoketest":{
+         
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2222517893871510111999054101",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION",	 
+    "fileName": "2222517893871510111999054101.zip",
+    "filePath": "packetUpload\\validPacket\\2222517893871510111999054101.zip"
+	
+},
+"valid":
+[
+{"registrationId":"4444517893871510012011054101","fileName": "4444517893871510012011054101.zip","filePath": "packetUpload\\validPacket\\4444517893871510012011054101.zip"},
+{"registrationId":"4444517893871510111999054101","fileName": "4444517893871510111999054101.zip","filePath": "packetUpload\\validPacket\\4444517893871510111999054101.zip"},
+{"registrationId":"4444517893871510112011054101","fileName": "4444517893871510112011054101.zip","filePath": "packetUpload\\validPacket\\4444517893871510112011054101.zip"},
+{"registrationId":"4444517893871510112020054101","fileName": "4444517893871510112020054101.zip","filePath": "packetUpload\\validPacket\\4444517893871510112020054101.zip"},
+{"registrationId":"4444517893871510122011054101","fileName": "4444517893871510122011054101.zip","filePath": "packetUpload\\validPacket\\4444517893871510122011054101.zip"},
+{"registrationId":"4444517893871515102018054101","fileName": "4444517893871515102018054101.zip","filePath": "packetUpload\\validPacket\\4444517893871515102018054101.zip"},
+{"registrationId":"4454517893871510110000054101","fileName": "4454517893871510110000054101.zip","filePath": "packetUpload\\validPacket\\4454517893871510110000054101.zip"},
+{"registrationId":"4454517893871510111911054101","fileName": "4454517893871510111911054101.zip","filePath": "packetUpload\\validPacket\\4454517893871510111911054101.zip"},
+{"registrationId":"4454517893871510111999054101","fileName": "4454517893871510111999054101.zip","filePath": "packetUpload\\validPacket\\4454517893871510111999054101.zip"}
+ ],
+"packetUploadWOSync":
+[
+{"fileName": "6666517893871510111999054105.zip","filePath": "packetUpload\\invalidPacket\\6666517893871510111999054105.zip"}
+
+],
+"invalidFileExtension":
+[
+{"registrationId":"8888517893871510112011054101","fileName": "8888517893871510112011054101.pdf","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054101.bmp"},
+{"registrationId":"8888517893871510112011054102","fileName": "8888517893871510112011054102.pdf","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054102.pdf"},
+{"registrationId":"8888517893871510112011054103","fileName": "8888517893871510112011054103.png","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054103.png"},
+{"registrationId":"8888517893871510112011054104","fileName": "8888517893871510112011054104.pptx","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054104.pptx"},
+{"registrationId":"8888517893871510112011054105","fileName": "8888517893871510112011054105.txt","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054105.txt"},
+{"registrationId":"8888517893871510112011054106","fileName": "8888517893871510112011054106.xlsx","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054106.xlsx"},
+{"registrationId":"8888517893871510112011054107","fileName": "8888517893871510112011054107.xml","filePath": "packetUpload\\invalidFileExtension\\8888517893871510112011054107.xml"}
+
+],
+"invalidFileName":
+[
+{"registrationId":"@#%.$","fileName": "@#%.$.zip","filePath": "packetUpload\\invalidPacket\\@#%.$.zip"},
+{"registrationId":"12345@#$^%","fileName": "12345@#$^%.zip","filePath": "packetUpload\\invalidPacket\\12345@#$^%.zip"},
+{"registrationId":"44445Test","fileName": "44445Test.zip","filePath": "packetUpload\\invalidPacket\\44445Test.zip"},
+{"registrationId":"4444517893871510","fileName": "4444517893871510.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510.zip"},
+{"registrationId":"4444517893871500112011054101","fileName": "4444517893871500112011054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871500112011054101.zip"},
+{"registrationId":"4444517893871500171999054101","fileName": "4444517893871500171999054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871500171999054101.zip"},
+{"registrationId":"4444517893871510002011054101","fileName": "4444517893871510002011054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510002011054101.zip"},
+{"registrationId":"4444517893871510110000054101","fileName": "4444517893871510110000054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510110000054101.zip"},
+{"registrationId":"4444517893871510111111054101","fileName": "4444517893871510111111054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111111054101.zip"},
+{"registrationId":"4444517893871510111111056401","fileName": "4444517893871510111111056401.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111111056401.zip"},
+{"registrationId":"4444517893871510111111056401","fileName": "4444517893871510111111056401.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111111056401.zip"},
+{"registrationId":"4444517893871510111911054101","fileName": "4444517893871510111911054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111911054101.zip"},
+{"registrationId":"4444517893871510111911054101","fileName": "4444517893871510111911054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111911054101.zip"},
+{"registrationId":"4444517893871510111999057499","fileName": "4444517893871510111999057499.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111999057499.zip"},
+{"registrationId":"4444517893871510111999266301","fileName": "4444517893871510111999266301.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111999266301.zip"},
+{"registrationId":"4444517893871510111999394168","fileName": "4444517893871510111999394168.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510111999394168.zip"},
+{"registrationId":"4444517893871510112020054461","fileName": "4444517893871510112020054461.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510112020054461.zip"},
+{"registrationId":"444451789387151011202005446145666767744","fileName": "444451789387151011202005446145666767744.zip","filePath":"packetUpload\\invalidPacket\\444451789387151011202005446145666767744.zip"},
+{"registrationId":"4444517893871510119999054101","fileName": "4444517893871510119999054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510119999054101.zip"},
+{"registrationId":"4444517893871510119999654101","fileName": "4444517893871510119999654101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510119999654101.zip"},
+{"registrationId":"4444517893871510152011054101","fileName": "4444517893871510152011054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510152011054101.zip"},
+{"registrationId":"4444517893871510216754054101","fileName": "4444517893871510216754054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871510216754054101.zip"},
+{"registrationId":"4444517893871531112011054101","fileName": "4444517893871531112011054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871531112011054101.zip"},
+{"registrationId":"4444517893871534118999054101","fileName": "4444517893871534118999054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871534118999054101.zip"},
+{"registrationId":"4444517893871554112011054101","fileName": "4444517893871554112011054101.zip","filePath": "packetUpload\\invalidPacket\\4444517893871554112011054101.zip"},
+{"registrationId":"Test@#$^%","fileName": "Test@#$^%.zip","filePath": "packetUpload\\invalidPacket\\Test@#$^%.zip"},
+{"registrationId":"TestFile","fileName": "TestFile.zip","filePath": "packetUpload\\invalidPacket\\TestFile.zip"}
+],
+"invalidFileSize":
+[
+{"registrationId":"7777517893871510112011054101","fileName": "7777517893871510112011054101.zip","filePath": "packetUpload\\UploadFilesWithDiffSize\\GreaterThanMax\\7777517893871510112011054101.zip"},
+{"registrationId":"7777517893871510112011054103","fileName": "7777517893871510112011054103.zip","filePath": "packetUpload\\UploadFilesWithDiffSize\\LessThanMin\\7777517893871510112011054103.zip"}
+],
+"validEqualtoFileSize":
+[
+{"registrationId":"7777517893871510112011054102","fileName": "7777517893871510112011054102.zip","filePath": "packetUpload\\UploadFilesWithDiffSize\\EqualToMax\\7777517893871510112011054102.zip"}
+
+]
+
+}]

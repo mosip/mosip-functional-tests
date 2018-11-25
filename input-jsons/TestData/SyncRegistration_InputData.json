@@ -1,0 +1,139 @@
+[{
+	
+"smoketest":{
+         
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2222517893871510111999054101",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"	 
+   
+	
+},
+"validRegistrationId":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "98983434344334343434",
+    "registrationId": "2222517893871510111999054102",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"multipleValidRegistrationId":
+[
+  {
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2018701130000410092012345678",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+  },
+  {
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2018701130000410092018110735",
+    "statusComment": "Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+  },
+  {
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2018701130000410092018110736",
+    "statusComment": "",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+  },
+  {
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2018701130000410092018110737",
+    "statusComment": "Registration to create new identity",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+  },
+  {
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2018701130000410092018110738",
+    "statusComment": "Registration to update my existing identity",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+  }
+],
+"InValidEmptyRegistrationId":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"InValidSameParentIdAndRegId":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "2018701130000410092018110444",
+    "registrationId": "2018701130000410092018110444",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"SyncUpdateForExistingRegistrationID":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "2222517893871510111999054101",
+    "statusComment": "Registration Update",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"SyncRegEmptyLangCode":
+{
+    "langCode": "",
+    "parentRegistrationId": "",
+    "registrationId": "4343517893871510111999054101",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"SyncRegEmptySyncType":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "3434517893871510111999054101",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": ""
+},
+"SyncRegInvRegId":
+{
+    "langCode": "eng",
+    "parentRegistrationId": "",
+    "registrationId": "Test12349876",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"SyncRegInvLangCode":
+{
+    "langCode": "english",
+    "parentRegistrationId": "",
+    "registrationId": "2323517893871510111999054101",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "NEW_REGISTRATION"
+},
+"SyncRegInvSyncType":
+{
+    "langCode": "english",
+    "parentRegistrationId": "",
+    "registrationId": "2323517893871510111999054201",
+    "statusComment": "My first Registration",
+    "syncStatus": "PRE_SYNC",
+    "syncType": "UPDATE_REGISTRATION"
+}
+
+}]
