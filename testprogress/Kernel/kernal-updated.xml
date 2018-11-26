@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="01b31f19-6ccb-42db-a31c-81c934e12048" created="2.5.0" activeEnvironment="Default environment" name="kernal-soapui-project" resourceRoot="${projectDir}" updated="2.5.0 2018-09-14T14:45:07Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="01b31f19-6ccb-42db-a31c-81c934e12048" created="2.5.0" activeEnvironment="Default environment" name="kernal-updated" resourceRoot="${projectDir}" updated="2.5.0 2018-09-14T14:45:07Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Report Format(s)" value="XML"/>
@@ -524,7 +524,7 @@ testRunner.testCase.testSuite.setPropertyValue("posactionTimeStamp",timeStamp.to
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -533,8 +533,8 @@ testRunner.testCase.testSuite.setPropertyValue("posactionTimeStamp",timeStamp.to
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>EventId size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -826,7 +826,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -835,8 +835,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>EventName size must be between 1 and 128</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -903,7 +903,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -912,8 +912,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>EventType size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -980,7 +980,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -989,8 +989,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>ActionTimeStamp must not be null</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1057,7 +1057,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1066,8 +1066,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>HostName size must be between 1 and 32</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1134,7 +1134,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1143,8 +1143,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>HostIp size must be between 1 and 16</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1211,7 +1211,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1220,8 +1220,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>ApplicationId size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1288,7 +1288,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1297,8 +1297,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>ApplicationName size must be between 1 and 128</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1365,7 +1365,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1374,8 +1374,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>SessionUserId size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1442,7 +1442,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1451,8 +1451,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>SessionUserName size must be between 1 and 128</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1519,7 +1519,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1528,8 +1528,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>Id size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1596,7 +1596,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1605,8 +1605,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>IdType size must be between 1 and 64</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1673,7 +1673,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-001</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1682,8 +1682,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Invalid Audit Request. Required parameters must be present</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>CreatedBy size must be between 1 and 255</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1750,7 +1750,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-002</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1759,8 +1759,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Audit Request format is invalid</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>ActionTimeStamp should be in ISO 8601 format (e.g. 2019-04-05T14:30)</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1827,7 +1827,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="e8d21e24-0a2f-4883-b607-6ee388928577" name="errorCode">
               <con:configuration>
-                <path>$['code']</path>
+                <path>$['error'][0]['errorCode']</path>
                 <content>KER-AUD-002</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
@@ -1836,8 +1836,8 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
             </con:assertion>
             <con:assertion type="JsonPath Match" id="af682d73-267e-488e-a0ea-cd933241f728" name="errorMessage">
               <con:configuration>
-                <path>$['message']</path>
-                <content>Audit Request format is invalid</content>
+                <path>$['error'][0]['errorMessage']</path>
+                <content>ActionTimeStamp should be in ISO 8601 format (e.g. 2019-04-05T14:30)</content>
                 <allowWildcards>false</allowWildcards>
                 <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
                 <ignoreComments>false</ignoreComments>
@@ -1880,7 +1880,7 @@ ORDER BY  APP_AUDIT_LOG.LOG_DTIMES desc</con:query>
       </con:property>
       <con:property>
         <con:name>posactionTimeStamp</con:name>
-        <con:value>2018-11-23T11:24:15.486Z</con:value>
+        <con:value>2018-11-26T07:38:41.346Z</con:value>
       </con:property>
       <con:property>
         <con:name>poscreatedBy</con:name>
@@ -6901,7 +6901,7 @@ testRunner.testCase.setPropertyValue("time20SecondsEqual",time20SecondsEqual.toS
         </con:property>
         <con:property>
           <con:name>time20SecondsEqual</con:name>
-          <con:value>2018-11-23T11:20:59.085Z</con:value>
+          <con:value>2018-11-26T07:41:05.710Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
