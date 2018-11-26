@@ -33764,17 +33764,10 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
 	"ver": "${#TestSuite#posver}"
 }</con:request>
             <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 0</scriptText>
-              </con:configuration>
-            </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>500</codes>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA">
@@ -33823,15 +33816,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>186790</con:value>
+          <con:value>57191</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-14T20:24:42.219+0530</con:value>
+          <con:value>2018-11-26T08:13:16.035+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:51.794Z</con:value>
+          <con:value>2018-11-26T08:13:14.549Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33992,17 +33985,10 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
 	"ver": "${#TestSuite#posver}"
 }</con:request>
             <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 0</scriptText>
-              </con:configuration>
-            </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>500</codes>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA">
@@ -34051,15 +34037,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>186790</con:value>
+          <con:value>787455</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-14T20:24:42.219+0530</con:value>
+          <con:value>2018-11-26T08:13:17.327+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:52.287Z</con:value>
+          <con:value>2018-11-26T08:13:16.120Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34279,15 +34265,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>519694</con:value>
+          <con:value>756634</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-23T06:37:06.006+0000</con:value>
+          <con:value>2018-11-26T08:13:18.709+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:52.827Z</con:value>
+          <con:value>2018-11-26T08:13:17.424Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34445,8 +34431,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(now.getTim
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
 assert json.size() == 5
 assert json.err.size() == 1
-assert json.err.errorCode[0] == "IDA-OTA-009"
-assert json.err.errorMessage[0] == "Request could not be processed. Please try again"</scriptText>
+assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="4948c7ff-ba81-460b-a3e5-df85e35e4d66" name="Valid HTTP Status Codes">
@@ -34468,7 +34453,7 @@ assert json.err.errorMessage[0] == "Request could not be processed. Please try a
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:53.337Z</con:value>
+          <con:value>2018-11-26T08:14:18.759Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34476,11 +34461,11 @@ assert json.err.errorMessage[0] == "Request could not be processed. Please try a
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>045528</con:value>
+          <con:value>856867</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-13T19:15:31.946+0530</con:value>
+          <con:value>2018-09-27T08:14:22.247+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -34634,8 +34619,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(now.getTim
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
 assert json.size() == 5
 assert json.err.size() == 1
-assert json.err.errorCode[0] == "IDA-OTA-009"
-assert json.err.errorMessage[0] == "Request could not be processed. Please try again"</scriptText>
+assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="4948c7ff-ba81-460b-a3e5-df85e35e4d66" name="Valid HTTP Status Codes">
@@ -34657,7 +34641,7 @@ assert json.err.errorMessage[0] == "Request could not be processed. Please try a
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:53.709Z</con:value>
+          <con:value>2018-11-26T08:14:22.328Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34665,11 +34649,11 @@ assert json.err.errorMessage[0] == "Request could not be processed. Please try a
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>045528</con:value>
+          <con:value>721720</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-13T19:15:31.946+0530</con:value>
+          <con:value>2018-09-24T20:14:23.579+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -34702,7 +34686,7 @@ testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
             <con:encoding>UTF-8</con:encoding>
             <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
             <con:request>{
-  "id": "${#TestSuite#posuid}",
+  "id": "${#TestSuite#negid}",
   "idType": "${#TestSuite#posidType}",
   "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
   "muaCode": "${#TestSuite#posmuaCode}",
@@ -34714,14 +34698,14 @@ testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
             <con:assertion type="Valid HTTP Status Codes" id="3a4f261e-0f03-4130-815a-2c67e688bdc7" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>500</codes>
               </con:configuration>
             </con:assertion>
             <con:assertion type="GroovyScriptAssertion" id="3ae44cf3-1e6f-4198-818f-703570ab6117" name="Script Assertion">
               <con:configuration>
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
+assert json.size() == 5
+assert json.status == "false"
 assert json.maskedMobile == null
 assert json.maskedEmail == null
 log.info json</scriptText>
@@ -34887,7 +34871,7 @@ assert json.err.size() == 0</scriptText>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:54.087Z</con:value>
+          <con:value>2018-11-26T08:14:23.761Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35047,17 +35031,10 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
 	"ver": "${#TestSuite#posver}"
 }</con:request>
             <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 0</scriptText>
-              </con:configuration>
-            </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>500</codes>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -35101,15 +35078,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>288579</con:value>
+          <con:value>199888</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-14T18:17:55.383+0530</con:value>
+          <con:value>2018-11-26T08:14:24.611+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:54.123Z</con:value>
+          <con:value>2018-11-26T08:14:23.826Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35147,7 +35124,7 @@ testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
             <con:encoding>UTF-8</con:encoding>
             <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
             <con:request>{
-  "id": "${#TestSuite#posuid}",
+  "id": "${#TestSuite#posid}",
   "idType": "${#TestSuite#posidType}",
   "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
   "muaCode": "${#TestSuite#posmuaCode}",
@@ -35332,7 +35309,7 @@ assert json.err.size() == 0</scriptText>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:54.652Z</con:value>
+          <con:value>2018-11-26T08:14:24.894Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35549,15 +35526,15 @@ assert json.err[0].errorMessage == "Version range max integer 1 digit and max fr
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>281340</con:value>
+          <con:value>961913</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-15T11:25:13.165+0530</con:value>
+          <con:value>2018-11-26T08:14:25.869+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:54.686Z</con:value>
+          <con:value>2018-11-26T08:14:24.940Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35731,7 +35708,7 @@ assert json.err.size() == 0</scriptText>
             <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>200</codes>
+                <codes>500</codes>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -35769,15 +35746,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>882084</con:value>
+          <con:value>060366</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T08:02:55.875+0000</con:value>
+          <con:value>2018-11-26T08:17:27.591+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T08:00:55.155Z</con:value>
+          <con:value>2018-11-26T08:15:26.009Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35829,7 +35806,7 @@ assert json.err.size() == 0</scriptText>
       </con:property>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T08:12:14.182Z</con:value>
+        <con:value>2018-11-26T08:14:23.578Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
