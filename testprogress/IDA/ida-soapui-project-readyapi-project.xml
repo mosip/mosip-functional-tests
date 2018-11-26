@@ -29686,7 +29686,7 @@ else
     <con:properties/>
     <con:reportParameters/>
   </con:testSuite>
-  <con:testSuite id="8ec32e1b-8bf1-4ac7-9ebf-8cc3a5fbbade" name="OTP_Authentication_MOS_41">
+  <con:testSuite id="8ec32e1b-8bf1-4ac7-9ebf-8cc3a5fbbade" name="OTP_Authentication_MOS_41" disabled="true">
     <con:settings/>
     <con:savedRecentRuns>1</con:savedRecentRuns>
     <con:runType>SEQUENTIAL</con:runType>
