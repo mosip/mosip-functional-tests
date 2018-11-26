@@ -715,7 +715,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
 </Response>]]></con:originalMessage>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
               <con:configuration>
                 <SLA>1000</SLA>
               </con:configuration>
@@ -918,7 +918,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
 </Response>]]></con:originalMessage>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
               <con:configuration>
                 <SLA>1000</SLA>
               </con:configuration>
@@ -2090,7 +2090,7 @@ log.info("Response" + ResponseMessage)
    "ver" : "${#TestSuite#posver}"
 }</con:request>
             <con:originalUri>http://13.71.81.26/otp</con:originalUri>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
               <con:configuration>
                 <SLA>1310</SLA>
               </con:configuration>
@@ -4076,11 +4076,11 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
     <con:properties>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:06:37.347Z</con:value>
+        <con:value>2018-11-26T09:22:04.315Z</con:value>
       </con:property>
       <con:property>
         <con:name>timestamp20minutebefore</con:name>
-        <con:value>2018-11-26T08:46:37.347Z</con:value>
+        <con:value>2018-11-26T09:02:04.315Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -4286,7 +4286,7 @@ testRunner.testCase.testSuite.setPropertyValue("negtxnID",txnID.toString());</sc
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:07:01.037+0000</con:value>
+          <con:value>2018-11-26T09:22:22.377+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -5282,7 +5282,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
         </con:property>
         <con:property>
           <con:name>futuretime24</con:name>
-          <con:value>2018-11-27T09:07:05.502+0000</con:value>
+          <con:value>2018-11-27T09:22:26.073+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -6755,7 +6755,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:07:10.958+0000</con:value>
+          <con:value>2018-11-25T08:22:29.947+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -6767,7 +6767,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
-        <con:value>14123693024</con:value>
+        <con:value>14261236218</con:value>
       </con:property>
       <con:property>
         <con:name>negpinCodePri</con:name>
@@ -6775,7 +6775,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       </con:property>
       <con:property>
         <con:name>posreqTime</con:name>
-        <con:value>2018-11-26T09:07:01.037+0000</con:value>
+        <con:value>2018-11-26T09:22:22.377+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negaddrLine1Sec</con:name>
@@ -7988,7 +7988,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T08:47:41.037Z</con:value>
+          <con:value>2018-11-26T09:02:54.429Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8190,7 +8190,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T08:48:22.749Z</con:value>
+          <con:value>2018-11-26T09:03:36.171Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8410,7 +8410,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T08:48:23.967Z</con:value>
+          <con:value>2018-11-26T09:03:37.790Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8630,7 +8630,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T08:48:25.521Z</con:value>
+          <con:value>2018-11-26T09:03:38.768Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8738,7 +8738,7 @@ testRunner.testCase.setPropertyValue("timestamp20minuteGreater",time.toString())
         </con:property>
         <con:property>
           <con:name>timestamp20minuteGreater</con:name>
-          <con:value>2018-11-26T08:45:26.692Z</con:value>
+          <con:value>2018-11-26T09:00:40.292Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8868,7 +8868,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
         </con:property>
         <con:property>
           <con:name>timestamp20minuteGreater</con:name>
-          <con:value>2018-11-26T08:46:26.816Z</con:value>
+          <con:value>2018-11-26T09:01:40.373Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8876,7 +8876,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
     <con:properties>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:07:12.163Z</con:value>
+        <con:value>2018-11-26T09:22:30.670Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -9621,7 +9621,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:07:32.389+0000</con:value>
+          <con:value>2018-11-25T08:22:43.671+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -9890,7 +9890,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:07:33.471+0000</con:value>
+          <con:value>2018-11-25T09:22:48.026+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10114,7 +10114,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:07:37.186+0000</con:value>
+          <con:value>2018-11-25T08:22:49.867+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10383,7 +10383,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:07:38.597+0000</con:value>
+          <con:value>2018-11-25T09:22:50.746+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10391,43 +10391,43 @@ log.info(timeStampEqua24.getTime())</script>
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>8812388020</con:value>
+        <con:value>6688667606</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>3046743594</con:value>
+        <con:value>9840777189</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>8812388020</con:value>
+        <con:value>6688667606</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>916214620</con:value>
+        <con:value>279601938</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>47372629335</con:value>
+        <con:value>19312319365</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>916214620</con:value>
+        <con:value>279601938</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>47372629335</con:value>
+        <con:value>19312319365</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey9</con:name>
-        <con:value>916214620</con:value>
+        <con:value>279601938</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>47372629335</con:value>
+        <con:value>19312319365</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:07:27.676+0000</con:value>
+        <con:value>2018-11-26T09:22:40.447+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negdomain</con:name>
@@ -12248,7 +12248,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:07:54.317+0000</con:value>
+          <con:value>2018-11-25T09:22:56.028+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -13229,7 +13229,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:08:01.014+0000</con:value>
+          <con:value>2018-11-25T08:22:59.650+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -13498,7 +13498,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:08:02.392+0000</con:value>
+          <con:value>2018-11-25T09:23:00.400+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -16697,7 +16697,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:08:13.974+0000</con:value>
+          <con:value>2018-11-25T08:23:09.022+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -18395,7 +18395,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:08:20.302+0000</con:value>
+          <con:value>2018-11-25T08:23:11.626+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -18560,7 +18560,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:08:21.186+0000</con:value>
+          <con:value>2018-11-25T09:23:12.723+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -19273,43 +19273,43 @@ log.info(timeStampEqua24.getTime())</script>
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>7589724942</con:value>
+        <con:value>3308760209</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>2156215945</con:value>
+        <con:value>3572378970</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>7589724942</con:value>
+        <con:value>3308760209</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>502363540</con:value>
+        <con:value>853892770</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>60959681540</con:value>
+        <con:value>59207355088</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>502363540</con:value>
+        <con:value>853892770</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>60959681540</con:value>
+        <con:value>59207355088</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey9</con:name>
-        <con:value>502363540</con:value>
+        <con:value>853892770</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>60959681540</con:value>
+        <con:value>59207355088</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:07:40.427+0000</con:value>
+        <con:value>2018-11-26T09:22:51.441+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negdomain</con:name>
@@ -19533,7 +19533,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:08:22.607Z</con:value>
+          <con:value>2018-11-26T09:23:13.644Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -22907,35 +22907,35 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:08:22.608+0000</con:value>
+        <con:value>2018-11-26T09:23:13.644+0000</con:value>
       </con:property>
       <con:property>
         <con:name>invalidTimestamp</con:name>
-        <con:value>2018-11-25T08:08:22.608+0000</con:value>
+        <con:value>2018-11-25T08:23:13.644+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_11digits</con:name>
-        <con:value>60403841520</con:value>
+        <con:value>21315446240</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_11digits</con:name>
-        <con:value>60403841520</con:value>
+        <con:value>21315446240</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_11digits</con:name>
-        <con:value>60403841520</con:value>
+        <con:value>21315446240</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_9digits</con:name>
-        <con:value>769497357</con:value>
+        <con:value>458460716</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_9digits</con:name>
-        <con:value>769497357</con:value>
+        <con:value>458460716</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_9digits</con:name>
-        <con:value>769497357</con:value>
+        <con:value>458460716</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -22999,7 +22999,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>7588792708</con:value>
+        <con:value>5240959081</con:value>
       </con:property>
       <con:property>
         <con:name>posid11</con:name>
@@ -23015,7 +23015,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>2630822794</con:value>
+        <con:value>6689194303</con:value>
       </con:property>
       <con:property>
         <con:name>posid</con:name>
@@ -23027,7 +23027,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>7391636570</con:value>
+        <con:value>8692011257</con:value>
       </con:property>
       <con:property>
         <con:name>negvid</con:name>
@@ -23196,7 +23196,7 @@ sql.close()</script>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:08:40.341+0000</con:value>
+          <con:value>2018-11-26T09:23:41.573+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -24191,7 +24191,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
         </con:property>
         <con:property>
           <con:name>futuretime24</con:name>
-          <con:value>2018-11-27T09:08:46.280+0000</con:value>
+          <con:value>2018-11-27T09:23:47.599+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -25635,7 +25635,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:08:50.209+0000</con:value>
+          <con:value>2018-11-25T08:23:52.501+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -29522,55 +29522,55 @@ else
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>9457278437</con:value>
+        <con:value>6550721293</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>7722484297</con:value>
+        <con:value>2993129495</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>9457278437</con:value>
+        <con:value>6550721293</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>455548651</con:value>
+        <con:value>352273714</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>34350788826</con:value>
+        <con:value>81289389866</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>455548651</con:value>
+        <con:value>352273714</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>34350788826</con:value>
+        <con:value>81289389866</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey</con:name>
-        <con:value>455548651</con:value>
+        <con:value>352273714</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>34350788826</con:value>
+        <con:value>81289389866</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:08:51.393+0000</con:value>
+        <con:value>2018-11-26T09:23:53.268+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampEqualTo24</con:name>
-        <con:value>2018-11-25T09:08:51.393+0000</con:value>
+        <con:value>2018-11-25T09:23:53.268+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampGreaterThan24</con:name>
-        <con:value>2018-11-24T08:08:51.395+0000</con:value>
+        <con:value>2018-11-24T08:23:53.269+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampBetween24</con:name>
-        <con:value>2018-11-23T12:08:51.406+0000</con:value>
+        <con:value>2018-11-23T12:23:53.269+0000</con:value>
       </con:property>
       <con:property>
         <con:name>driver</con:name>
