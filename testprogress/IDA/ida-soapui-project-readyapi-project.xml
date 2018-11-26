@@ -715,7 +715,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
 </Response>]]></con:originalMessage>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
               <con:configuration>
                 <SLA>1000</SLA>
               </con:configuration>
@@ -918,7 +918,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
 </Response>]]></con:originalMessage>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
               <con:configuration>
                 <SLA>1000</SLA>
               </con:configuration>
@@ -2090,7 +2090,7 @@ log.info("Response" + ResponseMessage)
    "ver" : "${#TestSuite#posver}"
 }</con:request>
             <con:originalUri>http://13.71.81.26/otp</con:originalUri>
-            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time" disabled="true">
+            <con:assertion type="Response SLA Assertion" id="83e44d02-c00a-4ba9-b94e-1b61cbfafdee" name="Response SLA Time">
               <con:configuration>
                 <SLA>1310</SLA>
               </con:configuration>
@@ -4076,11 +4076,11 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
     <con:properties>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:22:04.315Z</con:value>
+        <con:value>2018-11-26T08:06:19.569Z</con:value>
       </con:property>
       <con:property>
         <con:name>timestamp20minutebefore</con:name>
-        <con:value>2018-11-26T09:02:04.315Z</con:value>
+        <con:value>2018-11-26T07:46:19.569Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -4286,7 +4286,7 @@ testRunner.testCase.testSuite.setPropertyValue("negtxnID",txnID.toString());</sc
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:22:22.377+0000</con:value>
+          <con:value>2018-11-26T08:06:29.357+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -5282,7 +5282,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
         </con:property>
         <con:property>
           <con:name>futuretime24</con:name>
-          <con:value>2018-11-27T09:22:26.073+0000</con:value>
+          <con:value>2018-11-27T08:06:32.741+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -6755,7 +6755,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:22:29.947+0000</con:value>
+          <con:value>2018-11-25T07:06:38.220+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -6767,7 +6767,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
-        <con:value>14261236218</con:value>
+        <con:value>10835818554</con:value>
       </con:property>
       <con:property>
         <con:name>negpinCodePri</con:name>
@@ -6775,7 +6775,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       </con:property>
       <con:property>
         <con:name>posreqTime</con:name>
-        <con:value>2018-11-26T09:22:22.377+0000</con:value>
+        <con:value>2018-11-26T08:06:29.357+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negaddrLine1Sec</con:name>
@@ -7988,7 +7988,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T09:02:54.429Z</con:value>
+          <con:value>2018-11-26T07:47:01.681Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8190,7 +8190,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T09:03:36.171Z</con:value>
+          <con:value>2018-11-26T07:47:42.356Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8410,7 +8410,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T09:03:37.790Z</con:value>
+          <con:value>2018-11-26T07:47:43.139Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8630,7 +8630,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
       <con:properties>
         <con:property>
           <con:name>timestamp20minuteEqual</con:name>
-          <con:value>2018-11-26T09:03:38.768Z</con:value>
+          <con:value>2018-11-26T07:47:44.696Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8738,7 +8738,7 @@ testRunner.testCase.setPropertyValue("timestamp20minuteGreater",time.toString())
         </con:property>
         <con:property>
           <con:name>timestamp20minuteGreater</con:name>
-          <con:value>2018-11-26T09:00:40.292Z</con:value>
+          <con:value>2018-11-26T07:44:45.263Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8868,7 +8868,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
         </con:property>
         <con:property>
           <con:name>timestamp20minuteGreater</con:name>
-          <con:value>2018-11-26T09:01:40.373Z</con:value>
+          <con:value>2018-11-26T07:45:45.317Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -8876,7 +8876,7 @@ SimpleDateFormat sdf= new SimpleDateFormat(format);
     <con:properties>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:22:30.670Z</con:value>
+        <con:value>2018-11-26T08:06:38.284Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -9621,7 +9621,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:22:43.671+0000</con:value>
+          <con:value>2018-11-25T07:06:47.666+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -9890,7 +9890,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:22:48.026+0000</con:value>
+          <con:value>2018-11-25T08:06:47.759+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10114,7 +10114,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:22:49.867+0000</con:value>
+          <con:value>2018-11-25T07:06:48.619+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10383,7 +10383,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:22:50.746+0000</con:value>
+          <con:value>2018-11-25T08:06:48.744+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -10391,43 +10391,43 @@ log.info(timeStampEqua24.getTime())</script>
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>6688667606</con:value>
+        <con:value>7223709714</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>9840777189</con:value>
+        <con:value>7194650211</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>6688667606</con:value>
+        <con:value>7223709714</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>279601938</con:value>
+        <con:value>311359267</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>19312319365</con:value>
+        <con:value>84544004851</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>279601938</con:value>
+        <con:value>311359267</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>19312319365</con:value>
+        <con:value>84544004851</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey9</con:name>
-        <con:value>279601938</con:value>
+        <con:value>311359267</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>19312319365</con:value>
+        <con:value>84544004851</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:22:40.447+0000</con:value>
+        <con:value>2018-11-26T08:06:45.486+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negdomain</con:name>
@@ -12248,7 +12248,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:22:56.028+0000</con:value>
+          <con:value>2018-11-25T08:06:53.190+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -13229,7 +13229,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:22:59.650+0000</con:value>
+          <con:value>2018-11-25T07:06:55.856+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -13498,7 +13498,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:23:00.400+0000</con:value>
+          <con:value>2018-11-25T08:06:56.023+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -16697,7 +16697,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:23:09.022+0000</con:value>
+          <con:value>2018-11-25T07:07:01.142+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -18395,7 +18395,7 @@ testRunner.testCase.setPropertyValue( "timeStampGreaterThan24", dateFormat.forma
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:23:11.626+0000</con:value>
+          <con:value>2018-11-25T07:07:05.260+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -18560,7 +18560,7 @@ log.info(timeStampEqua24.getTime())</script>
       <con:properties>
         <con:property>
           <con:name>timeStampEqua24</con:name>
-          <con:value>2018-11-25T09:23:12.723+0000</con:value>
+          <con:value>2018-11-25T08:07:05.346+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -19273,43 +19273,43 @@ log.info(timeStampEqua24.getTime())</script>
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>3308760209</con:value>
+        <con:value>9279072244</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>3572378970</con:value>
+        <con:value>7797530674</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>3308760209</con:value>
+        <con:value>9279072244</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>853892770</con:value>
+        <con:value>615324869</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>59207355088</con:value>
+        <con:value>38849801540</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>853892770</con:value>
+        <con:value>615324869</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>59207355088</con:value>
+        <con:value>38849801540</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey9</con:name>
-        <con:value>853892770</con:value>
+        <con:value>615324869</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>59207355088</con:value>
+        <con:value>38849801540</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:22:51.441+0000</con:value>
+        <con:value>2018-11-26T08:06:49.306+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negdomain</con:name>
@@ -19533,7 +19533,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:23:13.644Z</con:value>
+          <con:value>2018-11-26T08:07:06.413Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -22907,35 +22907,35 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:23:13.644+0000</con:value>
+        <con:value>2018-11-26T08:07:06.413+0000</con:value>
       </con:property>
       <con:property>
         <con:name>invalidTimestamp</con:name>
-        <con:value>2018-11-25T08:23:13.644+0000</con:value>
+        <con:value>2018-11-25T07:07:06.413+0000</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_11digits</con:name>
-        <con:value>21315446240</con:value>
+        <con:value>12902131002</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_11digits</con:name>
-        <con:value>21315446240</con:value>
+        <con:value>12902131002</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_11digits</con:name>
-        <con:value>21315446240</con:value>
+        <con:value>12902131002</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_9digits</con:name>
-        <con:value>458460716</con:value>
+        <con:value>403275309</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_9digits</con:name>
-        <con:value>458460716</con:value>
+        <con:value>403275309</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_9digits</con:name>
-        <con:value>458460716</con:value>
+        <con:value>403275309</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
@@ -22999,7 +22999,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>5240959081</con:value>
+        <con:value>3538650975</con:value>
       </con:property>
       <con:property>
         <con:name>posid11</con:name>
@@ -23015,7 +23015,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>6689194303</con:value>
+        <con:value>1399103709</con:value>
       </con:property>
       <con:property>
         <con:name>posid</con:name>
@@ -23027,7 +23027,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       </con:property>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>8692011257</con:value>
+        <con:value>3684939751</con:value>
       </con:property>
       <con:property>
         <con:name>negvid</con:name>
@@ -23196,7 +23196,7 @@ sql.close()</script>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:23:41.573+0000</con:value>
+          <con:value>2018-11-26T08:07:19.010+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -24191,7 +24191,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
         </con:property>
         <con:property>
           <con:name>futuretime24</con:name>
-          <con:value>2018-11-27T09:23:47.599+0000</con:value>
+          <con:value>2018-11-27T08:07:20.718+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -25635,7 +25635,7 @@ DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
       <con:properties>
         <con:property>
           <con:name>timeStampGreaterThan24</con:name>
-          <con:value>2018-11-25T08:23:52.501+0000</con:value>
+          <con:value>2018-11-25T07:07:22.812+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -29522,55 +29522,55 @@ else
     <con:properties>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>6550721293</con:value>
+        <con:value>2163565446</con:value>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>2993129495</con:value>
+        <con:value>6478083503</con:value>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>6550721293</con:value>
+        <con:value>2163565446</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID9</con:name>
-        <con:value>352273714</con:value>
+        <con:value>244030161</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID11</con:name>
-        <con:value>81289389866</con:value>
+        <con:value>97087513663</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode9</con:name>
-        <con:value>352273714</con:value>
+        <con:value>244030161</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode11</con:name>
-        <con:value>81289389866</con:value>
+        <con:value>97087513663</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey</con:name>
-        <con:value>352273714</con:value>
+        <con:value>244030161</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey11</con:name>
-        <con:value>81289389866</con:value>
+        <con:value>97087513663</con:value>
       </con:property>
       <con:property>
         <con:name>currentTimeStamp</con:name>
-        <con:value>2018-11-26T09:23:53.268+0000</con:value>
+        <con:value>2018-11-26T08:07:22.897+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampEqualTo24</con:name>
-        <con:value>2018-11-25T09:23:53.268+0000</con:value>
+        <con:value>2018-11-25T08:07:22.897+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampGreaterThan24</con:name>
-        <con:value>2018-11-24T08:23:53.269+0000</con:value>
+        <con:value>2018-11-24T07:07:22.898+0000</con:value>
       </con:property>
       <con:property>
         <con:name>timeStampBetween24</con:name>
-        <con:value>2018-11-23T12:23:53.269+0000</con:value>
+        <con:value>2018-11-23T11:07:22.898+0000</con:value>
       </con:property>
       <con:property>
         <con:name>driver</con:name>
@@ -29667,26 +29667,7 @@ else
     </con:properties>
     <con:reportParameters/>
   </con:testSuite>
-  <con:testSuite id="b8ecf09e-3ca4-4858-a13d-4f991a19d52e" name="Delay">
-    <con:settings/>
-    <con:savedRecentRuns>1</con:savedRecentRuns>
-    <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="4a803b64-7cf2-48e1-abaf-f8adf21dcb65" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="delay" name="Delay" id="98476a2d-84ac-4abd-a621-fdfbf4f508aa">
-        <con:settings/>
-        <con:config>
-          <delay>60000</delay>
-        </con:config>
-      </con:testStep>
-      <con:properties/>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:properties/>
-    <con:reportParameters/>
-  </con:testSuite>
-  <con:testSuite id="8ec32e1b-8bf1-4ac7-9ebf-8cc3a5fbbade" name="OTP_Authentication_MOS_41" disabled="true">
+  <con:testSuite id="8ec32e1b-8bf1-4ac7-9ebf-8cc3a5fbbade" name="OTP_Authentication_MOS_41">
     <con:settings/>
     <con:savedRecentRuns>1</con:savedRecentRuns>
     <con:runType>SEQUENTIAL</con:runType>
@@ -29744,7 +29725,7 @@ testRunner.testCase.testSuite.setPropertyValue("posmsaLicenseKey",msaLicenseKey.
       testRunner.testCase.testSuite.setPropertyValue("negtxnID_9digits", String.format("%9d", entity1));</script>
         </con:config>
       </con:testStep>
-      <con:testStep type="jdbc" name="JDBC_Request" id="84187056-ef3d-4457-bb7a-c5399682017c">
+      <con:testStep type="jdbc" name="JDBC_Request" id="84187056-ef3d-4457-bb7a-c5399682017c" disabled="true">
         <con:settings>
           <con:setting id="prettyPrintResponse">true</con:setting>
         </con:settings>
@@ -29801,12 +29782,12 @@ testRunner.testCase.testSuite.setPropertyValue( "posdob", dob )</script>
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:10.975Z</con:value>
+          <con:value>2018-11-26T08:08:32.963Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="db2e019f-c39c-4c9e-a246-510ef1570039" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Smoke" searchProperties="true" disabled="true">
+    <con:testCase id="db2e019f-c39c-4c9e-a246-510ef1570039" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Smoke" searchProperties="true">
       <con:settings/>
       <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="groovy" name="Groovy Script" id="695a01ed-078b-4c99-87c6-df06eee15f44">
@@ -30009,15 +29990,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>623335</con:value>
+          <con:value>927320</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:36:01.338+0000</con:value>
+          <con:value>2018-11-26T10:07:13.937+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:35:55.353Z</con:value>
+          <con:value>2018-11-26T10:07:08.511Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -30199,7 +30180,7 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:20.639Z</con:value>
+          <con:value>2018-11-26T08:08:37.754Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -30207,210 +30188,11 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>917088</con:value>
+          <con:value>751564</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-10-02T09:25:21.569+0000</con:value>
-        </con:property>
-      </con:properties>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="6129758e-81b5-4488-ba15-8b211f8955b8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Invalid_OTP" searchProperties="true" disabled="true">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="groovy" name="Groovy Script" id="f9905b75-03b7-4b5e-8c2a-72c433eb1951">
-        <con:settings/>
-        <con:config>
-          <script>import java.time.Instant;
-import java.time.Duration; 
-import groovy.json.JsonSlurper
-import java.time.Instant
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-def lastDate = Instant.now();//current time
-
-//testRunner.testCase.testSuite["OTP_Generator"].setPropertyValue("timestamp",lastDate.toString());
-//testRunner.testCase.testSuite.testCases["Ini"].setPropertyValue("timestamp",lastDate.toString()); 
-testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="genOTP" id="a7c59209-a577-4cfd-8c7d-9f88d4663988">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" methodName="Method 1" resourcePath="/identity/otp" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="genOTP" id="09792654-dfaf-4987-9f11-8be71cc7339d" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "id": "${#TestSuite#posid8}",
-  "idType": "${#TestSuite#posidType}",
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "reqTime": "${#TestCase#timestamp}",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/otp</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="d609ddf4-1647-4bec-be22-60d1cad3dbe7" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
-assert json.maskedMobile == null
-assert json.maskedEmail == null</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="getOTP" id="0c53382e-a01d-4433-a68f-423c67046a6e">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/getOTP" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="getOTP" id="8edd2709-4f58-4a1e-916b-4a9848d89269" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://13.71.81.26/getOTP</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="97add5e7-a46e-4dc3-9f55-1b845fa116f6" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 1</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="groovy" name="getOTP_Script" id="533400a2-cba9-43df-a0b2-4a1096e28984">
-        <con:settings/>
-        <con:config>
-          <script>import groovy.json.*;
-import java.time.Instant;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Random
-def lastDate = Instant.now();//current time
-
-    Random rnd = new Random();
-    int number = rnd.nextInt(999999);
-    
-
-def jsonSlurper = new JsonSlurper()
-def content = testRunner.testCase.testSteps["getOTP"].testRequest.response.contentAsString
-testRunner.testCase.testSuite.setPropertyValue("timestamp",lastDate.toString()); 
-log.info(content);
-def object = jsonSlurper.parseText(content);
-log.info(object.OTP);
-
-testRunner.testCase.setPropertyValue( "OTP", String.format("%06d", number))
-DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-	Calendar now = Calendar.getInstance();
-	now.add(Calendar.MINUTE, -50);
-testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(now.getTime()))</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="authenticate" id="b8b3cc22-f9c9-4718-a0e4-6f82f9a2ea64">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/auth" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="authenticate" id="b552e9d5-fd31-4921-9158-2db2f42a1d54" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "authType": {
-    "otp": true
-  },
-  "data": "string",
-  "hmac": "string",
-  "id": "${#TestSuite#posid8}",
-  "idType": "${#TestSuite#posidType}",
-  "key": {
-    "publicKeyCert": "string",
-    "sessionKey": "string"
-  },
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "pii": {
-    "pin": {
-      "type": "OTP",
-      "value": "${#TestCase#OTP}"
-    }
-  },
-  "reqTime": "${#TestCase#posreqTime}",
-  "signature": "string",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="fe0574dc-4fbc-44cb-9939-15e218be69de" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 1
-assert json.err.errorCode[0] == "IDA-OTA-006"
-assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="4948c7ff-ba81-460b-a3e5-df85e35e4d66" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>500</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="408e4381-f39f-4fff-b66f-375605bb8e78" name="Response SLA">
-              <con:configuration>
-                <SLA>200</SLA>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:properties>
-        <con:property>
-          <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:10:17.963Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp20minutebefore</con:name>
-          <con:value>2018-11-12T04:06:36.966Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T08:20:19.274+0000</con:value>
-        </con:property>
-        <con:property>
-          <con:name>OTP</con:name>
-          <con:value>353796</con:value>
+          <con:value>2018-10-02T08:08:38.417+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -30586,15 +30368,15 @@ assert json.err.errorMessage[0] == "TxnId size must be 10"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>217823</con:value>
+          <con:value>863442</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:22.521+0000</con:value>
+          <con:value>2018-11-26T08:09:42.190+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:21.590Z</con:value>
+          <con:value>2018-11-26T08:09:39.207Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -30750,9 +30532,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
               <con:configuration>
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
 assert json.size() == 5
-assert json.err.size() == 1
-assert json.err.errorCode[0] == "Pattern"
-assert json.err.errorMessage[0] == "TxnId size must be 10"</scriptText>
+assert json.err.size() == 1</scriptText>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="a843b9a7-f6df-4ba5-ba5c-685169dccf24" name="Valid HTTP Status Codes">
@@ -30774,15 +30554,15 @@ assert json.err.errorMessage[0] == "TxnId size must be 10"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>445901</con:value>
+          <con:value>101821</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:23.743+0000</con:value>
+          <con:value>2018-11-26T10:09:35.819+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:22.694Z</con:value>
+          <con:value>2018-11-26T10:09:30.534Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -30962,452 +30742,19 @@ assert json.err.errorMessage[0] == "Input txnID does not match txnID of OTP Requ
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>190232</con:value>
+          <con:value>338327</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:25.363+0000</con:value>
+          <con:value>2018-11-26T10:08:47.412+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:23.782Z</con:value>
+          <con:value>2018-11-26T10:08:42.250Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
           <con:value>2018-11-09T12:17:26.143Z</con:value>
-        </con:property>
-      </con:properties>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="f832d02b-ecd2-4f88-8508-b17bc98b7c29" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate__Invalid_OTP_OTPMissing" searchProperties="true">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="groovy" name="Groovy Script" id="3f5d6107-0cfd-450f-9369-42ab05686406">
-        <con:settings/>
-        <con:config>
-          <script>import java.time.Instant;
-import java.time.Duration; 
-import groovy.json.JsonSlurper
-import java.time.Instant
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-def lastDate = Instant.now();//current time
-
-//testRunner.testCase.testSuite["OTP_Generator"].setPropertyValue("timestamp",lastDate.toString());
-//testRunner.testCase.testSuite.testCases["Ini"].setPropertyValue("timestamp",lastDate.toString()); 
-testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="genOTP" id="2bd68e61-c2d9-4fe6-9dfe-3b255322a630">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" methodName="Method 1" resourcePath="/identity/otp" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="genOTP" id="09792654-dfaf-4987-9f11-8be71cc7339d" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "id": "${#TestSuite#posid}",
-  "idType": "${#TestSuite#posidType}",
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "reqTime": "${#TestCase#timestamp}",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/otp</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="d609ddf4-1647-4bec-be22-60d1cad3dbe7" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
-assert json.maskedMobile == null
-assert json.maskedEmail == null</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="getOTP" id="6f5fe5a0-b5b1-428e-b8d3-dc210ff49f8a">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/getOTP" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="getOTP" id="8edd2709-4f58-4a1e-916b-4a9848d89269" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://13.71.81.26/getOTP</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="97add5e7-a46e-4dc3-9f55-1b845fa116f6" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 1</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="groovy" name="getOTP_Script" id="0b016f8e-f12a-46fd-bad6-aae650b5e48c">
-        <con:settings/>
-        <con:config>
-          <script>import groovy.json.*;
-import java.time.Instant;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-def lastDate = Instant.now();//current time
-
-def jsonSlurper = new JsonSlurper()
-def content = testRunner.testCase.testSteps["getOTP"].testRequest.response.contentAsString
-testRunner.testCase.testSuite.setPropertyValue("timestamp",lastDate.toString()); 
-log.info(content);
-def object = jsonSlurper.parseText(content);
-log.info(object.OTP);
-testRunner.testCase.setPropertyValue( "OTP", object.OTP )
-DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-	Date date = new Date();
-	System.out.println(dateFormat.format(date));
-testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="authenticate" id="9cd4e87b-a516-4fb5-bfdf-0d58310911e9">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/auth" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="authenticate" id="b552e9d5-fd31-4921-9158-2db2f42a1d54" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "authType": {
-    "otp": true
-  },
-  "data": "string",
-  "hmac": "string",
-  "id": "${#TestSuite#posid}",
-  "idType": "${#TestSuite#posidType}",
-  "key": {
-    "publicKeyCert": "string",
-    "sessionKey": "string"
-  },
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "pii": {
-    "pin": {
-      "type": "OTP",
-      "value": ""
-    }
-  },
-  "reqTime": "${#TestCase#posreqTime}",
-  "signature": "string",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="fe0574dc-4fbc-44cb-9939-15e218be69de" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 1
-assert json.err.errorCode[0] == "IDA-OTA-006"
-assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="4948c7ff-ba81-460b-a3e5-df85e35e4d66" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>500</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:properties>
-        <con:property>
-          <con:name>OTP</con:name>
-          <con:value>239619</con:value>
-        </con:property>
-        <con:property>
-          <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:27.339+0000</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:26.456Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp20minutebefore</con:name>
-          <con:value>2018-11-09T12:17:26.413Z</con:value>
-        </con:property>
-      </con:properties>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="bffd597b-bc95-4531-941d-e0dbbbe2ec66" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_ValidTxnID_InvalidOTP" searchProperties="true">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="groovy" name="Groovy Script" id="4095ea76-3be8-425b-9f43-f2f48885c5de">
-        <con:settings/>
-        <con:config>
-          <script>import java.time.Instant;
-import java.time.Duration; 
-import groovy.json.JsonSlurper
-import java.time.Instant
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-def lastDate = Instant.now();//current time
-
-//testRunner.testCase.testSuite["OTP_Generator"].setPropertyValue("timestamp",lastDate.toString());
-//testRunner.testCase.testSuite.testCases["Ini"].setPropertyValue("timestamp",lastDate.toString()); 
-testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="genOTP" id="357142ee-0fea-4555-896b-87d5da7686c0">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" methodName="Method 1" resourcePath="/identity/otp" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="genOTP" id="09792654-dfaf-4987-9f11-8be71cc7339d" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "id": "${#TestSuite#posid}",
-  "idType": "${#TestSuite#posidType}",
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "reqTime": "${#TestCase#timestamp}",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/otp</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="3a4f261e-0f03-4130-815a-2c67e688bdc7" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="3ae44cf3-1e6f-4198-818f-703570ab6117" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
-assert json.maskedMobile == null
-assert json.maskedEmail == null
-log.info json</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="getOTP" id="d94da7b6-676d-4ca9-b1cb-d1318675ce9e">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/getOTP" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="getOTP" id="8edd2709-4f58-4a1e-916b-4a9848d89269" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://13.71.81.26/getOTP</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="0c732bcb-84a4-45e1-b094-465463965ef2" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="ac5faceb-8fba-4152-a5f1-8a3f3b4b1195" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 1</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="groovy" name="getOTP_Script" id="96d3dd6a-f2e1-4a8e-8672-4146d43bf050">
-        <con:settings/>
-        <con:config>
-          <script>import groovy.json.*;
-import java.time.Instant;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random
-def lastDate = Instant.now();//current time
-
-
-
- Random rnd = new Random();
-    int number = rnd.nextInt(999999);
-def jsonSlurper = new JsonSlurper()
-def content = testRunner.testCase.testSteps["getOTP"].testRequest.response.contentAsString
-testRunner.testCase.testSuite.setPropertyValue("timestamp",lastDate.toString()); 
-log.info(content);
-def object = jsonSlurper.parseText(content);
-log.info(object.OTP);
-testRunner.testCase.setPropertyValue( "OTP", Integer.toString(number))
-DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-	Date date = new Date();
-	System.out.println(dateFormat.format(date));
-testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="authenticate" id="9d904350-7bbc-4ead-bbeb-f57605e63ad7">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/auth" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="authenticate" id="b552e9d5-fd31-4921-9158-2db2f42a1d54" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-	"authType": {
-		"otp": true
-	},
-	"data": "string",
-	"hmac": "string",
-	"id": "${#TestSuite#posid}",
-	"idType": "${#TestSuite#posidType}",
-	"key": {
-		"publicKeyCert": "string",
-		"sessionKey": "string"
-	},
-	"msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-	"muaCode": "${#TestSuite#posmuaCode}",
-	"pii": {
-		"pin": {
-			"type": "OTP",
-			"value": "${##OTP}"
-		}
-	},
-	"reqTime": "${#TestCase#posreqTime}",
-	"signature": "string",
-	"txnID": "${#TestSuite#postxnID}",
-	"ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 1
-assert json.err[0].errorCode == "IDA-OTA-006"
-assert json.err[0].errorMessage == "OTP is invalid"</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>500</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA">
-              <con:configuration>
-                <SLA>600</SLA>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="delay" name="Delay" id="c340b5ea-bc91-41f4-889e-ccda9bcb7364">
-        <con:settings/>
-        <con:config>
-          <delay>1000</delay>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="delay" name="Delay 2" id="6f9b84c7-ee07-47f4-b7a4-82bf1e019d08" disabled="true">
-        <con:settings/>
-        <con:config>
-          <delay>180000</delay>
-        </con:config>
-      </con:testStep>
-      <con:loadTest id="54e6c81c-fda7-46cb-b66d-69e9934e1451" name="LoadTest 1">
-        <con:settings>
-          <con:setting id="HttpSettings@close-connections">false</con:setting>
-          <con:setting id="hasBeenConvertedToLoadUITest">true</con:setting>
-        </con:settings>
-        <con:threadCount>16</con:threadCount>
-        <con:startDelay>0</con:startDelay>
-        <con:sampleInterval>250</con:sampleInterval>
-        <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
-        <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
-        <con:historyLimit>-1</con:historyLimit>
-        <con:testLimit>60</con:testLimit>
-        <con:limitType>TIME</con:limitType>
-        <con:loadStrategy>
-          <con:type>Simple</con:type>
-        </con:loadStrategy>
-        <con:assertion type="Step Status" name="Step Status"/>
-        <con:maxAssertionErrors>100</con:maxAssertionErrors>
-        <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
-        <con:strategyInterval>500</con:strategyInterval>
-        <con:reportParameters/>
-      </con:loadTest>
-      <con:properties>
-        <con:property>
-          <con:name>OTP</con:name>
-          <con:value>244495</con:value>
-        </con:property>
-        <con:property>
-          <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:28.404+0000</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:27.379Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp20minutebefore</con:name>
-          <con:value>2018-11-09T12:17:23.453Z</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -31579,7 +30926,7 @@ assert json.err[0].errorMessage == "TxnId size must be 10"</scriptText>
                 <codes>500</codes>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA" disabled="true">
+            <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA">
               <con:configuration>
                 <SLA>200</SLA>
               </con:configuration>
@@ -31625,238 +30972,15 @@ assert json.err[0].errorMessage == "TxnId size must be 10"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>618868</con:value>
+          <con:value>912559</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:30.260+0000</con:value>
+          <con:value>2018-11-26T08:09:47.623+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:29.419Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp20minutebefore</con:name>
-          <con:value>2018-11-09T12:17:23.453Z</con:value>
-        </con:property>
-      </con:properties>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="ab6f1ca9-6043-4e83-be72-c5233dc4a2ce" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_InValidTxnID_InValidOTP" searchProperties="true" disabled="true">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="groovy" name="Groovy Script" id="0cb1fb74-734f-4aa9-a737-1252d2bf8075">
-        <con:settings/>
-        <con:config>
-          <script>import java.time.Instant;
-import java.time.Duration; 
-import groovy.json.JsonSlurper
-import java.time.Instant
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-def lastDate = Instant.now();//current time
-
-//testRunner.testCase.testSuite["OTP_Generator"].setPropertyValue("timestamp",lastDate.toString());
-//testRunner.testCase.testSuite.testCases["Ini"].setPropertyValue("timestamp",lastDate.toString()); 
-testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="genOTP" id="5665dcb2-2d10-468c-b9ca-cebfc579c59a">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" methodName="Method 1" resourcePath="/identity/otp" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="genOTP" id="09792654-dfaf-4987-9f11-8be71cc7339d" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-  "id": "${#TestSuite#posid2}",
-  "idType": "${#TestSuite#posidType}",
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "reqTime": "${#TestCase#timestamp}",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/otp</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="3a4f261e-0f03-4130-815a-2c67e688bdc7" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="3ae44cf3-1e6f-4198-818f-703570ab6117" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
-assert json.maskedMobile == null
-assert json.maskedEmail == null
-log.info json</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="getOTP" id="0485c681-a1e0-4cda-a170-25261d668612">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/getOTP" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="getOTP" id="8edd2709-4f58-4a1e-916b-4a9848d89269" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://13.71.81.26/getOTP</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="0c732bcb-84a4-45e1-b094-465463965ef2" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="ac5faceb-8fba-4152-a5f1-8a3f3b4b1195" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 1</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="groovy" name="getOTP_Script" id="f4ef0ef4-f430-400b-b815-06cba053dd36">
-        <con:settings/>
-        <con:config>
-          <script>import groovy.json.*;
-import java.time.Instant;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
-
- Random rnd = new Random();
-    int number = rnd.nextInt(999999);
-testRunner.testCase.setPropertyValue( "OTP", Integer.toString(number))
-DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-	Date date = new Date();
-	System.out.println(dateFormat.format(date));
-testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="authenticate" id="10a0ceb2-a61c-4b7f-a1d1-55a7afa556af">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/auth" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="authenticate" id="b552e9d5-fd31-4921-9158-2db2f42a1d54" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-	"authType": {
-		"otp": true
-	},
-	"data": "string",
-	"hmac": "string",
-	"id": "${#TestSuite#posid2}",
-	"idType": "${#TestSuite#posidType}",
-	"key": {
-		"publicKeyCert": "string",
-		"sessionKey": "string"
-	},
-	"msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-	"muaCode": "${#TestSuite#posmuaCode}",
-	"pii": {
-		"pin": {
-			"type": "OTP",
-			"value": "${#TestCase#OTP}"
-		}
-	},
-	"reqTime": "${#TestCase#posreqTime}",
-	"signature": "string",
-	"txnID": "${#TestSuite#postxnID}",
-	"ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 0</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="delay" name="Delay" id="bd431a8b-212b-40fd-99cb-e19440ab2d47">
-        <con:settings/>
-        <con:config>
-          <delay>1000</delay>
-        </con:config>
-      </con:testStep>
-      <con:loadTest id="ff91c5d5-10ee-40f3-a990-e6a8be9a70ba" name="LoadTest 1">
-        <con:settings>
-          <con:setting id="HttpSettings@close-connections">false</con:setting>
-          <con:setting id="hasBeenConvertedToLoadUITest">true</con:setting>
-        </con:settings>
-        <con:threadCount>16</con:threadCount>
-        <con:startDelay>0</con:startDelay>
-        <con:sampleInterval>250</con:sampleInterval>
-        <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
-        <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
-        <con:historyLimit>-1</con:historyLimit>
-        <con:testLimit>60</con:testLimit>
-        <con:limitType>TIME</con:limitType>
-        <con:loadStrategy>
-          <con:type>Simple</con:type>
-        </con:loadStrategy>
-        <con:assertion type="Step Status" name="Step Status"/>
-        <con:maxAssertionErrors>100</con:maxAssertionErrors>
-        <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
-        <con:strategyInterval>500</con:strategyInterval>
-        <con:reportParameters/>
-      </con:loadTest>
-      <con:properties>
-        <con:property>
-          <con:name>OTP</con:name>
-          <con:value>807573</con:value>
-        </con:property>
-        <con:property>
-          <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:11:35.408+0000</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:11:34.434Z</con:value>
+          <con:value>2018-11-26T08:09:46.847Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32038,7 +31162,7 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:31.487Z</con:value>
+          <con:value>2018-11-26T08:10:49.536Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32046,11 +31170,11 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>547797</con:value>
+          <con:value>659593</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-09-27T09:25:32.281+0000</con:value>
+          <con:value>2018-09-27T08:10:52.565+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -32228,7 +31352,7 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:32.343Z</con:value>
+          <con:value>2018-11-26T08:10:52.805Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32236,11 +31360,11 @@ assert json.err.errorMessage[0] == "Request should be reached within 24Hrs"</scr
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>719232</con:value>
+          <con:value>039492</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-09-24T21:25:33.325+0000</con:value>
+          <con:value>2018-09-24T20:10:53.524+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -32451,15 +31575,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>890518</con:value>
+          <con:value>306347</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:35.646+0000</con:value>
+          <con:value>2018-11-26T08:11:04.353+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:33.368Z</con:value>
+          <con:value>2018-11-26T08:11:01.202Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32632,7 +31756,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(now.getTim
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:37.374Z</con:value>
+          <con:value>2018-11-26T08:11:05.920Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32640,16 +31764,16 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(now.getTim
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>884698</con:value>
+          <con:value>597264</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-10-02T09:25:38.222+0000</con:value>
+          <con:value>2018-10-02T08:11:06.650+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="1cc9da27-6faf-4cae-a42d-52d96a7dcc27" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Invalid_OTP_VID" searchProperties="true" disabled="true">
+    <con:testCase id="1cc9da27-6faf-4cae-a42d-52d96a7dcc27" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Invalid_OTP_VID" searchProperties="true">
       <con:settings/>
       <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="groovy" name="Groovy Script" id="8d4382cf-f77a-4f8d-aaa3-06a39531fe6b">
@@ -32831,7 +31955,7 @@ assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:12:50.766Z</con:value>
+          <con:value>2018-11-26T08:11:06.712Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -32839,11 +31963,11 @@ assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T08:22:52.060+0000</con:value>
+          <con:value>2018-11-26T07:21:07.426+0000</con:value>
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>935780</con:value>
+          <con:value>433225</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -33019,15 +32143,15 @@ assert json.err.errorMessage[0] == "TxnId size must be 10"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>654539</con:value>
+          <con:value>271419</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:39.242+0000</con:value>
+          <con:value>2018-11-26T08:12:11.105+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:38.300Z</con:value>
+          <con:value>2018-11-26T08:12:07.607Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33207,15 +32331,15 @@ assert json.err.errorMessage[0] == "TxnId size must be 10"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>823381</con:value>
+          <con:value>444843</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:40.398+0000</con:value>
+          <con:value>2018-11-26T08:12:12.134+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:39.380Z</con:value>
+          <con:value>2018-11-26T08:12:11.343Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33401,15 +32525,15 @@ assert json.err.errorMessage[0] == "Input txnID does not match txnID of OTP Requ
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>355358</con:value>
+          <con:value>915605</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:14:02.633+0000</con:value>
+          <con:value>2018-11-26T08:12:12.905+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:40.417Z</con:value>
+          <con:value>2018-11-26T08:12:12.190Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33595,15 +32719,15 @@ assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>628082</con:value>
+          <con:value>241236</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:14:05.171+0000</con:value>
+          <con:value>2018-11-26T08:12:14.182+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:41.218Z</con:value>
+          <con:value>2018-11-26T08:12:13.435Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33612,7 +32736,7 @@ assert json.err.errorMessage[0] == "OTP is invalid"</scriptText>
       </con:properties>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="159dbe4b-e4f8-4079-9e1d-2723b4bf2bcc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_InValidTxnID_validOTP_VID" searchProperties="true" disabled="true">
+    <con:testCase id="159dbe4b-e4f8-4079-9e1d-2723b4bf2bcc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_InValidTxnID_validOTP_VID" searchProperties="true">
       <con:settings/>
       <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="groovy" name="Groovy Script" id="21058e6b-d333-44da-9f6f-393d329a4e47">
@@ -33816,15 +32940,15 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>448246</con:value>
+          <con:value>57191</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:15:10.669+0000</con:value>
+          <con:value>2018-11-26T08:13:16.035+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:15:05.583Z</con:value>
+          <con:value>2018-11-26T08:13:14.549Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -33991,7 +33115,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
                 <codes>500</codes>
               </con:configuration>
             </con:assertion>
-            <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA" disabled="true">
+            <con:assertion type="Response SLA Assertion" id="31e211f9-160a-4633-a27c-fc7018e565b8" name="Response SLA">
               <con:configuration>
                 <SLA>200</SLA>
               </con:configuration>
@@ -34037,15 +33161,15 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>842220</con:value>
+          <con:value>787455</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:16:16.046+0000</con:value>
+          <con:value>2018-11-26T08:13:17.327+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:41.850Z</con:value>
+          <con:value>2018-11-26T08:13:16.120Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34054,7 +33178,7 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
       </con:properties>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="27af59cd-dd25-4beb-9ec2-b03dd1e566f0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_InValidTxnID_InValidOTP_VID" searchProperties="true" disabled="true">
+    <con:testCase id="27af59cd-dd25-4beb-9ec2-b03dd1e566f0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_InValidTxnID_InValidOTP_VID" searchProperties="true">
       <con:settings/>
       <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="groovy" name="Groovy Script" id="e4011d78-ea51-40bc-86c9-efab9c51857f">
@@ -34265,15 +33389,15 @@ assert json.err.size() == 0</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>457348</con:value>
+          <con:value>756634</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:16:18.593+0000</con:value>
+          <con:value>2018-11-26T08:13:18.709+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:16:17.208Z</con:value>
+          <con:value>2018-11-26T08:13:17.424Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34453,7 +33577,7 @@ assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:43.033Z</con:value>
+          <con:value>2018-11-26T08:14:18.759Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34461,11 +33585,11 @@ assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>113312</con:value>
+          <con:value>856867</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-09-27T09:17:24.448+0000</con:value>
+          <con:value>2018-09-27T08:14:22.247+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
@@ -34641,7 +33765,7 @@ assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
       <con:properties>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:43.748Z</con:value>
+          <con:value>2018-11-26T08:14:22.328Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -34649,18 +33773,17 @@ assert json.err.errorCode[0] == "IDA-RQV-TMOUT-001"</scriptText>
         </con:property>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>468919</con:value>
+          <con:value>721720</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-09-24T21:17:25.961+0000</con:value>
+          <con:value>2018-09-24T20:14:23.579+0000</con:value>
         </con:property>
       </con:properties>
       <con:reportParameters/>
     </con:testCase>
-    <con:testCase id="0d000297-49d0-4efa-9687-3611e8f4af56" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Smoke_InvalidUIN" searchProperties="true" disabled="true">
+    <con:testCase id="0d000297-49d0-4efa-9687-3611e8f4af56" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_Smoke_InvalidUIN" searchProperties="true">
       <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="groovy" name="Groovy Script" id="8ff84ba2-b30d-44f6-a9bc-af8addb9e5f8">
         <con:settings/>
         <con:config>
@@ -34706,7 +33829,7 @@ testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
               <con:configuration>
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
 assert json.size() == 5
-assert json.status == false
+assert json.status == "false"
 assert json.maskedMobile == null
 assert json.maskedEmail == null
 log.info json</scriptText>
@@ -34872,7 +33995,7 @@ assert json.err.size() == 0</scriptText>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:17:26.320Z</con:value>
+          <con:value>2018-11-26T08:14:23.761Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35079,15 +34202,15 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>149394</con:value>
+          <con:value>199888</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:17:28.040+0000</con:value>
+          <con:value>2018-11-26T08:14:24.611+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:44.384Z</con:value>
+          <con:value>2018-11-26T08:14:23.826Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35252,13 +34375,13 @@ testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</sc
               <con:configuration>
                 <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
 assert json.size() == 5
-assert json.err.size() == 1</scriptText>
+assert json.err.size() == 0</scriptText>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
               <con:settings/>
               <con:configuration>
-                <codes>500</codes>
+                <codes>200</codes>
               </con:configuration>
             </con:assertion>
             <con:credentials>
@@ -35302,15 +34425,15 @@ assert json.err.size() == 1</scriptText>
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>261855</con:value>
+          <con:value>284408</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:25:49.194+0000</con:value>
+          <con:value>2018-11-16T11:35:30.843+0530</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:45.245Z</con:value>
+          <con:value>2018-11-26T08:14:24.894Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35527,235 +34650,15 @@ assert json.err[0].errorMessage == "Version range max integer 1 digit and max fr
       <con:properties>
         <con:property>
           <con:name>OTP</con:name>
-          <con:value>890503</con:value>
+          <con:value>961913</con:value>
         </con:property>
         <con:property>
           <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:17:32.924+0000</con:value>
+          <con:value>2018-11-26T08:14:25.869+0000</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:25:50.513Z</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp20minutebefore</con:name>
-          <con:value>2018-11-09T12:17:23.453Z</con:value>
-        </con:property>
-      </con:properties>
-      <con:reportParameters/>
-    </con:testCase>
-    <con:testCase id="24d329c0-4509-4cc0-89c0-0f5e5244eba6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OTP_Authenticate_OTP_Validate_2mins_Delay" searchProperties="true" disabled="true">
-      <con:settings/>
-      <con:savedRecentRuns>1</con:savedRecentRuns>
-      <con:testStep type="groovy" name="Groovy Script" id="f54aba6f-4f45-410a-b2f9-9f110840a1d9">
-        <con:settings/>
-        <con:config>
-          <script>import java.time.Instant;
-import java.time.Duration; 
-
-import java.time.Instant
-
-
-def lastDate = Instant.now();//current time
-testRunner.testCase.setPropertyValue("timestamp",lastDate.toString());</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="genOTP" id="829ccf32-8527-485a-96ec-c8c2193ce010">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" methodName="Method 1" resourcePath="/identity/otp" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="genOTP" id="09792654-dfaf-4987-9f11-8be71cc7339d" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>http://13.71.81.26:8081</con:endpoint>
-            <con:request>{
-  "id": "${#TestSuite#posid}",
-  "idType": "${#TestSuite#posidType}",
-  "msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-  "muaCode": "${#TestSuite#posmuaCode}",
-  "reqTime": "${#TestCase#timestamp}",
-  "txnID": "${#TestSuite#postxnID}",
-  "ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/otp</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="3a4f261e-0f03-4130-815a-2c67e688bdc7" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="3ae44cf3-1e6f-4198-818f-703570ab6117" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 6
-assert json.status == "Y"
-assert json.maskedMobile == null
-assert json.maskedEmail == null
-log.info json</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="getOTP" id="be548ea9-5c9d-4000-8fba-fc2edee72fc5">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/getOTP" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="getOTP" id="8edd2709-4f58-4a1e-916b-4a9848d89269" mediaType="application/json">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request/>
-            <con:originalUri>http://13.71.81.26/getOTP</con:originalUri>
-            <con:assertion type="Valid HTTP Status Codes" id="0c732bcb-84a4-45e1-b094-465463965ef2" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="GroovyScriptAssertion" id="ac5faceb-8fba-4152-a5f1-8a3f3b4b1195" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 1</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="delay" name="Delay" id="8567ac37-e1cf-4418-9cdf-897933a51c70">
-        <con:settings/>
-        <con:config>
-          <delay>120000</delay>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="groovy" name="getOTP_Script" id="1db5d7a0-91e8-4ae2-8990-1ec24947eca2">
-        <con:settings/>
-        <con:config>
-          <script>import groovy.json.*;
-import java.time.Instant;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-
-def jsonSlurper = new JsonSlurper()
-def content = testRunner.testCase.testSteps["getOTP"].testRequest.response.contentAsString
-
-def object = jsonSlurper.parseText(content);
-log.info(object.OTP);
-testRunner.testCase.setPropertyValue( "OTP", object.OTP )
-DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-	Date date = new Date();
-	System.out.println(dateFormat.format(date));
-testRunner.testCase.setPropertyValue( "posreqTime", dateFormat.format(date))</script>
-        </con:config>
-      </con:testStep>
-      <con:testStep type="restrequest" name="authenticate" id="eba49a98-9884-4e64-ac36-596acf902587">
-        <con:settings/>
-        <con:config service="http://13.71.81.26:8081" resourcePath="/identity/auth" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="authenticate" id="b552e9d5-fd31-4921-9158-2db2f42a1d54" mediaType="application/json" postQueryString="false">
-            <con:settings>
-              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-            </con:settings>
-            <con:endpoint>${#Global#ENDPOINT}</con:endpoint>
-            <con:request>{
-	"authType": {
-		"otp": true
-	},
-	"data": "string",
-	"hmac": "string",
-	"id": "${#TestSuite#posuid}",
-	"idType": "${#TestSuite#posidType}",
-	"key": {
-		"publicKeyCert": "string",
-		"sessionKey": "string"
-	},
-	"msaLicenseKey": "${#TestSuite#posmsaLicenseKey}",
-	"muaCode": "${#TestSuite#posmuaCode}",
-	"pii": {
-		"pin": {
-			"type": "OTP",
-			"value": "${#TestCase#OTP}"
-		}
-	},
-	"reqTime": "${#TestCase#posreqTime}",
-	"signature": "string",
-	"txnID": "${#TestSuite#postxnID}",
-	"ver": "${#TestSuite#posver}"
-}</con:request>
-            <con:originalUri>http://13.71.81.26/identity/auth</con:originalUri>
-            <con:assertion type="GroovyScriptAssertion" id="5e3b0d6c-091a-4b5a-bf72-287b61861ee5" name="Script Assertion">
-              <con:configuration>
-                <scriptText>def json = new groovy.json.JsonSlurper().parseText(context.response)
-assert json.size() == 5
-assert json.err.size() == 0</scriptText>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="fe377f2d-e4f5-4217-ba04-da0754c799b4" name="Valid HTTP Status Codes">
-              <con:settings/>
-              <con:configuration>
-                <codes>500</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:credentials>
-              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-              <con:authType>No Authorization</con:authType>
-            </con:credentials>
-            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-            <con:jmsPropertyConfig/>
-            <con:parameters/>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-      <con:loadTest id="c6b426ad-0c07-4bb5-8de1-41a73a014a7b" name="LoadTest 1">
-        <con:settings>
-          <con:setting id="HttpSettings@close-connections">false</con:setting>
-          <con:setting id="hasBeenConvertedToLoadUITest">true</con:setting>
-        </con:settings>
-        <con:threadCount>16</con:threadCount>
-        <con:startDelay>0</con:startDelay>
-        <con:sampleInterval>250</con:sampleInterval>
-        <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
-        <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
-        <con:historyLimit>-1</con:historyLimit>
-        <con:testLimit>60</con:testLimit>
-        <con:limitType>TIME</con:limitType>
-        <con:loadStrategy>
-          <con:type>Simple</con:type>
-        </con:loadStrategy>
-        <con:assertion type="Step Status" name="Step Status"/>
-        <con:maxAssertionErrors>100</con:maxAssertionErrors>
-        <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
-        <con:strategyInterval>500</con:strategyInterval>
-        <con:reportParameters/>
-      </con:loadTest>
-      <con:properties>
-        <con:property>
-          <con:name>OTP</con:name>
-          <con:value>549727</con:value>
-        </con:property>
-        <con:property>
-          <con:name>posreqTime</con:name>
-          <con:value>2018-11-26T09:20:38.357+0000</con:value>
-        </con:property>
-        <con:property>
-          <con:name>timestamp</con:name>
-          <con:value>2018-11-26T09:18:33.548Z</con:value>
+          <con:value>2018-11-26T08:14:24.940Z</con:value>
         </con:property>
         <con:property>
           <con:name>timestamp20minutebefore</con:name>
@@ -35783,35 +34686,35 @@ assert json.err.size() == 0</scriptText>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_11digits</con:name>
-        <con:value>50287775258</con:value>
+        <con:value>17785906277</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_11digits</con:name>
-        <con:value>50287775258</con:value>
+        <con:value>17785906277</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_11digits</con:name>
-        <con:value>50287775258</con:value>
+        <con:value>17785906277</con:value>
       </con:property>
       <con:property>
         <con:name>negmsaLicenseKey_9digits</con:name>
-        <con:value>793502261</con:value>
+        <con:value>910996215</con:value>
       </con:property>
       <con:property>
         <con:name>negmuaCode_9digits</con:name>
-        <con:value>793502261</con:value>
+        <con:value>910996215</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID_9digits</con:name>
-        <con:value>793502261</con:value>
+        <con:value>910996215</con:value>
       </con:property>
       <con:property>
         <con:name>timestamp</con:name>
-        <con:value>2018-11-26T09:25:40.397Z</con:value>
+        <con:value>2018-11-26T10:09:35.804Z</con:value>
       </con:property>
       <con:property>
         <con:name>negtxnID</con:name>
-        <con:value>4081444244</con:value>
+        <con:value>5858867367</con:value>
       </con:property>
       <con:property>
         <con:name>negvidType</con:name>
@@ -35871,7 +34774,7 @@ assert json.err.size() == 0</scriptText>
       </con:property>
       <con:property>
         <con:name>postxnID</con:name>
-        <con:value>3081343244</con:value>
+        <con:value>4848867367</con:value>
       </con:property>
       <con:property>
         <con:name>posid11</con:name>
@@ -35887,7 +34790,7 @@ assert json.err.size() == 0</scriptText>
       </con:property>
       <con:property>
         <con:name>posmuaCode</con:name>
-        <con:value>3435675432</con:value>
+        <con:value>1974535340</con:value>
       </con:property>
       <con:property>
         <con:name>posid</con:name>
@@ -35899,7 +34802,7 @@ assert json.err.size() == 0</scriptText>
       </con:property>
       <con:property>
         <con:name>posmsaLicenseKey</con:name>
-        <con:value>2225449709</con:value>
+        <con:value>2739025834</con:value>
       </con:property>
       <con:property>
         <con:name>negvid</con:name>
