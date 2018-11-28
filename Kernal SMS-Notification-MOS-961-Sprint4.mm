@@ -1,0 +1,32 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node COLOR="#009933" CREATED="1540987040925" ID="ID_1613231980" MODIFIED="1540987960220" TEXT="Kernal SMS-Notification ">
+<node COLOR="#009933" CREATED="1540987159478" ID="ID_1915261901" MODIFIED="1540987960220" POSITION="right" TEXT="MOS-961">
+<node COLOR="#009933" CREATED="1540987150059" HGAP="1" ID="ID_1890650142" MODIFIED="1540987960220" TEXT="Receive a Request to send a SMS notification with Input SMS Content, Phone Number" VSHIFT="32">
+<arrowlink DESTINATION="ID_1890650142" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_748737919" STARTARROW="None" STARTINCLINATION="0;0;"/>
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1890650142" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_748737919" SOURCE="ID_1890650142" STARTARROW="None" STARTINCLINATION="0;0;"/>
+<node COLOR="#009933" CREATED="1540987269894" HGAP="2" ID="ID_837679076" MODIFIED="1540990890594" TEXT="Check Request Contains all input parameter present?" VSHIFT="-16">
+<node COLOR="#009933" CREATED="1540987384395" ID="ID_38816859" MODIFIED="1540987960220" TEXT="Yes">
+<node COLOR="#009933" CREATED="1540987553128" HGAP="21" ID="ID_1155922502" MODIFIED="1540987960220" TEXT="Validate Contact number cannot contains alphabet, special character or less than 10 digits" VSHIFT="-6">
+<node COLOR="#009933" CREATED="1540987754829" ID="ID_1576927527" MODIFIED="1540987960220" TEXT="Valid">
+<node COLOR="#009933" CREATED="1540987834786" ID="ID_44817383" MODIFIED="1540987960220" TEXT="Trigger SMS notification">
+<node COLOR="#009933" CREATED="1540987866970" ID="ID_910110796" MODIFIED="1540987960220" TEXT="made a Successful call to vendor">
+<node COLOR="#009933" CREATED="1540987914546" ID="ID_1231816734" MODIFIED="1540987960220" TEXT="Track status of notification triggered by vendor">
+<node COLOR="#009933" CREATED="1540987939819" ID="ID_1689904406" MODIFIED="1540987960220" TEXT="send a SMS notification"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#ff0000" CREATED="1540987766513" ID="ID_370247818" MODIFIED="1540987979832" TEXT="Invalid">
+<node COLOR="#ff0000" CREATED="1540987785866" ID="ID_1949213528" MODIFIED="1540987979832" TEXT="Error massage:Contact number cannot contains alphabet, special character or less than 10 digits-KER-NOS-002"/>
+</node>
+</node>
+</node>
+<node COLOR="#ff0000" CREATED="1540987387323" ID="ID_1017708313" MODIFIED="1540987979832" TEXT="No">
+<node COLOR="#ff0000" CREATED="1540987425317" HGAP="12" ID="ID_142376635" MODIFIED="1540987979832" TEXT="Error Massage: Number and Message can&apos;t be empty-KER-NOS-001" VSHIFT="15"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>
