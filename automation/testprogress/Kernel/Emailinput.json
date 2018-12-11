@@ -1,0 +1,16 @@
+    [
+	{
+	"pos":{
+	
+	  "mailContent":"7736223978",
+	  "mailSubject" :"Test",
+	  "mailTo" : "arjun.ac7@gmail.com"
+	},
+	"neg":{
+	 
+	  "mailContent":"",
+	  "mailSubject" :"",
+	  "mailTo" : ""
+	}
+   }	
+	]
