@@ -36,7 +36,6 @@ public class Main {
 		
 		Generator generator = new Generator();
 		Properties prop= new PropertyFileLoader().configFileReaderObject("FieldConfig");
-		//System.out.println(Transliteration.languageConverter("arjun", prop));
 		String gender = "Male";
 		int k=0;
 		String firstName = null,middleName=null,lastName=null;
