@@ -15,7 +15,6 @@ import io.mosip.kernel.helper.PropertyFileLoader;
 import io.mosip.kernel.utility.DOBGenerator;
 import io.mosip.kernel.utility.Generator;
 import io.mosip.kernel.utility.IdJsonParser;
-import io.mosip.kernel.utility.Transliteration;
 /**
  * This is the Main class that generates the test data based upon the Id Object defination file
  * 
@@ -24,6 +23,7 @@ import io.mosip.kernel.utility.Transliteration;
  */
 public class Main {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
 		
 		ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
@@ -36,7 +36,6 @@ public class Main {
 		
 		Generator generator = new Generator();
 		Properties prop= new PropertyFileLoader().configFileReaderObject("FieldConfig");
-		//System.out.println(Transliteration.languageConverter("arjun", prop));
 		String gender = "Male";
 		int k=0;
 		String firstName = null,middleName=null,lastName=null;
