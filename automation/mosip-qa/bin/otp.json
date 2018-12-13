@@ -1,0 +1,25 @@
+[{
+	"pos": {
+		"mobile": "8107983018",
+		"email":"arnrati@gmail.com",
+		"sample": "arn",
+		"mob1": "891761801",
+		"email1":"arunkumar@yahooo.com",
+		"mob2": "78995616",
+		"email2":"arulkun@yahoo.com",
+	},
+
+	"neg": {
+		"key1": "as",
+		"otp0": "bbccjs",
+		"otp1": "@#$##$",
+		"otp2": "afs123",
+		"otp3": "hsj!@#",
+		"otp4": "123@$5",
+		"otp5": "ad12!!",
+		"otp6": "123456",
+		"otp7": "12345",
+		"otp8": "1234567",
+		
+	}
+}]

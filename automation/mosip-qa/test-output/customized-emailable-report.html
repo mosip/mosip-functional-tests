@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG Report</title>
+<style type="text/css">
+table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}
+td,th {border:1px solid #009;padding:.25em .5em}
+.result th {vertical-align:bottom}
+.param th {padding-left:1em;padding-right:1em}
+.param td {padding-left:.5em;padding-right:2em}
+.stripe td,.stripe th {background-color: #E6EBF9}
+.numi,.numi_attn {text-align:right}
+.total td {font-weight:bold}
+.passedodd td {background-color: #0A0}
+.passedeven td {background-color: #3F3}
+.skippedodd td {background-color: #CCC}
+.skippedodd td {background-color: #DDD}
+.failedodd td,.numi_attn {background-color: #F33}
+.failedeven td,.stripe .numi_attn {background-color: #D00}
+.stacktrace {white-space:pre;font-family:monospace}
+.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="testOverview">
+<tr><th>Test</th><th># passed</th><th># skipped</th><th># failed</th><th>Start<br/>Time</th><th>End<br/>Time</th><th>Total<br/>Time(hh:mm:ss)</th><th>Included<br/>Groups</th><th>Excluded<br/>Groups</th></tr>
+<tr><th colspan="10">mosip</th></tr>
+<tr><td style="text-align:left;padding-right:2em"><a href="#t1"><b>Functional</b></a></td><td class="numi">31</td><td class="numi">0</td><td class="numi_attn">13</td><td class="numi">15:08:45</td></td>
+<td class="numi">15:09:15</td></td>
+<td class="numi">00:00:29</td><td class="numi">smoke progression </td><td class="numi">regression </td></tr>
+<tr><th>Total Test Cases Executed</th><td class="numi">44</td></tr></table>
+<table cellspacing="0" cellpadding="0" class="methodOverview" id="summary">
+<tr><th>Method</th><th>Start Time </th><th>Time<br/>(hh:mm:ss)</th></tr>
+<tr><th colspan="6">mosip</th></tr>
+<tr id="t1"><th colspan="5">Functional &#8212; failed</th></tr>
+<tr class="failedodd"><td><a href="#m1">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_smoke_Validation_Key_OTP)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:01</td></tr><tr class="failedodd"><td><a href="#m2">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with empty phone Number)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:0-1</td></tr>
+<tr class="failedeven"><td><a href="#m1">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_smoke_Validation_Key_OTP)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:01</td></tr><tr class="failedodd"><td><a href="#m2">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with empty phone Number)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:0-1</td></tr><tr class="failedeven"><td><a href="#m3">otpmanager </a><br>(4_2_3_OTPmanager_MOS_423_Progression_Validating_Blocked_Key)</td><td style="text-align:right">15:08:59</td><td class="numi">00:00:02</td></tr>
+<tr class="failedodd"> rowspan="3"<td><a href="#m1">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_smoke_Validation_Key_OTP)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:01</td></tr><tr class="failedodd"><td><a href="#m2">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with empty phone Number)</td><td style="text-align:right">15:08:56</td><td class="numi">00:00:0-1</td></tr><tr class="failedeven"><td><a href="#m3">otpmanager </a><br>(4_2_3_OTPmanager_MOS_423_Progression_Validating_Blocked_Key)</td><td style="text-align:right">15:08:59</td><td class="numi">00:00:02</td></tr>
+<tr class="failedeven"><td><a href="#m4">Create Pre-Registration API </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_create a new Pre-registration(individual))</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:00</td></tr><tr class="failedeven"><td><a href="#m5">Fetch the status of a application </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application Status valid Pre ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:01</td></tr><tr class="failedeven"><td><a href="#m6">Fetch all PreRegistrationIds </a><br>(smoke)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m7">Retrieve Pre-Registrations </a><br>(Mosip_test_ Data Sync_fun_Smoke_HIGH_1_Fetching all Pre Reg ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m8">Discard individual </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Discard individual with panding status)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m9">Fetch all the applications created by user </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application with valid uers ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:00</td></tr>
+<tr class="failedodd"><td><a href="#m4">Create Pre-Registration API </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_create a new Pre-registration(individual))</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:00</td></tr><tr class="failedeven"><td><a href="#m5">Fetch the status of a application </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application Status valid Pre ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:01</td></tr><tr class="failedeven"><td><a href="#m6">Fetch all PreRegistrationIds </a><br>(smoke)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m7">Retrieve Pre-Registrations </a><br>(Mosip_test_ Data Sync_fun_Smoke_HIGH_1_Fetching all Pre Reg ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m8">Discard individual </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Discard individual with panding status)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:02</td></tr><tr class="failedeven"><td><a href="#m9">Fetch all the applications created by user </a><br>(Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application with valid uers ID)</td><td style="text-align:right">15:09:05</td><td class="numi">00:00:00</td></tr><tr class="failedodd"><td><a href="#m10">Discard individual </a><br>(Mosip_test_Application Manager_functional__Progression_HIGH_3_Discard individual with Expired Status)</td><td style="text-align:right">15:09:09</td><td class="numi">00:00:00</td></tr><tr class="failedodd"><td><a href="#m11">Create Pre-Registration API </a><br>(Mosip_test_Application Manager_functional_progression_HIGH_4_Create Pre-Registration without passing any value)</td><td style="text-align:right">15:09:09</td><td class="numi">00:00:00</td></tr><tr class="failedodd"><td><a href="#m12">Fetch all the applications created by user </a><br>(Mosip_test_Application Manager_functional_progression_HIGH_2_Fetch Application with invalid uers ID)</td><td style="text-align:right">15:09:09</td><td class="numi">00:00:00</td></tr><tr class="failedodd"><td><a href="#m13">Discard individual </a><br>(Mosip_test_Application Manager_functional__Progression_HIGH_2_Discard individual with Booked Status)</td><td style="text-align:right">15:09:09</td><td class="numi">00:00:00</td></tr>
+<tr><th colspan="5">Functional &#8212; passed</th></tr>
+<tr class="passedodd"><td><a href="#m14">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_sessionUserIdMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m15">auditManager </a><br>(4_2_1_AuditManager_MOS_441_829_smoke_ValidatingAuditManager)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m16">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with mandatory fields)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m17">auditManager </a><br>(init)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:0-2</td></tr><tr class="passedodd"><td><a href="#m18">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_idType_Missing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><td><a href="#m19">otpmanager </a><br>(4_2_3_OTPmanager_MOS_33_smoke_otp generation with valid key)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m20">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_ActiontimeStampMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m21">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with valid Inputs)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><tr class="passedodd"><tr class="passedodd"><td><a href="#m24">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with empty content)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd">
+<tr class="passedeven"><td><a href="#m14">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_sessionUserIdMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m15">auditManager </a><br>(4_2_1_AuditManager_MOS_441_829_smoke_ValidatingAuditManager)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m16">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with mandatory fields)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m17">auditManager </a><br>(init)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:0-2</td></tr><tr class="passedodd"><td><a href="#m18">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_idType_Missing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><td><a href="#m19">otpmanager </a><br>(4_2_3_OTPmanager_MOS_33_smoke_otp generation with valid key)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m20">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_ActiontimeStampMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m21">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with valid Inputs)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><tr class="passedodd"><tr class="passedodd"><td><a href="#m24">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with empty content)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><tr class="passedeven"><td><a href="#m26">emailnotification </a><br>(4_2_3_sms_MOS-973_Progression_trigger email with empty subject)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m27">emailnotification </a><br>(4_2_3_sms_MOS-973_Progression_trigger email with empty receiver)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m28">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_Progression_EventNameMissing)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:0-1</td></tr><tr class="passedeven"><td><a href="#m29">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_Progression_EventTypeMissing)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m30">otpmanager </a><br>(4_2_3_Progression_OTPmanager_MOS_33_Verify key present in otp table after otp generation)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><td><a href="#m31">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_Progression_Validating_invalid_Key)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><td><a href="#m32">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_Progression_Number_with_sp_chars)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:05</td></tr><tr class="passedeven"><td><a href="#m33">otpmanager </a><br>(4_2_2_OTPmanager_MOS_35_36_Progression_Key_with_3 digits)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:05</td></tr><tr class="passedeven"><td><a href="#m34">otpmanager </a><br>(4_2_3_OTPmanager_MOS_33_Progression_otp should not be less than 6 digit)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr>
+<tr class="passedodd"> rowspan="21"<td><a href="#m14">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_sessionUserIdMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m15">auditManager </a><br>(4_2_1_AuditManager_MOS_441_829_smoke_ValidatingAuditManager)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m16">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with mandatory fields)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m17">auditManager </a><br>(init)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:0-2</td></tr><tr class="passedodd"><td><a href="#m18">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_idType_Missing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><td><a href="#m19">otpmanager </a><br>(4_2_3_OTPmanager_MOS_33_smoke_otp generation with valid key)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><td><a href="#m20">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_smoke_ActiontimeStampMissing)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:00</td></tr><tr class="passedodd"><td><a href="#m21">smsnotification-msg91 </a><br>(4_2_3_sms_MOS-961_smoke_trigger sms with valid Inputs)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><tr class="passedodd"><tr class="passedodd"><td><a href="#m24">emailnotification </a><br>(4_2_3_sms_MOS-973_smoke_trigger email with empty content)</td><td style="text-align:right">15:08:54</td><td class="numi">00:00:02</td></tr><tr class="passedodd"><tr class="passedeven"><td><a href="#m26">emailnotification </a><br>(4_2_3_sms_MOS-973_Progression_trigger email with empty subject)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m27">emailnotification </a><br>(4_2_3_sms_MOS-973_Progression_trigger email with empty receiver)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m28">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_Progression_EventNameMissing)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:0-1</td></tr><tr class="passedeven"><td><a href="#m29">auditManager </a><br>(4_2_3_AuditManager_MOS_441_829_Progression_EventTypeMissing)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:00</td></tr><tr class="passedeven"><td><a href="#m30">otpmanager </a><br>(4_2_3_Progression_OTPmanager_MOS_33_Verify key present in otp table after otp generation)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><td><a href="#m31">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_Progression_Validating_invalid_Key)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><td><a href="#m32">otpmanager </a><br>(4_2_3_OTPmanager_MOS_35_36_Progression_Number_with_sp_chars)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:05</td></tr><tr class="passedeven"><td><a href="#m33">otpmanager </a><br>(4_2_2_OTPmanager_MOS_35_36_Progression_Key_with_3 digits)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:05</td></tr><tr class="passedeven"><td><a href="#m34">otpmanager </a><br>(4_2_3_OTPmanager_MOS_33_Progression_otp should not be less than 6 digit)</td><td style="text-align:right">15:08:58</td><td class="numi">00:00:01</td></tr>
+<tr class="passedeven"><tr class="passedeven"><td><a href="#m36">DocumentUpload </a><br>(Mosip_test_DocumentUpload_fn_smoke_High_1_DocumentUpload)</td><td style="text-align:right">15:09:07</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven">
+<tr class="passedodd"><tr class="passedeven"><td><a href="#m36">DocumentUpload </a><br>(Mosip_test_DocumentUpload_fn_smoke_High_1_DocumentUpload)</td><td style="text-align:right">15:09:07</td><td class="numi">00:00:01</td></tr><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedeven"><tr class="passedodd"><td><a href="#m43">DocumentUpload </a><br>(Mosip_test_DocumentUpload_fn_Progression_Med_2_EqualToFileSize)</td><td style="text-align:right">15:09:14</td><td class="numi">00:00:01</td></tr><tr class="passedodd"><td><a href="#m44">DocumentUpload </a><br>(Mosip_test_DocuemntUpload_fn_Progression_High_1_ValidDocumentUpload)</td><td style="text-align:right">15:09:14</td><td class="numi">00:00:00</td></tr>
+</table>
+<h1>Functional</h1>
+<h2 id="m1">smsnotification-msg91:4_2_3_sms_MOS-961_smoke_trigger sms with empty phone Number</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-961_smoke_trigger sms with empty phone Number</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3e906375</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.kernel_module.init(kernel_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">otpmanager:4_2_3_OTPmanager_MOS_35_36_smoke_Validation_Key_OTP</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_35_36_smoke_Validation_Key_OTP</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3f81621c</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.kernel_module.init(kernel_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">otpmanager:4_2_3_OTPmanager_MOS_423_Progression_Validating_Blocked_Key</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_423_Progression_Validating_Blocked_Key</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.kernel_module.init1(kernel_module.java:294)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">Fetch all PreRegistrationIds:smoke</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>smoke</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3c81cd82</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">Retrieve Pre-Registrations:Mosip_test_ Data Sync_fun_Smoke_HIGH_1_Fetching all Pre Reg ID</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_ Data Sync_fun_Smoke_HIGH_1_Fetching all Pre Reg ID</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@7a31ca20</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">Fetch all the applications created by user:Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application with valid uers ID</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application with valid uers ID</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@361cd35c</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m7">Create Pre-Registration API:Mosip_test_Application Manager_functional_smoke_HIGH_1_create a new Pre-registration(individual)</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_smoke_HIGH_1_create a new Pre-registration(individual)</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@4962b41e</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m8">Fetch the status of a application:Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application Status valid Pre ID</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_smoke_HIGH_1_Fetch Application Status valid Pre ID</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@7a84788f</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m9">Discard individual:Mosip_test_Application Manager_functional_smoke_HIGH_1_Discard individual with panding status</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_smoke_HIGH_1_Discard individual with panding status</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@76c86567</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init(pre_reg_module.java:157)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m10">Discard individual:Mosip_test_Application Manager_functional__Progression_HIGH_3_Discard individual with Expired Status</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional__Progression_HIGH_3_Discard individual with Expired Status</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1abcd059</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init1(pre_reg_module.java:294)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m11">Create Pre-Registration API:Mosip_test_Application Manager_functional_progression_HIGH_4_Create Pre-Registration without passing any value</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_progression_HIGH_4_Create Pre-Registration without passing any value</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@66451058</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init1(pre_reg_module.java:294)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m12">Fetch all the applications created by user:Mosip_test_Application Manager_functional_progression_HIGH_2_Fetch Application with invalid uers ID</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional_progression_HIGH_2_Fetch Application with invalid uers ID</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@65f3e805</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init1(pre_reg_module.java:294)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m13">Discard individual:Mosip_test_Application Manager_functional__Progression_HIGH_2_Discard individual with Booked Status</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_Application Manager_functional__Progression_HIGH_2_Discard individual with Booked Status</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1abcd059</td>
+</tr>
+<tr><td colspan="2">
+<div class="stacktrace">java.lang.AssertionError: expected [FINISHED] but found [FAILED]
+	at mosip.api.scripts.pre_reg_module.init1(pre_reg_module.java:294)
+... Removed 30 stack frames</div>
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m14">auditManager:4_2_3_AuditManager_MOS_441_829_smoke_idType_Missing</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_AuditManager_MOS_441_829_smoke_idType_Missing</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@621f89b8</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m15">auditManager:4_2_3_AuditManager_MOS_441_829_smoke_sessionUserIdMissing</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_AuditManager_MOS_441_829_smoke_sessionUserIdMissing</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@621f89b8</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m16">auditManager:4_2_1_AuditManager_MOS_441_829_smoke_ValidatingAuditManager</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_1_AuditManager_MOS_441_829_smoke_ValidatingAuditManager</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@621f89b8</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m17">emailnotification:4_2_3_sms_MOS-973_smoke_trigger email with mandatory fields</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-973_smoke_trigger email with mandatory fields</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3468ee6e</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m18">otpmanager:4_2_3_OTPmanager_MOS_33_smoke_otp generation with valid key</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_33_smoke_otp generation with valid key</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3f81621c</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m19">auditManager:4_2_3_AuditManager_MOS_441_829_smoke_ActiontimeStampMissing</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_AuditManager_MOS_441_829_smoke_ActiontimeStampMissing</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@621f89b8</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m20">smsnotification-msg91:4_2_3_sms_MOS-961_smoke_trigger sms with valid Inputs</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-961_smoke_trigger sms with valid Inputs</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3e906375</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m21">otpmanager:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3f81621c</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m22">auditManager:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@621f89b8</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m23">smsnotification-msg91:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3e906375</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m24">emailnotification:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3468ee6e</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m25">emailnotification:4_2_3_sms_MOS-973_smoke_trigger email with empty content</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-973_smoke_trigger email with empty content</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3468ee6e</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m26">otpmanager:4_2_3_OTPmanager_MOS_35_36_Progression_Number_with_sp_chars</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_35_36_Progression_Number_with_sp_chars</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m27">otpmanager:4_2_2_OTPmanager_MOS_35_36_Progression_Key_with_3 digits</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_2_OTPmanager_MOS_35_36_Progression_Key_with_3 digits</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m28">auditManager:4_2_3_AuditManager_MOS_441_829_Progression_EventNameMissing</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_AuditManager_MOS_441_829_Progression_EventNameMissing</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@f171912</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m29">otpmanager:4_2_3_OTPmanager_MOS_35_36_Progression_Validating_invalid_Key</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_35_36_Progression_Validating_invalid_Key</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m30">emailnotification:4_2_3_sms_MOS-973_Progression_trigger email with empty subject</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-973_Progression_trigger email with empty subject</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@2574a9e3</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m31">auditManager:4_2_3_AuditManager_MOS_441_829_Progression_EventTypeMissing</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_AuditManager_MOS_441_829_Progression_EventTypeMissing</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@f171912</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m32">emailnotification:4_2_3_sms_MOS-973_Progression_trigger email with empty receiver</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_sms_MOS-973_Progression_trigger email with empty receiver</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@2574a9e3</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m33">otpmanager:4_2_3_Progression_OTPmanager_MOS_33_Verify key present in otp table after otp generation</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_Progression_OTPmanager_MOS_33_Verify key present in otp table after otp generation</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m34">otpmanager:4_2_3_OTPmanager_MOS_33_Progression_otp should not be less than 6 digit</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>4_2_3_OTPmanager_MOS_33_Progression_otp should not be less than 6 digit</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@1de4bee0</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m35">Create Pre-Registration API:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@4962b41e</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m36">DocumentUpload:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@69ec93c2</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m37">Fetch the status of a application:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@7a84788f</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m38">Fetch all the applications created by user:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@361cd35c</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m39">DocumentUpload:Mosip_test_DocumentUpload_fn_smoke_High_1_DocumentUpload</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_DocumentUpload_fn_smoke_High_1_DocumentUpload</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@69ec93c2</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m40">Discard individual:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@76c86567</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m41">Fetch all PreRegistrationIds:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@3c81cd82</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m42">Retrieve Pre-Registrations:init</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>init</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@7a31ca20</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m43">DocumentUpload:Mosip_test_DocumentUpload_fn_Progression_Med_2_EqualToFileSize</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_DocumentUpload_fn_Progression_Med_2_EqualToFileSize</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@17216605</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m44">DocumentUpload:Mosip_test_DocuemntUpload_fn_Progression_High_1_ValidDocumentUpload</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Param.1</th><th>Param.2</th></tr>
+<tr class="param stripe"><td>Mosip_test_DocuemntUpload_fn_Progression_High_1_ValidDocumentUpload</td>
+<td>com.eviware.soapui.impl.wsdl.WsdlTestSuite@17216605</td>
+</tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<center> Report customized </center>
+</body></html>

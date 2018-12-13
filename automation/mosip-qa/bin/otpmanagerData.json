@@ -1,0 +1,12 @@
+[
+{
+
+"pos":{
+	 "key":"validkey2"
+	},
+"neg":{	
+	 "key":"ke",
+	 "blockedkey":"blockedkay"
+	}
+}
+]
