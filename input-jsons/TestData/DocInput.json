@@ -1,0 +1,22 @@
+[{
+	"pos": {
+		"doccode": "POA",
+		"docname": "Proof of adress",
+		"docname1": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+		"isActive": true,
+		"description": "Address",
+		"doccode1": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+		"doccode2": "POI",
+		"doccode3": "POB"
+		
+	},
+
+	"neg": {
+		
+		"doccode1": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjq",
+		"docname1": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjk",
+		"isActive": false,
+		"description1" : "Adgahsg hdfhkjhf hfkajfh af hdfkjhdaf  hdjakf adkfa hjkdafh dafad kdajfhkdafh  hakdfh afk fgah g gsgashgaksdaskddksad ksjdhaks q"
+		
+	}
+}]

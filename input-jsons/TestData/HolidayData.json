@@ -1,0 +1,15 @@
+[{
+	"pos": {
+		"holiday_id": "1",
+		"holiday_id1": "56",
+		"lang_code": "ENG"	
+	},
+
+	"neg": {
+		
+		"holiday_id": "",
+		"holiday_id1": "9999",
+		"lang_code": "",
+		"lang_code1": "HIN"
+	}
+}]
