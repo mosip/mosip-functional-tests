@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="mosip">
+  <test name="Functional">
+  <groups>
+            <run>
+                <include name="smoke" />
+                <include name="progression" />
+                 <exclude name="regression" />
+                
+            </run>
+        </groups> 
+    <classes>
+      <class name="mosip.api.scripts.kernel_module"/>
+      <class name="mosip.api.scripts.pre_reg_module"/>
+      
+   <!--    <class name="mosip.api.scripts.ida_module"/>
+       -->
+   
+      
+           
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+        <include name="progression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="mosip.api.scripts.ida.ida_module">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- mosip.api.scripts.ida.ida_module -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

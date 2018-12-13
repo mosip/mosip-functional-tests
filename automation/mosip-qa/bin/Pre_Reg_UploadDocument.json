@@ -1,0 +1,17 @@
+[{
+	"pos": {
+		"id": "mosip.pre-registration.document.upload",
+		"ver": "1.0",
+		"doc_cat_code": "POA",
+		"doc_typ_code": "address",
+		"doc_file_format": "pdf",
+		"status_code": "Pending-Appoinment"
+	},
+
+	"neg": {
+		"fagevalue": "35"
+	}
+}]
+
+
+
