@@ -34,41 +34,11 @@ public class DOBGenerator {
 	 * @return
 	 * 			return DOB in required format
 	 */
-	public String randomDOBGenerator(String genderAgeGroup,String dateFormat, Properties prop) {
+	public String randomDOBGenerator(String dateFormat, Properties prop) {
 		LocalDate startDate=null;LocalDate endDate = null;
-		switch(prop.getProperty("dateOfBirth")) {
-		case "valid":
-		if(genderAgeGroup.equals("adult")) {
-			startDate = LocalDate.now().minusYears(new Integer(prop.getProperty("adult.age.upper.limit"))); 
-			endDate = LocalDate.now().minusYears(new Integer(prop.getProperty("adult.age.lower.limit")));
-		}
-		else if(genderAgeGroup.equals("child")) {
-			startDate = LocalDate.now().minusYears(new Integer(prop.getProperty("child.age.upper.limit"))); 
-			endDate = LocalDate.now();
-		}
-		else {
-			System.out.println("Invalid Age category");
-			System.exit(0);
-		}
-		break;
-		case "invalid":
-			if(genderAgeGroup.equals("adult")) {
-				startDate = LocalDate.now().minusYears(new Integer(prop.getProperty("child.age.upper.limit"))); 
-				endDate = LocalDate.now();
-			}
-			else if(genderAgeGroup.equals("child")) {
-				startDate = LocalDate.now().minusYears(new Integer(prop.getProperty("adult.age.upper.limit"))); 
-				endDate = LocalDate.now().minusYears(new Integer(prop.getProperty("adult.age.lower.limit")));
-			}
-			else {
-				System.out.println("Invalid Age category");
-				System.exit(0);
-			}
-			break;
-			default:
-				System.out.println("Invalid case for DOB");
-				System.exit(0);
-		}
+		
+			startDate = LocalDate.now().minusYears(150); 
+			endDate = LocalDate.now().minusDays(1);
 		long randomEpochDay = ThreadLocalRandom.current().longs(startDate.toEpochDay(), endDate.toEpochDay()).findAny().getAsLong();
 
 		if(dateFormat.equals("yyyy-mm-dd"))

@@ -21,8 +21,8 @@ public ArrayList<String> jsonPropertyFields(){
 	ArrayList<String> propertiesList=new ArrayList<String>();
     Object obj = null;
 	try {
-		//obj = new JSONParser().parse(new FileReader("./src/main/resources/IdObjectDefinition.json"));
-		obj = new JSONParser().parse(new FileReader("./IdObjectDefinition.json"));
+		obj = new JSONParser().parse(new FileReader("./src/main/resources/IdObjectDefinition.json"));
+		//obj = new JSONParser().parse(new FileReader("./IdObjectDefinition.json"));
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
 	} catch (IOException e) {

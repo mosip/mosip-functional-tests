@@ -17,8 +17,8 @@ public class PropertyFileLoader {
 		Properties prop = new Properties();
 		InputStream input = null;
 		try {
-			//input = new FileInputStream("./src/main/resources/"+pageName+".properties");
-			input = new FileInputStream("./"+pageName+".properties");
+			input = new FileInputStream("./src/main/resources/"+pageName+".properties");
+			//input = new FileInputStream("./"+pageName+".properties");
 			prop.load(input);
 		} catch (IOException ex) {
 			ex.printStackTrace();

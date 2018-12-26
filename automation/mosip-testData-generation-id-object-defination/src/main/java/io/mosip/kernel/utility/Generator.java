@@ -14,33 +14,59 @@ public class Generator {
 	/**
 	 * @param clientInformationDTO
 	 * @param random
-	 * @param gender
-	 * @param fieldName
 	 * @param prop
 	 * @return
-	 * 		return the random name based on gender
+	 *   return full name from master based on valid or invalid
 	 */
-	public String randomName(ClientInformationDTO clientInformationDTO, Random random, String gender, String fieldName, Properties prop) {
-		String name=null;
-		switch (prop.getProperty(fieldName)) {
-		case "valid":
-			if(gender.equals("Male")) {
-				String valid_nameArray[]=clientInformationDTO.getValid_Male_Name();
-				name = valid_nameArray[random.nextInt(valid_nameArray.length)];
-			}
-			else if(gender.equals("Female")){
-				String valid_nameArray[]=clientInformationDTO.getValid_Female_Name();
-				name = valid_nameArray[random.nextInt(valid_nameArray.length)];
-			}
-			break;
-		case "invalid":
-			String invalid_nameArray[]=clientInformationDTO.getInvalid_Name();
-			name = invalid_nameArray[random.nextInt(invalid_nameArray.length)];
-
-		default:
-			break;
+	public String randomFullName(ClientInformationDTO clientInformationDTO, Random random, Properties prop) {
+		String fullName=null;
+		if(prop.getProperty("fullName").equals("valid")) {
+			String valid_gender[]=clientInformationDTO.getValid_gender();
+			fullName = valid_gender[random.nextInt(valid_gender.length)];
 		}
-		return name;
+		else {
+			String invalid_gender[]=clientInformationDTO.getInvalid_gender();
+			fullName = invalid_gender[random.nextInt(invalid_gender.length)];
+		}
+		return fullName;
+	}
+	
+	/**
+	 * @param clientInformationDTO
+	 * @param random
+	 * @param prop
+	 * @return
+	 *  return DOB from utility if valid else return invalid DOB from master data
+	 */
+	public String randomDOB(ClientInformationDTO clientInformationDTO, Random random, Properties prop) {
+		String DOB=null;
+		if(prop.getProperty("dateOfBirth").equals("valid")) {
+			DOB = new DOBGenerator().randomDOBGenerator("dd/mm/yyyy", prop);
+		}
+		else {
+			String invalid_DOB[]=clientInformationDTO.getInvalid_DOB();
+			DOB = invalid_DOB[random.nextInt(invalid_DOB.length)];
+		}
+		return DOB;
+	}
+	/**
+	 * @param clientInformationDTO
+	 * @param random
+	 * @param prop
+	 * @return
+	 *  return age from master based in valid or invalid
+	 */
+	public String randomAge(ClientInformationDTO clientInformationDTO, Random random, Properties prop) {
+		String age=null;
+		if(prop.getProperty("Age").equals("valid")) {
+			String valid_Age[]=clientInformationDTO.getValid_Age();
+			age = valid_Age[random.nextInt(valid_Age.length)];
+		}
+		else {
+			String invalid_age[]=clientInformationDTO.getInvalid_Age();
+			age = invalid_age[random.nextInt(invalid_age.length)];
+		}
+		return age;
 	}
 
 	/**
@@ -254,52 +280,33 @@ public class Generator {
 	 * @return
 	 * 		return the email is a combination of first name and last name
 	 */
-	public String randomEmailId(ClientInformationDTO clientInformationDTO, Random random, Properties prop, ArrayList<String> outputPropertyList, String firstName, String lastName) {
+	public String randomEmailId(ClientInformationDTO clientInformationDTO, Random random, Properties prop) {
 		String emailId=null;
-	
-		switch(prop.getProperty("emailId")) {
-		case "valid":
-			if(outputPropertyList.contains("firstName") && outputPropertyList.contains("lastName") && prop.getProperty("firstName").equals("valid") && prop.getProperty("lastName").equals("valid")) 
-				emailId = firstName+"."+lastName+"@mydomain.com";
-			else {
-				String valid_nameArray[]=clientInformationDTO.getValid_Male_Name();
-				 firstName=valid_nameArray[random.nextInt(valid_nameArray.length)];
-				 lastName=valid_nameArray[random.nextInt(valid_nameArray.length)];
-				 emailId = firstName+"."+lastName+"@mydomain.com";
-			}
-			break;
-		case "invalid":
+		if(prop.getProperty("emailId").equals("valid")) {
+			String valid_emailId[]=clientInformationDTO.getValid_emailId();
+			emailId = valid_emailId[random.nextInt(valid_emailId.length)];
+		}
+		else {
 			String invalid_emailId[]=clientInformationDTO.getInvalid_emailId();
 			emailId = invalid_emailId[random.nextInt(invalid_emailId.length)];
-			break;
-		default:
-			System.out.println("Invalid case for Email id ");
-			System.exit(0);
 		}
+		
 		return emailId;
 	}
-	public String randomLeftEye() {
-		System.out.println("left eye generated");
-		return null;
-	}
-	public String randomLeftSlap() {
-		System.out.println("Left slap generated");
-		return null;
+	
+	public String randomPostalCode(ClientInformationDTO clientInformationDTO, Random random, Properties prop) {
+		String postalcode=null;
+		if(prop.getProperty("postalCode").equals("valid")) {
+			String valid_postalCode[]=clientInformationDTO.getValid_postalCode();
+			postalcode = valid_postalCode[random.nextInt(valid_postalCode.length)];
+		}
+		else {
+			String invalid_postalCode[]=clientInformationDTO.getInvalid_CNEOrPINNumber();
+			postalcode = invalid_postalCode[random.nextInt(invalid_postalCode.length)];
+		}
+		return postalcode;
 	}
 	
-	
-	public String randomRightEye() {
-		System.out.println("right eye generated");
-		return null;
-	}
-	public String randomRightSlap() {
-		System.out.println("right slap generated");
-		return null;
-	}
-	public String randomThumbs() {
-		System.out.println("random thumbs");
-		return null;
-	}
 	
 
 }

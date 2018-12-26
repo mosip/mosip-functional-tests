@@ -12,9 +12,21 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClientInformationDTO {
-	private String[] valid_Male_Name;
-	private String[] valid_Female_Name;
-	private String[] invalid_Name;
+
+	private String[] valid_fullName;
+	private String[] invalid_fullName;
+	
+	private String[] invalid_DOB;
+	
+	private String[] valid_postalCode;
+	private String[] invalid_postalCode;
+	
+
+	private String[] valid_emailId;
+	private String[] invalid_emailId;
+	
+	private String[] valid_Age;
+	private String[] invalid_Age;
 	
 	private String[] valid_gender;
 	private String[] invalid_gender;
@@ -52,6 +64,5 @@ public class ClientInformationDTO {
 	private String[] valid_localAdministrativeAuthority;
 	private String[] invalid_localAdministrativeAuthority;
 	
-	private String[] invalid_emailId;
 
 }

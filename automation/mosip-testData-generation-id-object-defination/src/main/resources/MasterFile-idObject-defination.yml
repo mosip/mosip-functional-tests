@@ -1,9 +1,20 @@
 # Details of a user
+# Details of a user
+# valid names for male and female:
+# Review comments:
+# valid names can have numbers - done
+# spaces can be there - done
+# include names with 50 characters - done
+# cne or pin number to be 30 characters and only numbers - done
+# valid emailid with max 50 characters with different domains - Gita asked to put valid email ids to test with smtp server setup
+# mobile number  - Gita will send valid list - done
+# region - dropdown - there is no region field as checked with developer
+# city-dropdown - only whitefield and Marathalli are coming
+# province-dropdown - only whitefield and Marathalli are coming
+# check with rajath for dropdown values
+# local administrative authority-dropdown - only whitefield and Marathalli are coming
 
-valid_Male_Name: 
-  - Aaron
-  - vignesh
-  - Adam
+valid_fullName: 
   - arjun
   - ravi
   - harsha
@@ -14,22 +25,22 @@ valid_Male_Name:
   - joseph
   - stephan
   - praveen
+  - mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+  - gggggggggggggggggggggggggggggggggggggggggggggggggg
+  - 7648569568946584654895648979
+  - uyudfgdyufg wef787e462 763763763
 
-valid_Female_Name: 
-  - marry
-  - athila
-  - rose
-  - himaja
-  - rekha
-  - lilly
-
-invalid_Name:
+invalid_fullName:
   - a@@@@
   - a&&&&#%%#
   - 23767367
   - 09099
   - sk44324
   - 44nk
+  - 12/03/2018
+  -      dg64
+  -          
+  - sssssssssssssssssssssssssssssssssssssssssssssssssssssss
   
 valid_gender:
   - Male
@@ -45,12 +56,25 @@ invalid_gender:
   - a&&&&#%%#
   
 valid_mobileNumber:
-  - 7736223978
-  - 9048999999
-  - 9999999999
-  - 7777777777
-  - 8888888888
-  - 8989988989
+  - 614712345
+  - 524712345
+  - 434712345
+  - 344712345
+  - 254712345
+  - 164712345
+  - 174712345
+  - 284712345
+  - 394712345
+  - 464712341
+  - 564712342
+  - 664712343
+  - 764712344
+  - 864712345
+  - 964712346
+  - 164712347
+  - 264712345
+  - 364712348
+  - 464712349
 
 invalid_mobileNumber:
   - 7736228
@@ -64,6 +88,11 @@ invalid_mobileNumber:
   - 48734
   - djj23
   - 389jzzjaj
+  -            
+  - 000000000000000
+  - 9999999999999
+  - wefgefg678678678efjnb
+  - adghdgv7625476&*^&%
   
 
 valid_addressLine1:
@@ -74,10 +103,10 @@ valid_addressLine1:
   - 26 Place Du Temple Maarif Extension
   - 283
   - 4 Angle Rue Annaba Et Rue Omar El Kindi Bourgogne
-  - eme ÃƒÂ©tage porte 9
+  - eme Ã©tage porte 9
   - Lot9
   - 1 Boulevard Brahim Roudani
-  - CitÃƒÂ© Ain Chok
+  - CitÃ© Ain Chok
   - 64/66 Rue Cadi Bakkar
   - 1015 - Sidi-Moumen
   - 4 Rue Boulmane Bouargane
@@ -89,55 +118,57 @@ valid_addressLine1:
   - 8 Boulevard Moulay Driss I Des Hopitaux
   - 649
   - Z.I de Mohammedia
+  - gfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+  - gfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 invalid_addressLine1:
-  - invalid add 1
-  - invalid add 1.1
+  -              
+  - $(&*%&^$^%&%*(^^
+  - adddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
   
 valid_addressLine2:
   - bd Brahim Roudani -ex rte El Jadida
-  - Route Bouskoura Par Route D El Jadida Km 9.5 Sidi Maarouf
-  - boulevard El Qods Quartier Sidi MaÃƒÂ¢rouf
-  - Rue Abou Ishak El Ouajjaj MÃƒÂ¢arif
-  - RÃƒÂ©sidence Maria
-  - bd Mohamed Zerktouni
-  - Bd Mohamed V nÃ‚Â° 206
-  - BelvÃƒÂ©dÃƒÂ¨re
+  - Route Bouskoura Par Route D El Jadida Km 9.5 Sidi 
+  - boulevard El Qods Quartier Sidi MaÃ¢rouf
+  - Rue Abou Ishak El Ouajjaj MÃ¢arif
+  - RÃ©sidence Maria
+  - BelvÃ©dÃ¨re
   - Boulevard Ahmed El Hansali
-  - NÃ‚Â°1
-  - C3 rÃƒÂ©sidence Koutoubia
-  - MÃƒÂ¢arif Extension
+  - NÂ°1
+  - C3 rÃ©sidence Koutoubia
+  - MÃ¢arif Extension
   - Indusparc - M8 Chemin Tertiaire
-  - Bvd Mohammed V 4ÃƒÂ¨me ÃƒÂ©tage
+  - Bvd Mohammed V 4Ã¨me Ã©tage
   - Avenue Pasteur
   - Ang Hafid ibn abdelbar Oued eddahab Resid Andalous
-  - Z.I AÃƒÆ’Ã‚Â¯t Meloul
-  - AllÃƒâ‚¬e Des Citronniers
+  - Z.I AÃƒÂ¯t Meloul
+  - AllÃ€e Des Citronniers
   - bd Mohammed V
   - Sud-Ouest
   - rue Brahim Nakhai - ex Mont Cinto
 
 invalid_addressLine2:
-  - invalid add 2
-  - invaldi add 2.2
+  -                 
+  - $*^&*^&*%&*%&*%
+  - adddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
   
 valid_addressLine3:
-  - AllÃƒâ‚¬e Des Citronniers
+  - AllÃ€e Des Citronniers
   - bd Mohammed V
   - Sud-Ouest
   - rue Brahim Nakhai - ex Mont Cinto
-
 invalid_addressLine3:
-  - invalid add 3
-  - invalid add 3.3
+  -                 
+  - $*^&*^&*%&*%&*%
+  - adddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
   
 valid_region:
-  - Rabat-Salé-Kénitra
+  - Rabat-Sal�-K�nitra
   - Casablanca
   - Fez
   - Tangier
   - Marrakesh
-  - SalÃ©ï¿½Å   - Meknes
+  - Salé�Š  - Meknes
   - Rabat
   - Oujda
   - Kenitra
@@ -149,7 +180,7 @@ valid_region:
   - Khouribga
   - El Jadida
   - Beni Mellal
-  - AÃ¯Â´Â Melloul
+  - Aï´ Melloul
   - Nador
   - Dar Bouazza
   - Taza
@@ -307,19 +338,19 @@ invalid_province:
   - 37673683787397
 
 valid_CNEOrPINNumber:
-  - 20100
-  - 19711 
-  - 19115
-  - 20000 
-  - 21000
-  - 30000
-  - 20800
-  - 20200
-  - 20310
-  - 20660
-  - 20050
-  - 45000
-  - 20300
+  - 201002376456667778634666464629
+  - 197112376456667778634666464629 
+  - 191158634864382648374682374686
+  - 200001209838467647828474387638
+  - 210003786364384683783433467373
+  - 300008786786786867867867867666
+  - 208000980899098088808809808000
+  - 202001213123123123232311312312
+  - 203106575765757575557565756757
+  - 206600808080988808990888098080
+  - 200501212312312323123213311323
+  - 450007657576576576557656757575
+  - 203000809808908988080988080888
   
 invalid_CNEOrPINNumber:
   - sdkmwd
@@ -328,11 +359,19 @@ invalid_CNEOrPINNumber:
   - 389jzzjaj
   - a@@@@
   - a&&&&#%%#
+  -              
+  - 8888888874686542835358523785375523784578245782457845
 
+valid_emailId:
+  - sriharsha.gadepalli@mindtree.com
+  - gita.phutane@mindtree.com
+  - jyoti.kori@mindtree.com
+  - arjun.chandramohan@mindtree.com
+  
 invalid_emailId:
   - wjdn@gm.com
-  - 767@8787.com
-  - wsk.com
+  - 7
+  - wsk.com67@8787.com
   - 7787.com
   - 786798
   - snkkdkjjdjdjejndjjokeo
@@ -435,6 +474,24 @@ invalid_localAdministrativeAuthority:
   - 389jzzjaj
   - a@@@@
   - a&&&&#%%#
+  
+valid_Age:
+  - 1
+  - 149
+  - 0
+  - 150
+
+invalid_Age:
+  - 151
+  - -1
+  - $3u99
+  
+valid_postalCode:
+  - 680588
+
+invalid_postalCode:
+  - $dskkd
+
   
   
   

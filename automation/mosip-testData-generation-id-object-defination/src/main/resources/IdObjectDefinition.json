@@ -12,16 +12,13 @@
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
-			"firstName": {
-					"$ref": "#/definitions/values"
-				},
-				"middleName": {
-					"$ref": "#/definitions/values"
-				},
-				"lastName": {
+				"fullName": {
 					"$ref": "#/definitions/values"
 				},
 				"dateOfBirth": {
+					"$ref": "#/definitions/values"
+				},
+				"age": {
 					"$ref": "#/definitions/values"
 				},
 				"gender": {
@@ -62,8 +59,10 @@
 				},
 				"parentOrGuardianRIDOrUIN": {
 					"$ref": "#/definitions/values"
+				},
+				"postalCode": {
+					"$ref": "#/definitions/values"
 				}
-	
 			}
 		}
 	}
