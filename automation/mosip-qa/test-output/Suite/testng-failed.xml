@@ -2,18 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test(failed)">
-    <groups>
-      <run>
-        <include name="smoke"/>
-        <include name="progression"/>
-      </run>
-    </groups>
+    <parameter name="testType" value="smoke"/>
     <classes>
-      <class name="mosip.api.scripts.ida.ida_module">
+      <class name="io.mosip.kernel.scripts.otpGenerate">
         <methods>
-          <include name="init"/>
+          <include name="suiteSetup"/>
+          <include name="updateOutput"/>
+          <include name="generate_Response"/>
+          <include name="testTearDown"/>
         </methods>
-      </class> <!-- mosip.api.scripts.ida.ida_module -->
+      </class> <!-- io.mosip.kernel.scripts.otpGenerate -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

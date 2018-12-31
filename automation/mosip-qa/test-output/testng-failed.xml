@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [mosip]">
-  <test name="Functional(failed)">
-    <groups>
-      <run>
-        <include name="smoke"/>
-        <include name="progression"/>
-        <exclude name="regression"/>
-      </run>
-    </groups>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="mosip.api.scripts.kernel_module">
+      <class name="io.mosip.kernel.scripts.otpGenerate">
         <methods>
-          <include name="init1" invocation-numbers="7"/>
-          <include name="init" invocation-numbers="6 13"/>
-          <include name="BeforeMethod"/>
-          <include name="afterMethod"/>
+          <include name="suiteSetup"/>
+          <include name="updateOutput"/>
+          <include name="generate_Response" invocation-numbers="0 1 2 3 4"/>
+          <include name="testTearDown"/>
         </methods>
-      </class> <!-- mosip.api.scripts.kernel_module -->
-      <class name="mosip.api.scripts.pre_reg_module">
-        <methods>
-          <include name="init" invocation-numbers="1 3 5 7 9 11"/>
-          <include name="afterMethod"/>
-          <include name="init1" invocation-numbers="0 1 2 3"/>
-          <include name="BeforeMethod"/>
-        </methods>
-      </class> <!-- mosip.api.scripts.pre_reg_module -->
+      </class> <!-- io.mosip.kernel.scripts.otpGenerate -->
     </classes>
-  </test> <!-- Functional(failed) -->
-</suite> <!-- Failed suite [mosip] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
