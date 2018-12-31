@@ -1,0 +1,8 @@
+{
+   "timestamp": 1545932489876,
+   "status": 0,
+   "errors": [   {
+      "errorCode": "KER-MSD-999",
+      "errorMessage": "request.name: size must be between 1 and 64"
+   }]
+}

@@ -1,0 +1,37 @@
+# inputs for the api
+  
+valid_FullName:
+  Any:
+  - arjun
+  - ravi
+  - harsha
+  - arun
+  - raj
+  - kiran
+  - ashish
+  - joseph
+  - stephan
+  - praveen
+  - mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+  - gggggggggggggggggggggggggggggggggggggggggggggggggg
+  - 7648569568946584654895648979
+  - uyudfgdyufg wef787e462 763763763
+
+  
+
+invalid_FullName:
+  - 00
+  - $(^*^*%&%ihhhhhhhhhhhhhhhh 88888888888888888888888888888888888888888888888888888888888888888888888888888jkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh jhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+valid_postalcode:
+   BV:
+      - 111111
+      - 222222
+
+  
+ 
+   
+   
+   
+   
+   

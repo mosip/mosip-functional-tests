@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="36" started-at="2018-12-29T15:13:07Z" finished-at="2018-12-29T15:13:07Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="36" started-at="2018-12-29T15:13:07Z" finished-at="2018-12-29T15:13:07Z">
+      <class name="io.mosip.kernel.scripts.otpGenerate">
+        <test-method status="PASS" signature="suiteSetup()[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="suiteSetup" is-config="true" duration-ms="14" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup -->
+        <test-method status="PASS" signature="updateOutput()[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="updateOutput" is-config="true" duration-ms="4" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateOutput -->
+        <test-method status="PASS" signature="testTearDown(org.testng.ITestContext)[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="testTearDown" is-config="true" duration-ms="443" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@31ea9581]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTearDown -->
+      </class> <!-- io.mosip.kernel.scripts.otpGenerate -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

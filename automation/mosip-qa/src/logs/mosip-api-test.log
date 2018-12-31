@@ -1,0 +1,193 @@
+INFO    2018-12-29 20:08:06,879 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:08:06,881 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:08:06,881 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:08:06,882 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:08:06,882 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:08:06,882 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:08:07,526 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:08:07,526 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:08:07,526 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:09:19,387 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:09:19,390 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:09:19,390 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:09:19,390 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:09:19,390 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:09:19,390 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:09:19,938 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:09:19,938 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:09:19,938 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:10:19,230 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:10:19,232 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:10:19,232 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:10:19,233 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:10:19,233 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:10:19,233 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:10:19,778 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:10:19,778 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:10:19,778 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:11:11,856 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:11:11,858 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:11:11,858 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:11:11,858 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:11:11,859 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:11:11,859 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:11:11,887 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:11:12,380 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:11:12,380 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:11:12,380 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:12:36,290 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:12:36,292 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:12:36,292 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:12:36,293 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:12:36,293 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:12:36,293 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:12:36,342 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:12:36,846 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:12:36,847 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:12:36,847 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:12:47,434 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:12:47,437 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:12:47,437 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:12:47,437 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:12:47,438 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:12:47,438 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:12:47,493 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:12:48,271 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:12:48,271 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:12:48,271 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:14:37,889 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:14:37,892 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:14:37,893 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:14:37,893 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:14:37,894 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:14:37,894 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:14:37,930 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:14:38,539 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:14:38,540 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:14:38,540 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:15:40,353 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:15:40,354 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:15:40,354 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:15:40,355 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:15:40,355 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:15:40,355 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:15:40,385 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:15:40,980 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:15:40,980 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:15:40,980 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:19:31,387 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:19:31,389 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:19:31,389 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:19:31,389 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:19:31,389 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:19:31,389 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:19:31,424 [main] io.mosip.kernel.scripts.DeviceRegister  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:19:31,945 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:19:31,945 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:19:31,945 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:23:12,207 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:23:12,209 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:23:12,210 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:23:12,210 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:23:12,210 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:23:12,210 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:23:12,243 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:23:12,751 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:23:12,751 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:23:12,751 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:25:08,883 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:25:08,884 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:25:08,884 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:25:08,885 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:25:08,885 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:25:08,885 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:25:08,972 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:25:09,576 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:25:09,576 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:25:09,576 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:26:41,357 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:26:41,361 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:26:41,362 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:26:41,363 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:26:41,363 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:26:41,364 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:26:41,400 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:26:41,934 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:26:41,934 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:26:41,934 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:29:20,006 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:29:20,008 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:29:20,008 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:29:20,008 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:29:20,009 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:29:20,009 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:29:20,048 [main] io.mosip.kernel.scripts.DeviceRegister  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:29:20,560 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:29:20,560 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:29:20,560 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!
+INFO    2018-12-29 20:43:07,465 [main] io.mosip.service.BaseTestCase  - Test Framework for Mosip api Initialized
+INFO    2018-12-29 20:43:07,466 [main] io.mosip.service.BaseTestCase  - Logging initialized: All logs are located at D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/logs/mosip-api-test.log
+INFO    2018-12-29 20:43:07,466 [main] io.mosip.service.BaseTestCase  - We have created a Config Manager. Beginning to read properties!
+INFO    2018-12-29 20:43:07,467 [main] io.mosip.service.BaseTestCase  - Setting test configs/TestEnvironment from D:\MOSIP\soapui projects\Tabish\v3\mosipRestAssured\mosipRestAssured/src/config/test.properties
+INFO    2018-12-29 20:43:07,467 [main] io.mosip.service.BaseTestCase  - Configs from properties file are set.
+INFO    2018-12-29 20:43:07,467 [main] io.mosip.service.BaseTestCase  - Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!
+
+
+INFO    2018-12-29 20:43:07,499 [main] io.mosip.kernel.scripts.otpGenerate  - Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!
+INFO    2018-12-29 20:43:07,980 [main] io.mosip.service.BaseTestCase  - 
+
+
+INFO    2018-12-29 20:43:07,980 [main] io.mosip.service.BaseTestCase  - Rest Assured framework has been reset because all tests have been executed.
+INFO    2018-12-29 20:43:07,980 [main] io.mosip.service.BaseTestCase  - TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!

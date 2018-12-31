@@ -1,0 +1,24 @@
+[
+{
+	"pos": {
+		"reg_cent_id": "1",
+		"reg_cent_id1": "1001",
+		"lang_code": "ENG",
+		"lang_code1": "tes",
+		"year": "2018-12-04T11:45:44.303",
+		"year1": ""
+		
+	},
+
+	"neg": {
+		
+		"reg_cent_id": "",
+		"reg_cent_id1": "9999",
+		"lang_code": "",
+		"lang_code1": "HIN",
+		"year": "2018-12-04 11:45:44.303",
+		"year1": "2000-12-04T11:45:44.303",
+		
+	}
+}
+]

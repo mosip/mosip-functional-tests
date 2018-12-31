@@ -1,0 +1,26 @@
+[{
+	"pos": {
+		"machine_id": "1001",
+		"machine_id1": "1012",
+		"regCentId": "1",
+		"regCentId1": "1001",
+		"userId":"qc001",
+		"userId1":"qc002",
+		"date": "2018-12-04T11:45:44.303",
+		"date1": "2018-12-11T11:40:40.777"
+		
+	},
+
+	"neg": {
+		
+		"machine_id": "",
+		"machine_id1": "9999",
+		"regCentId": "",
+		"regCentId1": "9999",
+		"userId":"",
+		"userId1":"9999",
+		"date": "2013-12-04 11:45:44.303",
+		"date1": "2000-10-19T12:23:54.222"
+		
+	}
+}]
