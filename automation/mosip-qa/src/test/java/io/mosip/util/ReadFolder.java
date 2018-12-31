@@ -14,8 +14,7 @@ public class ReadFolder {
 
 	public static Object[][] readFolders(String folderName, String jsonFileName,String fieldFile,String testType) throws IOException, ParseException {
 		System.out.println(folderName);
-		CommonLibrary.scenarioFileCreator(fieldFile,folderName,testType);
-		System.out.println("---------------------------"+folderName);
+		CommonLibrary.scenarioFileCreator(fieldFile,folderName,testType,jsonFileName);
 		File Mainfolder = new File(folderName);
 		File[] listOfMainFolders = Mainfolder.listFiles();
 		String configPath=System.getProperty("user.dir") + "\\src\\test\\resources\\" + folderName+"\\"+jsonFileName;

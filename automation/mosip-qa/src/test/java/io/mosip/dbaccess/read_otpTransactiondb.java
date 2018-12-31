@@ -6,11 +6,8 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.testng.annotations.Test;
-
 import org.hibernate.cfg.Configuration;
-import org.hibernate.cfg.SettingsFactory;
+import org.testng.annotations.Test;
 
 import io.mosip.dbDTO.OtpEntity;
 

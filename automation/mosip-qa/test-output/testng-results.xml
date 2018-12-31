@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36" started-at="2018-12-29T15:13:07Z" finished-at="2018-12-29T15:13:07Z">
+  <suite name="Default suite" duration-ms="10512" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:58:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36" started-at="2018-12-29T15:13:07Z" finished-at="2018-12-29T15:13:07Z">
-      <class name="io.mosip.kernel.scripts.otpGenerate">
-        <test-method status="PASS" signature="suiteSetup()[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="suiteSetup" is-config="true" duration-ms="14" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
+    <test name="Default test" duration-ms="10512" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:58:03Z">
+      <class name="io.mosip.prereg.scripts.Get_RequestPreRegistration">
+        <test-method status="PASS" signature="suiteSetup()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="suiteSetup" is-config="true" duration-ms="13" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:57:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- suiteSetup -->
-        <test-method status="PASS" signature="updateOutput()[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="updateOutput" is-config="true" duration-ms="4" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updateOutput -->
-        <test-method status="PASS" signature="testTearDown(org.testng.ITestContext)[pri:0, instance:io.mosip.kernel.scripts.otpGenerate@3d299e3]" name="testTearDown" is-config="true" duration-ms="443" started-at="2018-12-29T20:43:07Z" finished-at="2018-12-29T20:43:07Z">
+        <test-method status="PASS" signature="generate_Response(java.lang.String, java.lang.Integer, org.json.simple.JSONObject)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="generate_Response" duration-ms="10475" started-at="2018-12-31T11:57:52Z" data-provider="createPreReg" finished-at="2018-12-31T11:58:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@31ea9581]]>
+                <![CDATA[preReg\GetRequest]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[{"jiraId":"MOS-1004","testType":"smoke","preRegId":"valid","testCaseName":"Key_smoke","status":"Pass"}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generate_Response -->
+        <test-method status="PASS" signature="updateOutput()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="updateOutput" is-config="true" duration-ms="8" started-at="2018-12-31T11:58:03Z" finished-at="2018-12-31T11:58:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateOutput -->
+        <test-method status="PASS" signature="testTearDown(org.testng.ITestContext)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="testTearDown" is-config="true" duration-ms="1" started-at="2018-12-31T11:58:03Z" finished-at="2018-12-31T11:58:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@691567ea]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testTearDown -->
-      </class> <!-- io.mosip.kernel.scripts.otpGenerate -->
+      </class> <!-- io.mosip.prereg.scripts.Get_RequestPreRegistration -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

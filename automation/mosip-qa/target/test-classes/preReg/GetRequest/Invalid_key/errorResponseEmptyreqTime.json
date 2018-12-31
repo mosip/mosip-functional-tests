@@ -1,0 +1,7 @@
+{
+    "timestamp": "2018-12-31T10:26:20.111+0000",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Required String parameter 'userId' is not present",
+    "path": "/int-demographic//v0.1/pre-registration/applications"
+}

@@ -7,12 +7,6 @@ import org.testng.annotations.Test;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-/**
- * The Class to check the availability/Healthcheck of DB
-
- @author Jyoti Kori
- */
- 
 
 public class DBHealthCheck {
 	

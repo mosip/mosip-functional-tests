@@ -29,12 +29,6 @@ import io.mosip.util.CommonLibrary;
 import io.mosip.util.ReadFolder;
 import io.restassured.response.Response;
 
-/**
- * The Class Creating PreReg Id
- *
- * @author Tabish Khan
- */
-
 public class Create_PreRegistration extends BaseTestCase {
 	
 	Create_PreRegistration() {
@@ -54,14 +48,10 @@ public class Create_PreRegistration extends BaseTestCase {
 	private static ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	private static final String preReg_URI = "/int-demographic/v0.1/pre-registration/applications";
 
-	/*
-	 * Data Prividers to read the input json files from the folders
-	 */
-	
 	@DataProvider(name = "createPreReg")
 	public Object[][] readData(ITestContext context) throws JsonParseException, JsonMappingException, IOException, ParseException {
 		 String testParam = context.getCurrentXmlTest().getParameter("testType");
-		 switch (testParam) {
+		 switch ("smoke") {
 		case "smoke":
 			return ReadFolder.readFolders("preReg\\Create_PreRegistration", "Create_PreRegistrationOutput.json","Create_PreRegistrationRequest.json","smoke");
 			
@@ -72,13 +62,7 @@ public class Create_PreRegistration extends BaseTestCase {
 		}
 		
 	}
-	
-	/*
-	 * 
-	 * Given input Json as per defined folders When POST request is sent to /int-demographic/v0.1/pre-registration/applications
-	 * Then Response is expected as 200 and other responses as per inputs passed in the request
-	 */
-	
+
 	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "createPreReg")
 	public void generate_Response(String fileName, Integer i, JSONObject object)

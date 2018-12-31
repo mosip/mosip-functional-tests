@@ -27,9 +27,7 @@
     <groupId>io.rest-assured</groupId>
     <artifactId>rest-assured</artifactId>
     <version>3.0.7</version>
-    <scope>test</scope>
 </dependency>
-  
   <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
@@ -122,13 +120,13 @@
     <version>27.0.1-jre</version>
 </dependency>
   
-		
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>4.3.6.Final</version>
+    <version>5.3.7.Final</version>
 </dependency>
+
 
  
 

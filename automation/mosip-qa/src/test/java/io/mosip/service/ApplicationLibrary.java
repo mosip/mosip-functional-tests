@@ -17,5 +17,10 @@ public class ApplicationLibrary extends BaseTestCase{
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 	}
 	
+    
+    public Response GetRequest(String Resource_URI, String string) {
+          return commonLibrary.GET_REQUEST_queryParam(ApplnURI + Resource_URI ,
+                      MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, string);
+    }
 
 }

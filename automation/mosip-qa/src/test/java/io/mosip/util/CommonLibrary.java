@@ -63,7 +63,7 @@ public class CommonLibrary {
 		}
 	}
 
-	public static void scenarioFileCreator(String fileName,String module,String testType) throws IOException, ParseException {
+	public static void scenarioFileCreator(String fileName,String module,String testType,String ouputFile) throws IOException, ParseException {
 		String input = "";
 		List<String> scenario = new ArrayList<String>();
 	//	Class<otpGenerate> otpRequestDto = otpGenerate.class;
@@ -219,7 +219,7 @@ public class CommonLibrary {
 		
 		
 		//System.out.println(scenario);
-		String configpath=System.getProperty("user.dir") + "\\src\\test\\resources\\" + module+"\\output.json";
+		String configpath=System.getProperty("user.dir") + "\\src\\test\\resources\\" + module+"\\"+ouputFile;
 		File json = new File(configpath);
 		FileWriter fw = new FileWriter(json);
 		fw.write(scenario.toString());
@@ -238,5 +238,24 @@ public class CommonLibrary {
 		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	} // end POST_REQUEST
+	
+
+    /**
+    * REST ASSURED GET request method
+    *
+    * @param url
+    *            destination of the request
+    * @return Response object that has the REST response
+    */
+    public Response GET_REQUEST_queryParam(String url, String contentHeader, String acceptHeader, String urls) {
+          logger.info("REST-ASSURED: Sending a GET request to " + url);
+          Response getResponse = given().relaxedHTTPSValidation()
+                      .log().all().when().get(url+"?"+urls).then().log().all().extract().response();
+          // log then response
+          logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+          logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+          return getResponse;
+    } // end GET_REQUEST
+
 }
 

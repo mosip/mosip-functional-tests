@@ -2,29 +2,27 @@ package io.mosip.service;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.Map;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 
-import com.beust.jcommander.internal.Maps;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import io.restassured.response.Response;
-import junit.framework.Assert;
+
 
 public class AssertKernel {
 	ObjectMapper oMapper = new ObjectMapper();
 
 	public boolean assertKernel(Response response, JSONObject object)
 			throws JsonProcessingException, IOException, ParseException {
-		ObjectMapper oMapper = new ObjectMapper();
+
 		JSONObject obj1 = AssertKernel.getComparableBody(response.asString());
 		JSONObject obj2 = AssertKernel.getComparableBody(object.toString());
 		  Gson g = new Gson();

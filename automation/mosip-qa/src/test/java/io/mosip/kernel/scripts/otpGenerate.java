@@ -30,18 +30,13 @@ import io.mosip.util.CommonLibrary;
 import io.mosip.util.ReadFolder;
 import io.restassured.response.Response;
 
-/**
- * The Class generating otp.
- *
- * @author Jyoti Kori
- */
 public class otpGenerate extends BaseTestCase {
 	
 	otpGenerate() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	//Defining Logger variables
+
 	private static Logger logger = Logger.getLogger(otpGenerate.class);
 	
 	boolean status = false;
@@ -54,11 +49,6 @@ public class otpGenerate extends BaseTestCase {
 	private static ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	private static final String otpGenerate_URI = "/otpmanager/v1.0/otp/generate";
 
-	/*
-	 * Data Prividers to read the input json files from the folders
-	 */
-	
-	
 	@DataProvider(name = "createPreReg")
 	public Object[][] readData(ITestContext context) throws JsonParseException, JsonMappingException, IOException, ParseException {
 		 String testParam = context.getCurrentXmlTest().getParameter("testType");
@@ -73,13 +63,7 @@ public class otpGenerate extends BaseTestCase {
 		}
 		
 	}
-	
-	
-	/*
-	 * 
-	 * Given input Json as per defined folders When POST request is sent to /otpmanager/v1.0/otp/generate
-	 * Then Response is expected as 200 and other responses as per inputs passed in the request
-	 */
+
 	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "createPreReg")
 	public void generate_Response(String fileName, Integer i, JSONObject object)

@@ -9,6 +9,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 
 import com.beust.jcommander.internal.Maps;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,16 +18,18 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import io.restassured.response.Response;
-import junit.framework.Assert;
+
 
 public class AssertPreReg {
 	ObjectMapper oMapper = new ObjectMapper();
 
 	public boolean assertPreRegistration(Response response, JSONObject object)
 			throws JsonProcessingException, IOException, ParseException {
-		ObjectMapper oMapper = new ObjectMapper();
+	
 		JSONObject obj1 = AssertPreReg.getComparableBody(response.asString());
 		JSONObject obj2 = AssertPreReg.getComparableBody(object.toString());
+		System.out.println(obj1);
+		System.out.println(obj2);
 		  Gson g = new Gson();
 		  Type mapType = new TypeToken<Map<String, Object>>(){}.getType();
 		  Map<String, Object> firstMap = g.fromJson(obj1.toJSONString(), mapType);
@@ -34,7 +37,7 @@ public class AssertPreReg {
 		  System.out.println(com.google.common.collect.Maps.difference(firstMap,secondMap));
 		try {
 			if(obj1.hashCode()==obj2.hashCode()) {
-			Assert.assertTrue("Response Body Matches", obj1.equals(obj2));
+			Assert.assertEquals(obj1, obj2);
 			return true;
 			}
 			else {
@@ -53,7 +56,6 @@ public class AssertPreReg {
 		object.remove("resTime");
 
 		for (Object keys : object.keySet()) {
-			// if(keys.c)
 
 			try {
 				JSONObject parseble = (JSONObject) object.get(keys.toString());

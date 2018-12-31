@@ -9,12 +9,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-/**
- * The Class for holding otp Entity.
- *
- * @author Jyoti Kori
- */
-
 @Entity
 @Data
 @Table(name = "otp_transaction", schema = "kernel")

@@ -2,8 +2,6 @@ package io.mosip.dbDTO;
 
 
 import java.io.Serializable;
-
-
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -20,11 +18,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * The Class for holding PreReg Entity.
- *
- * @author Jyoti Kori
- */
 
 @Entity
 @Table(name = "applicant_demographic", schema = "prereg")

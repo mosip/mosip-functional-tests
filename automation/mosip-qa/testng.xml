@@ -4,9 +4,9 @@
   <test name="Test">
    <parameter name="testType" value="smoke"/>
     <classes>
-       <class name="io.mosip.prereg.scripts.Create_PreRegistration"/>
+       <!-- <class name="io.mosip.prereg.scripts.Create_PreRegistration"/> -->
        <class name="io.mosip.kernel.scripts.otpGenerate"/>
-        <class name="io.mosip.kernel.scripts.DeviceRegister"/>
+        <!-- <class name="io.mosip.kernel.scripts.DeviceRegister"/> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
