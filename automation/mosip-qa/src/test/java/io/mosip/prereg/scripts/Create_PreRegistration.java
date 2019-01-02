@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -47,11 +50,12 @@ public class Create_PreRegistration extends BaseTestCase {
 	private static AssertPreReg preRegAssertions = new AssertPreReg();
 	private static ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	private static final String preReg_URI = "/int-demographic/v0.1/pre-registration/applications";
-
+	static String dest="";
+	static String configPaths="";
 	@DataProvider(name = "createPreReg")
 	public Object[][] readData(ITestContext context) throws JsonParseException, JsonMappingException, IOException, ParseException {
 		 String testParam = context.getCurrentXmlTest().getParameter("testType");
-		 switch ("smoke") {
+		 switch ("regression") {
 		case "smoke":
 			return ReadFolder.readFolders("preReg\\Create_PreRegistration", "Create_PreRegistrationOutput.json","Create_PreRegistrationRequest.json","smoke");
 			
@@ -67,6 +71,7 @@ public class Create_PreRegistration extends BaseTestCase {
 	@Test(dataProvider = "createPreReg")
 	public void generate_Response(String fileName, Integer i, JSONObject object)
 			throws JsonParseException, JsonMappingException, IOException, ParseException {
+		dest=fileName;
 		String filepath=System.getProperty("user.dir") + "\\src\\test\\resources\\"+fileName+"\\Create_PreRegistrationRequest.json";
 		JSONObject requestKeys= (JSONObject) new JSONParser().parse(new FileReader(filepath));
 		String keys = "";
@@ -82,8 +87,8 @@ public class Create_PreRegistration extends BaseTestCase {
 		 * Data Utility
 		 */
 		//new Main().ApiRunner();
-		String configPath = System.getProperty("user.dir") + "\\src\\test\\resources\\" + fileName + "\\";
-		File folder = new File(configPath);
+		configPaths = System.getProperty("user.dir") + "\\src\\test\\resources\\" + fileName + "\\";
+		File folder = new File(configPaths);
 		File[] listOfFolders = folder.listFiles();
 		for (int j = 0; j < listOfFolders.length; j++) {
 			if (listOfFolders[j].isDirectory()) {
@@ -143,6 +148,8 @@ public class Create_PreRegistration extends BaseTestCase {
 		try (FileWriter file = new FileWriter(configPath)) {
 			file.write(arr.toString());
 			logger.info("Successfully updated Results to Create_PreRegistrationOutput.json file.......................!!");
+		
 		}
+		CommonLibrary.backUpFiles(configPaths, dest);
 	}
 }

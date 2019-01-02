@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10512" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:58:03Z">
+  <suite name="Default suite" duration-ms="2437" started-at="2019-01-02T10:11:23Z" finished-at="2019-01-02T10:11:26Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10512" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:58:03Z">
+    <test name="Default test" duration-ms="2437" started-at="2019-01-02T10:11:23Z" finished-at="2019-01-02T10:11:26Z">
       <class name="io.mosip.prereg.scripts.Get_RequestPreRegistration">
-        <test-method status="PASS" signature="suiteSetup()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="suiteSetup" is-config="true" duration-ms="13" started-at="2018-12-31T11:57:52Z" finished-at="2018-12-31T11:57:52Z">
+        <test-method status="PASS" signature="suiteSetup()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="suiteSetup" is-config="true" duration-ms="13" started-at="2019-01-02T10:11:23Z" finished-at="2019-01-02T10:11:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- suiteSetup -->
-        <test-method status="PASS" signature="generate_Response(java.lang.String, java.lang.Integer, org.json.simple.JSONObject)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="generate_Response" duration-ms="10475" started-at="2018-12-31T11:57:52Z" data-provider="createPreReg" finished-at="2018-12-31T11:58:03Z">
+        <test-method status="FAIL" signature="generate_Response(java.lang.String, java.lang.Integer, org.json.simple.JSONObject)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="generate_Response" duration-ms="2352" started-at="2019-01-02T10:11:23Z" data-provider="createPreReg" finished-at="2019-01-02T10:11:26Z">
           <params>
             <param index="0">
               <value>
@@ -25,22 +25,61 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[{"jiraId":"MOS-1004","testType":"smoke","preRegId":"valid","testCaseName":"Key_smoke","status":"Pass"}]]>
+                <![CDATA[{"jiraId":"MOS-1004","testType":"smoke","preRegId":"valid","testCaseName":"Key_smoke","status":""}]]>
               </value>
             </param>
           </params>
+          <exception class="org.json.simple.parser.ParseException">
+            <full-stacktrace>
+              <![CDATA[Unexpected character (<) at position 0.
+at org.json.simple.parser.Yylex.yylex(Unknown Source)
+at org.json.simple.parser.JSONParser.nextToken(Unknown Source)
+at org.json.simple.parser.JSONParser.parse(Unknown Source)
+at org.json.simple.parser.JSONParser.parse(Unknown Source)
+at org.json.simple.parser.JSONParser.parse(Unknown Source)
+at io.mosip.service.AssertPreReg.getComparableBody(AssertPreReg.java:55)
+at io.mosip.service.AssertPreReg.assertPreRegistration(AssertPreReg.java:29)
+at io.mosip.prereg.scripts.Get_RequestPreRegistration.generate_Response(Get_RequestPreRegistration.java:108)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.json.simple.parser.ParseException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generate_Response -->
-        <test-method status="PASS" signature="updateOutput()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="updateOutput" is-config="true" duration-ms="8" started-at="2018-12-31T11:58:03Z" finished-at="2018-12-31T11:58:03Z">
+        <test-method status="PASS" signature="updateOutput()[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="updateOutput" is-config="true" duration-ms="56" started-at="2019-01-02T10:11:26Z" finished-at="2019-01-02T10:11:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateOutput -->
-        <test-method status="PASS" signature="testTearDown(org.testng.ITestContext)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="testTearDown" is-config="true" duration-ms="1" started-at="2018-12-31T11:58:03Z" finished-at="2018-12-31T11:58:03Z">
+        <test-method status="PASS" signature="testTearDown(org.testng.ITestContext)[pri:0, instance:io.mosip.prereg.scripts.Get_RequestPreRegistration@3745e5c6]" name="testTearDown" is-config="true" duration-ms="2" started-at="2019-01-02T10:11:26Z" finished-at="2019-01-02T10:11:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@691567ea]]>
+                <![CDATA[org.testng.TestRunner@1c05a54d]]>
               </value>
             </param>
           </params>

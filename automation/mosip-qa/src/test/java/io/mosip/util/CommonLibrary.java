@@ -8,19 +8,21 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Field;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import io.mosip.dbHealthcheck.DBHealthCheck;
 import io.restassured.response.Response;
 
 
@@ -66,10 +68,6 @@ public class CommonLibrary {
 	public static void scenarioFileCreator(String fileName,String module,String testType,String ouputFile) throws IOException, ParseException {
 		String input = "";
 		List<String> scenario = new ArrayList<String>();
-	//	Class<otpGenerate> otpRequestDto = otpGenerate.class;
-		// Class<OtpRequestScenarioDTO> otpRequestScenario =
-		// OtpRequestScenarioDTO.class;
-	//	Field[] fields = otpRequestDto.getDeclaredFields();
 		String filepath=System.getProperty("user.dir") + "\\src\\test\\resources\\" + module+"\\"+fileName;
 		String configPaths = System.getProperty("user.dir") + "\\src\\test\\resources\\" +module;
 		File folder = new File(configPaths);
@@ -256,6 +254,25 @@ public class CommonLibrary {
           logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
           return getResponse;
     } // end GET_REQUEST
+    
+    public static void backUpFiles(String source, String destination) {
+    	//String time = java.time.LocalDate.now().toString()+"--"+java.time.LocalTime.now().toString();
+    	 Calendar cal = Calendar.getInstance();
+         cal.setTime(Date.from(Instant.now()));
+  
+    	String result = String.format(
+                  "%1$tY-%1$tm-%1$td-%1$tk-%1$tS-%1$tp", cal);
+    //System.out.println(System.getProperty("APPDATA"));
+		String filePath=System.getenv("APPDATA")+"\\MosipUtil\\UtilFiles\\"+destination+"\\"+result;
+		File sourceFolder = new File(source);
+		File dest = new File(filePath);
+		try {
+		FileUtils.copyDirectory(sourceFolder,dest);
+		logger.info("Please Check Your App Data in C drive to get access to the util files");
+		}catch(IOException e) {
+			logger.info("Check %APPDATA%");
+		}
+    }
 
 }
 

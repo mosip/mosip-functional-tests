@@ -1,23 +1,23 @@
 {
-		"id": "mosip.pre-registration.demographic.create",
+		"id": "mosip11.pre-registration.demographic.create",
 		"ver" : "1.0",
-        "reqTime" : "",
+		"reqTime" : "2018-12-17T05:08:13.789+0000",
 		"request" :
 		{
 			"preRegistrationId": "",
-			"createdBy": "",
-			"createdDatetime": "2018-10-17T07:22:57.086+0000",
-			"updatedBy": "Ashish",
+			"createdBy": "sdasdasdadasdasdas12312123123asdasdasdasdasd",
+			"createdDatetime": "T07:22:57.086+0000",
+			"updatedBy": "",
 			"updatedDatetime": "2018-10-17T07:22:57.086+0000",
-			"statusCode": "Booked",
-			"langCode": "AR",
+			"statusCode": "resestr6teses",
+			"langCode": "",
 			"demographicDetails":
 			{
 				"identity":
 				{
 					"FullName": [
 					{
-						"language": "ar",
+						"language": "a44r",
 						"label": "الاسم الاول",
 						"value": "اشيش كومار راستوجي"
 					},

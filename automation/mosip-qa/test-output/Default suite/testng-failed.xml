@@ -7,7 +7,7 @@
         <methods>
           <include name="suiteSetup"/>
           <include name="updateOutput"/>
-          <include name="generate_Response"/>
+          <include name="generate_Response" invocation-numbers="0"/>
           <include name="testTearDown"/>
         </methods>
       </class> <!-- io.mosip.prereg.scripts.Get_RequestPreRegistration -->

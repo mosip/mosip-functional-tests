@@ -1,7 +1,7 @@
 {
 		"id": "mosip.pre-registration.demographic.create",
 		"ver" : "1.0",
-		"reqTime" : "",
+        "reqTime" : "",
 		"request" :
 		{
 			"preRegistrationId": "",
