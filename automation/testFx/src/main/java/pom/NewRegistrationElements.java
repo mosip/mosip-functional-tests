@@ -1,5 +1,6 @@
 package pom;
 
+import static util.ActionUtils.*;
 import lombok.Getter;
 
 @Getter
@@ -10,10 +11,10 @@ public enum NewRegistrationElements
 	PREREGISTRATION_TXT("#preRegistrationId_txt",""),
 	PREREGID_LBL("#searchpreregd_lbl","%search_for_Pre_registration_id"),
 	
+	autofill_btn("#autoFillBtn",""),
 	
 	FETCH_BTN("#fetch_Btn","%fetch"),
 	
-	AUTOFILL_BTN("#autoFill_Btn","Click Me To Fill The Form!!"),
 	
 	FULLNAME_TXT("#fullName",""),
 	FULLNAME_LBL("#fullName_lbl","%full_name"),
@@ -44,6 +45,9 @@ public enum NewRegistrationElements
 	
 	COPYPASTEICON("#copyPasteIcon",""),
 
+	ADD1LOCALLANG_LBL("#addressLine1LocalLanguagelbl",""),
+	ADD2LOCALLANG_LBL("#addressLine2LocalLanguagelbl",""),
+	ADD3LOCALLANG_LBL("#addressLine3LocalLanguagelbl",""),
 	ADD1LOCALLANG_TXT("#addressLine1LocalLanguage_txt",""),
 	ADD2LOCALLANG_TXT("#addressLine2LocalLanguage_txt",""),
 	ADD3LOCALLANG_TXT("#addressLine3LocalLanguage_txt",""),
@@ -79,16 +83,23 @@ public enum NewRegistrationElements
 	NEXT_BTN("#next_Btn","%next"),
 	
 	//APPLICANT BIOMETRICS
-	BI0METRICPANE_TXT("#appBiometric_txt","Applicant Biometrics");
+	BI0METRICPANE_TXT("#appBiometric_txt","Applicant Biometrics"),
+	FINGERPRINT_LBL("#fingerprint_lbl","Fingerprint"),
 	
+	LEFTHAND_IMG("#leftHandPalm",""),
+	RIGHTHAND_IMG("#rightHandPalm",""),
+	THUMB_IMG("#thumb",""),
 	
+	QUALITY1_LBL("#quality_lbl1","Quality %       :"),
+	QUALITY2_LBL("#quality_lbl2","Quality %       :"),	
+	QUALITY3_LBL("#quality_lbl3","Quality %       :"),
+	THRESHOLD_LBL1("#threshold1_lbl","Threshold %   :"),
+	THRESHOLD_LBL2("#threshold1_lb2","Threshold %   :"),
+	THRESHOLD_LBL3("#threshold1_lb3","Threshold %   :"),
 	
-	
-	
-	
-	
-	
-	
+	SCAN_BTN("#scan_btn","Scan"),
+	BIONEXT_BTN("#next_btn","Next"),
+	PREVIOUS_BTN("#previous_btn","Previous")
 	
 	
 ;
@@ -109,5 +120,37 @@ public enum NewRegistrationElements
 		return value;
 	}
 
-
+	 public static void Verify_Autofill_demographicDetails(String PreRgID) {
+		 
+		 
+		// clickOn(NewRegistrationElements.autofill_btn.locator) ;
+		clickOn(NewRegistrationElements.PREREGISTRATION_TXT.locator).write("");
+		clickOn(NewRegistrationElements.FETCH_BTN.locator);
+	//add the code to fetch the details from DB
+		
+		System.out.println(lookup(NewRegistrationElements.PREREGISTRATION_TXT.locator).queryText());
+		
+	 }
+	 public static void verify_fillDetails_PreReg() {
+		 
+		 		 	clickOn(NewRegistrationElements.FULLNAME_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.AGE_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.DATEPICKER.locator).write("");
+		 		 	clickOn(NewRegistrationElements.ADDRESSLINE1_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.ADDRESSLINE2_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.ADDRESSLINE3_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.REGION_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.CITY_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.PROVINCE_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.POSTALCODE_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.LOCALAUTHOURITY_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.MOBILENO_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.EMAILID_TXT.locator).write("");
+		 		 	clickOn(NewRegistrationElements.PINNUMBER.locator).write("");
+		 		 	
+		 		 	clickOn(NewRegistrationElements.NEXT_BTN.locator);
+		 		 	
+		 		 	
+	 }
+	
 }
