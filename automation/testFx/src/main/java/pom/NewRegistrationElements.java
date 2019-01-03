@@ -10,6 +10,7 @@ public enum NewRegistrationElements
 	PREREGISTRATION_TXT("#preRegistrationId_txt",""),
 	PREREGID_LBL("#searchpreregd_lbl","%search_for_Pre_registration_id"),
 	
+	
 	FETCH_BTN("#fetch_Btn","%fetch"),
 	
 	AUTOFILL_BTN("#autoFill_Btn","Click Me To Fill The Form!!"),
