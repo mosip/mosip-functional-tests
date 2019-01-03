@@ -8,6 +8,8 @@
   <modelVersion>4.0.0</modelVersion>
 
 
+
+
   <groupId>testFx-Framework</groupId>
   <artifactId>testFx</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -26,6 +28,22 @@
 		<artifactId>registration-ui</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
   </dependency>
+  
+  <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>5.0.6.RELEASE</version>
+      </dependency>
+ <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>5.0.6.RELEASE</version>
+      </dependency>
+<dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>5.0.6.RELEASE</version>
+      </dependency>
 
   <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>
