@@ -78,7 +78,8 @@ public enum NewRegistrationElements
 	NEXT_BTN("#next_Btn","%next"),
 	
 	//APPLICANT BIOMETRICS
-	BI0METRICPANE_CLK("#biometricTitlePane","Applicant Biometrics");
+	BI0METRICPANE_TXT("#appBiometric_txt","Applicant Biometrics");
+	
 	
 	
 	
