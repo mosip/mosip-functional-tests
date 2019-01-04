@@ -8,12 +8,10 @@ public enum MainPageElements{
 	
 	NEWREGISTER("#newRegistration",""),
 	APPROVEPACKET("#approvePacket",""),
-	UPLOADPACKET("#uploadPacket",""),
-	LOGOUT("#logOuticon",""),LOGOUTVAL("#LogOutVal","");
+	UPLOADPACKET("#uploadPacket","");
 	
 	private String locator; 
 	private String value;
-	   // enum constructor - cannot be public or protected 
 	    private MainPageElements(String locator,String value) 
 	    { 
 	    	

@@ -4,7 +4,8 @@ import static util.ActionUtils.clickOn;
 import lombok.Getter;
 @Getter
 public enum loginElements{
-	USERNAME("#username","RO Username"),PASSWORD("#password","RO Password"),SUBMIT("#submit","Submit"),GETOTP("#getOTP","Get OTP"),RESEND("#resend",""),
+	USERNAME("#username","RO Username"),
+	PASSWORD("#password","RO Password"),SUBMIT("#submit","Submit"),GETOTP("#getOTP","Get OTP"),RESEND("#resend",""),
 	OTPVALIDITY("#otpValidity",""),FINGERPRINT("#fingerprint",""),FINGERIMAGE("#fingerImage","");
 	public String locator;
 	public String value;

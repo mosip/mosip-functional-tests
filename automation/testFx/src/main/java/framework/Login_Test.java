@@ -13,7 +13,14 @@ import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.controller.Initialization;
 import io.mosip.registration.controller.auth.LoginController;
 import javafx.stage.Stage;
+import pom.AckReceipt;
+import pom.BioMetricPreview;
+import pom.DemographicPreview;
+import pom.FingurePrintCapture;
+import pom.IrisCapturePage;
 import pom.MainPageElements;
+import pom.NewRegistrationElements;
+import pom.OperatorAuthentication;
 import pom.loginElements;
 import userlib.UserLibrary;
 import util.TestDataParseJSON;
@@ -60,6 +67,19 @@ class Login_Test {
 			loginElements.login(jsonFromFile.getDataFromJsonViaKey("username"),
 					jsonFromFile.getDataFromJsonViaKey("password"));	
 			UserLibrary.checkFullPageLoad(robot, MainPageElements.class);
+			util.clickOn(MainPageElements.NEWREGISTER.getLocator());
+			UserLibrary.checkFullPageLoad(robot, NewRegistrationElements.class);
+		   NewRegistrationElements.fillUpForm();
+		   NewRegistrationElements.uploadForm();
+		   UserLibrary.checkFullPageLoad(robot, FingurePrintCapture.class);
+		   FingurePrintCapture.scanFingerPrint();
+		   IrisCapturePage.captureIRIS();
+		   DemographicPreview.submitDetails();
+		   DemographicPreview.submitDemographicDetails2();
+		   BioMetricPreview.submitBioMetric();
+		   UserLibrary.checkFullPageLoad(robot, OperatorAuthentication.class);
+		   OperatorAuthentication.operatorAuthentication(jsonFromFile.getDataFromJsonViaKey("password"));
+		   AckReceipt.saveReceipt();
 		} catch (Exception e) {
 			e.printStackTrace();
 
