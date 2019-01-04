@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum ScanPage {
-	SCANDOCUMENT("#scanGenericButton", "");
+	SCANDOCUMENT("#scanNow", "");
 	private String locator;
 	private String value;
 	private ScanPage(String locator, String value) {

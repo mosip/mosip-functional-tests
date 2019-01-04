@@ -6,9 +6,9 @@ import lombok.Getter;
 @Getter
 public enum MainPageElements{
 	
-	NEWREGISTER("#newRegistration",""),
-	APPROVEPACKET("#approvePacket",""),
-	UPLOADPACKET("#uploadPacket","");
+	NEWREGISTER("New Registration","New Registration"),
+	APPROVEPACKET("Approve Packet","Approve Packet"),
+	UPLOADPACKET("Upload Packet","");
 	
 	private String locator; 
 	private String value;

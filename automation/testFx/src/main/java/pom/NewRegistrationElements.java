@@ -14,19 +14,31 @@ import util.ActionUtils;
 
 @Getter
 public enum NewRegistrationElements {
-	PREREGISTRATION_TXT("#preRegistrationId", ""), FETCH_BTN("#fetchBtn", "%fetch"),
-	AUTOFILL_BTN("#autoFillBtn", "Click Me To Fill The Form!!"), FULLNAME_TXT("#fullName", ""),
-	GENDER_LBL("#gender", ""), AGE_TXT("#ageField", ""), DATEPICKER("#ageDatePicker", ""),
-	TOGGLE_LBL1("#toggleLabel1", ""), TOGGLE_LBL2("#toggleLabel2", ""), ADDRESSLINE1("#line1", ""),
-	ADDRESSLINE2("#line2", ""), ADDRESSLINE3("#line3", ""), REGION("#region", ""), CITY("#city", ""),
-	PROVINCE("#province", ""), POSTALCODE("#postalcode", ""), ADMIN("#localAdministrative", ""),
-	MOBILE("#mobilePhone", ""), NEXTBUTTON("#next", ""), PINNUMBER("#pinNumber", ""), POADOCUMENT("#poaDocuments", ""),
-	POABUTTON("#scanPOA", ""), POIDOCUMENT("#poiDocuments", ""), POIBUTTON("#scanPOI", ""),
-	PORDOCUMENT("#porDocuments", ""), PORBUTTON("#scanPOR", ""), DOBDOCUMENT("#dobDocuments", ""),
-	 TOBIOMETRICUPLOAD("#NextBioMetric", ""), DOBBUTTON("#sanDOB", ""),
+	PREREGISTRATION_TXT("#preRegistrationId", ""),
+	FETCH_BTN("#fetchBtn", "%fetch"),
+	AUTOFILL_BTN("#autoFillBtn", "Click Me To Fill The Form!!"),
+	FULLNAME_TXT("#fullName", ""),
+	FULLNAMELANGUAGE("#fullNameLocalLanguage",""),
+	
+	GENDER_LBL("#gender", ""),
+	AGE_TXT("#ageField", ""),
+	DATEPICKER("#ageDatePicker", ""),
+	TOGGLE_LBL1("#toggleLabel1", ""),
+	TOGGLE_LBL2("#toggleLabel2", ""), 
+	ADDRESSLINE1("#line1", ""),
+	ADDRESSLINE2("#line2", ""),
+	ADDRESSLINE3("#line3", ""),
+	REGION("#region", ""),
+	CITY("#city", ""),
+	PROVINCE("#province", ""), POSTALCODE("#postalCode", ""), ADMIN("#localAdminAuthority", ""),
+	MOBILE("#mobileNo", ""), NEXTBUTTON("#nextBtn", ""), PINNUMBER("#cniOrPinNumber", ""), POADOCUMENT("#poaDocuments", ""),
+	POABUTTON("#poaScanBtn", ""), POIDOCUMENT("#poiDocuments", ""), POIBUTTON("#poiScanBtn", ""),
+	PORDOCUMENT("#porDocuments", ""), PORBUTTON("#porScanBtn", ""), DOBDOCUMENT("#dobDocuments", ""),
+	 TOBIOMETRICUPLOAD("#pane2NextBtn", ""), DOBBUTTON("#dobScanBtn", ""),
 	EMAIL("#emailId", ""),
 	PARENTNAME("#parentName",""),
-	RID("#rid","");
+	
+	RID("#uinId","");
 	public String locator;
 	public String value;
 

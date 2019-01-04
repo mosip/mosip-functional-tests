@@ -5,7 +5,7 @@ import static util.ActionUtils.*;
 @Getter
 public enum OperatorAuthentication {
 	PASSWORD("#password",""),
-	SUBMIT("#submit","");
+	SUBMIT("Submit","");
 private String locator;
 private String value;
 private OperatorAuthentication(String locator, String value) {
