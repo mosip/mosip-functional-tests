@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+
+ 
   <modelVersion>4.0.0</modelVersion>
   <groupId>testFx-Framework</groupId>
   <artifactId>testFx</artifactId>
@@ -12,10 +13,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <java.version>1.8</java.version>
   </properties>
 
   <dependencies>
-  
+  <dependency>
+  <artifactId>registration-ui</artifactId>
+  <groupId>io.mosip.registration</groupId>
+	<version>1.0.0-SNAPSHOT</version>
+  </dependency>
 
   <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>
@@ -69,4 +75,6 @@
     <version>1.0.0</version>
 </dependency>
   </dependencies>
+  
+
 </project>

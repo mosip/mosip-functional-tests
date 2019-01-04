@@ -76,7 +76,6 @@ public class UserLibrary {
 	public static Button GetCloseButton(){
 		Awaitility.await().until(new Callable<Boolean>() {
 
-			@Override
 			public Boolean call() throws Exception {
 				try {
 				return ActionUtils.robot.lookup(".button").query().isVisible();
