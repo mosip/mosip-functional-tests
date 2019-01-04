@@ -6,8 +6,8 @@ import util.ActionUtils;
 
 @Getter
 public enum DemographicPreview {
-	NEXT("#next",""),
-	EDIT("#edit",""),
+	NEXT("#nextBtn",""),
+	EDIT("#editBtn",""),
 ;
 	private String locator;
 	private String value;

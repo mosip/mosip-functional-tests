@@ -6,8 +6,8 @@ import util.ActionUtils;
 
 @Getter
 public enum BioMetricPreview {
-NEXT("#next",""),
-PREVIOUS("#edit","");
+NEXT("#nextBtn",""),
+PREVIOUS("#editBtn","");
 	
 	private String locator;
 	private String value;

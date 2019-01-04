@@ -9,11 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 @Getter
 public enum IrisCapturePage {
-	LEFTEYE("#leftEye","")
-	,RIGHTEYE("#rightEye",""),
-	SCAN("#scan",""),
-	NEXT("#next",""),
-	PREVIOUS("#previous","");
+	LEFTEYE("#leftIrisImage","")
+	,RIGHTEYE("#rightIrisImage",""),
+	SCAN("#scanIris",""),
+	NEXT("#irisNext",""),
+	PREVIOUS("#irisPrevious","");
 	
 private IrisCapturePage(String locator, String value) {
 		this.locator = locator;

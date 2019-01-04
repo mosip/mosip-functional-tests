@@ -9,12 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 @Getter
 public enum FingurePrintCapture {
-	FINGERPRINT1("#imageView1",""),
-	FINGERPRINT2("#imageView2",""),
-	FINGERPRINT3("#imageView3",""),
-	SCAN("#scan",""),
-	NEXT("#next",""),
-	PREVIOUS("#previous","");
+	FINGERPRINT1("#leftHandPalmImageview",""),
+	FINGERPRINT2("#rightHandPalmImageview",""),
+	FINGERPRINT3("#thumbImageview",""),
+	SCAN("#scanBtn",""),
+	NEXT("#nextBtn",""),
+	PREVIOUS("#previousBtn","");
 	
 private String locator;
 private String value ;

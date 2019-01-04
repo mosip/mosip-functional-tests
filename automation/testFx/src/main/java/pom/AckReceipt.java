@@ -6,7 +6,7 @@ import util.ActionUtils;
 
 @Getter
 public enum AckReceipt {
-SAVE("#save","");
+SAVE("Save","");
 	private String locators;
 	private String value;
 	private AckReceipt(String locators, String value) {
