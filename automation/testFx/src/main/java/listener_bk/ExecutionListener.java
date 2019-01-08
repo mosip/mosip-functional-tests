@@ -1,4 +1,4 @@
-package listener;
+package listener_bk;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,18 +10,18 @@ import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
 
-import com.relevantcodes.extentreports.LogStatus;
-
-import util.ExtentManager;
-import util.ExtentTestManager;
-
 
 public class ExecutionListener implements TestExecutionListener{
 
-	public void executionStarted(TestIdentifier testIdentifier) {
-		 ExtentTestManager.startTest(testIdentifier.getDisplayName(),"");
-	}
-
+//	public void testPlanExecutionStarted(TestPlan testPlan) {
+//		// TODO Auto-generated method stub
+//		TestExecutionListener.super.testPlanExecutionStarted(testPlan);
+//	}
+//
+//	public void executionStarted(TestIdentifier testIdentifier) {
+//		// TODO Auto-generated method stub
+//		TestExecutionListener.super.executionStarted(testIdentifier);
+//	}
 
 	List<Map<String, Object>> testCases = new ArrayList<Map<String, Object>>();
 	 
@@ -34,10 +34,8 @@ public class ExecutionListener implements TestExecutionListener{
             // Tesults requires result to be one of: [pass, fail, unknown]
             if (result == "SUCCESSFUL") {
                 result = "pass";
-                ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
             } else if (result == "FAILED") {
                 result = "fail";
-                ExtentTestManager.getTest().log(LogStatus.FAIL,"Test Failed");
             } else {
                 result = "unknown";
             }
@@ -70,17 +68,14 @@ public class ExecutionListener implements TestExecutionListener{
         }
     }
 
-	
-    public void testPlanExecutionFinished(TestPlan testPlan) {
+	public void testPlanExecutionFinished(TestPlan testPlan) {
         // Map<String, Object> to hold your test results data.
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("target", "token");
         Map<String, Object> results = new HashMap<String, Object>();
         results.put("cases", testCases);
         data.put("results", results);
-        System.out.println(results);
-        ExtentTestManager.endTest();
-        ExtentManager.getReporter().flush();
+        System.out.println("Ab tak ni fata:  "+results);
     }
 	
 	

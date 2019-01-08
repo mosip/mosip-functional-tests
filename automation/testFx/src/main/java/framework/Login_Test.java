@@ -28,6 +28,11 @@ import util.TestDataParseJSON;
 @ExtendWith(ApplicationExtension.class)
 class Login_Test {
 	@Start
+	/**
+	 * On Start Function to setup Initialization of Registration UI adding
+	 * Step for graceful Execution  
+	 * @param stage
+	 */
 	void onStart(Stage stage) {
 		System.setProperty("java.net.useSystemProxies", "true");
 		/**
@@ -70,7 +75,7 @@ class Login_Test {
 			util.clickOn(MainPageElements.NEWREGISTER.getLocator());
 			UserLibrary.checkFullPageLoad(robot, NewRegistrationElements.class);
 		   NewRegistrationElements.fillUpForm();
-		   NewRegistrationElements.uploadForm();
+		   NewRegistrationElements.uploadForm(jsonFromFile);
 		   UserLibrary.checkFullPageLoad(robot, FingurePrintCapture.class);
 		   FingurePrintCapture.scanFingerPrint();
 		   IrisCapturePage.captureIRIS();
