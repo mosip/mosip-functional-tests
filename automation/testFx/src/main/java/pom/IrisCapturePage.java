@@ -1,13 +1,11 @@
 package pom;
 
-import lombok.Getter;
-import util.ActionUtils;
-
-import static util.ActionUtils.*;
+import static util.ActionUtils.clickOn;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-@Getter
+import util.ActionUtils;
+
 public enum IrisCapturePage {
 	LEFTEYE("#leftIrisImage","")
 	,RIGHTEYE("#rightIrisImage",""),
@@ -42,5 +40,21 @@ public static void captureIRIS() {
 		clickOn(okButton);
 	}
 	clickOn(NEXT.getLocator());
+}
+
+public String getLocator() {
+	return locator;
+}
+
+public String getValue() {
+	return value;
+}
+
+public void setLocator(String locator) {
+	this.locator = locator;
+}
+
+public void setValue(String value) {
+	this.value = value;
 }
 }

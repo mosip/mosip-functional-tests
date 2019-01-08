@@ -1,8 +1,5 @@
 package pom;
 
-import lombok.Getter;
-
-@Getter
 public enum ScanPage {
 	SCANDOCUMENT("#scanNow", "");
 	private String locator;
@@ -11,5 +8,18 @@ public enum ScanPage {
 		this.locator = locator;
 		this.value = value;
 	}
-	
+	public void setLocator(String locator) {
+		this.locator = locator;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+	public String getLocator() {
+		return locator;
+	}
+	public String getValue() {
+		return value;
+	} 
+
 }

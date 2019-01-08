@@ -3,19 +3,22 @@ package util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
-import net.minidev.json.JSONArray;
-import net.minidev.json.JSONObject;
-import net.minidev.json.parser.JSONParser;
-import net.minidev.json.parser.ParseException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 
 public class TestDataParseJSON {
 
 	private JSONObject file;
 
-	public TestDataParseJSON(String fileName) {
+	public TestDataParseJSON(String fileName) throws IOException {
 		try {
-			this.file = (JSONObject) new JSONParser(JSONParser.MODE_PERMISSIVE)
+			this.file = (JSONObject) new JSONParser()
 					.parse(new FileReader(new File(fileName)));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -34,7 +37,6 @@ public class TestDataParseJSON {
 		try {
 			
 			jsonObj = (JSONObject) new JSONParser().parse(obj.toString());
-			
 			return jsonObj.get(keyName);
 		} catch (ClassCastException e) {
 			// in case value is an array
@@ -53,7 +55,7 @@ public class TestDataParseJSON {
 	}
 
 	
-	public static void main(String args[]) throws ParseException {
+	public static void main(String args[]) throws ParseException, IOException {
 	TestDataParseJSON dataParseJSON = new TestDataParseJSON(System.getProperty("user.dir") + "\\test_data\\SampleData.json");
 	String[] idObj = { "request", "demographicDetails", "identity", "FullName","fr"};
 	Object	obj = dataParseJSON.getDataFromJsonViaKey(idObj);

@@ -1,8 +1,6 @@
 package pom;
-import static util.ActionUtils.clickOn;
+import static util.ActionUtils.*;
 
-import lombok.Getter;
-@Getter
 public enum loginElements{
 	USERNAME("#userId","RO Username"),
 	PASSWORD("#password","RO Password"),SUBMIT("#submit","Submit"),GETOTP("#getOTP","Get OTP"),RESEND("#resend",""),

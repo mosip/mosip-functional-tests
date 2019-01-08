@@ -1,10 +1,9 @@
 package pom;
 
 import javafx.geometry.VerticalDirection;
-import lombok.Getter;
 import util.ActionUtils;
 
-@Getter
+
 public enum AckReceipt {
 SAVE("Save","");
 	private String locators;
@@ -17,4 +16,17 @@ SAVE("Save","");
 		ActionUtils.robot.scroll(30, VerticalDirection.DOWN);
 		ActionUtils.clickOn(SAVE.getLocators());
 	}
+	public void setLocators(String locators) {
+		this.locators = locators;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	public String getLocators() {
+		return locators;
+	}
+	public String getValue() {
+		return value;
+	}
+	
 }

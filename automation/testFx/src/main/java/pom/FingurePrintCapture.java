@@ -1,13 +1,11 @@
 package pom;
 
-import lombok.Getter;
-import util.ActionUtils;
-
-import static util.ActionUtils.*;
+import static util.ActionUtils.clickOn;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-@Getter
+import util.ActionUtils;
+
 public enum FingurePrintCapture {
 	FINGERPRINT1("#leftHandPalmImageview",""),
 	FINGERPRINT2("#rightHandPalmImageview",""),
@@ -18,6 +16,23 @@ public enum FingurePrintCapture {
 	
 private String locator;
 private String value ;
+
+public String getLocator() {
+	return locator;
+}
+
+public void setLocator(String locator) {
+	this.locator = locator;
+}
+
+public String getValue() {
+	return value;
+}
+
+public void setValue(String value) {
+	this.value = value;
+}
+
 private FingurePrintCapture(String locator, String value) {
 	this.locator = locator;
 	this.value = value;

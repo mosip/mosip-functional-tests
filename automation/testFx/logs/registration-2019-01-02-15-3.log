@@ -1,1 +1,0 @@
-2019-01-02T15:34:19+05:30 - [io.mosip.registration.controller.auth.LoginController] - ERROR - REGISTRATION - SERVER_CONNECTION_CHECK - REGISTRATION - REG - I/O error on POST request for "http://localhost:8080/getTokenId": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
