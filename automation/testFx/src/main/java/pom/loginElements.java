@@ -1,6 +1,11 @@
 package pom;
 import static util.ActionUtils.*;
-
+/**
+ * 
+ * @author M1030090
+ * # is for id
+ * . is for class
+ */
 public enum loginElements{
 	USERNAME("#userId","RO Username"),
 	PASSWORD("#password","RO Password"),SUBMIT("#submit","Submit"),GETOTP("#getOTP","Get OTP"),RESEND("#resend",""),

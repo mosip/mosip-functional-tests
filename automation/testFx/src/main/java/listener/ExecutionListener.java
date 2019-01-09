@@ -1,5 +1,6 @@
 package listener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import util.ExtentManager;
 import util.ExtentTestManager;
+import util.ScreenshotUtil;
 
 
 public class ExecutionListener implements TestExecutionListener{
@@ -37,7 +39,15 @@ public class ExecutionListener implements TestExecutionListener{
                 ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
             } else if (result == "FAILED") {
                 result = "fail";
-                ExtentTestManager.getTest().log(LogStatus.FAIL,"Test Failed");
+                String base64Screenshot="";
+    			try {
+    				base64Screenshot = ScreenshotUtil.takeScreenshot();
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    			ExtentTestManager.getTest().log(LogStatus.FAIL,"Test Failed",
+                        ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
             } else {
                 result = "unknown";
             }

@@ -1,6 +1,8 @@
 package testFx_Framework.testFx;
+import java.io.IOException;
 import java.lang.reflect.Field;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.ApplicationContext;
@@ -14,10 +16,6 @@ import io.mosip.registration.controller.Initialization;
 import io.mosip.registration.controller.auth.LoginController;
 import javafx.stage.Stage;
 import pom.AckReceipt;
-import pom.BioMetricPreview;
-import pom.DemographicPreview;
-import pom.FingurePrintCapture;
-import pom.IrisCapturePage;
 import pom.MainPageElements;
 import pom.NewRegistrationElements;
 import pom.OperatorAuthentication;
@@ -58,7 +56,7 @@ class Test_Login {
 	}
 
 	@Test
-	public void FirstTest(FxRobot robot) {
+	public void FirstTest(FxRobot robot) throws IOException {
 		
 		try {
 			util.ActionUtils util = new util.ActionUtils(robot);
@@ -68,19 +66,27 @@ class Test_Login {
 			TestDataParseJSON jsonFromFile = new TestDataParseJSON(
 					System.getProperty("user.dir") + "\\test_data\\userCredentials.json");
 			//ImageCaptureUtility.captureImageOnFailure(ActionUtils.robot.lookup(loginElements.USERNAME.getLocator()).query());
+			/**
+			 * Login 
+			 */
 			loginElements.login(jsonFromFile.getDataFromJsonViaKey("username"),
 					jsonFromFile.getDataFromJsonViaKey("password"));	
+			/**
+			 * Wait for full page Load
+			 * 
+			 */
 			UserLibrary.checkFullPageLoad(robot, MainPageElements.class);
 		   util.clickOn(MainPageElements.NEWREGISTER.getLocator());
+		  Assertions.fail();
 		   UserLibrary.checkFullPageLoad(robot, NewRegistrationElements.class);
 		   NewRegistrationElements.fillUpForm();
-		   NewRegistrationElements.uploadForm(jsonFromFile);
-		   UserLibrary.checkFullPageLoad(robot, FingurePrintCapture.class);
-		   FingurePrintCapture.scanFingerPrint();
-		   IrisCapturePage.captureIRIS();
-		   DemographicPreview.submitDetails();
-           DemographicPreview.submitDemographicDetails2();
-		   BioMetricPreview.submitBioMetric();
+//		   NewRegistrationElements.uploadForm(jsonFromFile);
+//		   UserLibrary.checkFullPageLoad(robot, FingurePrintCapture.class);
+//		   FingurePrintCapture.scanFingerPrint();
+//		   IrisCapturePage.captureIRIS();
+//		   DemographicPreview.submitDetails();
+//           DemographicPreview.submitDemographicDetails2();
+//		   BioMetricPreview.submitBioMetric();
       UserLibrary.checkFullPageLoad(robot, OperatorAuthentication.class);
 	   OperatorAuthentication.operatorAuthentication(jsonFromFile.getDataFromJsonViaKey("password"));
 		   AckReceipt.saveReceipt();

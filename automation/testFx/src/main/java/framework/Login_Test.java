@@ -1,6 +1,9 @@
 package framework;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.ApplicationContext;
@@ -34,35 +37,36 @@ class Login_Test {
 	 * @param stage
 	 */
 	void onStart(Stage stage) {
-		System.setProperty("java.net.useSystemProxies", "true");
-		/**
-		 * Java Advance Concept Reflection 
-		 */
-		ApplicationContext context = Initialization.getApplicationContext();
-		context = new AnnotationConfigApplicationContext(AppConfig.class);
-		Field field = null;
-		try {
-			field = Initialization.class.getDeclaredField("applicationContext");
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		}
-		field.setAccessible(true);
-		try {
-			field.set(null, context);
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		LoginController loginController = Initialization.getApplicationContext().getBean(LoginController.class);
-		loginController.loadInitialScreen(stage);
+//		System.setProperty("java.net.useSystemProxies", "true");
+//		/**
+//		 * Java Advance Concept Reflection 
+//		 */
+//		ApplicationContext context = Initialization.getApplicationContext();
+//		context = new AnnotationConfigApplicationContext(AppConfig.class);
+//		Field field = null;
+//		try {
+//			field = Initialization.class.getDeclaredField("applicationContext");
+//		} catch (NoSuchFieldException e) {
+//			e.printStackTrace();
+//		} catch (SecurityException e) {
+//			e.printStackTrace();
+//		}
+//		field.setAccessible(true);
+//		try {
+//			field.set(null, context);
+//		} catch (IllegalArgumentException e) {
+//			e.printStackTrace();
+//		} catch (IllegalAccessException e) {
+//			e.printStackTrace();
+//		}
+//		LoginController loginController = Initialization.getApplicationContext().getBean(LoginController.class);
+//		loginController.loadInitialScreen(stage);
 	}
 
 	@Test
 	public void FirstTest(FxRobot robot) {
 		try {
+			
 			util.ActionUtils util = new util.ActionUtils(robot);
 			/**
 			 * File Dir =user.dir\\test_data\\userCredentials.json
@@ -73,6 +77,7 @@ class Login_Test {
 					jsonFromFile.getDataFromJsonViaKey("password"));	
 			UserLibrary.checkFullPageLoad(robot, MainPageElements.class);
 			util.clickOn(MainPageElements.NEWREGISTER.getLocator());
+			Assertions.fail();
 			UserLibrary.checkFullPageLoad(robot, NewRegistrationElements.class);
 		   NewRegistrationElements.fillUpForm();
 		   NewRegistrationElements.uploadForm(jsonFromFile);
@@ -84,6 +89,7 @@ class Login_Test {
 		   BioMetricPreview.submitBioMetric();
 		   UserLibrary.checkFullPageLoad(robot, OperatorAuthentication.class);
 		   OperatorAuthentication.operatorAuthentication(jsonFromFile.getDataFromJsonViaKey("password"));
+		 
 		   AckReceipt.saveReceipt();
 		} catch (Exception e) {
 			e.printStackTrace();
