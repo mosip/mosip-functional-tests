@@ -1,0 +1,42 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1543399867992" ID="ID_1810404289" MODIFIED="1543401266455" TEXT="Demographic JSON into the Database">
+<node COLOR="#009900" CREATED="1543399908801" ID="ID_1848973880" MODIFIED="1543401285987" POSITION="right" TEXT="MOS-9341">
+<node COLOR="#009900" CREATED="1543399965423" ID="ID_1601583587" MODIFIED="1543401285987" TEXT="extract demographic data ">
+<node COLOR="#009900" CREATED="1543399992904" ID="ID_521821718" MODIFIED="1543401285986" TEXT="Encrypt the demographic data">
+<node COLOR="#009900" CREATED="1543400015099" ID="ID_1736436679" MODIFIED="1543401285986" TEXT="Insert the demographic data in databse">
+<node COLOR="#009900" CREATED="1543400059445" ID="ID_19815596" MODIFIED="1543401285985" TEXT="Verify sucessfuly uploaded the data into databse"/>
+<node COLOR="#cc0033" CREATED="1543400079440" ID="ID_1972213420" MODIFIED="1543401302272" TEXT="Database connection Lost">
+<node COLOR="#cc0033" CREATED="1543400091113" ID="ID_1415314435" MODIFIED="1543401302272" TEXT="Error Message &quot;&#x201c;The Database Connection is Lost&#x201d;&quot;">
+<node COLOR="#cc0033" CREATED="1543400105131" ID="ID_1410749960" MODIFIED="1543401302272" TEXT="Error code &quot;RPR-PSV-001&quot;"/>
+</node>
+</node>
+<node COLOR="#cc0033" CREATED="1543400127300" ID="ID_775982214" MODIFIED="1543401302272" TEXT="Unable to Insert Data dute column mismatch">
+<node COLOR="#cc0033" CREATED="1543400167162" ID="ID_159372813" MODIFIED="1543401302271" TEXT="Error message &quot;&#x201c;The Data is not getting inserted in the DB for Registration ID &lt;Registration ID&gt;&#x201d;&quot;">
+<node COLOR="#cc0033" CREATED="1543400195818" ID="ID_507286010" MODIFIED="1543402079626" TEXT="Error code &quot;RPR-PDE-002&quot;"/>
+</node>
+</node>
+<node COLOR="#cc0033" CREATED="1543400842394" ID="ID_183177322" MODIFIED="1543401302271" TEXT="File is not present in packet store">
+<node COLOR="#cc0033" CREATED="1543401222949" ID="ID_239459494" MODIFIED="1543401302271" TEXT="Error message &#x201c;The File &lt;File Name&gt; was not found in Packet Store&#x201d;">
+<node COLOR="#cc0033" CREATED="1543401231300" ID="ID_887852443" MODIFIED="1543401302271" TEXT="Error code &quot;RPR-PDE-003&quot;"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1539322412824" ID="ID_923715244" MODIFIED="1539322600151" TEXT="System exception:">
+<node COLOR="#cc0000" CREATED="1539322412825" ID="ID_455802098" MODIFIED="1539322604536" TEXT="Unexpected Error"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_304842054" MODIFIED="1539322607513" TEXT="Bad Gateway"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_1920665917" MODIFIED="1539322610565" TEXT="Service Unavailable"/>
+<node COLOR="#cc0000" CREATED="1539322412826" ID="ID_1678593659" MODIFIED="1539322614401" TEXT=" Server Error"/>
+<node COLOR="#cc0000" CREATED="1539322412827" ID="ID_1775089159" MODIFIED="1539322622263" TEXT=" Timeout/Session Expiry"/>
+<node COLOR="#cc0000" CREATED="1539322412827" ID="ID_1560787239" MODIFIED="1539322625424" TEXT="Others if any"/>
+</node>
+<node CREATED="1543402920106" ID="ID_617350111" MODIFIED="1543402983594" TEXT="Log message is not stored in audit log">
+<node CREATED="1543402985785" ID="ID_1059549764" MODIFIED="1543403003815" TEXT="Error Message &quot;&quot;Handler exception while audit&quot;">
+<node CREATED="1543403006801" ID="ID_1958285993" MODIFIED="1543403022953" TEXT="Error Code &quot;COK-AUD-AUM-001&quot;"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>
