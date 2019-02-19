@@ -4,7 +4,7 @@
 current_repo="$(basename `git rev-parse --show-toplevel`)"
 
 # only check commit messages on mosip repo
-[ "$current_repo" != "mosip" ] && exit 0
+[ "$current_repo" != "mosip-test" ] && exit 0
 
 msg_file=$1
 
