@@ -1,0 +1,37 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1547459041875" ID="ID_1715811510" MODIFIED="1547459127426" TEXT="RID Packet">
+<node CREATED="1547459043095" ID="ID_832841708" MODIFIED="1547459144321" POSITION="right" TEXT="RID Packet status">
+<node CREATED="1547459043095" ID="ID_1112123658" MODIFIED="1547459060997" TEXT="">
+<node CREATED="1547459043111" ID="ID_1964795470" MODIFIED="1547459043111" TEXT="Manual Adjudicator Accepted">
+<node CREATED="1547459043111" ID="ID_660319644" MODIFIED="1547459043111" TEXT="allocate UIN to RID">
+<node CREATED="1547459043111" ID="ID_1818175288" MODIFIED="1547459043111" TEXT="Update UIN in individual_demographic_dedup Table">
+<node CREATED="1547459043126" ID="ID_1455366074" MODIFIED="1547459043126" TEXT="ID Object with UIN to ID Repository">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Success">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Send Notification through SMS/Email"/>
+</node>
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Failure">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Notify the resident for the Duplicate request"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1547459148852" ID="ID_413046498" MODIFIED="1547459180619" TEXT="Bio-Dedupe success">
+<node CREATED="1547459043111" ID="ID_802463849" MODIFIED="1547459043111" TEXT="allocate UIN to RID">
+<node CREATED="1547459043111" ID="ID_1436083209" MODIFIED="1547459043111" TEXT="Update UIN in individual_demographic_dedup Table">
+<node CREATED="1547459043126" ID="ID_876780833" MODIFIED="1547459043126" TEXT="ID Object with UIN to ID Repository">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Success">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Send Notification through SMS/Email"/>
+</node>
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Failure">
+<node CREATED="1547459043126" MODIFIED="1547459043126" TEXT="Notify the resident for the Duplicate request"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>
