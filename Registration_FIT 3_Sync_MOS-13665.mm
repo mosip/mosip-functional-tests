@@ -1,0 +1,77 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1552884644854" ID="ID_209544300" MODIFIED="1552884652994" TEXT="Registration - Key Sync">
+<node CREATED="1552884665756" ID="ID_1180081643" LINK="https://mosipid.atlassian.net/browse/MOS-13665" MODIFIED="1552885073672" POSITION="right" TEXT="MOS-13665">
+<edge COLOR="#33cc00"/>
+<node COLOR="#33cc00" CREATED="1552884678680" HGAP="12" ID="ID_1431094525" MODIFIED="1552885138850" TEXT="Key threshold value config parameter" VSHIFT="-32">
+<node COLOR="#33cc00" CREATED="1552884693032" ID="ID_1545739678" MODIFIED="1552885138834" TEXT="Yes">
+<node COLOR="#33cc00" CREATED="1552884712360" HGAP="15" ID="ID_1559960656" MODIFIED="1552885138834" TEXT="Set the value as per the center&apos;s requirement using &quot;mosip.registration.key_policy_sync_threshold_value&quot; parameter in master.global_param" VSHIFT="-21"/>
+</node>
+<node COLOR="#ff0000" CREATED="1552884706251" ID="ID_241508853" MODIFIED="1552885168436" TEXT="No">
+<edge COLOR="#ff0000"/>
+<node COLOR="#ff0000" CREATED="1552884796698" ID="ID_1743172154" MODIFIED="1552885184955" TEXT="Raise a defect"/>
+</node>
+</node>
+<node COLOR="#33cc00" CREATED="1552884903176" ID="ID_653347446" MODIFIED="1552885138850" TEXT="Registration Type">
+<node COLOR="#33cc00" CREATED="1552884912784" HGAP="12" ID="ID_1654652050" MODIFIED="1552885138850" TEXT="New Registration" VSHIFT="-31">
+<node COLOR="#33cc00" CREATED="1552884815109" HGAP="19" ID="ID_8209145" MODIFIED="1552885217412" TEXT="Key expiry date is greater than current date + threshold value " VSHIFT="15">
+<node COLOR="#33cc00" CREATED="1552884839539" HGAP="17" ID="ID_700372156" MODIFIED="1552885138834" TEXT="Yes" VSHIFT="-22">
+<node COLOR="#33cc00" CREATED="1552884868026" ID="ID_322099829" MODIFIED="1552885138834" TEXT="Allow the user to proceed with new registration">
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_322099829" ENDARROW="Default" ENDINCLINATION="499;0;" ID="Arrow_ID_617234481" SOURCE="ID_1748186875" STARTARROW="None" STARTINCLINATION="499;0;"/>
+</node>
+</node>
+<node COLOR="#ff0000" CREATED="1552884840687" HGAP="19" ID="ID_943951204" MODIFIED="1552885168436" TEXT="No" VSHIFT="17">
+<edge COLOR="#ff0000"/>
+<node COLOR="#ff0000" CREATED="1552884967476" ID="ID_170816185" MODIFIED="1552885184940" TEXT="Display &quot;Please sync to get latest key from the server before proceeding with this registration.&#x201d; error message">
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_170816185" ENDARROW="Default" ENDINCLINATION="754;0;" ID="Arrow_ID_1847919470" SOURCE="ID_1319880921" STARTARROW="None" STARTINCLINATION="754;0;"/>
+</node>
+</node>
+</node>
+<node COLOR="#33cc00" CREATED="1552884844290" HGAP="17" ID="ID_272656386" MODIFIED="1552885138850" TEXT="Key expiry date is lesser than current date + threshold value" VSHIFT="50">
+<node COLOR="#ff0000" CREATED="1552884984127" HGAP="13" ID="ID_1319880921" MODIFIED="1552885168436" TEXT="Yes" VSHIFT="-49">
+<edge COLOR="#ff0000"/>
+<arrowlink DESTINATION="ID_170816185" ENDARROW="Default" ENDINCLINATION="754;0;" ID="Arrow_ID_1847919470" STARTARROW="None" STARTINCLINATION="754;0;"/>
+</node>
+<node COLOR="#33cc00" CREATED="1552884985904" HGAP="18" ID="ID_1748186875" MODIFIED="1552885138834" TEXT="No" VSHIFT="28">
+<arrowlink DESTINATION="ID_322099829" ENDARROW="Default" ENDINCLINATION="499;0;" ID="Arrow_ID_617234481" STARTARROW="None" STARTINCLINATION="499;0;"/>
+</node>
+</node>
+</node>
+<node COLOR="#33cc00" CREATED="1552884917039" HGAP="21" ID="ID_875364826" MODIFIED="1552885212873" TEXT="UIN Update" VSHIFT="-9">
+<node COLOR="#33cc00" CREATED="1552884815109" HGAP="7" ID="ID_282114863" MODIFIED="1552885138850" TEXT="Key expiry date is greater than current date + threshold value " VSHIFT="-61">
+<node COLOR="#33cc00" CREATED="1552884839539" HGAP="17" ID="ID_174570203" MODIFIED="1552885138850" TEXT="Yes" VSHIFT="-22">
+<node COLOR="#33cc00" CREATED="1552884868026" ID="ID_70494398" MODIFIED="1552885209624" TEXT="Allow the user to proceed with UIN update">
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_70494398" ENDARROW="Default" ENDINCLINATION="499;0;" ID="Arrow_ID_1231955863" SOURCE="ID_612432649" STARTARROW="None" STARTINCLINATION="499;0;"/>
+</node>
+</node>
+<node COLOR="#ff0000" CREATED="1552884840687" HGAP="19" ID="ID_301932609" MODIFIED="1552885168436" TEXT="No" VSHIFT="17">
+<edge COLOR="#ff0000"/>
+<node COLOR="#ff0000" CREATED="1552884967476" ID="ID_1235622045" MODIFIED="1552885184940" TEXT="Display &quot;Please sync to get latest key from the server before proceeding with this registration.&#x201d; error message">
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1235622045" ENDARROW="Default" ENDINCLINATION="754;0;" ID="Arrow_ID_1418629658" SOURCE="ID_1182281005" STARTARROW="None" STARTINCLINATION="754;0;"/>
+</node>
+</node>
+</node>
+<node COLOR="#33cc00" CREATED="1552884844290" HGAP="26" ID="ID_358374805" MODIFIED="1552885220248" TEXT="Key expiry date is lesser than current date + threshold value" VSHIFT="-11">
+<node COLOR="#ff0000" CREATED="1552884984127" HGAP="13" ID="ID_1182281005" MODIFIED="1552885168436" TEXT="Yes" VSHIFT="-49">
+<edge COLOR="#ff0000"/>
+<arrowlink DESTINATION="ID_1235622045" ENDARROW="Default" ENDINCLINATION="754;0;" ID="Arrow_ID_1418629658" STARTARROW="None" STARTINCLINATION="754;0;"/>
+</node>
+<node COLOR="#33cc00" CREATED="1552884985904" HGAP="18" ID="ID_612432649" MODIFIED="1552885138850" TEXT="No" VSHIFT="28">
+<arrowlink DESTINATION="ID_70494398" ENDARROW="Default" ENDINCLINATION="499;0;" ID="Arrow_ID_1231955863" STARTARROW="None" STARTINCLINATION="499;0;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#33cc00" CREATED="1538550071542" HGAP="9" ID="ID_455711452" MODIFIED="1550474395630" TEXT="Verification of Txn details for Audit purpose" VSHIFT="34">
+<edge COLOR="#00cc00"/>
+<node COLOR="#33cc00" CREATED="1539003087723" ID="ID_702214481" MODIFIED="1550474395629" TEXT="System capture all Txn details">
+<node COLOR="#33cc00" CREATED="1539003122483" ID="ID_635478647" MODIFIED="1550474395625" TEXT="Store all the details under &quot;Audit_Log&quot; table such as User id or system account; Machine Details; Event Name; Application Name, and Event data including user entered fields."/>
+</node>
+<node COLOR="#ff0000" CREATED="1539060442854" ID="ID_1387756172" MODIFIED="1550474463694" TEXT="System fails to capture Txn details">
+<edge COLOR="#ff0000"/>
+<node COLOR="#ff0000" CREATED="1539089688847" ID="ID_1837414142" MODIFIED="1550474463695" TEXT="Display appropriate error message / Raise a defect"/>
+</node>
+</node>
+</node>
+</node>
+</map>
