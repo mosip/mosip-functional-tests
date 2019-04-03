@@ -1,0 +1,11 @@
+  {
+  "id": 0,
+    "isActive": true,
+    "name": "IE GET",
+    "endPointDataHash": "IE GET",
+    "endPointUrl": "pre-registration/v1.0/demographic/applications",    
+    "requestBody": "requestJSON",
+    "requestMethod": {
+      "code": "REQUESTMETHOD.GET"
+    }
+  }
