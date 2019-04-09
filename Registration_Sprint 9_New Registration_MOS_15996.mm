@@ -1,0 +1,188 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node BACKGROUND_COLOR="#cccccc" CREATED="1553688602338" ID="ID_232362322" MODIFIED="1553771956428" TEXT="Display Status of Device in header">
+<node COLOR="#009900" CREATED="1553690567870" ID="ID_761724643" MODIFIED="1553851160751" POSITION="right" TEXT="MOS-15996">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553696398644" ID="ID_4461992" MODIFIED="1553771937686" TEXT="Login to the Application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553696554492" ID="ID_164741347" MODIFIED="1553771937686" TEXT="Verify Header">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553696592692" ID="ID_194023280" MODIFIED="1553850688676" TEXT="Status bar">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553696748627" ID="ID_1906858617" MODIFIED="1553771937686" TEXT="Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553697128877" ID="ID_1570638342" MODIFIED="1553771937686" TEXT="Additional Status to display the status of the device should be available">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553697159189" ID="ID_1751303575" MODIFIED="1553850772088" TEXT="No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553697166555" ID="ID_1961418234" MODIFIED="1553772108272" TEXT="Raise a defect">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553697550107" ID="ID_224565876" MODIFIED="1553771937686" TEXT="navigate to Biometric page">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553697622161" ID="ID_1826002547" MODIFIED="1553771937686" TEXT="FingerPrint Scanner Icon displayed">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553697653658" ID="ID_927637519" MODIFIED="1553771937686" TEXT="If Connected to Internet">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553697842515" ID="ID_401348352" MODIFIED="1553771937686" TEXT="Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553697844971" ID="ID_1426064670" MODIFIED="1553771937686" TEXT="FingerPrint Scanner icon should be displayed in Green color">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553697864955" ID="ID_1363084853" MODIFIED="1553850819232" TEXT="No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553697867290" ID="ID_141599608" MODIFIED="1553772034029" TEXT="FingerPrintScanner icon should be displayed in Red color">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553698361738" ID="ID_523001894" MODIFIED="1553771937683" TEXT="Navigate to Iris Scanner Page">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698433439" ID="ID_31950460" MODIFIED="1553771937683" TEXT="If Iris Scanner is Displayed">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698443351" ID="ID_1526136382" MODIFIED="1553771937683" TEXT="Iris Scanner Icon should be displayed in Green if connected to client machine">
+<edge COLOR="#009900"/>
+</node>
+<node COLOR="#cc0000" CREATED="1553698685698" ID="ID_1879952996" MODIFIED="1553772034028" TEXT="Iris Scanner Icon should be displayed in Red if not connected to client machine">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553698475040" ID="ID_582973142" MODIFIED="1553772034028" TEXT="If Iris Scanner should not be displayed if Iris Config is turned Off for the Country">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553697952369" ID="ID_691042521" MODIFIED="1553848623231" TEXT="Navigate to Biometric Page">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698020258" ID="ID_227740764" MODIFIED="1553771937686" TEXT="FingerPrintScanner">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698062298" ID="ID_1900343047" MODIFIED="1553771937685" TEXT="If Finger Print Device Turned Off for a Country">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698195946" ID="ID_1753807323" MODIFIED="1553771937685" TEXT="Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553698198474" ID="ID_853640503" MODIFIED="1553771937685" TEXT="Fingerprint Scanner icon should not be displayed ">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553698227873" ID="ID_1423491638" MODIFIED="1553772034028" TEXT="No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553698229706" ID="ID_944616604" MODIFIED="1553772034028" TEXT="Fingerprint Scanner icon should  be displayed ">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553699313090" ID="ID_821446115" MODIFIED="1553771937683" TEXT="Face Scanner Page">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553699319426" ID="ID_1341626820" MODIFIED="1553771937683" TEXT="If FaceScanner Icon displayed in Green color">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553699412507" ID="ID_72386549" MODIFIED="1553771937683" TEXT="Face Camera device is connected to the client machine">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553699495722" ID="ID_1590745821" MODIFIED="1553772165762" TEXT="If Face Scanner Icon displayed in Red Color">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553699522312" ID="ID_1287075637" MODIFIED="1553772034028" TEXT="Face Camera Device is not connected to Client Machine">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553700071608" ID="ID_867687085" MODIFIED="1553771937682" TEXT="Navigate to the Application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700081273" ID="ID_1749105946" MODIFIED="1553853183211" TEXT="If System is online">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700168801" ID="ID_1777762675" MODIFIED="1553771937682" TEXT="&apos;System online&apos; Message  should be displayed in Green Color">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553700220888" ID="ID_1747016185" MODIFIED="1553853207265" TEXT="If system is not online">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553700229976" ID="ID_1012601937" MODIFIED="1553772034028" TEXT="&apos;System Offline&apos; Message is displayed ">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553700374474" ID="ID_302787754" MODIFIED="1553771937682" TEXT="Navigate to Application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700385418" ID="ID_653532907" MODIFIED="1553771937682" TEXT="Verify Status Bar">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700477955" ID="ID_987324967" MODIFIED="1553853057880" TEXT="statuses for Printer, Document scanner, GPS device and Bar code scanner should not be displayed in header">
+<edge COLOR="#009900"/>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553700540339" ID="ID_1090114572" MODIFIED="1553771937681" TEXT="Navigate to the application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700618356" ID="ID_928267567" MODIFIED="1553771937681" TEXT="Verify Status">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700623340" ID="ID_1503591403" MODIFIED="1553771937681" TEXT="Computer ID Should not be displayed">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700648821" ID="ID_1384154260" MODIFIED="1553771937681" TEXT="If Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700652837" ID="ID_1205175922" MODIFIED="1553771937681" TEXT="Passed">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553700657245" ID="ID_1657822397" MODIFIED="1553772034028" TEXT="If No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553700666022" ID="ID_30041015" MODIFIED="1553772034028" TEXT="Raise a Defect">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553700821046" ID="ID_1374037703" MODIFIED="1553771937681" TEXT="Navigate to Application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700834276" ID="ID_960647129" MODIFIED="1553771937681" TEXT="Verify Headers">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700851742" ID="ID_1732277883" MODIFIED="1553853089705" TEXT="Icons should be auto refreshed every 5 Seconds">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700890470" ID="ID_1531866100" MODIFIED="1553771937681" TEXT="Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553700893784" ID="ID_1936575703" MODIFIED="1553771937680" TEXT="Working Fine">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553700902037" ID="ID_1749086543" MODIFIED="1553772034028" TEXT="No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553700905102" ID="ID_1896005757" MODIFIED="1553772034028" TEXT="Raise a defect">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#009900" CREATED="1553701280642" ID="ID_727809804" MODIFIED="1553771937680" TEXT="Navigate to application">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553701287279" ID="ID_722062052" MODIFIED="1553771937680" TEXT="Click on update">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553701350898" ID="ID_1355731963" MODIFIED="1553771937680" TEXT="Status is refreshed">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553701433455" ID="ID_837129763" MODIFIED="1553771937680" TEXT="If Yes">
+<edge COLOR="#009900"/>
+<node COLOR="#009900" CREATED="1553701436855" ID="ID_97283338" MODIFIED="1553771937680" TEXT="Update Status is working fine">
+<edge COLOR="#009900"/>
+</node>
+</node>
+<node COLOR="#cc0000" CREATED="1553701454503" ID="ID_1379088803" MODIFIED="1553772034028" TEXT="If No">
+<edge COLOR="#cc0000"/>
+<node COLOR="#cc0000" CREATED="1553701459191" ID="ID_1848732694" MODIFIED="1553772034027" TEXT="Raise a defect">
+<edge COLOR="#cc0000"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>
