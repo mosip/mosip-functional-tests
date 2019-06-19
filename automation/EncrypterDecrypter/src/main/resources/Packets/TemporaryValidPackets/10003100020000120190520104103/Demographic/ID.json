@@ -1,0 +1,89 @@
+{
+  "identity" : {
+    "fullName" : [ {
+      "language" : "fra",
+      "value" : "Mahesh"
+    }, {
+      "language" : "ara",
+      "value" : "مَهِسهةشاثسا"
+    } ],
+    "dateOfBirth" : "1996/01/01",
+    "age" : 23,
+    "gender" : [ {
+      "language" : "fra",
+      "value" : "Mâle"
+    }, {
+      "language" : "ara",
+      "value" : "الذكر"
+    } ],
+    "residenceStatus" : [ {
+      "language" : "fra",
+      "value" : "Non-étranger"
+    }, {
+      "language" : "ara",
+      "value" : "غير أجنبي"
+    } ],
+    "addressLine1" : [ {
+      "language" : "fra",
+      "value" : "Hyderabad"
+    }, {
+      "language" : "ara",
+      "value" : "هيدِرَبَد"
+    } ],
+    "addressLine2" : [ {
+      "language" : "fra",
+      "value" : "India"
+    }, {
+      "language" : "ara",
+      "value" : "ِندَِ"
+    } ],
+    "region" : [ {
+      "language" : "fra",
+      "value" : "Rabat-Salé-Kénitra"
+    }, {
+      "language" : "ara",
+      "value" : "جهة الرباط سلا القنيطرة"
+    } ],
+    "province" : [ {
+      "language" : "fra",
+      "value" : "Kénitra"
+    }, {
+      "language" : "ara",
+      "value" : "القنيطرة"
+    } ],
+    "city" : [ {
+      "language" : "fra",
+      "value" : "Kénitra"
+    }, {
+      "language" : "ara",
+      "value" : "القنيطرة"
+    } ],
+    "postalCode" : "60001",
+    "phone" : "9012345678",
+    "email" : "mahemahesh123@gmail.com",
+    "localAdministrativeAuthority" : [ {
+      "language" : "fra",
+      "value" : "Mnasra"
+    }, {
+      "language" : "ara",
+      "value" : "منَسرَ "
+    } ],
+    "proofOfAddress" : {
+      "value" : "POA_Contrat de location",
+      "type" : "Contrat de location",
+      "format" : "jpg"
+    },
+    "proofOfIdentity" : {
+      "value" : "POI_carte didentité",
+      "type" : "carte didentité",
+      "format" : "jpg"
+    },
+    "individualBiometrics" : {
+      "format" : "cbeff",
+      "version" : 1.0,
+      "value" : "applicant_bio_CBEFF"
+    },
+    "IDSchemaVersion" : 1.0,
+    "CNIENumber" : "123123123123"
+  }
+}
