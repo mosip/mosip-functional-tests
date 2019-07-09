@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2-alpha" last-position="0,0" last-zoom="1"
+<dbmodel pgmodeler-ver="0.9.2-alpha" last-position="0,0" last-zoom="0.25"
 	 default-schema="public" default-owner="postgres">
 <role name="sysadmin"
       superuser="true"
@@ -40,20 +40,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
       password="********">
 </role>
 
-<role name="admuser"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
-<role name="repuser"
-      inherit="true"
-      login="true"
-      encrypted="true"
-      password="********">
-</role>
-
 <database name="mosip_master" encoding="UTF8" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8" is-template="false" allow-conns="true">
 	<role name="sysadmin"/>
 	<tablespace name="pg_default"/>
@@ -71,7 +57,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Admin Parameters : Stores admin parameters with values used in application modules.]]></comment>
-	<position x="1180" y="1060"/>
+	<position x="300" y="1680"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : unique parameter code for different configurations, processes, defaults etc]]></comment>
@@ -129,7 +115,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Application Form Type : Type of forms used for UIN / user registration.]]></comment>
-	<position x="1940" y="3040"/>
+	<position x="400" y="920"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Unique application form types supported by registration process]]></comment>
@@ -183,7 +169,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[App Authentication Method : Store List of application, process, role and their user authentication methods mapped with sequence.]]></comment>
-	<position x="4780" y="3580"/>
+	<position x="4260" y="2820"/>
 	<column name="app_id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Application ID : of specific application module, for.ex.,  Registration client, Authentication application, Portal App, etc.  refers master.app_detail.id]]></comment>
@@ -262,7 +248,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Application Details : List of MOSIP Applications]]></comment>
-	<position x="3260" y="1620"/>
+	<position x="1840" y="1940"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Application ID :  Unique ID generated / assigned for an application]]></comment>
@@ -324,7 +310,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Application Role Priority : Defines role priority for each application and processes for application user.]]></comment>
-	<position x="2760" y="720"/>
+	<position x="1720" y="1420"/>
 	<column name="app_id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Application ID : of specific application module, for.ex.,  Registration client, Authentication application, Portal App, etc.  refers master.app_detail.id]]></comment>
@@ -396,7 +382,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Authentication Method : List of user Authentication methods supported by the system.]]></comment>
-	<position x="5980" y="3200"/>
+	<position x="3940" y="3320"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code :  unique authentication methods supported by the system, for ex., OTP, PASSWORD, BIO etc. ]]></comment>
@@ -446,7 +432,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Authentication Type : List of Authentication types supported by the system.]]></comment>
-	<position x="2080" y="1000"/>
+	<position x="380" y="60"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code :  unique authentication types supported by the authentication system, for ex., OTP, BIO, DEMOGRAPHIC, eKYC etc. ]]></comment>
@@ -492,11 +478,65 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
+<table name="applicant_valid_document">
+	<schema name="master"/>
+	<role name="sysadmin"/>
+	<comment><![CDATA[Applicant Valid Document : This is mapping table that relates applicant type, document category and document type, that is valid document proof for UIN registration process.]]></comment>
+	<position x="3940" y="2060"/>
+	<column name="apptyp_code" not-null="true">
+		<type name="character varying" length="36"/>
+		<comment><![CDATA[Applicant Type Code: Code of the applicant type defined/configured by the country admin]]></comment>
+	</column>
+	<column name="doccat_code" not-null="true">
+		<type name="character varying" length="36"/>
+		<comment><![CDATA[Document Category Code: Refers to master.doc_category.code]]></comment>
+	</column>
+	<column name="doctyp_code" not-null="true">
+		<type name="character varying" length="36"/>
+		<comment><![CDATA[Document Type Code: Refers to master.doc_type.code]]></comment>
+	</column>
+	<column name="lang_code" not-null="true">
+		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
+	</column>
+	<column name="is_active" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
+	</column>
+	<column name="cr_by" not-null="true">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
+	</column>
+	<column name="cr_dtimes" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
+	</column>
+	<column name="upd_by">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
+	</column>
+	<column name="upd_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
+	</column>
+	<column name="is_deleted">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
+	</column>
+	<column name="del_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
+	</column>
+	<constraint name="pk_avaldoc_code" type="pk-constr" table="master.applicant_valid_document">
+		<columns names="apptyp_code,doccat_code,doctyp_code" ref-type="src-columns"/>
+	</constraint>
+</table>
+
 <table name="biometric_attribute">
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Biometric Attribute : List of all biometric attributes to be captured for each biometric type during UIN registration]]></comment>
-	<position x="1180" y="2860"/>
+	<position x="1140" y="1780"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Biometic attribute names,  Right Thumb, Left Thumb, Right Eye, Left Eye, etc.]]></comment>
@@ -554,7 +594,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Biometric Type : List of all biometric type supported for UIN registration]]></comment>
-	<position x="1100" y="3320"/>
+	<position x="1500" y="2120"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : types of biometrics for ex.,  Finger prints, facial, Iris etc.]]></comment>
@@ -608,7 +648,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Black Listed Words : List of words that are black listed.]]></comment>
-	<position x="1620" y="1120"/>
+	<position x="1720" y="100"/>
 	<column name="word" not-null="true">
 		<type name="character varying" length="128"/>
 		<comment><![CDATA[Word: Word that is blacklisted by the system]]></comment>
@@ -658,7 +698,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Device Master : Contains list of approved devices and  details,  like fingerprint scanner, iris scanner, scanner etc used at registration centers. Valid devices with active status only allowed at registration centers for respective functionalities. Device onboarding are handled through admin application/portal by the user who is having the device onboarding authority. ]]></comment>
-	<position x="7120" y="2140"/>
+	<position x="1700" y="3480"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Device ID : Unique ID generated / assigned for device]]></comment>
@@ -728,7 +768,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Device Master History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.device_master table description for details.   ]]></comment>
-	<position x="6500" y="3160"/>
+	<position x="4200" y="400"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Device ID : Unique ID generated / assigned for device]]></comment>
@@ -802,7 +842,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Device Specification :  Specification of devices for each device type that are supported by system for various process requirements, like scanning, printing, photo, biometric etc]]></comment>
-	<position x="6580" y="1780"/>
+	<position x="2660" y="1100"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Device Specification ID : Unique ID generated / assigned for device specification]]></comment>
@@ -872,7 +912,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Device Type : Types of devices that are supported by the system,  like  scanning, printing, photo, biometric etc]]></comment>
-	<position x="6420" y="1140"/>
+	<position x="2980" y="800"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : types of devices used for registration processes, for ex., printer, scanner, etc]]></comment>
@@ -926,7 +966,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Document Category : List document categories for registration for ex., POA, POI, etc]]></comment>
-	<position x="460" y="2120"/>
+	<position x="3420" y="1660"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : category of documents for registration for ex., POA, POI, etc]]></comment>
@@ -980,7 +1020,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Document Format : List of acceptable document formats supported by the system, for ex., pdf, jpeg, etc.]]></comment>
-	<position x="1260" y="60"/>
+	<position x="3700" y="120"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : acceptable format of documents to be uploaded during registration, for ex., pdf, jpeg, etc]]></comment>
@@ -1034,7 +1074,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Document Type : List of acceptable document types supported by the system, for ex., passport, driving license, etc]]></comment>
-	<position x="0" y="3860"/>
+	<position x="3860" y="2460"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : acceptable type of documents to be uploaded during registration, for ex., passport, driving license, etc]]></comment>
@@ -1088,7 +1128,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Gender : Gender codes.]]></comment>
-	<position x="360" y="20"/>
+	<position x="500" y="440"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="16"/>
 		<comment><![CDATA[Code : gender code.]]></comment>
@@ -1138,7 +1178,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Global Parameters: Stores global system and application parameters with default values used across applications and modules.  These can be configured/changed through admin portal as needed.]]></comment>
-	<position x="340" y="660"/>
+	<position x="0" y="760"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : unique global parameter code for different configurations, processes, defaults etc]]></comment>
@@ -1196,7 +1236,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Id Type :  List of ID types of various IDs generated , used or refered, for ex., PRID, RID, VID, etc]]></comment>
-	<position x="1160" y="400"/>
+	<position x="1320" y="60"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Types of various IDs used or refered or generated for ex., PRID, RID, VID, etc]]></comment>
@@ -1246,11 +1286,61 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
+<table name="individual_type">
+	<schema name="master"/>
+	<role name="sysadmin"/>
+	<comment><![CDATA[Individual Type : Type of indivisuals considered during registration.for ex., foreigner, non-foreigner, etc.]]></comment>
+	<position x="3300" y="440"/>
+	<column name="code" not-null="true">
+		<type name="character varying" length="36"/>
+		<comment><![CDATA[Individual Type Code : Individual type code for ex., FR, NFR etc.]]></comment>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="64"/>
+		<comment><![CDATA[Individual Type Name: Individual type name for ex., foreigner, non-foreigner ]]></comment>
+	</column>
+	<column name="lang_code" not-null="true">
+		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
+	</column>
+	<column name="is_active" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
+	</column>
+	<column name="cr_by" not-null="true">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
+	</column>
+	<column name="cr_dtimes" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
+	</column>
+	<column name="upd_by">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
+	</column>
+	<column name="upd_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
+	</column>
+	<column name="is_deleted">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
+	</column>
+	<column name="del_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
+	</column>
+	<constraint name="pk_indvtyp_code" type="pk-constr" table="master.individual_type">
+		<columns names="code,lang_code" ref-type="src-columns"/>
+	</constraint>
+</table>
+
 <table name="introducer_type">
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Introducer Type : List of introducer types ,  for ex., OFFICER, etc.]]></comment>
-	<position x="340" y="360"/>
+	<position x="340" y="1280"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Types of introducers,  for ex., OFFICER, etc.]]></comment>
@@ -1304,7 +1394,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Language : List of Languages supported by system.  These language code are defined as per ISO 639 standard.]]></comment>
-	<position x="1600" y="760"/>
+	<position x="0" y="1080"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="3"/>
 		<comment><![CDATA[Code : Unique ISO 639-3 language code as per global standard.]]></comment>
@@ -1357,36 +1447,47 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="licensekey_list">
 	<schema name="master"/>
 	<role name="sysadmin"/>
-	<position x="2980" y="3440"/>
+	<comment><![CDATA[License Key : Holds list of license keys which will be used by TSPs]]></comment>
+	<position x="2520" y="2280"/>
 	<column name="license_key" not-null="true">
 		<type name="character varying" length="255"/>
+		<comment><![CDATA[License Key : License key which is created to map partners, license key will have information related to authentication type access.]]></comment>
 	</column>
 	<column name="created_dtime">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created Date and Time : Licence key created date and time]]></comment>
 	</column>
 	<column name="expiry_dtime">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Expiry Date and Time: Expiry date and time of license key]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
 	</column>
 	<column name="cr_by" not-null="true">
 		<type name="character varying" length="256"/>
+		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
 	</column>
 	<column name="cr_dtimes" not-null="true">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
 	</column>
 	<column name="upd_by">
 		<type name="character varying" length="256"/>
+		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
 	</column>
 	<column name="upd_dtimes">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
 	</column>
 	<column name="is_deleted">
 		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
 	</column>
 	<column name="del_dtimes">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
 	</column>
 	<constraint name="pk_lkeylst" type="pk-constr" table="master.licensekey_list">
 		<columns names="license_key" ref-type="src-columns"/>
@@ -1396,33 +1497,43 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="licensekey_permission">
 	<schema name="master"/>
 	<role name="sysadmin"/>
-	<position x="2020" y="100"/>
+	<comment><![CDATA[Permissions: List of permissions associated with license key]]></comment>
+	<position x="2920" y="2020"/>
 	<column name="license_key" not-null="true">
 		<type name="character varying" length="255"/>
+		<comment><![CDATA[Licence Key: License key which id refered to master.licensekey_list.license_key]]></comment>
 	</column>
 	<column name="permission" not-null="true">
 		<type name="character varying" length="512"/>
+		<comment><![CDATA[Permission: List of authentication permission which are assigned to license key]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
 	</column>
 	<column name="cr_by" not-null="true">
 		<type name="character varying" length="256"/>
+		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
 	</column>
 	<column name="cr_dtimes" not-null="true">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
 	</column>
 	<column name="upd_by">
 		<type name="character varying" length="256"/>
+		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
 	</column>
 	<column name="upd_dtimes">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
 	</column>
 	<column name="is_deleted">
 		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
 	</column>
 	<column name="del_dtimes">
 		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
 	</column>
 	<constraint name="pk_lkeyper" type="pk-constr" table="master.licensekey_permission">
 		<columns names="license_key" ref-type="src-columns"/>
@@ -1433,7 +1544,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Location :  List of all location and  hierarchies defined for various location requirements.  An example is provided for understanding the data to be populated.]]></comment>
-	<position x="4000" y="1780"/>
+	<position x="2740" y="80"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Unique location code. ]]></comment>
@@ -1495,7 +1606,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Location Holiday : List of location specific holidays.  ]]></comment>
-	<position x="1460" y="1660"/>
+	<position x="3240" y="100"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Holiday ID : Unique id for each holiday]]></comment>
@@ -1568,7 +1679,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Machine Master : Contains list of approved Machines and  details,  like laptop, desktop, dongle etc used at registration centers. Valid Machines with active status only allowed at registration centers for respective functionalities. Machine onboarding are handled through admin application/portal by the user who is having the Machine onboarding authority. ]]></comment>
-	<position x="5960" y="2520"/>
+	<position x="940" y="3440"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Machine ID : Unique ID generated / assigned for machine]]></comment>
@@ -1631,9 +1742,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="public_key">
 		<type name="bytea" length="0"/>
+		<comment><![CDATA[Public Key: Public key of the machine,  This will be Machine Identification TPM Endorsement key]]></comment>
 	</column>
 	<column name="key_index">
 		<type name="character varying" length="128"/>
+		<comment><![CDATA[Key Index: Fingerprint[Unique Hash ]  for the TPM public key]]></comment>
 	</column>
 	<constraint name="pk_machm_id" type="pk-constr" table="master.machine_master">
 		<columns names="id,lang_code" ref-type="src-columns"/>
@@ -1644,7 +1757,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Machine Master History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.machine_master table description for details.   ]]></comment>
-	<position x="1140" y="680"/>
+	<position x="680" y="1680"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Machine ID : Unique ID generated / assigned for machine]]></comment>
@@ -1711,9 +1824,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="public_key">
 		<type name="bytea" length="0"/>
+		<comment><![CDATA[Public Key: Public key of the machine,  This will be Machine Identification TPM Endorsement key]]></comment>
 	</column>
 	<column name="key_index">
 		<type name="character varying" length="128"/>
+		<comment><![CDATA[Key Index: Fingerprint[Unique Hash ]  for the TPM public key]]></comment>
 	</column>
 	<constraint name="pk_machm_h_id" type="pk-constr" table="master.machine_master_h">
 		<columns names="id,lang_code,eff_dtimes" ref-type="src-columns"/>
@@ -1724,7 +1839,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Machine Specification :  Specification of Machines for each Machine type that are supported by system,  like laptop, desktop, dongle etc]]></comment>
-	<position x="440" y="3600"/>
+	<position x="1400" y="2860"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Machine Specification ID : Unique ID generated / assigned for machine specification]]></comment>
@@ -1794,7 +1909,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Machine Type : Types of Machines that are supported by the system,  like laptop, desktop, dongle etc]]></comment>
-	<position x="120" y="3280"/>
+	<position x="2060" y="2320"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : types of machines used for registration processes, for ex., laptop, dongle, workstation etc]]></comment>
@@ -1848,7 +1963,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Message List : List of message texts that will be displayed or sent as alerts / notifications.]]></comment>
-	<position x="740" y="640"/>
+	<position x="4240" y="100"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : unique code for various standard messages used for display , alerts, etc.]]></comment>
@@ -1910,7 +2025,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Machine ID Sequence : Maintains latest sequence number available for Machine ID generation]]></comment>
-	<position x="600" y="1420"/>
+	<position x="1900" y="520"/>
 	<column name="curr_seq_no" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Current Sequence Number : Latest sequence number available for Machine ID generation]]></comment>
@@ -1940,7 +2055,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Module Detail : List of all application modules within the system.]]></comment>
-	<position x="2020" y="420"/>
+	<position x="4040" y="1040"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Module ID : Unique ID generated / assigned for a module]]></comment>
@@ -1994,7 +2109,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Process Detail : List of all processes within the system.]]></comment>
-	<position x="1180" y="2520"/>
+	<position x="2220" y="1600"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Process ID : Unique ID generated / assigned for a process]]></comment>
@@ -2048,7 +2163,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center ID Sequence : Maintains latest sequence number available for registration center ID generation]]></comment>
-	<position x="1480" y="1420"/>
+	<position x="3720" y="480"/>
 	<column name="curr_seq_no" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Current Sequence Number : Latest sequence number available for Registration Center ID generation]]></comment>
@@ -2078,7 +2193,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Reason Category : List of reason categories defined for different processes, for ex., client rejection, manual adjudication etc.]]></comment>
-	<position x="200" y="1000"/>
+	<position x="780" y="2500"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : reason categories used during registration process, for ex., client rejection, manual adjudication etc.]]></comment>
@@ -2132,7 +2247,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Reason List : List of reasons for each category, for ex., photo mismatch, duplicate registration etc.]]></comment>
-	<position x="80" y="1540"/>
+	<position x="260" y="2540"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : list of reasons used related to specific reason categories defined, for ex., photo mismatch, duplicate registration etc.]]></comment>
@@ -2190,7 +2305,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center : List of registration centers that are authorized to perform UIN registrations ]]></comment>
-	<position x="3240" y="2560"/>
+	<position x="2740" y="3320"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : Unique ID generated / assigned for a registration center]]></comment>
@@ -2312,7 +2427,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.registration_center table description for details.]]></comment>
-	<position x="640" y="2740"/>
+	<position x="960" y="400"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : Unique ID generated / assigned for a registration center]]></comment>
@@ -2438,7 +2553,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Device : Mapping table to assign devices that are used at a registration center]]></comment>
-	<position x="2500" y="2480"/>
+	<position x="2260" y="3180"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2449,6 +2564,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2487,7 +2603,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Device History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.reg_center_device table description for details.   ]]></comment>
-	<position x="1660" y="60"/>
+	<position x="840" y="100"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2498,6 +2614,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2540,7 +2657,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Machine : Mapping table to assign machines that are used at a registration center]]></comment>
-	<position x="5520" y="1860"/>
+	<position x="1220" y="3820"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2551,6 +2668,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2589,7 +2707,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Machine Device : Mapping table to assign machines and devices that are used at a registration center]]></comment>
-	<position x="6520" y="2400"/>
+	<position x="2160" y="3760"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2604,6 +2722,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2642,7 +2761,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Machine Device History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.reg_center_machine_device table description for details.   ]]></comment>
-	<position x="5080" y="3240"/>
+	<position x="3280" y="2780"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2657,6 +2776,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2699,7 +2819,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Machine History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.reg_center_machine table description for details.   ]]></comment>
-	<position x="780" y="40"/>
+	<position x="0" y="20"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2710,6 +2830,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2752,7 +2873,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center Type : List of registration center types availabe / configured within the system.]]></comment>
-	<position x="4700" y="2740"/>
+	<position x="3460" y="3760"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : different types of registration centers, ]]></comment>
@@ -2806,7 +2927,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center User : List of authorized users assigned to a registration center.]]></comment>
-	<position x="3620" y="3200"/>
+	<position x="3100" y="3940"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2817,6 +2938,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2855,7 +2977,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center User History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.reg_center_user table description for details.   ]]></comment>
-	<position x="720" y="1040"/>
+	<position x="1960" y="2780"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2866,6 +2988,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2908,7 +3031,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center User Machine : Mapping table to assign a user to a machine that will be used at a registration center.]]></comment>
-	<position x="3820" y="1220"/>
+	<position x="3340" y="2200"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2923,6 +3046,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -2961,7 +3085,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Registration Center User Machine History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.reg_center_user_machine table description for details.]]></comment>
-	<position x="680" y="1660"/>
+	<position x="2940" y="2420"/>
 	<column name="regcntr_id" not-null="true">
 		<type name="character varying" length="10"/>
 		<comment><![CDATA[Registration Center ID : registration center id refers to master.registration_center.id]]></comment>
@@ -2976,6 +3100,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="lang_code" not-null="true">
 		<type name="character varying" length="3"/>
+		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
 	</column>
 	<column name="is_active" not-null="true">
 		<type name="boolean" length="0"/>
@@ -3018,7 +3143,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Role List : List of roles defined within the system. These roles are used for various processes like data access, authentication methods, authorization, etc.]]></comment>
-	<position x="4760" y="2160"/>
+	<position x="1000" y="940"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : list of roles defined for security , authorization,  permission for various modules/processes, etc.]]></comment>
@@ -3068,7 +3193,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Screen Authorization : Mapping table to define the access control of application screens to a role]]></comment>
-	<position x="4360" y="2380"/>
+	<position x="1420" y="920"/>
 	<column name="screen_id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Screen ID : registration center id refers to master.screen_detail.id]]></comment>
@@ -3122,7 +3247,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Screen Detail : List of screens of each application. ]]></comment>
-	<position x="2640" y="1840"/>
+	<position x="1320" y="1400"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Screen ID : Unique ID generated / assigned for a screen]]></comment>
@@ -3180,7 +3305,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Status List : List of statuses used within each status types are configured in this table.]]></comment>
-	<position x="4620" y="820"/>
+	<position x="2560" y="480"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : Status codes like STARTED, INPROGRESS, COMPLETED, FAILED etc for each status type with sequence number, with lang_cd for multi language]]></comment>
@@ -3238,7 +3363,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Status Type : List of status types. These are used to group a set of statuses of a process.]]></comment>
-	<position x="5320" y="720"/>
+	<position x="2140" y="880"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : status types for ex.,  transaction,  registration, uin,  packet etc.]]></comment>
@@ -3292,7 +3417,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Template : Templates are defined to standardize the communication process within the system. For ex., notications, alerts, etc.]]></comment>
-	<position x="3400" y="60"/>
+	<position x="3560" y="1080"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Template ID : Unique ID generated / assigned for a template]]></comment>
@@ -3370,7 +3495,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Template File Format : Format of the template files that are used for notifications. For ex.,  xml, html, xslt, etc.]]></comment>
-	<position x="4060" y="80"/>
+	<position x="4040" y="1500"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : format code of template documents, for ex., html, text, etc]]></comment>
@@ -3420,7 +3545,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Template Type : Type of templates supported by the system. For ex., sms, email, etc]]></comment>
-	<position x="3940" y="340"/>
+	<position x="840" y="1360"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : type code for templates  for ex.,  sms, email, etc.]]></comment>
@@ -3470,7 +3595,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Title : List of title, for ex.,  Mr, Mrs, etc]]></comment>
-	<position x="1040" y="1360"/>
+	<position x="3540" y="720"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="16"/>
 		<comment><![CDATA[Code :  list of title for ex.,  Mr, Mrs, etc]]></comment>
@@ -3524,7 +3649,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Transaction Type : List of various transactions types across all modules and processes.   for ex., registration,  virusscan, sync, authentication, etc]]></comment>
-	<position x="1920" y="1880"/>
+	<position x="1540" y="460"/>
 	<column name="code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Code : type code for various transactions across all modules and processes.   for ex., registration,  virusscan, sync, authentication, etc]]></comment>
@@ -3570,11 +3695,57 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
+<table name="tsp_licensekey_map">
+	<schema name="master"/>
+	<role name="sysadmin"/>
+	<comment><![CDATA[TSP License keys : TSP and License key mapping ]]></comment>
+	<position x="2640" y="2920"/>
+	<column name="tsp_id" not-null="true">
+		<type name="character varying" length="36"/>
+		<comment><![CDATA[TSP ID: ID of the thirdparty service provider]]></comment>
+	</column>
+	<column name="license_key" not-null="true">
+		<type name="character varying" length="255"/>
+		<comment><![CDATA[License Key : License key which is mapped to TSP, This will refer to master.licensekey_list.license_key]]></comment>
+	</column>
+	<column name="is_active" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
+	</column>
+	<column name="cr_by" not-null="true">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
+	</column>
+	<column name="cr_dtimes" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
+	</column>
+	<column name="upd_by">
+		<type name="character varying" length="256"/>
+		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
+	</column>
+	<column name="upd_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
+	</column>
+	<column name="is_deleted">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
+	</column>
+	<column name="del_dtimes">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
+	</column>
+	<constraint name="pk_tsplkeym" type="pk-constr" table="master.tsp_licensekey_map">
+		<columns names="tsp_id,license_key" ref-type="src-columns"/>
+	</constraint>
+</table>
+
 <table name="tspid_seq">
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Trusted Service Provider ID Sequence : Maintains latest sequence number available for TSP ID  generation]]></comment>
-	<position x="2020" y="740"/>
+	<position x="40" y="420"/>
 	<column name="curr_seq_no" not-null="true">
 		<type name="integer" length="0"/>
 		<comment><![CDATA[Current Sequence Number : Latest sequence number available for TSP (Trusted Service Provider) ID generation]]></comment>
@@ -3600,47 +3771,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="tsp_licensekey_map">
-	<schema name="master"/>
-	<role name="sysadmin"/>
-	<position x="2020" y="1300"/>
-	<column name="tsp_id" not-null="true">
-		<type name="character varying" length="36"/>
-	</column>
-	<column name="license_key" not-null="true">
-		<type name="character varying" length="255"/>
-	</column>
-	<column name="is_active" not-null="true">
-		<type name="boolean" length="0"/>
-	</column>
-	<column name="cr_by" not-null="true">
-		<type name="character varying" length="256"/>
-	</column>
-	<column name="cr_dtimes" not-null="true">
-		<type name="timestamp" length="0"/>
-	</column>
-	<column name="upd_by">
-		<type name="character varying" length="256"/>
-	</column>
-	<column name="upd_dtimes">
-		<type name="timestamp" length="0"/>
-	</column>
-	<column name="is_deleted">
-		<type name="boolean" length="0"/>
-	</column>
-	<column name="del_dtimes">
-		<type name="timestamp" length="0"/>
-	</column>
-	<constraint name="pk_tsplkeym" type="pk-constr" table="master.tsp_licensekey_map">
-		<columns names="tsp_id,license_key" ref-type="src-columns"/>
-	</constraint>
-</table>
-
 <table name="user_detail">
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[User Detail : List of applicatgion users in the system, who can perform UIN registration functions as per roles assigned.]]></comment>
-	<position x="4060" y="760"/>
+	<position x="3960" y="3700"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="256"/>
 		<comment><![CDATA[User ID : Unique ID generated / assigned for a user]]></comment>
@@ -3714,7 +3849,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[User Detail History : This to track changes to master record whenever there is an INSERT/UPDATE/DELETE ( soft delete ), Effective DateTimestamp is used for identifying latest or point in time information. Refer master.user_detail table description for details.]]></comment>
-	<position x="1600" y="400"/>
+	<position x="2200" y="120"/>
 	<column name="id" not-null="true">
 		<type name="character varying" length="256"/>
 		<comment><![CDATA[User ID : Unique ID generated / assigned for a user]]></comment>
@@ -3792,7 +3927,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[User Password : Stores encripted password of users in master.user_details table.   ]]></comment>
-	<position x="4180" y="3280"/>
+	<position x="3520" y="3080"/>
 	<column name="usr_id" not-null="true">
 		<type name="character varying" length="256"/>
 		<comment><![CDATA[User ID : registration center id refers to master.user_detail.id]]></comment>
@@ -3850,7 +3985,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[User Role : List of user roles as per the security and access rights, that will be assigned to specific users.]]></comment>
-	<position x="5060" y="2500"/>
+	<position x="2620" y="3920"/>
 	<column name="usr_id" not-null="true">
 		<type name="character varying" length="256"/>
 		<comment><![CDATA[User ID : registration center id refers to master.user_detail.id]]></comment>
@@ -3900,7 +4035,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="master"/>
 	<role name="sysadmin"/>
 	<comment><![CDATA[Valid Document : This is mapping table that relates  document category and document type, that is valid document proof for UIN registration process.]]></comment>
-	<position x="1440" y="3400"/>
+	<position x="4220" y="2360"/>
 	<column name="doctyp_code" not-null="true">
 		<type name="character varying" length="36"/>
 		<comment><![CDATA[Document Type Code: Refers to master.doc_type.code]]></comment>
@@ -3946,110 +4081,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="individual_type">
-	<schema name="master"/>
-	<role name="sysadmin"/>
-	<comment><![CDATA[Individual Type : Type of indivisuals considered during registration.for ex., foreigner, non-foreigner, etc.]]></comment>
-	<position x="760" y="360"/>
-	<column name="code" not-null="true">
-		<type name="character varying" length="36"/>
-		<comment><![CDATA[Individual Type Code : Individual type code for ex., FR, NFR etc.]]></comment>
-	</column>
-	<column name="name" not-null="true">
-		<type name="character varying" length="64"/>
-		<comment><![CDATA[Individual Type Name: Individual type name for ex., foreigner, non-foreigner ]]></comment>
-	</column>
-	<column name="lang_code" not-null="true">
-		<type name="character varying" length="3"/>
-		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
-	</column>
-	<column name="is_active" not-null="true">
-		<type name="boolean" length="0"/>
-		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
-	</column>
-	<column name="cr_by" not-null="true">
-		<type name="character varying" length="256"/>
-		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
-	</column>
-	<column name="cr_dtimes" not-null="true">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
-	</column>
-	<column name="upd_by">
-		<type name="character varying" length="256"/>
-		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
-	</column>
-	<column name="upd_dtimes">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
-	</column>
-	<column name="is_deleted">
-		<type name="boolean" length="0"/>
-		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
-	</column>
-	<column name="del_dtimes">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
-	</column>
-	<constraint name="pk_indvtyp_code" type="pk-constr" table="master.individual_type">
-		<columns names="code,lang_code" ref-type="src-columns"/>
-	</constraint>
-</table>
-
-<table name="applicant_valid_document">
-	<schema name="master"/>
-	<role name="sysadmin"/>
-	<comment><![CDATA[Applicant Valid Document : This is mapping table that relates applicant type, document category and document type, that is valid document proof for UIN registration process.]]></comment>
-	<position x="1180" y="2060"/>
-	<column name="apptyp_code" not-null="true">
-		<type name="character varying" length="36"/>
-		<comment><![CDATA[Applicant Type Code: Code of the applicant type defined/configured by the country admin]]></comment>
-	</column>
-	<column name="doccat_code" not-null="true">
-		<type name="character varying" length="36"/>
-		<comment><![CDATA[Document Category Code: Refers to master.doc_category.code]]></comment>
-	</column>
-	<column name="doctyp_code" not-null="true">
-		<type name="character varying" length="36"/>
-		<comment><![CDATA[Document Type Code: Refers to master.doc_type.code]]></comment>
-	</column>
-	<column name="lang_code" not-null="true">
-		<type name="character varying" length="3"/>
-		<comment><![CDATA[Language Code : For multilanguage implementation this attribute Refers master.language.code. The value of some of the attributes in current record is stored in this respective language. ]]></comment>
-	</column>
-	<column name="is_active" not-null="true">
-		<type name="boolean" length="0"/>
-		<comment><![CDATA[IS_Active : Flag to mark whether the record is Active or In-active]]></comment>
-	</column>
-	<column name="cr_by" not-null="true">
-		<type name="character varying" length="256"/>
-		<comment><![CDATA[Created By : ID or name of the user who create / insert record]]></comment>
-	</column>
-	<column name="cr_dtimes" not-null="true">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Created DateTimestamp : Date and Timestamp when the record is created/inserted]]></comment>
-	</column>
-	<column name="upd_by">
-		<type name="character varying" length="256"/>
-		<comment><![CDATA[Updated By : ID or name of the user who update the record with new values]]></comment>
-	</column>
-	<column name="upd_dtimes">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Updated DateTimestamp : Date and Timestamp when any of the fields in the record is updated with new values.]]></comment>
-	</column>
-	<column name="is_deleted">
-		<type name="boolean" length="0"/>
-		<comment><![CDATA[IS_Deleted : Flag to mark whether the record is Soft deleted.]]></comment>
-	</column>
-	<column name="del_dtimes">
-		<type name="timestamp" length="0"/>
-		<comment><![CDATA[Deleted DateTimestamp : Date and Timestamp when the record is soft deleted with is_deleted=TRUE]]></comment>
-	</column>
-	<constraint name="pk_avaldoc_code" type="pk-constr" table="master.applicant_valid_document">
-		<columns names="apptyp_code,doccat_code,doctyp_code" ref-type="src-columns"/>
-	</constraint>
-</table>
-
 <constraint name="fk_appauthm_appdtl" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.app_detail" table="master.app_authentication_method">
 	<columns names="app_id,lang_code" ref-type="src-columns"/>
@@ -4089,6 +4120,18 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <constraint name="fk_roleprt_rolelst" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.role_list" table="master.app_role_priority">
 	<columns names="role_code,lang_code" ref-type="src-columns"/>
+	<columns names="code,lang_code" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_avaldoc_doctyp" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.doc_type" table="master.applicant_valid_document">
+	<columns names="doctyp_code,lang_code" ref-type="src-columns"/>
+	<columns names="code,lang_code" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_avaldoc_doccat" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.doc_category" table="master.applicant_valid_document">
+	<columns names="doccat_code,lang_code" ref-type="src-columns"/>
 	<columns names="code,lang_code" ref-type="dst-columns"/>
 </constraint>
 
@@ -4302,6 +4345,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="code,lang_code" ref-type="dst-columns"/>
 </constraint>
 
+<constraint name="fk_usrrol_lang" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.language" table="master.user_role">
+	<columns names="lang_code" ref-type="src-columns"/>
+	<columns names="code" ref-type="dst-columns"/>
+</constraint>
+
 <constraint name="fk_usrrol_usrdtl" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.user_detail" table="master.user_role">
 	<columns names="usr_id" ref-type="src-columns"/>
@@ -4316,18 +4365,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <constraint name="fk_valdoc_doccat" type="fk-constr" comparison-type="MATCH SIMPLE"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.doc_category" table="master.valid_document">
-	<columns names="doccat_code,lang_code" ref-type="src-columns"/>
-	<columns names="code,lang_code" ref-type="dst-columns"/>
-</constraint>
-
-<constraint name="fk_avaldoc_doctyp" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.doc_type" table="master.applicant_valid_document">
-	<columns names="doctyp_code,lang_code" ref-type="src-columns"/>
-	<columns names="code,lang_code" ref-type="dst-columns"/>
-</constraint>
-
-<constraint name="fk_avaldoc_doccat" type="fk-constr" comparison-type="MATCH SIMPLE"
-	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="master.doc_category" table="master.applicant_valid_document">
 	<columns names="doccat_code,lang_code" ref-type="src-columns"/>
 	<columns names="code,lang_code" ref-type="dst-columns"/>
 </constraint>
@@ -4374,244 +4411,250 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="master.role_list" reference-fk="fk_roleprt_rolelst"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="rel_biometric_attribute_biometric_type" type="relfk"
-	 custom-color="#a239f5"
-	 src-table="master.biometric_attribute"
-	 dst-table="master.biometric_type" reference-fk="fk_bmattr_bmtyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_device_master_device_spec" type="relfk"
-	 custom-color="#4e132e"
-	 src-table="master.device_master"
-	 dst-table="master.device_spec" reference-fk="fk_devicem_dspec"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_device_spec_device_type" type="relfk"
-	 custom-color="#081cb1"
-	 src-table="master.device_spec"
-	 dst-table="master.device_type" reference-fk="fk_dspec_dtyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_licensekey_permission_licensekey_list" type="relfk"
-	 custom-color="#87ec86"
-	 src-table="master.licensekey_permission"
-	 dst-table="master.licensekey_list" reference-fk="fk_lkeyper"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_loc_holiday_location" type="relfk"
-	 custom-color="#63e1f3"
-	 src-table="master.loc_holiday"
-	 dst-table="master.location" reference-fk="fk_lochol_loc"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_machine_master_machine_spec" type="relfk"
-	 custom-color="#e41bea"
-	 src-table="master.machine_master"
-	 dst-table="master.machine_spec" reference-fk="fk_machm_mspec"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_machine_spec_machine_type" type="relfk"
-	 custom-color="#36beed"
-	 src-table="master.machine_spec"
-	 dst-table="master.machine_type" reference-fk="fk_mspec_mtyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reason_list_reason_category" type="relfk"
-	 custom-color="#871fa4"
-	 src-table="master.reason_list"
-	 dst-table="master.reason_category" reference-fk="fk_rsnlst_rsncat"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_registration_center_reg_center_type" type="relfk"
-	 custom-color="#484368"
-	 src-table="master.registration_center"
-	 dst-table="master.reg_center_type" reference-fk="fk_regcntr_cntrtyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_registration_center_location" type="relfk"
-	 custom-color="#ce5d86"
-	 src-table="master.registration_center"
-	 dst-table="master.location" reference-fk="fk_regcntr_loc"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_device_registration_center" type="relfk"
-	 custom-color="#132c5f"
-	 src-table="master.reg_center_device"
-	 dst-table="master.registration_center" reference-fk="fk_cntrdev_regcntr"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_device_device_master" type="relfk"
-	 custom-color="#3aff7d"
-	 src-table="master.reg_center_device"
-	 dst-table="master.device_master" reference-fk="fk_cntrdev_devicem"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_machine_registration_center" type="relfk"
-	 custom-color="#5cce88"
-	 src-table="master.reg_center_machine"
-	 dst-table="master.registration_center" reference-fk="fk_cntrmac_regcntr"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_machine_machine_master" type="relfk"
-	 custom-color="#264253"
-	 src-table="master.reg_center_machine"
-	 dst-table="master.machine_master" reference-fk="fk_cntrmac_machm"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_machine_device_registration_center" type="relfk"
-	 custom-color="#e55a24"
-	 src-table="master.reg_center_machine_device"
-	 dst-table="master.registration_center" reference-fk="fk_cntrmdev_regcntr"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_machine_device_machine_master" type="relfk"
-	 custom-color="#044d5b"
-	 src-table="master.reg_center_machine_device"
-	 dst-table="master.machine_master" reference-fk="fk_cntrmdev_machm"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_machine_device_device_master" type="relfk"
-	 custom-color="#713b0a"
-	 src-table="master.reg_center_machine_device"
-	 dst-table="master.device_master" reference-fk="fk_cntrmdev_devicem"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_user_registration_center" type="relfk"
-	 custom-color="#6217d0"
-	 src-table="master.reg_center_user"
-	 dst-table="master.registration_center" reference-fk="fk_cntrusr_regcntr"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_user_user_detail" type="relfk"
-	 custom-color="#aa9ef1"
-	 src-table="master.reg_center_user"
-	 dst-table="master.user_detail" reference-fk="fk_cntrusr_usrdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_user_machine_registration_center" type="relfk"
-	 custom-color="#468d0a"
-	 src-table="master.reg_center_user_machine"
-	 dst-table="master.registration_center" reference-fk="fk_cntrmusr_regcntr"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_user_machine_machine_master" type="relfk"
-	 custom-color="#822586"
-	 src-table="master.reg_center_user_machine"
-	 dst-table="master.machine_master" reference-fk="fk_cntrmusr_machm"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_reg_center_user_machine_user_detail" type="relfk"
-	 custom-color="#1edf72"
-	 src-table="master.reg_center_user_machine"
-	 dst-table="master.user_detail" reference-fk="fk_cntrmusr_usrdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_screen_authorization_screen_detail" type="relfk"
-	 custom-color="#e86279"
-	 src-table="master.screen_authorization"
-	 dst-table="master.screen_detail" reference-fk="fk_scrauth_scrdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_screen_authorization_role_list" type="relfk"
-	 custom-color="#acfe05"
-	 src-table="master.screen_authorization"
-	 dst-table="master.role_list" reference-fk="fk_scrauth_rolelst"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_screen_detail_app_detail" type="relfk"
-	 custom-color="#593164"
-	 src-table="master.screen_detail"
-	 dst-table="master.app_detail" reference-fk="fk_scrdtl_appdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_status_list_status_type" type="relfk"
-	 custom-color="#4f7b62"
-	 src-table="master.status_list"
-	 dst-table="master.status_type" reference-fk="fk_status_sttyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_template_template_type" type="relfk"
-	 custom-color="#cc5671"
-	 src-table="master.template"
-	 dst-table="master.template_type" reference-fk="fk_tmplt_tmpltyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_template_template_file_format" type="relfk"
-	 custom-color="#247722"
-	 src-table="master.template"
-	 dst-table="master.template_file_format" reference-fk="fk_tmplt_tffmt"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_template_module_detail" type="relfk"
-	 custom-color="#e6e82a"
-	 src-table="master.template"
-	 dst-table="master.module_detail" reference-fk="fk_tmplt_moddtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_tsp_licensekey_map_licensekey_list" type="relfk"
-	 custom-color="#089c3d"
-	 src-table="master.tsp_licensekey_map"
-	 dst-table="master.licensekey_list" reference-fk="fk_tsplkeym"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_detail_authentication_method" type="relfk"
-	 custom-color="#21df05"
-	 src-table="master.user_detail"
-	 dst-table="master.authentication_method" reference-fk="fk_usrdtl_logmeth"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_detail_status_list" type="relfk"
-	 custom-color="#463635"
-	 src-table="master.user_detail"
-	 dst-table="master.status_list" reference-fk="fk_usrdtl_status"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_pwd_status_list" type="relfk"
-	 custom-color="#7e3399"
-	 src-table="master.user_pwd"
-	 dst-table="master.status_list" reference-fk="fk_usrpwd_status"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_pwd_user_detail" type="relfk"
-	 custom-color="#c8e1b6"
-	 src-table="master.user_pwd"
-	 dst-table="master.user_detail" reference-fk="fk_usrpwd_usrdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_role_role_list" type="relfk"
-	 custom-color="#b4ece1"
-	 src-table="master.user_role"
-	 dst-table="master.role_list" reference-fk="fk_usrrol_rolelst"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_user_role_user_detail" type="relfk"
-	 custom-color="#a4b789"
-	 src-table="master.user_role"
-	 dst-table="master.user_detail" reference-fk="fk_usrrol_usrdtl"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_valid_document_doc_type" type="relfk"
-	 custom-color="#51fd24"
-	 src-table="master.valid_document"
-	 dst-table="master.doc_type" reference-fk="fk_valdoc_doctyp"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_valid_document_doc_category" type="relfk"
-	 custom-color="#55deed"
-	 src-table="master.valid_document"
-	 dst-table="master.doc_category" reference-fk="fk_valdoc_doccat"
-	 src-required="false" dst-required="false"/>
-
 <relationship name="rel_applicant_valid_document_doc_type" type="relfk"
-	 custom-color="#916b37"
+	 custom-color="#a239f5"
 	 src-table="master.applicant_valid_document"
 	 dst-table="master.doc_type" reference-fk="fk_avaldoc_doctyp"
 	 src-required="false" dst-required="false"/>
 
 <relationship name="rel_applicant_valid_document_doc_category" type="relfk"
-	 custom-color="#9e2eb8"
+	 custom-color="#4e132e"
 	 src-table="master.applicant_valid_document"
 	 dst-table="master.doc_category" reference-fk="fk_avaldoc_doccat"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_biometric_attribute_biometric_type" type="relfk"
+	 custom-color="#081cb1"
+	 src-table="master.biometric_attribute"
+	 dst-table="master.biometric_type" reference-fk="fk_bmattr_bmtyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_device_master_device_spec" type="relfk"
+	 custom-color="#87ec86"
+	 src-table="master.device_master"
+	 dst-table="master.device_spec" reference-fk="fk_devicem_dspec"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_device_spec_device_type" type="relfk"
+	 custom-color="#63e1f3"
+	 src-table="master.device_spec"
+	 dst-table="master.device_type" reference-fk="fk_dspec_dtyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_licensekey_permission_licensekey_list" type="relfk"
+	 custom-color="#e41bea"
+	 src-table="master.licensekey_permission"
+	 dst-table="master.licensekey_list" reference-fk="fk_lkeyper"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_loc_holiday_location" type="relfk"
+	 custom-color="#36beed"
+	 src-table="master.loc_holiday"
+	 dst-table="master.location" reference-fk="fk_lochol_loc"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_machine_master_machine_spec" type="relfk"
+	 custom-color="#871fa4"
+	 src-table="master.machine_master"
+	 dst-table="master.machine_spec" reference-fk="fk_machm_mspec"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_machine_spec_machine_type" type="relfk"
+	 custom-color="#484368"
+	 src-table="master.machine_spec"
+	 dst-table="master.machine_type" reference-fk="fk_mspec_mtyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reason_list_reason_category" type="relfk"
+	 custom-color="#ce5d86"
+	 src-table="master.reason_list"
+	 dst-table="master.reason_category" reference-fk="fk_rsnlst_rsncat"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_registration_center_reg_center_type" type="relfk"
+	 custom-color="#132c5f"
+	 src-table="master.registration_center"
+	 dst-table="master.reg_center_type" reference-fk="fk_regcntr_cntrtyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_registration_center_location" type="relfk"
+	 custom-color="#3aff7d"
+	 src-table="master.registration_center"
+	 dst-table="master.location" reference-fk="fk_regcntr_loc"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_device_registration_center" type="relfk"
+	 custom-color="#5cce88"
+	 src-table="master.reg_center_device"
+	 dst-table="master.registration_center" reference-fk="fk_cntrdev_regcntr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_device_device_master" type="relfk"
+	 custom-color="#264253"
+	 src-table="master.reg_center_device"
+	 dst-table="master.device_master" reference-fk="fk_cntrdev_devicem"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_machine_registration_center" type="relfk"
+	 custom-color="#e55a24"
+	 src-table="master.reg_center_machine"
+	 dst-table="master.registration_center" reference-fk="fk_cntrmac_regcntr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_machine_machine_master" type="relfk"
+	 custom-color="#044d5b"
+	 src-table="master.reg_center_machine"
+	 dst-table="master.machine_master" reference-fk="fk_cntrmac_machm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_machine_device_registration_center" type="relfk"
+	 custom-color="#713b0a"
+	 src-table="master.reg_center_machine_device"
+	 dst-table="master.registration_center" reference-fk="fk_cntrmdev_regcntr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_machine_device_machine_master" type="relfk"
+	 custom-color="#6217d0"
+	 src-table="master.reg_center_machine_device"
+	 dst-table="master.machine_master" reference-fk="fk_cntrmdev_machm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_machine_device_device_master" type="relfk"
+	 custom-color="#aa9ef1"
+	 src-table="master.reg_center_machine_device"
+	 dst-table="master.device_master" reference-fk="fk_cntrmdev_devicem"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_user_registration_center" type="relfk"
+	 custom-color="#468d0a"
+	 src-table="master.reg_center_user"
+	 dst-table="master.registration_center" reference-fk="fk_cntrusr_regcntr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_user_user_detail" type="relfk"
+	 custom-color="#822586"
+	 src-table="master.reg_center_user"
+	 dst-table="master.user_detail" reference-fk="fk_cntrusr_usrdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_user_machine_registration_center" type="relfk"
+	 custom-color="#1edf72"
+	 src-table="master.reg_center_user_machine"
+	 dst-table="master.registration_center" reference-fk="fk_cntrmusr_regcntr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_user_machine_machine_master" type="relfk"
+	 custom-color="#e86279"
+	 src-table="master.reg_center_user_machine"
+	 dst-table="master.machine_master" reference-fk="fk_cntrmusr_machm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_reg_center_user_machine_user_detail" type="relfk"
+	 custom-color="#acfe05"
+	 src-table="master.reg_center_user_machine"
+	 dst-table="master.user_detail" reference-fk="fk_cntrmusr_usrdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_screen_authorization_screen_detail" type="relfk"
+	 custom-color="#593164"
+	 src-table="master.screen_authorization"
+	 dst-table="master.screen_detail" reference-fk="fk_scrauth_scrdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_screen_authorization_role_list" type="relfk"
+	 custom-color="#4f7b62"
+	 src-table="master.screen_authorization"
+	 dst-table="master.role_list" reference-fk="fk_scrauth_rolelst"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_screen_detail_app_detail" type="relfk"
+	 custom-color="#cc5671"
+	 src-table="master.screen_detail"
+	 dst-table="master.app_detail" reference-fk="fk_scrdtl_appdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_status_list_status_type" type="relfk"
+	 custom-color="#247722"
+	 src-table="master.status_list"
+	 dst-table="master.status_type" reference-fk="fk_status_sttyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_template_template_type" type="relfk"
+	 custom-color="#e6e82a"
+	 src-table="master.template"
+	 dst-table="master.template_type" reference-fk="fk_tmplt_tmpltyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_template_template_file_format" type="relfk"
+	 custom-color="#089c3d"
+	 src-table="master.template"
+	 dst-table="master.template_file_format" reference-fk="fk_tmplt_tffmt"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_template_module_detail" type="relfk"
+	 custom-color="#21df05"
+	 src-table="master.template"
+	 dst-table="master.module_detail" reference-fk="fk_tmplt_moddtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tsp_licensekey_map_licensekey_list" type="relfk"
+	 custom-color="#463635"
+	 src-table="master.tsp_licensekey_map"
+	 dst-table="master.licensekey_list" reference-fk="fk_tsplkeym"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_detail_authentication_method" type="relfk"
+	 custom-color="#7e3399"
+	 src-table="master.user_detail"
+	 dst-table="master.authentication_method" reference-fk="fk_usrdtl_logmeth"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_detail_status_list" type="relfk"
+	 custom-color="#c8e1b6"
+	 src-table="master.user_detail"
+	 dst-table="master.status_list" reference-fk="fk_usrdtl_status"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_pwd_status_list" type="relfk"
+	 custom-color="#b4ece1"
+	 src-table="master.user_pwd"
+	 dst-table="master.status_list" reference-fk="fk_usrpwd_status"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_pwd_user_detail" type="relfk"
+	 custom-color="#a4b789"
+	 src-table="master.user_pwd"
+	 dst-table="master.user_detail" reference-fk="fk_usrpwd_usrdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_role_role_list" type="relfk"
+	 custom-color="#51fd24"
+	 src-table="master.user_role"
+	 dst-table="master.role_list" reference-fk="fk_usrrol_rolelst"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_role_language" type="relfk"
+	 custom-color="#55deed"
+	 src-table="master.user_role"
+	 dst-table="master.language" reference-fk="fk_usrrol_lang"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_role_user_detail" type="relfk"
+	 custom-color="#916b37"
+	 src-table="master.user_role"
+	 dst-table="master.user_detail" reference-fk="fk_usrrol_usrdtl"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_valid_document_doc_type" type="relfk"
+	 custom-color="#9e2eb8"
+	 src-table="master.valid_document"
+	 dst-table="master.doc_type" reference-fk="fk_valdoc_doctyp"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_valid_document_doc_category" type="relfk"
+	 custom-color="#0defdb"
+	 src-table="master.valid_document"
+	 dst-table="master.doc_category" reference-fk="fk_valdoc_doccat"
 	 src-required="false" dst-required="false"/>
 
 <permission>
@@ -4645,692 +4688,692 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </permission>
 <permission>
 	<object name="master.admin_param" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.admin_param" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.appl_form_type" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.appl_form_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.app_authentication_method" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.app_authentication_method" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.app_detail" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.app_detail" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.app_role_priority" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.app_role_priority" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.authentication_method" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.authentication_method" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.authentication_type" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.authentication_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.biometric_attribute" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.biometric_attribute" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.biometric_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.biometric_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.blacklisted_words" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.blacklisted_words" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.device_master" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.device_master" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.device_master_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.device_master_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.device_spec" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.device_spec" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.device_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.device_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.doc_category" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.doc_category" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.doc_format" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.doc_format" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.doc_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.doc_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.gender" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.gender" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.global_param" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.global_param" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.id_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.id_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.introducer_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.introducer_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.language" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.language" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.licensekey_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.licensekey_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.licensekey_permission" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.licensekey_permission" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.location" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.location" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.loc_holiday" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.loc_holiday" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.machine_master" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.machine_master" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.machine_master_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.machine_master_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.machine_spec" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.machine_spec" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.machine_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.machine_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.message_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.message_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.mid_seq" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.mid_seq" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.module_detail" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.module_detail" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.process_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.process_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.rcid_seq" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.rcid_seq" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reason_category" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reason_category" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reason_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reason_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.registration_center" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.registration_center" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.registration_center_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.registration_center_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_device" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_device" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_device_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_device_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_device" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_device" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_device_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_device_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_machine_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_machine" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_machine" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_machine_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.reg_center_user_machine_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.role_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.role_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.screen_authorization" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.screen_authorization" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.screen_detail" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.screen_detail" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.status_list" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.status_list" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.status_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.status_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.template" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.template" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.template_file_format" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.template_file_format" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.template_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.template_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.title" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.title" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.transaction_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.transaction_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.tspid_seq" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.tspid_seq" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.tsp_licensekey_map" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.tsp_licensekey_map" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.user_detail" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.user_detail" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.user_detail_h" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.user_detail_h" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.user_pwd" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.user_pwd" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.user_role" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.user_role" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.valid_document" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.valid_document" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
-</permission>
-<permission>
-	<object name="master.individual_type" type="table"/>
-	<roles names="appadmin"/>
-	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
-</permission>
-<permission>
-	<object name="master.individual_type" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 <permission>
 	<object name="master.applicant_valid_document" type="table"/>
-	<roles names="appadmin"/>
+	<roles names="sysadmin"/>
 	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
 </permission>
 <permission>
 	<object name="master.applicant_valid_document" type="table"/>
-	<roles names="repuser"/>
-	<privileges select="true" references="true"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.biometric_attribute" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.biometric_attribute" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.biometric_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.biometric_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.blacklisted_words" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.blacklisted_words" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.device_master" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.device_master" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.device_master_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.device_master_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.device_spec" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.device_spec" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.device_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.device_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.doc_category" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.doc_category" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.doc_format" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.doc_format" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.doc_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.doc_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.gender" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.gender" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.global_param" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.global_param" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.id_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.id_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.individual_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.individual_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.introducer_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.introducer_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.language" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.language" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.licensekey_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.licensekey_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.licensekey_permission" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.licensekey_permission" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.location" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.location" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.loc_holiday" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.loc_holiday" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.machine_master" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.machine_master" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.machine_master_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.machine_master_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.machine_spec" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.machine_spec" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.machine_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.machine_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.message_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.message_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.mid_seq" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.mid_seq" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.module_detail" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.module_detail" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.process_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.process_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.rcid_seq" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.rcid_seq" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reason_category" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reason_category" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reason_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reason_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.registration_center" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.registration_center" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.registration_center_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.registration_center_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_device" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_device" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_device_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_device_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_device" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_device" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_device_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_device_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_machine_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_machine" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_machine" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_machine_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.reg_center_user_machine_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.role_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.role_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.screen_authorization" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.screen_authorization" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.screen_detail" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.screen_detail" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.status_list" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.status_list" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.status_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.status_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.template" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.template" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.template_file_format" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.template_file_format" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.template_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.template_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.title" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.title" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.transaction_type" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.transaction_type" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.tsp_licensekey_map" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.tsp_licensekey_map" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.tspid_seq" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.tspid_seq" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.user_detail" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.user_detail" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.user_detail_h" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.user_detail_h" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.user_pwd" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.user_pwd" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.user_role" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.user_role" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
+</permission>
+<permission>
+	<object name="master.valid_document" type="table"/>
+	<roles names="sysadmin"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="master.valid_document" type="table"/>
+	<roles names="masteruser"/>
+	<privileges select="true" delete="true" insert="true" update="true" references="true"/>
 </permission>
 </dbmodel>
