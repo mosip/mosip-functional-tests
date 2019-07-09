@@ -1,2 +1,0 @@
-2019-01-03T21:06:15+05:30 - [io.mosip.registration.controller.auth.LoginController] - ERROR - REGISTRATION - SERVER_CONNECTION_CHECK - REGISTRATION - REG - I/O error on POST request for "http://localhost:8080/getTokenId": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
-2019-01-03T21:06:17+05:30 - [io.mosip.registration.device.gps.GPSFacade] - INFO  - GPS-Device-Information - REGISTRATION - REG - GPS map details{distance=null, gpsErrorMessage=Please connect the GPS Device, latitude=null, longitude=null}

@@ -1,1 +1,0 @@
-The soapui script is yet to be updated as per desiged framework standards.
