@@ -750,7 +750,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	public Map<String, String> fetch_IDRepo() {
 		try {
-			prop.load(new FileInputStream("src/config/IDRepo.properties"));
+			prop.load(new FileInputStream(getResourcePath()+"config/IDRepo.properties"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -760,6 +760,14 @@ public class CommonLibrary extends BaseTestCase {
 				.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
 		return mapProp;
 
+	}
+	/**
+	 * The method to return class loader resource path
+	 * 
+	 * @return String
+	 */
+	public String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath()+"/";
 	}
 
 	public Response put_RequestWithoutBody(String url, String contentHeader, String acceptHeader) {
