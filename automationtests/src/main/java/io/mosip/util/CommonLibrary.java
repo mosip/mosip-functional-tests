@@ -152,7 +152,7 @@ public class CommonLibrary extends BaseTestCase {
 			for (Integer data : permutationValidInvalid) {
 				input += data;
 			}
-			List<String> validInvalid = permutation.pack.Permutation.permutation(input);
+			List<String> validInvalid = io.mosip.util.Permutation.permutation(input);
 			System.out.println("--------------------------------->" + validInvalid);
 			input = "";
 			for (String validInv : validInvalid) {
@@ -209,7 +209,7 @@ public class CommonLibrary extends BaseTestCase {
 			for (Integer data : permutationValidInvalid) {
 				input += data;
 			}
-			List<String> validInvalid = permutation.pack.Permutation.permutation(input);
+			List<String> validInvalid = io.mosip.util.Permutation.permutation(input);
 			System.out.println("--------------------------------->" + validInvalid);
 			input = "";
 			for (String validInv : validInvalid) {

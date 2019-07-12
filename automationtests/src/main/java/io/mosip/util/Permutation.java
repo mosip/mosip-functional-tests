@@ -1,4 +1,4 @@
-package permutation.pack;
+package io.mosip.util;
 
 import java.util.ArrayList;
 import java.util.List;
