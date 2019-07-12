@@ -1,3 +1,7 @@
+# mosip-functional-tests
+contains source for MOSIP test rig and the functional tests
+
+
 Welcome to MOSIP!
 
 The Modular Open Source Identity Platform (MOSIP) helps Governments and other user organizations implement a digital, foundational identity system in a cost effective way. Nations can use MOSIP freely to build their own identity systems. Being modular in its architecture, MOSIP provides flexibility to countries in how they implement and configure their systems, and helps avoid vendor lock-in.  It embraces the best practices of scalability, security and privacy and harnesses the power of open source.
