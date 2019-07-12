@@ -1,2 +1,2 @@
-# mosip-functional-tests-mt
-MOSIP Private Repository for Functional Tests
+# mosip
+Source code of MOSIP
