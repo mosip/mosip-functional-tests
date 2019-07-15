@@ -3,7 +3,7 @@
       "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_Alphabets": " ",
       "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_AlphaNumeric":"",
       "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_SpecialCharacters":"",
-      "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_AlphaNumericAndSpecialCharacters":"",
-      "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_GreaterThanMaxLength":"",
+      "DeleteAllDocumentWithInvalidPreRegisrationId_AlphaNumericAndSpecialCharacters":"",
+      "DeleteAllDocumentWithInvalidPreRegisrationId_GreaterThanMaxLength":"",
       "DeleteAllDocumentForPreRegisrationIdByPassingInvalidPreRegisrationId_Spaces":""
 }

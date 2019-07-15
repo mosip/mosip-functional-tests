@@ -67,7 +67,7 @@ public class GetDeviceHistory extends BaseTestCase implements ITest{
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regProcCookie))
 			regProcCookie = auth.getAuthForRegistrationProcessor();
 	} 
@@ -112,14 +112,14 @@ public class GetDeviceHistory extends BaseTestCase implements ITest{
 		listOfElementToRemove.add("responsetime");
 		listOfElementToRemove.add("timestamp");
 		
-		if(testCaseName.equals("Kernel_GetDeviceHistory_smoke_1")|| testCaseName.equals("Kernel_GetDeviceHistory_response_time")) {
+		if(testCaseName.equals("kernel_GetDeviceHistory_smoke_1")|| testCaseName.equals("Kernel_GetDeviceHistory_response_time")) {
 			String effectDateTime = res.jsonPath().get("response.deviceHistoryDetails[0].effectDateTime");
 			((JSONObject)((JSONArray)((JSONObject)Expectedresponse.get("response")).get("deviceHistoryDetails")).get(0)).put("effectDateTime", effectDateTime).toString();
 		}
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
       if (status) {
-    	  if(testCaseName.equals("Kernel_GetDeviceHistory_smoke_1"))
+    	  if(testCaseName.equals("kernel_GetDeviceHistory_smoke_1"))
     	  {
     		String id = actualRequest.get("id").toString();
     		String langcode = actualRequest.get("langcode").toString();

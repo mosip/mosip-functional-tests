@@ -73,7 +73,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regProcCookie))
 			regProcCookie=auth.getAuthForRegistrationProcessor();
 	} 
@@ -117,7 +117,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 	
 	switch(testCaseName)
 		{
-		case "Kernel_UINStatusUpdate_UIN_Status_smoke_IssuedToUnused": 
+		case "kernel_UINStatusUpdate_UIN_Status_smoke_IssuedToUnused": 
 			uin=res1.jsonPath().get("response.uin");
 			JSONObject request=(JSONObject) actualRequest.get("request");
 			request.put("uin", uin);
@@ -125,7 +125,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 			response.put("uin", uin);
 			break;
 
-		case "Kernel_UINStatusUpdate_UIN_Status_AssignedToIssued" : 
+		case "kernel_UINStatusUpdate_UIN_Status_AssignedToIssued" : 
 			uin1=res1.jsonPath().get("response.uin");
 			request=(JSONObject) actualRequest.get("request");
 			request.put("uin", uin1);
@@ -134,7 +134,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 			res=applicationLibrary.putWithJson(uingenerator, actualRequest,regProcCookie);
 			break;
 
-		case "Kernel_UINStatusUpdate_UIN_Status_AssignedToUnused":
+		case "kernel_UINStatusUpdate_UIN_Status_AssignedToUnused":
 			uin1=res1.jsonPath().get("response.uin");
 			request=(JSONObject) actualRequest.get("request");
 			request.put("uin", uin1);
@@ -143,7 +143,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 			request.put("status", "UNASSIGNED");
 			break;
 
-		case "Kernel_UINStatusUpdate_UIN_Status_IssuedToAssigned" :
+		case "kernel_UINStatusUpdate_UIN_Status_IssuedToAssigned" :
 			uin1=res1.jsonPath().get("response.uin");
 			request=(JSONObject) actualRequest.get("request");
 			request.put("uin", uin1);
@@ -151,7 +151,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 			response.put("uin", uin1);
 			break;
 			
-		case "Kernel_UINStatusUpdate_UIN_Status_UnusedToAssigned":
+		case "kernel_UINStatusUpdate_UIN_Status_UnusedToAssigned":
 			//Getting the status of the UIN 
 			 query="select u.uin from kernel.uin u where u.uin_status='UNUSED'";
 			 UIN = dbConnection.getDbData( query,"kernel").get(0);
@@ -159,7 +159,7 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 			request.put("uin", UIN);
 			break;
 			
-		case "Kernel_UINStatusUpdate_UIN_Status_empty_status":
+		case "kernel_UINStatusUpdate_UIN_Status_empty_status":
 			//Getting the status of the UIN 
 			 query="select u.uin from kernel.uin u where u.uin_status='UNUSED'";
 			 UIN = dbConnection.getDbData( query,"kernel").get(0);

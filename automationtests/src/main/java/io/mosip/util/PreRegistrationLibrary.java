@@ -642,7 +642,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		if (!isValidToken(regClientToken)) {
 			regClientToken = regClientAdminToken();
 		}
-		testSuite = "Retrive_PreRegistration/Retrive Pre registration data of an applicant after booking an appointment_smoke";
+		testSuite = "Retrive_PreRegistration/Retrive PreReg data of an applicant_smoke";
 		request = getRequest(testSuite);
 		request.put("preRegistrationId", preRegistrationId);
 		try {
@@ -661,7 +661,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 */
 
 	public Response updateDemographicDetails(JSONObject body, String pre_registration_id, String cookie) {
-		testSuite = "Retrive_PreRegistration/Retrive Pre registration data of an applicant after booking an appointment_smoke";
+		testSuite = "Retrive_PreRegistration/Retrive PreReg data of an applicant_smoke";
 		request = getRequest(testSuite);
 		request.put("preRegistrationId", pre_registration_id);
 		response = appLib.putWithPathParamsBody(preReg_UpdateStatusAppURI, request, body, cookie);
@@ -1471,8 +1471,8 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 */
 	public boolean validateRetrivePreRegistrationData(Response response, String PrID, Response craeteResponse) {
 		boolean finalResult = false;
-		HashMap<String, String> expectedDemographicDetails = craeteResponse.jsonPath()
-				.get("response.demographicDetails");
+		/*HashMap<String, String> expectedDemographicDetails = craeteResponse.jsonPath()
+				.get("response.demographicDetails");*/
 		String folderName = "PreRegDocs";
 		String systemPath = System.getProperty("user.dir");
 		String data = response.jsonPath().get("response.zip-bytes").toString();
@@ -1522,7 +1522,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 				}
 
 				Map<String, Object> actualDemographicDetails = jsonObjectToMap(request);
-				finalResult = actualDemographicDetails.keySet().equals(expectedDemographicDetails.keySet());
+				/*finalResult = actualDemographicDetails.keySet().equals(expectedDemographicDetails.keySet());*/
 			}
 		} catch (NullPointerException | IOException | ParseException e) {
 			Assert.fail("File is not present at specified path ::" + configPath);

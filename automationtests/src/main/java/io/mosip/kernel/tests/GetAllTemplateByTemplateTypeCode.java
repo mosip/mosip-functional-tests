@@ -66,7 +66,7 @@ public class GetAllTemplateByTemplateTypeCode extends BaseTestCase implements IT
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(individualCookie))
 			individualCookie = auth.getAuthForIndividual();
 	}
@@ -103,7 +103,7 @@ public class GetAllTemplateByTemplateTypeCode extends BaseTestCase implements IT
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
       if (status) {
-    	  if(testCaseName.equalsIgnoreCase("Kernel_GetAllTemplateByTemplateTypeCode_smoke"))
+    	  if(testCaseName.equalsIgnoreCase("kernel_GetAllTemplateByTemplateTypeCode_smoke"))
     	  {
     		String id = actualRequest.get("code").toString();
 	        String queryStr = "SELECT count(*) FROM master.template WHERE template_typ_code='"+id+"'";

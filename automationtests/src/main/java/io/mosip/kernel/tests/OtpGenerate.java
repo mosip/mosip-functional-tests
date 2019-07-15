@@ -66,7 +66,7 @@ public class OtpGenerate extends BaseTestCase implements ITest{
 	@BeforeMethod(alwaysRun=true)
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regAdminCookie))
 			regAdminCookie=auth.getAuthForRegistrationAdmin();
 	} 
@@ -102,7 +102,7 @@ public class OtpGenerate extends BaseTestCase implements ITest{
 		listOfElementToRemove.add("otp");
 		
 	    //making key as frozen key        
-    	  if(testCaseName.equalsIgnoreCase("Kernel_otpGenerate_key_frozen"))
+    	  if(testCaseName.equalsIgnoreCase("kernel_otpGenerate_key_frozen"))
     	  {
     		String key=new CommonLibrary().randomAlphaNumeric(5);
     		//adding random string to the request

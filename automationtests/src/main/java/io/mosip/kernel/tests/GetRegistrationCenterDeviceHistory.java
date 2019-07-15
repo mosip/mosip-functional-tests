@@ -65,7 +65,7 @@ public class GetRegistrationCenterDeviceHistory extends BaseTestCase implements 
 	@BeforeMethod(alwaysRun=true)
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regProcCookie))
 			regProcCookie=auth.getAuthForRegistrationProcessor();
 	} 
@@ -107,7 +107,7 @@ public class GetRegistrationCenterDeviceHistory extends BaseTestCase implements 
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
-		if(testCaseName.equals("Kernel_GetRegistrationCenterDeviceHistory_smoke_2") || testCaseName.equals("Kernel_GetRegistrationCenterDeviceHistory_response_time")) {
+		if(testCaseName.contains("smoke_2") || testCaseName.contains("response_time")) {
 			String effectDateTime = res.jsonPath().get("response.registrationCenterDeviceHistoryDetails.effectivetimes");
 			((JSONObject)((JSONObject)Expectedresponse.get("response")).get("registrationCenterDeviceHistoryDetails")).put("effectivetimes", effectDateTime).toString();
 		}

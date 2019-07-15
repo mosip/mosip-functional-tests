@@ -522,7 +522,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response getWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a Get request to " + url);
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
-		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url).then().log().all().extract().response();
+		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
 		logger.info("REST-ASSURED: the response Time is: " + getResponse.time());
@@ -541,7 +541,7 @@ public class CommonLibrary extends BaseTestCase {
 
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
-				.all().when().get(url).then().log().all().extract().response().then().log().all().extract().response();
+				.all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
 		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
@@ -560,7 +560,7 @@ public class CommonLibrary extends BaseTestCase {
 
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams).log()
-				.all().when().get(url).then().log().all().extract().response();
+				.all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
 		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());

@@ -66,7 +66,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + object.toString();
 	} 
 	
 	// Data Providers to read the input json files from the folders
@@ -94,7 +94,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		 Response res = applicationLibrary.postWithJson(licKeyGenerator, actualRequest1);
 		
 		//Storing the licence key and its corrosponding tspid
-		 if(testCaseName.equals("Kernel_GenerateLicenseKey_smoke_generateLicenceKey"))
+		 if(testCaseName.equals("kernel_GLK_smoke"))
 			{
 			 tspId=((JSONObject)actualRequest1.get("request")).get("tspId").toString();
 			 licenseKey=res.jsonPath().getMap("response").get("licenseKey").toString();
@@ -108,7 +108,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
      if(status){
-    	  if(testCaseName.contains("Kernel_GenerateLicenseKey_smoke_generateLicenceKey")){     
+    	  if(testCaseName.contains("kernel_GLK_smoke")){     
     		  int length=licenseKey.length();
     		  if(length==16){
     			  status =true;
@@ -159,7 +159,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		 
 	    // adding the tspid and corresponding license key to the request and expected response od smok test case
 	    JSONObject request = (JSONObject) actualRequest_map.get("request");
-	    if(testCaseName.contains("Kernel_MapLicenseKeyPermission_smoke"))
+	    if(testCaseName.contains("kernel_MLK_smoke"))
 	    {
 	    	request.put("tspId", tspId);
 	    	request.put("licenseKey", licenseKey);	
@@ -209,7 +209,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		JSONObject actualRequest = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];
 		//adding the tspid and corrosponding license key to the smoke request
-		if(testCaseName.contains("Kernel_FetchLicenseKeyPermissions_smoke_FetchLicenseKeyPermissions"))
+		if(testCaseName.contains("kernel_FLKP_smoke"))
 		{
 			actualRequest.put("tspId", tspId);
 			actualRequest.put("licenseKey", licenseKey);
