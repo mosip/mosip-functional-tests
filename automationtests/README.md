@@ -20,7 +20,7 @@ For Linux
 - regular maven conf folder
 - copy the same settings.xml under /usr/local/maven/conf
 
-### 1. Test Automation Code
+### 1. Access Test Automation Code
 From Browser:
 -	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip 
 -	Unzip the contents
@@ -37,13 +37,13 @@ Edit the pom.xml for the latest version of mosip platform Eg: <version>0.12.16</
 **Command to use:** 
 <br>_cd automationtests_<br>
 
-### 2. Build test code
+### 2. Build Test Automation Code
 **Command to use:**
 <br>_mvn clean install_<br>
 
 This creates the jar file in the ‘target’ folder
 
-### 3. Execute automation suite
+### 3. Execute Test Automation Suite
 Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
 
 **Command to use:**
