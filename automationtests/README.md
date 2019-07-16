@@ -10,19 +10,19 @@ This readme provides detailed steps to build and execute the AUTOMATION TEST SUI
 4. settings.xml needs to be present in one place, if tests are run from a windows machine
 - regular maven conf folder
 
-## Test Automation Code (From Browser)
+### 1. Test Automation Code
+From Browser:
 -	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip 
 -	Unzip the contents
 - Continue with below steps from a terminal (Linux) or command prompt (Windows)
 
-## Test Automation Code (From Git Bash)
+From Git Bash:
 - Copy the git link i.e "https://github.com/mosip/mosip-functional-tests"
 - On your local sytem, gitbash at any location
 - Run the "git clone -b https://github.com/mosip/mosip-functional-tests" command
 
-### 1. Automation Test Code Folder  
-pom.xml file corresponding to the automation code, which can be used to build the code.
-The pom.xml should have the latest version of mosip platform.
+Make sure pom.xml file lists all the dependencies, as it is used to build the automation code.
+Edit the pom.xml for the latest version of mosip platform Eg: 
 
 **Command to use:** 
 <br>_cd automationtests_<br>
