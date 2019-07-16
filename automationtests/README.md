@@ -4,6 +4,11 @@ This readme provides detailed steps to build and execute the AUTOMATION TEST SUI
 ## Pre-requisites:
 -	Java (8 or above) and Maven (3.6.0) software should be installed on the machine from where the automation tests will be executed
 - Git bash (2.18.0.windows.1); this is required if run from windows machine
+- settings.xml file needs to be present in two places if tests are run from a linux machine
+1.  regular maven conf folder
+2.  copy the same settings.xml under /usr/local/maven/conf
+- settings.xml needs to be present in one place, if tests are run from a windows machine
+1.  regular maven conf folder
 
 ## Test Automation Code (From Browser)
 Github new repo location - 
