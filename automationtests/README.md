@@ -5,14 +5,20 @@ This readme provides detailed steps to build and execute the AUTOMATION TEST SUI
 -	Java (1.8) and Maven (3.6.0) software should be installed on the machine from where the jar tests will be executed
 - Git bash (2.18.0.windows.1)
 
-## Test Automation Code
+## Test Automation Code (From Browser)
 Github new repo location - 
 -	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip 
 -	Unzip the contents
 - Continue with below steps from a terminal (Linux) or command prompt (Windows)
 
+## Test Automation Code (From Git Bash)
+- Copy the git link i.e "https://github.com/mosip/mosip-functional-tests"
+- On your local sytem, gitbash at any location
+- Run the "git clone -b https://github.com/mosip/mosip-functional-tests" command
+
 ### 1. Automation Test Code Folder  
 pom.xml file corresponding to the automation code, which can be used to build the code.
+The pom.xml should have the latest version of mosip platform.
 
 **Command to use:** 
 <br>_cd automationtests_<br>
@@ -43,5 +49,5 @@ _jar_ = specify the jar file to be executed
 
 The version of the jar file name changes as per development code version. 
 
-Example: Current version of Dev [code base](https://github.com/mosip/mosip-platform) is 0.9.0 so the jar name will be automationtests-refactor-0.9.0-jar-with-dependencies.jar
+Example: Current version of Dev [code base](https://github.com/mosip/mosip-platform) is 0.12.16 so the jar name will be automationtests-refactor-0.12.16-jar-with-dependencies.jar
 
