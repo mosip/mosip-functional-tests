@@ -2,13 +2,17 @@
 This readme provides detailed steps to build and execute the AUTOMATION TEST SUITE for sanity testing of the MOSIP platform. It can be run after successful deployment of the platform code.
 
 ## Pre-requisites:
+For Windows
 1. Java (8 or above) and Maven (3.6.0) software should be installed on the machine from where the automation tests will be executed
-2. Git bash (2.18.0.windows.1); this is required if run from windows machine
-3. settings.xml file needs to be present in two places if tests are run from a linux machine
+2. Git bash (2.18.0.windows.1)
+3. settings.xml needs to be present in one place
+- regular maven conf folder
+
+For Linux
+1. Assume Java (8 or above) and Maven (3.6.0) are available
+2. settings.xml file needs to be present in two places
 - regular maven conf folder
 - copy the same settings.xml under /usr/local/maven/conf
-4. settings.xml needs to be present in one place, if tests are run from a windows machine
-- regular maven conf folder
 
 ### 1. Test Automation Code
 From Browser:
