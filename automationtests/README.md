@@ -9,7 +9,7 @@ For Windows
 - regular maven conf folder
 
 For Linux
-1. Assume Java (8 or above) and Maven (3.6.0) are available
+1. Assume Java (8 or above), Maven (3.6.0) and Git softwares are available
 2. settings.xml file needs to be present in two places
 - regular maven conf folder
 - copy the same settings.xml under /usr/local/maven/conf
