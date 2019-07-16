@@ -2,8 +2,8 @@
 This readme provides detailed steps to build and execute the AUTOMATION TEST SUITE for sanity testing of the MOSIP platform. It can be run after successful deployment of the platform code.
 
 ## Pre-requisites:
--	Java and Maven software should be installed on the machine from where the jar tests will be executed
-- Java 1.8, Maven 3.6.0
+-	Java (1.8) and Maven (3.6.0) software should be installed on the machine from where the jar tests will be executed
+- Git bash (2.18.0.windows.1)
 
 ## Test Automation Code
 Github new repo location - 
