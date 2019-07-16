@@ -3,6 +3,7 @@ This readme provides detailed steps to build and execute the AUTOMATION TEST SUI
 
 ## Pre-requisites:
 -	Java and Maven software should be installed on the machine from where the jar tests will be executed
+- Java 1.8, Maven 3.6.0
 
 ## Test Automation Code
 Github new repo location - 
@@ -28,7 +29,7 @@ Execute the jar from the target folder on the application code deployed. In this
 **Command to use:**
 <br>_cd target/_<br>
 
-_java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-refactor-0.12.12-jar-with-dependencies.jar_
+_java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-refactor-0.12.16-jar-with-dependencies.jar_
 
 **Details of the arguments used**
 
