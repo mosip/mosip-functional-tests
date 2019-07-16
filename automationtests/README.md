@@ -11,7 +11,6 @@ This readme provides detailed steps to build and execute the AUTOMATION TEST SUI
 1.  regular maven conf folder
 
 ## Test Automation Code (From Browser)
-Github new repo location - 
 -	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip 
 -	Unzip the contents
 - Continue with below steps from a terminal (Linux) or command prompt (Windows)
