@@ -1,22 +1,17 @@
 # Automationtests
-This readme provides detailed steps to build and execute the AUTOMATION TEST SUITE for sanity testing of the MOSIP platform. Hence this suite is expected to be run post the successful deployment of the platform code on a test environment.
+This readme provides detailed steps to build and execute the AUTOMATION TEST SUITE for sanity testing of the MOSIP platform. It can be run after successful deployment of the platform code.
 
 ## Pre-requisites:
--	Java and maven software should be installed on the machine from where the jar will be run
--	Github access
+-	Java and Maven software should be installed on the machine from where the jar tests will be executed
 
-## Test Automation Code - GitHub
-Github new repo location - https://github.com/mosip/mosip-functional-tests
--	Go to the github location
--	Click on ‘Clone or download’ option to download the zip 
--	Go to the folder where the zip file is stored
+## Test Automation Code
+Github new repo location - 
+-	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip 
 -	Unzip the contents
--	Go to command prompt from the windows explorer and do the following, if on a windows machine. If on a linux machine go to the command prompt and continue with the below steps
-
- 
+- Continue with below steps from a terminal (Linux) or command prompt (Windows)
 
 ### 1. Automation Test Code Folder  
-automationtests also has pom.xml file corresponding to the automation code, which can be used to build the code.
+pom.xml file corresponding to the automation code, which can be used to build the code.
 
 **Command to use:** 
 <br>_cd automationtests_<br>
