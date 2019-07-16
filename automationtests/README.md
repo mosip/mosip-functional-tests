@@ -13,6 +13,7 @@ For Windows
 - masterdataqa.cfg.xml
 - preregqa.cfg.xml
 - regproc.cfg.xml
+- ida/RunConfig/envRunConfig.properties
 
 For Linux
 1. Assume Java (8 or above), Maven (3.6.0) and Git softwares are available
