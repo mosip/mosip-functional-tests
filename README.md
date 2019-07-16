@@ -5,6 +5,8 @@ We encourage you to read the [Tester Documentation](https://github.com/mosip/mos
 
 Information regarding component-level test automation suite can be accessed from [Test Rig Design](https://github.com/mosip/mosip-docs/wiki/Test-Rig-Design).
 
+The source code from this repo can be built and a series of sanity tests can be executed against the deployed MOSIP Platform.  The steps are present in https://github.com/mosip/mosip-functional-tests/blob/master/automationtests/README.md
+
 
 ---
 ### About MOSIP
