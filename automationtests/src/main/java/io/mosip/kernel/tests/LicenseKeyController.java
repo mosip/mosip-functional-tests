@@ -159,7 +159,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		 
 	    // adding the tspid and corresponding license key to the request and expected response od smok test case
 	    JSONObject request = (JSONObject) actualRequest_map.get("request");
-	    if(testCaseName.contains("kernel_MLK_smoke"))
+	    if(testCaseName.contains("kernel_MLK_smoke") || testCaseName.contains("invalid_permissions"))
 	    {
 	    	request.put("tspId", tspId);
 	    	request.put("licenseKey", licenseKey);	
