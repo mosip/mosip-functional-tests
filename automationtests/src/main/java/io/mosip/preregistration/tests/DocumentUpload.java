@@ -167,7 +167,7 @@ public class DocumentUpload extends BaseTestCase implements ITest {
 					
 					testSuite = "DocumentUpload/DocumentUpload_smoke";
 					String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
-					File file = new File(configPath + "/AadhaarCard_POI.pdf");
+					File file = new File(configPath + "/doc_POI.pdf");
 					Actualresponse = applicationLibrary.putFileAndJsonWithParm(preReg_URI, actualRequest, file, parm);
 					logger.info("DocumentUploadInvalidRequesttime:"+Actualresponse.asString());
 					outerKeys.add("responsetime");
@@ -182,7 +182,7 @@ public class DocumentUpload extends BaseTestCase implements ITest {
 					actualRequest.put("requesttime", preRegLib.getCurrentDate());
 					testSuite = "DocumentUpload/DocumentUpload_smoke";
 					String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
-					File file = new File(configPath + "/AadhaarCard_POI.pdf");
+					File file = new File(configPath + "/doc_POI.pdf");
 					Actualresponse = applicationLibrary.putFileAndJsonWithParm(preReg_URI, actualRequest, file, parm);
 					logger.info("DocumentUploadInvalidVersionORId:"+Actualresponse.asString()+"TC nmaw::"+testCaseName);
 					outerKeys.add("responsetime");

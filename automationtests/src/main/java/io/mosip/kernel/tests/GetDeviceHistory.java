@@ -112,7 +112,7 @@ public class GetDeviceHistory extends BaseTestCase implements ITest{
 		listOfElementToRemove.add("responsetime");
 		listOfElementToRemove.add("timestamp");
 		
-		if(testCaseName.equals("kernel_GetDeviceHistory_smoke_1")|| testCaseName.equals("Kernel_GetDeviceHistory_response_time")) {
+		if(testCaseName.equals("kernel_GetDeviceHistory_smoke_1")|| testCaseName.equals("kernel_GetDeviceHistory_response_time")) {
 			String effectDateTime = res.jsonPath().get("response.deviceHistoryDetails[0].effectDateTime");
 			((JSONObject)((JSONArray)((JSONObject)Expectedresponse.get("response")).get("deviceHistoryDetails")).get(0)).put("effectDateTime", effectDateTime).toString();
 		}

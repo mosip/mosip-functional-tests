@@ -143,7 +143,7 @@ public class GetAllDocumentForPreRegId extends BaseTestCase implements ITest {
 			outerKeys.add("responsetime");
 			innerKeys.add("documentsMetaData");
 			preRegLib.compareValues(getAllDocRes.jsonPath().get("response.documentsMetaData[0].docName").toString(),
-					"AadhaarCard_POI.pdf");
+					"doc_POI.pdf");
 			preRegLib.compareValues(getAllDocRes.jsonPath().get("response.documentsMetaData[0].docCatCode").toString(),
 					"POA");
 			preRegLib.compareValues(getAllDocRes.jsonPath().get("response.documentsMetaData[0].docTypCode").toString(),

@@ -11,7 +11,7 @@
 	</listeners>
 
 
-	  <test name="Kernel Tests">
+	<test name="Kernel Tests">
 						 <classes>
 						
                         <class name="io.mosip.kernel.tests.AuditLog" />   
@@ -71,7 +71,6 @@
                  </classes>
 
 				</test>      
-			
   
 		 	  <test name="PreReg Tests">
 		<classes>
@@ -112,7 +111,7 @@
 		</classes> 
 	</test>  
 
- <!--
+ 
     <test name="RegistrationProcessor Tests">
 
 		<classes>					
@@ -172,7 +171,7 @@
              </classes>
 
        </test>	 		 
- -->
+
 		</suite>
 		
 	

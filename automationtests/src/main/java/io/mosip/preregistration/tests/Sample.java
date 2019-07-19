@@ -75,16 +75,22 @@ public class Sample extends BaseTestCase implements ITest {
 		initialize();
 
 	}
-
-	@Test(groups = { "IntegrationScenarios" })
-	public void delDocByDocIdForDiscardedApplication() {
-		dao.deleteAvailableSlot();
+	@Test
+	public void invalidateToken() {
+		String cookie = lib.getToken();
+		Response invalidateTokenResponse = lib.logOut(cookie);
+		String message = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		lib.compareValues(message, "Token has been invalidated successfully");
+		Response createPreRegResponse = lib.CreatePreReg(cookie);
+		String errorCode = createPreRegResponse.jsonPath().get("errors[0].errorCode").toString();
+		String errorMessage = createPreRegResponse.jsonPath().get("errors[0].message").toString();
+		lib.compareValues(errorCode, "KER-ATH-401");
+		lib.compareValues(errorMessage, "Invalid Token");
+		
 	}
-
-
 	@BeforeMethod(alwaysRun = true)
 	public void run() {
-		/*if (!lib.isValidToken(individualToken)) {
+	/*	if (!lib.isValidToken(individualToken)) {
 			individualToken = lib.getToken();
 		}*/
 	}

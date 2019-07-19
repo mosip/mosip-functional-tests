@@ -72,8 +72,6 @@ public class BookingAppointment extends BaseTestCase implements ITest {
 	ObjectMapper mapper = new ObjectMapper();
 	Response Actualresponse = null;
 	JSONObject Expectedresponse = null;
-
-	//ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	ApplicationLibrary appLib = new ApplicationLibrary();
 
 	String preReg_URI;
