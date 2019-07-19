@@ -29,21 +29,20 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
+import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.service.BaseTestCase;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
  
 /**
@@ -63,6 +62,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String responseJsonToVerifyDigtalSignature;
 	protected static String responseDigitalSignatureValue;
 	protected static String responseDigitalSignatureKey="response-signature";
+	protected static String logFileName="id-auth.log";
 	
 	/**
 	 * The method will get current test execution folder
@@ -176,14 +176,16 @@ public class AuthTestsUtil extends BaseTestCase {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					FileOutputStream fos = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String responseJson = "";
+					Response response;
 					if (code == 0)
-						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
 					else
-						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
+						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					fos.write(responseJson.getBytes());
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
 					fos.flush();
 					fos.close();
 				}
@@ -212,17 +214,17 @@ public class AuthTestsUtil extends BaseTestCase {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					FileOutputStream fos = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String responseJson = "";
+					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
 					else
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					fos.write(responseJson.getBytes());
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
+					fos.write(responseJson.asString().getBytes());
 					fos.flush();
 					fos.close();
-					return responseJson.toString();
+					return responseJson.asString().toString();
 				}
 			}
 			return "NoResponse";
@@ -232,7 +234,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	protected String postRequestWithCookie(String filename, String url, int expCode,String cookieName,String cookieValue) {
+	protected Response postRequestWithCookie(String filename, String url, int expCode,String cookieName,String cookieValue) {
 		Response response=null;
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
@@ -244,10 +246,10 @@ public class AuthTestsUtil extends BaseTestCase {
 			objMap.put("Status Code", objList);
 			Reporter.log(ReportUtil.getOutputValiReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
-			return response.asString();
+			return response;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
-			return response.asString();
+			return response;
 		}
 	}
 	
@@ -268,19 +270,19 @@ public class AuthTestsUtil extends BaseTestCase {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					FileOutputStream fos = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String responseJson = "";
+					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
 					else
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
-					if (responseJson.contains("Invalid UIN")) {
+					if (responseJson.asString().contains("Invalid UIN")) {
 						fos.flush();
 						fos.close();
 						return false;
 					} else {
 						Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-								+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-						fos.write(responseJson.getBytes());
+								+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
+						fos.write(responseJson.asString().getBytes());
 						fos.flush();
 						fos.close();
 						return true;
@@ -626,8 +628,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordinFile))
-					JsonPrecondtion.parseAndwriteJsonFile(listOfFiles[j].getAbsolutePath(), fieldvalue,
+				{
+					MessagePrecondtion jsonPrecon = new JsonPrecondtion();
+					jsonPrecon.parseAndWriteFile(listOfFiles[j].getAbsolutePath(), fieldvalue,
 							listOfFiles[j].getAbsolutePath(), propFileName);
+				}
 			}
 			return true;
 		} catch (Exception e) {
@@ -808,7 +813,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param filePath
 	 * @param map
 	 */
-	public void updateMappingDic(String filePath, Map<String, String> map) {
+	public static void updateMappingDic(String filePath, Map<String, String> map) {
 		try {
 			FileInputStream in = new FileInputStream(filePath);
 			Properties props = new Properties();
@@ -934,37 +939,18 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	/**
-	 * After the entire test suite clean up rest assured
-	 */
-	@AfterClass
-	public static void authTestTearDown() {
-		IDASCRIPT_LOGGER.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
-	}
-	
-	/**
-	 * The method will perform before suite begins
-	 */
-	@BeforeClass
-	public static void wakeDemoApp() {
-		IDASCRIPT_LOGGER.info("Starting authpartner demo application...");
-		AuthPartnerProcessor.startProcess();
-		/*createBatOrShFileForDemoApp();
-		if (getOSType().toString().equals("WINDOWS"))
-			batDemoAppRunner();
-		else if (getOSType().toString().equals("OTHERS"))
-			shDemoAppRunner();*/
-	}
+	/*public static void regenerateVID() {
+		if (!AuthenticationTestsListener.currentTestMethod.toString()
+				.contains("authentication.idRepository.prerequiste")) {
+			IDASCRIPT_LOGGER.info("Regenerating Used VID...");
+			VIDUtil.regenerateVID();
+		}
+	}*/
 	
 	public static void initiateAuthTest() {
 		removeOldAuthTestResource();
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
-	}
-	
-	public void terminateAuthTest() {
-		authTestTearDown();
 	}
 
 	/**
@@ -984,9 +970,9 @@ public class AuthTestsUtil extends BaseTestCase {
 						+ " -Dspring.cloud.config.label=QA_IDA -Dspring.profiles.active=test"+RunConfigUtil.getRunEvironment()+" -Dspring.cloud.config.uri=http://104.211.212.28:51000 -jar "
 						+ '"' + demoAppJarPath.toString() + '"';
 			} else if (getOSType().toString().equals("OTHERS")) {
-				IDASCRIPT_LOGGER.info("Maven Path: " + System.getenv(RunConfigUtil.getLinuxMavenEnvVariableKey()));
-			    String mavenPath = System.getenv(RunConfigUtil.getLinuxMavenEnvVariableKey());
-				String settingXmlPath = "/usr/local/maven" + "/conf/settings.xml";
+				IDASCRIPT_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
+			    String mavenPath = RunConfigUtil.getLinuxMavenPath();
+				String settingXmlPath = mavenPath+ "/conf/settings.xml";
 				String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
 				demoAppJarPath = new File(repoPath + "/io/mosip/authentication/authentication-partnerdemo-service/"
 						+ getDemoAppVersion() + "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar")
@@ -1188,15 +1174,14 @@ public class AuthTestsUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON,cookieName);
 	}
 	
-	protected String postRequestWithCookie(String filename, String url,String cookieName, String cookieValue) {
+	protected Response postRequestWithCookie(String filename, String url,String cookieName, String cookieValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			return RestClient
-					.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
-					.asString();
+					.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
-			return e.toString();
+			return null;
 		}
 	}
 	protected String postRequestWithCookie(String filename, String url,String cookieName, String cookieValue,int code) {
@@ -1210,7 +1195,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			return e.toString();
 		}
 	}
-	protected String postStrContentRequestWithCookie(String content, String url,String cookieName, String cookieValue) {
+	protected static String postStrContentRequestWithCookie(String content, String url,String cookieName, String cookieValue) {
 		try {
 			return RestClient
 					.postRequestWithCookie(url, content, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
@@ -1269,7 +1254,17 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static String getVidRequestContent() {
 		try {
 			return getContentFromFile(new File(RunConfigUtil.getResourcePath()
-					+ "ida/VIDData/VIDGeneration/VIDGenerate/vid-request.json"));
+					+ "ida/VIDData/VIDGeneration/VIDGenerate_smoke/vid-request.json"));
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception Occured in getting the VID request file" + e.getMessage());
+			return e.getMessage();
+		}
+	}
+	
+	public static String getVidRequestContentTemplate() {
+		try {
+			return getContentFromFile(new File(RunConfigUtil.getResourcePath()
+					+ "ida/TestData/VIDData/VIDGeneration/input/vid-request.json"));
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception Occured in getting the VID request file" + e.getMessage());
 			return e.getMessage();
@@ -1286,7 +1281,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param code
 	 * @return true or false
 	 */
-	protected String postRequestAndGetResponseForVIDGeneration(String content, String urlPath, String cookieName,
+	public static String postRequestAndGetResponseForVIDGeneration(String content, String urlPath, String cookieName,
 			String cookieValue) {
 		try {
 			return postStrContentRequestWithCookie(content, urlPath, cookieName, cookieValue);
@@ -1310,7 +1305,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static void copyAuthTestResource() {
 		try {
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/ida");
-			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/AuthenticationTestResource");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
 			IDASCRIPT_LOGGER.info("Copied the authentication test resource successfully");
 		} catch (Exception e) {
@@ -1319,12 +1314,12 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	public static void removeOldAuthTestResource() {
-		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/AuthenticationTestResource");
+		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 		if (authTestFile.exists())
 			if (FileUtil.deleteDirectory(authTestFile))
-				IDASCRIPT_LOGGER.info("Old AuthenticationTestResource folder successfully deleted!!");
+				IDASCRIPT_LOGGER.info("Old "+RunConfigUtil.resourceFolderName+" folder successfully deleted!!");
 			else
-				IDASCRIPT_LOGGER.error("Old AuthenticationTestResource folder not deleted.");
+				IDASCRIPT_LOGGER.error("Old "+RunConfigUtil.resourceFolderName+" folder not deleted.");
 	}
 	/**
 	 * The method will get request and generate output file with return repose

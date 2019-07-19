@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.util;
 
-import java.io.File; 
+import java.io.File;  
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -13,7 +13,6 @@ import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.authentication.fw.dto.ErrorsDto;
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.testrunner.MosipTestRunner;
 
 /**
@@ -39,28 +38,13 @@ public class IdaRunConfig extends RunConfig{
 	private  String userDirectory;
 	private  String testDataPath;
 	private  String idRepoEndPointUrl;
-	private  String dbKernelTableName;
-	private  String dbKernelSchemaName;
-	private  String dbKernelUserName;
-	private  String dbKernelPwd;
 	private  String testType;
 	private  String PinPath;
 	private  String generateUINPath;
 	private  String idRepoRetrieveDataPath;
 	private  String idRepoCreateUINRecordPath;
 	private  String storeUINDataPath;
-	private  String dbIdaTableName;
-	private  String dbIdaSchemaName;
-	private  String dbIdaUserName;
-	private  String dbIdaPwd;	
-	private  String dbAuditTableName;
-	private  String dbAuditSchemaName;
-	private  String dbAuditUserName;
-	private  String dbAuditPwd;
 	private  String encodeFilePath;
-	private  String dbKernelUrl;
-	private  String dbIdaUrl;
-	private  String dbAuditUrl;
 	private  String decodeFilePath;
 	private  String vidGenPath;
 	private  String testDataFolderName;
@@ -75,7 +59,8 @@ public class IdaRunConfig extends RunConfig{
 	private String internalEncryptionPath;
 	private String validateSignaturePath;
 	private String encryptionPort;
-	
+	private String idRepoRegenerateVID;
+	private String idRepoRetrieveUINByVIDPath;
 	public String getEncryptionPort() {
 		return encryptionPort;
 	}
@@ -362,7 +347,7 @@ public class IdaRunConfig extends RunConfig{
 		setAuthPath(AuthTestsUtil.getPropertyValue("authPath"));
 		setInternalAuthPath(AuthTestsUtil.getPropertyValue("internalAuthPath"));
 		setOtpPath(AuthTestsUtil.getPropertyValue("otpPath"));
-		setEncryptionPort(AuthTestsUtil.getPropertyValue(System.getProperty("env.user")+".encryptionPort"));
+		setEncryptionPort(AuthTestsUtil.getPropertyValue(RunConfigUtil.getRunEvironment()+".encryptionPort"));
 		setEncryptUtilBaseUrl(AuthTestsUtil.getPropertyValue("encryptUtilBaseUrl"));
 		setEncryptionPath(AuthTestsUtil.getPropertyValue("encryptionPath"));
 		setEncodePath(AuthTestsUtil.getPropertyValue("encodePath"));
@@ -376,10 +361,8 @@ public class IdaRunConfig extends RunConfig{
 		setIdRepoRetrieveDataPath(AuthTestsUtil.getPropertyValue("idRepoRetrieveDataPath"));
 		setIdRepoCreateVIDRecordPath(AuthTestsUtil.getPropertyValue("idRepoCreateVIDRecordPath"));
 		setIdRepoUpdateVIDStatusPath(AuthTestsUtil.getPropertyValue("idRepoUpdateVIDStatusPath"));
-		setDbKernelTableName(AuthTestsUtil.getPropertyValue("dbKernelTableName"));
-		setDbKernelSchemaName(AuthTestsUtil.getPropertyValue("dbKernelSchemaName"));
-		setDbKernelUserName(AuthTestsUtil.getPropertyValue("dbKernelUserName"));
-		setDbKernelPwd(AuthTestsUtil.getPropertyValue("dbKernelPwd"));
+		setIdRepoRegenerateVID(AuthTestsUtil.getPropertyValue("idRepoRegenerateVidPath"));
+		setIdRepoRetrieveUINByVIDPath(AuthTestsUtil.getPropertyValue("idRepoRetrieveUinByVidPath"));
 		File testDataFilePath = new File(RunConfigUtil.getResourcePath()
 		+ testDataPath + testDataFileName);
 		setFilePathFromTestdataFileName(testDataFilePath,testDataPath);
@@ -388,89 +371,13 @@ public class IdaRunConfig extends RunConfig{
 		setPinPath(AuthTestsUtil.getPropertyValue("staticPinPath"));
 		setIdRepoCreateUINRecordPath(AuthTestsUtil.getPropertyValue("idRepoCreateUINRecordPath"));
 		setStoreUINDataPath(AuthTestsUtil.getPropertyValue("storeUINDataPath"));
-		setDbIdaTableName(AuthTestsUtil.getPropertyValue("dbIdaTableName"));
-		setDbIdaSchemaName(AuthTestsUtil.getPropertyValue("dbIdaSchemaName"));
-		setDbIdaUserName(AuthTestsUtil.getPropertyValue("dbIdaUserName"));
-		setDbIdaPwd(AuthTestsUtil.getPropertyValue("dbIdaPwd"));
-		setDbAuditTableName(AuthTestsUtil.getPropertyValue("dbAuditTableName"));
-		setDbAuditSchemaName(AuthTestsUtil.getPropertyValue("dbAuditSchemaName"));
-		setDbAuditUserName(AuthTestsUtil.getPropertyValue("dbAuditUserName"));
-		setDbAuditPwd(AuthTestsUtil.getPropertyValue("dbAuditPwd"));
 		setEncodeFilePath(AuthTestsUtil.getPropertyValue("encodeFilePath"));
 		setDecodeFilePath(AuthTestsUtil.getPropertyValue("decodeFilePath"));
-		setDbKernelUrl(AuthTestsUtil.getPropertyValue(System.getProperty("env.user")+".dbKernelUrl"));
-		setDbIdaUrl(AuthTestsUtil.getPropertyValue(System.getProperty("env.user")+".dbIdaUrl"));
-		setDbAuditUrl(AuthTestsUtil.getPropertyValue(System.getProperty("env.user")+".dbAuditUrl"));
 		setClientidsecretkey(AuthTestsUtil.getPropertyValue("clientidsecretkey"));
 		//loadingConfigFile
 		loadErrorsData(getErrorsConfigPath());
 		setUinIdentityMapper(AuthTestsUtil.getPropertyValue("uinIdentityMapper"));
 	}	
-	
-	/**
-	 * The method get kernal db table name
-	 * 
-	 * @return string
-	 */
-	public  String getDbKernelTableName() {
-		return dbKernelTableName;
-	}
-	/**
-	 * The method set kernel db table name
-	 * 
-	 * @param dbKernelTableName
-	 */
-	public  void setDbKernelTableName(String dbKernelTableName) {
-		this.dbKernelTableName = dbKernelTableName;
-	}
-	/**
-	 * The method get kernal db schema name
-	 * 
-	 * @return string
-	 */
-	public  String getDbKernelSchemaName() {
-		return dbKernelSchemaName;
-	}
-	/**
-	 * The method set kernal db schema name
-	 * 
-	 * @param dbKernelSchemaName
-	 */
-	public  void setDbKernelSchemaName(String dbKernelSchemaName) {
-		this.dbKernelSchemaName = dbKernelSchemaName;
-	}
-	/**
-	 * The method get db kernel user name
-	 * 
-	 * @return string
-	 */
-	public  String getDbKernelUserName() {
-		return dbKernelUserName;
-	}
-	/**
-	 * The method set db kernel username
-	 * 
-	 * @param dbKernelUserName
-	 */
-	public  void setDbKernelUserName(String dbKernelUserName) {
-		this.dbKernelUserName = dbKernelUserName;
-	}
-	/**
-	 * The method get kernel db password
-	 * 
-	 * @return string
-	 */
-	public  String getDbKernelPwd() {
-		return dbKernelPwd;
-	}
-	/**
-	 * The method set kernel db password
-	 * 
-	 * @param dbKernelPwd
-	 */
-	public  void setDbKernelPwd(String dbKernelPwd) {
-		this.dbKernelPwd = dbKernelPwd;
-	}
 	
 	/**
 	 * The method set file path from test data file name
@@ -596,134 +503,6 @@ public class IdaRunConfig extends RunConfig{
 	public  void setStoreUINDataPath(String storeUINDataPath) {
 		this.storeUINDataPath = storeUINDataPath;
 	}	
-	/**
-	 * The method set IDA db table name
-	 * 
-	 * @return string
-	 */
-	public  String getDbIdaTableName() {
-		return dbIdaTableName;
-	}
-	/**
-	 * The method set ida db table name
-	 * 
-	 * @param dbIdaTableName
-	 */
-	public  void setDbIdaTableName(String dbIdaTableName) {
-		this.dbIdaTableName = dbIdaTableName;
-	}
-	/**
-	 * The method get ida table name
-	 * 
-	 * @return string
-	 */
-	public  String getDbIdaSchemaName() {
-		return dbIdaSchemaName;
-	}
-	/**
-	 * The method get ida db schema name
-	 * 
-	 * @param dbIdaSchemaName
-	 */
-	public  void setDbIdaSchemaName(String dbIdaSchemaName) {
-		this.dbIdaSchemaName = dbIdaSchemaName;
-	}
-	/**
-	 * The method get ida db user name
-	 * 
-	 * @return string
-	 */
-	public  String getDbIdaUserName() {
-		return dbIdaUserName;
-	}
-	/**
-	 * The method set ida db user name
-	 * 
-	 * @param dbIdaUserName
-	 */
-	public  void setDbIdaUserName(String dbIdaUserName) {
-		this.dbIdaUserName = dbIdaUserName;
-	}
-	/**
-	 * The method get ida db password
-	 * 
-	 * @return string
-	 */
-	public  String getDbIdaPwd() {
-		return dbIdaPwd;
-	}
-	/**
-	 * The method set ida db password
-	 * 
-	 * @param dbIdaPwd
-	 */
-	public  void setDbIdaPwd(String dbIdaPwd) {
-		this.dbIdaPwd = dbIdaPwd;
-	}	
-	/**
-	 * The method get db audit table name
-	 * 
-	 * @return string
-	 */
-	public  String getDbAuditTableName() {
-		return dbAuditTableName;
-	}
-	/**
-	 * The method set db audit table name
-	 * 
-	 * @param dbAuditTableName
-	 */
-	public  void setDbAuditTableName(String dbAuditTableName) {
-		this.dbAuditTableName = dbAuditTableName;
-	}
-	/**
-	 * The method get db audit schema name
-	 * 
-	 * @return string
-	 */
-	public  String getDbAuditSchemaName() {
-		return dbAuditSchemaName;
-	}
-	/**
-	 * The method set db audit schema name
-	 * 
-	 * @param dbAuditSchemaName
-	 */
-	public  void setDbAuditSchemaName(String dbAuditSchemaName) {
-		this.dbAuditSchemaName = dbAuditSchemaName;
-	}
-	/**
-	 * The method get db audit user name
-	 * 
-	 * @return string
-	 */
-	public  String getDbAuditUserName() {
-		return dbAuditUserName;
-	}
-	/**
-	 * The method set db audit user name
-	 * 
-	 * @param dbAuditUserName
-	 */
-	public  void setDbAuditUserName(String dbAuditUserName) {
-		this.dbAuditUserName = dbAuditUserName;
-	}
-	/**
-	 * The method get db audit password
-	 * 
-	 * @return string
-	 */
-	public  String getDbAuditPwd() {
-		return dbAuditPwd;
-	}
-	/**
-	 * The method will get audit db password
-	 * 
-	 * @param dbAuditPwd
-	 */
-	public  void setDbAuditPwd(String dbAuditPwd) {
-		this.dbAuditPwd = dbAuditPwd;
-	}
 	
 	/**
 	 * The method get encode file path
@@ -756,55 +535,6 @@ public class IdaRunConfig extends RunConfig{
 	 */
 	public  void setDecodeFilePath(String decodeFilePath) {
 		this.decodeFilePath = decodeFilePath;
-	}	
-	
-	/**
-	 * The method get kernel db url
-	 * 
-	 * @return string
-	 */
-	public  String getDbKernelUrl() {
-		return dbKernelUrl;
-	}
-	/**
-	 * The method set kernel db url 
-	 * 
-	 * @param dbKernelUrl
-	 */
-	public  void setDbKernelUrl(String dbKernelUrl) {
-		this.dbKernelUrl = dbKernelUrl;
-	}
-	/**
-	 * The method get IDA db url
-	 * 
-	 * @return string
-	 */
-	public  String getDbIdaUrl() {
-		return dbIdaUrl;
-	}
-	/**
-	 * The method set ida db url
-	 * 
-	 * @param dbIdaUrl
-	 */
-	public  void setDbIdaUrl(String dbIdaUrl) {
-		this.dbIdaUrl = dbIdaUrl;
-	}
-	/**
-	 * The method set audit db url
-	 * 
-	 * @return string
-	 */
-	public  String getDbAuditUrl() {
-		return dbAuditUrl;
-	}
-	/**
-	 * The method set DB audit url
-	 * 
-	 * @param dbAuditUrl
-	 */
-	public  void setDbAuditUrl(String dbAuditUrl) {
-		this.dbAuditUrl = dbAuditUrl;
 	}	
 	/**
 	 * The method set VID generation path
@@ -934,13 +664,11 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public String getIdRepoRetrieveUINByVIDPath() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.idRepoRetrieveUINByVIDPath;
 	}
 	@Override
 	public void setIdRepoRetrieveUINByVIDPath(String idRepoRetrieveUINByVIDPath) {
-		// TODO Auto-generated method stub
-		
+		this.idRepoRetrieveUINByVIDPath=idRepoRetrieveUINByVIDPath;	
 	}
 	@Override
 	public String getIdRepoRetrieveIdentityByRid() {
@@ -954,12 +682,10 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public String getIdRepoRegenerateVID() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.idRepoRegenerateVID;
 	}
 	@Override
-	public void setIdRepoidRepoRegenerateVID(String idRepoRegenerateVID) {
-		// TODO Auto-generated method stub
-		
+	public void setIdRepoRegenerateVID(String idRepoRegenerateVID) {
+		this.idRepoRegenerateVID=idRepoRegenerateVID;		
 	}
 }

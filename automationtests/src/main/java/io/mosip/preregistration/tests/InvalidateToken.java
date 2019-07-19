@@ -1,6 +1,6 @@
 package io.mosip.preregistration.tests;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Field; 
 import java.lang.reflect.Method;
 
 import org.apache.log4j.Logger;
@@ -12,12 +12,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
-
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.CommonLibrary;
 import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
+import org.testng.*;
 
 public class InvalidateToken extends BaseTestCase implements ITest {
 	public Logger logger = Logger.getLogger(BatchJob.class);
