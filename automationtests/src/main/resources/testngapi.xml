@@ -134,7 +134,7 @@
 		</classes>
 	</test>    -->
 
-	 <test name="AuthenticationTest">
+	<test name="AuthenticationTest">
              <classes>
               
                 <class name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" /> 
@@ -150,14 +150,13 @@
                 <class name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />     
                  <class name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
                  <class name="io.mosip.authentication.tests.OtpAuthentication" /> 
+                 <class name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
              </classes>
        </test>  
-       <test name="IdRepositoryTest">
+      <test name="IdeepositoryTest">
              <classes>
-             
-              <class name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByRid" />
                     <class name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" /> 
-                     <class name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+                    <class name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
                 <class name="io.mosip.authentication.idRepository.prerequiste.CreateVID" /> 
                 <class name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
                  <class name="io.mosip.authentication.idRepository.tests.AddIdentity" /> 
@@ -168,9 +167,10 @@
                  <class name="io.mosip.authentication.idRepository.tests.CreateVid" />
                     <class name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
                    <class name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" /> 
+                   <class name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
              </classes>
 
-       </test>	 	 
+       </test>
 
 		</suite>
 		
