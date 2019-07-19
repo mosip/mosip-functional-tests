@@ -24,6 +24,7 @@ import org.testng.internal.TestResult;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
+import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.testdata.TestDataProcessor;
@@ -34,7 +35,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
  * @author Athila
  *
  */
-public class CreateVID extends AuthTestsUtil implements ITest {
+public class CreateVID extends PrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateVID.class);
 	protected static String testCaseName = "";
@@ -120,7 +121,10 @@ public class CreateVID extends AuthTestsUtil implements ITest {
 				if (resVIDJson.contains("\"VID\":")) {
 					String vid = JsonPrecondtion.getValueFromJson(resVIDJson, "response.VID");
 					String vidType = JsonPrecondtion.getValueFromJson(reqVidJson, "request.vidType");
-					vidMap.put(entry.getKey(), vid + "." + vidType + ".ACTIVE");
+					if (vidType.equalsIgnoreCase("temporary"))
+						vidMap.put(entry.getKey(), vid + "." + vidType + ".ACTIVE" + "."+RunConfigUtil.getVidUsageCount());
+					else
+						vidMap.put(entry.getKey(), vid + "." + vidType + ".ACTIVE");
 				}
 				else
 					status=false;

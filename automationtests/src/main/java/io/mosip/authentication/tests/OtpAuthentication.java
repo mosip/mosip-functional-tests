@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -23,14 +24,17 @@ import com.google.common.base.Verify;
 
 import io.mosip.authentication.fw.util.AuditValidation;
 import io.mosip.authentication.fw.util.DataProviderClass;
+import io.mosip.authentication.fw.util.DbConnection;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
+import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.authentication.fw.util.StoreAuthenticationAppLogs;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
@@ -43,7 +47,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class OtpAuthentication extends AuthTestsUtil implements ITest {
+public class OtpAuthentication extends PrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(OtpAuthentication.class);
 	protected static String testCaseName = "";
@@ -58,8 +62,9 @@ public class OtpAuthentication extends AuthTestsUtil implements ITest {
 	 * @param testType
 	 */
 	@BeforeClass
-	public void setTestType() {
+	public void setTestTypeAndDbConnection() {
 		this.testType = RunConfigUtil.getTestLevel();
+		DbConnection.startKernelDbSession();
 	}
 
 	/**
@@ -146,6 +151,8 @@ public class OtpAuthentication extends AuthTestsUtil implements ITest {
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, OtpAuthentication.testCaseName);
+			if(!result.isSuccess())
+				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getAuthSeriveName(), logFileName, getTestFolder());
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -195,6 +202,7 @@ public class OtpAuthentication extends AuthTestsUtil implements ITest {
 		Reporter.log("<b><u>Modification of OTP Authentication request</u></b>");
 		if(!modifyRequest(testCaseName.listFiles(), tempEncryptMap, mapping, "otp-auth-request"))
 			throw new AuthenticationTestException("Failed at modifying the otp-auth-request file. Kindly check testdata.");
+		displayContentInFile(testCaseName.listFiles(), "otp-auth-request");
 		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath()
 				+ extUrl + " *******");
 		if (!getTestCaseName().contains("OTP_exceed_more_attemp")) {
@@ -238,6 +246,11 @@ public class OtpAuthentication extends AuthTestsUtil implements ITest {
 		if(!verifyResponseUsingDigitalSignature(responseJsonToVerifyDigtalSignature,
 					responseDigitalSignatureValue))
 				throw new AuthenticationTestException("Failed at digital signature verification");
+	}
+	
+	@AfterClass
+	public void endConnection() {
+		DbConnection.terminateKernelDbSession();
 	}
 
 }

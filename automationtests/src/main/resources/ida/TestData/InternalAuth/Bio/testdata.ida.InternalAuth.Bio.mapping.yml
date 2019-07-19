@@ -1,5 +1,5 @@
 testdata:
-  InternalAuthentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
+  InternalAuthentication_Biometric_Face_With_Valid_Smoke_Pos:
     #endpoint.url:
       ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
@@ -38,7 +38,7 @@ testdata:
       moduleName: $TestData:audit_log_face_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
       
-  InternalAuthentication_Biometric_Finger_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
+  InternalAuthentication_Biometric_Finger_With_Valid_Smoke_Pos:
     #endpoint.url:
       ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
@@ -77,7 +77,7 @@ testdata:
       moduleName: $TestData:audit_log_finger_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
       
-  InternalAuthentication_Biometric_Iris_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
+  InternalAuthentication_Biometric_Iris_With_Valid_Smoke_Pos:
     #endpoint.url:
       ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:

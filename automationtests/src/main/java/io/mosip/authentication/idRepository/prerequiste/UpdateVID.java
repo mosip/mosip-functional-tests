@@ -32,10 +32,12 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.dto.VidDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
+import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
+import io.mosip.authentication.fw.util.VIDUtil;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
@@ -48,7 +50,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class UpdateVID extends AuthTestsUtil implements ITest {
+public class UpdateVID extends PrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(UpdateVID.class);
 	protected static String testCaseName = "";
@@ -181,7 +183,7 @@ public class UpdateVID extends AuthTestsUtil implements ITest {
 		setTestCaseName(testCaseName.getName());
 		String name = getTestCaseName();
 		String mapping = TestDataUtil.getMappingPath();
-		String vid[] = RunConfigUtil.getVidKeyForVIDUpdate(name).split(Pattern.quote(".")); 
+		String vid[] = VIDUtil.getVidKeyForVIDUpdate(name).split(Pattern.quote(".")); 
 		String vidNumber=vid[0];
 		String vidType=vid[1];
 		

@@ -23,11 +23,15 @@ public class AuthenticationTestsListener extends AuthTestsUtil implements IAnnot
 	 */
 	@Override
 	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-		if (testMethod.toString().contains("io.mosip.authentication.tests."))
+		if (testMethod.toString().contains("io.mosip.authentication.tests"))
 			annotation.setInvocationCount(
 					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
 							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
-		else if (testMethod.toString().contains("io.mosip.idRepository.tests."))
+		if (testMethod.toString().contains(".authentication.idRepository.prerequiste"))
+			annotation.setInvocationCount(
+					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
+							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
+		else if (testMethod.toString().contains(".idRepository.tests"))
 			annotation.setInvocationCount(
 					Integer.parseInt(getPropertyAsMap(new File(IdRepoTestsUtil.getIdRepoRunConfigFile()).getAbsolutePath().toString())
 							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
