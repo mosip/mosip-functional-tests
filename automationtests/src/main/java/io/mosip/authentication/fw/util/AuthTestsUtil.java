@@ -34,6 +34,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
