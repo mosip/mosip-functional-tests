@@ -201,13 +201,12 @@ public class PacketReceiver extends  BaseTestCase implements ITest {
 				logger.info("message : "+message);
 				if(message.matches("Duplicate Request Received") 
 						&& object.get("testCaseName").toString().matches("PacketReceiver_smoke")) {
-					logger.info("Inside duplicate message block ========================");
 					uploaded = true;
 					finalStatus = "Pass";
 					softAssert.assertAll();
 					object.put("status", finalStatus);
 					arr.add(object);
-				}else if(message.matches("Packet Not Found in Sync Table")) {
+				}else if(message.matches("Packet Not Found in Sync Table") && !(object.get("testCaseName").toString().contains("packetWithoutSync"))) {
 					try {
 						registrationPacketSyncDto=encryptData.createSyncRequest(file,"NEW");
 
@@ -236,11 +235,6 @@ public class PacketReceiver extends  BaseTestCase implements ITest {
 			}
 
 
-
-
-			//Asserting actual and expected response
-			//		status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
-			//	Assert.assertTrue(status, "object are not equal");
 			if(!uploaded) {
 				status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 				Assert.assertTrue(status, "object are not equal");
@@ -311,26 +305,9 @@ public class PacketReceiver extends  BaseTestCase implements ITest {
 			softAssert.assertAll();
 
 		} catch (IOException | ParseException e) {
-			Assert.assertTrue(false, "not able to execute packetInfo method : "+ e.getCause());
+			Assert.assertTrue(false, "not able to execute packet receiver method : "+ e.getCause());
 		}
 	}
-
-
-	/*
-	@Test
-	public void packetReceiverForSmoke() throws FileNotFoundException, IOException, ParseException {
-		testSuite = "regProc/PacketReceiver/PacketReceiver_smoke";
-		String propertyFilePath=System.getProperty("user.dir")+"/"+"src/config/registrationProcessorAPI.properties";
-		prop.load(new FileReader(new File(propertyFilePath)));
-		//JSONObject createRequest = Res.createRequest(testSuite);
-		File file = ResponseRequestMapper.mapCreateRequest(testSuite);	
-		//logger.info("actualRequest : "+actualRequest);
-
-		actualResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"),validToken);
-		logger.info("actualResponse : "+actualResponse);
-
-
-	}*/
 
 	/**
 	 * This method is used for fetching test case name

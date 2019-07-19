@@ -202,10 +202,14 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 				validToken = getToken("syncTokenGenerationFilePath");
 				tokenStatus2=apiRequests.validateToken(validToken);
 			}
-
+			boolean isError = false;
 			uploadPacketResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"), validToken);
-			boolean isError = uploadPacketResponse.asString().contains("errors");
-			logger.info("isError : "+isError);
+			List<Map<String,String>> errorResponse = uploadPacketResponse.jsonPath().get("errors");
+			if(errorResponse!=null && !errorResponse.isEmpty()) {
+				isError=true;
+				logger.info("isError : "+isError);
+			}
+			
 			if(!isError) {
 				Map<String,String> uploadResponse = uploadPacketResponse.jsonPath().get("response"); 
 				for(Map.Entry<String,String> res: uploadResponse.entrySet()){

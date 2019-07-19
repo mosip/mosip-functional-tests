@@ -2,7 +2,9 @@ package io.mosip.dbaccess;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.time.Clock;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,6 +22,7 @@ import io.mosip.dbdto.ManualVerificationDTO;
 import io.mosip.dbdto.SyncRegistrationDto;
 import io.mosip.dbdto.TransactionStatusDTO;
 import io.mosip.dbentity.RegistrationStatusEntity;
+import io.mosip.registrationProcessor.tests.Sync;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 
 
@@ -265,8 +268,8 @@ public class RegProcDataRead {
 		logger.info("Flag is : " +flag);
 		if(result>0)
 		{
-			/*session.close();
-			factory.close();*/
+			session.close();
+			factory.close();
 			flag = true;
 		}
 		return flag;
@@ -462,6 +465,35 @@ public class RegProcDataRead {
 		 int update = query.executeUpdate();
 		 
 		 t.commit();
+		 if(update!= 0 ) {
+			 return true;
+		 }
+		return false;
+	}
+
+	public boolean insertRecordInRegistration(String requestedRegId, String statusCode, int retryCount,
+			String stage, String stageName, String tranTime) {
+		Session session=getCurrentSession();
+		 Transaction t=session.beginTransaction();
+		/* String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+			 LocalDateTime time= LocalDateTime.now(Clock.systemUTC()).minusMinutes(10);
+			 String utcTime = time.format(dateFormat);		    
+		String latestTranTime = utcTime;*/
+		 
+		 String queryString = "INSERT INTO regprc.registration "
+		 		+ "VALUES ('" +requestedRegId+ "', 'NEW', null, null, '"+statusCode+"', "
+		 		+ "'eng', 'SUCCESS', '35dcb06a-fed8-4b03-a148-9db84849ccf7', "
+		 		+ ""+retryCount+", null, 'true', 'MOSIP_SYSTEM', '2019-07-03 10:22:32.261', "
+		 		+ "'MOSIP_SYSTEM', '2019-07-03 10:23:20.86', 'false', '2019-07-03 10:23:20.86', "
+		 		+ "'"+stage+"', '"+statusCode+"', '" +tranTime+"' ,"+retryCount+", '"+stageName+"')";
+		 Query<String> query=session.createSQLQuery(queryString);
+		 
+		 int update = query.executeUpdate();
+		 
+		 t.commit();
+		 session.close();
+		 factory.close();
 		 if(update!= 0 ) {
 			 return true;
 		 }

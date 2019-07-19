@@ -3,6 +3,11 @@ package io.mosip.registrationProcessor.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -171,4 +176,44 @@ public class RegProcApiRequests extends BaseTestCase {
 		return getResponse;
 	}
 
+	public boolean checkResponseTime(Response actualResponse) {
+		boolean utcCheck = false;
+		String responseTime = actualResponse.jsonPath().get("responsetime").toString();
+		String cuurentUTC = (String) getUTCTime();
+		 SimpleDateFormat sdf = new SimpleDateFormat("mm");
+		    try {
+				Date d1 = sdf.parse(responseTime.substring(14,16));
+				 Date d2 = sdf.parse(cuurentUTC.substring(14,16));
+				 
+				 long elapse = Math.abs(d1.getTime()-d2.getTime());
+				 if(elapse<300000) {
+					 utcCheck = true;
+				 }
+
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return utcCheck;
+		   		
+	}
+
+	public Object getUTCTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		 LocalDateTime time= LocalDateTime.now(Clock.systemUTC());
+		 String utcTime = time.format(dateFormat);		    
+		 return utcTime;
+		
+
+	}
+	public Object getCurrentTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		 LocalDateTime time= LocalDateTime.now();
+		 String currentTime = time.format(dateFormat);		    
+		 return currentTime;
+		
+
+	}
 }

@@ -4,5 +4,16 @@
   "registrationId" : "20916100110014920190218154630",
   "emptyVersion":" ",
   "emptyId" : "",
-  "emptyTimestamp" : ""
+  "emptyTimestamp" : "",
+  "StatusCheckPROCESSINGRESEND" : "",
+  "StatusCheckFAILEDRESEND" : "",
+  "StatusCheckPROCESSINGREREGISTER" : "",
+  "StatusCheckFAILEDREREGISTER" : "",
+  "StatusCheckFAILEDREREGISTEROTHERSTAGE" : "",
+  "StatusCheckPROCESSEDPROCESSED" : "",
+  "StatusCheckREJECTEDREJECTED" : "",
+  "StatusCheckPROCESSINGPROCESSING" : "",
+  "StatusCheckPROCESSINGPROCESSINGOTHERSTAGE" : "",
+  "ValidRequestUTC" : "",
+  "InvalidRequestUTC" : ""
 }

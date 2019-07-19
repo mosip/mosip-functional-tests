@@ -6,12 +6,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import javax.ws.rs.core.MediaType;
 
@@ -86,6 +93,7 @@ public class Sync extends BaseTestCase implements ITest {
 	TokenGeneration generateToken=new TokenGeneration();
 	TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
 	String validToken="";
+	boolean utcCheck = false;
 	
 	/**
 	 * This method is used for creating token
@@ -146,7 +154,7 @@ public class Sync extends BaseTestCase implements ITest {
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		RegProcDataRead readDataFromDb = new RegProcDataRead();
-
+		
 		EncryptData encryptData=new EncryptData();
 		String regId = null;
 		JSONObject requestToEncrypt = null;
@@ -168,14 +176,22 @@ public class Sync extends BaseTestCase implements ITest {
 				for(int j = 0; j<request.size() ; j++){
 					JSONObject obj  = (JSONObject) request.get(j);
 					regId = obj.get("registrationId").toString();
+					
+					actualRequest.put("requesttime", apiRequests.getUTCTime());
+					
+					if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+						actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+					}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+						actualRequest.put("requesttime","");
+					}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+						actualRequest.put("requesttime","201929:41.011Z");
+					}
+					
 					registrationPacketSyncDto = encryptData.createSyncRequest(actualRequest);
 					
 					requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
 				}
 			}
-
-
-
 
 			String center_machine_refID=regId.substring(0,5)+"_"+regId.substring(5, 10);
 			
@@ -217,6 +233,10 @@ public class Sync extends BaseTestCase implements ITest {
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
+			
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
 
 			//Assertion of actual and expected response
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
@@ -224,7 +244,7 @@ public class Sync extends BaseTestCase implements ITest {
 			
 			logger.info("Status after assertion : "+status);
 
-			if (status) {
+			if (!utcCheck && status) {
 				boolean isError = false;
 				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
 				if(errorResponse!=null && !errorResponse.isEmpty()) {
@@ -299,6 +319,8 @@ public class Sync extends BaseTestCase implements ITest {
 					}
 				}
 
+			}else if(utcCheck){
+				finalStatus="Pass";
 			}else {
 				finalStatus="Fail";
 			}
@@ -314,9 +336,12 @@ public class Sync extends BaseTestCase implements ITest {
 			e.printStackTrace();
 			Assert.assertTrue(false, "not able to execute sync method : "+ e.getCause());
 			
-
 		}
 	}  
+
+
+	
+
 
 
 	/**
