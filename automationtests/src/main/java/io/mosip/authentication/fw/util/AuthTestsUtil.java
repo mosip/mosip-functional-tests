@@ -947,6 +947,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}*/
 	
+	@BeforeSuite
 	public static void initiateAuthTest() {
 		removeOldAuthTestResource();
 		copyAuthTestResource();
