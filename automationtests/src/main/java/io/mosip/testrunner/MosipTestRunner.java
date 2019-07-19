@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.testng.TestNG;
 
+import io.mosip.service.BaseTestCase;
+
 
 /**
  * Class to initiate mosip api test execution 
@@ -27,6 +29,8 @@ public class MosipTestRunner {
 			ExtractResource.removeOldMosipTestTestResource();
 			ExtractResource.extractResourceFromJar();
 		}
+		//Initializing or setting up execution
+		BaseTestCase.suiteSetup();
 		startTestRunner();
 	}
 	/**
