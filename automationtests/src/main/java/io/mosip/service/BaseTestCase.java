@@ -157,7 +157,6 @@ public class BaseTestCase{
 
 			PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			AuthTestsUtil.initiateAuthTest();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			//authToken=pil.getToken();
