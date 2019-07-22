@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MediaType;
-
+import io.mosip.testrunner.MosipTestRunner;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
@@ -152,7 +152,7 @@ public class CommonLibrary extends BaseTestCase {
 			for (Integer data : permutationValidInvalid) {
 				input += data;
 			}
-			List<String> validInvalid = permutation.pack.Permutation.permutation(input);
+			List<String> validInvalid = io.mosip.util.Permutation.permutation(input);
 			System.out.println("--------------------------------->" + validInvalid);
 			input = "";
 			for (String validInv : validInvalid) {
@@ -209,7 +209,7 @@ public class CommonLibrary extends BaseTestCase {
 			for (Integer data : permutationValidInvalid) {
 				input += data;
 			}
-			List<String> validInvalid = permutation.pack.Permutation.permutation(input);
+			List<String> validInvalid = io.mosip.util.Permutation.permutation(input);
 			System.out.println("--------------------------------->" + validInvalid);
 			input = "";
 			for (String validInv : validInvalid) {
@@ -750,7 +750,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	public Map<String, String> fetch_IDRepo() {
 		try {
-			prop.load(new FileInputStream("src/config/IDRepo.properties"));
+			prop.load(new FileInputStream(getResourcePath()+"config/IDRepo.properties"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -760,6 +760,14 @@ public class CommonLibrary extends BaseTestCase {
 				.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
 		return mapProp;
 
+	}
+	/**
+	 * The method to return class loader resource path
+	 * 
+	 * @return String
+	 */
+	public String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath()+"/";
 	}
 
 	public Response put_RequestWithoutBody(String url, String contentHeader, String acceptHeader) {

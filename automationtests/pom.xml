@@ -4,15 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.automationtests</groupId>
 	<artifactId>automationtests</artifactId>
+	<version>0.12.16</version>
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
 
-	<parent>
+	<!--<parent>
 		<groupId>io.mosip</groupId>
 		<artifactId>mosip-parent</artifactId>
 		<version>0.12.16</version>
-	</parent>
+	</parent>-->
 
 	<dependencies>
 		<dependency>

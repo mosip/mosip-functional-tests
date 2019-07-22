@@ -17,9 +17,10 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.IdRepoUtil;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.authentication.idRepository.fw.util.IdRepoPrerequisteTests;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 
-public class RetrieveIdentityByUinPos extends IdRepoTestsUtil implements ITest {
+public class RetrieveIdentityByUinPos extends IdRepoPrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(RetrieveIdentityByUinPos.class);
 	protected static String testCaseName = "";

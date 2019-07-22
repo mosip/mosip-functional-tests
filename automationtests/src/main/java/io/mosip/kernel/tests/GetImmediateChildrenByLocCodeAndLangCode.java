@@ -64,7 +64,7 @@ public class GetImmediateChildrenByLocCodeAndLangCode extends BaseTestCase imple
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(individualCookie))
 			individualCookie=auth.getAuthForIndividual();
 	} 
@@ -103,7 +103,7 @@ public class GetImmediateChildrenByLocCodeAndLangCode extends BaseTestCase imple
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
       if (status) {
     	  
-    	  if(testCaseName.contains("Kernel_GetImmediateChildrenByLocCodeAndLangCode_smoke"))
+    	  if(testCaseName.contains("kernel_GetImmediateChildrenByLocCodeAndLangCode_smoke"))
     	  {
     		  String locationcode= (actualRequest.get("locationcode").toString());
     		  String langCode=actualRequest.get("langcode").toString();

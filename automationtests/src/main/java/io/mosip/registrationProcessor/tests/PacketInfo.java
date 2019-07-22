@@ -85,6 +85,8 @@ public class PacketInfo extends BaseTestCase implements ITest {
 	StageValidationMethods apiRequest=new StageValidationMethods();
 	String validToken="";
 	
+	boolean utcCheck = false;
+	
 	
 	/**
 	 * This method is used for generating token
@@ -157,6 +159,17 @@ public class PacketInfo extends BaseTestCase implements ITest {
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
 			
+			actualRequest.put("requesttime", apiRequests.getUTCTime());
+			
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+				actualRequest.put("requesttime","");
+			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime","20180923");
+			}
+			
+			
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("packetInfoApi"),
 					actualRequest,MediaType.APPLICATION_JSON,validToken);
@@ -168,16 +181,10 @@ public class PacketInfo extends BaseTestCase implements ITest {
 			innerKeys.add("updatedDateTime");
 			innerKeys.add("qualityScore");
 			boolean noRecord = false;
-
-			/*if(object.get("testCaseName").toString().contains("smoke")) {
-				finalStatus = "Pass";
-				softAssert.assertAll();
-				object.put("status", finalStatus);
-				arr.add(object);
-				noRecord = true;
-			}*/
 			
-			
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
 			
 		if(!noRecord) {
 			// Assertion of actual and expected response
@@ -185,7 +192,7 @@ public class PacketInfo extends BaseTestCase implements ITest {
 						logger.info("Status after assertion : " + status);
 						Assert.assertTrue(status, "object are not equal");
 						logger.info("Status after assertion : " + status);
-			if (status) {
+			if (!utcCheck && status) {
 
 				boolean isError = false;
 				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
@@ -231,6 +238,8 @@ public class PacketInfo extends BaseTestCase implements ITest {
 						}
 					}
 
+				}else if(utcCheck){
+					finalStatus = "Pass";
 				}else {
 					finalStatus="Fail";
 				}

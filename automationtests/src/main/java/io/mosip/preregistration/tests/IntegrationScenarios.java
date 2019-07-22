@@ -56,7 +56,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	public String filepathPOB = "IntegrationScenario/DocumentUpload_POB";
 	public String filepathPOI = "IntegrationScenario/DocumentUpload_POI";
 	public String filepathDocGreaterThanFileSize = "IntegrationScenario/DocumentUploadGreaterThanFileSize";
-	public String POADocName = "AadhaarCard_POA.pdf";
+	public String POADocName = "doc_POA.pdf";
 	public String POBDocName = "ProofOfBirth_POB.pdf";
 	public String POIDocName = "LicenseCertification_POI.pdf";
 	public String ExceedingSizeDocName = "ProofOfAddress.pdf";
@@ -337,7 +337,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	public void uploadMultipleDocsForSameCategory() {
 
 		String file1 = "ProofOfAddress";
-		String file2 = "AadhaarCard_POA";
+		String file2 = "doc_POA.pdf";
 
 		// Create PreReg
 		try {

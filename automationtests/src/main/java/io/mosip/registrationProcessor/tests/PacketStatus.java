@@ -8,8 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -45,12 +47,14 @@ import io.mosip.dbdto.AuditRequestDto;
 import io.mosip.dbdto.SyncRegistrationDto;
 import io.mosip.dbentity.RegistrationStatusEntity;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.registrationProcessor.util.RegProcTokenGenerate;
 import io.mosip.registrationProcessor.util.StageValidationMethods;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.AssertResponses;
 import io.mosip.service.BaseTestCase;
+import io.mosip.util.EncrypterDecrypter;
 import io.mosip.util.ReadFolder;
 import io.mosip.util.ResponseRequestMapper;
 import io.mosip.util.TokenGeneration;
@@ -88,14 +92,16 @@ public class PacketStatus extends BaseTestCase implements ITest {
 	Properties prop =  new Properties();
 	static String moduleName="RegProc";
 	static String apiName="packetStatus";
-	
+
 	RegProcApiRequests apiRequests=new RegProcApiRequests();
 	TokenGeneration generateToken=new TokenGeneration();
 	TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
 	StageValidationMethods apiRequest=new StageValidationMethods();
 	String validToken="";
 	
-	
+	boolean utcCheck = false;
+
+
 	/**This method is used for generating token
 	 * 
 	 * @param tokenType
@@ -106,7 +112,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 		tokenEntity=generateToken.createTokenGeneratorDto(tokenGenerationProperties);
 		String token=generateToken.getToken(tokenEntity);
 		return token;
-		}
+	}
 	/**
 	 * This method is use for reading data for packet status based on test case name
 	 * @param context
@@ -114,7 +120,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 	 */
 	@DataProvider(name = "packetStatus")
 	public Object[][] readDataForPacketStatus(ITestContext context) {
-		
+
 		Object[][] readFolder= null;
 		String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
 
@@ -133,7 +139,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 			}
 		} catch (IOException | ParseException e) {
 			Assert.assertTrue(false, "not able to read the folder in PacketStatus class in readData method: "+ e.getCause());
-			
+
 		}
 		return readFolder;
 	}
@@ -147,7 +153,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 	 */
 	@Test(dataProvider = "packetStatus")
 	public void packetStatus(String testSuite, Integer i, JSONObject object){
-		
+
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		JSONObject actualRequest = new JSONObject();
@@ -157,7 +163,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 		try {
 			actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
 			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
-			
+
 			validToken=getToken("getStatusTokenGenerationFilePath");
 			boolean tokenStatus=apiRequests.validateToken(validToken);
 			while(!tokenStatus) {
@@ -165,6 +171,70 @@ public class PacketStatus extends BaseTestCase implements ITest {
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
 
+			boolean isInserted = false;
+			boolean isPresent = false;
+			String requestedRegId = null;
+			if(object.get("testCaseName").toString().contains("StatusCheck")) {
+				JSONArray request= (JSONArray) actualRequest.get("request") ;
+				JSONObject rId = (JSONObject) request.get(0);
+				requestedRegId = (String) rId.get("registrationId");
+				
+				RegistrationStatusEntity dto = readDataFromDb.regproc_dbDataInRegistration(requestedRegId);
+				if(dto!=null) {
+					isPresent = true;
+				}
+				if(!isPresent) {
+					
+					String tranTime = null;
+					if(object.get("testCaseName").toString().contains("PROCESSINGRESEND")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"PROCESSING",1,"PACKET_RECEIVER","PacketReceiverStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("FAILEDRESEND")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"FAILED",0,"PACKET_RECEIVER","PacketReceiverStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("PROCESSINGREREGISTER")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"PROCESSING",7,"PACKET_RECEIVER","PacketReceiverStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("FAILEDREREGISTER")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"FAILED",7,"PACKET_RECEIVER","PacketReceiverStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("FAILEDREREGISTEROTHERSTAGE")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"FAILED",7,"PRINT_AND_POSTAL","PrintingStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("PROCESSEDPROCESSED")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"PROCESSED",7,"PRINT_AND_POSTAL","PrintingStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("REJECTEDREJECTED")) {
+						tranTime = getTranTimeMoreThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"REJECTED",7,"PRINT_AND_POSTAL","PrintingStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("PROCESSINGPROCESSING")) {
+						tranTime = getTranTimeLessThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"PROCESSING",7,"PACKET_RECEIVER","PacketReceiverStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}else if(object.get("testCaseName").toString().contains("PROCESSINGPROCESSINGOTHERSTAGE")) {
+						tranTime = getTranTimeLessThanElapseTime();
+						isInserted = readDataFromDb.insertRecordInRegistration(requestedRegId,"PROCESSING",7,"PRINT_AND_POSTAL","PrintingStage", tranTime);
+						logger.info("isInserted : "+isInserted);
+					}
+				}
+
+			}
+			
+			actualRequest.put("requesttime", apiRequests.getUTCTime());
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+			}else if(object.get("testCaseName").toString().contains("emptyTimestamp")) {
+				actualRequest.put("requesttime","");
+			}
+			
+			
 			//generation of actual response
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("packetStatusApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
 			//outer and inner keys which are dynamic in the actual response
@@ -173,18 +243,22 @@ public class PacketStatus extends BaseTestCase implements ITest {
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
 
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
+
 			//Asserting actual and expected response
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
-			
-			if (status) {
+
+			if (!utcCheck && status) {
 				//boolean isError = expectedResponse.containsKey("errors");
 				boolean isError = false;
 				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
 				if(errorResponse!=null && !errorResponse.isEmpty()) {
 					isError=true;
 				}
-				
+
 				logger.info("isError ========= : "+isError);
 
 				if(!isError){
@@ -221,10 +295,16 @@ public class PacketStatus extends BaseTestCase implements ITest {
 							if(dbDto != null && count.isEmpty()/*&& auditDto != null*/) {
 								//if reg id present in response and reg id fetched from table matches, then it is validated
 								if (expectedRegIds.contains(dbDto.getId())/*&& expectedRegIds.contains(auditDto.getId())*/){
-
-									logger.info("Validated in DB.......");
-									finalStatus = "Pass";
-									softAssert.assertTrue(true);
+									LocalDateTime dbDate = dbDto.getCreateDateTime();
+									EncryptData data = new EncryptData();
+									boolean dateCheck = data.isValidTimestamp(dbDate.toString());
+									
+									if(dateCheck) {
+										logger.info("Validated in DB.......");
+										finalStatus = "Pass";
+										softAssert.assertTrue(true);
+									}
+									
 								} 
 							}
 
@@ -237,7 +317,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 					JSONArray expectedError = (JSONArray) expectedResponse.get("errors");
 					String expectedErrorCode = null;
 					List<Map<String,String>> error = actualResponse.jsonPath().get("errors"); 
-				
+
 					logger.info("error : "+error );
 					for(Map<String,String> err : error){
 						String errorCode = err.get("errorCode").toString();
@@ -258,18 +338,43 @@ public class PacketStatus extends BaseTestCase implements ITest {
 					}
 				}
 
+			}else if(utcCheck){
+				finalStatus = "Pass";
 			}else {
 				finalStatus="Fail";
-			}		
-		boolean setFinalStatus=false;
-	        if(finalStatus.equals("Fail"))
-	              setFinalStatus=false;
-	        else if(finalStatus.equals("Pass"))
-	              setFinalStatus=true;
-	        Verify.verify(setFinalStatus);
-	        softAssert.assertAll();
+			}
+			
+			if(object.get("testCaseName").toString().contains("StatusCheck")) {
+				readDataFromDb.regproc_dbDeleteRecordInRegistration(requestedRegId);
+				logger.info("deleted requestedRegId " + requestedRegId);
+			}
+			
+			boolean setFinalStatus=false;
+			if(finalStatus.equals("Fail"))
+				setFinalStatus=false;
+			else if(finalStatus.equals("Pass"))
+				setFinalStatus=true;
+			Verify.verify(setFinalStatus);
+			softAssert.assertAll();
+
+
 		} catch (IOException | ParseException e) {
 			Assert.assertTrue(false, "not able to execute packetStatus method : "+ e.getCause());		}
+	}
+	
+	public String getTranTimeMoreThanElapseTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		 LocalDateTime time= LocalDateTime.now(Clock.systemUTC()).minusMinutes(10);
+		 String latestTranTime = time.format(dateFormat);		    
+	return latestTranTime;
+	}
+	public String getTranTimeLessThanElapseTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		 LocalDateTime time= LocalDateTime.now(Clock.systemUTC()).plusMinutes(10);
+		 String latestTranTime = time.format(dateFormat);		    
+	return latestTranTime;
 	}
 
 	/**
@@ -305,7 +410,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 			logger.error("Exception occurred in PacketStatus class in setResultTestName "+e);
 			Reporter.log("Exception : " + e.getMessage());
 		}
-		
+
 	}
 
 	@Override

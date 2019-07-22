@@ -1,15 +1,18 @@
 package io.mosip.authentication.fw.util;
 
-import java.sql.Connection;    
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+import org.hibernate.transform.AliasToEntityMapResultTransformer;
+import org.testng.Assert;
  
 
 /**
@@ -20,59 +23,37 @@ import org.apache.log4j.Logger;
  */
 public class DbConnection {
 	private static final Logger DBCONNECTION_LOGGER = Logger.getLogger(DbConnection.class);
+	
+	private static Session sessionForKernel;
+	private static Session sessionForIda;
+	private static Session sessionForAudit;
+	private static Session sessionForIdrepo;
 
 	/**
 	 * Kernel db connection to get generated otp value
 	 * 
 	 * @return dbConnection
 	 */
-	public static Connection getKernelDbConnection() {
-		try {
-			Class.forName("org.postgresql.Driver");
-			Connection connection = DriverManager.getConnection(
-					RunConfigUtil.objRunConfig.getDbKernelUrl() + "/" + RunConfigUtil.objRunConfig.getDbKernelTableName(), RunConfigUtil.objRunConfig.getDbKernelUserName(),
-					RunConfigUtil.objRunConfig.getDbKernelPwd());
-			return connection;
-		} catch (Exception e) {
-			DBCONNECTION_LOGGER.error("Execption in db connection: " + e);
-			return null;
-		}
+	public static void startKernelDbSession() {
+		sessionForKernel=getDataBaseConnection("kernel");
 	}
 	
 	/**
-	 * Ida db connection to get generated otp value
+	 * Ida db connection
 	 * 
 	 * @return dbConnection
 	 */
-	public static Connection getIdaDbConnection() {
-		try {
-			Class.forName("org.postgresql.Driver");
-			Connection connection = DriverManager.getConnection(
-					RunConfigUtil.objRunConfig.getDbIdaUrl() + "/" + RunConfigUtil.objRunConfig.getDbIdaTableName(), RunConfigUtil.objRunConfig.getDbIdaUserName(),
-					RunConfigUtil.objRunConfig.getDbIdaPwd());
-			return connection;
-		} catch (Exception e) {
-			DBCONNECTION_LOGGER.error("Execption in db connection: " + e);
-			return null;
-		}
+	public static void startIdaDbSession() {
+		sessionForIda=getDataBaseConnection("ida");
 	}
 	
 	/**
-	 * Ida db connection to get generated otp value
+	 * Audit db connection
 	 * 
 	 * @return dbConnection
 	 */
-	public static Connection getAuditDbConnection() {
-		try {
-			Class.forName("org.postgresql.Driver");
-			Connection connection = DriverManager.getConnection(
-					RunConfigUtil.objRunConfig.getDbAuditUrl() + "/" + RunConfigUtil.objRunConfig.getDbAuditTableName(), RunConfigUtil.objRunConfig.getDbAuditUserName(),
-					RunConfigUtil.objRunConfig.getDbAuditPwd());
-			return connection;
-		} catch (Exception e) {
-			DBCONNECTION_LOGGER.error("Execption in db connection: " + e);
-			return null;
-		}
+	public static void startAuditDbSession() {
+		sessionForAudit=getDataBaseConnection("audit");
 	}
 	
 	/**
@@ -83,30 +64,31 @@ public class DbConnection {
 	 * @return otp record
 	 */
 	
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public static Map<String, String> getDataForQuery(String query, String moduleName) {
-		Statement stmt = null;
+		Query<Map<String, Object>> records = null;
 		try {
 			if (moduleName.equals("KERNEL"))
-				stmt = getKernelDbConnection().createStatement();
+				records = executeQueryAndGetRecord(sessionForKernel, query);
 			else if (moduleName.equals("IDA"))
-				stmt = getIdaDbConnection().createStatement();
+				records = executeQueryAndGetRecord(sessionForIda, query);
 			else if (moduleName.equals("AUDIT"))
-				stmt = getAuditDbConnection().createStatement();
-			DBCONNECTION_LOGGER.info("Query: " +query);
-			ResultSet rs = stmt.executeQuery(query);
-			ResultSetMetaData md = rs.getMetaData();
-			int columns = md.getColumnCount();
-			Map<String, Object> row = new HashMap<String, Object>();
-			while (rs.next()) {
-				for (int i = 1; i <= columns; i++) {
-					row.put(md.getColumnName(i), rs.getObject(i));
-				}
-			}
-			stmt.close();
+				records = executeQueryAndGetRecord(sessionForAudit, query);
+			else if (moduleName.equals("IDREPO"))
+				if (query.toLowerCase().startsWith("delete")) {
+					return executeUpdateQuery(sessionForIdrepo, query);
+				} else
+					records = executeQueryAndGetRecord(sessionForIdrepo, query);
+			DBCONNECTION_LOGGER.info("Query: " + query);
+			List<Map<String, Object>> aliasToValueMapListTemp = records.list();
+			System.out.println(aliasToValueMapListTemp.get(0));
+			records.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+			List<Map<String, Object>> aliasToValueMapList = records.list();
 			Map<String, String> returnMap = new HashMap<String, String>();
-			for (Entry<String, Object> entry : row.entrySet()) {
-				if (entry.getValue().toString().equals(null) || entry.getValue().toString() == null)
-					returnMap.put(entry.getKey(), "null");
+			for (Entry<String, Object> entry : aliasToValueMapList.get(0).entrySet()) {
+				if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
+						|| entry.getValue().equals("null"))
+					returnMap.put(entry.getKey(), "null".toString());
 				else
 					returnMap.put(entry.getKey(), entry.getValue().toString());
 			}
@@ -116,4 +98,81 @@ public class DbConnection {
 			return null;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	private static Query<Map<String, Object>> executeQueryAndGetRecord(Session session, String query) {
+			return session.createSQLQuery(query);
+	}
+	
+	private static Map<String, String> executeUpdateQuery(Session session, String query) {
+			Map<String, String> returnMap = new HashMap<String, String>();
+			int count=session.createSQLQuery(query).executeUpdate();
+			returnMap.put("delete", "true");
+			returnMap.put("count", String.valueOf(count));
+			return returnMap;
+	}
+	
+	/**
+	 * Idrepo db connection
+	 * 
+	 * @return dbConnection
+	 */
+	public static void startIdrepoDbSession() {
+		sessionForIdrepo=getDataBaseConnection("idrepo");
+	}
+	
+	private static Session getDataBaseConnection(String dbName) {
+		String dbConfigXml = dbName + RunConfigUtil.getRunEvironment().toLowerCase() + ".cfg.xml";
+		SessionFactory factory = null;
+		Session session = null;
+		try {
+			factory = new Configuration().configure(dbConfigXml).buildSessionFactory();
+			session = factory.getCurrentSession();
+		} catch (HibernateException e) {
+			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: ");
+			DBCONNECTION_LOGGER.info(e.getMessage());
+		} catch (NullPointerException e) {
+			Assert.assertTrue(false, "Exception in getting the session");
+		}
+		session.beginTransaction();
+		DBCONNECTION_LOGGER.info("==========session  begins=============");
+		return session;
+	}
+	
+	/**
+	 *Terminate Kernel db connection to get generated otp value
+	 * 
+	 * @return dbConnection
+	 */
+	public static void terminateKernelDbSession() {
+		sessionForKernel.close();
+	}
+	
+	/**
+	 * Terminate Ida db connection
+	 * 
+	 * @return dbConnection
+	 */
+	public static void terminateIdaDbSession() {
+		sessionForIda.close();
+	}
+	
+	/**
+	 * Terminate Audit db connection
+	 * 
+	 * @return dbConnection
+	 */
+	public static void terminateAuditDbSession() {
+		sessionForAudit.close();
+	}
+	
+	/**
+	 * Terminate Idrepo db connection
+	 * 
+	 * @return dbConnection
+	 */
+	public static void terminateIdrepoDbSession() {
+		sessionForIdrepo.close();
+	}
+	
 }

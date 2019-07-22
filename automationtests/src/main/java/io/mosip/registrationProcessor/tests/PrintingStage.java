@@ -206,7 +206,6 @@ public class PrintingStage extends BaseTestCase implements ITest {
 				}
 				logger.info("message : "+message);
 				if(message.matches("Duplicate Request Received")) {
-					logger.info("Inside duplicate message block ========================");
 					uploaded = true;
 				}else if(message.matches("Packet Not Found in Sync Table")) {
 					try {

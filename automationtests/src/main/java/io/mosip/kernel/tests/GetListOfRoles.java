@@ -62,7 +62,7 @@ public class GetListOfRoles extends BaseTestCase implements ITest{
 	@BeforeMethod(alwaysRun=true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regAdminCookie))
 			regAdminCookie=auth.getAuthForRegistrationAdmin();
 	} 

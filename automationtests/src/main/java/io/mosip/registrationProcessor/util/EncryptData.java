@@ -91,7 +91,7 @@ public class EncryptData {
 		return encryptRequest;
 	}
 
-	public static LocalDateTime getDateTimeFromString(String datetime) {
+	public LocalDateTime getDateTimeFromString(String datetime) {
 		 
 			if(datetime==null || datetime.isEmpty() || datetime.equals("")) {
 				return null;
@@ -101,7 +101,7 @@ public class EncryptData {
 		return DateUtils.convertUTCToLocalDateTime(datetime);
 	}
 	
-	private static boolean isValidTimestamp(String dateTime) {
+	public boolean isValidTimestamp(String dateTime) {
 		DateTimeFormatter formatters = new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                 .parseStrict().toFormatter() ;
 		try {
@@ -120,6 +120,8 @@ public class EncryptData {
 	System.out.println(e.encryptData(dto));
 	}*/
 	public RegistrationPacketSyncDTO createSyncRequest(File f, String regType) throws ParseException {
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+		
 		String regId=f.getName().substring(0,f.getName().lastIndexOf("."));
 		HashSequenceUtil hashSeqUtil = new HashSequenceUtil();
 		String packetHash=hashSeqUtil.getPacketHashSequence(f);
@@ -137,7 +139,7 @@ public class EncryptData {
 		registrationPacketSyncDto.setId("mosip.registration.sync");
 
 		//LocalDateTime requestTime=LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault());
-		registrationPacketSyncDto.setRequesttime(getTime(regId).toString()+"Z");
+		registrationPacketSyncDto.setRequesttime(apiRequests.getUTCTime().toString());
 		registrationPacketSyncDto.setVersion("1.0");
 		registrationPacketSyncDto.setSyncRegistrationDTOs(syncRegistrationList);
 		return registrationPacketSyncDto;

@@ -82,6 +82,8 @@ public class Decision extends BaseTestCase implements ITest{
 	TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
 	StageValidationMethods apiRequest=new StageValidationMethods();
 	String validToken="";
+	
+	boolean utcCheck = false;
 
 
 	/**
@@ -164,10 +166,21 @@ public class Decision extends BaseTestCase implements ITest{
 				validToken = getToken("getStatusTokenGenerationFilePath");
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
+			
+			actualRequest.put("requesttime", apiRequests.getUTCTime());
+			
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+				actualRequest.put("requesttime","");
+			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime","20140506");
+			}
 
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("decisionApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
 
+			
 			String message = null;
 			boolean noRecord = false;
 			if(actualResponse.asString().contains("errors")) {
@@ -190,6 +203,10 @@ public class Decision extends BaseTestCase implements ITest{
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
+			
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
 
 			//Assertion of actual and expected response
 			if(!noRecord) {
@@ -197,7 +214,7 @@ public class Decision extends BaseTestCase implements ITest{
 				Assert.assertTrue(status, "object are not equal");
 				logger.info("Status after assertion : "+status);
 
-				if (status) {
+				if (!utcCheck && status) {
 
 					boolean isError = expectedResponse.containsKey("errors");
 					logger.info("isError ========= : "+isError);
@@ -276,6 +293,8 @@ public class Decision extends BaseTestCase implements ITest{
 						}	
 					}
 
+				}else if(utcCheck){
+					finalStatus = "Pass";	
 				}else{
 					finalStatus="Fail";
 				}

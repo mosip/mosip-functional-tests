@@ -31,6 +31,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
+import io.mosip.authentication.idRepository.fw.util.IdRepoPrerequisteTests;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
@@ -43,7 +44,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class AddIdentity extends IdRepoTestsUtil implements ITest {
+public class AddIdentity extends IdRepoPrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(AddIdentity.class);
 	protected static String testCaseName = "";

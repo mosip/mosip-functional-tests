@@ -85,6 +85,7 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 	StageValidationMethods apiRequest=new StageValidationMethods();
 	String validToken="";
 
+	boolean utcCheck = false;
 
 	/**
 	 * This method is used for generating token
@@ -125,6 +126,7 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smokeAndRegression");
 			}
 		} catch (IOException | ParseException e) {
+			e.printStackTrace();
 			Assert.assertTrue(false, "not able to read the folder in ApplicantDemographic class in readData method: "+ e.getCause());
 
 		}
@@ -156,7 +158,17 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 				validToken = getToken("getStatusTokenGenerationFilePath");
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
+			
+			actualRequest.put("requesttime", apiRequests.getUTCTime());
 
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+				actualRequest.put("requesttime","" );
+			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime","20180924");
+			}
+			
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("applicantDemograhicApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
 			// outer and inner keys which are dynamic in the actual response
@@ -164,13 +176,17 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
+			
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
 
 			// Assertion of actual and expected response
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
 			logger.info("Status after assertion : " + status);
 
-			if (status) {
+			if (!utcCheck && status) {
 				boolean isError = false;
 				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
 				if(errorResponse!=null && !errorResponse.isEmpty()) {
@@ -213,6 +229,8 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 					}
 				}
 
+			}else if(utcCheck){
+				finalStatus = "Pass";
 			}else {
 				finalStatus="Fail";
 			}
@@ -226,6 +244,7 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 			softAssert.assertAll();
 
 		} catch (IOException | ParseException e) {
+			e.printStackTrace();
 			Assert.assertTrue(false, "not able to execute applicantDemographic method : "+ e.getCause());
 
 		}

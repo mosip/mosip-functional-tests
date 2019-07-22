@@ -178,55 +178,6 @@ public abstract class RunConfig {
 	 * @param testType
 	 */
 	public abstract void setConfig(String testDataPath,String testDataFileName,String testType);	
-	
-	/**
-	 * The method get kernal db table name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbKernelTableName();
-	/**
-	 * The method set kernel db table name
-	 * 
-	 * @param dbKernelTableName
-	 */
-	public abstract void setDbKernelTableName(String dbKernelTableName);
-	/**
-	 * The method get kernal db schema name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbKernelSchemaName();
-	/**
-	 * The method set kernal db schema name
-	 * 
-	 * @param dbKernelSchemaName
-	 */
-	public abstract void setDbKernelSchemaName(String dbKernelSchemaName);
-	/**
-	 * The method get db kernel user name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbKernelUserName();
-	/**
-	 * The method set db kernel username
-	 * 
-	 * @param dbKernelUserName
-	 */
-	public abstract void setDbKernelUserName(String dbKernelUserName);
-	/**
-	 * The method get kernel db password
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbKernelPwd();
-	/**
-	 * The method set kernel db password
-	 * 
-	 * @param dbKernelPwd
-	 */
-	public abstract void setDbKernelPwd(String dbKernelPwd);
 	/**
 	 * The method get test type of current execution
 	 * 
@@ -289,103 +240,6 @@ public abstract class RunConfig {
 	 */
 	public abstract void setStoreUINDataPath(String storeUINDataPath);	
 	/**
-	 * The method set IDA db table name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbIdaTableName();
-	/**
-	 * The method set ida db table name
-	 * 
-	 * @param dbIdaTableName
-	 */
-	public abstract void setDbIdaTableName(String dbIdaTableName);
-	/**
-	 * The method get ida table name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbIdaSchemaName();
-	/**
-	 * The method get ida db schema name
-	 * 
-	 * @param dbIdaSchemaName
-	 */
-	public abstract void setDbIdaSchemaName(String dbIdaSchemaName);
-	/**
-	 * The method get ida db user name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbIdaUserName();
-	/**
-	 * The method set ida db user name
-	 * 
-	 * @param dbIdaUserName
-	 */
-	public abstract void setDbIdaUserName(String dbIdaUserName);
-	/**
-	 * The method get ida db password
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbIdaPwd();
-	/**
-	 * The method set ida db password
-	 * 
-	 * @param dbIdaPwd
-	 */
-	public abstract void setDbIdaPwd(String dbIdaPwd);	
-	/**
-	 * The method get db audit table name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbAuditTableName();
-	/**
-	 * The method set db audit table name
-	 * 
-	 * @param dbAuditTableName
-	 */
-	public abstract void setDbAuditTableName(String dbAuditTableName);
-	/**
-	 * The method get db audit schema name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbAuditSchemaName();
-	/**
-	 * The method set db audit schema name
-	 * 
-	 * @param dbAuditSchemaName
-	 */
-	public abstract void setDbAuditSchemaName(String dbAuditSchemaName);
-	/**
-	 * The method get db audit user name
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbAuditUserName();
-	/**
-	 * The method set db audit user name
-	 * 
-	 * @param dbAuditUserName
-	 */
-	public abstract void setDbAuditUserName(String dbAuditUserName);
-	/**
-	 * The method get db audit password
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbAuditPwd();
-	/**
-	 * The method will get audit db password
-	 * 
-	 * @param dbAuditPwd
-	 */
-	public abstract void setDbAuditPwd(String dbAuditPwd);
-	
-	/**
 	 * The method get encode file path
 	 * 
 	 * @return string
@@ -409,43 +263,6 @@ public abstract class RunConfig {
 	 * @param decodeFilePath
 	 */
 	public abstract void setDecodeFilePath(String decodeFilePath);	
-	
-	/**
-	 * The method get kernel db url
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbKernelUrl();
-	/**
-	 * The method set kernel db url 
-	 * 
-	 * @param dbKernelUrl
-	 */
-	public abstract void setDbKernelUrl(String dbKernelUrl);
-	/**
-	 * The method get IDA db url
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbIdaUrl();
-	/**
-	 * The method set ida db url
-	 * 
-	 * @param dbIdaUrl
-	 */
-	public abstract void setDbIdaUrl(String dbIdaUrl);
-	/**
-	 * The method set audit db url
-	 * 
-	 * @return string
-	 */
-	public abstract String getDbAuditUrl();
-	/**
-	 * The method set DB audit url
-	 * 
-	 * @param dbAuditUrl
-	 */
-	public abstract void setDbAuditUrl(String dbAuditUrl);	
 	/**
 	 * The method set VID generation path
 	 * 
@@ -518,5 +335,5 @@ public abstract class RunConfig {
 	public abstract String getIdRepoRetrieveIdentityByRid();
 	public abstract void setIdRepoRetrieveIdentityByRid(String idRepoRetrieveIdentityByRid);
 	public abstract String getIdRepoRegenerateVID();
-	public abstract void setIdRepoidRepoRegenerateVID(String idRepoRegenerateVID);
+	public abstract void setIdRepoRegenerateVID(String idRepoRegenerateVID);
 }

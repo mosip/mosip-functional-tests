@@ -84,6 +84,8 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 	StageValidationMethods apiRequest=new StageValidationMethods();
 	String validToken="";
 	
+	boolean utcCheck = false;
+	
 	
 	/**
 	 * This method is used for creating token
@@ -149,6 +151,16 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			// Expected response generation
 			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 			
+			actualRequest.put("requesttime", apiRequests.getUTCTime());
+		
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
+			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+				actualRequest.put("requesttime","");
+			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime","20140506");
+			}
+			
 			validToken=getToken("getStatusTokenGenerationFilePath");
 			boolean tokenStatus=apiRequests.validateToken(validToken);
 			while(!tokenStatus) {
@@ -166,12 +178,16 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
 
+			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+				utcCheck = apiRequests.checkResponseTime(actualResponse);
+			}
+			
 			// Assertion of actual and expected response
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
 			logger.info("Status after assertion : " + status);
 
-			if (status) {
+			if (!utcCheck && status) {
 
 				boolean isError = false;
 				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
@@ -215,7 +231,10 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 						}
 					}
 
-				}else {
+				}else if(utcCheck){
+					finalStatus = "Pass";
+				}
+				else {
 					finalStatus="Fail";
 				}
 

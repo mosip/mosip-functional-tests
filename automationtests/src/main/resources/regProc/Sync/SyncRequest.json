@@ -24,5 +24,7 @@
 	"packetHashValueEmpty" : "",
 	"packetHashValueInvalid" : "",
 	"supervisorStatusInvalid" : "",
-	"supervisorStatusEmpty" : ""
+	"supervisorStatusEmpty" : "",
+	"ValidRequestUTC" : "",
+	"InvalidRequestUTC" : ""
  }

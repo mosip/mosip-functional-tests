@@ -1,9 +1,6 @@
 {
 	"idEmpty" : "",
 	"idInvalid" :"",
-	"matchTypeALL" : "",
-	"matchTypeBIO" : "",
-	"matchTypeDEMO" : "",
 	"matchTypeEmpty" : "",
 	"matchTypeInvalid" : "",
 	"requesttimeEmpty" : "",
@@ -12,5 +9,7 @@
 	"userIdInvalid" : "",
 	"versionEmpty" : "",
 	"versionInvalid" : "",
-	"RecordUnavaible" : ""
+	"RecordUnavaible" : "",
+	"InvalidRequestUTC" : "",
+	"ValidRequestUTC1" : ""
 }

@@ -1,13 +1,11 @@
 package io.mosip.authentication.idRepository.prerequiste;
 
-import java.io.File;
+import java.io.File; 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.naming.AuthenticationException;
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -17,7 +15,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
@@ -32,10 +29,11 @@ import io.mosip.authentication.fw.dto.RidDto;
 import io.mosip.authentication.fw.dto.UinDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
+import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
+import io.mosip.authentication.idRepository.fw.util.IdRepoPrerequisteTests;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
 
@@ -47,7 +45,7 @@ import org.testng.Reporter;
  * @author Vignesh
  *
  */
-public class CreateUinRecord extends AuthTestsUtil implements ITest {
+public class CreateUinRecord extends PrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateUinRecord.class);
 	protected static String testCaseName = "";
@@ -58,9 +56,6 @@ public class CreateUinRecord extends AuthTestsUtil implements ITest {
 	private String testType;
 	private int invocationCount = 0;
 	private String cookieValue;
-	private int retryOptionCount = 0;
-	private int retryUINOptionCount = 0;
-
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -114,7 +109,7 @@ public class CreateUinRecord extends AuthTestsUtil implements ITest {
 				testCase = testParams.getTestCaseName();
 			}
 		}
-		this.testCaseName = String.format("Create UIN");
+		CreateUinRecord.testCaseName = String.format("Create UIN");
 		invocationCount++;
 		setTestDataPathsAndFileNames(invocationCount);
 		setConfigurations(this.testType);
@@ -129,7 +124,7 @@ public class CreateUinRecord extends AuthTestsUtil implements ITest {
 	public void generateUINTestData() throws AuthenticationTestException {
 		Object[][] object = DataProviderClass.getDataProvider(
 				RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getScenarioPath(),
-				RunConfigUtil.objRunConfig.getScenarioPath(), "smokeandregression");
+				RunConfigUtil.objRunConfig.getScenarioPath(), this.testType);
 		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),
 				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
@@ -138,8 +133,6 @@ public class CreateUinRecord extends AuthTestsUtil implements ITest {
 					RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()
 							+ RunConfigUtil.objRunConfig.getClientidsecretkey(),
 					AUTHORIZATHION_COOKIENAME);
-			retryOptionCount = 0;
-			retryUINOptionCount = 0;
 			createUinDataTest(new TestParameters((TestParameters) object[i][0]), object[i][1].toString(),
 					object[i][2].toString());
 		}
@@ -205,14 +198,8 @@ public class CreateUinRecord extends AuthTestsUtil implements ITest {
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if (!OutputValidationUtil.publishOutputResult(ouputValid)) {
-			if (retryOptionCount <= 1) {
-				logger.info("Retrying the same test case");
-				createUinDataTest(objTestParameters, testScenario, testcaseName);
-				retryOptionCount++;
-			} else
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AuthenticationTestException("Failed at output response validation");
-		}
 		wait(5000);
 		if (OutputValidationUtil.publishOutputResult(ouputValid)) {
 			storeUinData.put(uin, testcaseName);

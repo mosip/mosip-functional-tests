@@ -17,7 +17,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
  */
 public class AuthPartnerProcessor extends AuthTestsUtil{
 
-	private static final Logger DEMOAPP_LOGGER = Logger.getLogger(AuthTestsUtil.class);
+	private static final Logger DEMOAPP_LOGGER = Logger.getLogger(AuthPartnerProcessor.class);
 	public static Process authPartherProcessor;
 
 	/**
@@ -57,9 +57,9 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 					+ "/.m2/repository/io/mosip/authentication/authentication-partnerdemo-service/"
 					+ getDemoAppVersion()+ "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar";
 		} else {
-			DEMOAPP_LOGGER.info("Maven Path: " + System.getenv(RunConfigUtil.getLinuxMavenEnvVariableKey()));
-			String mavenPath = System.getenv(RunConfigUtil.getLinuxMavenEnvVariableKey());
-			String settingXmlPath = "/usr/local/maven" + "/conf/settings.xml";
+			DEMOAPP_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
+			String mavenPath = RunConfigUtil.getLinuxMavenPath();
+			String settingXmlPath = mavenPath + "/conf/settings.xml";
 			String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
 			return repoPath + "/io/mosip/authentication/authentication-partnerdemo-service/" + getDemoAppVersion()
 					+ "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar";

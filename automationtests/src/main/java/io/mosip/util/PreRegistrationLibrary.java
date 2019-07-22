@@ -757,7 +757,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		testSuite = "DocumentUpload/DocumentUpload_smoke";
 		String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
 		File file = null;
-		file = new File(configPath + "/AadhaarCard_POI.pdf");
+		file = new File(configPath + "/doc_POI.pdf");
 		logger.info("File Name:" + file);
 		request = getRequest(testSuite);
 		request.put("requesttime", getCurrentDate());
@@ -778,7 +778,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
 		File file = null;
 		if (documentName == null) {
-			file = new File(configPath + "/AadhaarCard_POI.pdf");
+			file = new File(configPath + "/doc_POI.pdf");
 		} else {
 			file = new File(configPath + "/" + documentName);
 		}
@@ -848,7 +848,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		testSuite = "DocumentUpload/DocumentUpload_smoke";
 		String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
 		File file = null;
-		file = new File(configPath + "/AadhaarCard_POI.pdf");
+		file = new File(configPath + "/doc_POI.pdf");
 		logger.info("File Name:" + file);
 		request = getRequest(testSuite);
 		request.put("requesttime", getCurrentDate());
@@ -1432,6 +1432,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		long number = (long) Math.floor(Math.random() * 9_000_000_00L) + 1_000_000_00L;
 		userId = Long.toString(number);
 		userId = "9" + userId;
+		
 		JSONObject object = null;
 		for (Object key : otpRequest.keySet()) {
 			if (key.equals("request")) {

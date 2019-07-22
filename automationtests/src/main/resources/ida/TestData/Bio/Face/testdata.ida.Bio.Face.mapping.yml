@@ -1,5 +1,5 @@
 testdata:
-  Authentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
+  Authentication_Biometric_Face_With_Valid_Smoke_Pos:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
@@ -38,7 +38,7 @@ testdata:
       moduleName: $TestData:audit_log_face_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
       
-  Authentication_Biometric_Face_With_requestedAuth_set_bio_true_when_bio_Authentication_Biometric_Face_selected_in_ploicy_Pos:
+  Authentication_Biometric_Face_With_requestedAuth_set_bio_true_when_bio_Face_selected_in_ploicy_Pos:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
@@ -302,7 +302,7 @@ testdata:
       output.1.response.error.errorCode: $errors:InvalidRequest:errorCode$
       output.1.response.error.errorMessage: $errors:InvalidRequest:errorMessage$
       
-  Authentication_Biometric_Face_With_requestedAuth_set_bio_true_when_bio_Authentication_Biometric_Face_not_selected_in_ploicy_Neg:
+  Authentication_Biometric_Face_With_requestedAuth_set_bio_true_when_bio_Face_not_selected_in_ploicy_Neg:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
     input.bio-auth-request:
@@ -1378,7 +1378,7 @@ testdata:
       moduleName: $TestData:audit_log_face_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
       
-  Authentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_With_VID_Pos:
+  Authentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_With_VID_Pos:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:

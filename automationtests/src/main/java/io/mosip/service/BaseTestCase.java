@@ -111,7 +111,7 @@ public class BaseTestCase{
 	
 	
 	
-	public void initialize()
+	public static void initialize()
 	{
 		BasicConfigurator.configure();
 		
@@ -147,8 +147,8 @@ public class BaseTestCase{
 		/*
 		 * Saving TestNG reports to be published
 		 */
-	    @BeforeSuite(alwaysRun = true)
-		public void suiteSetup() {
+	    //@BeforeSuite(alwaysRun = true)
+		public static void suiteSetup() {
 		
 			logger.info("Test Framework for Mosip api Initialized");
 			logger.info("Logging initialized: All logs are located at " +  "src/logs/mosip-api-test.log");
@@ -157,8 +157,9 @@ public class BaseTestCase{
 
 			PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
+			new PreregistrationDAO().deleteAvailableSlot();
+			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.initiateAuthTest();
-			//new PreregistrationDAO().makeAllRegistartionCenterActive();
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();

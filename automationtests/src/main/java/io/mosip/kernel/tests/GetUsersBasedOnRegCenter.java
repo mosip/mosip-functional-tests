@@ -62,7 +62,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 	@BeforeMethod(alwaysRun=true)
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
-		testCaseName = object.toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(registrationOfficerCookie))
 			registrationOfficerCookie=auth.getAuthForRegistrationOfficer();
 	} 
@@ -101,7 +101,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 		List<String> innerKeys = new ArrayList<String>();
 		outerKeys.add("responsetime");
 		innerKeys.add("lastSyncTime");
-		if(testCaseName.equalsIgnoreCase("Kernel_GetusersBasedOnRegCenter_smoke") || testCaseName.equals("Kernel_GetusersBasedOnRegCenter_response_time"))
+		if(testCaseName.equalsIgnoreCase("kernel_GetusersBasedOnRegCenter_smoke") || testCaseName.equals("kernel_GetusersBasedOnRegCenter_response_time"))
 		{
 			String password = res.getBody().jsonPath().get("response.userDetails[0].userPassword").toString();
 			String password1 = res.getBody().jsonPath().get("response.userDetails[1].userPassword").toString();
