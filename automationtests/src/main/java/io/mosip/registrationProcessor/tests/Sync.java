@@ -185,7 +185,7 @@ public class Sync extends BaseTestCase implements ITest {
 						actualRequest.put("requesttime","");
 					}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
 						actualRequest.put("requesttime","201929:41.011Z");
-					}
+					} 
 					
 					registrationPacketSyncDto = encryptData.createSyncRequest(actualRequest);
 					

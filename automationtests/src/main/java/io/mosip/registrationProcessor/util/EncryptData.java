@@ -203,7 +203,7 @@ public class EncryptData {
 		syncRegistrationList.add(syncRegistrationDto);
 		RegistrationPacketSyncDTO registrationPacketSyncDto=new RegistrationPacketSyncDTO();
 		registrationPacketSyncDto.setId(id);
-
+ 
 		//LocalDateTime requestTime=LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault());
 		//if(requesttime)
 		registrationPacketSyncDto.setRequesttime(requesttime);

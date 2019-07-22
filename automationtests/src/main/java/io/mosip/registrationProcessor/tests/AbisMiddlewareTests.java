@@ -26,7 +26,7 @@ import org.testng.internal.TestResult;
 import io.mosip.dbaccess.AbisDbTransactions;
 import io.mosip.registrationProcessor.service.IntegMethods;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
-import io.mosip.service.BaseTestCase;
+import io.mosip.service.BaseTestCase; 
 
 public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 	IntegMethods regProcRequests = new IntegMethods();
