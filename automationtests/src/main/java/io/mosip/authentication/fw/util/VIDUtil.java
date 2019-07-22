@@ -147,6 +147,7 @@ public class VIDUtil extends RunConfigUtil{
 				count++;
 				return key.toString();
 			}
+			count++;
 			if(count>100)
 				return "1234567890123456.DUMMY.DUMMY";
 		}
