@@ -2,54 +2,20 @@
 package io.mosip.service;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
-
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.dbaccess.KernelMasterDataR;
-import io.mosip.dbaccess.PreRegDbread;
-
-import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.preregistration.dao.PreregistrationDAO;
-import io.mosip.preregistration.tests.PreRegistrationConfigData;
-import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
-import io.mosip.util.TokenGeneration;
-
-//import io.mosip.dbentity.TokenGenerationEntity;
-import io.mosip.util.PreRegistrationLibrary;
-//import io.mosip.util.TokenGeneration;
-
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
 /**
@@ -113,7 +79,7 @@ public class BaseTestCase{
 	
 	public static void initialize()
 	{
-		BasicConfigurator.configure();
+		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		
 		/**
 		 * Make sure test-output is there 
@@ -221,7 +187,18 @@ public class BaseTestCase{
 			//extent.flush();
 		} // end testTearDown
 
-	
+		private static Properties getLoggerPropertyConfig() {
+			Properties logProp = new Properties();
+			logProp.setProperty("log4j.rootLogger", "INFO, Appender1,Appender2");
+			logProp.setProperty("log4j.appender.Appender1", "org.apache.log4j.ConsoleAppender");
+			logProp.setProperty("log4j.appender.Appender1.layout", "org.apache.log4j.PatternLayout");
+			logProp.setProperty("log4j.appender.Appender1.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
+			logProp.setProperty("log4j.appender.Appender2", "org.apache.log4j.FileAppender");
+			logProp.setProperty("log4j.appender.Appender2.File", "src/logs/mosip-api-test.log");
+			logProp.setProperty("log4j.appender.Appender2.layout", "org.apache.log4j.PatternLayout");
+			logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
+			return logProp;
+		}
 		
 	
 	}
