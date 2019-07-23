@@ -143,7 +143,8 @@
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
-			<class name="io.mosip.registrationProcessor.tests.Sync" />
+
+		 <class name="io.mosip.registrationProcessor.tests.Sync" />
 			<class
 				name="io.mosip.registrationProcessor.tests.SecurityTests" />
 			<class name="io.mosip.registrationProcessor.tests.PacketStatus" />
@@ -172,7 +173,7 @@
 		</classes>
 
 	</test>
-	<test name="IdeepositoryTest">
+	 <test name="IdeepositoryTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -235,7 +236,7 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 
-	</test>
+	</test> 
 
 </suite>
 		
