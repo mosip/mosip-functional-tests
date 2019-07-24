@@ -7,11 +7,15 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import org.apache.poi.util.IOUtils;
 import org.json.simple.JSONArray;
@@ -54,13 +58,28 @@ import io.mosip.registration.dto.demographic.DemographicInfoDTO;
 import io.mosip.registration.dto.demographic.DocumentDetailsDTO;
 import io.mosip.registration.dto.demographic.Identity;
 import io.mosip.registration.dto.demographic.IndividualIdentity;
+import io.mosip.registration.dto.mastersync.GenderDto;
+import io.mosip.registration.dto.mastersync.LocationDto;
+import io.mosip.registration.entity.Gender;
+import io.mosip.registration.entity.IndividualType;
+import io.mosip.registration.entity.Location;
 import io.mosip.registration.exception.RegBaseCheckedException;
+import io.mosip.registration.repositories.GenderRepository;
+import io.mosip.registration.repositories.IndividualTypeRepository;
+import io.mosip.registration.repositories.LocationRepository;
 import io.mosip.registration.service.packet.PacketHandlerService;
 import io.mosip.registration.service.packet.RegistrationApprovalService;
+import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 
 @Service
 public class CommonUtil {
+
+	@Autowired
+	MasterSyncService masterSync;
+
+	@Autowired
+	LocationRepository locationRepository;
 	@Autowired
 	PreRegistrationDataSyncService preRegistrationDataSyncService;
 	@Autowired
@@ -70,6 +89,12 @@ public class CommonUtil {
 	RidGenerator<String> ridGeneratorImpl;
 	@Autowired
 	RegistrationApprovalService registrationApprovalService;
+	@Autowired
+	MasterSyncService masterSyncService;
+	@Autowired
+	GenderRepository genderRepository;
+	@Autowired
+	IndividualTypeRepository individualTypeRepository;
 
 	ApplicationContext applicationContext = ApplicationContext.getInstance();
 
@@ -82,8 +107,9 @@ public class CommonUtil {
 		 * Read JSON from a file into a Map
 		 */
 		try {
-			response = mapper.readValue(new File("src/main/resources/PreRegIds.json"),
-					new TypeReference<Map<String, Object>>() {
+			response = mapper.readValue(new File(
+					this.getClass().getClassLoader().getResource("./testData/PreRegIds.json").getFile()),
+						new TypeReference<Map<String, Object>>() {
 					});
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -102,8 +128,7 @@ public class CommonUtil {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "readPropertyFile");
 		Properties prop = new Properties();
 		InputStream input = null;
-		String propertiesFilePath = "src" + File.separator + "main" + File.separator + "resources" + File.separator
-				+ apiname + File.separator + testCaseName + File.separator + propertyFileName + ".properties";
+		String propertiesFilePath=this.getClass().getClassLoader().getResource("./"+apiname + "/" + testCaseName + "/" + propertyFileName + ".properties").getPath();
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Property File Path - " + propertiesFilePath);
 		try {
 			input = new FileInputStream(propertiesFilePath);
@@ -269,13 +294,13 @@ public class CommonUtil {
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	public static List<IrisDetailsDTO> getIrisTestData(String Path) {
+	public List<IrisDetailsDTO> getIrisTestData(String Path) {
 
 		List<IrisDetailsDTO> irisData = new ArrayList<>();
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			JSONParser jsonParser = new JSONParser();
-			FileReader reader = new FileReader(Path);
+			FileReader reader = new FileReader(this.getClass().getClassLoader().getResource(Path).getPath());
 			// Read JSON file
 			Object obj = jsonParser.parse(reader);
 
@@ -386,7 +411,7 @@ public class CommonUtil {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			JSONParser jsonParser = new JSONParser();
-			FileReader reader = new FileReader(Path);
+			FileReader reader = new FileReader(this.getClass().getClassLoader().getResource(Path).getFile());
 			Object obj = jsonParser.parse(reader);
 			String s = obj.toString();
 			biodto = mapper.readValue(s, BiometricDTO.class);
@@ -431,15 +456,17 @@ public class CommonUtil {
 		Map<String, DocumentDetailsDTO> documents = new HashMap<String, DocumentDetailsDTO>();
 		IndividualIdentity identity = null;
 		String randomId = "";
+		/** The application language bundle. */
+		ResourceBundle applicationLanguageBundle;
 		try {
 
-			registrationDTO = mapper.readValue(new File(userJsonFile), RegistrationDTO.class);
+			registrationDTO = mapper.readValue(new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath()), RegistrationDTO.class);
 
 			if (packetType.equalsIgnoreCase("RegClientPacket")) {
 
 				// Creating Registration Client individual packet
 				// Set Demographic details to IndividualIdentity
-				identity = mapper.readValue(new File(identityJsonFile), IndividualIdentity.class);
+				identity = mapper.readValue(new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath()), IndividualIdentity.class);
 				// Set Documents in IndividualIdentity and Get documents to Set in
 				// applicantDocumentDTO
 				documents = setDocumentDetailsDTO(identity, documentFile);
@@ -464,19 +491,96 @@ public class CommonUtil {
 				// Get identity from preRegistrationDTO to RegistrationDTO
 				identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
 						.getIdentity();
-				// Set Documents in IndividualIdentity and Get documents to Set in
-				// applicantDocumentDTO
-				documents = preRegistrationDTO.getDemographicDTO().getApplicantDocumentDTO().getDocuments();
-				// setDocumentDetailsDTO(identity, documentFile);
+
+				HashMap<String, String> genderDetail = new HashMap<String, String>();
+				for (int i = 0; i < identity.getGender().size(); i++) {
+					List<GenderDto> genderDetailService = masterSyncService
+							.getGenderDtls(identity.getGender().get(i).getLanguage());
+					for (int j = 0; j < genderDetailService.size(); j++) {
+						genderDetail.put(genderDetailService.get(j).getCode(),
+								genderDetailService.get(j).getGenderName());
+					}
+					String genderValue = genderDetail.get(identity.getGender().get(i).getValue());
+					identity.getGender().get(i).setValue(genderValue);
+				}
+
+				for (int i = 0; i < identity.getResidenceStatus().size(); i++) {
+					List<IndividualType> individual_typeDetails = individualTypeRepository
+							.findByIndividualTypeIdCodeAndIndividualTypeIdLangCodeAndIsActiveTrue(
+									identity.getResidenceStatus().get(i).getValue(),
+									identity.getResidenceStatus().get(i).getLanguage());
+					identity.getResidenceStatus().get(i).setValue(individual_typeDetails.get(0).getName());
+				}
+
+				for (int j = 0; j < identity.getRegion().size(); j++) {
+
+					String lang = identity.getRegion().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> regionDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("region"), identity.getRegion().get(j).getLanguage());
+					identity.getRegion().get(j).setValue(regionDetails.get(0).getName());
+				}
+
+				for (int j = 0; j < identity.getProvince().size(); j++) {
+					String lang = identity.getProvince().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> provinceDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("province"),
+							identity.getProvince().get(j).getLanguage());
+					identity.getProvince().get(j).setValue(provinceDetails.get(0).getName());
+				}
+
+				for (int j = 0; j < identity.getCity().size(); j++) {
+
+					String lang = identity.getCity().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> cityDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("city"), identity.getCity().get(j).getLanguage());
+					identity.getCity().get(j).setValue(cityDetails.get(0).getName());
+
+				}
+
+				for (int j = 0; j < identity.getLocalAdministrativeAuthority().size(); j++) {
+					String lang = identity.getLocalAdministrativeAuthority().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> localAdminAuthorityDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("localAdminAuthority"),
+							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
+					identity.getLocalAdministrativeAuthority().get(j)
+							.setValue(localAdminAuthorityDetails.get(0).getName());
+				}
+
+				documents = setDocumentDetailsDTO(identity, documentFile);
 				registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
 				registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
-				// Set IndividualIdentity to RegistrationDTO
 				registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(identity);
 
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
-
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+
+				/*
+				 * // Set Documents in IndividualIdentity and Get documents to Set in //
+				 * applicantDocumentDTO documents =
+				 * preRegistrationDTO.getDemographicDTO().getApplicantDocumentDTO().getDocuments
+				 * (); // setDocumentDetailsDTO(identity, documentFile);
+				 * registrationDTO.getDemographicDTO().setApplicantDocumentDTO(
+				 * setApplicantDocumentDTO());
+				 * registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(
+				 * documents); // Set IndividualIdentity to RegistrationDTO
+				 * registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(
+				 * identity);
+				 * 
+				 * registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.
+				 * getRegistrationMetaDataDTO());
+				 * 
+				 * registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+				 * registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+				 */
 			} else {
 				// Create RegistrationDTO without docs
 				// Set Registration ID to RegistrationDTO
@@ -486,6 +590,75 @@ public class CommonUtil {
 				// Get identity from preRegistrationDTO to RegistrationDTO
 				identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
 						.getIdentity();
+
+				HashMap<String, String> genderDetail = new HashMap<String, String>();
+				for (int i = 0; i < identity.getGender().size(); i++) {
+					List<GenderDto> genderDetailService = masterSyncService
+							.getGenderDtls(identity.getGender().get(i).getLanguage());
+					for (int j = 0; j < genderDetailService.size(); j++) {
+						genderDetail.put(genderDetailService.get(j).getCode(),
+								genderDetailService.get(j).getGenderName());
+					}
+					String genderValue = genderDetail.get(identity.getGender().get(i).getValue());
+					identity.getGender().get(i).setValue(genderValue);
+				}
+
+				for (int i = 0; i < identity.getResidenceStatus().size(); i++) {
+					List<IndividualType> individual_typeDetails = individualTypeRepository
+							.findByIndividualTypeIdCodeAndIndividualTypeIdLangCodeAndIsActiveTrue(
+									identity.getResidenceStatus().get(i).getValue(),
+									identity.getResidenceStatus().get(i).getLanguage());
+					identity.getResidenceStatus().get(i).setValue(individual_typeDetails.get(0).getName());
+				}
+
+				for (int j = 0; j < identity.getRegion().size(); j++) {
+
+					String lang = identity.getRegion().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> regionDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("region"), identity.getRegion().get(j).getLanguage());
+					
+				//	if (identity.getRegion().get(j-1).getLanguage().equalsIgnoreCase("eng")
+					//		&& applicationLanguageLocale.getLanguage().equalsIgnoreCase("en")) {
+						identity.getRegion().get(j).setValue(regionDetails.get(0).getName());
+					//} else {
+						//identity.getRegion().get(j+1).setValue(regionDetails.get(0).getName());
+					//}
+					
+				}
+
+				for (int j = 0; j < identity.getProvince().size(); j++) {
+					String lang = identity.getProvince().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> provinceDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("province"),
+							identity.getProvince().get(j).getLanguage());
+					identity.getProvince().get(j).setValue(provinceDetails.get(0).getName());
+				}
+
+				for (int j = 0; j < identity.getCity().size(); j++) {
+
+					String lang = identity.getCity().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> cityDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("city"), identity.getCity().get(j).getLanguage());
+					identity.getCity().get(j).setValue(cityDetails.get(0).getName());
+
+				}
+
+				for (int j = 0; j < identity.getLocalAdministrativeAuthority().size(); j++) {
+					String lang = identity.getLocalAdministrativeAuthority().get(j).getLanguage();
+					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
+					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					List<LocationDto> localAdminAuthorityDetails = masterSync.findLocationByHierarchyCode(
+							applicationLanguageBundle.getString("localAdminAuthority"),
+							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
+					identity.getLocalAdministrativeAuthority().get(j)
+							.setValue(localAdminAuthorityDetails.get(0).getName());
+				}
 
 				documents = setDocumentDetailsDTO(identity, documentFile);
 				registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
@@ -551,7 +724,7 @@ public class CommonUtil {
 		byte[] data;
 		Map<String, DocumentDetailsDTO> documents = new HashMap<String, DocumentDetailsDTO>();
 		try {
-			data = IOUtils.toByteArray(new FileInputStream(new File(path)));
+			data = IOUtils.toByteArray(new FileInputStream(new File(this.getClass().getClassLoader().getResource(path).getPath())));
 
 			DocumentDetailsDTO documentDetailsDTOAddress = new DocumentDetailsDTO();
 			documentDetailsDTOAddress.setDocument(getImageBytes("/proofOfAddress.jpg"));

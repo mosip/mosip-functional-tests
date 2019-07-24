@@ -209,7 +209,8 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 					// Onboard user
 					BiometricDTO bioData = null;
 					commonUtil.setFlag("N");
-					String bioPath = "src/main/resources/RegClient/Resident_BiometricData.json";
+					String bioPath = "./RegClient/Resident_BiometricData.json";
+					
 					LOGGER.info("USERONBOARD SERVICE TEST - ", "AUTOMATION", "REG", "Path: " + bioPath);
 					bioData = commonUtil.getBiotestData(bioPath);
 					ResponseDTO actualresponse = userOBservice.validate(bioData);

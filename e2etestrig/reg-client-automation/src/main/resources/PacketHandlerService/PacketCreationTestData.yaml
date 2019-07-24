@@ -4,31 +4,31 @@ statusCode_valid:
  -  APPROVED
 
 bioPath_ResidentBIO_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Resident_BiometricData.json
+ - ./testData/PacketHandlerServiceData/Resident_BiometricData.json
 bioPath_ResidentNonBIO_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Resident_NonBiometricData.json
+ - ./testData/PacketHandlerServiceData/Resident_NonBiometricData.json
 demoPath_ResidentDemo_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Resident_demographicData.json
+ - ./testData/PacketHandlerServiceData/Resident_demographicData.json
 imagePath_POAPOBPORPOIJpg_valid:
- - src/main/resources/testData/PacketHandlerServiceData/PANStubbed.jpg
+ - ./testData/PacketHandlerServiceData/PANStubbed.jpg
 bioPath_ChildBIO_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Child_BiometricData.json
+ - ./testData/PacketHandlerServiceData/Child_BiometricData.json
 bioPath_ChilNonBIO_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Child_NonBiometricData.json
+ - ./testData/PacketHandlerServiceData/Child_NonBiometricData.json
 demoPath_ChildDemo_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Child_DemographicData.json
+ - ./testData/PacketHandlerServiceData/Child_DemographicData.json
 demoPath_ChildDemo_validRID:
- - src/main/resources/testData/PacketHandlerServiceData/Child_DemographicData_ValidParentID.json
+ - ./testData/PacketHandlerServiceData/Child_DemographicData_ValidParentID.json
 demoPath_ChildDemo_invalidRID:
- - src/main/resources/testData/PacketHandlerServiceData/Child_DemographicData_InValidParentID.json
+ - ./testData/PacketHandlerServiceData/Child_DemographicData_InValidParentID.json
 demoPath_ChildDemo_invalidUIN:
- - src/main/resources/testData/PacketHandlerServiceData/Child_DemographicData_InValidParentUIN.json
+ - ./testData/PacketHandlerServiceData/Child_DemographicData_InValidParentUIN.json
 demoPath_ChildDemo_validUIN:
- - src/main/resources/testData/PacketHandlerServiceData/Child_DemographicData_ValidParentUIN.json
+ - ./testData/PacketHandlerServiceData/Child_DemographicData_ValidParentUIN.json
 bioPath_IrisExceeption_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Resident_Biometric_Iris_Exception_Data.json
+ - ./testData/PacketHandlerServiceData/Resident_Biometric_Iris_Exception_Data.json
 bioPath_FPExceeption_valid:
- - src/main/resources/testData/PacketHandlerServiceData/Resident_Biometric_FingerPrint_Exception_Data.json
+ - ./testData/PacketHandlerServiceData/Resident_Biometric_FingerPrint_Exception_Data.json
 
 parentRID_YES:
  - 10014100180000320190607091645

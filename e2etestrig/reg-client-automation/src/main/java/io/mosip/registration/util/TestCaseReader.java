@@ -19,21 +19,21 @@ public class TestCaseReader {
 	 * @return return the folder(test case name)
 	 */
 	public Object[][] readTestCases(String apiName, String testType) {
-		String path = "src" + File.separator + "main" + File.separator + "resources" + File.separator + apiName;
+
+		String path = this.getClass().getClassLoader().getResource("./" + apiName).getPath();
 		File file = new File(path);
 		File[] listOfFolders = file.listFiles();
 
 		ArrayList<String> testCaseName = new ArrayList<>();
 		ArrayList<String> validTestCase = new ArrayList<>();
 		ArrayList<String> invalidTestCase = new ArrayList<>();
-		
-		String type=System.getProperty("os.name");
-		String seperator="";
-		if(type.toLowerCase().contains("windows")){
-			seperator="\\\\";
-		}else if(type.toLowerCase().contains("linux")||type.toLowerCase().contains("unix"))
-		{
-			seperator="/";
+
+		String type = System.getProperty("os.name");
+		String seperator = "";
+		if (type.toLowerCase().contains("windows")) {
+			seperator = "\\\\";
+		} else if (type.toLowerCase().contains("linux") || type.toLowerCase().contains("unix")) {
+			seperator = "/";
 		}
 		for (int j = 0; j < listOfFolders.length; j++) {
 			if (listOfFolders[j].isDirectory()) {

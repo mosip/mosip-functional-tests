@@ -14,7 +14,6 @@ public class ConstantValues {
 	public static final String ROLES="REGISTRATION_OFFICER";
 	public static final String JOB_TRIGGER_POINT_USER = "User";
 	public static final String PWD="mosip";
-	public static final String PRE_REG_PATH="src/main/resources/packets";
 	public static final String SUCCESS = "Success";
 	
 }

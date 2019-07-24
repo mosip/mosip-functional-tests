@@ -35,8 +35,9 @@ public class TestDataGenerator {
 		Yaml yaml = new Yaml();
 		String testdata = null;
 		InputStream inputStream = null;
-		String testDataFilePath = "src" + File.separator + "main" + File.separator + "resources" + File.separator
-				+ serviceName + File.separator + testDataFileName + ".yaml";
+
+		String testDataFilePath = this.getClass().getClassLoader()
+				.getResource("." + "/" + serviceName + "/" + testDataFileName + ".yaml").getPath();
 		try {
 			inputStream = new FileInputStream(testDataFilePath);
 			if (inputDataParameter.contains("_empty"))

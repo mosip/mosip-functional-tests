@@ -51,30 +51,7 @@ public class DBUtil {
 		}
 	}
 
-	public static Properties loadPropertiesFile() {
-		Properties prop = new Properties();
-		InputStream input = null;
-		try {
-			logger.info("====  " + System.getProperty("user.dir")
-					+ "/src/test/resources/testData/DB_Queries/Queries.properties");
-			input = new FileInputStream(
-					System.getProperty("user.dir") + "/src/test/resources/testData/DB_Queries/Queries.properties");
-			// load a properties file
-			prop.load(input);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return prop;
-
-	}
+	
 
 	public static int updateQuery(String updateQuery) throws SQLException {
 		int val = 0;
