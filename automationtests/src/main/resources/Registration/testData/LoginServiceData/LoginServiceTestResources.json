@@ -1,0 +1,13 @@
+{
+	"roles": [
+		"REGISTRATION_SUPERVISOR",
+		"REGISTRATION_OFFICER",
+		"REGISTRATION_ADMIN"
+	],
+	"userIds" : [
+		"110017"
+	],
+	"regCenterIds":[
+		"10022"
+	]
+}

@@ -1,0 +1,40 @@
+
+			{
+				"fullName": 
+				[
+					{
+						"language": "eng",
+						"value": "Leona"
+					},
+
+					{
+						"language": "ara",
+						"value": "مثخىش"
+					}
+				],
+
+				"proofOfAddress": 
+				{
+					"value": "POA_Rental contract",
+					"type": "Rental contract",
+					"format": "jpg"
+				},
+
+				"proofOfIdentity": 
+				{
+					"value": "POI_Passport",
+					"type": "Passport",
+					"format": "jpg"
+				},
+
+				"proofOfRelationship": 
+				{
+					"value": "POR_Certificate of Relationship",
+					"type": "Certificate of Relationship",
+					"format": "jpg"
+				},
+
+				"IDSchemaVersion": 1.0,
+				"UIN": 3519046976
+			}
+		
