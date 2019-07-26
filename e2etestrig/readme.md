@@ -58,3 +58,4 @@ _java -jar e2etests-0.12.16-jar-with-dependencies.jar_
 The version of the jar file name changes as per development code version and you must have the dev code to run the e2e test. 
 
 Example: Current version of Dev [code base](https://github.com/mosip/mosip-platform) is 0.12.16 so the jar name will be e2etests-0.12.16-jar-with-dependencies
+Note : Since the e2e automaton contains automation of a stand alone application i.e reg client, it is necessary that we run this suite on a local machine.
