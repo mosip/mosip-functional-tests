@@ -20,7 +20,7 @@ public class GetPreRegistartion {
 	}
 
 	public void storePreRegData(String PrID) {
-		util.storePreRegistrationData(PrID);
+		
 	}
 
 	public JSONObject getPreIdChild(String childRequest) {

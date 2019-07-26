@@ -37,7 +37,7 @@ public class RegistrationProcessorRequests extends BaseTest {
 		RegistrationPacketSyncDTO registrationPacketSyncDto=null;
 		token=getToken("syncTokenGenerationFilePath");
 		try {
-			registrationPacketSyncDto = encryptData.createSyncRequest(packet);
+			registrationPacketSyncDto = encryptData.createSyncRequest(packet,"NEW");
 		} catch (java.text.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

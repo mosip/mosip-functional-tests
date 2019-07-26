@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,7 +18,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.IResultMap;
@@ -26,8 +25,9 @@ import org.testng.ISuite;
 import org.testng.ISuiteResult;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
-import org.testng.internal.ResultMap;
 import org.testng.xml.XmlSuite;
+
+import io.mosip.testrunner.MosipTestRunner;
 
 /**
  * Customised Testng Report
@@ -38,12 +38,14 @@ import org.testng.xml.XmlSuite;
 public class CustomTestNGReporter extends Reporter implements IReporter {
 
 	private static final Logger CustomTestNGReporterLog = Logger.getLogger(CustomTestNGReporter.class);
-	private static final String defaultTestNgEmailableReport="./target/surefire-reports/emailable-report.html";
-	private static final String extendtReport="./extent-report.html";
-	// This is the customize emailable report template file path.
 	private static final String emailableReportTemplateFile = new File(
-			"./src/test/resources/customize-emailable-report-template.html").getAbsolutePath();
-	private static String customReportTemplateStr;
+			MosipTestRunner.getGlobalResourcePath()+"/customize-emailable-report-template.html").getAbsolutePath();
+	private static StringBuffer customReportTemplateStr = new StringBuffer();
+
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
+
+	private static final String reportProfixFileName = "MOSIP_ModuleLevelAutoRun_TestNGReport";
+
 	// PieChart
 	private int passTestCount = 0;
 	private int skipTestCount = 0;
@@ -59,29 +61,21 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			// Get content data in TestNG report template file.
 			customReportTemplateStr = this.readEmailabelReportTemplate();
 			// Create custom report title.
-			String customReportTitle = this.getCustomReportTitle("MOSIP API Test Report");
+			customReportTemplateStr.append(this.getCustomReportTitle("MOSIP API Test Report"));
+			customReportTemplateStr.append(afterTestReportTittleContent());
 			// Create test suite summary data.
-			String customSuiteSummary = this.getTestSuiteSummary(suites);
+			customReportTemplateStr.append(this.getTestSuiteSummary(suites));
+			customReportTemplateStr.append(afterTestCaseSummaryContent());
 			// Create test methods summary data.
-			String customTestMethodSummary = this.getTestMehodSummary(suites);
-			// Replace report title place holder with custom title.
-			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$TestNG_Custom_Report_Title\\$",
-					customReportTitle);
-			// Replace test suite place holder with custom test suite summary.
-			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Summary\\$", customSuiteSummary);
-			// Replace test methods place holder with custom test method summary.
-			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$",
-					customTestMethodSummary);
-			customReportTemplateStr = updatePieChart(customReportTemplateStr);
+			customReportTemplateStr.append(this.getTestMethodSummary(suites));
+			customReportTemplateStr.append(afterTestMethodSummaryContent());
+			String finalcustomReport = updatePieChart(customReportTemplateStr.toString());
 
-			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$detailedReport\\$",
-					'"' + encodeDefaultTestngReportFile() + '"');
-			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$extentReport\\$",
-					'"' + encodeExtentReportFile() + '"');			
-			// Write replaced test report content to custom-emailable-report.html.
-			File targetFile = new File(outputDirectory + "/MOSIP_E2E_TestNGReport.html");
+			removeOldCustomMosipReport(outputDirectory);
+
+			File targetFile = new File(outputDirectory + "/"+reportProfixFileName/*getCurrentDateForReport()*/+".html");
 			FileWriter fw = new FileWriter(targetFile);
-			fw.write(customReportTemplateStr);
+			fw.write(finalcustomReport);
 			fw.flush();
 			fw.close();
 
@@ -98,7 +92,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 	}
 
 	/* Read template content. */
-	private String readEmailabelReportTemplate() {
+	private StringBuffer readEmailabelReportTemplate() {
 		StringBuffer retBuf = new StringBuffer();
 
 		try {
@@ -116,7 +110,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 		} finally {
-			return retBuf.toString();
+			return retBuf;
 		}
 	}
 
@@ -213,19 +207,22 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					retBuf.append(deltaTimeStr);
 					retBuf.append("</td>");
 					
-					/* Environment */
-					String envName = getAppEnvironment().toUpperCase();
-					retBuf.append("<td>");
-					retBuf.append(envName);
-					retBuf.append("</td>");
-					
 					/* Build Number */
 					String deploymentVersion = getAppDepolymentVersion();
 					retBuf.append("<td>");
 					retBuf.append(deploymentVersion);
 					retBuf.append("</td>");
 
-					
+					/*
+					 * Include groups. retBuf.append("<td>");
+					 * retBuf.append(this.stringArrayToString(testObj.getIncludedGroups()));
+					 * retBuf.append("</td>");
+					 * 
+					 * Exclude groups. retBuf.append("<td>");
+					 * retBuf.append(this.stringArrayToString(testObj.getExcludedGroups()));
+					 * retBuf.append("</td>");
+					 */
+
 					retBuf.append("</tr>");
 				}
 				/* Additing of total testcaseCount */
@@ -328,13 +325,13 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 	}
 
 	/* Get test method summary info. */
-	private String getTestMehodSummary(List<ISuite> suites) {
+	private String getTestMethodSummary(List<ISuite> suites) {
 		StringBuffer retBuf = new StringBuffer();
 
 		try {
 			for (ISuite tempSuite : suites) {
 				retBuf.append("<tr><td colspan=7><center><b>" + tempSuite.getName() + "</b></center></td></tr>");
-			
+
 				Map<String, ISuiteResult> testResults = tempSuite.getResults();
 
 				for (ISuiteResult result : testResults.values()) {
@@ -342,35 +339,24 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					ITestContext testObj = result.getTestContext();
 
 					String testName = testObj.getName();
-					IResultMap allTestResult = new ResultMap();
+
 					/* Get failed test method related data. */
 					IResultMap testFailedResult = testObj.getFailedTests();
-					for(ITestResult resul: testFailedResult.getAllResults()) {
-						allTestResult.addResult(resul, resul.getMethod());
-					}
-					/*String failedTestMethodInfo = this.getTestMethodReport(testName, testFailedResult, false, false);
+					String failedTestMethodInfo = this.getTestMethodReport(testName, testFailedResult, false, false);
 					if (getStringCount("<td", failedTestMethodInfo) > 2)
-						retBuf.append(failedTestMethodInfo);*/
+						retBuf.append(failedTestMethodInfo);
 
 					/* Get skipped test method related data. */
 					IResultMap testSkippedResult = testObj.getSkippedTests();
-					for(ITestResult resul: testSkippedResult.getAllResults()) {
-						allTestResult.addResult(resul, resul.getMethod());
-					}
-					/*String skippedTestMethodInfo = this.getTestMethodReport(testName, testSkippedResult, false, true);
+					String skippedTestMethodInfo = this.getTestMethodReport(testName, testSkippedResult, false, true);
 					if (getStringCount("<td", skippedTestMethodInfo) > 2)
 						retBuf.append(skippedTestMethodInfo);
-*/
+
 					/* Get passed test method related data. */
 					IResultMap testPassedResult = testObj.getPassedTests();
-					for(ITestResult resul: testPassedResult.getAllResults()) {
-						allTestResult.addResult(resul, resul.getMethod());
-					}
-					
-					String passedTestMethodInfo = this.getTestMethodReport(testName, allTestResult, true, false);
+					String passedTestMethodInfo = this.getTestMethodReport(testName, testPassedResult, true, false);
 					if (getStringCount("<td", passedTestMethodInfo) > 2)
 						retBuf.append(passedTestMethodInfo);
-					
 				}
 			}
 		} catch (Exception ex) {
@@ -405,26 +391,18 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 		}
 
 		retStrBuf.append(
-				"<tr bgcolor=" + color + "><td colspan=7><center><b></b></center></td></tr>");
+				"<tr bgcolor=" + color + "><td colspan=7><center><b>" + resultTitle + "</b></center></td></tr>");
 
 		Set<ITestResult> testResultSet = testResultMap.getAllResults();
 		// Sorting testClassName
 		SortedSet<String> sortedTestsName = new TreeSet<>();
-		Map<String,String> colorMap=new HashMap<String,String>();
 		for (ITestResult testResult : testResultSet) {
 			sortedTestsName.add(testResult.getTestClass().getName());
-			if(testResult.getStatus()==1) {
-				colorMap.put(testResult.getMethod().getMethodName(), "#3cb353");
-			}else 
-				colorMap.put(testResult.getMethod().getMethodName(), "#FF4500");
 		}
 		// Sorting testMethodName
 		SortedSet<String> sortedTestsMethodName = new TreeSet<>();
-	
 		for (ITestResult testResult : testResultSet) {
 			sortedTestsMethodName.add(testResult.getMethod().getMethodName());
-			
-		
 		}
 		TreeMap<String, CustomTestNgReporterDto> customTestReport = new TreeMap<String, CustomTestNgReporterDto>();
 		for (String testsName : sortedTestsName) {
@@ -471,7 +449,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 					// Get testMethodName
 					testMethodName = testMethod.toString();
-					
+
 					// Get startDateStr
 					startDateStr = this.getTimeInStringFormat(new Date(object.getStartTimeMillis()));
 
@@ -481,7 +459,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					// Get Execute time.
 					executeTimeStr = this.convertDeltaTimeToString(object.getDeltaMillis());
 					log=object.getLog();
-					color=colorMap.get(testMethodName);
+
 					retStrBuf.append("<tr bgcolor=" + color + ">");
 
 					if (!testClassNameFlag) {
@@ -571,33 +549,75 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			}
 		}
 		return count;
-	}	
+	}		
 
-	private String encodeDefaultTestngReportFile() {
-		// wait for file to load
-		try {
-			Thread.sleep(5000);	
-			String content = FileUtils.readFileToString(new File(defaultTestNgEmailableReport).getAbsoluteFile(),"UTF-8");
-			String base64encodedString = Base64.getEncoder().encodeToString(content.getBytes("UTF-8"));
-			return base64encodedString;
-		} catch (Exception e) {
-			CustomTestNGReporterLog.error("Exception occured while encoding: " + e.getMessage());
-			return "SomeThing went wrong with defaultTestNGFile";
+	private String getCurrentDateForReport() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyy"); 
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		return dtf.format(currentDateTime).toString();
+
+	}
+	
+	private void removeOldCustomMosipReport(String outputDirectory) {
+		File folder = new File(outputDirectory);
+		for (int i = 0; i < folder.listFiles().length; i++) {
+			if (folder.listFiles()[i].getName().contains(reportProfixFileName)) {
+				if (folder.listFiles()[i].delete()) {
+					CustomTestNGReporterLog.info("Old Report has been removed from directory successfuly..!");
+				}
+			}
 		}
 	}
 	
-	private String encodeExtentReportFile() {
-		// wait for file to load
-		try {
-			Thread.sleep(5000);
-			@SuppressWarnings("deprecation")
-			String content = FileUtils.readFileToString(new File(extendtReport).getAbsoluteFile());
-			String base64encodedString = Base64.getEncoder().encodeToString(content.getBytes("UTF-8"));
-			return base64encodedString;
-		} catch (Exception e) {
-			CustomTestNGReporterLog.error("Exception occured while encoding: " + e.getMessage());
-			return "SomeThing went wrong with Extent Report";
-		}
+	private String afterTestReportTittleContent()
+	{
+		return "</b>\r\n" + 
+		"			<br>\r\n" + 
+		"			<thead>\r\n" + 
+		"				<tr>\r\n" + 
+		"					<th>Module Name</th>\r\n" + 
+		"					<th># Total Case</th>\r\n" + 
+		"					<th># Passed</th>\r\n" + 
+		"					<th># Skipped</th>\r\n" + 
+		"					<th># Failed</th>\r\n" + 
+		"					<th>Start Time<i><legend>(HH:MM:SS)</legend></i></th>\r\n" + 
+		"					<th>End Time<i><legend>(HH:MM:SS)</legend></i></th>\r\n" + 
+		"					<th>Execute Time<i><legend>(HH:MM:SS)</legend></i></th>\r\n" + 
+		"					<th>Build Version</th>\r\n" + 
+		"				</tr>\r\n" + 
+		"			</thead>";
+	}
+	
+	private String afterTestCaseSummaryContent()
+	{
+        return "</table>\r\n" + 
+        "	</center>\r\n" + 
+        "	<br><br><br><br><br><br><br><br><br>\r\n" + 
+        "	<center>\r\n" + 
+        "		<table id=\"test-summary\">\r\n" + 
+        "			<thead>\r\n" + 
+        "				<tr>\r\n" + 
+        "					<th>API Name</th>\r\n" + 
+        "					<th>TestCase</th>\r\n" + 
+        "					<th>Start Time<i><legend>(HH:MM:SS)</legend></i></th>\r\n" + 
+        "					<th>End Time<i><legend>(HH:MM:SS)</legend></i></th>\r\n" + 
+        "					<th>Execution Time<i><legend>(HH:MM:SS:MilliSec)</legend></i></th>\r\n" + 
+        "					 <th>Exception Message</th>\r\n" + 
+        "				</tr>\r\n" + 
+        "			</thead>";
+	}
+	private String afterTestMethodSummaryContent()
+	{
+		return "</table>\r\n" + 
+		"	</center>\r\n" + 
+		"</body>\r\n" + 
+		"<br>\r\n" + 
+		"<center>\r\n" + 
+		"\r\n" + 
+		"</center>\r\n" + 
+		"</br>\r\n" + 
+		"\r\n" + 
+		"</html>";
 	}
 
 }

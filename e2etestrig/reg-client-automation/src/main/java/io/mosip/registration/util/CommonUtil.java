@@ -480,6 +480,9 @@ public class CommonUtil {
 						"Valid Registration ID generated - " + randomId);
 				returnValues.put("RANDOMID", randomId);
 				registrationDTO.setRegistrationId(randomId);
+				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
+				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID); 
 				System.out.println("ID ==== " + randomId);
 
 			} else if ((packetType.equalsIgnoreCase("PrIdOfAdultWithDocs")

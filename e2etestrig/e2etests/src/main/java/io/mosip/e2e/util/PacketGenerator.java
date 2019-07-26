@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.mosip.registration.main.RegClient;
+import io.mosip.testrunner.MosipTestRunner;
 
 public class PacketGenerator {
 
@@ -13,9 +14,7 @@ public class PacketGenerator {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
 		String date = simpleDateFormat.format(new Date());
-
-		String matchDate = date.substring(date.indexOf("-") + 1, date.length());
-		String configPath = System.getProperty("user.dir") + "/src/main/resources/packets/UniqueCBEFF_Packets";
+		String configPath = MosipTestRunner.getGlobalResourcePath() + "/packets/UniqueCBEFF_Packets";
 		File file = new File(configPath);
 		File[] listOfFiles = file.listFiles();
 		Object[][] filePackets = new Object[listOfFiles.length][];

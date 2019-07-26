@@ -14,7 +14,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
 /**
@@ -78,19 +77,19 @@ public class BaseTestCase{
 	
 	public static void initialize()
 	{
+		
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		
 		/**
 		 * Make sure test-output is there 
 		 */
-/*		File testOutput = new File("test-output");
-		File oldReport = new File(System.getProperty("user.dir")+"/test-output/emailable-report.html");
-		oldReport.delete();
-		testOutput.mkdirs();*/
+
 		
 		getOSType();
 		logger.info("We have created a Config Manager. Beginning to read properties!");
-					                    
+		System.setProperty("env.user", "qa");
+		System.setProperty("env.endpoint", "https://qa.mosip.io");
+		System.setProperty("env.testLevel", "smoke");
 		environment = System.getProperty("env.user");
 		logger.info("Environemnt is  ==== :" + environment);
 		ApplnURI = System.getProperty("env.endpoint");
@@ -119,28 +118,8 @@ public class BaseTestCase{
 			logger.info("Logging initialized: All logs are located at " +  "src/logs/mosip-api-test.log");
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
-		
 			AuthTestsUtil.initiateAuthTest();
-			//authToken=pil.getToken();
-			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
-			extent=new ExtentReports();
-			extent.setSystemInfo("Build Number", buildNumber);
-			extent.attachReporter(htmlReporter);*/
-
-			
-			/*htmlReporter.config().setDocumentTitle("MosipAutomationTesting Report");
-			htmlReporter.config().setReportName("Mosip Automation Report");
-			htmlReporter.config().setTheme(Theme.STANDARD);*/
-			/*TokenGeneration generateToken = new TokenGeneration();
-			TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
-			String tokenGenerationProperties = generateToken.readPropertyFile("syncTokenGenerationFilePath");
-			tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-			regProcAuthToken = generateToken.getToken(tokenEntity);
-			TokenGenerationEntity adminTokenEntity = new TokenGenerationEntity();
-			String adminTokenGenerationProperties = generateToken.readPropertyFile("getStatusTokenGenerationFilePath");
-			adminTokenEntity = generateToken.createTokenGeneratorDto(adminTokenGenerationProperties);
-			adminRegProcAuthToken = generateToken.getToken(adminTokenEntity);*/
-			
+		
 
 
 		} // End suiteSetup
@@ -181,19 +160,21 @@ public class BaseTestCase{
 			logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
 			//extent.flush();
 		} // end testTearDown
+		
+	private static Properties getLoggerPropertyConfig() {
+		Properties logProp = new Properties();
+		logProp.setProperty("log4j.rootLogger", "INFO, Appender1,Appender2");
+		logProp.setProperty("log4j.appender.Appender1", "org.apache.log4j.ConsoleAppender");
+		logProp.setProperty("log4j.appender.Appender1.layout", "org.apache.log4j.PatternLayout");
+		logProp.setProperty("log4j.appender.Appender1.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
+		logProp.setProperty("log4j.appender.Appender2", "org.apache.log4j.FileAppender");
+		logProp.setProperty("log4j.appender.Appender2.File", "src/logs/mosip-api-test.log");
+		logProp.setProperty("log4j.appender.Appender2.layout", "org.apache.log4j.PatternLayout");
+		logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
+		return logProp;
+	}
 
-		private static Properties getLoggerPropertyConfig() {
-			Properties logProp = new Properties();
-			logProp.setProperty("log4j.rootLogger", "INFO, Appender1,Appender2");
-			logProp.setProperty("log4j.appender.Appender1", "org.apache.log4j.ConsoleAppender");
-			logProp.setProperty("log4j.appender.Appender1.layout", "org.apache.log4j.PatternLayout");
-			logProp.setProperty("log4j.appender.Appender1.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
-			logProp.setProperty("log4j.appender.Appender2", "org.apache.log4j.FileAppender");
-			logProp.setProperty("log4j.appender.Appender2.File", "src/logs/mosip-api-test.log");
-			logProp.setProperty("log4j.appender.Appender2.layout", "org.apache.log4j.PatternLayout");
-			logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
-			return logProp;
-		}
+	
 		
 	
 	}

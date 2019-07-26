@@ -2,6 +2,8 @@ package io.mosip.registration.main;
 
 import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
 import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -122,13 +124,13 @@ public class PacketCreation extends BaseConfiguration {
 				ApplicationContext.map().put(RegistrationConstants.CBEFF_UNQ_TAG, ConstantValues.YES);
 				ApplicationContext.map().put(RegistrationConstants.PACKET_STORE_LOCATION,
 						// "src/main/resources/packets/UniqueCBEFF_Packets"
-						prop.getProperty("UniqueCBEFF_path"));
+						new File(this.getClass().getClassLoader().getResource("").getPath()).getAbsolutePath().toString()+prop.getProperty("UniqueCBEFF_path"));
 			} else {
 				// Set CBEFF to UNIQUE & DUPLICATE
 				ApplicationContext.map().put(RegistrationConstants.CBEFF_UNQ_TAG, ConstantValues.NO);
 				ApplicationContext.getInstance().map().put(RegistrationConstants.PACKET_STORE_LOCATION,
 						// "src/main/resources/packets/DuplicateCBEFF_Packets");
-						prop.getProperty("DuplicateCBEFF_path"));
+						new File(this.getClass().getClassLoader().getResource("").getPath()).getAbsolutePath().toString()+prop.getProperty("DuplicateCBEFF_path"));
 			}
 			
 			String uin = dataGenerator.getYamlData(serviceName, testDataFileName, "parentUIN", prop.getProperty("UIN"));

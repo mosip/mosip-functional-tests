@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,8 +37,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" class="navigator-link" panel-name="suite-Mosip_E2E_Suite">
-              <span class="suite-name border-passed">Mosip E2E Suite</span>
+            <a href="#" class="navigator-link" panel-name="suite-Registration_Client_Integration_Scenario">
+              <span class="suite-name border-failed">Registration Client Integration Scenario</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,37 +48,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="test-xml-Mosip_E2E_Suite">
-                    <span>D:\e2eGit\mosip\e2etestrig\e2etests\src\test\resources\testNg.xml</span>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Registration_Client_Integration_Scenario">
+                    <span>D:\mosip_functional_test_mt\mosip-functional-tests-mt\e2etestrig\e2etests\target\classes\RegClient\RegClient.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="testlist-Mosip_E2E_Suite">
-                    <span class="test-stats">2 tests</span>
+                  <a href="#" class="navigator-link " panel-name="testlist-Registration_Client_Integration_Scenario">
+                    <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="group-Mosip_E2E_Suite">
+                  <a href="#" class="navigator-link " panel-name="group-Registration_Client_Integration_Scenario">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="times-Mosip_E2E_Suite">
+                  <a href="#" class="navigator-link " panel-name="times-Registration_Client_Integration_Scenario">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="reporter-Mosip_E2E_Suite">
+                  <a href="#" class="navigator-link " panel-name="reporter-Registration_Client_Integration_Scenario">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="ignored-methods-Mosip_E2E_Suite">
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Registration_Client_Integration_Scenario">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="chronological-Mosip_E2E_Suite">
+                  <a href="#" class="navigator-link " panel-name="chronological-Registration_Client_Integration_Scenario">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -91,26 +91,41 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods, 5 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Mosip_E2E_Suite" class="hide-methods passed suite-Mosip_E2E_Suite"> (hide)</a> <!-- hide-methods passed suite-Mosip_E2E_Suite -->
-                      <a href="#" panel-name="suite-Mosip_E2E_Suite" class="show-methods passed suite-Mosip_E2E_Suite"> (show)</a> <!-- show-methods passed suite-Mosip_E2E_Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Registration_Client_Integration_Scenario" class="hide-methods failed suite-Registration_Client_Integration_Scenario"> (hide)</a> <!-- hide-methods failed suite-Registration_Client_Integration_Scenario -->
+                      <a href="#" panel-name="suite-Registration_Client_Integration_Scenario" class="show-methods failed suite-Registration_Client_Integration_Scenario"> (show)</a> <!-- show-methods failed suite-Registration_Client_Integration_Scenario -->
                     </span>
-                    <div class="method-list-content passed suite-Mosip_E2E_Suite">
+                    <div class="method-list-content failed suite-Registration_Client_Integration_Scenario">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Mosip_E2E_Suite" title="io.mosip.e2e.tests.PacketGeneratorTest" hash-for-method="E2E_PacketGenerator_generatePrids">E2E_PacketGenerator_generatePrids</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Registration_Client_Integration_Scenario" title="io.mosip.registration.main.PacketCreation" hash-for-method="validatePacketCreation(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {})">validatePacketCreation(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Mosip_E2E_Suite" title="io.mosip.e2e.tests.PacketGeneratorTest" hash-for-method="E2E_PacketGenerator_generateValidInvalidPackets">E2E_PacketGenerator_generateValidInvalidPackets</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Registration_Client_Integration_Scenario" title="io.mosip.registration.main.PacketCreation" hash-for-method="validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {})">validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Mosip_E2E_Suite -->
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Registration_Client_Integration_Scenario" title="io.mosip.registration.main.PacketCreation" hash-for-method="validatePacketCreation(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {})">validatePacketCreation(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Registration_Client_Integration_Scenario" title="io.mosip.registration.main.PacketCreation" hash-for-method="validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {})">validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Registration_Client_Integration_Scenario" title="io.mosip.registration.main.PacketCreation" hash-for-method="validatePacketCreation(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {})">validatePacketCreation(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Registration_Client_Integration_Scenario -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -121,154 +136,289 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Mosip_E2E_Suite" class="panel Mosip_E2E_Suite">
-          <div class="suite-Mosip_E2E_Suite-class-passed">
+        <div panel-name="suite-Registration_Client_Integration_Scenario" class="panel Registration_Client_Integration_Scenario">
+          <div class="suite-Registration_Client_Integration_Scenario-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">io.mosip.e2e.tests.PacketGeneratorTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">io.mosip.registration.main.PacketCreation</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="E2E_PacketGenerator_generatePrids">
-                  </a> <!-- E2E_PacketGenerator_generatePrids -->
-                  <span class="method-name">E2E_PacketGenerator_generatePrids</span>
+                  <a name="validatePacketCreation(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {})">
+                  </a> <!-- validatePacketCreation(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {}) -->
+                  <span class="method-name">validatePacketCreation</span>
+                  <span class="parameters">(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {})</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Success] but found [null]
+	at io.mosip.registration.util.CommonUtil.verifyAssertionResponse(CommonUtil.java:849)
+	at io.mosip.registration.main.PacketCreation.validatePacketCreation(PacketCreation.java:181)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.registration.main.RegClient.createPacket(RegClient.java:25)
+	at io.mosip.e2e.tests.PacketGeneratorTest.generateValidInvalidPackets(PacketGeneratorTest.java:60)
+	at io.mosip.e2e.runner.EndToEndRun.main(EndToEndRun.java:29)
+... Removed 52 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="E2E_PacketGenerator_generateValidInvalidPackets">
-                  </a> <!-- E2E_PacketGenerator_generateValidInvalidPackets -->
-                  <span class="method-name">E2E_PacketGenerator_generateValidInvalidPackets</span>
+                  <a name="validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {})">
+                  </a> <!-- validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {}) -->
+                  <span class="method-name">validatePacketCreation</span>
+                  <span class="parameters">(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {})</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Success] but found [null]
+	at io.mosip.registration.util.CommonUtil.verifyAssertionResponse(CommonUtil.java:849)
+	at io.mosip.registration.main.PacketCreation.validatePacketCreation(PacketCreation.java:181)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.registration.main.RegClient.createPacket(RegClient.java:25)
+	at io.mosip.e2e.tests.PacketGeneratorTest.generateValidInvalidPackets(PacketGeneratorTest.java:60)
+	at io.mosip.e2e.runner.EndToEndRun.main(EndToEndRun.java:29)
+... Removed 52 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validatePacketCreation(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {})">
+                  </a> <!-- validatePacketCreation(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {}) -->
+                  <span class="method-name">validatePacketCreation</span>
+                  <span class="parameters">(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {})</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Success] but found [null]
+	at io.mosip.registration.util.CommonUtil.verifyAssertionResponse(CommonUtil.java:849)
+	at io.mosip.registration.main.PacketCreation.validatePacketCreation(PacketCreation.java:181)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.registration.main.RegClient.createPacket(RegClient.java:25)
+	at io.mosip.e2e.tests.PacketGeneratorTest.generateValidInvalidPackets(PacketGeneratorTest.java:60)
+	at io.mosip.e2e.runner.EndToEndRun.main(EndToEndRun.java:29)
+... Removed 52 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {})">
+                  </a> <!-- validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {}) -->
+                  <span class="method-name">validatePacketCreation</span>
+                  <span class="parameters">(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {})</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Success] but found [null]
+	at io.mosip.registration.util.CommonUtil.verifyAssertionResponse(CommonUtil.java:849)
+	at io.mosip.registration.main.PacketCreation.validatePacketCreation(PacketCreation.java:181)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.registration.main.RegClient.createPacket(RegClient.java:25)
+	at io.mosip.e2e.tests.PacketGeneratorTest.generateValidInvalidPackets(PacketGeneratorTest.java:60)
+	at io.mosip.e2e.runner.EndToEndRun.main(EndToEndRun.java:29)
+... Removed 52 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validatePacketCreation(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {})">
+                  </a> <!-- validatePacketCreation(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {}) -->
+                  <span class="method-name">validatePacketCreation</span>
+                  <span class="parameters">(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {})</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Success] but found [null]
+	at io.mosip.registration.util.CommonUtil.verifyAssertionResponse(CommonUtil.java:849)
+	at io.mosip.registration.main.PacketCreation.validatePacketCreation(PacketCreation.java:181)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.registration.main.RegClient.createPacket(RegClient.java:25)
+	at io.mosip.e2e.tests.PacketGeneratorTest.generateValidInvalidPackets(PacketGeneratorTest.java:60)
+	at io.mosip.e2e.runner.EndToEndRun.main(EndToEndRun.java:29)
+... Removed 52 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Mosip_E2E_Suite-class-passed -->
-        </div> <!-- panel Mosip_E2E_Suite -->
-        <div panel-name="test-xml-Mosip_E2E_Suite" class="panel">
+          </div> <!-- suite-Registration_Client_Integration_Scenario-class-failed -->
+        </div> <!-- panel Registration_Client_Integration_Scenario -->
+        <div panel-name="test-xml-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\e2eGit\mosip\e2etestrig\e2etests\src\test\resources\testNg.xml</span>
+            <span class="header-content">D:\mosip_functional_test_mt\mosip-functional-tests-mt\e2etestrig\e2etests\target\classes\RegClient\RegClient.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Mosip E2E Suite&quot;&gt;
-  &lt;listeners&gt;
-    &lt;listener class-name=&quot;io.mosip.e2e.report.CustomTestNGReporter&quot;/&gt;
-  &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;PacketGenerator&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Registration Client Integration Scenario&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;EmailNotificationServiceTest&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;io.mosip.e2e.tests.PacketGeneratorTest&quot;/&gt;
+      &lt;class name=&quot;io.mosip.registration.main.PacketCreation&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- PacketGenerator --&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;E2E Tests&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;io.mosip.e2e.tests.EndToEndRun&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- E2E Tests --&gt;
-&lt;/suite&gt; &lt;!-- Mosip E2E Suite --&gt;
+  &lt;/test&gt; &lt;!-- EmailNotificationServiceTest --&gt;
+&lt;/suite&gt; &lt;!-- Registration Client Integration Scenario --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Mosip_E2E_Suite" class="panel">
+        <div panel-name="testlist-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Mosip E2E Suite</span>
+            <span class="header-content">Tests for Registration Client Integration Scenario</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">PacketGenerator (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">E2E Tests (1 class)</span>
+                <span class="test-name">EmailNotificationServiceTest (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Mosip_E2E_Suite" class="panel">
+        <div panel-name="group-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Mosip E2E Suite</span>
+            <span class="header-content">Groups for Registration Client Integration Scenario</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Mosip_E2E_Suite" class="panel">
+        <div panel-name="times-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Mosip E2E Suite</span>
+            <span class="header-content">Times for Registration Client Integration Scenario</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Mosip_E2E_Suite');
-function tableData_Mosip_E2E_Suite() {
+suiteTableInitFunctions.push('tableData_Registration_Client_Integration_Scenario');
+function tableData_Registration_Client_Integration_Scenario() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'E2E_PacketGenerator_generatePrids')
-data.setCell(0, 2, 'io.mosip.e2e.tests.PacketGeneratorTest')
-data.setCell(0, 3, 119387);
+data.setCell(0, 1, 'validatePacketCreation')
+data.setCell(0, 2, 'io.mosip.registration.main.PacketCreation')
+data.setCell(0, 3, 6084);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'E2E_PacketGenerator_generateValidInvalidPackets')
-data.setCell(1, 2, 'io.mosip.e2e.tests.PacketGeneratorTest')
-data.setCell(1, 3, 89584);
-window.suiteTableData['Mosip_E2E_Suite']= { tableData: data, tableDiv: 'times-div-Mosip_E2E_Suite'}
+data.setCell(1, 1, 'validatePacketCreation')
+data.setCell(1, 2, 'io.mosip.registration.main.PacketCreation')
+data.setCell(1, 3, 3579);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'validatePacketCreation')
+data.setCell(2, 2, 'io.mosip.registration.main.PacketCreation')
+data.setCell(2, 3, 1822);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'validatePacketCreation')
+data.setCell(3, 2, 'io.mosip.registration.main.PacketCreation')
+data.setCell(3, 3, 1675);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'validatePacketCreation')
+data.setCell(4, 2, 'io.mosip.registration.main.PacketCreation')
+data.setCell(4, 3, 740);
+window.suiteTableData['Registration_Client_Integration_Scenario']= { tableData: data, tableDiv: 'times-div-Registration_Client_Integration_Scenario'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 minutes</span>
-              <div id="times-div-Mosip_E2E_Suite">
-              </div> <!-- times-div-Mosip_E2E_Suite -->
+              <span class="suite-total-time">Total running time: 13 seconds</span>
+              <div id="times-div-Registration_Client_Integration_Scenario">
+              </div> <!-- times-div-Registration_Client_Integration_Scenario -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Mosip_E2E_Suite" class="panel">
+        <div panel-name="reporter-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Mosip E2E Suite</span>
+            <span class="header-content">Reporter output for Registration Client Integration Scenario</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Mosip_E2E_Suite" class="panel">
+        <div panel-name="ignored-methods-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Mosip_E2E_Suite" class="panel">
+        <div panel-name="chronological-Registration_Client_Integration_Scenario" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">io.mosip.e2e.tests.PacketGeneratorTest</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">E2E_PacketGenerator_generatePrids</span>
+              <div class="chronological-class-name">io.mosip.registration.main.PacketCreation</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">setResultTestName([TestResult name="" status=SUCCESS method=PacketGeneratorTest.generatePrids()[pri:1, instance:io.mos...)</span>
-                <span class="method-start">119389 ms</span>
-              </div> <!-- configuration-method after -->
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">3 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">dataSetUp</span>
+                <span class="method-start">37206 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">63317 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">E2E_PacketGenerator_generateValidInvalidPackets</span>
-                <span class="method-start">119397 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegId_withDocs, {})</span>
+                <span class="method-start">63318 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">setResultTestName([TestResult name=E2E_PacketGenerator_generatePrids status=SUCCESS method=PacketGeneratorTest.generat...)</span>
-                <span class="method-start">208981 ms</span>
+                <span class="method-name">springTestContextAfterTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">69403 ms</span>
               </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">io.mosip.e2e.tests.EndToEndRun</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">69404 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">validatePacketCreation(regClient_PacketHandlerService_AdultPacket_with_PreRegID_withoutDocs, {})</span>
+                <span class="method-start">69404 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">71079 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">71079 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">validatePacketCreation(regClient_PacketHandlerService_ChildPacket_with_PreRegID_withoutDocs, {})</span>
+                <span class="method-start">71079 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">72901 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">72902 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">validatePacketCreation(regClient_PacketHandlerService_ResidentBiometricPacketCreation, {})</span>
+                <span class="method-start">72902 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">73642 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">73643 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">validatePacketCreation(regClient_PacketHandlerService_ValidChildPacket_With_PreRegID_withDocs, {})</span>
+                <span class="method-start">73643 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void io.mosip.registration.main.PacketCreation.validatePacketCreation(java.lang.String,org.js...)</span>
+                <span class="method-start">77223 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-class after">
-                <span class="method-name">dbCleanUp</span>
-                <span class="method-start">208994 ms</span>
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">77224 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

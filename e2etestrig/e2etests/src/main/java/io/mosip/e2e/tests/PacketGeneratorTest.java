@@ -3,8 +3,8 @@ package io.mosip.e2e.tests;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
@@ -16,10 +16,11 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
-import io.mosip.e2e.util.BaseUtil;
 import io.mosip.e2e.util.GeneratePreIds;
 import io.mosip.e2e.util.PacketGenerator;
 import io.mosip.registration.main.RegClient;
+import io.mosip.registration.util.CommonUtil;
+import io.mosip.testrunner.MosipTestRunner;
 
 
 
@@ -29,18 +30,19 @@ public class PacketGeneratorTest implements ITest {
 	
 	@Test(priority=1)
 	public void generatePrids() {
-
-		JSONObject preIds = generatePreIds.getPreids();
+		
+		File file =new File(CommonUtil.class.getClassLoader().getResource("./testData/PreregIds.json").getFile());
+	JSONObject preIds = generatePreIds.getPreids();
 		preIds.put("RegClientPacket", "YES");
 		if (preIds.equals(null)) {
 			Assert.assertTrue(false);
 		}
 		try {
-			FileWriter writer=new FileWriter(System.getProperty("user.dir")+"/src/main/resources/PreRegIds.json");
+			FileWriter writer=new FileWriter(file.getAbsolutePath());
 			writer.write(preIds.toJSONString());
 			writer.close();
 		} catch (IOException e) {
-			e.getMessage();
+			e.printStackTrace();
 		}
 		Assert.assertTrue(true);
 	}
@@ -50,7 +52,9 @@ public class PacketGeneratorTest implements ITest {
 	 */
 	@Test(priority=2)
 	public void generateValidInvalidPackets() throws IOException {
-		String fileToBeDeleted=System.getProperty("user.dir")+"src/main/resources/packets/UniqueCBEFF_Packets";
+		
+		String fileToBeDeleted=MosipTestRunner.getGlobalResourcePath()+"/packets/UniqueCBEFF_Packets";
+		
 		FileUtils.deleteDirectory(new File(fileToBeDeleted));
 		RegClient client=new RegClient();
 		client.createPacket();

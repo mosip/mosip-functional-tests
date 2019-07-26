@@ -1,9 +1,9 @@
 package io.mosip.e2e.tests;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,17 +24,17 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.dao.RegProcDBCleanUp;
-import io.mosip.e2e.util.BaseUtil;
 import io.mosip.e2e.util.GeneratePreIds;
 import io.mosip.e2e.util.PacketFlowVerification;
 import io.mosip.e2e.util.PacketGenerator;
 import io.mosip.e2e.util.Stagevalidations;
 import io.mosip.e2e.util.TestRigException;
 import io.mosip.service.RegistrationTransactionData;
+import io.mosip.testrunner.MosipTestRunner;
 public class EndToEndRun implements ITest {
 	Stagevalidations stageValidations=new Stagevalidations();
-	Map<String,String> uinMap=new HashMap<String,String>();
-	String propertyFilePath=System.getProperty("user.dir")+"/src/main/resources/idRepository/TestData/RunConfig/uin.properties";
+	static Map<String,String> uinMap=new HashMap<String,String>();
+	String propertyFilePath=MosipTestRunner.getGlobalResourcePath()+"/idRepository/TestData/RunConfig/uin.properties";
 	Properties prop=new Properties();
 	JSONObject preIds=null;
 	PacketGenerator packetGenerator=new PacketGenerator();
@@ -106,6 +106,7 @@ public class EndToEndRun implements ITest {
 			
 		}
 	}
+	
 	
 	@Override
 	public String getTestName() {

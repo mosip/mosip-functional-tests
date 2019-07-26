@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.mosip.testrunner.MosipTestRunner;
+
 public class GetPackets {
 public Map<String,File> getPacket() {
 	String pattern = "dd-MMM-yyyy";
@@ -14,7 +16,7 @@ public Map<String,File> getPacket() {
 	String date = simpleDateFormat.format(new Date());
 	
 	String matchDate=date.substring(date.indexOf("-")+1,date.length());
-	String configPath=System.getProperty("user.dir")+"/src/main/resources/packets/UniqueCBEFF_Packets";
+	String configPath=MosipTestRunner.getGlobalResourcePath()+"/packets/UniqueCBEFF_Packets";
 	File file =new File(configPath);
 	File[] listOfFiles=file.listFiles();
 	for(File f:listOfFiles) {

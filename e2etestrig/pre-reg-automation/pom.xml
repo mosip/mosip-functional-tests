@@ -58,6 +58,16 @@
 			<version>${jackson.databind.version}</version>
 		</dependency>
 
+			<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
 
 
@@ -109,7 +119,12 @@
 			<version>${log4j.version}</version>
 		</dependency>
 
-	
+	<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNg.version}</version>
+			
+		</dependency>
 
 
 	</dependencies>
@@ -127,20 +142,7 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<inherited>true</inherited>
-				<configuration>
-				<argLine>-Dfile.encoding=UTF-8</argLine>
-					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/testngapi.xml</suiteXmlFile>
-
-					</suiteXmlFiles>
-				</configuration>
-
-			</plugin>
+		
 		</plugins>
 	</build>
 

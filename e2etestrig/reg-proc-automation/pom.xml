@@ -44,6 +44,11 @@
 			<version>${rest.assured.version}</version>
 
 		</dependency>
+			<dependency>
+			<groupId>io.mosip.kernel</groupId>
+			<artifactId>kernel-core</artifactId>
+			<version>0.12.4</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
