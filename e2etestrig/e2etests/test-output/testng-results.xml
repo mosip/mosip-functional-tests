@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Mosip E2E Suite" duration-ms="209221" started-at="2019-07-23T06:26:31Z" finished-at="2019-07-23T06:30:00Z">
+    <groups>
+    </groups>
+    <test name="PacketGenerator" duration-ms="209204" started-at="2019-07-23T06:26:31Z" finished-at="2019-07-23T06:30:00Z">
+      <class name="io.mosip.e2e.tests.PacketGeneratorTest">
+        <test-method status="PASS" signature="generatePrids()[pri:1, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4]" test-instance-name="E2E_PacketGenerator_generateValidInvalidPackets" name="E2E_PacketGenerator_generatePrids" duration-ms="119387" started-at="2019-07-23T06:26:31Z" finished-at="2019-07-23T06:28:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- E2E_PacketGenerator_generatePrids -->
+        <test-method status="PASS" signature="setResultTestName(org.testng.ITestResult)[pri:0, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4]" test-instance-name="E2E_PacketGenerator_generateValidInvalidPackets" name="setResultTestName" is-config="true" duration-ms="5" started-at="2019-07-23T06:28:30Z" finished-at="2019-07-23T06:28:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name="" status=SUCCESS method=PacketGeneratorTest.generatePrids()[pri:1, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setResultTestName -->
+        <test-method status="PASS" signature="generateValidInvalidPackets()[pri:2, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4]" test-instance-name="E2E_PacketGenerator_generateValidInvalidPackets" name="E2E_PacketGenerator_generateValidInvalidPackets" duration-ms="89584" started-at="2019-07-23T06:28:30Z" finished-at="2019-07-23T06:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- E2E_PacketGenerator_generateValidInvalidPackets -->
+        <test-method status="PASS" signature="setResultTestName(org.testng.ITestResult)[pri:0, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4]" test-instance-name="E2E_PacketGenerator_generateValidInvalidPackets" name="setResultTestName" is-config="true" duration-ms="0" started-at="2019-07-23T06:30:00Z" finished-at="2019-07-23T06:30:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=E2E_PacketGenerator_generatePrids status=SUCCESS method=PacketGeneratorTest.generateValidInvalidPackets()[pri:2, instance:io.mosip.e2e.tests.PacketGeneratorTest@62656be4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setResultTestName -->
+      </class> <!-- io.mosip.e2e.tests.PacketGeneratorTest -->
+    </test> <!-- PacketGenerator -->
+    <test name="E2E Tests" duration-ms="8" started-at="2019-07-23T06:30:00Z" finished-at="2019-07-23T06:30:00Z">
+      <class name="io.mosip.e2e.tests.EndToEndRun">
+        <test-method status="PASS" signature="dbCleanUp()[pri:0, instance:io.mosip.e2e.tests.EndToEndRun@1ecee32c]" test-instance-name="" name="dbCleanUp" is-config="true" duration-ms="4" started-at="2019-07-23T06:30:00Z" finished-at="2019-07-23T06:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dbCleanUp -->
+      </class> <!-- io.mosip.e2e.tests.EndToEndRun -->
+    </test> <!-- E2E Tests -->
+  </suite> <!-- Mosip E2E Suite -->
+</testng-results>

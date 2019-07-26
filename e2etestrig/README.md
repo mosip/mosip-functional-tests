@@ -15,7 +15,7 @@ For Linux
    * copy the same settings.xml under /usr/local/maven/conf
 
 DB Properties Change
-Update the following configuration files under the automationtests/src/main/resources folder for the DB details; DB url, username, password as appropriate
+Update the following configuration files under the e2etests/src/main/resources folder for the DB details; DB url, username, password as appropriate
    * auditqa.cfg.xml
    * kernelqa.cfg.xml
    * masterdataqa.cfg.xml
