@@ -1,16 +1,15 @@
 package io.mosip.registration.util;
 
-import java.io.IOException;
+import java.io.IOException;  
 import java.util.HashMap;
 
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-
-import io.mosip.authentication.core.dto.vid.ResponseDTO;
+import io.mosip.registration.context.ApplicationContext;
+import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
