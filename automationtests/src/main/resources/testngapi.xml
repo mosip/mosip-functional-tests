@@ -106,11 +106,11 @@
 		</classes>
 
 	</test> -->
-	 <test name="Reg test">
+	 <!-- <test name="Reg test">
 		<classes>
 			<class
 				name="io.mosip.registration.tests.SMSNotificationServiceTest" />
-			<!-- <class
+			<class
 				name="io.mosip.registration.tests.MasterSyncBlackListedWord" />
 			<class
 				name="io.mosip.registration.tests.MasterSyncDocumentCategory" />
@@ -161,10 +161,29 @@
 				name="io.mosip.registration.tests.PacketUploadServiceTest" />
 			<class
 				name="io.mosip.registration.tests.SyncStatusValidatorServiceTest" />
-			<class name="io.mosip.registration.tests.JobConfigurationTest" /> -->
+			<class name="io.mosip.registration.tests.JobConfigurationTest" />
 
 		</classes>
-	</test>
+	</test> -->
+	<test name="AuthenticationTest">
+             <classes>
+              
+                <class name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" /> 
+                <!-- <class name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+                <class name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+                <class name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+                <class name="io.mosip.authentication.tests.OtpGeneration" />
+                <class name="io.mosip.authentication.tests.DemographicAuthentication" />
+               <class name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
+               <class name="io.mosip.authentication.tests.BiometricAuthentication" />
+               <class name="io.mosip.authentication.tests.InternalBiometricAuthentication" /> 
+                <class name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
+                <class name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />     
+                 <class name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
+                 <class name="io.mosip.authentication.tests.OtpAuthentication" /> 
+                 <class name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" /> -->
+             </classes>
+       </test>  
 
 </suite>
 		
