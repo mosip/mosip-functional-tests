@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flipkart.zjsonpatch.JsonDiff;
 
+import io.mosip.kernel.util.CommonLibrary;
 import io.restassured.response.Response;
 
 /**
@@ -39,7 +40,7 @@ public class AssertKernel {
 	 */
 	public boolean assertKernel(Response actualResponse, JSONObject expectedResponse,
 			ArrayList<String> listOfElementToRemove){
-		
+		new CommonLibrary().checkResponseUTCTime(actualResponse);
 		JSONObject actualResponseBody = null;
 		JSONObject expectedResponseBody = expectedResponse;
 		try {
@@ -234,30 +235,32 @@ public class AssertKernel {
 	 */
 	public static boolean validator(JSONArray responseArray, List<String> attributesToValidate, HashMap<String, String> passedAttributes)
 	{
-		    for(int i=0;i<responseArray.size();i++) {
-		    	 JSONObject object = (JSONObject) responseArray.get(0);
-				 if(passedAttributes.size()>0)
-				 {
-					 String[] keys = passedAttributes.keySet().toArray(new String[passedAttributes.size()]);
-					 for(int j=0;j<keys.length;j++) {
-						 if(!passedAttributes.get(keys[j]).equals(object.get(keys[j]).toString()))
-						 {
-							 logger.error("passed data to fetch does not match with Reponse data");
-							 return false;
-						 }
+		for(int i=0;i<responseArray.size();i++) {
+	    	 JSONObject object = (JSONObject) responseArray.get(i);
+			 if(passedAttributes.size()>0)
+			 {
+				 String[] keys = passedAttributes.keySet().toArray(new String[passedAttributes.size()]);
+				 for(int j=0;j<keys.length;j++) {
+					 if(!passedAttributes.get(keys[j]).equals(object.get(keys[j]).toString()))
+					 {
+						 logger.error("Provided fields values is not Matching in obtained data");
+						 Assert.fail("Provided fields values is not Matching in obtained data");
+						 return false;
 					 }
 				 }
-				 for(int j=0;j<attributesToValidate.size();j++) {
-					 String key = attributesToValidate.get(j);
-				 if (!object.containsKey(key) || object.get(key)==null) 
-				        {
-					 logger.error(key+"  is not present in Response data");
-					 		return false;
-				        }
-				 }
-				      
-		    }
-		return true;
+			 }
+			 for(int j=0;j<attributesToValidate.size();j++) {
+				 String key = attributesToValidate.get(j);
+			 if (!object.containsKey(key) || object.get(key)==null) 
+			        {
+				 logger.error(key+"  is not present in obtained data");
+				 Assert.fail(key + "  is not present in obtained data");
+				 		return false;
+			        }
+			 }
+			      
+	    }
+	return true;
 	}
 
 }

@@ -100,7 +100,10 @@ public class UINStatusUpdate extends BaseTestCase implements ITest {
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];
-		
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			actualRequest.put("requesttime", lib.getCurrentLocalTime());
+		}
 		// Removing of unstable attributes from response
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();

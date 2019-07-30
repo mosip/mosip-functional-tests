@@ -109,6 +109,10 @@ public class UploadPublickey extends BaseTestCase implements ITest {
 
 			JSONObject objectData = objectDataArray[0];
 			responseObject = objectDataArray[1];
+			if(testcaseName.toLowerCase().contains("utctimevalidation"))
+			{
+				objectData.put("requesttime", lib.getCurrentLocalTime());
+			}
 				response = applicationLibrary.postWithJson(uploadpublickey, objectData.toJSONString(), regAdminCookie);
 				
 		//This method is for checking the authentication is pass or fail in rest services

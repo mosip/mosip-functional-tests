@@ -72,10 +72,10 @@ public class TestCaseReader extends BaseTestCase {
 		for (int k = 0; k < listofFiles.size(); k++) {
 			String[] arr = listofFiles.get(k).split("/");
 				if (arr[arr.length - 1].toLowerCase().contains("request")) 
-					objectData[0] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1]);
+					objectData[0] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1], true);
 					
 				 else if (arr[arr.length - 1].toLowerCase().contains("response")) 
-					objectData[1] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1]);
+					objectData[1] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1], true);
 		 
 			
 		}

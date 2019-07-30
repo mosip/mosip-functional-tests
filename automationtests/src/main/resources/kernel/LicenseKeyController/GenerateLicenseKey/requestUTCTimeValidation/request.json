@@ -2,10 +2,7 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "licenseKey": "xMGVGSregNE6e2mL",
-  "permissions": [
-    "12345444"
-  ],
+    "licenseExpiryTime": "2020-01-20T10:00:00.000Z",
   "tspId": "953860"
   },
   "requesttime": "2019-01-20T10:00:00.000Z",

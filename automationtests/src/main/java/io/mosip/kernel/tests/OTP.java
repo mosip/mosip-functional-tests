@@ -109,6 +109,10 @@ public class OTP extends BaseTestCase implements ITest {
 
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			objectData.put("requesttime", lib.getCurrentLocalTime());
+		}
 		String otpCase = null;
 				if(objectData.containsKey("case"))
 				{

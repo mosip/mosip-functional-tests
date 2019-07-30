@@ -104,6 +104,10 @@ public class AuditLog extends BaseTestCase implements ITest {
 
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			objectData.put("requesttime", lib.getCurrentLocalTime());
+		}
 		// sending post request
 		response = applicationLibrary.postWithJson(auditLog_URI, objectData.toJSONString(), idaCookie);
 
