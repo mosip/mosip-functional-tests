@@ -112,6 +112,17 @@ public class EncryptData {
 		}
 		
 	}
+	public boolean isValidTimestampDB(String dateTime) {
+		DateTimeFormatter formatters = new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
+                .parseStrict().toFormatter() ;
+		try {
+			LocalDate.parse(dateTime, formatters);
+			return true;
+		}catch(DateTimeParseException e) {
+			return false;
+		}
+		
+	}
 	/*	public static void main(String[] args) {
 	File f=new File("D:\\sprint_10\\mosip\\automationtests\\src\\test\\resources\\regProc\\Packets\\ValidPackets\\packteForInvalidPackets\\10011100110001920190514120310.zip");
 	EncryptData e=new EncryptData();
@@ -203,7 +214,7 @@ public class EncryptData {
 		syncRegistrationList.add(syncRegistrationDto);
 		RegistrationPacketSyncDTO registrationPacketSyncDto=new RegistrationPacketSyncDTO();
 		registrationPacketSyncDto.setId(id);
- 
+
 		//LocalDateTime requestTime=LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault());
 		//if(requesttime)
 		registrationPacketSyncDto.setRequesttime(requesttime);

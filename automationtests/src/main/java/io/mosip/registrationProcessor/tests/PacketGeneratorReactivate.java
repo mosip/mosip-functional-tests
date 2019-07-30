@@ -36,7 +36,6 @@ import com.google.common.base.Verify;
 import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
-import io.mosip.registrationProcessor.util.RegProcException;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.AssertResponses;
 import io.mosip.service.BaseTestCase;
@@ -113,19 +112,16 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	  * @param testSuite
 	  * @param i
 	  * @param object
-	 * @throws RegProcException 
 	  */
 	 @Test(dataProvider="ActivateUin")
-	 public void packetGenerator(String testSuite, Integer i, JSONObject object) throws RegProcException{
+	 public void packetGenerator(String testSuite, Integer i, JSONObject object){
 	 	 List<String> outerKeys = new ArrayList<String>();
 	 	 List<String> innerKeys = new ArrayList<String>();
 	 	 EncrypterDecrypter encrypter = new EncrypterDecrypter();
 	 	 
 
 	 	 try {
-	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
-	 	 	 if(object.get("testCaseName").toString().toLowerCase().contains("requesttime".toLowerCase())==false)
-	 	 	actualRequest.put("requesttime", apiRequests.getUTCTime());
+	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);	 
 	 	 	 expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 	 	 	 outerKeys.add("responsetime");
 	 	 	 innerKeys.add("registrationId");
@@ -138,16 +134,11 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 			
 
 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-		 	String message="";
+	 	 	String message="";
 	 	 	 try {
 	 	 		 message=actualResponse.jsonPath().get("response.message").toString();
 	 	 		 }catch (Exception e) {
-	 	 			 try {
-	 	 				message=actualResponse.jsonPath().get("errors[0].message").toString();
-					} catch (IllegalArgumentException e2) {
-						throw new RegProcException(actualResponse.jsonPath().get("message").toString());
-					}
-	 	 			 
+	 	 			 message=actualResponse.jsonPath().get("errors[0].message").toString();
 			}
 	 	 	 boolean idRepoStatus=false;
 	 	  if(message.equals("Packet created and uploaded")) {
@@ -156,7 +147,7 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	 		  	
 	 	 				idRepoStatus=apiRequests.getUinStatusFromIDRepo(actualRequest, idRepoToken, "ACTIVATED");
 	 			
-	 	 	 } 
+	 	 	 }
 	 	
 
 	 	 	 status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);

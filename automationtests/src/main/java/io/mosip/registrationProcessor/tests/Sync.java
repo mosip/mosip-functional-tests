@@ -2,23 +2,15 @@ package io.mosip.registrationProcessor.tests;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.time.Clock;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.TimeZone;
 
 import javax.ws.rs.core.MediaType;
 
@@ -31,7 +23,6 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -45,7 +36,7 @@ import com.google.common.base.Verify;
 
 import io.mosip.dbaccess.RegProcDataRead;
 import io.mosip.dbdto.RegistrationPacketSyncDTO;
-import io.mosip.dbdto.SyncRegistrationDto;
+import io.mosip.dbentity.SyncRegistrationEntity;
 import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
@@ -185,7 +176,7 @@ public class Sync extends BaseTestCase implements ITest {
 						actualRequest.put("requesttime","");
 					}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
 						actualRequest.put("requesttime","201929:41.011Z");
-					} 
+					}
 					
 					registrationPacketSyncDto = encryptData.createSyncRequest(actualRequest);
 					
@@ -274,7 +265,7 @@ public class Sync extends BaseTestCase implements ITest {
 						regIds=res.get("registrationId").toString();
 						logger.info("Reg Id is : " +regIds);
 
-						SyncRegistrationDto dbDto = readDataFromDb.regproc_dbDataInRegistrationList(regIds);	
+						SyncRegistrationEntity dbDto = readDataFromDb.validateRegIdinRegistrationList(regIds);
 						List<Object> count = readDataFromDb.countRegIdInRegistrationList(regIds);
 						logger.info("dbDto :" +dbDto);
 
@@ -288,9 +279,18 @@ public class Sync extends BaseTestCase implements ITest {
 							//if reg id present in response and reg id fetched from table matches, then it is validated
 							if (expectedRegIds.contains(dbDto.getRegistrationId())/*&& expectedRegIds.contains(auditDto.getId())*/){
 
-								logger.info("Validated in DB.......");
-								finalStatus = "Pass";
-								softAssert.assertTrue(true);
+								LocalDateTime dbDate = dbDto.getCreateDateTime();
+								logger.info("dbDate : "+dbDate);
+								EncryptData data = new EncryptData();
+								boolean dateCheck = data.isValidTimestampDB(dbDate.toString());
+								logger.info("dateCheck : "+dateCheck);
+								if(dateCheck) {
+									logger.info("Validated in DB.......");
+									finalStatus = "Pass";
+									softAssert.assertTrue(true);
+								}else {
+									logger.info("timestamp not valid");
+								}
 							} 
 						}
 

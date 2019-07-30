@@ -14,14 +14,16 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.testng.annotations.AfterClass;
 
 import io.mosip.dbdto.AuditRequestDto;
 import io.mosip.dbdto.ManualVerificationDTO;
 import io.mosip.dbdto.SyncRegistrationDto;
 import io.mosip.dbdto.TransactionStatusDTO;
 import io.mosip.dbentity.RegistrationStatusEntity;
+import io.mosip.dbentity.SyncRegistrationEntity;
+import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.registrationProcessor.tests.Sync;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 
@@ -51,7 +53,7 @@ public class RegProcDataRead {
 	//String registrationListConfigFilePath=apiRequests.getResourcePath()+"regproc_qa.cfg.xml";
 	//File registrationListConfigFile=new File(registrationListConfigFilePath);
 	
-	public SyncRegistrationDto regproc_dbDataInRegistrationList(String regId){
+	/*public SyncRegistrationDto regproc_dbDataInRegistrationList(String regId){
 	
 		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
@@ -59,7 +61,7 @@ public class RegProcDataRead {
 
 		SyncRegistrationDto dto =validateRegIdinRegistrationList(session,regId);
 //		int count = countRegIdInRegistrationList(session,regId);
-		if(dto!=null /*&& count== 0*/)
+		if(dto!=null && count== 0)
 		{
 			session.close();
 			factory.close();
@@ -67,10 +69,10 @@ public class RegProcDataRead {
 		}
 		return null;
 	}
-
+*/
 	
 
-	public RegistrationStatusEntity regproc_dbDataInRegistration(String regId)
+	/*public RegistrationStatusEntity regproc_dbDataInRegistration(String regId)
 	{
 		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
@@ -79,16 +81,20 @@ public class RegProcDataRead {
 		RegistrationStatusEntity dto =validateRegIdinRegistration(session, regId);
 		if(dto!=null)
 		{
-			/*session.close();
-			factory.close();*/
+			session.close();
+			factory.close();
 			return dto;
 		}
 		return null;
-	}
+	}*/
 
 
-	private RegistrationStatusEntity validateRegIdinRegistration(Session session,String regID)
-	{
+	public RegistrationStatusEntity validateRegIdinRegistration(String regID){
+		
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		
 		logger.info("Reg id inside validateRegIdinRegistration method :"+regID);
 		int size ;
 		String status_code = null;
@@ -122,7 +128,13 @@ public class RegProcDataRead {
 			registrationStatusEntity.setIsDeleted((boolean)TestData[14]);
 			registrationStatusEntity.setApplicantType((String)TestData[16]);
 			logger.info("Status is : " +status_code);*/
-
+			String dateInString  = TestData[12].toString();
+			dateInString = dateInString.substring(0,10)+"T"+dateInString.substring(11,23);
+			String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
+			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+			LocalDateTime time= LocalDateTime.parse(dateInString, dateFormat);
+			registrationStatusEntity.setCreateDateTime(time);
+			
 			// commit the transaction
 			session.getTransaction().commit();
 
@@ -130,7 +142,7 @@ public class RegProcDataRead {
 
 		try {
 
-			if(size==1)
+			if(size>0)
 			{
 				// Assert.assertEquals(status_code, "PACKET_UPLOADED_TO_VIRUS_SCAN");
 				return registrationStatusEntity;
@@ -141,16 +153,22 @@ public class RegProcDataRead {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}finally {
+			session.close();
+			factory.close();
 		}
-
+		
 	}
 
-	private SyncRegistrationDto validateRegIdinRegistrationList(Session session, String regID)
-	{
+	public SyncRegistrationEntity validateRegIdinRegistrationList(String regID){
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		
 		logger.info("REg id inside db query :"+regID);
 		int size ;
 		String status_code = null;
-		SyncRegistrationDto syncregistrationDto = new SyncRegistrationDto();
+		SyncRegistrationEntity syncregistrationDBDto = new SyncRegistrationEntity();
 
 		String queryString= "Select *"+
 				" From regprc.registration_list where regprc.registration_list.reg_id= :regId_value";
@@ -169,23 +187,23 @@ public class RegProcDataRead {
 		// reading data retrieved from query
 		for (Object obj : objs) {
 			TestData = (Object[]) obj;
-			//status_code = (String) (TestData[3]);
-			syncregistrationDto.setRegistrationId((String)TestData[1]);
-			/*syncregistrationDto.setSyncType((String)TestData[2]);
-			syncregistrationDto.setParentRegistrationId((String)TestData[3]);
-			syncregistrationDto.setSyncStatus(SyncStatusDto.valueOf((String)TestData[4]));
-			syncregistrationDto.setStatusComment((String)TestData[5]);
-			syncregistrationDto.setLangCode((String)TestData[6]);
-			syncregistrationDto.setIsActive((boolean)TestData[7]);
-			syncregistrationDto.setIsDeleted((boolean)TestData[12]);*/
+			syncregistrationDBDto.setRegistrationId((String)TestData[1]);
+			
+			String dateInString  = TestData[7].toString();
+			dateInString = dateInString.substring(0,10)+"T"+dateInString.substring(11,23);
+			String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
+			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+			LocalDateTime time= LocalDateTime.parse(dateInString, dateFormat);
+			
+			syncregistrationDBDto.setCreateDateTime(time);
 
-			logger.info("Status is : " +status_code);
+			logger.info("Date is : " +syncregistrationDBDto.getCreateDateTime());
 			session.getTransaction().commit();
 		}
 		try {
-			if(size==1)
+			if(size>0)
 			{
-				return syncregistrationDto;
+				return syncregistrationDBDto;
 			}
 			else
 				return null;
@@ -193,6 +211,9 @@ public class RegProcDataRead {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}finally {
+			session.close();
+			factory.close();
 		}
 	}
 
@@ -231,10 +252,13 @@ public class RegProcDataRead {
 		logger.info("result==== : "+result);
 		
 		session.getTransaction().commit();
+		
+		session.close();
+		factory.close();
 		return result;
 	}
 	
-	public boolean regproc_dbDeleteRecordInRegistrationList(String regId)
+	/*public boolean regproc_dbDeleteRecordInRegistrationList(String regId)
 	{
 		boolean flag=false;
 
@@ -251,31 +275,38 @@ public class RegProcDataRead {
 			flag = true;
 		}
 
-		/*else
-                      return flag;*/
+		else
+                      return flag;
 		return flag;
-	}
+	}*/
 
-	public boolean regproc_dbDeleteRecordInRegistration(String regId)
+	/*public boolean regproc_dbDeleteRecordInRegistration(String regId)
 	{
 		boolean flag=false;
 
 		session = factory.getCurrentSession();
 		session.beginTransaction();
+		
+		
 
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		
 		int result =deleteRegIdinRegistration(session, regId);
 		//    Assert.assertTrue(flag);
 		logger.info("Flag is : " +flag);
 		if(result>0)
 		{
-			session.close();
-			factory.close();
+			
 			flag = true;
 		}
+		session.close();
+		factory.close();
 		return flag;
-	}
+	}*/
 
-	private int  deleteRegIdinRegistrationList(Session session2, String regId) {
+	/*private int  deleteRegIdinRegistrationList(Session session2, String regId) {
 		logger.info("REg id inside db query :"+regId);
 		String status_code = null;
 		String queryString= "DELETE"+
@@ -292,9 +323,15 @@ public class RegProcDataRead {
 		session.getTransaction().commit();
 		return result;
 
-	}
+	}*/
 
-	private int deleteRegIdinRegistration(Session session2, String regId) {
+	public int deleteRegIdinRegistration(String regId) {
+		
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		
+		
 		logger.info("REg id inside db query :"+regId);
 		String status_code = null;
 
@@ -310,11 +347,14 @@ public class RegProcDataRead {
 
 		// commit the transaction
 		session.getTransaction().commit();
+		
+		session.close();
+		factory.close();
 		return result;
 
 	}
 
-	public AuditRequestDto regproc_dbDataInAuditLog(String regId, String refIdType, String appName, String eventName, LocalDateTime logTime )
+	/*public AuditRequestDto regproc_dbDataInAuditLog(String regId, String refIdType, String appName, String eventName, LocalDateTime logTime )
 	{
 		factory = new Configuration().configure(auditLogConfigFile).buildSessionFactory();	
 		session = factory.getCurrentSession();
@@ -323,8 +363,8 @@ public class RegProcDataRead {
 		AuditRequestDto dto =validateRegIdinAuditLog(session, regId, refIdType, appName, eventName, logTime );
 		if(dto!=null)
 		{
-			/*session.close();
-			factory.close();*/
+			session.close();
+			factory.close();
 			return dto;
 		}
 		return null;
@@ -337,13 +377,13 @@ public class RegProcDataRead {
 		AuditRequestDto auditDto = new AuditRequestDto();
 		Timestamp timestamp = Timestamp.valueOf(logTime);
 
-		/*String queryString=" Select *"+
-                 " From prereg.applicant_demographic where prereg.applicant_demographic.prereg_id= :preId_value ";*/
+		String queryString=" Select *"+
+                 " From prereg.applicant_demographic where prereg.applicant_demographic.prereg_id= :preId_value ";
 		String queryString= "Select *"+
 				" From audit.app_audit_log where audit.app_audit_log.app_name = :appName and audit.app_audit_log.ref_id_type= :refIdType "
 				+ "and audit.app_audit_log.ref_id= :regId and audit.app_audit_log.event_name= :eventName and audit.app_audit_log.action_dtimes= :logTime";
-		/*String queryString= "Select *"+
-             " From audit.app_audit_log where audit.app_audit_log.app_name= :appName";*/
+		String queryString= "Select *"+
+             " From audit.app_audit_log where audit.app_audit_log.app_name= :appName";
 
 		logger.info("regId is : " +regId);                                                                                                                                                                                                              
 		Query query = session.createSQLQuery(queryString);
@@ -375,11 +415,10 @@ public class RegProcDataRead {
 		session.getTransaction().commit();
 		return auditDto;
 
-	}
+	}*/
 
 
-
-	public ManualVerificationDTO regproc_dbDataInManualVerification(String regIds, String matchedRegIds,
+/*	public ManualVerificationDTO regproc_dbDataInManualVerification(String regIds, String matchedRegIds,
 			String statusCodeRes) {
 		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
@@ -389,21 +428,26 @@ public class RegProcDataRead {
 		
 		if(dto!=null)
 		{
-			/*session.close();
-			factory.close();*/
+			session.close();
+			factory.close();
 			return dto;
 		}
 		return null;
-	}
+	}*/
 
 
 
-	private ManualVerificationDTO validateInManualVerification(Session session2, String regIds, String matchedRegIds,
+	public ManualVerificationDTO validateInManualVerification(String regIds, String matchedRegIds,
 			String statusCodeRes) {
 		logger.info("REg id inside db query :"+regIds);
 		int size ;
 		String status_code = null;
 		ManualVerificationDTO manualVerificationDto = new ManualVerificationDTO();
+		
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+
 
 		String queryString= "Select *"+
 				" From regprc.reg_manual_verification where regprc.reg_manual_verification.reg_id= :regIds AND "
@@ -425,13 +469,10 @@ public class RegProcDataRead {
 		// reading data retrieved from query
 		for (Object obj : objs) {
 			TestData = (Object[]) obj;
-			//status_code = (String) (TestData[3]);
 			
 			manualVerificationDto.setRegId((String)TestData[0]);
 			manualVerificationDto.setMatchedRefId((String)TestData[1]);
 			manualVerificationDto.setStatusCode((String)TestData[5]);
-
-			logger.info("Status is : " +status_code);
 			session.getTransaction().commit();
 		}
 		try {
@@ -445,6 +486,9 @@ public class RegProcDataRead {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}finally {
+			session.close();
+			factory.close();
 		}
 	}
 
@@ -452,8 +496,10 @@ public class RegProcDataRead {
 
 	public boolean updateStatusInManualVerification(String userId, String statusCode) {
 		
-		Session session=getCurrentSession();
-		 Transaction t=session.beginTransaction();
+		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+
 		
 		 
 		 String queryString = "Update regprc.reg_manual_verification set status_code= :statusCode "
@@ -464,7 +510,10 @@ public class RegProcDataRead {
 		
 		 int update = query.executeUpdate();
 		 
-		 t.commit();
+		 session.getTransaction().commit();
+		 
+		 session.close();
+		 factory.close();
 		 if(update!= 0 ) {
 			 return true;
 		 }
@@ -473,13 +522,14 @@ public class RegProcDataRead {
 
 	public boolean insertRecordInRegistration(String requestedRegId, String statusCode, int retryCount,
 			String stage, String stageName, String tranTime) {
-		Session session=getCurrentSession();
-		 Transaction t=session.beginTransaction();
-		/* String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
-			 LocalDateTime time= LocalDateTime.now(Clock.systemUTC()).minusMinutes(10);
-			 String utcTime = time.format(dateFormat);		    
-		String latestTranTime = utcTime;*/
+		/*Session session=getCurrentSession();
+		 Transaction t=session.beginTransaction();*/
+		 
+		 
+		 factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+		
 		 
 		 String queryString = "INSERT INTO regprc.registration "
 		 		+ "VALUES ('" +requestedRegId+ "', 'NEW', null, null, '"+statusCode+"', "
@@ -491,7 +541,7 @@ public class RegProcDataRead {
 		 
 		 int update = query.executeUpdate();
 		 
-		 t.commit();
+		 session.getTransaction().commit();
 		 session.close();
 		 factory.close();
 		 if(update!= 0 ) {
@@ -499,9 +549,6 @@ public class RegProcDataRead {
 		 }
 		return false;
 	}
-
-
-
 	
 
 

@@ -267,7 +267,7 @@ public class Assignment extends BaseTestCase implements ITest {
 						statusCodeRes = response.get("statusCode").toString();
 
 
-						ManualVerificationDTO dbDto = readDataFromDb.regproc_dbDataInManualVerification(regIds,matchedRegIds,statusCodeRes);	
+						ManualVerificationDTO dbDto = readDataFromDb.validateInManualVerification(regIds,matchedRegIds,statusCodeRes);	
 						//List<Object> count = readDataFromDb.countRegIdInRegistrationList(regIds);
 						logger.info("dbDto :" +dbDto);
 

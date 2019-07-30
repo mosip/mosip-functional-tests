@@ -123,7 +123,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		return MosipTestRunner.getGlobalResourcePath()+"/";
 	} */
 	public Response regProcPacketGenerator(Object body,String url,String contentHeader,String token ) {
-		logger.info("REST:ASSURED:Sending a post request to"+url); 
+		logger.info("REST:ASSURED:Sending a post request to"+url);
 		Cookie.Builder builder = new Cookie.Builder("Authorization",token);
 
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body).contentType(contentHeader)
