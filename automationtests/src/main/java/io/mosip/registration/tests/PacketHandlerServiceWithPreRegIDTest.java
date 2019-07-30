@@ -116,13 +116,15 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 		// new PreIDGenerator().generatePreID(centerID);
-		 preRegistrationDataSyncService.getPreRegistrationIds(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+		preRegistrationDataSyncService.getPreRegistrationIds(RegistrationConstants.JOB_TRIGGER_POINT_USER);
 	}
 
 	@Test(dataProvider = "PacketHandlerDataProvider", alwaysRun = true)
 	public void validatePacketCreation(String testCaseName, JSONObject object) {
 		logger.info("PACKET_HANDLER SERVICE WITH PRE REG TEST - ", APPLICATION_NAME, APPLICATION_ID, testCaseName);
 		mTestCaseName = testCaseName;
+		boolean preRegIDStatus = false;
+		boolean packetstatus = false;
 		try {
 			Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
 					testCasePropertyFileName);
@@ -163,16 +165,13 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 				uin = dataGenerator.getYamlData(serviceName, testDataFileName, "parentRID", prop.getProperty("UIN"));
 				logger.info("PACKET_HANDLER SERVICE WITH PRE REG TEST - ", APPLICATION_NAME, APPLICATION_ID,
 						"uin: " + uin);
-				System.out.println("RID------------ " + uin);
+
 			} else if (testCaseName.contains("ParentUIN")) {
 
 				uin = dataGenerator.getYamlData(serviceName, testDataFileName, "parentUIN", prop.getProperty("UIN"));
 				logger.info("PACKET_HANDLER SERVICE WITH PRE REG TEST - ", APPLICATION_NAME, APPLICATION_ID,
 						"uin: " + uin);
-				System.out.println("UIN------------ " + uin);
-
 			}
-
 			if (prop.getProperty("UniqueCBEFF").equalsIgnoreCase("YES")) {
 				// Set CBEFF to UNIQUE
 				ApplicationContext.map().put(RegistrationConstants.CBEFF_UNQ_TAG, ConstantValues.YES);
@@ -192,67 +191,77 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 			commonUtil.createRegistrationDTOObject(ConstantValues.REGISTRATIONCATEGORY, centerID, stationID);
 			// Get Pre Registration details
 			preRegistrationDTO = commonUtil.getPreRegistrationDetails(preRegIDs.get(packetType));
-			// Create Packet
-			packetResponse = commonUtil.preRegPacketCreation(preRegistrationDTO, statusCode, biometricDataPath,
-					demographicDataPath, proofImagePath, System.getProperty("userID"), centerID, stationID, packetType,
-					uin);
+			System.out.println(packetType+"==="+preRegIDs.get(packetType));
+			if (preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO().getIdentity() != null) {
 
-			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),
-					packetResponse.get(prop.getProperty("AssertValue")));
+				preRegIDStatus = true;
+				// Create Packet
+				packetResponse = commonUtil.preRegPacketCreation(preRegistrationDTO, statusCode, biometricDataPath,
+						demographicDataPath, proofImagePath, System.getProperty("userID"), centerID, stationID,
+						packetType, uin);
 
-			// Verify whether created packet exist in the local database
-			System.out.println(packetResponse.get("RANDOMID"));
-			boolean isPresentInDB = DBUtil.checkRegID(packetResponse.get("RANDOMID"), DbQueries.GET_PACKETIDs);
-			Assert.assertEquals(isPresentInDB, true);
-			logger.info("PACKET_HANDLER SERVICE WITH PRE REG TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					"Created Registration ID in database: " + isPresentInDB);
+				if (packetResponse.get(prop.getProperty("AssertValue")) != null) {
+					packetstatus = true;
+					commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),
+							packetResponse.get(prop.getProperty("AssertValue")));
 
-			// Sync Packet
-			String syncResponse = packetSyncService.packetSync(packetResponse.get("RANDOMID"));
-			ResponseDTO uploadResponse = new ResponseDTO();
-			boolean syncNotSuccess = false;
-			boolean uploadNotSuccess = false;
-			if (syncResponse.isEmpty()) {
-				// Upload packet
-				String seperator = "/";
-				String filePath = String
-						.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
-						.concat(seperator)
-						.concat(formatDate(new Date(),
-								String.valueOf(
-										ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
-						.concat(seperator).concat(packetResponse.get("RANDOMID"));
-				File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
-				uploadResponse = packetUploadService.pushPacket(packet);
-				if (uploadResponse.getSuccessResponseDTO().getCode().equalsIgnoreCase("Success")) {
+					// Verify whether created packet exist in the local database
+					System.out.println(packetResponse.get("RANDOMID"));
+					boolean isPresentInDB = DBUtil.checkRegID(packetResponse.get("RANDOMID"), DbQueries.GET_PACKETIDs);
+					Assert.assertEquals(isPresentInDB, true);
+					logger.info("PACKET_HANDLER SERVICE WITH PRE REG TEST - ", APPLICATION_NAME, APPLICATION_ID,
+							"Created Registration ID in database: " + isPresentInDB);
 
-					Registration registration = syncRegistrationDAO.getRegistrationById(
-							RegistrationClientStatusCode.META_INFO_SYN_SERVER.getCode(),
-							packetResponse.get("RANDOMID"));
-					List<PacketStatusDTO> packetStatusDTO = new ArrayList<>();
+					// Sync Packet
+					String syncResponse = packetSyncService.packetSync(packetResponse.get("RANDOMID"));
+					ResponseDTO uploadResponse = new ResponseDTO();
+					boolean syncNotSuccess = false;
+					boolean uploadNotSuccess = false;
+					if (syncResponse.isEmpty()) {
+						// Upload packet
+						String seperator = "/";
+						String filePath = String
+								.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
+								.concat(seperator)
+								.concat(formatDate(new Date(),
+										String.valueOf(ApplicationContext.map()
+												.get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
+								.concat(seperator).concat(packetResponse.get("RANDOMID"));
+						File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
+						uploadResponse = packetUploadService.pushPacket(packet);
+						if (uploadResponse.getSuccessResponseDTO().getCode().equalsIgnoreCase("Success")) {
 
-					packetStatusDTO.add(commonUtil.packetStatusDtoPreperation(registration,
-							RegistrationClientStatusCode.UPLOAD_SUCCESS_STATUS.getCode()));
-					boolean result = packetUploadService.updateStatus(packetStatusDTO);
-					boolean expectedResult = true;
-					Assert.assertEquals(result, expectedResult);
-					uploadNotSuccess = true;
-				} else {
-					logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-							"Packet not uploaded properly");
-					Assert.assertTrue(uploadNotSuccess, "Packet not uploaded properly");
+							Registration registration = syncRegistrationDAO.getRegistrationById(
+									RegistrationClientStatusCode.META_INFO_SYN_SERVER.getCode(),
+									packetResponse.get("RANDOMID"));
+							List<PacketStatusDTO> packetStatusDTO = new ArrayList<>();
+
+							packetStatusDTO.add(commonUtil.packetStatusDtoPreperation(registration,
+									RegistrationClientStatusCode.UPLOAD_SUCCESS_STATUS.getCode()));
+							boolean result = packetUploadService.updateStatus(packetStatusDTO);
+							boolean expectedResult = true;
+							Assert.assertEquals(result, expectedResult);
+							uploadNotSuccess = true;
+						} else {
+							logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+									"Packet not uploaded properly");
+							Assert.assertTrue(uploadNotSuccess, "Packet not uploaded properly");
+						}
+						syncNotSuccess = true;
+					} else {
+						logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+								"Packet not synched properly");
+						Assert.assertTrue(syncNotSuccess, "Packet not synched properly");
+					}
 				}
-				syncNotSuccess = true;
-			} else {
-				logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-						"Packet not synched properly");
-				Assert.assertTrue(syncNotSuccess, "Packet not synched properly");
 			}
-
 		} catch (NullPointerException nullPointerException) {
 			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(nullPointerException) + "PreRegistration ID is invalid");
 			Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
+			Assert.assertTrue(preRegIDStatus, "PreRegistration ID is invalid");
+			Assert.assertTrue(packetstatus, "Registration Client packet is not created succesfully");
+
 		} catch (RegBaseCheckedException regBaseCheckedException) {
 			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(regBaseCheckedException));
