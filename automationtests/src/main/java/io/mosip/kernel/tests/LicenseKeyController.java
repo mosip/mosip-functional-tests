@@ -49,7 +49,8 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 	public JSONArray arr = new JSONArray();
 	boolean status = false;
 	private ApplicationLibrary applicationLibrary = new ApplicationLibrary();
-	private final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
+	private CommonLibrary lib = new CommonLibrary();
+	private final Map<String, String> props = lib.readProperty("Kernel");
 	private final String licKeyGenerator = props.get("licKeyGenerator");
 	private final String mapLicenseKey = props.get("mapLicenseKey");
 	private final String fetchmapLicenseKey = props.get("fetchmapLicenseKey");
@@ -90,6 +91,11 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, folderPath, testcaseName);
 		JSONObject actualRequest1 = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			actualRequest1.put("requesttime", lib.getCurrentLocalTime());
+		}
+		
 		// Calling the Post method 
 		 Response res = applicationLibrary.postWithJson(licKeyGenerator, actualRequest1);
 		
@@ -159,7 +165,7 @@ public class LicenseKeyController extends BaseTestCase implements ITest{
 		 
 	    // adding the tspid and corresponding license key to the request and expected response od smok test case
 	    JSONObject request = (JSONObject) actualRequest_map.get("request");
-	    if(testCaseName.contains("kernel_MLK_smoke") || testCaseName.contains("invalid_permissions"))
+	    if(testCaseName.contains("kernel_MLK_smoke")|| testCaseName.contains("invalid_permissions"))
 	    {
 	    	request.put("tspId", tspId);
 	    	request.put("licenseKey", licenseKey);	

@@ -114,6 +114,10 @@ public class EncrptionDecryption extends BaseTestCase implements ITest {
 
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			objectData.put("requesttime", lib.getCurrentLocalTime());
+		}
 		String requestData = null;
 		JSONObject request = null;
 		String encDecCase = "default";
@@ -162,10 +166,8 @@ public class EncrptionDecryption extends BaseTestCase implements ITest {
 			case "diffTimeStampAfToDecrypt":
 				request.put("timeStamp", "2018-12-11T06:12:52.994Z");
 				break;
-
 			}
 			objectData.put("request", request);
-			
 			response = applicationLibrary.postWithJson(decrypt_URI, objectData.toJSONString(), regProcCookie);
 			statusCode = response.statusCode();
 			logger.info("Decryption Status Code is : " + statusCode);

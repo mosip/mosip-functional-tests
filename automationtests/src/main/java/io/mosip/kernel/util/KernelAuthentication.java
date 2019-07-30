@@ -189,7 +189,7 @@ public class KernelAuthentication extends BaseTestCase{
 	public JSONObject getRequestJson(String testSuite){
 		JSONObject Request=null;
 		String configPath = folder + "/" + testSuite+"/request.json";
-		return new CommonLibrary().readJsonData(configPath);
+		return new CommonLibrary().readJsonData(configPath, true);
 		
 	}
 }

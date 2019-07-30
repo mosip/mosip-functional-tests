@@ -31,16 +31,15 @@ bioPath_FPExceeption_valid:
  - ./Registration/testData/PacketHandlerServiceData/Resident_Biometric_FingerPrint_Exception_Data.json
 
 parentRID_YES:
- - 10014100180000320190607091645
- - 10014100180000320190607100556
+ - 10006100360000220190702093517
 parentRID_NO:
  - 1234567890088
 parentUIN_YES:
- - 2013021947
- - 4950679436
+ - 2375174198
+ - 4180510796
 parentUIN_NO:
  - 20130219
- - 36 
+ - 36  
  
 
 

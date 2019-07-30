@@ -22,13 +22,19 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.testng.Assert;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -40,54 +46,122 @@ import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
 import io.restassured.response.Response;
+
 /**
-*
-* @author Ravikant
-*
-*/
+ *
+ * @author Ravikant
+ *
+ */
 public class CommonLibrary extends BaseTestCase {
 
 	private static Logger logger = Logger.getLogger(CommonLibrary.class);
 	private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-	
-	
+	/**
+	 * @param response
+	 *            this method is for validating the response time is in UTC
+	 */
+	public void checkResponseUTCTime(Response response) {
+		System.out.println(response.asString());
+		JSONObject responseJson = null;
+		String responseTime = null;
+		try {
+			responseJson = (JSONObject) new JSONParser().parse(response.asString());
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			logger.info(e1.getMessage());
+			return;
+		}
+		if(responseJson!=null && responseJson.containsKey("responsetime"))
+			responseTime = response.jsonPath().get("responsetime").toString();
+		else return;
+		String cuurentUTC = (String) getCurrentUTCTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("mm");
+		try {
+			Date d1 = sdf.parse(responseTime.substring(14, 16));
+			Date d2 = sdf.parse(cuurentUTC.substring(14, 16));
+
+			long elapse = Math.abs(d1.getTime() - d2.getTime());
+			if (elapse > 300000) {
+				Assert.assertTrue(false, "Response time is not UTC, response time : " + responseTime);
+			}
+
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * @return this method is for getting the curretn UTC time in
+	 *         yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" format
+	 */
+	public Object getCurrentUTCTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		LocalDateTime time = LocalDateTime.now(Clock.systemUTC());
+		String utcTime = time.format(dateFormat);
+		return utcTime;
+
+	}
+
+	/**
+	 * this method is for getting the local current time in
+	 * yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" format
+	 * 
+	 * @return
+	 */
+	public Object getCurrentLocalTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		LocalDateTime time = LocalDateTime.now();
+		String currentTime = time.format(dateFormat);
+		return currentTime;
+
+	}
+
 	/**
 	 * @param folderRelativePath
-	 * @param isfolder(it should be true if u want to get list of folders and false for list of files)
-	 * @return this method is for returning the list of relative path of each folder or files in a given path
+	 * @param isfolder(it
+	 *            should be true if u want to get list of folders and false for list
+	 *            of files)
+	 * @return this method is for returning the list of relative path of each folder
+	 *         or files in a given path
 	 */
-	public List<String> getFoldersFilesNameList(String folderRelativePath, boolean isfolder){
+	public List<String> getFoldersFilesNameList(String folderRelativePath, boolean isfolder) {
 		String configPath = folderRelativePath;
 		List<String> listFoldersFiles = new ArrayList<>();
-		
-					final File file = new File(getResourcePath()+folderRelativePath);
-					logger.info("====="+getResourcePath()+folderRelativePath);
-					logger.info("======="+file.getAbsolutePath());
-					logger.info("========="+file.getPath());
-					for (File f : file.listFiles()) {
-						if (f.isDirectory()==isfolder)
-						listFoldersFiles.add(configPath + "/" + f.getName());
-					}
+
+		final File file = new File(getResourcePath() + folderRelativePath);
+		logger.info("=====" + getResourcePath() + folderRelativePath);
+		logger.info("=======" + file.getAbsolutePath());
+		logger.info("=========" + file.getPath());
+		for (File f : file.listFiles()) {
+			if (f.isDirectory() == isfolder)
+				listFoldersFiles.add(configPath + "/" + f.getName());
+		}
 		return listFoldersFiles;
 	}
-	
+
 	/**
 	 * The method to return class loader resource path
 	 * 
 	 * @return String
 	 */
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath()+"/";
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
-	
+
 	/**
 	 * @param path
-	 * @return this method is for reading the jsonData object from the given path.
+	 * @param isRelative
+	 * @return this method is for reading the jsonData object from the given relative/absolute path.
 	 */
-	public JSONObject readJsonData(String path) {
-
-		File fileToRead = new File(getResourcePath()+path);
+	public JSONObject readJsonData(String path, boolean isRelative) {
+		if(isRelative)
+			path = getResourcePath() + path;
+		File fileToRead = new File(path);
 		InputStream isOfFile = null;
 		try {
 			isOfFile = new FileInputStream(fileToRead);
@@ -111,9 +185,9 @@ public class CommonLibrary extends BaseTestCase {
 	public Map<String, String> readProperty(String propertyFileName) {
 		Properties prop = new Properties();
 		try {
-			File propertyFile = new File(getResourcePath()+"config/"+ propertyFileName + ".properties");
+			File propertyFile = new File(getResourcePath() + "config/" + propertyFileName + ".properties");
 			prop.load(new FileInputStream(propertyFile));
-			
+
 		} catch (IOException e) {
 
 			logger.info(e.getMessage());
@@ -162,7 +236,27 @@ public class CommonLibrary extends BaseTestCase {
 			}
 		}
 	}
-
+	
+	/**
+	 * @param requestJson
+	 * @param responseJson
+	 * @return this method is for comapring 2 json, and return boolean value accordingly.
+	 */
+	public boolean jsonComparator(String requestJson, String responseJson)
+	{
+		try {
+			JSONAssert.assertEquals(requestJson, responseJson, false);
+			return true;
+		} catch (JSONException |  AssertionError e) {
+			// TODO Auto-generated catch block
+			logger.info("EXPECTED AND ACTUAL DATA MISMATCH");
+			logger.info("MISMATCH DETAILS:");
+			logger.info(e.getMessage());
+			logger.info("Obtained ACTUAL RESPONSE is:=> "+responseJson);
+			Assert.fail("DATA MISMATCH FAILURE");
+			return false;
+		}
+	}
 	/**
 	 * @param cookie
 	 * @return this method is for checking cookie(token) is expired or not.
@@ -205,28 +299,6 @@ public class CommonLibrary extends BaseTestCase {
 			builder.append(ALPHA_NUMERIC_STRING.charAt(character));
 		}
 		return builder.toString();
-	}
-
-	/**
-	 * @param source
-	 * @param destination
-	 *            this method is for copying a file from given source to given
-	 *            destination. used by preregistration
-	 */
-	public static void backUpFiles(String source, String destination) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(Date.from(Instant.now()));
-
-		String result = String.format("%1$tY-%1$tm-%1$td-%1$tk-%1$tS-%1$tp", cal);
-		String filePath = "src/main/resources/APPDATA/MosipUtil/UtilFiles/" + destination + "/" + result;
-		File sourceFolder = new File(source);
-		File dest = new File(filePath);
-		try {
-			FileUtils.copyDirectory(sourceFolder, dest);
-			logger.info("Please Check Your %APPDATA% in C drive to get access to the generted files");
-		} catch (IOException e) {
-			logger.info("Check %APPDATA%");
-		}
 	}
 
 	/**
@@ -380,7 +452,8 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("Name of the file is" + file.getName());
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
-				.formParams(formParams).contentType(contentHeader).expect().when().post(url).then().log().all().extract().response();
+				.formParams(formParams).contentType(contentHeader).expect().when().post(url).then().log().all()
+				.extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + postResponse.time());
@@ -478,7 +551,7 @@ public class CommonLibrary extends BaseTestCase {
 					.extract().response();
 		} else {
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType("multipart/form-data")
-					.multiPart("attachments", new File(getResourcePath()+(String) jsonString.get("attachments")))
+					.multiPart("attachments", new File(getResourcePath() + (String) jsonString.get("attachments")))
 					.multiPart("mailContent", (String) jsonString.get("mailContent"))
 					.multiPart("mailTo", (String) jsonString.get("mailTo"))
 					.multiPart("mailSubject", (String) jsonString.get("mailSubject"))
@@ -805,7 +878,7 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
-	
+
 	/**
 	 * @param url
 	 * @param pathParams
@@ -815,23 +888,24 @@ public class CommonLibrary extends BaseTestCase {
 	public Response deleteWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
-		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log()
-				.all().when().delete(url).then().log().all().extract().response();
+		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().delete(url)
+				.then().log().all().extract().response();
 		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
-	} 
-	
- /**
-  * Ashish
-  * @param body
-  * @param file
-  * @param url
-  * @param contentHeader
-  * @param cookie
-  * @return
-  */
-public Response postJSONwithFile(Object body, File file, String url, String contentHeader,String cookie) {
+	}
+
+	/**
+	 * Ashish
+	 * 
+	 * @param body
+	 * @param file
+	 * @param url
+	 * @param contentHeader
+	 * @param cookie
+	 * @return
+	 */
+	public Response postJSONwithFile(Object body, File file, String url, String contentHeader, String cookie) {
 		Response getResponse = null;
 		/*
 		 * Fetch to get the param name to be passed in the request
@@ -845,5 +919,5 @@ public Response postJSONwithFile(Object body, File file, String url, String cont
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
-	} 
+	}
 }
