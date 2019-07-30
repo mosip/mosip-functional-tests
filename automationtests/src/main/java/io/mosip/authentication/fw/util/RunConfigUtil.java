@@ -201,4 +201,8 @@ public class RunConfigUtil {
 	public static String getVidUsageCount() {
 		return AuthTestsUtil.getPropertyFromFilePath(new File(RunConfigUtil.getResourcePath()+idaEnvConfigPath).getAbsolutePath()).get("vid.temporary.usageTime").toString();
 	}
+	
+	public static String getBioTestDataPath() {
+		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/mdm.biometricTestData.yml";
+	}
 }

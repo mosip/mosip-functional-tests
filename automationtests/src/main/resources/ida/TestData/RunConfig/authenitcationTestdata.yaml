@@ -475,3 +475,6 @@ valid_VID_T_Type:
       - Temporary
 valid_VID_P_Type:
       - Perpetual
+#CBEFF
+valid_xmlns:
+      - http://docs.oasis-open.org/bias/ns/biaspatronformat-1.0/

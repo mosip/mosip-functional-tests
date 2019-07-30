@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.UINUtil;
 import io.mosip.authentication.fw.util.VIDUtil;
+import io.mosip.authentication.testdata.BiometricTestDataProcessor;
 import io.mosip.authentication.testdata.TestDataConfig;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
@@ -286,10 +287,18 @@ public class IdaKeywordUtil extends KeywordUtil{
 				String value = entry.getValue().replace("$", "");
 				String[] actVal = value.split(":");
 				String file = new File(
-						RunConfigUtil.getResourcePath() + TestDataConfig.getTestDataPath() + actVal[1])
+						RunConfigUtil.getResourcePath() +TestDataUtil.getScenarioPath()+"/"+ TestDataUtil.getTestCaseName() +"/"+ actVal[1])
 								.getAbsolutePath();
 				returnMap.put(entry.getKey(), EncryptDecrptUtil.getCbeffEncode(new File(file).getAbsolutePath().toString()));
-			} else
+			}else if (entry.getValue().contains("$BIO") && entry.getValue().startsWith("$BIO")) {
+				String value=entry.getValue().replace("$", "");
+				String keys[] = value.split(Pattern.quote("~"));
+				String bioType = keys[1];
+				String bioSubType = keys[2];
+				String thresholdPercentage=keys[3];
+				String bioValue =BiometricTestDataProcessor.getBioMetricTestData(bioType, bioSubType, thresholdPercentage);
+				returnMap.put(entry.getKey(),bioValue);
+			}else
 				returnMap.put(entry.getKey(), entry.getValue());
 			currentTestData=returnMap;
 		}

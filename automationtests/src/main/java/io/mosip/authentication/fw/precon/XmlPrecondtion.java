@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath;
+import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath; 
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -12,6 +12,7 @@ import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 
 import io.mosip.authentication.fw.util.AuthTestsUtil;
@@ -21,6 +22,7 @@ import io.mosip.authentication.testdata.mapping.XmlXpathGeneration;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -167,7 +169,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		try {
 			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			docFactory.setNamespaceAware(false);
+			//docFactory.setNamespaceAware(false);
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			xmlDocument = docBuilder.parse(inputFilePath);
 			for (Entry<String, String> entry : fieldvalue.entrySet()) {
@@ -181,6 +183,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 					updateNodeValue(xpath, normalisedExpression, entry.getValue());
 			}
 			Transformer xformer = TransformerFactory.newInstance().newTransformer();
+			xformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
 			xformer.transform(new DOMSource(xmlDocument), new StreamResult(new File(outputFilePath)));
 			return fieldvalue;
 		} catch (Exception exception) {
@@ -204,7 +207,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		xpath = xpath.replace("//", "");
 		String[] values = xpath.split(Pattern.quote("/"));
 		for (int i = 0; i < values.length; i++) {
-			if (values[i].contains("@"))
+			if (values[i].contains("@") && values[i].contains(":"))
 				normalisedXpath = normalisedXpath + "@"
 						+ values[i].substring(values[i].indexOf(":") + 1, values[i].length()) + "/";
 			else
@@ -241,7 +244,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			Node node = nodes.item(i);
 			NamedNodeMap attrNode = node.getAttributes();
 			Node nodeAttr = attrNode.getNamedItem(attr);
-			nodeAttr.setTextContent(newValue);
+			if(nodeAttr!=null)
+				nodeAttr.setTextContent(newValue);
+			else
+				((Element) node).setAttribute(attr, newValue);
 			if (newValue.equalsIgnoreCase("$REMOVE$"))
 				node.getAttributes().removeNamedItem(attr);
 		}

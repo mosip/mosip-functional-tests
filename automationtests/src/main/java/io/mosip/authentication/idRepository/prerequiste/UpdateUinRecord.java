@@ -120,7 +120,7 @@ public class UpdateUinRecord extends PrerequisteTests implements ITest {
 	public void updateUINTestData() throws AuthenticationTestException {
 		Object[][] object = DataProviderClass.getDataProvider(
 				RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getScenarioPath(),
-				RunConfigUtil.objRunConfig.getScenarioPath(), "smokeandregression");
+				RunConfigUtil.objRunConfig.getScenarioPath(), this.testType);
 		cookieValue=getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()+RunConfigUtil.objRunConfig.getClientidsecretkey(),AUTHORIZATHION_COOKIENAME);
 		for (int i = 1; i < object.length; i++) {
 			updateUinRecordTest(new TestParameters((TestParameters) object[i][0]), object[i][1].toString(),

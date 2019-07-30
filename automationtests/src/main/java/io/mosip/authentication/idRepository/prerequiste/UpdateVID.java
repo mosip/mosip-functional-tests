@@ -129,7 +129,7 @@ public class UpdateVID extends PrerequisteTests implements ITest {
 		setConfigurations(this.testType);
 		Object[][] object =DataProviderClass.getDataProvider(
 				RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getScenarioPath(),
-				RunConfigUtil.objRunConfig.getScenarioPath(), "smokeandregression");
+				RunConfigUtil.objRunConfig.getScenarioPath(), this.testType);
 		for (int i = 1; i < object.length; i++) {
 			updateVidStatusRecord(new TestParameters((TestParameters) object[i][0]), object[i][1].toString(),
 					object[i][2].toString());

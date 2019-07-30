@@ -136,6 +136,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	public static String getCbeffEncode(String filename) {
 		try {
 			String objectData = FileUtil.readInput(filename);
+			objectData=objectData.replaceAll(" xmlns=\"\"", "");
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
