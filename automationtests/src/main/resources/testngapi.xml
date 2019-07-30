@@ -12,7 +12,7 @@
 	</listeners>
 
 
-	<test name="Kernel Tests">
+	<!-- <test name="Kernel Tests">
 		<classes>
 
 			<class name="io.mosip.kernel.tests.AuditLog" /> <class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" 
@@ -105,12 +105,12 @@
 		<class name="io.mosip.registrationProcessor.tests.PrintingStage" />
 		</classes>
 
-	</test>
-	 <test name="IdeepositoryTest">
+	</test> -->
+	 <test name="Reg test">
 		<classes>
 			<class
 				name="io.mosip.registration.tests.SMSNotificationServiceTest" />
-			<class
+			<!-- <class
 				name="io.mosip.registration.tests.MasterSyncBlackListedWord" />
 			<class
 				name="io.mosip.registration.tests.MasterSyncDocumentCategory" />
@@ -161,10 +161,10 @@
 				name="io.mosip.registration.tests.PacketUploadServiceTest" />
 			<class
 				name="io.mosip.registration.tests.SyncStatusValidatorServiceTest" />
-			<class name="io.mosip.registration.tests.JobConfigurationTest" />
+			<class name="io.mosip.registration.tests.JobConfigurationTest" /> -->
 
 		</classes>
-	</test> 
+	</test>
 
 </suite>
 		
