@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.*;   
+import static io.mosip.authentication.fw.util.AuthTestsUtil.*;    
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
