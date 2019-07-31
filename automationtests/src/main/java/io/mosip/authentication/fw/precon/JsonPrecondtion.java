@@ -364,9 +364,9 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 * @return String
 	 */
 	public static String convertJsonContentToXml(String content) {
-		return XMLPREFIX + XMLROOT + ">" + XML.toString(new JSONObject(content)) + "</" + XMLROOT + ">";
+		return XMLPREFIX + XMLROOT + ">" + org.json.XML.toString(new JSONObject(content)) + "</" + XMLROOT + ">";
 	}
-	
+
 	public static String parseAndReturnJsonContent(String inputContent,String inputValueToSet, String mapping) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();

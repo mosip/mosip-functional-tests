@@ -1,6 +1,6 @@
 package io.mosip.registration.util;
 
-import java.io.IOException;  
+import java.io.IOException;   
 import java.util.HashMap;
 
 import org.json.simple.parser.ParseException;
