@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.automationtests</groupId>
@@ -77,7 +76,7 @@
 		<jackson.databind>2.9.6</jackson.databind>
 		<json.utility.version>20180130</json.utility.version>
 		<json.schema.validator.version>2.2.10</json.schema.validator.version>
-		<json.version>20160212</json.version>
+		<json.version>20180130</json.version>
 
 		<!-- utilities -->
 		<commons-math3>3.6.1</commons-math3>
@@ -182,13 +181,13 @@
 		<zt.zip.version>1.13</zt.zip.version>
 	</properties>
 	<dependencies>
-	<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
-<dependency>
-    <groupId>org.javassist</groupId>
-    <artifactId>javassist</artifactId>
-    <version>3.25.0-GA</version>
-</dependency>
-	
+		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.25.0-GA</version>
+		</dependency>
+
 		<dependency>
 			<groupId>io.mosip.registration</groupId>
 			<artifactId>registration-services</artifactId>
@@ -420,24 +419,21 @@
 			<artifactId>checker-qual</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-	<!-- <dependency>
+		<!-- <dependency> <groupId>org.apache.activemq</groupId> <artifactId>activemq-core</artifactId> 
+			<version>5.7.0</version> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
+		<dependency>
 			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-core</artifactId>
-			<version>5.7.0</version>
-		</dependency> -->
-<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
-<dependency>
-    <groupId>org.apache.activemq</groupId>
-    <artifactId>activemq-broker</artifactId>
-    <version>5.15.9</version>
-</dependency>
-	<!-- Lombok -->
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-				<scope>compile</scope>
-			</dependency>
+			<artifactId>activemq-broker</artifactId>
+			<version>5.15.9</version>
+		</dependency>
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -447,17 +443,6 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.4.1</version>
-				<configuration>
-					<rules>
-						<dependencyConvergence />
-					</rules>
-				</configuration>
-			</plugin>
 			<plugin>
 
 				<artifactId>maven-compiler-plugin</artifactId>
