@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.*;    
+import static io.mosip.authentication.fw.util.AuthTestsUtil.*;     
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,7 +20,6 @@ import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.XML;
 import org.testng.Reporter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -364,7 +363,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 * @return String
 	 */
 	public static String convertJsonContentToXml(String content) {
-		return XMLPREFIX + XMLROOT + ">" + org.json.XML.toString(new JSONObject(content)) + "</" + XMLROOT + ">";
+		return XMLPREFIX + XMLROOT + ">" + org.json.XML.toString(new org.json.JSONObject(content)) + "</" + XMLROOT + ">";
 	}
 
 	public static String parseAndReturnJsonContent(String inputContent,String inputValueToSet, String mapping) {
