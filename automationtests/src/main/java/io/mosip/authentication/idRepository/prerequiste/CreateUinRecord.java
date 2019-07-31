@@ -1,12 +1,14 @@
 package io.mosip.authentication.idRepository.prerequiste;
 
-import java.io.File; 
+import java.io.File;  
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITest;
@@ -22,7 +24,6 @@ import org.testng.internal.TestResult;
 import io.mosip.authentication.fw.util.DataProviderClass;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.IdRepoUtil;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.dto.RidDto;
@@ -33,7 +34,6 @@ import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
-import io.mosip.authentication.idRepository.fw.util.IdRepoPrerequisteTests;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
 
@@ -56,6 +56,7 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
 	private String testType;
 	private int invocationCount = 0;
 	private String cookieValue;
+	private int retryCount;
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -133,6 +134,7 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
 					RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()
 							+ RunConfigUtil.objRunConfig.getClientidsecretkey(),
 					AUTHORIZATHION_COOKIENAME);
+			retryCount=0; 
 			createUinDataTest(new TestParameters((TestParameters) object[i][0]), object[i][1].toString(),
 					object[i][2].toString());
 		}
@@ -185,7 +187,12 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
 		String mapping = TestDataUtil.getMappingPath();
 		Map<String, String> tempMap = new HashMap<String, String>();
 		String uin = IdRepoUtil.generateUinNumberForIda();
+		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		Calendar cal = Calendar.getInstance();
+		String timestampValue = dateFormatter.format(cal.getTime());
+		String genRid = "278476573600025" + timestampValue;
 		tempMap.put("UIN", "LONG:" + uin);
+		tempMap.put("registrationId", genRid);
 		logger.info("************* IdRepo UIN request ******************");
 		Reporter.log("<b><u>UIN create request</u></b>");
 		Assert.assertEquals(modifyRequest(testCaseName.listFiles(), tempMap, mapping, "create"), true);
@@ -198,9 +205,14 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid)) {
+			if (retryCount <= 2)
+				createUinDataTest(objTestParameters, testScenario, testcaseName);
+			else
 				throw new AuthenticationTestException("Failed at output response validation");
-		wait(5000);
+			retryCount++;
+		}				
+		wait(3000);
 		if (OutputValidationUtil.publishOutputResult(ouputValid)) {
 			storeUinData.put(uin, testcaseName);
 			storeRidData.put(rid, uin);
