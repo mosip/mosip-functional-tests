@@ -35,7 +35,7 @@ From Git Bash:
 - Run the "git clone https://github.com/mosip/mosip-functional-tests" command
 
 Make sure pom.xml file lists all the dependencies, as it is used to build the automation code.
-Edit the pom.xml for the latest version of mosip platform Eg: <version>0.12.16</version>
+Edit the pom.xml for the latest version of mosip platform Eg: <version>0.9.1</version>
 
 **Command to use:** 
 <br>_cd automationtests_<br>
