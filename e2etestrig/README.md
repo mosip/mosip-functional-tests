@@ -52,9 +52,9 @@ Execute the jar from the target folder on the application code deployed. In this
 **Command to use:**
 <br>_cd target/_<br>
 
-_java -jar e2etests-0.12.16-jar-with-dependencies.jar_
+_java -jar e2etests-0.9.1-jar-with-dependencies.jar_
 
 
 The version of the jar file name changes as per development code version and you must have the dev code to run the e2e test. 
 
-Example: Current version of Dev [code base](https://github.com/mosip/mosip-platform) is 0.12.16 so the jar name will be e2etests-0.12.16-jar-with-dependencies
+Example: Current version of Dev [code base](https://github.com/mosip/mosip-platform) is 0.9.1 so the jar name will be e2etests-0.9.1-jar-with-dependencies
