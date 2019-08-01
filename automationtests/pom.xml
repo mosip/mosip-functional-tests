@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.automationtests</groupId>
 	<artifactId>automationtests</artifactId>
-	<version>0.12.16</version>
+	<version>0.9.0</version>
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
@@ -12,7 +12,7 @@
 	<!--<parent>
 		<groupId>io.mosip</groupId>
 		<artifactId>mosip-parent</artifactId>
-		<version>0.12.16</version>
+		<version>0.9.0</version>
 	</parent>-->
 
 	<dependencies>
@@ -332,12 +332,12 @@
 		<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-partnerdemo-service</artifactId>
-			<version>0.12.13</version>
+			<version>0.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>0.12.4</version>
+			<version>0.9.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.wink/wink-json4j-provider -->
 		<dependency>
