@@ -201,7 +201,7 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 	}
 
 	@Test(dataProvider = "updateRegistration", alwaysRun = true)
-	public void updateRegistrationTest(String testcaseName, JSONObject object) {
+	public void updateRegistrationTest(String testcaseName, JSONObject object) throws RegBaseCheckedException {
 		commonUtil();
 		String subServiceName = "updateRegistration";
 		// logger.info("Test case: " + testcaseName);
@@ -251,13 +251,8 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 		RegistrationApprovalDTO obj = registrationApprovalService.getEnrollmentByStatus(originalStatus).get(0);
 		String registrationID = obj.getId();
 		String statusComment = obj.getStatusComment();
-		try {
-			Registration updatedRegistration = registrationApprovalService.updateRegistration(registrationID, "updating",
-					NEW_STATUS);
-		} catch (RegBaseCheckedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Registration updatedRegistration = registrationApprovalService.updateRegistration(registrationID, "updating",
+				NEW_STATUS);
 
 		List<RegistrationApprovalDTO> list = new ArrayList<>();
 		list = registrationApprovalService.getEnrollmentByStatus("REGISTERED");
@@ -275,12 +270,7 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 
 		assertTrue(passed);
 
-		try {
-			registrationApprovalService.updateRegistration(registrationID, statusComment, "REGISTERED");
-		} catch (RegBaseCheckedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		registrationApprovalService.updateRegistration(registrationID, statusComment, "REGISTERED");
 	}
 
 	private void commonUtil() {
