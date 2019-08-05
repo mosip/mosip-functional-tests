@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.*;   
+import static io.mosip.authentication.fw.util.AuthTestsUtil.*;     
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -22,12 +22,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 import org.testng.Reporter;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.thoughtworks.xstream.XStream;
+
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
@@ -362,11 +367,16 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 * 
 	 * @param Json content
 	 * @return String
+	 * @throws JsonProcessingException 
 	 */
-	public static String convertJsonContentToXml(String content) {
-		return XMLPREFIX + XMLROOT + ">" + XML.toString(new JSONObject(content)) + "</" + XMLROOT + ">";
+	public static String convertJsonContentToXml(String content) throws JsonProcessingException {
+		JSONObject jsonObj = new JSONObject(content);
+		Map<String, Object> jsonToMap = jsonToMap(jsonObj);
+		XmlMapper xmlMapper = new XmlMapper();
+		String xmlContent = xmlMapper.writeValueAsString(jsonToMap);
+		return XMLPREFIX + XMLROOT + ">" + xmlContent + "</" + XMLROOT + ">";
 	}
-	
+
 	public static String parseAndReturnJsonContent(String inputContent,String inputValueToSet, String mapping) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();

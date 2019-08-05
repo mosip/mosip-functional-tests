@@ -21,7 +21,7 @@ Update the following configuration files under the automationtests/src/main/reso
    * masterdataqa.cfg.xml
    * preregqa.cfg.xml
    * regproc.cfg.xml
-   * ida/RunConfig/envRunConfig.properties
+   * idaqa.cfg.xml
 
 ### 1. Access Test Automation Code
 From Browser:

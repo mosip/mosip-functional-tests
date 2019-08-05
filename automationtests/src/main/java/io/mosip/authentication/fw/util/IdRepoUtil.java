@@ -132,18 +132,10 @@ public class IdRepoUtil extends AuthTestsUtil {
 	 * @return UIN Number
 	 */
 	public static String generateUinNumberForIdRepo() {
-		boolean flag = false;
-		String uin;
-		do {
-			uin = JsonPrecondtion.getValueFromJson(
+		return JsonPrecondtion.getValueFromJson(
 					getResponseWithCookieForIdRepoUinGenerator(RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()
 							+ RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
 					"response.uin");
-			if (uin.startsWith("1") || uin.startsWith("2") || uin.startsWith("3") || uin.startsWith("4")) {
-				flag = true;
-			}
-		} while (flag == false);
-		return uin;
 	}
 
 	/**

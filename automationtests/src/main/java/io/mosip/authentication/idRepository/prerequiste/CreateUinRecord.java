@@ -206,11 +206,13 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if (!OutputValidationUtil.publishOutputResult(ouputValid)) {
-			if (retryCount <= 2)
+			if (retryCount <= 2) {
+				retryCount++;
 				createUinDataTest(objTestParameters, testScenario, testcaseName);
+			}
 			else
 				throw new AuthenticationTestException("Failed at output response validation");
-			retryCount++;
+			
 		}				
 		wait(3000);
 		if (OutputValidationUtil.publishOutputResult(ouputValid)) {
