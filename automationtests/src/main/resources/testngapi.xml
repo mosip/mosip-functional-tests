@@ -113,13 +113,15 @@
 			<class name="io.mosip.preregistration.tests.ValidateOtp" />
 			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
-	</test>
+	</test> -->
 
 
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
-			<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
+		 <class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
+			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
+			<!-- <class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
 			<class name="io.mosip.registrationProcessor.tests.SecurityTests" />
@@ -135,11 +137,11 @@
 			<class name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
 			<class name="io.mosip.registrationProcessor.tests.PacketInfo" />
 			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
-			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />
+			<class name="io.mosip.registrationProcessor.tests.PrintingStage" /> -->
 		</classes>
 
-	</test> -->
-	<test name="AuthenticationTest">
+	</test>
+<!-- 	<test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -161,7 +163,7 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test name="Idrepository Test">
 		<classes>

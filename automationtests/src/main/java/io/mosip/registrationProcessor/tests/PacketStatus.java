@@ -229,7 +229,7 @@ public class PacketStatus extends BaseTestCase implements ITest {
 			}
 			
 			actualRequest.put("requesttime", apiRequests.getUTCTime());
-			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
+			if(object.get("testCaseName").toString().contains("invalidRequestUTC")) {
 				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
 			}else if(object.get("testCaseName").toString().contains("emptyTimestamp")) {
 				actualRequest.put("requesttime","");
