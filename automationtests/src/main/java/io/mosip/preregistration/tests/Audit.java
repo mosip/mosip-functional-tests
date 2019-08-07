@@ -308,7 +308,7 @@ public class Audit extends BaseTestCase implements ITest {
 
 	@Test
 	public void getAuditDataForBatchJobConsumed() {
-		List preRegistrationId = new ArrayList();
+		List<String> preRegistrationId = new ArrayList<String>();
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);
