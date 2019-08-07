@@ -672,7 +672,7 @@ public class TweakRegProcPackets extends BaseTestCase {
 					propertyPath = property + "_smoke";
 				}
 				e.generateUpdatePacket(property, prop.getProperty(property), validPacketPath,
-						invalidPacketPath+"regProc_Update"+propertyPath);
+						invalidPacketPath+"Update"+propertyPath);
 			}
 			readFile.close();
 		} catch (IOException exc) {

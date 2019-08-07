@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -414,12 +416,17 @@ public class CommonUtil {
 			mapper.registerModule(new JSR310Module());
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
+
+			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
 			registrationDTO = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath()),
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
+			File demoPath = new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath());
+
 			IndividualIdentity identity = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath()),
+					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					IndividualIdentity.class);
+
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
 			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, POAPOBPORPOIJpg);
 			registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
@@ -525,13 +532,17 @@ public class CommonUtil {
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
 
+			
+			File bioPath = new File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
 			registrationDTO = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(biometricPath).getPath()),
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
+			File demoPath = new File(this.getClass().getClassLoader().getResource(demographicPath).getPath());
 
 			IndividualIdentity identity = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(demographicPath).getPath()),
+					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					IndividualIdentity.class);
+		
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
 
 			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, proofOfImagePath);
@@ -955,9 +966,15 @@ public class CommonUtil {
 		ResourceBundle applicationLanguageBundle;
 		try {
 
+
+			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
 			registrationDTO = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath()),
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
+			
+			
+			
+			
 			if ((packetType.equalsIgnoreCase("PrIdOfChildWithoutDocs")
 					|| packetType.equalsIgnoreCase("PrIdOfAdultWithoutDocs"))) {
 				// Create RegistrationDTO without docs
@@ -966,7 +983,9 @@ public class CommonUtil {
 				// Set Registration ID to RegistrationDTO
 				registrationDTO.setRegistrationId(preRegistrationDTO.getRegistrationId());
 				// Get identity from preRegistrationDTO to RegistrationDTO
-				identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
+				
+				
+			identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
 						.getIdentity();
 
 				HashMap<String, String> genderDetail = new HashMap<String, String>();
@@ -1026,15 +1045,14 @@ public class CommonUtil {
 					// get local admin authority details
 
 					List<LocationDto> localadminDetails = masterSync.findProvianceByHierarchyCode(
-							cityDetails.get(0).getCode(),
-							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
+							cityDetails.get(0).getCode(), identity.getZone().get(j).getLanguage());
 
-					String localadminCode = identity.getLocalAdministrativeAuthority().get(j).getValue();
+					String localadminCode = identity.getZone().get(j).getValue();
 
 					List<LocationDto> localadminResult = localadminDetails.stream()
 							.filter(o -> o.getCode().equalsIgnoreCase(localadminCode)).collect(Collectors.toList());
 
-					identity.getLocalAdministrativeAuthority().get(j).setValue(localadminResult.get(0).getName());
+					identity.getZone().get(j).setValue(localadminResult.get(0).getName());
 
 				}
 
@@ -1111,21 +1129,19 @@ public class CommonUtil {
 					// get local admin authority details
 
 					List<LocationDto> localadminDetails = masterSync.findProvianceByHierarchyCode(
-							cityDetails.get(0).getCode(),
-							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
+							cityDetails.get(0).getCode(), identity.getZone().get(j).getLanguage());
 
-					String localadminCode = identity.getLocalAdministrativeAuthority().get(j).getValue();
+					String localadminCode = identity.getZone().get(j).getValue();
 
 					List<LocationDto> localadminResult = localadminDetails.stream()
 							.filter(o -> o.getCode().equalsIgnoreCase(localadminCode)).collect(Collectors.toList());
 
-					identity.getLocalAdministrativeAuthority().get(j).setValue(localadminResult.get(0).getName());
+					identity.getZone().get(j).setValue(localadminResult.get(0).getName());
 
 					// get local admin authority details
 
 					List<LocationDto> postalCodeDetails = masterSync.findProvianceByHierarchyCode(
-							localadminResult.get(0).getCode(),
-							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
+							localadminResult.get(0).getCode(), identity.getZone().get(j).getLanguage());
 					/*
 					 * String postalCodeCode =
 					 * identity.getLocalAdministrativeAuthority().get(j).getValue();

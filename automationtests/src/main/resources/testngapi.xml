@@ -119,6 +119,7 @@
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
+		 
 			<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
@@ -135,7 +136,7 @@
 			<class name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
 			<class name="io.mosip.registrationProcessor.tests.PacketInfo" />
 			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
-			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />
+			<class name="io.mosip.registrationProcessor.tests.PrintingStage" /> 
 		</classes>
 
 	</test>
@@ -161,7 +162,7 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test>
+	</test> 
 
 	<test name="Idrepository Test">
 		<classes>

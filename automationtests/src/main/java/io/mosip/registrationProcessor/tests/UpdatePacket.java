@@ -1,6 +1,7 @@
 package io.mosip.registrationProcessor.tests;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -78,7 +79,7 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 	static String outputFile = "UpdatePacketOutput.json";
 	static String requestKeyFile = "UpdatePacketRequest.json";
 	static String description="";
-	static String apiName="UpdatePacketApi";
+	static String apiName="UpdatePacket";
 	static String moduleName="RegProc";
 	RegProcApiRequests apiRequests=new RegProcApiRequests();
 	TokenGeneration generateToken=new TokenGeneration();
@@ -145,7 +146,9 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 		String regId = null;
 		JSONObject requestToEncrypt = null;
 		RegistrationPacketSyncDTO registrationPacketSyncDto = new RegistrationPacketSyncDTO();
-		File file=ResponseRequestMapper.getUpdatePacket(testSuite, object);
+		File file = null;
+		file=ResponseRequestMapper.getUpdatePacket(testSuite, object);
+		
 		String propertyFilePath = apiRequests.getResourcePath()+"config/" + "updatePacketProperties.properties";
 
 		Response syncResponse = null;
@@ -158,15 +161,16 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 
 				requestToEncrypt=encryptData.encryptData(registrationPacketSyncDto);
 			}else {
-				actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
+				/*actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
 				JSONArray request = (JSONArray) actualRequest.get("request");
 				for(int j = 0; j<request.size() ; j++){
 					JSONObject obj  = (JSONObject) request.get(j);
 					regId = obj.get("registrationId").toString();
 					registrationPacketSyncDto = encryptData.createSyncRequest(actualRequest);
 					requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
-				}
-			}
+				
+				}*/
+		}
 
 			String center_machine_refID=regId.substring(0,5)+"_"+regId.substring(5, 10);
 
@@ -312,7 +316,7 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 
 			}
 
-		}catch(IOException | ParseException |NullPointerException | IllegalArgumentException e){
+		}catch(IOException | NullPointerException | IllegalArgumentException e){
 			e.printStackTrace();
 			logger.error("Exception occurred in UpdatePacket class in updatePacket method "+e);
 
