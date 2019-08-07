@@ -207,6 +207,7 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 
 	@Test(dataProvider = "updateRegistration", alwaysRun = true)
 	public void updateRegistrationTest(String testcaseName, JSONObject object) {
+		try {
 		commonUtil();
 		String subServiceName = "updateRegistration";
 		// logger.info("Test case: " + testcaseName);
@@ -285,6 +286,11 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 		} catch (RegBaseCheckedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		}
+		catch(Exception e)
+		{
+			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
 
