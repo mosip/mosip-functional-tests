@@ -16,7 +16,8 @@
 		<classes>
 
 			<class name="io.mosip.kernel.tests.AuditLog" />
-			<class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
+			<class
+				name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
 			<class name="io.mosip.kernel.tests.EmailNotification" />
 			<class name="io.mosip.kernel.tests.EncrptionDecryption" />
 			<class name="io.mosip.kernel.tests.FetchBiometricAttribute" />
@@ -39,7 +40,8 @@
 			<class name="io.mosip.kernel.tests.FetchRejectionReason" />
 			<class name="io.mosip.kernel.tests.FetchTemplate" />
 			<class name="io.mosip.kernel.tests.FetchTitle" />
-			<class name="io.mosip.kernel.tests.GetAllTemplateByTemplateTypeCode" />
+			<class
+				name="io.mosip.kernel.tests.GetAllTemplateByTemplateTypeCode" />
 			<class name="io.mosip.kernel.tests.GetApplicantType" />
 			<class name="io.mosip.kernel.tests.GetDeviceHistory" />
 			<class name="io.mosip.kernel.tests.GetDocTypeDocCatByAppID" />
@@ -49,7 +51,8 @@
 			<class name="io.mosip.kernel.tests.GetIndividualType" />
 			<class name="io.mosip.kernel.tests.GetListOfRoles" />
 			<class name="io.mosip.kernel.tests.GetRegCenterByIDTimestamp" />
-			<class name="io.mosip.kernel.tests.GetRegistrationCenterDeviceHistory" />
+			<class
+				name="io.mosip.kernel.tests.GetRegistrationCenterDeviceHistory" />
 			<class name="io.mosip.kernel.tests.GetRIDByUserId" />
 			<class name="io.mosip.kernel.tests.GetUserHistory" />
 			<class name="io.mosip.kernel.tests.GetUsersBasedOnRegCenter" />
@@ -62,7 +65,8 @@
 			<class name="io.mosip.kernel.tests.SyncConfigurations" />
 			<class name="io.mosip.kernel.tests.UploadPublickey" />
 			<class name="io.mosip.kernel.tests.SyncMDataWithKeyIndex" />
-			<class name="io.mosip.kernel.tests.SyncMDataWithKeyIndexRegCentId" />
+			<class
+				name="io.mosip.kernel.tests.SyncMDataWithKeyIndexRegCentId" />
 			<class name="io.mosip.kernel.tests.SyncPublicKeyToRegClient" />
 			<class name="io.mosip.kernel.tests.TokenIdGenerator" />
 			<class name="io.mosip.kernel.tests.UINGeneration" />
@@ -78,85 +82,121 @@
 		<classes>
 			<class name="io.mosip.preregistration.tests.BatchJob" />
 			<class name="io.mosip.preregistration.tests.Audit" />
-			<class name="io.mosip.preregistration.tests.RetrivePreRegistration" />
+			<class
+				name="io.mosip.preregistration.tests.RetrivePreRegistration" />
 			<class name="io.mosip.preregistration.tests.BookingAppointment" />
-			<class name="io.mosip.preregistration.tests.CancelAnBookedAppointment" />
-			<class name="io.mosip.preregistration.tests.CopyUploadedDocument" />
-			<class name="io.mosip.preregistration.tests.CreatePreRegistration" />
-			<class name="io.mosip.preregistration.tests.DeleteAllDocumentsByPreRegID" />
-			<class name="io.mosip.preregistration.tests.DeleteDocumentByDocId" />
+			<class
+				name="io.mosip.preregistration.tests.CancelAnBookedAppointment" />
+			<class
+				name="io.mosip.preregistration.tests.CopyUploadedDocument" />
+			<class
+				name="io.mosip.preregistration.tests.CreatePreRegistration" />
+			<class
+				name="io.mosip.preregistration.tests.DeleteAllDocumentsByPreRegID" />
+			<class
+				name="io.mosip.preregistration.tests.DeleteDocumentByDocId" />
 			<class name="io.mosip.preregistration.tests.DiscardIndividual" />
 			<class name="io.mosip.preregistration.tests.DocumentUpload" />
 			<class
 				name="io.mosip.preregistration.tests.FetchAllApplicationCreatedByUser" />
-			<class name="io.mosip.preregistration.tests.FetchAllPreRegistrationIds" />
-			<class name="io.mosip.preregistration.tests.FetchAppointmentDetails" />
-			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
+			<class
+				name="io.mosip.preregistration.tests.FetchAllPreRegistrationIds" />
+			<class
+				name="io.mosip.preregistration.tests.FetchAppointmentDetails" />
+			<class
+				name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 			<class
 				name="io.mosip.preregistration.tests.FetchAvailabilityDataOfRegistrationCenters" />
-			<class name="io.mosip.preregistration.tests.FetchTheStatusOfApplication" />
-			<class name="io.mosip.preregistration.tests.GetAllDocumentForDocId" />
-			<class name="io.mosip.preregistration.tests.GetAllDocumentForPreRegId" />
-			<class name="io.mosip.preregistration.tests.GetPreRegistartionData" />
-			<class name="io.mosip.preregistration.tests.IntegrationScenarios" />
+			<class
+				name="io.mosip.preregistration.tests.FetchTheStatusOfApplication" />
+			<class
+				name="io.mosip.preregistration.tests.GetAllDocumentForDocId" />
+			<class
+				name="io.mosip.preregistration.tests.GetAllDocumentForPreRegId" />
+			<class
+				name="io.mosip.preregistration.tests.GetPreRegistartionData" />
+			<class
+				name="io.mosip.preregistration.tests.IntegrationScenarios" />
 			<class name="io.mosip.preregistration.tests.InvalidateToken" />
-			<class name="io.mosip.preregistration.tests.MultipleBookingAppointment" />
+			<class
+				name="io.mosip.preregistration.tests.MultipleBookingAppointment" />
 			<class name="io.mosip.preregistration.tests.QRCode" />
 			<class name="io.mosip.preregistration.tests.Pagination" />
 			<class
 				name="io.mosip.preregistration.tests.RetriveAllPreRegIdByRegCenterId" />
-			<class name="io.mosip.preregistration.tests.RetrivePreRegistration" />
+			<class
+				name="io.mosip.preregistration.tests.RetrivePreRegistration" />
 			<class name="io.mosip.preregistration.tests.SendOtp" />
 			<class name="io.mosip.preregistration.tests.Translitration" />
-			<class name="io.mosip.preregistration.tests.TriggerNotification" />
-			<class name="io.mosip.preregistration.tests.UpdateDemographicDetails" />
+			<class
+				name="io.mosip.preregistration.tests.TriggerNotification" />
+			<class
+				name="io.mosip.preregistration.tests.UpdateDemographicDetails" />
 			<class name="io.mosip.preregistration.tests.ValidateOtp" />
-			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
+			<class
+				name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
 	</test>
- 
+
 
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
-			<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
+
+			<class
+				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
-			<class name="io.mosip.registrationProcessor.tests.SecurityTests" />
+			<class
+				name="io.mosip.registrationProcessor.tests.SecurityTests" />
 			<class name="io.mosip.registrationProcessor.tests.PacketStatus" />
-			<class name="io.mosip.registrationProcessor.tests.PacketReceiver" />
-			<class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketReceiver" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 			<class name="io.mosip.registrationProcessor.tests.Assignment" />
 			<class name="io.mosip.registrationProcessor.tests.Decision" />
-			<class name="io.mosip.registrationProcessor.tests.IntegrationScenarios" />
-			<class name="io.mosip.registrationProcessor.tests.ApplicantDemographic" />
-			<class name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
+			<class
+				name="io.mosip.registrationProcessor.tests.IntegrationScenarios" />
+			<class
+				name="io.mosip.registrationProcessor.tests.ApplicantDemographic" />
+			<class
+				name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
 			<class name="io.mosip.registrationProcessor.tests.PacketInfo" />
-			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
-			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />
+			<class
+				name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PrintingStage" />
 		</classes>
 
 	</test>
-	 <test name="AuthenticationTest">
+	<test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
 			<class name="io.mosip.authentication.tests.OtpGeneration" />
-			<class name="io.mosip.authentication.tests.DemographicAuthentication" />
-			<class name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
-			<class name="io.mosip.authentication.tests.BiometricAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.DemographicAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.BiometricAuthentication" />
 			<class
 				name="io.mosip.authentication.tests.InternalBiometricAuthentication" />
-			<class name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
 			<class
 				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
-			<class name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
 			<class name="io.mosip.authentication.tests.OtpAuthentication" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
@@ -169,19 +209,26 @@
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
-			<class name="io.mosip.authentication.idRepository.tests.AddIdentity" />
-			<class name="io.mosip.authentication.idRepository.tests.UpdateIdentity" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.AddIdentity" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.UpdateIdentity" />
 			<class
 				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByUinPos" />
 			<class
 				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByUinNeg" />
 			<class
 				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByRid" />
-			<class name="io.mosip.authentication.idRepository.tests.CreateVid" />
-			<class name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
-			<class name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.CreateVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
@@ -189,7 +236,7 @@
 	<test name="Registration Test">
 		<classes>
 
-<class
+			<class
 				name="io.mosip.registration.tests.PacketHandlerServiceTest" />
 
 			<class
@@ -232,7 +279,7 @@
 				name="io.mosip.registration.tests.LoginServiceUserDetailsTest" />
 
 			<class name="io.mosip.registration.tests.PolicySyncServiceTest" />
-			
+
 			<class name="io.mosip.registration.tests.StorageServiceTest" />
 			<class
 				name="io.mosip.registration.tests.RegistrationApprovalServiceTest" />
@@ -259,9 +306,7 @@
 				name="io.mosip.registration.tests.SyncStatusValidatorServiceTest" />
 			<class name="io.mosip.registration.tests.JobConfigurationTest" />
 
-
-
 		</classes>
-		</test> 
+	</test>
 
 </suite>
