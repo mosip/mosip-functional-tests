@@ -253,7 +253,7 @@
 		"introducerUIN": null,
 		"demographicInfoDTO": 
 		{
-		
+			
 		}
 	},
 
@@ -278,12 +278,12 @@
 		[
 			{
 				"language": "eng",
-				"value": "أيوب توفيق"
+				"value": "Abd al Hakim"
 			},
 
 			{
 				"language": "ara",
-				"value": "تالتلتاننتا"
+				"value": "مثقل بن أسامة"
 			}
 		]
 	},
@@ -300,7 +300,8 @@
 	},
 
 	"auditDTOs": null,
-	"selectionListDTO": {
+	"selectionListDTO": 
+	{
 		"uinId": null,
 		"name": false,
 		"age": false,
@@ -313,6 +314,7 @@
 		"parentOrGuardianDetails": true,
 		"foreigner": false
 	},
+
 	"auditLogStartTime": null,
 	"auditLogEndTime": null,
 	"updateUINChild": false,

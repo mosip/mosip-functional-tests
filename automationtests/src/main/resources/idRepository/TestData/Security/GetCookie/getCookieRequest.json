@@ -5,6 +5,6 @@
 		"secretKey": "5debb60adbfcf8feea4a6ed6160092ec",
 		"appId": "ida"
 	},
-	"requesttime": "2019-04-23T13:10:21.870Z",
+	"requesttime": "$TIMESTAMPZ$",
 	"version": "string"
-}
+}	

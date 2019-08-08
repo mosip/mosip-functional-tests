@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -63,22 +64,28 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 	 */
 	private static String centerID = null;
 	private static String stationID = null;
-	
+
 	@BeforeMethod
-	public  void setUp() {
+	public void setUp() {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 	}
-	
+
 	/**
 	 * Method to initiate jobs
 	 */
 	@Test(priority = 1)
 	public void initiateJobsTest() {
-		mTestCaseName = "regClient_JobConfigurationService_initiateJobs";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		jobConfigurationService.initiateJobs();
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_initiateJobs";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			jobConfigurationService.initiateJobs();
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -86,12 +93,18 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(priority = 2)
 	public void startSchedulerTest() {
-		mTestCaseName = "regClient_JobConfigurationService_startScheduler";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		ResponseDTO response = jobConfigurationService.startScheduler();
-		assertNotNull(response);
-		assertEquals("BATCH_JOB_START_SUCCESS_MESSAGE", response.getSuccessResponseDTO().getMessage());
-		assertNull(response.getErrorResponseDTOs());
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_startScheduler";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			ResponseDTO response = jobConfigurationService.startScheduler();
+			assertNotNull(response);
+			assertEquals("BATCH_JOB_START_SUCCESS_MESSAGE", response.getSuccessResponseDTO().getMessage());
+			assertNull(response.getErrorResponseDTOs());
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -102,26 +115,33 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 		/**
 		 * Create Copy of data
 		 */
-		mTestCaseName = "regClient_JobConfigurationService_getCurrentRunningJobDetails";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		List<SyncJobDef> data = jobConfigRepository.findAll();
-		if (data.size() > 0) {
-			Map<String, Object> params = new HashMap<String, Object>();
-			params.put("s1", false);
-			params.put("s2", true);
-			jobConfigRepository.createQueryUpdateOrDelete("UPDATE SyncJobDef  SET IS_ACTIVE=:s1 where IS_ACTIVE=:s2",
-					params);
-			ResponseDTO response = jobConfigurationService.getCurrentRunningJobDetails();
-			assertEquals(response.getErrorResponseDTOs().get(0).getCode(), RegistrationConstants.ERROR);
-			assertEquals(response.getErrorResponseDTOs().get(0).getMessage(), RegistrationConstants.NO_JOBS_RUNNING);
-			for (SyncJobDef def : data) {
-				jobConfigRepository.save(def);
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_getCurrentRunningJobDetails";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			List<SyncJobDef> data = jobConfigRepository.findAll();
+			if (data.size() > 0) {
+				Map<String, Object> params = new HashMap<String, Object>();
+				params.put("s1", false);
+				params.put("s2", true);
+				jobConfigRepository
+						.createQueryUpdateOrDelete("UPDATE SyncJobDef  SET IS_ACTIVE=:s1 where IS_ACTIVE=:s2", params);
+				ResponseDTO response = jobConfigurationService.getCurrentRunningJobDetails();
+				assertEquals(response.getErrorResponseDTOs().get(0).getCode(), RegistrationConstants.ERROR);
+				assertEquals(response.getErrorResponseDTOs().get(0).getMessage(),
+						RegistrationConstants.NO_JOBS_RUNNING);
+				for (SyncJobDef def : data) {
+					jobConfigRepository.save(def);
+				}
+				response = jobConfigurationService.getCurrentRunningJobDetails();
+			} else {
+				logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+						"Nothing is there no Testing can be done");
 			}
-			response = jobConfigurationService.getCurrentRunningJobDetails();
-		} else {
-			logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Nothing is there no Testing can be done");
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
-
 	}
 
 	/**
@@ -129,18 +149,25 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(priority = 4)
 	public void stopSchedulerTest() {
-		mTestCaseName = "regClient_JobConfigurationService_stopScheduler";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		ResponseDTO stopSchedulerResponseDto = null;
-		ResponseDTO response = jobConfigurationService.startScheduler();
-		if ("SYNC_DATA_PROCESS_ALREADY_STARTED".equals(response.getErrorResponseDTOs().get(0).getMessage())) {
-			stopSchedulerResponseDto = jobConfigurationService.stopScheduler();
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_stopScheduler";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			ResponseDTO stopSchedulerResponseDto = null;
+			ResponseDTO response = jobConfigurationService.startScheduler();
+			if ("SYNC_DATA_PROCESS_ALREADY_STARTED".equals(response.getErrorResponseDTOs().get(0).getMessage())) {
+				stopSchedulerResponseDto = jobConfigurationService.stopScheduler();
+			}
+			SuccessResponseDTO successResponse = stopSchedulerResponseDto.getSuccessResponseDTO();
+			String code = successResponse.getCode();
+			String message = successResponse.getMessage();
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					code + ", message: " + message);
+			assertEquals("BATCH_JOB_STOP_SUCCESS_MESSAGE", message);
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
-		SuccessResponseDTO successResponse = stopSchedulerResponseDto.getSuccessResponseDTO();
-		String code = successResponse.getCode();
-		String message = successResponse.getMessage();
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,code + ", message: " + message);
-		assertEquals("BATCH_JOB_STOP_SUCCESS_MESSAGE", message);
 	}
 
 	/**
@@ -148,16 +175,23 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(priority = 5)
 	public void getLastCompletedSyncJobsTest() {
-		mTestCaseName = "regClient_JobConfigurationService_getLastCompletedSyncJobs";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		jobConfigurationService.initiateJobs();
-		jobConfigurationService.executeAllJobs();
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_getLastCompletedSyncJobs";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			jobConfigurationService.initiateJobs();
+			jobConfigurationService.executeAllJobs();
 
-		ResponseDTO respDto = jobConfigurationService.getLastCompletedSyncJobs();
-		SuccessResponseDTO successResponse = respDto.getSuccessResponseDTO();
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,successResponse.getMessage());
-		Map<String, Object> jobs = successResponse.getOtherAttributes();
-		assertTrue(jobs.size() > 0);
+			ResponseDTO respDto = jobConfigurationService.getLastCompletedSyncJobs();
+			SuccessResponseDTO successResponse = respDto.getSuccessResponseDTO();
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					successResponse.getMessage());
+			Map<String, Object> jobs = successResponse.getOtherAttributes();
+			assertTrue(jobs.size() > 0);
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -165,22 +199,32 @@ public class JobConfigurationTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(priority = 6)
 	public void getSyncJobsTransactionTest() {
-		mTestCaseName = "regClient_JobConfigurationService_getSyncJobsTransaction";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + mTestCaseName);
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"getSyncJobsTransactionTest");
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"applicationContext:: " + applicationContext);
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"globalParamService:: " + globalParamService);
-		applicationContext.setApplicationMap(globalParamService.getGlobalParams());
+		try {
+			mTestCaseName = "regClient_JobConfigurationService_getSyncJobsTransaction";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + mTestCaseName);
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"getSyncJobsTransactionTest");
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"applicationContext:: " + applicationContext);
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"globalParamService:: " + globalParamService);
+			applicationContext.setApplicationMap(globalParamService.getGlobalParams());
 
-		jobConfigurationService.initiateJobs();
-		jobConfigurationService.executeAllJobs();
+			jobConfigurationService.initiateJobs();
+			jobConfigurationService.executeAllJobs();
 
-		ResponseDTO respDto = jobConfigurationService.getSyncJobsTransaction();
-		SuccessResponseDTO successRespDto = respDto.getSuccessResponseDTO();
-		// List<ErrorResponseDTO> errors = respDto.getErrorResponseDTOs();
-		assertTrue(successRespDto.getOtherAttributes().size() > 0);
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,successRespDto.getMessage());
-		// logger.info(errors.toString());
+			ResponseDTO respDto = jobConfigurationService.getSyncJobsTransaction();
+			SuccessResponseDTO successRespDto = respDto.getSuccessResponseDTO();
+			// List<ErrorResponseDTO> errors = respDto.getErrorResponseDTOs();
+			assertTrue(successRespDto.getOtherAttributes().size() > 0);
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					successRespDto.getMessage());
+			// logger.info(errors.toString());
+		} catch (Exception exception) {
+			logger.debug("JOB CONFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 
 	}
 

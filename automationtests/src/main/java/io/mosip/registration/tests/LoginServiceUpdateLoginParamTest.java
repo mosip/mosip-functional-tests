@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -53,7 +54,7 @@ public class LoginServiceUpdateLoginParamTest extends BaseConfiguration implemen
 
 	@Autowired
 	CommonUtil commonUtil;
-	
+
 	private static final Logger logger = AppConfig.getLogger(LoginServiceUpdateLoginParamTest.class);
 	private static final String serviceName = "LoginService";
 	private static final String testDataFileName = "LoginServiceTestData";
@@ -98,36 +99,47 @@ public class LoginServiceUpdateLoginParamTest extends BaseConfiguration implemen
 	 */
 	@Test(dataProvider = "updateLoginParamProvider", alwaysRun = true)
 	public void updateLoginParamsTest(String testCaseName, JSONObject object) {
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"updateLoginParamsTest invoked!");
-		String subServiceName = "updateLoginParam";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testCaseName);
-		mTestCaseName = testCaseName;
-		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
-				testCasePropertyFileName);
-		String userIdCase = prop.getProperty("userId");
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"userIdCase " + userIdCase);
-		String userId = dataGenerator.getYamlData(serviceName, testDataFileName, "userId", prop.getProperty("userId"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"userId read  is " + userId);
+		try {
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"updateLoginParamsTest invoked!");
+			String subServiceName = "updateLoginParam";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Test case: " + testCaseName);
+			mTestCaseName = testCaseName;
+			Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
+					testCasePropertyFileName);
+			String userIdCase = prop.getProperty("userId");
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"userIdCase " + userIdCase);
+			String userId = dataGenerator.getYamlData(serviceName, testDataFileName, "userId",
+					prop.getProperty("userId"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"userId read  is " + userId);
 
-		if (testCaseName.contains("validateLoginparam")) {
-			UserDTO userDetail = loginService.getUserDetail(userId);
-			String newId = "newId" + System.currentTimeMillis();
-			userDetail.setId(newId);
-			loginService.updateLoginParams(userDetail);
-			assertNotNull(loginService.getUserDetail(newId));
+			if (testCaseName.contains("validateLoginparam")) {
+				UserDTO userDetail = loginService.getUserDetail(userId);
+				String newId = "newId" + System.currentTimeMillis();
+				userDetail.setId(newId);
+				loginService.updateLoginParams(userDetail);
+				assertNotNull(loginService.getUserDetail(newId));
 
-			// clean up
-			userDetail = loginService.getUserDetail(newId);
-			userDetail.setId(userId);
-			loginService.updateLoginParams(userDetail);
-		} else if (testCaseName.contains("invalid")) {
-			try {
-				UserDTO userDetail = new UserDTO();
-				userDetail.setId("newId");
-				//loginService.updateLoginParams(userDetail);
-			} catch (DataIntegrityViolationException exception) {
+				// clean up
+				userDetail = loginService.getUserDetail(newId);
+				userDetail.setId(userId);
+				loginService.updateLoginParams(userDetail);
+			} else if (testCaseName.contains("invalid")) {
+				try {
+					UserDTO userDetail = new UserDTO();
+					userDetail.setId("newId");
+					// loginService.updateLoginParams(userDetail);
+				} catch (DataIntegrityViolationException exception) {
 
+				}
 			}
+
+		} catch (Exception exception) {
+			logger.debug("LOGIN SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 

@@ -190,6 +190,9 @@
 	<test name="Registration Test">
 		<classes>
 
+<class
+				name="io.mosip.registration.tests.PacketHandlerServiceTest" />
+
 			<class
 				name="io.mosip.registration.tests.EmailNotificationServiceTest" />
 			<class
@@ -230,8 +233,7 @@
 				name="io.mosip.registration.tests.LoginServiceUserDetailsTest" />
 
 			<class name="io.mosip.registration.tests.PolicySyncServiceTest" />
-			<class
-				name="io.mosip.registration.tests.PacketHandlerServiceTest" />
+			
 			<class name="io.mosip.registration.tests.StorageServiceTest" />
 			<class
 				name="io.mosip.registration.tests.RegistrationApprovalServiceTest" />

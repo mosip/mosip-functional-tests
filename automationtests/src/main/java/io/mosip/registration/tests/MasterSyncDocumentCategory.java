@@ -18,12 +18,14 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.mastersync.DocumentCategoryDto;
 import io.mosip.registration.entity.DocumentType;
 import io.mosip.registration.entity.ValidDocument;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.DocumentTypeRepository;
 import io.mosip.registration.repositories.ValidDocumentRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
@@ -83,6 +85,8 @@ public class MasterSyncDocumentCategory extends BaseConfiguration implements ITe
 
 	@Test(dataProvider = "documentCategory", alwaysRun = true)
 	public void verifyDocumentCatagory(String testCaseName, JSONObject object) {
+		try {
+			
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + documentCategorySubServiceName, testCaseName,
@@ -124,7 +128,14 @@ public class MasterSyncDocumentCategory extends BaseConfiguration implements ITe
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Individual type Name from service:" + documentNameFromService);
 
 		Assert.assertEquals(documentNameFromDB, documentNameFromService);
-	}
+	
+		}
+		catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		}
+		}
 
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {

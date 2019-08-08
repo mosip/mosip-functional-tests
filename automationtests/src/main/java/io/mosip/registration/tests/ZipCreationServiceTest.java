@@ -3,10 +3,13 @@
  */
 package io.mosip.registration.tests;
 
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
 import static io.mosip.registration.constants.RegistrationConstants.DEMOGRPAHIC_JSON_NAME;
 import static io.mosip.registration.constants.RegistrationConstants.PACKET_DATA_HASH_FILE_NAME;
 import static io.mosip.registration.constants.RegistrationConstants.PACKET_META_JSON_NAME;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +26,8 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.config.DaoConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -46,6 +51,7 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 
 	@Autowired
 	private ZipCreationServiceImpl zipCreationService;
+	private static Logger logger = AppConfig.getLogger(ZipCreationServiceTest.class);
 	protected static String mTestCaseName = "";
 	/**
 	 * Declaring CenterID,StationID global
@@ -73,10 +79,17 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(expectedExceptions = RegBaseUncheckedException.class)
 	public void createPacketUncheckedExceptionEmptyInputsTest() throws RegBaseCheckedException {
-		mTestCaseName="regClient_ZipCreationService_createPacketUncheckedExceptionEmptyInputsTest";
-		RegistrationDTO registrationDTO = new RegistrationDTO();
-		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
-		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		try {
+			mTestCaseName = "regClient_ZipCreationService_createPacketUncheckedExceptionEmptyInputsTest";
+			RegistrationDTO registrationDTO = new RegistrationDTO();
+			Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
+			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
+
+		catch (Exception exception) {
+			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -87,10 +100,17 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(expectedExceptions = RegBaseUncheckedException.class)
 	public void createPacketUncheckedExceptionEmptyFileInputTest() throws RegBaseCheckedException {
-		mTestCaseName="regClient_ZipCreationService_createPacketUncheckedExceptionEmptyFileInputTest";
+		try {
+		mTestCaseName = "regClient_ZipCreationService_createPacketUncheckedExceptionEmptyFileInputTest";
 		RegistrationDTO registrationDTO = DataProvider.getPacketDTO();
 		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
 		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
+
+		catch (Exception exception) {
+			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -102,10 +122,17 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 
 	@Test(expectedExceptions = RegBaseUncheckedException.class)
 	public void createPacketUncheckedExceptionNullInputTest() throws RegBaseCheckedException {
-		mTestCaseName="regClient_ZipCreationService_createPacketUncheckedExceptionNullInputTest";
+		try {
+		mTestCaseName = "regClient_ZipCreationService_createPacketUncheckedExceptionNullInputTest";
 		RegistrationDTO registrationDTO = null;
 		Map<String, byte[]> filesGeneratedForPacket = null;
 		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
+
+		catch (Exception exception) {
+			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -119,15 +146,21 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(expectedExceptions = RegBaseUncheckedException.class)
 	public void createPacketUncheckedExceptionIncompleteInputTest() throws RegBaseCheckedException {
-		mTestCaseName="regClient_ZipCreationService_createPacketUncheckedExceptionIncompleteInputTest";
+		try {
+		mTestCaseName = "regClient_ZipCreationService_createPacketUncheckedExceptionIncompleteInputTest";
 		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
 
 		filesGeneratedForPacket.put(DEMOGRPAHIC_JSON_NAME, "Demo".getBytes());
 		RegistrationDTO registrationDTO = new RegistrationDTO();
 
 		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
+
+		catch (Exception exception) {
+			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
-	
 
 	/**
 	 * This test checks if RegBaseCheckedException is thrown in case of invalid
@@ -136,10 +169,10 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 * @throws RegBaseCheckedException
 	 */
 	@Test
-	//(enabled = false)
+	// (enabled = false)
 
 	public void createPacketCheckedExceptionTest() {
-		mTestCaseName="regClient_ZipCreationService_createPacketCheckedExceptionTest";
+		mTestCaseName = "regClient_ZipCreationService_createPacketCheckedExceptionTest";
 		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
 
 		// complete file input
@@ -159,15 +192,19 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 		RegistrationDTO registrationDTO = null;
 		try {
 			registrationDTO = DataProvider.getPacketDTO();
-		} catch (RegBaseCheckedException e) {
-			e.printStackTrace();
-		}
+		} catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.info("ZIP-CREATION SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		} 
 		try {
 			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		}catch (Exception exception) {
+			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
+
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
 		try {
