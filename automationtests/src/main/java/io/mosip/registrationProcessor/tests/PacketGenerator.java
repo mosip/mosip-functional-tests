@@ -123,7 +123,10 @@ public class PacketGenerator  extends  BaseTestCase implements ITest {
 	 	 String currentTestCaseName=object.get("testCaseName").toString();
 	 	 EncrypterDecrypter encrypter = new EncrypterDecrypter();
 	 	 try {
-	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);	 
+	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
+	 	 	 if(currentTestCaseName.contains("requestTime")==false) {
+	 	 		actualRequest.put("requesttime", apiRequests.getUTCTime());
+	 	 	 }
 	 	 	 expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 
 	 	 	 //outer and inner keys which are dynamic in the actual response

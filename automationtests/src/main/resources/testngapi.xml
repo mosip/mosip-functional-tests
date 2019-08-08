@@ -114,7 +114,7 @@
 			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
 	</test>
-
+ 
 
 	<test name="RegistrationProcessor Tests">
 
@@ -140,7 +140,7 @@
 		</classes>
 
 	</test>
-	<test name="AuthenticationTest">
+	 <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -187,7 +187,7 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
-	<!-- <test name="Registration Test">
+	<test name="Registration Test">
 		<classes>
 
 			<class
@@ -261,6 +261,6 @@
 
 
 		</classes>
-		</test> -->
+		</test> 
 
 </suite>
