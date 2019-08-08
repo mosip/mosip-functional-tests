@@ -233,15 +233,15 @@
 		"applicantTypeCode": null,
 		"fullName": 
 		[
-			{
-				"language": "eng",
-				"value": "Leona"
-			},
+			                          {
+                                 "language": "eng",
+                                 "value": "Abd al Hakim"
+                          },
+                          {
+                                 "language": "ara",
+                                 "value": "مثقل بن أسامة"
+                          }
 
-			{
-				"language": "ara",
-				"value": "شسيسشبسaب"
-			}
 		]
 	},
 

@@ -331,7 +331,26 @@
 		{
 			"documents": 
 			{
-				
+				"POR": 
+				{
+					"value": "POR_Canteen card of the Army",
+					"type": "Canteen card of the Army",
+					"format": "jpg"
+				},
+
+				"POA": 
+				{
+					"value": "POA_Certificate of residence",
+					"type": "Certificate of residence",
+					"format": "jpg"
+				},
+
+				"POI": 
+				{
+					"value": "POI_PAN card",
+					"type": "PAN card",
+					"format": "jpg"
+				}
 			},
 
 			"acknowledgeReceipt": null,
@@ -351,8 +370,8 @@
 		"geoLatitudeLoc": 0.0,
 		"geoLongitudeLoc": 0.0,
 		"registrationCategory": "New",
-		"machineId": null,
-		"centerId": null,
+		"machineId": "10018",
+		"centerId": "10014",
 		"previousRID": null,
 		"uin": null,
 		"consentOfApplicant": "Yes",
@@ -363,15 +382,15 @@
 		"applicantTypeCode": null,
 		"fullName": 
 		[
-			{
-				"language": "eng",
-				"value": "Ø£ÙŠÙˆØ¨ ØªÙˆÙ�ÙŠÙ‚"
-			},
+			                          {
+                                 "language": "eng",
+                                 "value": "Abd al Hakim"
+                          },
+                          {
+                                 "language": "ara",
+                                 "value": "مثقل بن أسامة"
+                          }
 
-			{
-				"language": "ara",
-				"value": "Ø´Ø«Ù‚ØµØ«Ù�Ù�"
-			}
 		]
 	},
 
