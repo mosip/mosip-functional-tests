@@ -1,6 +1,9 @@
 package io.mosip.registration.util;
 
-import java.io.IOException;   
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
+
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.json.simple.parser.ParseException;
@@ -8,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
+import org.testng.Reporter;
+
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.kernel.core.exception.ExceptionUtils;
@@ -21,6 +26,7 @@ import io.mosip.registration.dto.LoginUserDTO;
 import io.mosip.registration.dto.RegistrationCenterDetailDTO;
 import io.mosip.registration.dto.UserDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.CenterMachineRepository;
 import io.mosip.registration.repositories.MachineMasterRepository;
 import io.mosip.registration.repositories.RegistrationCenterUserRepository;
@@ -86,8 +92,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 
 	public void baseSetUp() {
 		try {
-			
-			
+
 			// Fetching the Global param values from the database
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());
 			// Set spring Application Context to SessionContext
@@ -207,7 +212,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 					// Onboard user
 					BiometricDTO bioData = null;
 					String bioPath = "./Registration/testData/UserOnboardServiceData/Resident_BiometricData.json";
-					ClassLoader classLoader=getClass().getClassLoader();
+					ClassLoader classLoader = getClass().getClassLoader();
 					LOGGER.info("USERONBOARD SERVICE TEST - ", "AUTOMATION", "REG", "Path: " + bioPath);
 					bioData = commonUtil.getBiotestData(bioPath);
 					ResponseDTO actualresponse = userOBservice.validate(bioData);
@@ -227,6 +232,10 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 		} catch (ParseException parseException) {
 			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
 
+		} catch (RegBaseCheckedException regBaseCheckedException) {
+			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
 		}
 
 	}

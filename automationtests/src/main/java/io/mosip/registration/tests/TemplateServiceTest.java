@@ -206,7 +206,7 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(regBaseCheckedException));
 			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
-		} 
+			} 
 	}
 
 	@AfterMethod(alwaysRun = true)

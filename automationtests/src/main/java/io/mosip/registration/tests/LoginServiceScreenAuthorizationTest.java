@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -53,13 +54,13 @@ public class LoginServiceScreenAuthorizationTest extends BaseConfiguration imple
 
 	@Autowired
 	CommonUtil commonUtil;
-	
+
 	/**
 	 * Declaring CenterID,StationID global
 	 */
 	private static String centerID = null;
 	private static String stationID = null;
-	
+
 	private static final Logger logger = AppConfig.getLogger(LoginServiceScreenAuthorizationTest.class);
 	private static final String serviceName = "LoginService";
 	private static final String testDataFileName = "LoginServiceTestData";
@@ -68,7 +69,7 @@ public class LoginServiceScreenAuthorizationTest extends BaseConfiguration imple
 	private static final String subServiceName = "ScreenAuthorization";
 
 	@BeforeMethod
-	public  void setUp() {
+	public void setUp() {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
@@ -99,25 +100,33 @@ public class LoginServiceScreenAuthorizationTest extends BaseConfiguration imple
 	 */
 	@Test(dataProvider = "screenAuthorizationDataProvider", alwaysRun = true)
 	public void testGetScreenAuthorizationDetails(String testCaseName, JSONObject object) {
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,testCaseName);
-		mTestCaseName = testCaseName;
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"testGetScreenAuthorizationDetails invoked!");
-		List<String> roleSet = new ArrayList<>();
-		String subServiceName = "screenAuthorization";
-		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
-				testCasePropertyFileName);
-		String roles = dataGenerator.getYamlData(serviceName, testDataFileName, "roleList",
-				prop.getProperty("roleList"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,roles);
-		for (String role : roles.split(",")) {
-			roleSet.add(role);
-		}
-		AuthorizationDTO authorizationDTO = loginService.getScreenAuthorizationDetails(roleSet);
-		if (testCaseName.contains("invalid")) {
-			logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Size:"+authorizationDTO.getAuthorizationScreenId().size());
+		try {
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME, testCaseName);
+			mTestCaseName = testCaseName;
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"testGetScreenAuthorizationDetails invoked!");
+			List<String> roleSet = new ArrayList<>();
+			String subServiceName = "screenAuthorization";
+			Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
+					testCasePropertyFileName);
+			String roles = dataGenerator.getYamlData(serviceName, testDataFileName, "roleList",
+					prop.getProperty("roleList"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME, roles);
+			for (String role : roles.split(",")) {
+				roleSet.add(role);
+			}
+			AuthorizationDTO authorizationDTO = loginService.getScreenAuthorizationDetails(roleSet);
+			if (testCaseName.contains("invalid")) {
+				logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+						"Size:" + authorizationDTO.getAuthorizationScreenId().size());
 
-		} else
-			assertNotNull(authorizationDTO.getAuthorizationScreenId());
+			} else
+				assertNotNull(authorizationDTO.getAuthorizationScreenId());
+
+		} catch (Exception exception) {
+			logger.debug("LOGIN SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

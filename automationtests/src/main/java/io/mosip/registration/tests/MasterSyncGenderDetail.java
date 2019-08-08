@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -25,6 +26,7 @@ import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.registration.dto.mastersync.GenderDto;
 import io.mosip.registration.entity.Gender;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.GenderRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.util.BaseConfiguration;
@@ -80,6 +82,7 @@ public class MasterSyncGenderDetail extends BaseConfiguration implements ITest{
 
 	@Test(dataProvider = "GenderDetail", alwaysRun = true)
 	public void verifyGenderDetailByName(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + genderDetailServiceName, testCaseName,
@@ -104,10 +107,16 @@ public class MasterSyncGenderDetail extends BaseConfiguration implements ITest{
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Gender Name from service:" + genderNameFromService);
 
 		Assert.assertEquals(genderNameFromDB, genderNameFromService);
+		}catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		}
 	}
 	
 	@Test(dataProvider = "GenderDetail", alwaysRun = true)
 	public void verifyGenderDetailByCode(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + genderDetailServiceName, testCaseName,
@@ -133,6 +142,12 @@ public class MasterSyncGenderDetail extends BaseConfiguration implements ITest{
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Gender Code from service:" + genderCodeFromService);
 
 		Assert.assertEquals(genderCodeFromDB, genderCodeFromService);
+		}
+		catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		}
 	}
 	
 	@AfterMethod(alwaysRun = true)
