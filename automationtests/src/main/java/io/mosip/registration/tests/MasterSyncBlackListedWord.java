@@ -108,10 +108,10 @@ public class MasterSyncBlackListedWord extends BaseConfiguration implements ITes
 
 		Assert.assertEquals(blackListedFromDB, blackListedWordFromService);
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 

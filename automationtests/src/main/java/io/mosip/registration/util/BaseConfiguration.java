@@ -232,11 +232,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 		} catch (ParseException parseException) {
 			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
 
-		} catch (RegBaseCheckedException regBaseCheckedException) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
-		}
+		} 
 
 	}
 

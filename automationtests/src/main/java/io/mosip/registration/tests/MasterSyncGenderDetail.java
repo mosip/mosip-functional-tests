@@ -107,10 +107,10 @@ public class MasterSyncGenderDetail extends BaseConfiguration implements ITest{
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Gender Name from service:" + genderNameFromService);
 
 		Assert.assertEquals(genderNameFromDB, genderNameFromService);
-		}catch (RegBaseCheckedException regBaseCheckedException) {
+		}catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 	
@@ -143,10 +143,10 @@ public class MasterSyncGenderDetail extends BaseConfiguration implements ITest{
 
 		Assert.assertEquals(genderCodeFromDB, genderCodeFromService);
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 	

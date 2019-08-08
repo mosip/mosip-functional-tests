@@ -111,10 +111,10 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Hierarchy level from service:" + locationHierarchyFromService);
 
 		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);
-		}catch (RegBaseCheckedException regBaseCheckedException) {
+		}catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 
@@ -151,10 +151,10 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Hierarchy level from service:" + locationHierarchyFromService);
 
 		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 
