@@ -130,10 +130,10 @@ public class MasterSyncDocumentCategory extends BaseConfiguration implements ITe
 		Assert.assertEquals(documentNameFromDB, documentNameFromService);
 	
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 		}
 

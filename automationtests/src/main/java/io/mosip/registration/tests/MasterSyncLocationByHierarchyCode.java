@@ -115,10 +115,10 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 
 		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 
@@ -162,10 +162,10 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 
 		Assert.assertEquals(locationHierarchyNameFromDB, locationHierarchyNameService);
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 

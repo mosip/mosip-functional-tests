@@ -110,10 +110,10 @@ public class MasterSyncIndividualType extends BaseConfiguration implements ITest
 
 		Assert.assertEquals(individualTypeNameFromDB, individualTypeNameFromService);
 		}
-		catch (RegBaseCheckedException regBaseCheckedException) {
+		catch (Exception exception) {
 			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
-					ExceptionUtils.getStackTrace(regBaseCheckedException));
-			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 	
