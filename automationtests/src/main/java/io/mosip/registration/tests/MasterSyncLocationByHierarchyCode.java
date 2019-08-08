@@ -124,7 +124,8 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 
 	@Test(dataProvider = "LocationByHierarchyCode", alwaysRun = true)
 	public void verifyLocationByHierarchyCode(String testCaseName, JSONObject object) {
-		
+		try
+		{
 		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
 				"test case Name:" + testCaseName);
 		mTestCaseName = testCaseName;
@@ -160,7 +161,12 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 				"Hierarchy Name from service:" + locationHierarchyNameService);
 
 		Assert.assertEquals(locationHierarchyNameFromDB, locationHierarchyNameService);
-		
+		}
+		catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)
