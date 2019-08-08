@@ -169,7 +169,7 @@ public class Decision extends BaseTestCase implements ITest{
 			
 			actualRequest.put("requesttime", apiRequests.getUTCTime());
 			
-			if(object.get("testCaseName").toString().contains("invalidRequestUTC")) {
+			if(object.get("testCaseName").toString().contains("InvalidRequestUTC")) {
 				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
 			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
 				actualRequest.put("requesttime","");

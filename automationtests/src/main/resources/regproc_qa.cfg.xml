@@ -24,8 +24,6 @@
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
 		
-		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
-		
 		
  
     </session-factory>

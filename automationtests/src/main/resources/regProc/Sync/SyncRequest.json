@@ -25,6 +25,6 @@
 	"packetHashValueInvalid" : "",
 	"supervisorStatusInvalid" : "",
 	"supervisorStatusEmpty" : "",
-	"validRequestUTC1" : "",
-	"invalidRequestUTC" : ""
+	"ValidRequestUTC" : "",
+	"InvalidRequestUTC" : ""
  }

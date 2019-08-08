@@ -472,7 +472,7 @@
 				"postalCode": "14050",
 				"phone": "9965625706",
 				"email": "ayoub.toufiq@gmail.com",
-				"zone": 
+				"localAdministrativeAuthority": 
 				[
 					{
 						"language": "eng",
@@ -514,7 +514,7 @@
 				},
 
 				"IDSchemaVersion": 1.0,
-				"referenceIdentityNumber": "4545343123"
+				"CNIENumber": "4545343123"
 			}
 		}
 	},

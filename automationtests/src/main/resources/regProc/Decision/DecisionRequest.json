@@ -9,8 +9,8 @@
 	"regIdInvalid" : "",
 	"statusCodeEmpty" : "",
 	"statusCodeInvalid" : "",
-	"validRequestUTC1" : "",
-	"invalidRequestUTC" : "",
+	"ValidRequestUTC" : "",
+	"InvalidRequestUTC" : "",
 	"requesttimeEmpty" : "",
 	"requesttimeInvalid" : ""
 }
