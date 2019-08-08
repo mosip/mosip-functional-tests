@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.testng.annotations.Test;
 
-import io.mosip.dbentity.Gender;
+import io.mosip.dbentity.MasterGender;
 import io.mosip.dbentity.OtpEntity;
 import io.mosip.service.BaseTestCase;
 

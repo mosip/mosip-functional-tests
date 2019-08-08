@@ -198,10 +198,10 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 			assertNull(htmlTemplate);
 		else
 			Assert.assertTrue(!htmlTemplate.isEmpty());
-		}catch (NullPointerException nullPointerException) {
+		}catch (Exception exception) {
 			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
-			Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		} 
 	}
 

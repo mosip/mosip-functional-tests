@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "gender", schema = "master")
 
-public class Gender extends BaseEntity implements Serializable {
+public class MasterGender extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1323022736883315822L;
 
 	@Id
