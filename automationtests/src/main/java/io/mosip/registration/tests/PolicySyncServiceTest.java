@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -64,22 +65,33 @@ public class PolicySyncServiceTest extends BaseConfiguration implements ITest {
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 	}
 
-	
-
 	@Test
 	public void regClient_PolicySyncService_verifyingCode() {
-		mTestCaseName = "regClient_PolicySyncService_verifyingCode";
-		ResponseDTO response = policySyncService.fetchPolicy();
-		assertEquals(response.getSuccessResponseDTO().getCode(), "INFORMATION");
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Validate date:"+policySyncDAO.findByRefIdOrderByValidTillDtimesDesc(null));
+		try {
+			mTestCaseName = "regClient_PolicySyncService_verifyingCode";
+			ResponseDTO response = policySyncService.fetchPolicy();
+			assertEquals(response.getSuccessResponseDTO().getCode(), "INFORMATION");
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Validate date:" + policySyncDAO.findByRefIdOrderByValidTillDtimesDesc(null));
+		} catch (Exception exception) {
+			logger.debug("POLICY SYNC SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
-	
+
 	@Test
 	public void regClient_PolicySyncService_verifyingMessage() {
-		mTestCaseName = "regClient_PolicySyncService_verifyingMessage";
-		ResponseDTO response = policySyncService.fetchPolicy();
-		assertEquals(response.getSuccessResponseDTO().getMessage(), "SYNC_SUCCESS");
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Validate date:"+policySyncDAO.findByRefIdOrderByValidTillDtimesDesc(null));
+		try {
+
+			mTestCaseName = "regClient_PolicySyncService_verifyingMessage";
+			ResponseDTO response = policySyncService.fetchPolicy();
+			assertEquals(response.getSuccessResponseDTO().getMessage(), "SYNC_SUCCESS");
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Validate date:" + policySyncDAO.findByRefIdOrderByValidTillDtimesDesc(null));
+		} catch (Exception exception) {
+			logger.debug("POLICY SYNC SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)
@@ -92,8 +104,9 @@ public class PolicySyncServiceTest extends BaseConfiguration implements ITest {
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, PolicySyncServiceTest.mTestCaseName);
-		} catch (Exception e) {
-			Reporter.log("Exception : " + e.getMessage());
+		} catch (Exception exception) {
+			logger.debug("POLICY SYNC SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 

@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -97,6 +98,7 @@ public class LoginServiceUserDetailsTest extends BaseConfiguration implements IT
 	 */
 	@Test(dataProvider = "userDetailsDataProvider", alwaysRun = true)
 	public void testGetUserDetails(String testCaseName, JSONObject object) {
+		try {
 
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testCaseName);
 		mTestCaseName = testCaseName;
@@ -112,6 +114,12 @@ public class LoginServiceUserDetailsTest extends BaseConfiguration implements IT
 		} else {
 			assertTrue(userDetail != null);
 			assertTrue(userDetail.getId() != null);
+		}
+		}
+		catch (Exception exception) {
+			logger.debug("LOGIN SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 
 	}

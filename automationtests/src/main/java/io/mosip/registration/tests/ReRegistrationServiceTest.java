@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationClientStatusCode;
@@ -112,6 +113,7 @@ public class ReRegistrationServiceTest extends BaseConfiguration implements ITes
 	 */
 	@Test
 	public void getAllReRegistrationPacketsTest() {
+		try {
 		mTestCaseName = "regClient_ReregistrationService_validate_getAllReRegistrationPackets";
 		List<String> roles = new ArrayList<>();
 		commonUtil(roles);
@@ -142,6 +144,12 @@ public class ReRegistrationServiceTest extends BaseConfiguration implements ITes
 		Integer newRecordsCount = packetsDetailsAfterOperation.size();
 		Assert.assertFalse(newRecordsCount > originalRecordsCount);
 //		cleanUp(values.get("RANDOMID"));
+		}
+
+		catch (Exception exception) {
+			logger.debug("RE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 
 	}
 
@@ -152,6 +160,7 @@ public class ReRegistrationServiceTest extends BaseConfiguration implements ITes
 
 	@Test
 	public void updateReRegistrationStatusApprovedpacket() throws IOException {
+		try {
 		mTestCaseName = "regClient_ReregistrationService_validate_updateReRegistrationStatusApprovedpacket";
 
 		Map<String, String> reRegistrationStatus = new HashMap<>();
@@ -197,6 +206,12 @@ public class ReRegistrationServiceTest extends BaseConfiguration implements ITes
 
 		cleanUp(registrationId);
 */
+		}
+
+		catch (Exception exception) {
+			logger.debug("RE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@Override

@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -63,20 +64,34 @@ public class SyncStatusValidatorServiceTest extends BaseConfiguration implements
 
 	@Test
 	public void regClient_SyncStatusValidatorService_validatingErrorResponse() {
+		try {
 		ApplicationContext.map()
 		.put(RegistrationConstants.OPT_TO_REG_LAST_EXPORT_REG_PKTS_TIME,"0");
 		mTestCaseName = "regClient_SyncStatusValidatorService_validate_validatingErrorResponse";
 		ResponseDTO result = syncstatusvalidatorservice.validateSyncStatus();
 		commonUtil.verifyAssertNotNull(result);
+		}
+
+		catch (Exception exception) {
+			logger.debug("SYNC_STATUS VALIDATOR SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@Test
 	public void regClient_SyncStatusValidatorService_validatingSucessResponse() {
+		try {
 		ApplicationContext.map()
 		.put(RegistrationConstants.OPT_TO_REG_LAST_EXPORT_REG_PKTS_TIME,"0");
 		mTestCaseName = "regClient_SyncStatusValidatorService_validate_validatingSucessResponse";
 		ResponseDTO result = syncstatusvalidatorservice.validateSyncStatus();
 		commonUtil.verifyAssertNotNull(result);
+		}
+
+		catch (Exception exception) {
+			logger.debug("SYNC_STATUS VALIDATOR SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

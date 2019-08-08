@@ -26,6 +26,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.exception.JsonProcessingException;
@@ -60,7 +61,7 @@ import io.mosip.registration.util.TestDataGenerator;
  */
 
 public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
-	
+
 	@Autowired
 	PacketSynchService packetSyncService;
 	@Autowired
@@ -83,7 +84,7 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 	private AESEncryptionService aesEncryptionService;
 	@Autowired
 	LoginService loginService;
-	
+
 	private static final Logger logger = AppConfig.getLogger(PacketSyncServiceTest.class);
 	private static final String serviceName = "PacketSyncService";
 	private static final String subServiceName = "SyncPacketsToServer";
@@ -99,10 +100,11 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
-	baseSetUp();
-	centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
-	stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
+		baseSetUp();
+		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
+		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 	}
+
 	@DataProvider(name = "PacketSyncDataProvider")
 	public Object[][] readTestCase() {
 		// String testParam = context.getCurrentXmlTest().getParameter("testType");
@@ -113,11 +115,11 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 			return testCaseReader.readTestCases(serviceName + "/" + subServiceName, "regression");
 	}
 
-
 	@Test(dataProvider = "PacketSyncDataProvider", alwaysRun = true)
 	public void validateSyncPacketsToServer(String testCaseName, JSONObject object) {
 		mTestCaseName = testCaseName;
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"test case Name:" + testCaseName);
 
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
 				testCasePropertyFileName);
@@ -131,31 +133,40 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 
 		String langcode = dataGenerator.getYamlData(serviceName, testDataFileName, "langcode",
 				prop.getProperty("langcode"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"LangCode: " + langcode);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"LangCode: " + langcode);
 		String synStatus = dataGenerator.getYamlData(serviceName, testDataFileName, "synStatus",
 				prop.getProperty("synStatus"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Sync Status: " + synStatus);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Sync Status: " + synStatus);
 		String syncType = dataGenerator.getYamlData(serviceName, testDataFileName, "syncType",
 				prop.getProperty("syncType"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Sync Type: " + syncType);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Sync Type: " + syncType);
 		String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
 				prop.getProperty("CreatePacket"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"StatusCode: " + statusCode);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"StatusCode: " + statusCode);
 		String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
 				prop.getProperty("bioPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Biometric data Path: " + biometricDataPath);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Resident Biometric data Path: " + biometricDataPath);
 		String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
 				prop.getProperty("demoPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Demographic data Path: " + demographicDataPath);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Resident Demographic data Path: " + demographicDataPath);
 		String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
 				prop.getProperty("imagePath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Proof data Path: " + proofImagePath);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Resident Proof data Path: " + proofImagePath);
 		String statusComment = dataGenerator.getYamlData(serviceName, testDataFileName, "statusComments",
 				prop.getProperty("statusComment"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"status Comment: " + statusComment);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"status Comment: " + statusComment);
 		String invalidRegID = dataGenerator.getYamlData(serviceName, testDataFileName, "invalidRegID",
 				prop.getProperty("invalidRegID"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Invalid Registration ID: " + invalidRegID);
+		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+				"Invalid Registration ID: " + invalidRegID);
 
 		ResponseDTO result = new ResponseDTO();
 		RegistrationPacketSyncDTO synDTOdata = new RegistrationPacketSyncDTO();
@@ -168,8 +179,8 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 				// Thread.sleep(5000);
 				for (int i = 0; i < 2; i++) {
 					packetResponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
-							proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
-							prop.getProperty("invalidRegID"));
+							proofImagePath, System.getProperty("userID"), centerID, stationID,
+							prop.getProperty("status"), prop.getProperty("invalidRegID"));
 					dbData.add(packetResponse.get("RANDOMID"));
 					Thread.sleep(5000);
 				}
@@ -194,8 +205,7 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 				}
 				commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), response);
 
-			} else if (testCaseName.equalsIgnoreCase("regClient_PacketSyncService_Sync_single_packet_Valid")
-					) {
+			} else if (testCaseName.equalsIgnoreCase("regClient_PacketSyncService_Sync_single_packet_Valid")) {
 				HashMap<String, String> packetResponse = new HashMap<>();
 				packetResponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
 						proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
@@ -230,53 +240,54 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 									aesEncryptionService.encrypt(javaObjectToJsonString(synDTOdata).getBytes())),
 							RegistrationConstants.JOB_TRIGGER_POINT_USER);
 
-				//	Assert.assertEquals(prop.getProperty("ExpectedResponse"),
-						//	(String) result.getErrorResponseDTOs().get(0).getMessage());
+					// Assert.assertEquals(prop.getProperty("ExpectedResponse"),
+					// (String) result.getErrorResponseDTOs().get(0).getMessage());
 					// getOtherAttributes().get("message"));
 					Assert.assertNotNull(result.getErrorResponseDTOs());
 					System.out.println((String) result.getErrorResponseDTOs().get(0).getMessage());
-				}else if (testCaseName.equalsIgnoreCase("regClient_PacketSyncService_Sync_single_packet_Invalid")) {
+				} else if (testCaseName.equalsIgnoreCase("regClient_PacketSyncService_Sync_single_packet_Invalid")) {
 					HashMap<String, String> packetResponse = new HashMap<>();
 					packetResponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
-							proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
-							prop.getProperty("invalidRegID"));
-				
-					commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),packetResponse.get("RANDOMID") );
-				} 
-				
+							proofImagePath, System.getProperty("userID"), centerID, stationID,
+							prop.getProperty("status"), prop.getProperty("invalidRegID"));
+
+					commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),
+							packetResponse.get("RANDOMID"));
+				}
+
 				else {
 					synDTOdata = commonUtil.syncdatatoserver_validDataProvider(langcode, synStatus, syncType,
-							statusCode, biometricDataPath, demographicDataPath, proofImagePath, System.getProperty("userID"),
-							centerID, stationID, prop.getProperty("status"), prop.getProperty("invalidRegID"));
+							statusCode, biometricDataPath, demographicDataPath, proofImagePath,
+							System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
+							prop.getProperty("invalidRegID"));
 					result = packetSyncService.syncPacketsToServer(
 							CryptoUtil.encodeBase64(
 									aesEncryptionService.encrypt(javaObjectToJsonString(synDTOdata).getBytes())),
 							RegistrationConstants.JOB_TRIGGER_POINT_USER);
-					
+
 					Assert.assertNotNull(result.getErrorResponseDTOs().get(0));// getOtherAttributes().get("message"));
 					System.out.println((String) result.getErrorResponseDTOs().get(0).getMessage());
 				}
 			}
 
-		} catch (
-
-		RegBaseCheckedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} /*
-			 * catch (InterruptedException e) { // TODO Auto-generated catch block
-			 * e.printStackTrace(); }
-			 */ catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
+		catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.debug("PACKET SYNC SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		} catch (JsonProcessingException jsonProcessingException) {
+			logger.debug("PACKET SYNC SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(jsonProcessingException));
+			Reporter.log(ExceptionUtils.getStackTrace(jsonProcessingException));
+		} catch (URISyntaxException uriSyntaxException) {
+			logger.debug("PACKET SYNC SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(uriSyntaxException));
+			Reporter.log(ExceptionUtils.getStackTrace(uriSyntaxException));
+		} catch (InterruptedException interruptedException) {
+			logger.debug("PACKET SYNC SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(interruptedException));
+			Reporter.log(ExceptionUtils.getStackTrace(interruptedException));
+		}
 	}
 
 	@Test

@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -90,8 +91,11 @@ public class SMSNotificationServiceTest extends BaseConfiguration implements ITe
 			ResponseDTO resSMSDTO = notificationService.sendSMS(message, mobileNumber, registrationID);
 //		commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), resSMSDTO);
 			commonUtil.verifyAssertNotNull(resSMSDTO);
-		} catch (Exception e) {
-			Reporter.log("Exception : " + e.getMessage());
+		}
+
+		catch (Exception exception) {
+			logger.debug("NOTIFICATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 	}
 

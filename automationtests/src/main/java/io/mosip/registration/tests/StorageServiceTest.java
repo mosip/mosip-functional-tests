@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -88,6 +89,7 @@ public class StorageServiceTest extends BaseConfiguration implements ITest {
 
 	@Test(dataProvider = "StorageServiceDataProvider", alwaysRun = true)
 	public void validateStoreToDisk(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName = testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
@@ -130,6 +132,13 @@ public class StorageServiceTest extends BaseConfiguration implements ITest {
 
 		Assert.assertEquals(commonUtil.verifyIfFileExist(packetresponse.get("FILEPATH")),
 				Boolean.parseBoolean(prop.getProperty("ExpectedResponse")));
+		
+	}
+
+	catch (Exception exception) {
+		logger.debug("STORAGE SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+		Reporter.log(ExceptionUtils.getStackTrace(exception));
+	}
 
 	}
 

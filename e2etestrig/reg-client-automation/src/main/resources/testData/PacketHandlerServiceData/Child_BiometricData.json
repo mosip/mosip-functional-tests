@@ -223,7 +223,26 @@
 		{
 			"documents": 
 			{
-				
+				"POR": 
+				{
+					"value": "POR_Canteen card of the Army",
+					"type": "Canteen card of the Army",
+					"format": "jpg"
+				},
+
+				"POA": 
+				{
+					"value": "POA_Voter Identification card",
+					"type": "Voter Identification card",
+					"format": "jpg"
+				},
+
+				"POI": 
+				{
+					"value": "POI_Either Ration or PDS Photo card",
+					"type": "Either Ration or PDS Photo card",
+					"format": "jpg"
+				}
 			},
 
 			"acknowledgeReceipt": null,
@@ -245,8 +264,8 @@
 		"geoLatitudeLoc": 0.0,
 		"geoLongitudeLoc": 0.0,
 		"registrationCategory": "New",
-		"machineId": null,
-		"centerId": null,
+		"machineId": "10018",
+		"centerId": "10014",
 		"previousRID": null,
 		"uin": null,
 		"consentOfApplicant": "Yes",
@@ -259,12 +278,12 @@
 		[
 			{
 				"language": "eng",
-				"value": "Ø£ÙŠÙˆØ¨ ØªÙˆÙ�ÙŠÙ‚"
+				"value": "Abd al Hakim"
 			},
 
 			{
 				"language": "ara",
-				"value": "ØªØ§Ù„ØªÙ„ØªØ§Ù†Ù†ØªØ§"
+				"value": "مثقل بن أسامة"
 			}
 		]
 	},
@@ -298,7 +317,6 @@
 
 	"auditLogStartTime": null,
 	"auditLogEndTime": null,
-	"nameNotUpdated": true,
-	"updateUINNonBiometric": true,
-	"updateUINChild": true
+	"updateUINChild": false,
+	"nameNotUpdated": false
 }

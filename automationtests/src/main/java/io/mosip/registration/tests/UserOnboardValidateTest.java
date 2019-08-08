@@ -107,13 +107,14 @@ public class UserOnboardValidateTest extends BaseConfiguration implements ITest 
 			ResponseDTO actualresponse = userOBservice.validate(bioData);
 
 			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), actualresponse);
+		}
 
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		} catch (ParseException e) {
-
-			e.printStackTrace();
+		catch (IOException ioexception) {
+			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioexception));
+			Reporter.log(ExceptionUtils.getStackTrace(ioexception));
+		} catch (ParseException parseException) {
+			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
+			Reporter.log(ExceptionUtils.getStackTrace(parseException));
 		}
 
 	}
@@ -128,10 +129,10 @@ public class UserOnboardValidateTest extends BaseConfiguration implements ITest 
 			Assert.assertNotNull(ids.get(RegistrationConstants.USER_CENTER_ID));
 		} catch (Exception exception) {
 
-			logger.error("USERONBOARD - SERVICE TEST - "+mTestCaseName , APPLICATION_NAME, APPLICATION_ID,
+			logger.error("USERONBOARD - SERVICE TEST - " + mTestCaseName, APPLICATION_NAME, APPLICATION_ID,
 					exception.getMessage() + ExceptionUtils.getStackTrace(exception));
 		}
-		
+
 	}
 
 	@AfterMethod(alwaysRun = true)
