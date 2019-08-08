@@ -6,6 +6,6 @@
     "secretKey": "80565e06e382d5e8b924123feb6ef43b",
     "appId": "registrationprocessor"
   },
-  "requesttime": "2018-12-09T06:39:03.683Z",
+  "requesttime": "$TIMESTAMPZ$",
   "version": "v1.0"
 }
