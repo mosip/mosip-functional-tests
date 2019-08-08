@@ -3,11 +3,14 @@
  */
 package io.mosip.registration.tests;
 
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
+import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertNull;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 import org.json.JSONObject;
@@ -23,10 +26,12 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.entity.Template;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.TemplateRepository;
 import io.mosip.registration.service.template.impl.TemplateServiceImpl;
 import io.mosip.registration.util.BaseConfiguration;
@@ -175,6 +180,7 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(dataProvider = "htmlTemplateProvider", alwaysRun = true)
 	public void getHtmlTemplateTest(String testcaseName, JSONObject object) {
+		try {
 		mTestCaseName=testcaseName;
 		String subServiceName = "htmlTemplate";
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testcaseName);
@@ -192,6 +198,15 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 			assertNull(htmlTemplate);
 		else
 			Assert.assertTrue(!htmlTemplate.isEmpty());
+		}catch (NullPointerException nullPointerException) {
+			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+					ExceptionUtils.getStackTrace(nullPointerException));
+			Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
+		} catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		} 
 	}
 
 	@AfterMethod(alwaysRun = true)
