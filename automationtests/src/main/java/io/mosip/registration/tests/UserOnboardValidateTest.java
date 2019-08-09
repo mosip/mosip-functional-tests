@@ -109,14 +109,10 @@ public class UserOnboardValidateTest extends BaseConfiguration implements ITest 
 			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), actualresponse);
 		}
 
-		catch (IOException ioexception) {
-			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioexception));
-			Reporter.log(ExceptionUtils.getStackTrace(ioexception));
-		} catch (ParseException parseException) {
-			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
-			Reporter.log(ExceptionUtils.getStackTrace(parseException));
-		}
-
+		catch (Exception exception) {
+			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		} 
 	}
 
 	@Test
