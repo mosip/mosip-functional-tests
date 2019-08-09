@@ -117,11 +117,15 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	 public void packetGenerator(String testSuite, Integer i, JSONObject object){
 	 	 List<String> outerKeys = new ArrayList<String>();
 	 	 List<String> innerKeys = new ArrayList<String>();
+	 	 String currentTestCaseName=object.get("testCaseName").toString();
 	 	 EncrypterDecrypter encrypter = new EncrypterDecrypter();
 	 	 
 
 	 	 try {
-	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);	 
+	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
+	 	 	 if(currentTestCaseName.contains("requestTime")==false) {
+		 	 		actualRequest.put("requesttime", apiRequests.getUTCTime());
+		 	 	 }
 	 	 	 expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 	 	 	 outerKeys.add("responsetime");
 	 	 	 innerKeys.add("registrationId");
