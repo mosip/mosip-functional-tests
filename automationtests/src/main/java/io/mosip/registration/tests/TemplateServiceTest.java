@@ -56,7 +56,6 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 	@Autowired
 	private TemplateRepository<Template> templateRepo;
 
-
 	@Autowired
 	TestDataGenerator dataGenerator;
 
@@ -76,6 +75,7 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 	 */
 	private static String centerID = null;
 	private static String stationID = null;
+
 	/**
 	 * Method to initialize the data and parameters needed before the test class is
 	 * invoked
@@ -87,7 +87,7 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 	}
-	
+
 	/**
 	 * @return
 	 * 
@@ -120,28 +120,36 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 	 */
 	@Test(dataProvider = "templateProvider", alwaysRun = true)
 	public void getTemplateTest(String testcaseName, JSONObject object) {
+		try {
 
-		String subServiceName = "template";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testcaseName);
-		mTestCaseName=testcaseName;
-		String testCasePath = serviceName + "/" + subServiceName;
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
-		String templateCase = prop.getProperty("emailTemplate");
-		String langTestCase = prop.getProperty("language");
+			String subServiceName = "template";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Test case: " + testcaseName);
+			mTestCaseName = testcaseName;
+			String testCasePath = serviceName + "/" + subServiceName;
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			String templateCase = prop.getProperty("emailTemplate");
+			String langTestCase = prop.getProperty("language");
 
-		String emailTemplateCode = dataGenerator.getYamlData(serviceName, testDataFileName, "emailTemplate",
-				templateCase);
-		String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "language", langTestCase);
+			String emailTemplateCode = dataGenerator.getYamlData(serviceName, testDataFileName, "emailTemplate",
+					templateCase);
+			String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "language", langTestCase);
 
-		Template result = templateServiceImpl.getTemplate(emailTemplateCode, langCode);
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,result.getDescr());
-		if (testcaseName.contains("invalid")) {
-			assertNull(result.getDescr());
-		} else {
-			//Assert.assertEquals(result.getDescr(),"Acknowledgement generated after registration - Part 1");
-			assertNotNull(result.getDescr());
+			Template result = templateServiceImpl.getTemplate(emailTemplateCode, langCode);
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					result.getDescr());
+			if (testcaseName.contains("invalid")) {
+				assertNull(result.getDescr());
+			} else {
+				// Assert.assertEquals(result.getDescr(),"Acknowledgement generated after
+				// registration - Part 1");
+				assertNotNull(result.getDescr());
+			}
+		} catch (Exception exception) {
+			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
-
 	}
 
 	/**
@@ -175,34 +183,35 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 	 * @param testcaseName
 	 * @param object
 	 * 
-	 *                     Test method to test the behavior of method providing HTML
-	 *                     template(s)
+	 *            Test method to test the behavior of method providing HTML
+	 *            template(s)
 	 */
 	@Test(dataProvider = "htmlTemplateProvider", alwaysRun = true)
 	public void getHtmlTemplateTest(String testcaseName, JSONObject object) {
 		try {
-		mTestCaseName=testcaseName;
-		String subServiceName = "htmlTemplate";
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testcaseName);
-		String testCasePath = serviceName + "/" + subServiceName;
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
-		String templateCase = prop.getProperty("emailTemplate");
-		String langTestCase = prop.getProperty("language");
+			mTestCaseName = testcaseName;
+			String subServiceName = "htmlTemplate";
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Test case: " + testcaseName);
+			String testCasePath = serviceName + "/" + subServiceName;
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			String templateCase = prop.getProperty("emailTemplate");
+			String langTestCase = prop.getProperty("language");
 
-		String emailTemplateCode = dataGenerator.getYamlData(serviceName, testDataFileName, "emailTemplate",
-				templateCase);
-		String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "language", langTestCase);
+			String emailTemplateCode = dataGenerator.getYamlData(serviceName, testDataFileName, "emailTemplate",
+					templateCase);
+			String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "language", langTestCase);
 
-		String htmlTemplate = templateServiceImpl.getHtmlTemplate(emailTemplateCode, langCode);
-		if (testcaseName.contains("invalid"))
-			assertNull(htmlTemplate);
-		else
-			Assert.assertTrue(!htmlTemplate.isEmpty());
-		}catch (Exception exception) {
+			String htmlTemplate = templateServiceImpl.getHtmlTemplate(emailTemplateCode, langCode);
+			if (testcaseName.contains("invalid"))
+				assertNull(htmlTemplate);
+			else
+				Assert.assertTrue(!htmlTemplate.isEmpty());
+		} catch (Exception exception) {
 			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(exception));
 			Reporter.log(ExceptionUtils.getStackTrace(exception));
-		} 
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

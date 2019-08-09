@@ -255,8 +255,8 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 				List<ErrorResponseDTO> errors = responseDTO.getErrorResponseDTOs();
 				Assert.assertTrue(errors.size() > 0);
 				SuccessResponseDTO success = responseDTO.getSuccessResponseDTO();
-				//logger.info("errors.size() gives " + errors.size());
-			//	logger.info("errors is " + errors.toString());
+				// logger.info("errors.size() gives " + errors.size());
+				// logger.info("errors is " + errors.toString());
 
 			} else {
 
@@ -366,7 +366,7 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 			preRegEntity.setId("101");
 			preRegEntity.setIsDeleted(false);
 			preRegEntity.setPacketPath(packetPath);
-			//logger.info(preRegEntity.getIsDeleted());
+			// logger.info(preRegEntity.getIsDeleted());
 			Calendar c = Calendar.getInstance();
 
 			// Age of packet is read from testData.yaml based on the test case

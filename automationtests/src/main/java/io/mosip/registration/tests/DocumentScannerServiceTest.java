@@ -185,7 +185,7 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 	public void getImageBytesFromBufferedImageTest() throws java.io.IOException {
 		try {
 			// intializeValues();
-			mTestCaseName = "regClient_DocumentScannerService_pdfToImages";
+			mTestCaseName = "regClient_DocumentScannerService_getImageBytesFromBufferedImage";
 			byte[] data = documentScannerServiceImpl.getImageBytesFromBufferedImage(bufferedImage);
 			Assert.assertNotNull(data);
 		} catch (NullPointerException nullPointerException) {
