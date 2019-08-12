@@ -1,0 +1,11 @@
+{
+    "id": "mosip.registration.reprint",
+    "version": "1.0",
+    "responsetime": "2019-06-28T06:15:14.874Z",
+    "response": [
+        {
+            "status": "SUCCESS"
+        }
+    ],
+    "errors": null
+}
