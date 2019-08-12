@@ -227,7 +227,7 @@ public class PacketReceiver extends  BaseTestCase implements ITest {
 							actualResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"),validToken);		
 						}
 
-					} catch (java.text.ParseException e) {
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
