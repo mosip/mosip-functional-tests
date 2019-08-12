@@ -12,7 +12,7 @@
 	</listeners>
 
 
-	<test name="Kernel Tests">
+	<!-- <test name="Kernel Tests">
 		<classes>
 
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -113,7 +113,7 @@
 			<class name="io.mosip.preregistration.tests.ValidateOtp" />
 			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
-	</test>
+	</test> -->
  
 
 	<test name="RegistrationProcessor Tests">
@@ -140,7 +140,7 @@
 		</classes>
 
 	</test>
-	<test name="AuthenticationTest">
+	<!-- <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -261,6 +261,6 @@
 
 
 		</classes>
-		</test> 
+		</test>  -->
 
 </suite>
