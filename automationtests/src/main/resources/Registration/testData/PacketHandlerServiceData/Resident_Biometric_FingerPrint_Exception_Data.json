@@ -274,7 +274,7 @@
 	"osiDataDTO": 
 	{
 		"operatorID": null,
-		"supervisorID": null,
+		"supervisorID": "110018",
 		"introducerType": null,
 		"operatorAuthenticatedByPassword": true,
 		"superviorAuthenticatedByPassword": true,

@@ -438,6 +438,8 @@ public class CommonUtil {
 			registrationCenter.setRegistrationCenterId(centerID);
 			SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(registrationCenter);
 			registrationDTO.getOsiDataDTO().setOperatorID(userID);
+			registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+			registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
 
 			String randomId = "";
 			if (invalidRegID.equalsIgnoreCase("YES")) {

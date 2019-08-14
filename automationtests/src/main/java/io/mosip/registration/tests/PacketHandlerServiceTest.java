@@ -119,6 +119,7 @@ public class PacketHandlerServiceTest extends BaseConfiguration implements ITest
 		logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID, testCaseName);
 
 		mTestCaseName = testCaseName;
+		System.out.println(testCaseName);
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
 				testCasePropertyFileName);
 		try {

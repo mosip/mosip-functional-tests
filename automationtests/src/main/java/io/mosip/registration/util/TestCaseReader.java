@@ -8,6 +8,8 @@ import java.util.stream.Stream;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.itextpdf.text.log.SysoCounter;
+
 @Service
 public class TestCaseReader {
 	/**
@@ -21,6 +23,7 @@ public class TestCaseReader {
 	public Object[][] readTestCases(String apiName, String testType) {
 		// String path = "src" + File.separator + "main" + File.separator + "resources"
 		// + File.separator + "Registration"+ File.separator+apiName;
+		System.out.println("API NAME:==" + apiName);
 		String path = this.getClass().getClassLoader()
 				.getResource("./" + "Registration" +"/" + apiName).getPath();
 		File file = new File(path);
