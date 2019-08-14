@@ -20,5 +20,6 @@
 	"cardTypeUIN&InvalidUIN" : "",
 	"cardTypeVID&InvalidVID" : "",
 	"UINLessThanConfig" : "",
-	"VIDLessThan16Digits" : ""
+	"VIDLessThan16Digits" : "",
+	"invalidRequestUTC" : ""
  }
