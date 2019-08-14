@@ -57,11 +57,11 @@
 		<eclipselink.version>2.5.0</eclipselink.version>
 		<hibernate.validator.version>6.0.12.Final</hibernate.validator.version>
 
-		<!-- test -->
+		<!-- test
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>
 		<powermock.version>1.7.4</powermock.version>
-		<powermock.beta.version>2.0.0-beta.5</powermock.beta.version>
+		<powermock.beta.version>2.0.0-beta.5</powermock.beta.version>  -->
 
 		<!-- logger -->
 		<logback.version>1.2.3</logback.version>
@@ -125,10 +125,10 @@
 		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 
 		<!-- Test & Logging -->
-		<junit.version>4.12</junit.version>
+		<!-- <junit.version>4.12</junit.version>
 		<logback.version>1.1.6</logback.version>
 		<slf4j.version>1.7.19</slf4j.version>
-		<mockito.version>1.10.19</mockito.version>
+		<mockito.version>1.10.19</mockito.version> -->
 
 		<!-- Lombok -->
 		<lombok.version>1.16.18</lombok.version>
