@@ -48,7 +48,10 @@ public class RegProcApiRequests extends BaseTestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		finally {
+			logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
+			logger.info("REST-ASSURED: the response time is: " + getResponse.time());
+		}
 		
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());

@@ -304,7 +304,7 @@ public class PacketReceiver extends  BaseTestCase implements ITest {
 			Verify.verify(setFinalStatus);
 			softAssert.assertAll();
 
-		} catch (Exception e) {
+		} catch (IOException | ParseException e) {
 			Assert.assertTrue(false, "not able to execute packet receiver method : "+ e.getCause());
 		}
 	}
