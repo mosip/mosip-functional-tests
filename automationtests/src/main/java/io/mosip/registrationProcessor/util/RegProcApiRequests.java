@@ -198,6 +198,25 @@ public class RegProcApiRequests extends BaseTestCase {
 		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
 		return getResponse;
 	}
+	
+	/**
+	 * @param url
+	 * @param patharams
+	 * @param cookie
+	 * @return this method is for get request with authentication(cookie) and with
+	 *         pathParams Map(name, Value).
+	 */
+	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
+		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI+url);
+
+		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
+				.all().when().get(ApplnURI+url);
+		// log then response
+		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
+		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
 
 	public boolean checkResponseTime(Response actualResponse) {
 		boolean utcCheck = false;

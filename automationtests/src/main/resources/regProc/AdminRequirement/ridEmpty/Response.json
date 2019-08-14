@@ -1,12 +1,7 @@
 {
-	"file" : null,
-    "errors": [
-        {
-            "errorCode": "RPR-MVS-010",
-            "message": "Invalid Input Parameter - id"
-        }
-    ],
-    "id": "mosip.manual.verification.biometric",
-    "version": "1.0",
-    "responsetime": "2019-05-28T12:48:12.066Z"
+    "timestamp": "2019-08-14T10:40:42.161+0000",
+    "status": 404,
+    "error": "Not Found",
+    "message": "No message available",
+    "path": "/registrationprocessor/v1/registrationtransaction/search/en/"
 }

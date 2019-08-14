@@ -1,69 +1,69 @@
 {
     "id": "mosip.registration.transaction",
     "version": "1.0",
-    "responsetime": "2019-08-14T10:03:56.706Z",
+    "responsetime": "2019-08-14T10:28:14.667Z",
     "response": [
         {
             "id": "89495c59-3278-47e0-8ed5-716e6e975c7e",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RECEPTEUR DE PAQUETS",
+            "transactionTypeCode": "PACKET_RECEIVER",
             "parentTransactionId": null,
-            "statusCode": "SUCCÈS",
-            "statusComment": "Paquet a atteint paquet récepteur",
+            "statusCode": "SUCCESS",
+            "statusComment": "Packet has reached Packet Receiver",
             "createdDateTimes": "2019-08-12T06:42:50.334"
         },
         {
             "id": "4c796aad-16cc-4924-9152-15544e152e75",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RECEPTEUR DE PAQUETS",
+            "transactionTypeCode": "PACKET_RECEIVER",
             "parentTransactionId": "89495c59-3278-47e0-8ed5-716e6e975c7e",
-            "statusCode": "SUCCÈS",
-            "statusComment": "Paquet est Téléchargé à la zone d'atterrissage",
+            "statusCode": "SUCCESS",
+            "statusComment": "Packet is Uploaded to Landing Zone",
             "createdDateTimes": "2019-08-12T06:42:50.711"
         },
         {
             "id": "c649c390-84c1-450f-8e68-d30238991bca",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "PAQUET DE CHARGEMENT",
+            "transactionTypeCode": "UPLOAD_PACKET",
             "parentTransactionId": "4c796aad-16cc-4924-9152-15544e152e75",
-            "statusCode": "SUCCÈS",
-            "statusComment": "Packet téléchargé sur paquet magasin",
+            "statusCode": "SUCCESS",
+            "statusComment": "Packet uploaded to Packet Store",
             "createdDateTimes": "2019-08-12T06:42:51.219"
         },
         {
             "id": "bc9f5873-4aa4-45a5-bb73-923b74ea6caf",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RAPIDITÉ DE PAQUETS",
+            "transactionTypeCode": "PACKET_REPROCESS",
             "parentTransactionId": "c649c390-84c1-450f-8e68-d30238991bca",
-            "statusCode": "SUCCÈS",
-            "statusComment": "Retraitement terminé",
+            "statusCode": "SUCCESS",
+            "statusComment": "Reprocess Completed",
             "createdDateTimes": "2019-08-12T07:00:00.445"
         },
         {
             "id": "e0a89b17-33bb-4bc3-81f9-b18a6b6f68ca",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RAPIDITÉ DE PAQUETS",
+            "transactionTypeCode": "PACKET_REPROCESS",
             "parentTransactionId": "bc9f5873-4aa4-45a5-bb73-923b74ea6caf",
-            "statusCode": "SUCCÈS",
-            "statusComment": "Retraitement terminé",
+            "statusCode": "SUCCESS",
+            "statusComment": "Reprocess Completed",
             "createdDateTimes": "2019-08-12T08:00:00.754"
         },
         {
             "id": "67a7fc1d-23a3-4eb4-90b5-7cdadd5e596a",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RAPIDITÉ DE PAQUETS",
+            "transactionTypeCode": "PACKET_REPROCESS",
             "parentTransactionId": "e0a89b17-33bb-4bc3-81f9-b18a6b6f68ca",
-            "statusCode": "SUCCÈS",
-            "statusComment": "Retraitement terminé",
+            "statusCode": "SUCCESS",
+            "statusComment": "Reprocess Completed",
             "createdDateTimes": "2019-08-12T09:00:04.152"
         },
         {
             "id": "7fb168fa-449f-4c20-ae23-19330c914b12",
             "registrationId": "10002100210003420190812064248",
-            "transactionTypeCode": "RAPIDITÉ DE PAQUETS",
+            "transactionTypeCode": "PACKET_REPROCESS",
             "parentTransactionId": "67a7fc1d-23a3-4eb4-90b5-7cdadd5e596a",
-            "statusCode": "ÉCHEC DU REPROCESS",
-            "statusComment": "Le nombre de retraits a dépassé les tentatives configurées",
+            "statusCode": "REPROCESS_FAILED",
+            "statusComment": "Reprocess count has exceeded the configured attempts",
             "createdDateTimes": "2019-08-12T10:00:02.313"
         }
     ],
