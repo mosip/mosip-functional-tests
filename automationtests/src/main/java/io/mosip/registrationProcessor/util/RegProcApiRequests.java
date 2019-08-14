@@ -36,7 +36,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI+url);
 		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().log().all().
-				when().post(ApplnURI+url);
+				when().post(ApplnURI+url).then().log().all().extract().response();
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;

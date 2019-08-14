@@ -7,6 +7,6 @@
 	"requesttimeInvalid" : "",
 	"versionEmpty" : "",
 	"versionInvalid" : "",
-	"InvalidRequestUTC" : "",
-	"ValidRequestUTC" : ""
+	"invalidRequestUTC" : "",
+	"validRequestUTC1" : ""
 }

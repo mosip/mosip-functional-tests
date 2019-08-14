@@ -12,7 +12,7 @@
 	</listeners>
 
 
- <test name="Kernel Tests">
+	<!-- <test name="Kernel Tests">
 		<classes>
 
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -113,14 +113,14 @@
 			<class name="io.mosip.preregistration.tests.ValidateOtp" />
 			<class name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
-	</test> 
+	</test> -->
  
 
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
 		 
-			<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
+	<!-- 		<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
 			<class name="io.mosip.registrationProcessor.tests.SecurityTests" />
@@ -136,11 +136,12 @@
 			<class name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
 			<class name="io.mosip.registrationProcessor.tests.PacketInfo" />
 			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
-			<class name="io.mosip.registrationProcessor.tests.PrintingStage" /> 
+			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />  -->
+			<class name="io.mosip.registrationProcessor.tests.Reprinting" /> 
 		</classes>
 
 	</test>
-	 <test name="AuthenticationTest">
+	<!-- <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -261,5 +262,6 @@
 
 
 		</classes>
-		</test>  
+		</test>  -->
+
 </suite>

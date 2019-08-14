@@ -1,0 +1,12 @@
+{
+    "id": "mosip.uincard.reprint",
+    "version": "1.0",
+    "responsetime": "2019-08-12T06:24:22.534Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "RPR-PGS-004",
+            "message": "UIN should not be Empty or Null."
+        }
+    ]
+}
