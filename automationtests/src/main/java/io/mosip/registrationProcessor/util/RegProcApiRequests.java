@@ -30,7 +30,13 @@ public class RegProcApiRequests extends BaseTestCase {
 				.log().all().when().post(ApplnURI+url).then().log().all().extract().response();
 		return postResponse;
 	}
-
+	/**
+	 * 
+	 * @param file
+	 * @param url
+	 * @param regProcAuthToken
+	 * @return
+	 */
 	public Response regProcPacketUpload(File file, String url, String regProcAuthToken) {
 
 		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI+url);
