@@ -10,8 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-
-<!-- 
+ 
 	<test name="Kernel Tests">
 		<classes>
 
@@ -233,7 +232,6 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
- -->
  	<test name="Registration Test">
 		<classes>
 
@@ -246,7 +244,7 @@
 			<class
 				name="io.mosip.registration.tests.PacketHandlerServiceWithPreRegIDTest" />
 
-		<!-- 	<class name="io.mosip.registration.tests.AuditServiceTest" />
+		 	<class name="io.mosip.registration.tests.AuditServiceTest" />
 
 			<class
 				name="io.mosip.registration.tests.ZipCreationServiceTest" />
@@ -342,7 +340,7 @@
 			<class
 				name="io.mosip.registration.tests.SyncStatusValidatorServiceTest" />
 
-			<class name="io.mosip.registration.tests.JobConfigurationTest" /> -->
+			<class name="io.mosip.registration.tests.JobConfigurationTest" />
 
 		</classes>
 	</test>
