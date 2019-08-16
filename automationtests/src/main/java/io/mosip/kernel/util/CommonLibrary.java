@@ -48,6 +48,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -247,8 +248,9 @@ public class CommonLibrary extends BaseTestCase {
 	 * @param requestJson
 	 * @param responseJson
 	 * @return this method is for comapring 2 json, and return boolean value accordingly.
+	 * @throws AdminTestException 
 	 */
-	public boolean jsonComparator(String requestJson, String responseJson)
+	public boolean jsonComparator(String requestJson, String responseJson) throws AdminTestException
 	{
 		try {
 			JSONAssert.assertEquals(requestJson, responseJson, false);
@@ -258,9 +260,8 @@ public class CommonLibrary extends BaseTestCase {
 			logger.info("EXPECTED AND ACTUAL DATA MISMATCH");
 			logger.info("MISMATCH DETAILS:");
 			logger.info(e.getMessage());
-			logger.info("Obtained ACTUAL RESPONSE is:=> "+responseJson);
-			Assert.fail("DATA MISMATCH FAILURE");
-			return false;
+			logger.info("Obtained ACTUAL RESPONSE is:== "+responseJson);
+			throw new AdminTestException("Failed at output validation");
 		}
 	}
 	/**
