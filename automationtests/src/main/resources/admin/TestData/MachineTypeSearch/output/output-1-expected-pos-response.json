@@ -1,0 +1,27 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-23T07:43:39.000Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-16T05:57:46.982Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime":null,
+        "code": "DKS",
+        "langCode": "eng",
+        "name": "Desktop",
+        "description": "Desktop Computer"
+      }
+    ]
+  },
+  "errors": null
+}

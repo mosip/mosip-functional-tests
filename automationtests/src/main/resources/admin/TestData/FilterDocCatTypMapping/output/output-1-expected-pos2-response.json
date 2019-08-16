@@ -1,0 +1,27 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "docCategoryCode",
+        "fieldValue": "POA"
+      },
+      {
+        "fieldID": "docCategoryCode",
+        "fieldValue": "POB"
+      },
+      {
+        "fieldID": "docCategoryCode",
+        "fieldValue": "POI"
+      },
+      {
+        "fieldID": "docCategoryCode",
+        "fieldValue": "POR"
+      }
+    ]
+  },
+  "errors": null
+}

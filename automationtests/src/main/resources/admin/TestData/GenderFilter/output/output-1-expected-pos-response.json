@@ -1,0 +1,19 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-09T09:45:38.925Z",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "genderName",
+        "fieldValue": "Female"
+      },
+      {
+        "fieldID": "genderName",
+        "fieldValue": "Male"
+      }
+    ]
+  },
+  "errors": []
+}

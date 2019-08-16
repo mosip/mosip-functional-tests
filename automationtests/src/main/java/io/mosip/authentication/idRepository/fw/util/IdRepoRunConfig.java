@@ -662,4 +662,364 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getAdminEndPointUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminEndPointUrl(String adminEndPointUrl) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminCreateRegCentrePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminCreateRegCentrePath(String adminCreateRegCentrePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminCreateRegistrationCentrePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminCreateRegistrationCentrePath(String adminCreateRegistrationCentrePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSearchMachinePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSearchMachinePath(String searchMachinePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceSearchPath(String deviceSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceFilterPath(String deviceFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceSpecSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceSpecSearchPath(String deviceSpecSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceSpecFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceSpecFilterPath(String deviceSpecFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceTypeSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceTypeSearchPath(String deviceTypeSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDeviceTypeFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDeviceTypeFilterPath(String deviceTypeFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getTitleSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setTitleSearchPath(String titleSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getTitleFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setTitleFilterPath(String titleFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setHolidaySearchPath(String holidaySearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getHolidaySearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSearchDocumentTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSearchDocumentTypePath(String searchDocumentTypePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminMachineTypeSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminMachineTypeSearchPath(String adminMachineTypeSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminSearchTemplateDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminSearchTemplateDetailsPath(String adminSearchTemplateDetailsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminIndividualTypesSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminIndividualTypesSearchPath(String adminIndividualTypesSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminRegistrationCentreSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminRegistrationCentreSearchPath(String adminRegistrationCentreSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSearchBlackListedWords() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSearchBlackListedWords(String searchBlackListedWordsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSearchDocCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAdminUpdateRegistrationCentrePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminUpdateRegistrationCentrePath(String adminUpdateRegistrationCentrePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFilterTempateDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFilterDocCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAdminGenderSearchPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminGenderSearchPath(String adminGenderSearchPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminGenderFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminGenderFilterPath(String adminGenderFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAdminRegistrationCentreFilterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAdminRegistrationCentreFilterPath(String adminRegistrationCentreFilterPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String MapDocumentCategoryAndDocumentType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFilterBlackListedWordsPath(String filterBlackListedWordsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFilterBlackListedWordsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFilterDocCatTypMapping() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFilterDocumentTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFilterDocumentTypePath(String filterDocumentTypePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFilterMachinesPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFilterMachinesPath(String filterMachinesPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSearchMachineSpec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFilterMachineSpec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSearchValidDocumentPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

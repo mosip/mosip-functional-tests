@@ -1,0 +1,249 @@
+testdata:
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_smoke:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_eng_equals$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_fra:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_fra_equals$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeFrench$
+      output.output-1-expected-pos-3-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_ara:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_ara_equals$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-pos-2-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_eng_contains$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterValue_null_filterType_contain:
+      input.search-request:
+         valuefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeContains$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_null:
+      input.search-request:
+         valuefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_null:
+      input.search-request:
+         valuefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_invalid:
+      input.search-request:
+         valuefilters0: $TestData:invalid_filterValue$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_invalid:
+      input.search-request:
+         valuefilters0: $TestData:invalid_filterValue$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contains_filterValue_invalid:
+      input.search-request:
+         valuefilters0: $TestData:invalid_filterValue$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_invalid_FromAndTodate:
+      input.search-request:
+         toValuefilters0: $TestData:invalid_toValue$
+         fromValuefilters0: $TestData:invalid_fromValue$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorCode$
+         messageerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorMessage$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_inavlid_Empty_FilterType:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_eng_equals$
+         typefilters0: ''
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptyFilterType:errorCode$
+         messageerrors0: $errors:EmptyFilterType:errorMessage$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_inavlid_Empty_ColumnName:
+      input.search-request:
+         columnNamefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptySearchColumnName:errorCode$
+         messageerrors0: $errors:EmptySearchColumnName:errorMessage$
+   Admin_SearchTemplateDetails_inavlid_Empty_FilterValue:
+      input.search-request:
+         valuefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-empty-response:
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_inavlid_columnName:
+      input.search-request:
+         valuefilters0: $TestData:valid_TemplateName_Name_eng_equals$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:invalid_MachineSearch_columnName_eng_Equals$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidColumnName:errorCode$
+         messageerrors0: $errors:InvalidColumnName:errorMessage$
+   Admin_SearchTemplateDetails_inavlid_pageFetch_lessThan1:
+      input.search-request: 
+         pageFetch: $TestData:inavlid_FetchPage_LessThan1$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
+   Admin_SearchTemplateDetails_inavlid_paginationValue:
+      input.search-request:
+         pageStart: $TestData:invalid_MachineSearch_pagination$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_inavlid_LangCode:
+      input.search-request:
+         languageCode: $TestData:invalid_LangCode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
+         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleId_FilterType_Equals:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleId$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleId$
+      output.output-1-expected-pos-4-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleId_filterType_Contains:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleId_Contains$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleId$
+      output.output-1-expected-pos-4-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleId_filterType_StartsWith:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleId_StartsWith$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleId$
+      output.output-1-expected-pos-5-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_Equals:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_Equals$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleName$
+      output.output-1-expected-pos-6-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_Contains:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_Contains$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleName$
+      output.output-1-expected-pos-6-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_StartsWith:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_StartsWith$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         columnNamefilters0: $TestData:valid_ColumnName_moduleName$
+      output.output-1-expected-pos-6-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_SearchTemplateDetails_LangCode_invalid:
+      input.search-request:
+         valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_StartsWith$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         languageCode: $TestData:invalid_LangCode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
+         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         responsetime: $IGNORE$

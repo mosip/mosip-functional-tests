@@ -3,6 +3,8 @@ package io.mosip.authentication.fw.util;
 import static io.restassured.RestAssured.given;    
 
 import java.io.File;
+import java.util.HashMap;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
@@ -178,6 +180,22 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
+	}
+	public static Response putRequestWithParm(String url, HashMap<String, String> body, String contentHeader, String acceptHeader,String cookieName,String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType(contentHeader).cookie(cookieName, cookieValue)
+				.accept(acceptHeader).log().all().when().put(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
+	public static Response putRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,String cookieName,String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
+		Response putResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).cookie(cookieName, cookieValue)
+				.accept(acceptHeader).log().all().when().put(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		return putResponse;
 	}
 }
 

@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-07T10:53:52.816Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:49.870Z",
+        "code": "DOC001",
+        "name": "Passport",
+        "description": "Proof of Idendity",
+        "langCode": "eng"
+      }
+    ]
+  },
+  "errors": []
+}

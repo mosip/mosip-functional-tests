@@ -1,0 +1,535 @@
+testdata:
+
+  Admin_UpdateRegCenter_withValidRequestBothOptionalAndMandatoryField_Smoke_Pos:
+    input.updateRegCenter-request:
+      addressLine2request1: $TestData:valid_addressLine2_ara$
+      addressLine2request0: $TestData:valid_addressLine2_fra$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      addressLine2notUpdatedRegCenters1: $input.updateRegCenter-request:addressLine2request1$
+      addressLine2notUpdatedRegCenters0: $input.updateRegCenter-request:addressLine2request0$
+      
+#Id - 1      
+  Admin_UpdateRegCenter_withInvalidIdAsGreaterThanMaxLengthValue:
+    input.updateRegCenter-request:
+      idrequest1: ''
+      idrequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      
+#Id - 2      
+  Admin_UpdateRegCenter_withInvalidIdAsNonExistingId:
+    input.updateRegCenter-request:
+      idrequest1: '32AB234'
+      idrequest0: '32AB234'
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$    
+      
+      
+ #AddressLine1 - 1   
+  Admin_UpdateRegCenter_withInvalidAddressLine1AsEmptyValue:
+    input.updateRegCenter-request:
+      addressLine1request1: ''
+      addressLine1request0: ''
+    output.output-1-expected-neg-response:
+     responsetime: $IGNORE$ 
+     messageerrors3: $errors:InvalidAddressLine1:errorMessage0$
+     messageerrors2: $errors:InvalidAddressLine1:errorMessage1$
+     messageerrors1: $errors:InvalidAddressLine1:errorMessage2$
+     messageerrors0: $errors:InvalidAddressLine1:errorMessage3$
+     
+     
+ #AddressLine1 - 2   
+  Admin_UpdateRegCenter_withInvalidAddressLine1AsGreaterThanMaxValue:
+    input.updateRegCenter-request:
+      addressLine1request1: $TestData:invalid_addressLine_greaterThanMaxLen$
+      addressLine1request0: $TestData:invalid_addressLine_greaterThanMaxLen$
+    output.output-1-expected-neg1-response:
+     responsetime: $IGNORE$ 
+     messageerrors0: $errors:InvalidAddressLine1:errorMessage1$
+     messageerrors1: $errors:InvalidAddressLine1:errorMessage3$
+     
+     
+#AddressLine2 - 2      
+  Admin_UpdateRegCenter_withInvalidAddressLine2AsGreaterThanMaxLengthValue:
+    input.updateRegCenter-request:
+      addressLine2request1: $TestData:invalid_addressLine_greaterThanMaxLen$
+      addressLine2request0: $TestData:invalid_addressLine_greaterThanMaxLen$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      messageerrors0: $errors:InvalidAddressLine2:errorMessage0$
+      messageerrors1: $errors:InvalidAddressLine2:errorMessage1$  
+      
+           
+#AddressLine3 - 1      
+  Admin_UpdateRegCenter_withInvalidAddressLine3AsGreaterThanMaxLengthValue:
+    input.updateRegCenter-request:
+      addressLine3request1: $TestData:invalid_addressLine_greaterThanMaxLen$
+      addressLine3request0: $TestData:invalid_addressLine_greaterThanMaxLen$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      messageerrors0: $errors:InvalidAddressLine3:errorMessage0$
+      messageerrors1: $errors:InvalidAddressLine3:errorMessage1$  
+      
+ 
+#CenterEndTime - 1      
+  Admin_UpdateRegCenter_withInvalidCenterEndTimeAsEmptyValue:
+    input.updateRegCenter-request:
+      centerEndTimerequest1: ''
+      centerEndTimerequest0: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$  
+      
+
+#CenterEndTime - 2      
+  Admin_UpdateRegCenter_withInvalidCenterEndTimeAsOtherThanTimeDataType:
+    input.updateRegCenter-request:
+      centerEndTimerequest1: $TestData:invalid_centerTime$
+      centerEndTimerequest0: $TestData:invalid_centerTime$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$   
+      
+      
+#centerStartTime - 1      
+  Admin_UpdateRegCenter_withInvalidCenterStartTimeAsEmptyValue:
+    input.updateRegCenter-request:
+      centerStartTimerequest1: ''
+      centerStartTimerequest0: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$ 
+      
+#centerStartTime - 2      
+  Admin_UpdateRegCenter_withInvalidCenterStartTimeAsOtherThanTimeDataType:
+    input.updateRegCenter-request:
+      centerStartTimerequest1: $TestData:invalid_centerTime$
+      centerStartTimerequest0: $TestData:invalid_centerTime$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      
+      
+#centerTypeCode - 1      
+  Admin_UpdateRegCenter_withInvalidCenterTypeCodeAsEmptyValue:
+    input.updateRegCenter-request:
+      centerTypeCoderequest1: ''
+      centerTypeCoderequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      messageerrors3: $errors:InvalidCenterTypeCode:errorMessage0$
+      messageerrors2: $errors:InvalidCenterTypeCode:errorMessage1$
+      messageerrors1: $errors:InvalidCenterTypeCode:errorMessage2$
+      messageerrors0: $errors:InvalidCenterTypeCode:errorMessage3$
+      
+      
+#centerTypeCode - 2
+
+  Admin_UpdateRegCenter_withInvalidCenterTypeCodeValue:
+    input.updateRegCenter-request:
+      centerTypeCoderequest1: $TestData:invalid_centerTypeCode$
+      centerTypeCoderequest0: $TestData:invalid_centerTypeCode$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      messageerrors0: $errors:InvalidCenterTypeCode:errorMessage4$
+      messageerrors1: $errors:InvalidCenterTypeCode:errorMessage5$ 
+      
+      
+#contactPerson - 1      
+
+  Admin_UpdateRegCenter_withInvalidContactPersonValue:
+    input.updateRegCenter-request:
+      contactPersonrequest1: $TestData:invalid_contactPerson$
+      contactPersonrequest0: $TestData:invalid_contactPerson$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors1: $errors:InvalidContactPerson:errorMessage0$
+      messageerrors0: $errors:InvalidContactPerson:errorMessage1$  
+      
+      
+#contactPhone - 1      
+
+  Admin_UpdateRegCenter_withInvalidContactPhoneValue:
+    input.updateRegCenter-request:
+      contactPhonerequest1: $TestData:invalid_contactPhone$
+      contactPhonerequest0: $TestData:invalid_contactPhone$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      messageerrors1: $errors:InvalidContactPhone:errorMessage1$
+      messageerrors0: $errors:InvalidContactPhone:errorMessage0$                                              
+      
+      
+#holidayLocationCode - 1      
+
+  Admin_UpdateRegCenter_withInvalidHolidayLocationCodeAsEmptyValue:
+    input.updateRegCenter-request:
+      holidayLocationCoderequest1: ''
+      holidayLocationCoderequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+      messageerrors3: $errors:InvalidHolidayLocationCode:errorMessage0$
+      messageerrors2: $errors:InvalidHolidayLocationCode:errorMessage1$
+      messageerrors1: $errors:InvalidHolidayLocationCode:errorMessage2$
+      messageerrors0: $errors:InvalidHolidayLocationCode:errorMessage3$    
+      
+      
+#holidayLocationCode - 2      
+
+  Admin_UpdateRegCenter_withInvalidHolidayLocationCodeValue:
+    input.updateRegCenter-request:
+      holidayLocationCoderequest1: $TestData:invalid_holidayLocationCode$
+      holidayLocationCoderequest0: $TestData:invalid_holidayLocationCode$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors3: $errors:InvalidHolidayLocationCode:errorMessage4$
+      messageerrors2: $errors:InvalidHolidayLocationCode:errorMessage5$
+       
+              
+#id - 1      
+
+  Admin_UpdateRegCenter_withInvalidIdValueAsGreaterThanMaxLength:
+    input.updateRegCenter-request:
+      idrequest1: $TestData:invalid_idAsGreaterThanMaxLength$
+      idrequest0: $TestData:invalid_idAsGreaterThanMaxLength$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$ 
+      messageerrors1: $errors:InvalidId:errorMessage0$
+      messageerrors0: $errors:InvalidId:errorMessage1$ 
+      
+      
+#id - 0      
+
+  Admin_UpdateRegCenter_withInvalidIdValueAsEmpty:
+    input.updateRegCenter-request:
+      idrequest1: ''
+      idrequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      
+#langCode - 1     
+
+  Admin_UpdateRegCenter_withInvalidLangCode:
+    input.updateRegCenter-request:
+      langCoderequest1: $TestData:invalid_langCode$
+      langCoderequest0: $TestData:invalid_langCode$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors1: $errors:InvalidLangCode:errorMessage0$
+      messageerrors0: $errors:InvalidLangCode:errorMessage1$ 
+      
+#langCode - 2      
+
+  Admin_UpdateRegCenter_withInvalidLangCodeAsEmpty:
+    input.updateRegCenter-request:
+      langCoderequest1: ''
+      langCoderequest0: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors1: $errors:InvalidLangCode:errorMessage0$
+      messageerrors0: $errors:InvalidLangCode:errorMessage1$           
+            
+          
+#latitude - 1      
+
+  Admin_UpdateRegCenter_withInvalidlatitudeAsEmpty:
+    input.updateRegCenter-request:
+      latituderequest1: ''
+      latituderequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+      messageerrors3: $errors:InvalidLatitude:errorMessage0$
+      messageerrors2: $errors:InvalidLatitude:errorMessage1$                      
+      messageerrors1: $errors:InvalidLatitude:errorMessage2$
+      messageerrors0: $errors:InvalidLatitude:errorMessage3$ 
+      
+      
+#Latitude - 2      
+      
+  Admin_UpdateRegCenter_withInvalidLaitudeAsGrtThanMaxLengthValue:
+    input.updateRegCenter-request:
+      latituderequest1: '23.232141341423445436433464363631'
+      latituderequest0: '23.232141341423445436433464363631'
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors1: $errors:InvalidLatitude:errorMessage0$
+      messageerrors0: $errors:InvalidLatitude:errorMessage3$  
+      
+#Latitude - 3      
+      
+  Admin_UpdateRegCenter_withInvalidLatitudeAsLessThanFourAfterDecimalValue:
+    input.updateRegCenter-request:
+      latituderequest1: '12.23'
+      latituderequest0: '12.23'
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$  
+      errorCodeerrors0: $errors:InvalidLatitude:errorCode$
+      messageerrors0: $errors:InvalidLatitude:errorMessage4$  
+      
+      
+#locationCode - 1      
+
+  Admin_UpdateRegCenter_withInvalidlocationCodeAsEmptyValue:
+    input.updateRegCenter-request:
+      locationCoderequest1: ''
+      locationCoderequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+      messageerrors3: $errors:InvalidLocationCode:errorMessage0$
+      messageerrors2: $errors:InvalidLocationCode:errorMessage1$
+      messageerrors1: $errors:InvalidLocationCode:errorMessage2$
+      messageerrors0: $errors:InvalidLocationCode:errorMessage3$  
+      
+      
+#locationCode - 2      
+
+  Admin_UpdateRegCenter_withInvalidlocationCodeAsInvalidValue:
+    input.updateRegCenter-request:
+      locationCoderequest1: $TestData:invalid_locationCode$
+      locationCoderequest0: $TestData:invalid_locationCode$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+           
+              
+#longitude - 2      
+
+  Admin_UpdateRegCenter_withInvalidlongitudeAsInvalidValue:
+    input.updateRegCenter-request:
+      longituderequest1: ''
+      longituderequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+      messageerrors3: $errors:InvalidLongitude:errorMessage0$
+      messageerrors2: $errors:InvalidLongitude:errorMessage1$                      
+      messageerrors1: $errors:InvalidLongitude:errorMessage2$
+      messageerrors0: $errors:InvalidLongitude:errorMessage3$ 
+      
+      
+#longitude - 2      
+
+  Admin_UpdateRegCenter_withInvalidlongitudeAsInvalidValue:
+    input.updateRegCenter-request:
+      longituderequest1: $TestData:invalid_LatAndLong$
+      longituderequest0: $TestData:invalid_LatAndLong$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidLatAndLogCode:errorMessage$
+      errorCodeerrors0: $errors:InvalidLatAndLogCode:errorCode$    
+      
+      
+#Longitude - 3      
+      
+  Admin_UpdateRegCenter_withInvalidLongitudeAsLessThanFourAfterDecimalValue:
+    input.updateRegCenter-request:
+      longituderequest1: '12.23'
+      longituderequest0: '12.23'
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$     
+      errorCodeerrors0: $errors:InvalidLongitude:errorCode0$
+      messageerrors0: $errors:InvalidLongitude:errorMessage4$
+      
+#Longitude - 4      
+      
+  Admin_UpdateRegCenter_withInvalidLongitudeAsGrtThanMaxLengthValue:
+    input.updateRegCenter-request:
+      longituderequest1: $TestData:invalid_LatAndLongGreaterThanMax$
+      longituderequest0: invalid_LatAndLongGreaterThanMax$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidLongitude:errorCode1$
+      messageerrors0: $errors:InvalidLongitude:errorMessage5$
+      
+      
+#lunchStartTimeAsOtherThanTimeDatatype - 1     
+
+  Admin_UpdateRegCenter_withInvalidAsLunchStartAsOtherThanTimeDatatype:
+    input.updateRegCenter-request:
+      lunchStartTimerequest1: $TestData:invalid_lunchStartTimeAndEndTime$
+      lunchStartTimerequest0: $TestData:invalid_lunchStartTimeAndEndTime$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$  
+      
+#lunchEndTimeAsOtherThanTimeDatatype - 2     
+
+  Admin_UpdateRegCenter_withInvalidAsLunchEndAsOtherThanTimeDatatype:
+    input.updateRegCenter-request:
+      lunchStartTimerequest1: $TestData:invalid_lunchStartTimeAndEndTime$
+      lunchStartTimerequest0: $TestData:invalid_lunchStartTimeAndEndTime$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$ 
+      
+#Name - 1      
+      
+  Admin_UpdateRegCenter_withInvalidNameAsEmptyValue:
+    input.updateRegCenter-request:
+      namerequest1: ''
+      namerequest0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$     
+      messageerrors0: $errors:InvalidName:errorMessage0$
+      messageerrors1: $errors:InvalidName:errorMessage1$
+      messageerrors2: $errors:InvalidName:errorMessage2$
+      messageerrors3: $errors:InvalidName:errorMessage3$   
+      
+      
+#Name - 2      
+      
+  Admin_UpdateRegCenter_withInvalidNameAsGrtThanMaxValue:
+    input.updateRegCenter-request:
+      namerequest1: $TestData:invalid_nameAsGreaterThanMaxLength$
+      namerequest0: $TestData:invalid_nameAsGreaterThanMaxLength$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$     
+      messageerrors1:  $errors:InvalidName:errorMessage1$
+      messageerrors0:  $errors:InvalidName:errorMessage3$ 
+      
+      
+#PerKioskProcessTime - 1      
+      
+  Admin_UpdateRegCenter_withInvalidPerKioskProcessTimeAsOtherThanTimeDataTypeValue:
+    input.updateRegCenter-request:
+      perKioskProcessTimerequest1: $TestData:invalid_perKioskProcessTime$
+      perKioskProcessTimerequest0: $TestData:invalid_perKioskProcessTime$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      
+      
+#PerKioskProcessTime - 2      
+      
+  Admin_UpdateRegCenter_withInvalidPerKioskProcessTimeAsEmptyValue:
+    input.updateRegCenter-request:
+      perKioskProcessTimerequest1: ''
+      perKioskProcessTimerequest0: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$  
+      
+      
+ #TimeZone - 1      
+      
+  Admin_UpdateRegCenter_withInvalidTimeZoneAsGreaterThanMaxLengthValue:
+    input.updateRegCenter-request:
+      timeZonerequest1: $TestData:invalid_timeZoneGrtThanMaxLength$
+      timeZonerequest0: $TestData:invalid_timeZoneGrtThanMaxLength$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidTimezone:errorMessage0$
+      messageerrors1: $errors:InvalidTimezone:errorMessage1$
+      
+
+#WorkingHours - 1     
+  Admin_UpdateRegCenter_withInvalidWorkingHoursAsEmptyValue:
+    input.updateRegCenter-request:
+      workingHoursrequest0: ''
+      workingHoursrequest1: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidWorkingHours:errorMessage0$
+      messageerrors1: $errors:InvalidWorkingHours:errorMessage1$
+      messageerrors2: $errors:InvalidWorkingHours:errorMessage2$
+      messageerrors3: $errors:InvalidWorkingHours:errorMessage3$ 
+      
+      
+#WorkingHours - 2      
+      
+  Admin_UpdateRegCenter_withInvalidWorkingHoursAsInvalidValue:
+    input.updateRegCenter-request:
+      workingHoursrequest1: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
+      workingHoursrequest0: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidWorkingHours:errorMessage0$
+      messageerrors1: $errors:InvalidWorkingHours:errorMessage3$          
+                           
+      
+#Id - 1   
+  Admin_UpdateRegCenter_withInvalidIdAsEmptyValue:
+    input.updateRegCenter-request:
+      id: ''
+    output.output-1-expected-neg2-response:
+     responsetime: $IGNORE$   
+     
+     
+#Id - 2   
+  Admin_UpdateRegCenter_withInvalidIdAsInvalidValue:
+    input.updateRegCenter-request:
+      id: $TestData:invalid_id$
+    output.output-1-expected-neg2-response:
+     responsetime: $IGNORE$ 
+     
+     
+#Version - 1   
+  Admin_UpdateRegCenter_withInvalidVersionAsEmptyValue:
+    input.updateRegCenter-request:
+      version: ''
+    output.output-1-expected-neg2-response:
+     responsetime: $IGNORE$   
+     
+     
+#Version - 2   
+  Admin_UpdateRegCenter_withInvalidVersionAsInvalidValue:
+    input.updateRegCenter-request:
+      version: $TestData:invalid_version$
+    output.output-1-expected-neg2-response:
+     responsetime: $IGNORE$  
+     
+     
+#Requesttime - 1   
+  Admin_UpdateRegCenter_withInvalidrequesttimeAsEmptyValue:
+    input.updateRegCenter-request:
+      requesttime: ''
+    output.output-1-expected-neg-response:
+     responsetime: $IGNORE$    
+     
+     
+#Requesttime - 2   
+  Admin_UpdateRegCenter_withInvalidrequesttimeAsInvalidValue:
+    input.updateRegCenter-request:
+      requesttime: $TestData:invalid_requesttime$
+    output.output-1-expected-neg-response:
+     responsetime: $IGNORE$  
+     
+     
+#duplicateLangCodeValue - 1     
+
+  Admin_UpdateRegCenter_withInvalidLangCodeAsDuplicateValue:
+    input.updateRegCenter-request:
+      langCoderequest1: $TestData:invalid_duplicateLangCode$
+      langCoderequest0: $TestData:invalid_duplicateLangCode$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidLangCodeAsDuplicateValue:errorMessage$
+      errorCodeerrors0: $errors:InvalidLangCodeAsDuplicateValue:errorCode$   
+      
+      
+#CenterStartTimeGreaterThanCenterEndTime - 1     
+
+  Admin_UpdateRegCenter_withInvalidAsCenterStartTimeGreaterThanCenterEndTime:
+    input.updateRegCenter-request:
+      centerStartTimerequest1: '20:00:00'
+      centerStartTimerequest0: '20:00:00'
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorMessage$
+      errorCodeerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorCode$                                      
+                     
+                     
+#LunchStartTimeGreaterThanLunchEndTime - 1     
+
+  Admin_UpdateRegCenter_withInvalidAsLunchStartTimeGreaterThanLunchEndTime:
+    input.updateRegCenter-request:
+      lunchStartTimerequest1: '20:00:00'
+      lunchStartTimerequest0: '20:00:00'
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$      
+      messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
+      errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+                      
+                      
+                      
+#IsActive - 1    
+
+  Admin_UpdateRegCenter_withInvalidValueForIsActive:
+    input.updateRegCenter-request:
+      isActiverequest0: $TestData:invalid_isActive$
+      isActiverequest1: $TestData:invalid_isActive$
+    output.output-1-expected-neg2-response:
+      responsetime: $IGNORE$      
+     
+                                            
+                           

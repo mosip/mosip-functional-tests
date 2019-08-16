@@ -1,0 +1,13 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-15T07:14:49.223Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column Region doesn't exist for the searched entity"
+    }
+  ]
+}

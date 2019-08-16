@@ -1,0 +1,11 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-29T10:51:31.894Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "Latitude or Longitude must have minimum 4 digits after decimal"
+    }
+  ]
+}

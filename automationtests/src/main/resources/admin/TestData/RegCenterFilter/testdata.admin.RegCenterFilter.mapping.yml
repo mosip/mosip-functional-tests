@@ -1,0 +1,92 @@
+testdata:
+  Admin_RegCenterFilter_With_ValidColNameAIdForAllType_Request_Contains_Smoke_Pos:
+    input.regCenterFilter-request:
+      languageCode: $TestData:valid_LanguageCodeEng$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterFilter_With_ValidColNameAName_Request_Contains_Smoke_Pos:
+    input.regCenterFilter-request:
+      textfilters0: $TestData:valid_centername$
+      columnNamefilters0: $TestData:valid_centerColNameAsName$ 
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_RegCenterFilter_With_ValidColNameAIdForUniqueType_Request_Contains_Smoke_Pos:
+    input.regCenterFilter-request:
+      languageCode: $TestData:valid_LanguageCodeEng$
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: $TestData:valid_centerId$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterFilter_With_ValidLangCodeAsFra_Request_Contains_Smoke_Pos:
+    input.regCenterFilter-request:
+      languageCode: $TestData:valid_langCode_fra$
+      textfilters0: $TestData:valid_centerId$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$         
+
+  Admin_RegCenterFilter_With_ValidLangCodeAsAra_Request_Contains_Smoke_Pos:
+    input.regCenterFilter-request:
+      languageCode: $TestData:valid_langCode_ara$
+      textfilters0: $TestData:valid_centerId$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterFilter_With_InValidColumnNameAsEmpty:
+    input.regCenterFilter-request:
+      columnNamefilters0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterFilter_With_InValidColumnNameAsNonExistingValue:
+    input.regCenterFilter-request:
+      columnNamefilters0: $TestData:invalid_colName$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      errorCodeerrors0: $errors:InvalidColumnNameFilter:errorCode$
+      messageerrors0: $errors:InvalidColumnNameFilter:errorMessage$     
+      
+  Admin_RegCenterFilter_With_InValidTypeAsEmpty:
+    input.regCenterFilter-request:
+      typefilters0: ' '
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      errorCodeerrors0: $errors:InvalidEmptyNullFilter:errorCode$
+      messageerrors0: $errors:InvalidEmptyNullFilter:errorMessage$  
+      
+  Admin_RegCenterFilter_With_InValidTypeAsNonExisting:
+    input.regCenterFilter-request:
+      typefilters0: $TestData:InvalidFilterType$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      errorCodeerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorCode$
+      messageerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorMessage$  
+      
+      
+  Admin_RegCenterFilter_With_InValidTextAsNonExisting:
+    input.regCenterFilter-request:
+      textfilters0: $TestData:valid_eng_Male$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_RegCenterFilter_With_InValidIdAsEmpty:
+    input.regCenterFilter-request:
+      id: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_RegCenterFilter_With_InValidVerAsEmpty:
+    input.regCenterFilter-request:
+      ver: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterFilter_With_InValidRequestTimeAsEmpty:
+    input.regCenterFilter-request:
+      requesttime: ''
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$          
+           
+      

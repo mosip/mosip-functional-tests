@@ -1,0 +1,25 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-24T08:49:17.678Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-16T05:57:48.113Z",
+        "id": "165",
+        "name": "Fingerprint Scanner",
+        "brand": "Safran Morpho",
+        "model": "1300 E2",
+        "deviceTypeCode": "FRS",
+        "minDriverversion": "1.12",
+        "description": "To scan fingerprint",
+        "langCode": "eng"
+      }
+    ]
+  }
+}

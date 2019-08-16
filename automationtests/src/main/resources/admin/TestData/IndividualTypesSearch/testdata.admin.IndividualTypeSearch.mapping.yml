@@ -1,0 +1,202 @@
+testdata:
+   Admin_IndividualTypeSearch_langCode_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_ara_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+         codedata0: $TestData:valid_IndividualType_Non-Foreigner_code_equals$
+         namedata0: $input.search-request:valuefilters0$
+   Admin_IndividualTypeSearch_langCode_fra:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_fra_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedBydata0: $IGNORE$
+         isDeleteddata0: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+         codedata0: $TestData:valid_IndividualType_Foreigner_code_equals$
+         namedata0: $input.search-request:valuefilters0$
+   Admin_IndividualTypeSearch_invalid_filter_value:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:invalid_filterValue$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidMachineSearchColumnName:errorCode$
+         messageerrors0: $errors:InvalidMachineSearchColumnName:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_Empty_ColumnName:
+      input.search-request:
+         columnNamefilters0: ''
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptySearchColumnName:errorCode$
+         messageerrors0: $errors:EmptySearchColumnName:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_Empty_FilterType:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: ''
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptyFilterType:errorCode$
+         messageerrors0: $errors:EmptyFilterType:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_invalidPaginationValue:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         pageStart: $TestData:invalid_MachineSearch_pagination$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_empty_SortField:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: ''
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptySortFieldTyp:errorCode$
+         messageerrors0: $errors:EmptySortFieldTyp:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_SortField_value:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:invalid_sortField$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidSortTField:errorCode$
+         messageerrors0: $errors:InvalidSortTField:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_Empty_SortFieldType:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: ''
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptySortFieldTyp:errorCode$
+         messageerrors0: $errors:EmptySortFieldTyp:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_SortFieldType:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:invalid_sortFieldType$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidSortTField:errorCode$
+         messageerrors0: $errors:InvalidSortTField:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_InvalidFromAndToValueInFilterType:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:invalid_sortFieldType$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         toValuefilters0: $TestData:invalid_toValue$
+         fromValuefilters0: $TestData:invalid_fromValue$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorCode$
+         messageerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_columnNameNotSupportFilter:
+      input.search-request:
+         columnNamefilters0: $TestData:invalid_Search_ColumnNameAsName_notSupportFilter$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:invalid_sortFieldType$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:invalid_Search_ColumnNameAsName_notSupportFilter:errorCode$
+         messageerrors0: $errors:invalid_Search_ColumnNameAsName_notSupportFilter:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_columnNameNotFilterType:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_SearchTypeBetween$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:invalid_sortFieldType$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: $errors:InvalidFilterType:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_invalid_langCode:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:invalid_LangCode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
+         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_IndividualTypeSearch_langCode_eng_smoke:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_contains$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         updatedDateTimedata1: $IGNORE$
+         updatedDateTimedata0: $IGNORE$
+         updatedBydata1: $IGNORE$
+         deletedDateTimedata1: $IGNORE$
+         deletedDateTimedata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         createdBydata1: $IGNORE$
+         responsetime: $IGNORE$

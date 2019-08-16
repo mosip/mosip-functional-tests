@@ -29,6 +29,8 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
 		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
+		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
+		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("reg/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");

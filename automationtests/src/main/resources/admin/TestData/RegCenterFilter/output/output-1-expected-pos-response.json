@@ -1,0 +1,45 @@
+{
+   "id": "string",
+   "version": "string",
+   "responsetime": "2019-08-12T12:30:02.248Z",
+   "metadata": null,
+   "response": {"filters":    [
+            {
+         "fieldID": "id",
+         "fieldValue": "10001"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10002"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10003"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10004"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10005"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10006"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10007"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10008"
+      },
+            {
+         "fieldID": "id",
+         "fieldValue": "10009"
+      }
+   ]},
+   "errors": []
+}

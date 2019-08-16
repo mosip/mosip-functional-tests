@@ -1,0 +1,58 @@
+testdata:
+   Admin_MapDocCatAndDocType_smoke:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_inavlid_doccategorycode:
+      input.search-request:
+         doccategorycode: $TestData:invalid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:Invaliddoccategorycode:errorCode$
+         messageerrors0: $errors:Invaliddoccategorycode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_inavlid_doctypecode:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:invalid_doctypecode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:Invaliddoctypecode:errorCode$
+         messageerrors0: $errors:Invaliddoctypecode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_inavlid_doctypecode_doccategorycode:
+      input.search-request:
+         doccategorycode: $TestData:invalid_doccategorycode$
+         doctypecode: $TestData:invalid_doctypecode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:Invaliddoctypecode:errorCode$
+         messageerrors0: $errors:Invaliddoctypecode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_AlreadyMapDocCategoryCodes:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:AlreadyMapDocCategoryCodes:errorCode$
+         messageerrors0: $errors:AlreadyMapDocCategoryCodes:errorMessage$
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_AfterUnamppedThanMapped:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_ZonalAdminToken:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_UnAuthorisedRole:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:valid_doctypecode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:UnAuthorisedRole:errorCode$
+         messageerrors0: $errors:UnAuthorisedRole:errorMessage$

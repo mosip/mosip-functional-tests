@@ -1,0 +1,15 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-19T06:09:12.942Z",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "deviceSpecId",
+        "fieldValue": "165"
+      }
+    ]
+  },
+  "errors": null
+}
