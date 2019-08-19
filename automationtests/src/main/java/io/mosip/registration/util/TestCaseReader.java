@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import com.itextpdf.text.log.SysoCounter;
+import io.mosip.testrunner.MosipTestRunner;
 
 @Service
 public class TestCaseReader {
@@ -23,9 +23,11 @@ public class TestCaseReader {
 	public Object[][] readTestCases(String apiName, String testType) {
 		// String path = "src" + File.separator + "main" + File.separator + "resources"
 		// + File.separator + "Registration"+ File.separator+apiName;
-		System.out.println("API NAME:==" + apiName);
-		String path = this.getClass().getClassLoader()
-				.getResource("./" + "Registration" +"/" + apiName).getPath();
+		
+		System.out.println("API NAME:="+apiName);
+		System.out.println("PATH:="+CommonUtil.getResourcePath());
+		String path = CommonUtil.getResourcePath()+"/Registration" +"/" + apiName;
+		//new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath().toString();
 		File file = new File(path);
 		File[] listOfFolders = file.listFiles();
 
