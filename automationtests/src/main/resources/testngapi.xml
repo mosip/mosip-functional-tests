@@ -119,7 +119,7 @@
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
-		 <class name="io.mosip.registrationProcessor.tests.AdminRequirement" />
+		 	<class name="io.mosip.registrationProcessor.tests.PacketReceiver" />
 			<!-- <class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
