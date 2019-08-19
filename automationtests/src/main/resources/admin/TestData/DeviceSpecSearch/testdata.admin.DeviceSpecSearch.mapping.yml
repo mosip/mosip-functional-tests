@@ -222,8 +222,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
       
     output.output-1-expected-error-response:      
-      errorCodeerrors0: $errors:InvalidPageFetch:errorCode$
-      messageerrors0: $errors:InvalidPageFetch:errorMessage$
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$ 
       responsetime: $IGNORE$ 
       
   Admin_DeviceSpecSearch_InvalidPageStart_smoke:
@@ -238,9 +238,9 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       
-    output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidPageStart:errorCode$
-      messageerrors0: $errors:InvalidPageStart:errorMessage$  
+    output.output-1-expected-error-response:      
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$ 
       responsetime: $IGNORE$ 
       
   Admin_DeviceSpecSearch_Valid_PageStart_PageFetch_smoke:
@@ -465,7 +465,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
       
     output.output-1-expected-error-response:
-     errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
+     errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$  
+     messageerrors0: $IGNORE$ 
      responsetime: $IGNORE$ 
  
   Admin_DeviceSpecSearch_Blank_LangCode_smoke:
@@ -482,6 +483,7 @@ testdata:
       
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
+      messageerrors0: $IGNORE$
       responsetime: $IGNORE$  
    
   Admin_DeviceSpecSearch_Invalid_ColumnName_smoke:

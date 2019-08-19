@@ -1,6 +1,6 @@
 testdata:
 
-  Admin_CreateRegCenter_withValidRequestBothOptionalAndMandatoryField_Smoke_Pos:
+  Admin_CreateRegCenter_BothOptionalAndMandatoryField_Smoke:
     input.createRegCenter-request:
       addressLine2request1: $TestData:valid_addressLine2_ara$
       addressLine2request0: $TestData:valid_addressLine2_fra$
@@ -9,7 +9,7 @@ testdata:
       addressLine2registrationCenters0: $input.createRegCenter-request:addressLine2request0$
  
  
-  Admin_CreateRegCenter_withValidRequestByPassingOnlyMandatoryField_Smoke_Pos:
+  Admin_CreateRegCenter_ByPassingOnlyMandatoryField_Smoke:
     input.createRegCenter-request:
       addressLine2request1: ''
       addressLine2request0: ''
@@ -42,7 +42,7 @@ testdata:
       lunchEndTimeregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
  
  #AddressLine1 - 1   
-  Admin_CreateRegCenter_withInvalidAddressLine1AsEmptyValue:
+  Admin_CreateRegCenter_EmptyAddressLine1:
     input.createRegCenter-request:
       addressLine1request1: ''
       addressLine1request0: ''
@@ -50,7 +50,7 @@ testdata:
      responsetime: $IGNORE$ 
      
 #AddressLine1 - 2      
-  Admin_CreateRegCenter_withInvalidAddressLine1AsGreaterThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidAddressLine1AsGreaterThanMaxLengthValue:
     input.createRegCenter-request:
       addressLine1request1: $TestData:invalid_addressLine_greaterThanMaxLen$
       addressLine1request0: $TestData:invalid_addressLine_greaterThanMaxLen$
@@ -60,7 +60,7 @@ testdata:
       messageerrors1: 'request[1].addressLine1: size must be between 1 and 256'
       
 #AddressLine2 - 2      
-  Admin_CreateRegCenter_withInvalidAddressLine2AsGreaterThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidAddressLine2AsGreaterThanMaxLengthValue:
     input.createRegCenter-request:
       addressLine2request1: $TestData:invalid_addressLine_greaterThanMaxLen$
       addressLine2request0: $TestData:invalid_addressLine_greaterThanMaxLen$
@@ -70,7 +70,7 @@ testdata:
       messageerrors1: 'request[1].addressLine2: size must be between 0 and 256'
       
 #AddressLine3 - 1      
-  Admin_CreateRegCenter_withInvalidAddressLine3AsGreaterThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidAddressLine3AsGreaterThanMaxLengthValue:
     input.createRegCenter-request:
       addressLine3request1: $TestData:invalid_addressLine_greaterThanMaxLen$
       addressLine3request0: $TestData:invalid_addressLine_greaterThanMaxLen$
@@ -80,7 +80,7 @@ testdata:
       messageerrors1: 'request[1].addressLine3: size must be between 0 and 256'  
       
 #CenterEndTime - 1      
-  Admin_CreateRegCenter_withInvalidCenterEndTimeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyCenterEndTime:
     input.createRegCenter-request:
       centerEndTimerequest1: ''
       centerEndTimerequest0: ''
@@ -88,7 +88,7 @@ testdata:
       responsetime: $IGNORE$
       
 #CenterEndTime - 2      
-  Admin_CreateRegCenter_withInvalidCenterEndTimeAsOtherThanTimeDataType:
+  Admin_CreateRegCenter_InvalidCenterEndTimeAsOtherThanTimeDataType:
     input.createRegCenter-request:
       centerEndTimerequest1: $TestData:invalid_centerTime$
       centerEndTimerequest0: $TestData:invalid_centerTime$
@@ -96,7 +96,7 @@ testdata:
       responsetime: $IGNORE$      
       
 #centerStartTime - 1      
-  Admin_CreateRegCenter_withInvalidCenterStartTimeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyCenterStartTime:
     input.createRegCenter-request:
       centerStartTimerequest1: ''
       centerStartTimerequest0: ''
@@ -105,7 +105,7 @@ testdata:
       
    
 #centerStartTime - 2      
-  Admin_CreateRegCenter_withInvalidCenterStartTimeAsOtherThanTimeDataType:
+  Admin_CreateRegCenter_InvalidCenterStartTimeAsOtherThanTimeDataType:
     input.createRegCenter-request:
       centerStartTimerequest1: $TestData:invalid_centerTime$
       centerStartTimerequest0: $TestData:invalid_centerTime$
@@ -113,7 +113,7 @@ testdata:
       responsetime: $IGNORE$    
       
 #centerTypeCode - 1      
-  Admin_CreateRegCenter_withInvalidCenterTypeCodeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyCenterTypeCode:
     input.createRegCenter-request:
       centerTypeCoderequest1: ''
       centerTypeCoderequest0: ''
@@ -126,7 +126,7 @@ testdata:
       
 #centerTypeCode - 2
 
-  Admin_CreateRegCenter_withInvalidCenterTypeCodeValue:
+  Admin_CreateRegCenter_InvalidCenterTypeCodeValue:
     input.createRegCenter-request:
       centerTypeCoderequest1: $TestData:invalid_centerTypeCode$
       centerTypeCoderequest0: $TestData:invalid_centerTypeCode$
@@ -138,7 +138,7 @@ testdata:
       
 #contactPhone - 1      
 
-  Admin_CreateRegCenter_withInvalidContactPhoneValue:
+  Admin_CreateRegCenter_InvalidContactPhoneValue:
     input.createRegCenter-request:
       contactPhonerequest1: $TestData:invalid_contactPhone$
       contactPhonerequest0: $TestData:invalid_contactPhone$
@@ -150,7 +150,7 @@ testdata:
       
 #contactPerson - 1      
 
-  Admin_CreateRegCenter_withInvalidContactPersonValue:
+  Admin_CreateRegCenter_InvalidContactPersonValue:
     input.createRegCenter-request:
       contactPersonrequest1: $TestData:invalid_contactPerson$
       contactPersonrequest0: $TestData:invalid_contactPerson$
@@ -161,7 +161,7 @@ testdata:
       
 #holidayLocationCode - 1      
 
-  Admin_CreateRegCenter_withInvalidHolidayLocationCodeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyHolidayLocationCode:
     input.createRegCenter-request:
       holidayLocationCoderequest1: ''
       holidayLocationCoderequest0: ''
@@ -175,7 +175,7 @@ testdata:
 
 #holidayLocationCode - 2      
 
-  Admin_CreateRegCenter_withInvalidHolidayLocationCodeValue:
+  Admin_CreateRegCenter_InvalidHolidayLocationCodeValue:
     input.createRegCenter-request:
       holidayLocationCoderequest1: $TestData:invalid_holidayLocationCode$
       holidayLocationCoderequest0: $TestData:invalid_holidayLocationCode$
@@ -187,7 +187,7 @@ testdata:
       
 #langCode - 1      
 
-  Admin_CreateRegCenter_withInvalidLangCode:
+  Admin_CreateRegCenter_InvalidLangCode:
     input.createRegCenter-request:
       langCoderequest1: $TestData:invalid_langCode$
       langCoderequest0: $TestData:invalid_langCode$
@@ -199,7 +199,7 @@ testdata:
       
 #langCode - 2      
 
-  Admin_CreateRegCenter_withInvalidLangCodeAsEmpty:
+  Admin_CreateRegCenter_EmptyInvalidLangCode:
     input.createRegCenter-request:
       langCoderequest1: ''
       langCoderequest0: ''
@@ -211,7 +211,7 @@ testdata:
 
 #latitude - 1      
 
-  Admin_CreateRegCenter_withInvalidlatitudeAsEmpty:
+  Admin_CreateRegCenter_EmptyInvalidlatitude:
     input.createRegCenter-request:
       latituderequest1: ''
       latituderequest0: ''
@@ -225,7 +225,7 @@ testdata:
       
 #latitude - 2      
 
-  Admin_CreateRegCenter_withInvalidlatitudeAsInvalidValue:
+  Admin_CreateRegCenter_Invalidlatitude:
     input.createRegCenter-request:
       latituderequest1: $TestData:invalid_LatAndLong$
       latituderequest0: $TestData:invalid_LatAndLong$
@@ -236,7 +236,7 @@ testdata:
       
 #longitude - 1      
 
-  Admin_CreateRegCenter_withInvalidlongitudeAsEmpty:
+  Admin_CreateRegCenter_EmptyInvalidlongitudeAs:
     input.createRegCenter-request:
       longituderequest1: ''
       longituderequest0: ''
@@ -250,7 +250,7 @@ testdata:
       
 #longitude - 2      
 
-  Admin_CreateRegCenter_withInvalidlongitudeAsInvalidValue:
+  Admin_CreateRegCenter_Invalidlongitude:
     input.createRegCenter-request:
       longituderequest1: $TestData:invalid_LatAndLong$
       longituderequest0: $TestData:invalid_LatAndLong$
@@ -261,7 +261,7 @@ testdata:
       
 #locationCode - 1      
 
-  Admin_CreateRegCenter_withInvalidlocationCodeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidlocationCode:
     input.createRegCenter-request:
       locationCoderequest1: ''
       locationCoderequest0: ''
@@ -275,7 +275,7 @@ testdata:
       
 #locationCode - 2     
 
-  Admin_CreateRegCenter_withInvalidlocationCodeAsInvalidValue:
+  Admin_CreateRegCenter_InvalidlocationCode:
     input.createRegCenter-request:
       locationCoderequest1: $TestData:invalid_locationCode$
       locationCoderequest0: $TestData:invalid_locationCode$
@@ -289,7 +289,7 @@ testdata:
       
 #lunchStartTimeGreaterThanlunchEndTime - 1     
 
-  Admin_CreateRegCenter_withInvalidAsLunchStartTimeAsGreaterThanLunchEndTime:
+  Admin_CreateRegCenter_InvalidAsLunchStartTimeAsGreaterThanLunchEndTime:
     input.createRegCenter-request:
       lunchStartTimerequest1: '20:00:00'
       lunchStartTimerequest0: '20:00:00'
@@ -301,7 +301,7 @@ testdata:
       
 #CenterStartTimeGreaterThanCenterEndTime - 1     
 
-  Admin_CreateRegCenter_withInvalidAsCenterStartTimeGreaterThanCenterEndTime:
+  Admin_CreateRegCenter_InvalidAsCenterStartTimeGreaterThanCenterEndTime:
     input.createRegCenter-request:
       centerStartTimerequest1: '20:00:00'
       centerStartTimerequest0: '20:00:00'
@@ -313,7 +313,7 @@ testdata:
 
 #LunchStartTimeGreaterThanLunchEndTime - 1     
 
-  Admin_CreateRegCenter_withInvalidAsLunchStartTimeGreaterThanLunchEndTime:
+  Admin_CreateRegCenter_InvalidAsLunchStartTimeGreaterThanLunchEndTime:
     input.createRegCenter-request:
       lunchStartTimerequest1: '20:00:00'
       lunchStartTimerequest0: '20:00:00'
@@ -325,7 +325,7 @@ testdata:
       
 #duplicateLangCodeValue - 1     
 
-  Admin_CreateRegCenter_withInvalidLangCodeAsDuplicateValue:
+  Admin_CreateRegCenter_InvalidLangCodeAsDuplicateValue:
     input.createRegCenter-request:
       langCoderequest1: $TestData:invalid_duplicateLangCode$
       langCoderequest0: $TestData:invalid_duplicateLangCode$
@@ -336,7 +336,7 @@ testdata:
       
 
 #Requesttime - 1   
-  Admin_CreateRegCenter_withInvalidrequesttimeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidrequesttimeAs:
     input.createRegCenter-request:
       requesttime: ''
     output.output-1-expected-neg-response:
@@ -344,7 +344,7 @@ testdata:
      
      
 #Requesttime - 2   
-  Admin_CreateRegCenter_withInvalidrequesttimeAsInvalidValue:
+  Admin_CreateRegCenter_Invalidrequesttime:
     input.createRegCenter-request:
       requesttime: $TestData:invalid_requesttime$
     output.output-1-expected-neg-response:
@@ -352,7 +352,7 @@ testdata:
      
      
 #Version - 1   
-  Admin_CreateRegCenter_withInvalidVersionAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidVersion:
     input.createRegCenter-request:
       version: ''
     output.output-1-expected-neg3-response:
@@ -360,7 +360,7 @@ testdata:
      
      
 #Version - 2   
-  Admin_CreateRegCenter_withInvalidVersionAsInvalidValue:
+  Admin_CreateRegCenter_InvalidVersion:
     input.createRegCenter-request:
       version: $TestData:invalid_version$
     output.output-1-expected-neg3-response:
@@ -368,7 +368,7 @@ testdata:
      
      
 #Id - 1   
-  Admin_CreateRegCenter_withInvalidIdAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidId:
     input.createRegCenter-request:
       id: ''
     output.output-1-expected-neg3-response:
@@ -376,7 +376,7 @@ testdata:
      
      
 #Id - 2   
-  Admin_CreateRegCenter_withInvalidIdAsInvalidValue:
+  Admin_CreateRegCenter_InvalidId:
     input.createRegCenter-request:
       id: $TestData:invalid_id$
     output.output-1-expected-neg3-response:
@@ -384,7 +384,7 @@ testdata:
      
      
 #WorkingHours - 1     
-  Admin_CreateRegCenter_withInvalidWorkingHoursAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidWorkingHours:
     input.createRegCenter-request:
       workingHoursrequest0: ''
       workingHoursrequest1: ''
@@ -398,7 +398,7 @@ testdata:
       
 #WorkingHours - 2      
       
-  Admin_CreateRegCenter_withInvalidWorkingHoursAsInvalidValue:
+  Admin_CreateRegCenter_InvalidWorkingHours:
     input.createRegCenter-request:
       workingHoursrequest1: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
       workingHoursrequest0: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
@@ -410,7 +410,7 @@ testdata:
                     
  #TimeZone - 1      
       
-  Admin_CreateRegCenter_withInvalidTimeZoneAsGreaterThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidTimeZoneAsGreaterThanMaxLengthValue:
     input.createRegCenter-request:
       timeZonerequest1: $TestData:invalid_timeZoneGrtThanMaxLength$
       timeZonerequest0: $TestData:invalid_timeZoneGrtThanMaxLength$
@@ -422,7 +422,7 @@ testdata:
       
 #PerKioskProcessTime - 1      
       
-  Admin_CreateRegCenter_withInvalidPerKioskProcessTimeAsOtherThanTimeDataTypeValue:
+  Admin_CreateRegCenter_InvalidPerKioskProcessTimeAsOtherThanTimeDataTypeValue:
     input.createRegCenter-request:
       perKioskProcessTimerequest1: $TestData:invalid_perKioskProcessTime$
       perKioskProcessTimerequest0: $TestData:invalid_perKioskProcessTime$
@@ -432,7 +432,7 @@ testdata:
       
 #PerKioskProcessTime - 2      
       
-  Admin_CreateRegCenter_withInvalidPerKioskProcessTimeAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidPerKioskProcessTime:
     input.createRegCenter-request:
       perKioskProcessTimerequest1: ''
       perKioskProcessTimerequest0: ''
@@ -442,7 +442,7 @@ testdata:
       
 #Name - 1      
       
-  Admin_CreateRegCenter_withInvalidNameAsEmptyValue:
+  Admin_CreateRegCenter_EmptyInvalidName:
     input.createRegCenter-request:
       namerequest1: ''
       namerequest0: ''
@@ -456,7 +456,7 @@ testdata:
       
 #Name - 2      
       
-  Admin_CreateRegCenter_withInvalidNameAsGrtThanMaxValue:
+  Admin_CreateRegCenter_InvalidNameAsGrtThanMaxValue:
     input.createRegCenter-request:
       namerequest1: $TestData:invalid_nameAsGreaterThanMaxLength$
       namerequest0: $TestData:invalid_nameAsGreaterThanMaxLength$
@@ -468,7 +468,7 @@ testdata:
       
 #Longitude - 2      
       
-  Admin_CreateRegCenter_withInvalidLongitudeAsLessThanFourAfterDecimalValue:
+  Admin_CreateRegCenter_InvalidLongitudeAsLessThanFourAfterDecimalValue:
     input.createRegCenter-request:
       longituderequest1: '12.23'
       longituderequest0: '12.23'
@@ -479,7 +479,7 @@ testdata:
       
 #Longitude - 3      
       
-  Admin_CreateRegCenter_withInvalidLongitudeAsGrtThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidLongitudeAsGrtThanMaxLengthValue:
     input.createRegCenter-request:
       longituderequest1: $TestData:invalid_LatAndLongGreaterThanMax$
       longituderequest0: invalid_LatAndLongGreaterThanMax$
@@ -491,7 +491,7 @@ testdata:
                                                
 #Latitude - 2      
       
-  Admin_CreateRegCenter_withInvalidLatitudeAsLessThanFourAfterDecimalValue:
+  Admin_CreateRegCenter_InvalidLatitudeAsLessThanFourAfterDecimalValue:
     input.createRegCenter-request:
       latituderequest1: '12.23'
       latituderequest0: '12.23'
@@ -503,7 +503,7 @@ testdata:
       
 #Latitude - 3      
       
-  Admin_CreateRegCenter_withInvalidLaitudeAsGrtThanMaxLengthValue:
+  Admin_CreateRegCenter_InvalidLatitudeAsGrtThanMaxLengthValue:
     input.createRegCenter-request:
       latituderequest1: $TestData:invalid_LatAndLongGreaterThanMax$
       latituderequest0: $TestData:invalid_LatAndLongGreaterThanMax$

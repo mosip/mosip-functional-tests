@@ -112,7 +112,6 @@ public class SearchMachineSpec extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return testCaseName;

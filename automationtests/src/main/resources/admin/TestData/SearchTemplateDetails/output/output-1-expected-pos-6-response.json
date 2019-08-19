@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-06T06:23:00.213Z",
+  "responsetime": "2019-08-14T07:13:17.667Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 10,
@@ -10,7 +10,21 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
+        "id": "1101",
+        "name": "Template for authorization content",
+        "description": "Template for authorization content",
+        "fileFormatCode": "txt",
+        "fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
+        "moduleId": "10004",
+        "moduleName": "ID Authentication",
+        "templateTypeCode": "auth-email-content",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1102",
         "name": "Template for authorization subject",
         "description": "Template for authorization subject",
@@ -24,7 +38,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1103",
         "name": "Template for authorization SMS",
         "description": "Template for authorization SMS",
@@ -38,7 +52,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "registrationclient",
         "name": "otp service",
         "description": "OTP Send Service",
@@ -53,7 +67,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1148",
         "name": "auth otp service",
         "description": "auth otp service for sending otp",
@@ -68,7 +82,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1149",
         "name": "auth otp email service subject",
         "description": "auth otp email service subject",
@@ -83,7 +97,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1150",
         "name": "auth otp email service subject",
         "description": "auth otp email service subject",
@@ -98,7 +112,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1151",
         "name": "Template for Email Content",
         "description": "Template for Email Content",
@@ -113,7 +127,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1152",
         "name": "Template for Email Subject",
         "description": "Template for Email Subject",
@@ -128,7 +142,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "createdDateTime": "2019-07-26T12:18:40.564Z",
         "id": "1153",
         "name": "Template for OTP in SMS ",
         "description": "Template for OTP in SMS ",
@@ -138,22 +152,6 @@
         "moduleId": "10004",
         "moduleName": "ID Authentication",
         "templateTypeCode": "ida-auth-otp-sms-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:51.906Z",
-        "updatedBy": "SYSTEM",
-        "updatedDateTime": "2019-08-05T06:18:51.906Z",
-        "id": "1101",
-        "name": "Template for authorization content",
-        "description": "Template for authorization content",
-        "fileFormatCode": "txt",
-        "fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "auth-email-content",
         "langCode": "eng"
       }
     ]

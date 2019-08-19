@@ -44,8 +44,8 @@ testdata:
          sortTypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeArabic$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidMachineSearchColumnName:errorCode$
-         messageerrors0: $errors:InvalidMachineSearchColumnName:errorMessage$
+         errorCodeerrors0: $errors:EmptyFilterValue:errorCode$
+         messageerrors0: $errors:EmptyFilterValue:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_Empty_ColumnName:
       input.search-request:
@@ -93,8 +93,8 @@ testdata:
          sortTypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:EmptySortFieldTyp:errorCode$
-         messageerrors0: $errors:EmptySortFieldTyp:errorMessage$
+         errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+         messageerrors0: $errors:EmptySortFieldType:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_SortField_value:
       input.search-request:
@@ -105,8 +105,8 @@ testdata:
          sortTypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidSortTField:errorCode$
-         messageerrors0: $errors:InvalidSortTField:errorMessage$
+         errorCodeerrors0: $errors:InvalidSortField:errorCode$
+         messageerrors0: 'Invalid sort field asdg '
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_Empty_SortFieldType:
       input.search-request:
@@ -117,8 +117,8 @@ testdata:
          sortTypesort0: ''
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:EmptySortFieldTyp:errorCode$
-         messageerrors0: $errors:EmptySortFieldTyp:errorMessage$
+         errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+         messageerrors0: $errors:EmptySortFieldType:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_SortFieldType:
       input.search-request:
@@ -129,22 +129,21 @@ testdata:
          sortTypesort0: $TestData:invalid_sortFieldType$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidSortTField:errorCode$
-         messageerrors0: $errors:InvalidSortTField:errorMessage$
+         errorCodeerrors0: $errors:InvalidSortType:errorCode$
+         messageerrors0: 'Sort type asdg is not supported'
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_InvalidFromAndToValueInFilterType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
+         typefilters0: $TestData:valid_SearchTypeBetween$
          valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
          sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:invalid_sortFieldType$
          languageCode: $TestData:valid_LanguageCodeEng$
          toValuefilters0: $TestData:invalid_toValue$
          fromValuefilters0: $TestData:invalid_fromValue$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorCode$
-         messageerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorMessage$
+         errorCodeerrors0: $errors:invalid_FromAndToValue:errorCode$
+         messageerrors0: $errors:invalid_FromAndToValue:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_columnNameNotSupportFilter:
       input.search-request:
@@ -160,15 +159,15 @@ testdata:
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_columnNameNotFilterType:
       input.search-request:
-         columnNamefilters0: $TestData:valid_SearchTypeBetween$
-         typefilters0: $TestData:valid_SearchTypeEquals$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeBetween$
          valuefilters0: $TestData:valid_IndividualType_Foreigner_eng_equals$
          sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
          sortTypesort0: $TestData:invalid_sortFieldType$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage$
+         messageerrors0: $errors:InvalidFilterType:errorMessage3$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_langCode:
       input.search-request:
@@ -179,8 +178,8 @@ testdata:
          sortTypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
-         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_langCode_eng_smoke:
       input.search-request:
