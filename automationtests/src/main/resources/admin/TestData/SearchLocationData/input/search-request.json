@@ -4,17 +4,17 @@
   "request": {
     "filters": [
       {
-        "columnName": "name",
-        "type": "equals",
-        "value": "Machine 1",
+        "value": "Rabat",
         "fromValue": "string",
-        "toValue": "string"
+        "toValue": "string",
+        "columnName": "Province",
+        "type": "contains"
       }
     ],
     "sort": [
       {
-        "sortField": "name",
-        "sortType": "ASC"
+        "sortField": "string",
+        "sortType": "string"
       }
     ],
     "pagination": {

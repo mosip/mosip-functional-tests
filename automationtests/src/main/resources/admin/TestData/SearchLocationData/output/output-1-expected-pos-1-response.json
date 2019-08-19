@@ -1,0 +1,112 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-14T06:48:53.667Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 7,
+    "totalRecord": 7,
+    "data": [
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "EL YOUSSOUFIA",
+        "postalCode": "10190",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Medina de Rabat",
+        "postalCode": "10036",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Hay Riad",
+        "postalCode": "10104",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Madinat Al Irfane",
+        "postalCode": "10112",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Souissi",
+        "postalCode": "10105",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Quartier Hassan",
+        "postalCode": "10000",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      },
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "Agdal",
+        "postalCode": "10106",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:50.123Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      }
+    ]
+  },
+  "errors": null
+}

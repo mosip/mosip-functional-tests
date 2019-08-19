@@ -988,4 +988,14 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getSearchLocationDataPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setSearchLocationDataPath(String searchLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
 }
