@@ -39,20 +39,20 @@ public class RegProcApiRequests extends BaseTestCase {
 	 */
 	public Response regProcPacketUpload(File file, String url, String regProcAuthToken) {
 
-		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI+url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		logger.info("REST:ASSURED :Sending a data packet to" + ApplnURI+url);
 		Response getResponse = null;
 		try {
-			 getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().log().all().
+		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		
+		
+			 getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().
 					when().post(ApplnURI+url).then().log().all().extract().response();
+			 
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		finally {
-			logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
-			logger.info("REST-ASSURED: the response time is: " + getResponse.time());
-		}
-		
+	
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;

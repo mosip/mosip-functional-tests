@@ -42,9 +42,9 @@ public class ApplicationLibrary extends BaseTestCase {
 				MediaType.APPLICATION_JSON, cookie);
 	}
 
-	public Response postWithOnlyFile(String endpoint, File file, String fileKeyName, String cookie) {
+/*	public Response postWithOnlyFile(String endpoint, File file, String fileKeyName, String cookie) {
 		return commonLibrary.postWithOnlyFile(ApplnURI + endpoint,  file, fileKeyName, cookie);
-	}
+	}*/
 	public Response postWithFile(String endpoint, Object body, File file, String fileKeyName, String cookie) {
 		return commonLibrary.postWithFile(ApplnURI + endpoint, body, file, fileKeyName, MediaType.APPLICATION_JSON, cookie);
 	}
