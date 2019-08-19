@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
  
-	<test name="Kernel Tests">
+	 <test name="Kernel Tests">
 		<classes>
 
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -79,7 +79,7 @@
 
 	<test name="PreReg Tests">
 		<classes>
-			<class name="io.mosip.preregistration.tests.BatchJob" />
+			 <class name="io.mosip.preregistration.tests.BatchJob" />
 			<class name="io.mosip.preregistration.tests.Audit" />
 			<class
 				name="io.mosip.preregistration.tests.RetrivePreRegistration" />
@@ -138,7 +138,7 @@
 	</test>
 
 
-	<test name="RegistrationProcessor Tests">
+	 <test name="RegistrationProcessor Tests">
 
 		<classes>
 
@@ -373,5 +373,5 @@
 		    <class name="io.mosip.admin.tests.GenderSearch" />
             <class name="io.mosip.admin.tests.GenderFilter" />
 		</classes>
-	</test>
+	</test> 
 </suite>
