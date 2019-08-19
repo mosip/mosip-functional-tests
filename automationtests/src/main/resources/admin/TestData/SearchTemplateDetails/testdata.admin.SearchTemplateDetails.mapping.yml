@@ -97,9 +97,10 @@ testdata:
       input.search-request:
          toValuefilters0: $TestData:invalid_toValue$
          fromValuefilters0: $TestData:invalid_fromValue$
+         typefilters0: 'between'
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorCode$
-         messageerrors0: $errors:invalid_MachineSearch_inavlidfromAndToValue:errorMessage$
+         errorCodeerrors0: $errors:invalid_FromAndToValue:errorCode$
+         messageerrors0: $errors:invalid_FromAndToValue:errorMessage$
          responsetime: $IGNORE$
    Admin_SearchTemplateDetails_inavlid_Empty_FilterType:
       input.search-request:
@@ -151,8 +152,8 @@ testdata:
       input.search-request:
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
-         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
          responsetime: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleId_FilterType_Equals:
       input.search-request:
@@ -244,6 +245,6 @@ testdata:
          typefilters0: $TestData:valid_SearchTypeStartsWith$
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidLangCode:errorCode$
-         messageerrors0: $errors:InvalidLangCode:errorMessage$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
          responsetime: $IGNORE$

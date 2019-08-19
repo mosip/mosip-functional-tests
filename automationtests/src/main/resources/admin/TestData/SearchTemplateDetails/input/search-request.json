@@ -12,10 +12,7 @@
       }
     ],
     "sort": [
-      {
-        "sortField": "string",
-        "sortType": "string"
-      }
+
     ],
     "pagination": {
       "pageStart": 0,

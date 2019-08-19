@@ -14,9 +14,12 @@
 	<test name="Admin Tests">
 		<classes>
 			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
-			<class name="io.mosip.admin.tests.DeviceSearch" />
+		    <class name="io.mosip.admin.tests.DeviceSearch" />
+			<class name="io.mosip.admin.tests.DeviceFilter" />
 			<class name="io.mosip.admin.tests.DeviceSpecSearch" />
+			<class name="io.mosip.admin.tests.DeviceSpecFilter" />
 			<class name="io.mosip.admin.tests.DeviceTypeSearch" />
+			<class name="io.mosip.admin.tests.DeviceTypeFilter" />
 			<class name="io.mosip.admin.tests.DocCatTypMapSearch" />
 			<class name="io.mosip.admin.tests.FilterBlackListedWords" />
 			<class name="io.mosip.admin.tests.FilterDocCategory" />
@@ -37,6 +40,7 @@
 			<class name="io.mosip.admin.tests.MapDocumentCategoryAndDocumentType" />
 		    <class name="io.mosip.admin.tests.GenderSearch" />
             <class name="io.mosip.admin.tests.GenderFilter" />
+            <class name="io.mosip.admin.tests.HolidaySearch" />
 		</classes>
 	</test>
 </suite>

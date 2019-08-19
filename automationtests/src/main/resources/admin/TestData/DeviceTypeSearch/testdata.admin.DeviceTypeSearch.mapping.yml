@@ -256,7 +256,7 @@ testdata:
      
     output.output-1-expected-error-response:
       responsetime: $IGNORE$       
-      errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$        
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$        
       messageerrors0: $IGNORE$      
  
      
