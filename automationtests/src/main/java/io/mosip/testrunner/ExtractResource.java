@@ -37,6 +37,7 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("version.txt");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
 	}
 	
 	/**

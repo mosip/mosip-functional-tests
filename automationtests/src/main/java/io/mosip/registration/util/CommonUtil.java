@@ -91,6 +91,7 @@ import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.service.sync.PacketSynchService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.common.OTPManager;
+import io.mosip.testrunner.MosipTestRunner;
 
 /**
  * @author Arjun chandramohan
@@ -438,8 +439,6 @@ public class CommonUtil {
 			registrationCenter.setRegistrationCenterId(centerID);
 			SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(registrationCenter);
 			registrationDTO.getOsiDataDTO().setOperatorID(userID);
-			registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
-			registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
 
 			String randomId = "";
 			if (invalidRegID.equalsIgnoreCase("YES")) {
@@ -1408,6 +1407,10 @@ public class CommonUtil {
 						e.getMessage());
 			}
 		}
+	}
+	
+	public static String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath();
 	}
 
 }
