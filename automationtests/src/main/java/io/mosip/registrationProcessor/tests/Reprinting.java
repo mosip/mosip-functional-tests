@@ -176,8 +176,10 @@ public class Reprinting extends BaseTestCase implements ITest {
 			actualRequest.put("requesttime", apiRequests.getUTCTime());
 			if(object.get("testCaseName").toString().contains("invalidRequestUTC")) {
 				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
-			}else if(object.get("testCaseName").toString().contains("emptyTimestamp")) {
+			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
 				actualRequest.put("requesttime","");
+			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime","201929:41.011Z");
 			}
 			
 			
@@ -212,22 +214,18 @@ public class Reprinting extends BaseTestCase implements ITest {
 					
 					Map<String,String> resp = actualResponse.jsonPath().get("response"); 
 					logger.info("response : "+resp );
-					JSONArray expected = (JSONArray) expectedResponse.get("response");
+					JSONObject expected = (JSONObject) expectedResponse.get("response");
 					if(expected!=null&& !expected.isEmpty() && actualRequest!=null){
 						List<String> expectedRegIds = new ArrayList<>();
 						String expectedRegId = null;
 						logger.info("expected: "+expected);
-						Iterator<Object> iterator = expected.iterator();
-						//extracting reg ids from the expected response
-						while(iterator.hasNext()){
-							JSONObject jsonObject = (JSONObject) iterator.next();
-							expectedRegId = jsonObject.get("registrationId").toString().trim();
+						
+							expectedRegId = resp.get("registrationId").toString().trim();
 							logger.info("expectedRegId: "+expectedRegId);
-							expectedRegIds.add(expectedRegId);
-						}
+							
 
-						/*for(Map<String,String> res : response){
-							regIds=res.get("registrationId").toString();
+						
+							regIds=resp.get("registrationId").toString();
 							logger.info("Reg Id is : " +regIds);
 
 							RegistrationStatusEntity dbDto = readDataFromDb.validateRegIdinRegistration(regIds);	
@@ -235,14 +233,14 @@ public class Reprinting extends BaseTestCase implements ITest {
 							logger.info("dbDto :" +dbDto);
 
 							//Checking audit logs (not yet implemented)
-								LocalDateTime logTime = LocalDateTime.of(2019,Month.JANUARY,30,10,15,51,270000000);   //2019-01-30 10:15:51.27					
+								/*LocalDateTime logTime = LocalDateTime.of(2019,Month.JANUARY,30,10,15,51,270000000);   //2019-01-30 10:15:51.27					
 						logger.info("log time : "+logTime);
 						AuditRequestDto auditDto = RegProcDataRead.regproc_dbDataInAuditLog(regIds, "REGISTRATION_ID", "REGISTRATION_PROCESSOR", "GET",logTime);
-						logger.info("AUDIT DTO : "+auditDto.getApplicationName());
+						logger.info("AUDIT DTO : "+auditDto.getApplicationName());*/
 
-							if(dbDto != null && count.isEmpty()&& auditDto != null) {
+							if(dbDto != null && count.isEmpty()/*&& auditDto != null*/) {
 								//if reg id present in response and reg id fetched from table matches, then it is validated
-								if (expectedRegIds.contains(dbDto.getId())&& expectedRegIds.contains(auditDto.getId())){
+								if (expectedRegIds.contains(dbDto.getId())/*&& expectedRegIds.contains(auditDto.getId())*/){
 									LocalDateTime dbDate = dbDto.getCreateDateTime();
 									logger.info("dbDate : "+dbDate);
 									EncryptData data = new EncryptData();
@@ -256,10 +254,10 @@ public class Reprinting extends BaseTestCase implements ITest {
 										logger.info("timestamp not valid");
 									}
 									
-								} 
+								}
 							}
 
-						}*/
+					
 					}
 					finalStatus = "Pass";
 					softAssert.assertTrue(true);

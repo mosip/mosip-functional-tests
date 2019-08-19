@@ -1,11 +1,12 @@
 {
-    "id": "mosip.registration.reprint",
+    "id": "mosip.uincard.reprint",
     "version": "1.0",
-    "responsetime": "2019-06-28T06:15:14.874Z",
-    "response": [
+    "responsetime": "2019-08-14T07:10:34.933Z",
+    "response": null,
+    "errors": [
         {
-            "status": "SUCCESS"
+            "errorCode": "RPR-PGS-004",
+            "message": "Invalid IdType : Enter UIN or VID"
         }
-    ],
-    "errors": null
+    ]
 }
