@@ -10,7 +10,8 @@ errors:
    UnSupportedFilterColumnName:
       errorCode: KER-MSD-316
       errorMessage: Column name doesn't support filter
-      errorMessage1: Column lang_code does not support filter
+      errorMessage1: Column name does not support filter
+      errorMessage2: Column lang_code does not support filter
    EmptyFilterType:
       errorCode: KER-MSD-312
       errorMessage: Filter type is missing
@@ -19,9 +20,12 @@ errors:
       errorMessage: Column <value1> doesn't support filter type <value2>
       errorMessage1: Column isActive doesn't support filter type contains
       errorMessage2: Column isActive doesn't support filter type startsWith
+      errorMessage3: Column name doesn't support filter type between
    InvalidSearchColumnName:
       errorCode: KER-MSD-317
       errorMessage: Column <value> doesn't exist for the searched entity
+      errorMessage1: Column asdg doesn't exist for the searched entity  
+      errorMessage2: Column asdg doesn't exist for the searched entity
    InvalidLanguageCode:
       errorCode: KER-MSD-999
       errorMessage: Language Code is Invalid
