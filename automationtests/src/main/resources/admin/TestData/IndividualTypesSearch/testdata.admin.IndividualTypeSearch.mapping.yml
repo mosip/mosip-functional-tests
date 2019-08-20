@@ -21,10 +21,10 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_IndividualType_Foreigner_fra_equals$
+         valuefilters0: 'Étranger'
          sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
          sortTypesort0: $TestData:valid_SortTypeAscending$
-         languageCode: $TestData:valid_LanguageCodeArabic$
+         languageCode: 'fra'
       output.output-1-expected-pos-response:
          langCodedata0: $input.search-request:languageCode$
          updatedBydata0: $IGNORE$
@@ -154,8 +154,8 @@ testdata:
          sortTypesort0: $TestData:invalid_sortFieldType$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:invalid_Search_ColumnNameAsName_notSupportFilter:errorCode$
-         messageerrors0: $errors:invalid_Search_ColumnNameAsName_notSupportFilter:errorMessage$
+         errorCodeerrors0: $errors:UnSupportedFilterColumnName:errorCode$
+         messageerrors0: $errors:UnSupportedFilterColumnName:errorMessage2$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_columnNameNotFilterType:
       input.search-request:
@@ -196,6 +196,7 @@ testdata:
          updatedBydata1: $IGNORE$
          deletedDateTimedata1: $IGNORE$
          deletedDateTimedata0: $IGNORE$
+         createdDateTimedata1: $IGNORE$
          createdDateTimedata0: $IGNORE$
          createdBydata1: $IGNORE$
          responsetime: $IGNORE$

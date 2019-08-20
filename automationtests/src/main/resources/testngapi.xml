@@ -12,7 +12,8 @@
 	</listeners>
  
 	<test name="Admin Tests">
-		<classes>
+		 <classes>
+		
 			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
 		    <class name="io.mosip.admin.tests.DeviceSearch" />
 			<class name="io.mosip.admin.tests.DeviceFilter" />
@@ -40,7 +41,7 @@
 			<class name="io.mosip.admin.tests.MapDocumentCategoryAndDocumentType" />
 		    <class name="io.mosip.admin.tests.GenderSearch" />
             <class name="io.mosip.admin.tests.GenderFilter" />
-            <class name="io.mosip.admin.tests.HolidaySearch" />
+            <class name="io.mosip.admin.tests.HolidaySearch" /> 
 		</classes>
 	</test>
 </suite>

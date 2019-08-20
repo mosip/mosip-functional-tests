@@ -125,8 +125,8 @@ public class BaseTestCase{
 
 			PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			new PreregistrationDAO().deleteAvailableSlot();
-			new PreregistrationDAO().makeAllRegistartionCenterActive();
+			/*new PreregistrationDAO().deleteAvailableSlot();
+			new PreregistrationDAO().makeAllRegistartionCenterActive();*/
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
 			AdminTestUtil.initiateAdminTest();

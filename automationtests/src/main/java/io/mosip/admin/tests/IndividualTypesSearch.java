@@ -158,7 +158,7 @@ public class IndividualTypesSearch extends AdminTestUtil implements ITest {
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/r2/v1/masterdata/individualtypes/search";
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/v1/masterdata/individualtypes/search";
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),
