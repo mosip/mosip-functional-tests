@@ -1,8 +1,9 @@
 package io.mosip.authentication.tests;
 
-import java.io.File;   
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -20,10 +21,12 @@ import org.testng.internal.TestResult;
 
 import io.mosip.authentication.fw.util.AuditValidation;
 import io.mosip.authentication.fw.util.DataProviderClass;
+import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
@@ -42,14 +45,14 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class EkycPartnerAuthentication extends PrerequisteTests implements ITest{
+public class EkycPartnerAuthentication extends PrerequisteTests implements ITest {
 
 	private static final Logger logger = Logger.getLogger(EkycPartnerAuthentication.class);
 	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
-	private int invocationCount=0;
+	private int invocationCount = 0;
 
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
@@ -60,15 +63,17 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 	}
+
 	/**
 	 * Method set Test data path and its filename
 	 * 
 	 * @param index
 	 */
 	public void setTestDataPathsAndFileNames(int index) {
-		this.TESTDATA_PATH = getTestDataPath(this.getClass().getSimpleName().toString(),index);
-		this.TESTDATA_FILENAME = getTestDataFileName(this.getClass().getSimpleName().toString(),index);
+		this.TESTDATA_PATH = getTestDataPath(this.getClass().getSimpleName().toString(), index);
+		this.TESTDATA_FILENAME = getTestDataFileName(this.getClass().getSimpleName().toString(), index);
 	}
+
 	/**
 	 * Method set configuration
 	 * 
@@ -79,6 +84,7 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 		RunConfigUtil.objRunConfig.setConfig(this.TESTDATA_PATH, this.TESTDATA_FILENAME, testType);
 		TestDataProcessor.initateTestDataProcess(this.TESTDATA_FILENAME, this.TESTDATA_PATH, "ida");
 	}
+
 	/**
 	 * The method set test case name
 	 * 
@@ -103,6 +109,7 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 		}
 		this.testCaseName = String.format(testCase);
 	}
+
 	/**
 	 * Data provider class provides test case list
 	 * 
@@ -112,18 +119,20 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 	public Object[][] getTestCaseList() {
 		invocationCount++;
 		setTestDataPathsAndFileNames(invocationCount);
-		setConfigurations(this.testType);	
+		setConfigurations(this.testType);
 		return DataProviderClass.getDataProvider(
 				RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getScenarioPath(),
 				RunConfigUtil.objRunConfig.getScenarioPath(), RunConfigUtil.objRunConfig.getTestType());
 	}
+
 	/**
 	 * Set current testcaseName
 	 */
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
-	} 
+	}
+
 	/**
 	 * The method ser current test name to result
 	 * 
@@ -139,12 +148,13 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, EkycPartnerAuthentication.testCaseName);
-			if(!result.isSuccess())
-				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getKycAuthSeriveName(), logFileName, getTestFolder());
+			if (!result.isSuccess())
+				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getKycAuthSeriveName(), logFileName,
+						getTestFolder());
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	} 
+	}
 
 	/**
 	 * Test method for ekyc partner authentication execution
@@ -152,10 +162,11 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException 
+	 * @throws AuthenticationTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void ekycPartnerAuthenticationTest(TestParameters objTestParameters,String testScenario,String testcaseName) throws AuthenticationTestException {
+	public void ekycPartnerAuthenticationTest(TestParameters objTestParameters, String testScenario,
+			String testcaseName) throws AuthenticationTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -163,41 +174,57 @@ public class EkycPartnerAuthentication extends PrerequisteTests implements ITest
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
-		String extUrl=getExtendedUrl(new File(objTestParameters.getTestCaseFile()+"/url.properties"));
+		String extUrl = getExtendedUrl(new File(objTestParameters.getTestCaseFile() + "/url.properties"));
+		// Perform encoding here
+		String bioIdentityContent = getContentFromFile(testCaseName.listFiles(), "identity-encrypt");
+		int count = getNumberOfTimeWordPresentInString(bioIdentityContent, "\"data\"");
+		for (int i = 1; i <= count; i++) {
+			String mapperForBioContentToBeEncode = "bioData" + i;
+			String bioContentToBeEncode = JsonPrecondtion.getValueFromJsonUsingMapping(
+					getContentFromFile(testCaseName.listFiles(), "identity-encrypt"), mapping,
+					mapperForBioContentToBeEncode);
+			String encodedBioData = EncryptDecrptUtil.getBase64EncodedString(bioContentToBeEncode);
+			Map<String, String> bioDataMap = new HashMap<String, String>();
+			bioDataMap.put(mapperForBioContentToBeEncode, encodedBioData);
+			modifyRequest(testCaseName.listFiles(), bioDataMap, mapping, "identity-encrypt");
+		}
+		// End of encode bio data
 		Map<String, String> tempMap = getEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of auth request ******************");
 		Reporter.log("<b><u>Modification of auth request</u></b>");
-		if(!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "auth-request"))
+		if (!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "auth-request"))
 			throw new AuthenticationTestException("Failed at modifying the request file. Kindly check testdata.");
 		displayContentInFile(testCaseName.listFiles(), "auth-request");
-		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getEkycPath()
-				+ extUrl+" *******");
-		if(!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
-				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getEkycPath() +extUrl, "request", "output-1-actual-res",0))
+		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl()
+				+ RunConfigUtil.objRunConfig.getEkycPath() + extUrl + " *******");
+		if (!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
+				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getEkycPath() + extUrl,
+				"request", "output-1-actual-res", 0))
 			throw new AuthenticationTestException("Failed at HTTP-POST request");
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AuthenticationTestException("Failed at response output validation");
-		if(FileUtil.verifyFilePresent(testCaseName.listFiles(), "auth_transaction")) {
+		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "auth_transaction")) {
 			wait(5000);
 			logger.info("************* Auth Transaction Validation ******************");
 			Reporter.log("<b><u>Auth Transaction Validation</u></b>");
 			Map<String, List<OutputValidationDto>> auditTxnvalidation = AuditValidation
 					.verifyAuditTxn(testCaseName.listFiles(), "auth_transaction");
 			Reporter.log(ReportUtil.getOutputValiReport(auditTxnvalidation));
-			if(!OutputValidationUtil.publishOutputResult(auditTxnvalidation)) 
+			if (!OutputValidationUtil.publishOutputResult(auditTxnvalidation))
 				throw new AuthenticationTestException("Failed at AuthTransaction validation");
-		}if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "audit_log")) {
+		}
+		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "audit_log")) {
 			wait(5000);
 			logger.info("************* Audit Log Validation ******************");
 			Reporter.log("<b><u>Audit Log Validation</u></b>");
 			Map<String, List<OutputValidationDto>> auditLogValidation = AuditValidation
 					.verifyAuditLog(testCaseName.listFiles(), "audit_log");
 			Reporter.log(ReportUtil.getOutputValiReport(auditLogValidation));
-			if(!OutputValidationUtil.publishOutputResult(auditLogValidation))
+			if (!OutputValidationUtil.publishOutputResult(auditLogValidation))
 				throw new AuthenticationTestException("Failed at AuditLog Validation");
 		}
 	}
