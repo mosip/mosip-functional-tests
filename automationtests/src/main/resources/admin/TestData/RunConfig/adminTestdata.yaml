@@ -527,7 +527,7 @@ validColumnRegion:
 validColumnProvince:
      - Province
 validColumnCity:
-     - city
+     - City
 validColumnZone:
      - Zone
 validColumnRegionValue:
