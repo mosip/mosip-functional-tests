@@ -998,4 +998,14 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String getFilterLocationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setFilterLocationPath(String filterLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
 }

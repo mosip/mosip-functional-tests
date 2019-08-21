@@ -1,0 +1,15 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-21T09:56:34.285Z",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "Zone",
+        "fieldValue": "Mehdia"
+      }
+    ]
+  },
+  "errors": null
+}

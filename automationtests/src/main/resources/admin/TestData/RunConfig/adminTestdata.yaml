@@ -536,6 +536,9 @@ validColumnProvinceValue:
      - Rabat
 validColumnCityValue:
      - Kenitra
+validColumnRegionFrench:
+     - Région
 validColumnZoneValue:
      - EL YOUSSOUFIA
-
+validColumnRegionArabic:
+     - منطقة

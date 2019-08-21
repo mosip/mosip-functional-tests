@@ -170,34 +170,6 @@ testdata:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
       
-  Admin_SearchLocationData_Valid_ColumnStatusNTypeEquals:
-    input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_isActive_true$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: 'region'
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-1-response:
-      responsetime: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnStatusFalseNTypeEquals:
-    input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_isActive_false$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: 'region'
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
-      responsetime: $IGNORE$
-      
   Admin_SearchLocationData_Invalid_EmptyColumnName:
     input.search-request:
       columnNamefilters0: ''
@@ -233,7 +205,7 @@ testdata:
             
   Admin_SearchLocationData_Invalid_EmptyFilterType:
     input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      columnNamefilters0: $TestData:validColumnRegion$
       typefilters0: ''
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -249,7 +221,7 @@ testdata:
       
   Admin_SearchLocationData_InvalidFilterType:
     input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      columnNamefilters0: $TestData:validColumnRegion$
       typefilters0: $TestData:invalid_SearchTypeEquals$
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -260,28 +232,26 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$
     output.output-1-expected-neg-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:EmptyFilterType:errorCode$
-      messageerrors0: $errors:EmptyFilterType:errorMessage$
+      errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+      messageerrors0: $IGNORE$
       
   Admin_SearchLocationData_Invalid_EmptyValue:
     input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      columnNamefilters0: $TestData:validColumnRegion$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:Invalid_ValueString$
+      valuefilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       sortFieldsort0: 'region'
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-neg-response:
+    output.output-1-expected-empty-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:EmptyFilterValue:errorCode$
-      messageerrors0: $errors:EmptyFilterValue:errorMessage$
       
   Admin_SearchLocationData_InvalidValue:
     input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      columnNamefilters0: $TestData:validColumnRegion$
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$

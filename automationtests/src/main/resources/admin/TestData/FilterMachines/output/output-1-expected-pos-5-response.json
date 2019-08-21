@@ -1,88 +1,12 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-13T13:06:58.977Z",
+  "responsetime": "2019-08-21T07:44:42.312Z",
   "response": {
     "filters": [
       {
         "fieldID": "macAddress",
         "fieldValue": "00-0D-3A-F2-B4-8A"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "00-0D-3A-F2-C6-FF"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "00-0D-3A-F2-CB-29"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "00-FF-C7-C6-15-DF"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "11-DE-EB-B6-96-7D"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "27-41-1A-4A-E7-B0"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "34-17-EB-88-AB-37"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "37-A2-E3-E0-A2-1B"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "38-BA-F8-53-C7-8F"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "38-BA-F8-7D-67-89"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "3A-BA-F8-7D-60-C2"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "3C-18-A0-76-38-4F"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "3C-6A-A7-C0-DF-27"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "3C-95-09-F9-EA-DF"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "3F-7C-1B-EB-62-FF"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "40-B0-34-F1-5E-58"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "48-51-B7-10-35-A6"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "48-A4-72-9B-08-92"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "50-19-82-36-28-FD"
-      },
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "54-8C-A0-99-06-47"
       }
     ]
   }

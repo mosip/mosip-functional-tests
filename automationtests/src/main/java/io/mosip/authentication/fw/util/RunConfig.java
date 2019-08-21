@@ -405,4 +405,6 @@ public abstract class RunConfig {
 		public abstract String getSearchValidDocumentPath();
 		public abstract String getSearchLocationDataPath();
 		public abstract void setSearchLocationDataPath(String searchLocationPath);
+		public abstract String getFilterLocationPath();
+		public abstract void setFilterLocationPath(String filterLocationPath);
 }

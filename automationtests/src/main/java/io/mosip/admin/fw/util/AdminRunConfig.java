@@ -57,6 +57,8 @@ public class AdminRunConfig extends RunConfig {
 	private String searchMachineSpec;
 	private String filterMachineSpec;
 	private String searchLocationPath;
+	private String filterLocationPath;
+
 
 
 	@Override
@@ -102,6 +104,7 @@ public class AdminRunConfig extends RunConfig {
 		setSearchMachineSpec(AdminTestUtil.getPropertyValue("searchMachineSpec"));
 		setFilterMachineSpec(AdminTestUtil.getPropertyValue("filterMachineSpec"));
 		setSearchLocationDataPath(AdminTestUtil.getPropertyValue("searchLocationDataPath"));
+		setFilterLocationPath(AdminTestUtil.getPropertyValue("filterLocationDataPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -341,6 +344,14 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public void setSearchLocationDataPath(String searchLocationPath) {
 		this.searchLocationPath = searchLocationPath;
+	}
+	@Override
+	public String getFilterLocationPath() {
+		return filterLocationPath;
+	}
+	@Override
+	public void setFilterLocationPath(String filterLocationPath) {
+		this.filterLocationPath = filterLocationPath;
 	}
 	@Override
 	public String getEndPointUrl() {
