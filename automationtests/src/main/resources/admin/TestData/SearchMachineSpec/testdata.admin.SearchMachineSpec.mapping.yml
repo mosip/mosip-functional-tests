@@ -1,103 +1,197 @@
 testdata:
    Admin_SearchMachineSpec_Valid_Request_Smoke:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: $TestData:valid_machineSpec_Name$
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
+      output.output-1-expected-pos-response:
          langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
+         isActivedata0: $TestData:valid_isActive_true$
    Admin_SearchMachineSpec_Valid_sort_as_blank_defaultSort:
       input.search-request1:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_machineSpec_halfName$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch2$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request1:languageCode$
+         langCodedata1: $input.search-request1:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         isActivedata1: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_languageCode_fra:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_machineSpec_Name$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeFrench$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos4-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_languageCode_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_machineSpec_NameAra$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos3-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_pageFetch_as_2_and_pageStart_as_0:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_machineSpec_halfName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch2$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         langCodedata1: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         isActivedata1: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_sortBy_name_pageFetch_2:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_machineSpec_halfName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch2$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         langCodedata1: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         isActivedata1: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_sortType_ASC:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_machineSpec_halfName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch2$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         langCodedata1: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         isActivedata1: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_col_as_Model:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_machineSpec_Model$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_col_as_Brand_lang_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_machineSpec_Brand_Ara$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos3-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_col_as_Brand:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_machineSpec_Brand$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         totalRecord: valid_PageFetch2
+   Admin_SearchMachineSpec_Valid_col_as_isActive:
+      input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters0: $TestData:valid_SearchTypeEquals$
          valuefilters0: $TestData:valid_isActive_true$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch2$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         langCodedata1: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         isActivedata1: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_col_as_MachineTypeName:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_MachineTypeName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         totalRecord: 2
+   Admin_SearchMachineSpec_Valid_col_as_Name_FltrTyp_startsWith:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: v
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+   Admin_SearchMachineSpec_Valid_col_as_Name_FltrTyp_contains:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: tro
+         sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos2-response:
          langCodedata0: $input.search-request1:languageCode$
-         isActivedata0: $input.search-request1:valuefilters0$
-   Admin_SearchMachineSpec_Valid_languageCode_fra_:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-   Admin_SearchMachineSpec_Valid_languageCode_ara_:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeArabic$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-   Admin_SearchMachineSpec_Valid_pageFetch_as_2_and_pageStart_as_0:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortFieldsort0: code
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch2$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
-   Admin_SearchMachineSpec_Valid_sortBy_code:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         sortFieldsort0: code
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch2$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
-   Admin_SearchMachineSpec_Valid_sortType_DESC:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         sortFieldsort0: code
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch2$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos5-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
+         isActivedata0: $TestData:valid_isActive_true$
    Admin_SearchMachineSpec_inValid_columnName_blank:
       input.search-request:
          columnNamefilters0: ''
@@ -134,9 +228,8 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage$
+      output.output-1-expected-pos5-response:
+         toRecord: 0
    Admin_SearchMachineSpec_inValid_filter_value_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -189,7 +282,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: "Invalid sort field abcdg "
+         messageerrors0: 'Invalid sort field abcdg '
    Admin_SearchMachineSpec_inValid_sortType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

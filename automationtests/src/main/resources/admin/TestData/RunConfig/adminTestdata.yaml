@@ -520,5 +520,17 @@ valid_doctypecode:
      - CIN
 alreadyMapped_doctypecode:
      - DOC001
-
-
+valid_machineSpec_Name:
+     - Vostro
+valid_machineType_Name:
+     - Desktop
+valid_machineSpec_halfName:
+     - tro
+valid_machineSpec_NameAra:
+     - ستر
+valid_machineSpec_Brand:
+     - Dell
+valid_machineSpec_Brand_Ara:
+     - دلّ
+valid_machineSpec_Model:
+     - 3568

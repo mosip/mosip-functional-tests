@@ -17,14 +17,14 @@
         "isDeleted": null,
         "deletedDateTime": null,
         "id": "1001",
-        "name": "Vostro",
-        "brand": "Dell",
+        "name": "ستر",
+        "brand": "دلّ",
         "model": "3568",
         "machineTypeCode": "DKS",
         "minDriverversion": "1.454",
-        "description": "To take enrollments",
-        "langCode": "eng",
-        "machineTypeName": "Desktop"
+        "description": "لأخذ التسجيلات",
+        "langCode": "ara",
+        "machineTypeName": "الحاسوب"
       }
     ]
   },

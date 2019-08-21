@@ -41,6 +41,8 @@
 		    <class name="io.mosip.admin.tests.GenderSearch" />
             <class name="io.mosip.admin.tests.GenderFilter" />
             <class name="io.mosip.admin.tests.HolidaySearch" />
+            <class name="io.mosip.admin.tests.SearchMachineSpec" />
+            <class name="io.mosip.admin.tests.FilterMachineSpec" />
 		</classes>
 	</test>
 </suite>
