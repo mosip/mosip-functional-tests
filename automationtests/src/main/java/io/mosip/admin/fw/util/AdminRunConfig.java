@@ -24,7 +24,7 @@ public class AdminRunConfig extends RunConfig {
 	private String moduleFolderName;
 	private String searchValidDocumentPath;
 	private String searchDocCategories;
-	public String searchMachinePath;
+	private String searchMachinePath;
 	public  String deviceSearchPath;
 	public  String deviceFilterPath;
 	private String deviceSpecSearchPath;
@@ -37,9 +37,9 @@ public class AdminRunConfig extends RunConfig {
 	private String FilterTempateDetailsPath;
 	private String filterDocCategory;
 	public String adminCreateRegistrationCentrePath;
-	public String searchDocumentTypePath;
+	private String searchDocumentTypePath;
 	public String adminMachineTypeSearchPath;
-	public String searchBlackListedWordsPath;
+	private String searchBlackListedWordsPath;
 	public String adminIndividualTypesSearch;
 	public String adminUpdateRegistrationCentrePath;
 	public String adminRegistrationCentreSearchPath;
@@ -50,12 +50,15 @@ public class AdminRunConfig extends RunConfig {
 	public String adminGenderFilterPath;
 
 	public String MapDocumentCategoryAndDocumentType;
-	public String filterBlackListedWordsPath;
+	private String filterBlackListedWordsPath;
 	private String filterDocCatTypMapping;
-	public String filterDocumentTypePath;
-	public String filterMachinesPath;
+	private String filterDocumentTypePath;
+	private String filterMachinesPath;
 	private String searchMachineSpec;
 	private String filterMachineSpec;
+	private String searchLocationPath;
+	private String filterLocationPath;
+
 
 
 	@Override
@@ -100,6 +103,8 @@ public class AdminRunConfig extends RunConfig {
 		setFilterMachinesPath(AdminTestUtil.getPropertyValue("filterMachinePath"));
 		setSearchMachineSpec(AdminTestUtil.getPropertyValue("searchMachineSpec"));
 		setFilterMachineSpec(AdminTestUtil.getPropertyValue("filterMachineSpec"));
+		setSearchLocationDataPath(AdminTestUtil.getPropertyValue("searchLocationDataPath"));
+		setFilterLocationPath(AdminTestUtil.getPropertyValue("filterLocationDataPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -331,6 +336,22 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public void setFilterMachinesPath(String filterMachinesPath) {
 		this.filterMachinesPath = filterMachinesPath;
+	}
+	@Override
+	public String getSearchLocationDataPath() {
+		return searchLocationPath;
+	}
+	@Override
+	public void setSearchLocationDataPath(String searchLocationPath) {
+		this.searchLocationPath = searchLocationPath;
+	}
+	@Override
+	public String getFilterLocationPath() {
+		return filterLocationPath;
+	}
+	@Override
+	public void setFilterLocationPath(String filterLocationPath) {
+		this.filterLocationPath = filterLocationPath;
 	}
 	@Override
 	public String getEndPointUrl() {

@@ -1,0 +1,17 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-21T09:54:20.771Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "Province",
+        "fieldValue": "Kenitra"
+      },
+      {
+        "fieldID": "Province",
+        "fieldValue": "Rabat"
+      }
+    ]
+  }
+}

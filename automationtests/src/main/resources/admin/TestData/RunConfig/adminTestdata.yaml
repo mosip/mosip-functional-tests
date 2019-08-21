@@ -2,7 +2,7 @@
 
 # COMMON FIELDS ACROSS API 
 Invalid_ValueString:
-     - abcdg
+     - fbheafg
 valid_Search_ColumnNameAsName:
      - name
 valid_Search_ColumnNameAsCode:
@@ -58,7 +58,7 @@ valid_LanguageCodeArabic:
       - ara
 valid_LanguageCodeFrench:
       - fra     
-invalid_LanguageCode:
+invalid_SearchTypeEquals:
       - sdasd
       - 21232
 valid_FilterTypeAll:
@@ -534,3 +534,24 @@ valid_machineSpec_Brand_Ara:
      - دلّ
 valid_machineSpec_Model:
      - 3568
+#LocationApi
+validColumnRegion:
+     - Region
+validColumnProvince:
+     - Province
+validColumnCity:
+     - City
+validColumnZone:
+     - Zone
+validColumnRegionValue:
+     - Rabat Sale Kenitra
+validColumnProvinceValue:
+     - Rabat
+validColumnCityValue:
+     - Kenitra
+validColumnRegionFrench:
+     - Région
+validColumnZoneValue:
+     - EL YOUSSOUFIA
+validColumnRegionArabic:
+     - منطقة
