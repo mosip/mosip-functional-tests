@@ -26,6 +26,7 @@
 			<class name="io.mosip.admin.tests.FilterDocCategory" />
 			<class name="io.mosip.admin.tests.FilterDocCatTypMapping" />
 			<class name="io.mosip.admin.tests.FilterDocumentType" />
+			<class name="io.mosip.admin.tests.FilterLocationData" />
 			<class name="io.mosip.admin.tests.FilterMachines" />
 			<class name="io.mosip.admin.tests.IndividualTypesSearch" />
 			<class name="io.mosip.admin.tests.MachineTypeSearch" />
@@ -33,6 +34,7 @@
 			<class name="io.mosip.admin.tests.SearchBlackListedWords" />
 			<class name="io.mosip.admin.tests.SearchDocCategories" />
 			<class name="io.mosip.admin.tests.SearchDocumentType" />
+			<class name="io.mosip.admin.tests.SearchLocationData" />
 			<class name="io.mosip.admin.tests.SearchMachines" />
 			<class name="io.mosip.admin.tests.SearchTemplateDetails" />
 			<class name="io.mosip.admin.tests.TitleFilter" />
