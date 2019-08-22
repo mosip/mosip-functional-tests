@@ -1024,8 +1024,33 @@ public class IdRepoRunConfig extends RunConfig{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getUnmapDocCategoryType() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+=======
+	public String getSearchLocationDataPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSearchLocationDataPath(String searchLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFilterLocationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFilterLocationPath(String filterLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
+>>>>>>> e4f0764e23762fef657aca76e99046d644031e8a
 }

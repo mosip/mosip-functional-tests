@@ -12,9 +12,15 @@
 	</listeners>
  
 	<test name="Admin Tests">
+<<<<<<< HEAD
 		<classes>
 		<class name="io.mosip.admin.tests.UnmapDocCategoryType" />
 			<!-- <class name="io.mosip.admin.tests.CreateRegistrationCenter" />
+=======
+		 <classes>
+		
+			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
+>>>>>>> e4f0764e23762fef657aca76e99046d644031e8a
 		    <class name="io.mosip.admin.tests.DeviceSearch" />
 			<class name="io.mosip.admin.tests.DeviceFilter" />
 			<class name="io.mosip.admin.tests.DeviceSpecSearch" />
@@ -26,6 +32,7 @@
 			<class name="io.mosip.admin.tests.FilterDocCategory" />
 			<class name="io.mosip.admin.tests.FilterDocCatTypMapping" />
 			<class name="io.mosip.admin.tests.FilterDocumentType" />
+			<class name="io.mosip.admin.tests.FilterLocationData" />
 			<class name="io.mosip.admin.tests.FilterMachines" />
 			<class name="io.mosip.admin.tests.IndividualTypesSearch" />
 			<class name="io.mosip.admin.tests.MachineTypeSearch" />
@@ -33,6 +40,7 @@
 			<class name="io.mosip.admin.tests.SearchBlackListedWords" />
 			<class name="io.mosip.admin.tests.SearchDocCategories" />
 			<class name="io.mosip.admin.tests.SearchDocumentType" />
+			<class name="io.mosip.admin.tests.SearchLocationData" />
 			<class name="io.mosip.admin.tests.SearchMachines" />
 			<class name="io.mosip.admin.tests.SearchTemplateDetails" />
 			<class name="io.mosip.admin.tests.TitleFilter" />
@@ -42,7 +50,12 @@
 		    <class name="io.mosip.admin.tests.GenderSearch" />
             <class name="io.mosip.admin.tests.GenderFilter" />
             <class name="io.mosip.admin.tests.HolidaySearch" />
+<<<<<<< HEAD
             <class name="io.mosip.admin.tests.SearchMachineSpec" /> -->
+=======
+            <class name="io.mosip.admin.tests.SearchMachineSpec" />
+            <class name="io.mosip.admin.tests.FilterMachineSpec" />
+>>>>>>> e4f0764e23762fef657aca76e99046d644031e8a
 		</classes>
 	</test>
 </suite>
