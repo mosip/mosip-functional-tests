@@ -534,6 +534,7 @@ valid_machineSpec_Brand_Ara:
      - دلّ
 valid_machineSpec_Model:
      - 3568
+     - 3568
 #LocationApi
 validColumnRegion:
      - Region

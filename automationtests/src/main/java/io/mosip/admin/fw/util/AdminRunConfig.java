@@ -56,6 +56,7 @@ public class AdminRunConfig extends RunConfig {
 	private String filterMachinesPath;
 	private String searchMachineSpec;
 	private String filterMachineSpec;
+	private String unmapDocCategoryType;
 	private String searchLocationPath;
 	private String filterLocationPath;
 
@@ -103,6 +104,8 @@ public class AdminRunConfig extends RunConfig {
 		setFilterMachinesPath(AdminTestUtil.getPropertyValue("filterMachinePath"));
 		setSearchMachineSpec(AdminTestUtil.getPropertyValue("searchMachineSpec"));
 		setFilterMachineSpec(AdminTestUtil.getPropertyValue("filterMachineSpec"));
+		setUnmapDocCategoryType(AdminTestUtil.getPropertyValue("unmapDocCategoryType"));
+		
 		setSearchLocationDataPath(AdminTestUtil.getPropertyValue("searchLocationDataPath"));
 		setFilterLocationPath(AdminTestUtil.getPropertyValue("filterLocationDataPath"));
 	}
@@ -977,5 +980,12 @@ public class AdminRunConfig extends RunConfig {
 	public void setFilterMachineSpec(String filterMachineSpec) {
 		this.filterMachineSpec = filterMachineSpec;
 	}
+	@Override
+	public String getUnmapDocCategoryType() {
+		return unmapDocCategoryType;
+	}
 
+	public void setUnmapDocCategoryType(String unmapDocCategoryType) {
+		this.unmapDocCategoryType = unmapDocCategoryType;
+	}
 }

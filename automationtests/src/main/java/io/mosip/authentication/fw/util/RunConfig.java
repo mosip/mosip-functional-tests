@@ -403,6 +403,7 @@ public abstract class RunConfig {
 		public abstract String getSearchMachineSpec() ;
 		public abstract String getFilterMachineSpec();
 		public abstract String getSearchValidDocumentPath();
+		public abstract String getUnmapDocCategoryType();
 		public abstract String getSearchLocationDataPath();
 		public abstract void setSearchLocationDataPath(String searchLocationPath);
 		public abstract String getFilterLocationPath();

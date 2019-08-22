@@ -1024,6 +1024,10 @@ public class IdRepoRunConfig extends RunConfig{
 	}
 
 	@Override
+	public String getUnmapDocCategoryType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	public String getSearchLocationDataPath() {
 		// TODO Auto-generated method stub
 		return null;
