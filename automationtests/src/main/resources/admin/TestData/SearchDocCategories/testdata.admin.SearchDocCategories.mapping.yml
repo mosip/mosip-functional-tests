@@ -123,7 +123,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
-         messageerrors0: Column abcdg doesn't exist for the searched entity
+         messageerrors0: Column fbheafg doesn't exist for the searched entity
    Admin_SearchDocCategories_inValid_filter_value:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -189,7 +189,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: "Invalid sort field abcdg "
+         messageerrors0: "Invalid sort field fbheafg "
    Admin_SearchDocCategories_inValid_sortType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -202,7 +202,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortType:errorCode$
-         messageerrors0: Sort type abcdg is not supported
+         messageerrors0: Sort type fbheafg is not supported
    Admin_SearchDocCategories_inValid_sortField_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -268,7 +268,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: Column isActive doesn't support filter type abcdg
+         messageerrors0: Column isActive doesn't support filter type fbheafg
    Admin_SearchDocCategories_inValid_requestTime_format:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

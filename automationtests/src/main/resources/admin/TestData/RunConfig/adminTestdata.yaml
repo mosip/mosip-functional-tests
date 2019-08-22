@@ -112,7 +112,7 @@ valid_MachineSearchColumnAsMachineSpecId:
 valid_MachineName:
       - a2ml30933
 invalid_MachineName:
-      - abcdg
+      - fbheafg
 valid_Machine_macAddress:
      - E8-6A-64-1D-75-E4
 valid_Machine_SerialNumber:

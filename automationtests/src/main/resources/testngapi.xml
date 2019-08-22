@@ -13,8 +13,7 @@
  
 	<test name="Admin Tests">
 		 <classes>
-		
-			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
+		    <class name="io.mosip.admin.tests.CreateRegistrationCenter" />
 		    <class name="io.mosip.admin.tests.DeviceSearch" />
 			<class name="io.mosip.admin.tests.DeviceFilter" />
 			<class name="io.mosip.admin.tests.DeviceSpecSearch" />
@@ -46,6 +45,7 @@
             <class name="io.mosip.admin.tests.HolidaySearch" />
             <class name="io.mosip.admin.tests.SearchMachineSpec" />
             <class name="io.mosip.admin.tests.FilterMachineSpec" />
+            <class name="io.mosip.admin.tests.RegistrationCenterFilter" />
 		</classes>
 	</test>
 </suite>

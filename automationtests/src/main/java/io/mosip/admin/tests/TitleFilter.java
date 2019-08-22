@@ -41,10 +41,6 @@ public class TitleFilter extends AdminTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	private String kubernetSeriveName="";
-	private AdminTestUtil adminTestUtil = new AdminTestUtil();
-	private CommonLibrary commonLib = new CommonLibrary();
-	private ApplicationLibrary appLib = new ApplicationLibrary();
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -99,6 +95,8 @@ public class TitleFilter extends AdminTestUtil implements ITest {
 			}			
 		}
 		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -138,7 +136,7 @@ public class TitleFilter extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, TitleFilter.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -167,10 +165,8 @@ public class TitleFilter extends AdminTestUtil implements ITest {
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getTitleFilterPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+ " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+
-		  System.getProperty("env.user")+".mosip.io/r2/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		  postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
-		  cookieValue); 
+				  adminCookie); 
 		  Map<String, List<OutputValidationDto>> ouputValid =
 		  OutputValidationUtil.doOutputValidation( FileUtil.getFilePath(testCaseName,
 		  "output-1-actual").toString(), FileUtil.getFilePath(testCaseName,
