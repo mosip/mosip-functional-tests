@@ -988,4 +988,9 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getUnmapDocCategoryType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -5,9 +5,9 @@
   "metadata": null,
   "response": {
     "filters": [
-      {
-        "fieldID": "code",
-        "fieldValue": "POA"
+     {
+        "fieldID": "name",
+        "fieldValue": "Vostro"
       }
     ]
   },
