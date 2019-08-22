@@ -989,12 +989,10 @@ public class IdaRunConfig extends RunConfig{
 		return null;
 	}
 	@Override
-<<<<<<< HEAD
 	public String getUnmapDocCategoryType() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-=======
 	public String getSearchLocationDataPath() {
 		// TODO Auto-generated method stub
 		return null;
@@ -1014,5 +1012,4 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
->>>>>>> e4f0764e23762fef657aca76e99046d644031e8a
 }
