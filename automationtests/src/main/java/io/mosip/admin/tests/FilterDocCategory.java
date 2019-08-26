@@ -92,6 +92,8 @@ public class FilterDocCategory extends AdminTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -112,7 +114,6 @@ public class FilterDocCategory extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return testCaseName;
@@ -159,8 +160,7 @@ public class FilterDocCategory extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getFilterDocCategory();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/r2/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, cookieValue);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),

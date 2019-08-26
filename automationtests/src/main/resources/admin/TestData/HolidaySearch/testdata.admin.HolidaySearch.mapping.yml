@@ -207,7 +207,7 @@ testdata:
  
   Admin_HolidaySearch_equals_isActive_pos:
     input.search-request:
-      columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:valid_Device_IsActive_Equals$
       sortFieldsort0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
@@ -218,7 +218,8 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
       
     output.output-1-expected-pos-response:
-     holidayNamedata0: $TestData:valid_HolidayName_eng_equals$
+     isActivedata0: $TestData:valid_Device_IsActive_Equals$
+     holidayNamedata0: $IGNORE$
      holidayIddata0: $IGNORE$
      namesdata0: $IGNORE$
      holidayDescdata0: $IGNORE$
@@ -259,8 +260,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
          
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode5$
-      messageerrors0: $IGNORE$ 
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
       responsetime: $IGNORE$      
  
   Admin_HolidaySearch_Invalid_LangCode_neg:
@@ -276,9 +277,9 @@ testdata:
       requesttime: $TIMESTAMPZ$
          
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode5$
-      messageerrors0: $IGNORE$ 
-      responsetime: $IGNORE$   
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
+      responsetime: $IGNORE$    
  
   Admin_HolidaySearch_Invalid_SortType_neg:
     input.search-request:
@@ -309,7 +310,7 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidSortType:errorCode$
+      errorCodeerrors0: $errors:InvalidSortField:errorCode$
       messageerrors0: $IGNORE$ 
       responsetime: $IGNORE$  
    
@@ -318,7 +319,7 @@ testdata:
       columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:valid_HolidayName_eng_equals$
-      sortFieldsort0: ""
+      sortFieldsort0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -338,7 +339,7 @@ testdata:
   Admin_HolidaySearch_Default_PageStart_pos:
     input.search-request:
       columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
-      typefilters0: $TestData:valid_SearchTypeEquals$
+      typefilters0: $TestData:valid_SearchTypeContains$
       valuefilters0: $TestData:valid_HolidayName_eng_equals$
       sortFieldsort0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
       sortTypesort0: $TestData:valid_SortTypeAscending$     
@@ -360,12 +361,12 @@ testdata:
   Admin_HolidaySearch_Default_PageFetch_pos:
     input.search-request:
       columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
-      typefilters0: $TestData:valid_SearchTypeEquals$
+      typefilters0: $TestData:valid_SearchTypeContains$
       valuefilters0: $TestData:valid_HolidayName_eng_equals$
       sortFieldsort0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
       sortTypesort0: $TestData:valid_SortTypeAscending$     
       languageCode: $TestData:valid_LanguageCodeEng$
-      pageStart:  $TestData:valid_PageStart$
+      pageStart:  1
       pageFetch: ""    
       requesttime: $TIMESTAMPZ$ 
       
@@ -377,8 +378,8 @@ testdata:
      holidayDatedata0: $IGNORE$
      responsetime: $IGNORE$ 
      createdDateTimedata0: $IGNORE$
-     totalRecord: $IGNORE$            
-     
+     totalRecord: $IGNORE$         
+
   Admin_HolidaySearch_Valid_PageStart_PageFetch_smoke:
     input.search-request:
       columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
@@ -414,10 +415,10 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$    
       requesttime: $TIMESTAMPZ$ 
       
-    output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidPageStart:errorCode$
-      messageerrors0: $errors:InvalidPageStart:errorMessage$  
-      responsetime: $IGNORE$ 
+    output.output-1-expected-error-response:      
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$
+      responsetime: $IGNORE$  
      
   Admin_HolidaySearch_InvalidPageFetch_neg:
     input.search-request:
@@ -432,8 +433,8 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
       
     output.output-1-expected-error-response:      
-      errorCodeerrors0: $errors:InvalidPageFetch:errorCode$
-      messageerrors0: $errors:InvalidPageFetch:errorMessage$
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$
       responsetime: $IGNORE$          
  
   Admin_HolidaySearch_Invalid_Value_Name_neg:

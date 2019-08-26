@@ -208,7 +208,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: "Invalid sort field abcdg "
+         messageerrors0: "Invalid sort field fbheafg "
    Admin_DocCatTypMapSearch_inValid_sortType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
@@ -222,7 +222,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortType:errorCode$
-         messageerrors0: Sort type abcdg is not supported
+         messageerrors0: Sort type fbheafg is not supported
    Admin_DocCatTypMapSearch_inValid_sortField_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$

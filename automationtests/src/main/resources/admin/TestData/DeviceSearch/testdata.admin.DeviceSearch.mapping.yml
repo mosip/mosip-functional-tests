@@ -581,7 +581,7 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       
     output.output-1-expected-pos-response:     
-      namedata0: "failing"
+      namedata0: $IGNORE$
       langCodedata0: $TestData:valid_LanguageCodeEng$  
       responsetime: $IGNORE$ 
       createdDateTimedata0: $IGNORE$
@@ -604,7 +604,7 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       
     output.output-1-expected-pos-response:  
-      namedata0: "failing"   
+      namedata0: $IGNORE$
       langCodedata0: $TestData:valid_LanguageCodeEng$            
       responsetime: $IGNORE$ 
       createdDateTimedata0: $IGNORE$
@@ -766,8 +766,8 @@ testdata:
       
     output.output-1-expected-error-response:
       responsetime: $IGNORE$       
-      errorCodeerrors0: $errors:InvalidPageFetch:errorCode$
-      messageerrors0: $errors:InvalidPageFetch:errorMessage$
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$ 
       
   Admin_DeviceSearch_InvalidPageStart_neg:
     input.search-request:
@@ -783,8 +783,8 @@ testdata:
       
     output.output-1-expected-error-response:
       responsetime: $IGNORE$       
-      errorCodeerrors0: $errors:InvalidPageStart:errorCode$
-      messageerrors0: $errors:InvalidPageStart:errorMessage$  
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: $IGNORE$ 
       
   Admin_DeviceSearch_Valid_PageStart_PageFetch_pos:
     input.search-request:
@@ -840,6 +840,7 @@ testdata:
     
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
       responsetime: $IGNORE$      
      
            

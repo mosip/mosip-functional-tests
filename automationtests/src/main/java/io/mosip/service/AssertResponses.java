@@ -43,7 +43,7 @@ public class AssertResponses {
 				Assert.assertTrue(obj1.equals(obj2));
 				logger.info("both object are equal");
 			} catch (AssertionError e) {
-				Assert.assertTrue(false, "Response Data Mismatch Failure  : "+com.google.common.collect.Maps.difference(firstMap, secondMap));
+				Assert.assertTrue(false, "Response Data Mismatch Failure");
 				return false;
 			}
 			softAssert.assertAll();

@@ -87,6 +87,7 @@ public class GetDocTypeDocCatByAppID extends BaseTestCase implements ITest {
 	@Test(dataProvider="GetDocType_DocCatByAppID")
 	public void getDocTypeDocCatByAppID(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {	
+		logger.info(testcaseName);
 		// getting request and expected response jsondata from json files.
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
@@ -113,7 +114,6 @@ public class GetDocTypeDocCatByAppID extends BaseTestCase implements ITest {
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("timestamp");
 		listOfElementToRemove.add("responsetime");
-		
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
 		if (!status) {

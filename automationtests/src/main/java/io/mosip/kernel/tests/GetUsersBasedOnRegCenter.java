@@ -86,6 +86,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 	@Test(dataProvider="GetusersBasedOnRegCenter")
 	public void getusersBasedOnRegCenter(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
+		logger.info(testcaseName);
 		// getting request and expected response jsondata from json files.
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];

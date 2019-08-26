@@ -101,8 +101,8 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidPageFetch:errorCode$
-         messageerrors0: $errors:InvalidPageFetch:errorMessage$
+         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         messageerrors0: $IGNORE$
          responsetime: $IGNORE$
    Admin_TitleSearch_InvalidPageStart_neg:
       input.search-request:
@@ -116,8 +116,8 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidPageStart:errorCode$
-         messageerrors0: $errors:InvalidPageStart:errorMessage$
+         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         messageerrors0: $IGNORE$
          responsetime: $IGNORE$
    Admin_TitleSearch_Valid_PageStart_PageFetch_smoke:
       input.search-request:
@@ -241,17 +241,10 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         titleNamedata0: $TestData:valid_Title_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidSortType:errorCode$
+         messageerrors0: $IGNORE$
          responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
    Admin_TitleSearch_Invalid_SortField_neg:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsTitleName$
@@ -263,12 +256,10 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         titleNamedata0: $TestData:valid_Title_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         iddata0: $IGNORE$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidSortField:errorCode$
+         messageerrors0: $IGNORE$
          responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
    Admin_TitleSearch_Invalid_LangCode_neg:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsTitleName$
@@ -311,8 +302,8 @@ testdata:
          valuefilters0: $TestData:valid_Title_Name_eng_Equals$
          sortFieldsort0: $TestData:valid_Search_ColumnNameAsTitleName$
          sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: ''
+         pageStart: 0
+         pageFetch: 10
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:

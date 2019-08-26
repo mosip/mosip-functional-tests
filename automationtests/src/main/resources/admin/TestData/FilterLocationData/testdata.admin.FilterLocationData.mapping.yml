@@ -1,0 +1,156 @@
+testdata:
+  Admin_FilterLocationData_Valid_Smoke:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_TypeAll:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_ColumnProvince:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnProvince$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_ColumnCity:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnCity$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_ColumnZone:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnZone$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'Mehdia'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-3-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_LangCodeArabic:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegionArabic$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-4-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_LangCodeFrench:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegionFrench$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-5-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterLocationData_Invalid_EmptyColumnName:
+    input.search-request:
+      columnNamefilters0: ''
+      typefilters0: $TestData:validColumnRegion$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:EmptyColumnNameInFilterAPI:errorCode$
+      messageerrors0: $errors:EmptyColumnNameInFilterAPI:errorMessage$
+      
+  Admin_FilterLocationData_Invalid_EmptyFilterType:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: ''
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:EmptyFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:EmptyFilterTypeInFilterAPI:errorMessage$
+      
+  Admin_FilterLocationData_Invalid_ColumnName:
+    input.search-request:
+      columnNamefilters0: $TestData:Invalid_ValueString$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidColumnNameInFilterAPI:errorCode$
+      messageerrors0: $errors:InvalidColumnNameInFilterAPI:errorMessage$
+      
+  Admin_FilterLocationData_Invalid_FilterType:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:validColumnRegion$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:InvalidFilterTypeInFilterAPI:errorMessage$
+      
+  Admin_FilterLocationData_Invalid_LangCode:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:Invalid_ValueString$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $IGNORE$
+      
+  Admin_FilterLocationData_Invalid_EmptyLangCode:
+    input.search-request:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: ''
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $IGNORE$
+      
+  Admin_FilterLocationData_Valid_TwoFilters_RegionNRegion:
+    input.search-request-twoFilterValues:
+      columnNamefilters0: $TestData:validColumnRegion$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      columnNamefilters1: $TestData:validColumnRegion$
+      typefilters1: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+      

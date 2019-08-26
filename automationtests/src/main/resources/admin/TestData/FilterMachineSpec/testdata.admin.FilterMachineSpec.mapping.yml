@@ -1,97 +1,97 @@
 testdata:
    Admin_FilterMachineSpec_Valid_Request_Smoke:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         textfilters0: $TestData:valid_machineSpec_Name$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_lang_ara_column_code_unique:
+   Admin_FilterMachineSpec_Valid_lang_ara_col_as_name_unique:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         textfilters0: $TestData:valid_machineSpec_NameAra$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_lang_fra_column_code_unique:
+   Admin_FilterMachineSpec_Valid_lang_fra_col_as_name_unique:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         textfilters0: $TestData:valid_machineSpec_Name$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_column_code_filterType_all:
+   Admin_FilterMachineSpec_Valid_col_as_name_filterType_all:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
-         typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: $TestData:valid_machineSpec_Name$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_code_PO_filterType_all:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
-         typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocCatFilterHalf_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-   Admin_FilterMachineSpec_Valid_code_PO_filterType_unique:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilterHalf_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-   Admin_FilterMachineSpec_Valid_name_filterType_unique_eng:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatName_TextEng$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_name_filterType_all_eng:
+   Admin_FilterMachineSpec_Valid_name_tro_filterType_all:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocCatName_TextEng$
+         textfilters0: $TestData:valid_machineSpec_halfName$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
+      output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_name_filterType_unique_ara:
+   Admin_FilterMachineSpec_Valid_name_tro_filterType_unique:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatName_TextAra$
-         languageCode: $TestData:valid_LanguageCodeArabic$
+         textfilters0: $TestData:valid_machineSpec_halfName$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+   Admin_FilterMachineSpec_Valid_col_brand_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: $TestData:valid_machineSpec_Brand$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$
+   Admin_FilterMachineSpec_Valid_col_model_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: $TestData:valid_machineSpec_Model$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$
+   Admin_FilterMachineSpec_Valid_col_machineTypeName_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineTypeName$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: $TestData:valid_machineType_Name$
+         languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos2-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_codeAndisActive_filterType_unique_eng:
+   Admin_FilterMachineSpec_Valid_col_nameAndisActive_filterType_unique_eng:
       input.search-request1:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         textfilters0: $TestData:valid_machineSpec_Name$
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$ 
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: $TestData:valid_isActive_true$
@@ -106,7 +106,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatName_TextFra$
+         textfilters0: $TestData:valid_machineSpec_Name$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos5-response:
@@ -114,7 +114,7 @@ testdata:
          fieldValuefilters0: $input.search-request:textfilters0$
    Admin_FilterMachineSpec_Valid_filterText_blank:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: ''
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -126,7 +126,7 @@ testdata:
          fieldIDfilters3: $input.search-request:columnNamefilters0$
    Admin_FilterMachineSpec_Valid_filterType_blank:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: ''
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -146,7 +146,7 @@ testdata:
          messageerrors0: $errors:EmptyColumnNameInFilterAPI:errorMessage$
    Admin_FilterMachineSpec_inValid_langCode_blank:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: ''
@@ -156,7 +156,7 @@ testdata:
          messageerrors0: $errors:InvalidLanguageCode:errorMessage5$
    Admin_FilterMachineSpec_inValid_RequestTime_format:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -166,7 +166,7 @@ testdata:
          messageerrors0: $errors:InvalidRequestTime:errorMessage$
    Admin_FilterMachineSpec_inValid_RequestTime_UTC_future:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -186,7 +186,7 @@ testdata:
          messageerrors0: $errors:InvalidColumnNameInFilterAPI:errorMessage$
    Admin_FilterMachineSpec_inValid_filterType:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:Invalid_ValueString$
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -196,7 +196,7 @@ testdata:
          messageerrors0: $errors:InvalidFilterTypeInFilterAPI:errorMessage$
    Admin_FilterMachineSpec_inValid_FilterText:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:Invalid_ValueString$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -205,7 +205,7 @@ testdata:
          responsetime: $IGNORE$
    Admin_FilterMachineSpec_inValid_langCode:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:Invalid_ValueString$

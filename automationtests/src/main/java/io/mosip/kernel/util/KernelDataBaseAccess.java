@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -76,6 +77,17 @@ public class KernelDataBaseAccess {
 	@SuppressWarnings("unchecked")
 	public List<Object[]> getArrayData(String queryString, String dbName) {
 		return (List<Object[]>) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public boolean deleteQuery(String queryString, String dbName) {
+		Query query = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString);
+		int res = query.executeUpdate();
+		session.getTransaction().commit();
+		if(res>0)
+			return true;
+		
+		return false;
 	}
 
 	@AfterClass(alwaysRun = true)
