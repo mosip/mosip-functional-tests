@@ -1,165 +1,4 @@
-# error -> ScenarioName -> errorCode,Message
-errors:
-  EmptySearchColumnName:
-    errorCode: KER-MSD-311
-    errorMessage: Column is missing in request
-  EmptySortFieldType:
-    errorCode: KER-MSD-314
-    errorMessage: Missing sort field or sort type values
-  UnSupportedFilterColumnName:
-    errorCode: KER-MSD-316
-    errorMessage: Column name doesn't support filter
-    errorMessage1: Column lang_code does not support filter
-  EmptyFilterType:
-    errorCode: KER-MSD-312
-    errorMessage: Filter type is missing
-  InvalidFilterType:
-    errorCode: KER-MSD-318
-    errorMessage: Column <value1> doesn't support filter type <value2>
-  InvalidSearchColumnName:
-    errorCode: KER-MSD-317
-    errorMessage: Column <value> doesn't exist for the searched entity 
-  InvalidLanguageCode:
-    errorCode: KER-MSD-999
-    errorMessage: Language Code is Invalid
-    errorMessage1: "request.languageCode: Language Code is Invalid"
-    errorMessage2: HIN Language Code is Invalid
-    errorMessage3: "request[1].langCode: Language code not supported"
-    errorMessage4: "request[0].langCode: Language code not supported"
-  InvalidMapStatus:
-    errorCode : KER-MSD-328
-    errorMessage : Invalid Filter value for Mapstatus column
-  InvalidPageFetch:
-    errorCode: KER-MSD-500
-    errorMessage: Page size must not be less than one!
-  InvalidLatAndLogCode:
-    errorCode: KER-MSD-307
-    errorMessage : Latitude or Longitude must have minimum 4 digits after decimal
-  InvalidLunchStartTimeGreaterThanLunchEndTime:
-    errorCode: KER-MSD-308
-    errorMessage : Center Lunch Start Time must be smaller than Center Lunch End Time
-  InvalidCenterStartTimeGreaterThanCenterEndTime:
-    errorCode: KER-MSD-309
-    errorMessage : Center Start Time must be smaller than Center End Time 
-  InvalidLangCodeAsDuplicateValue:
-    errorCode: KER-MSD-303
-    errorMessage : Received data is not present in all Languages supported by MOSIP
-  InvalidworkingHoursAsGrtThanMaxValue:
-    errorCode: KER-MSD-999
-  InvalidLatAndLogLessThan4DigitAfterDecimal:
-    errorCode: KER-MSD-307
-    errorMessage : Latitude or Longitude must have minimum 4 digits after decimal      
-  InvalidPageStart:
-    errorCode: KER-MSD-500
-    errorMessage: Page index must not be less than zero!
-  InvalidRequestTime:
-    errorCode: KER-MSD-999
-    errorMessage: Invalid requestTime 
-  InvalidSortField:
-    errorCode: KER-MSD-357
-    errorMessage: Invalid Sort Field <Sort field name> w
-  InvalidSortType:
-    errorCode: KER-MSD-358
-    errorMessage: Sort Type <Sort Type> is not supported              
-  invalid_FromAndToValue:
-    errorCode: KER-MSD-315
-    errorMessage: Invalid from value and to value    
-  InvalidpaginationStartPage:
-    errorMessage1: "Invalid pagination  value received pagestart:0 and pagefetch:0"
-    errorCode: KER-MSD-313
-    errorMessage: Invalid pagination value received (Page start abc and Page Fetch 20)
-    
-  InvalidEmptyNullColumnName:
-    errorCode: KER-MSD-319
-    errorMessage: Column name is Null or Empty
-  InvalidColumnName:
-    errorCode: KER-MSD-310
-    errorMessage: Invalid column received:<value>
-    
-  InvalidColumnNameFilter:
-    errorCode: KER-MSD-348
-    errorMessage: Received column does not support filter  
-    
-  InvalidEmptyNullFilter:
-    errorCode: KER-MSD-322
-    errorMessage: Filter Type cannot be empty or null 
-    
-  InvalidEmptyNullNonExistingFilter:
-    errorCode: KER-MSD-324
-    errorMessage: Received Filter Type not supported    
 
-  InvalidAddressLine1:
-    errorMessage0: "request[0].addressLine1: must not be blank"
-    errorMessage1: "request[0].addressLine1: size must be between 1 and 256"
-    errorMessage2: "request[1].addressLine1: must not be blank"
-    errorMessage3: "request[1].addressLine1: size must be between 1 and 256"
-  InvalidAddressLine2:
-    errorMessage0: "request[0].addressLine2: size must be between 0 and 256"
-    errorMessage1: "request[1].addressLine2: size must be between 0 and 256" 
-  InvalidAddressLine3:
-    errorMessage0: "request[0].addressLine3: size must be between 0 and 256"
-    errorMessage1: "request[1].addressLine3: size must be between 0 and 256"
-  InvalidCenterTypeCode:
-    errorMessage0: "request[1].centerTypeCode: size must be between 1 and 36"
-    errorMessage1: "request[0].centerTypeCode: must not be blank"  
-    errorMessage2: "request[0].centerTypeCode: size must be between 1 and 36"
-    errorMessage3: "request[1].centerTypeCode: must not be blank"
-    errorMessage4: "request[0].centerTypeCode: invalid centerTypeCode"
-    errorMessage5: "request[1].centerTypeCode: invalid centerTypeCode"
-  InvalidContactPerson:
-    errorMessage0: "request[1].contactPerson: size must be between 0 and 128"
-    errorMessage1: "request[0].contactPerson: size must be between 0 and 128"    
-  InvalidContactPhone:
-    errorMessage0: "request[1].contactPhone: size must be between 0 and 16"
-    errorMessage1: "request[0].contactPhone: size must be between 0 and 16"
-  InvalidHolidayLocationCode:
-    errorMessage0: "request[1].holidayLocationCode: size must be between 1 and 36"
-    errorMessage1: "request[1].holidayLocationCode: must not be blank"
-    errorMessage2: "request[0].holidayLocationCode: size must be between 1 and 36"
-    errorMessage3: "request[0].holidayLocationCode: must not be blank"
-    errorMessage4: "request[1].holidayLocationCode: invalid holiday location code"
-    errorMessage5: "request[0].holidayLocationCode: invalid holiday location code"
-  InvalidId:
-    errorMessage0: "request[1].id: size must be between 1 and 10"
-    errorMessage1: "request[0].id: size must be between 1 and 10"
-  InvalidLanguageCode:
-    errorMessage0: "request[1].langCode: Language code not supported"
-    errorMessage1: "request[0].langCode: Language code not supported"
-  InvalidLatitude:
-    errorMessage0: "request[1].latitude: size must be between 1 and 32"
-    errorMessage1: "request[0].latitude: must not be blank"
-    errorMessage2: "request[1].latitude: must not be blank"
-    errorMessage3: "request[0].latitude: size must be between 1 and 32"
-    errorCode: KER-MSD-307
-    errorMessage4: "Latitude or Longitude must have minimum 4 digits after decimal"
-  InvalidLocationCode:
-    errorMessage0: "request[1].locationCode: size must be between 1 and 36"
-    errorMessage1: "request[1].locationCode: must not be blank"
-    errorMessage2: "request[0].locationCode: size must be between 1 and 36"
-    errorMessage3: "request[0].locationCode: must not be blank" 
-  InvalidLongitude:
-    errorMessage0: "request[1].longitude: size must be between 1 and 32"
-    errorMessage1: "request[0].longitude: must not be blank"
-    errorMessage2: "request[1].longitude: must not be blank"
-    errorMessage3: "request[0].longitude: size must be between 1 and 32"
-    errorMessage4: "Latitude or Longitude must have minimum 4 digits after decimal"
-    errorMessage5: "request[0].longitude: size must be between 1 and 32"
-    errorCode0: KER-MSD-307
-    errorCode1: KER-MSD-999
-  InvalidName: 
-    errorMessage0: "request[0].name: must not be blank"
-    errorMessage1: "request[1].name: size must be between 1 and 128"
-    errorMessage2: "request[1].name: must not be blank"
-    errorMessage3: "request[0].name: size must be between 1 and 128" 
-  InvalidTimezone:
-    errorMessage0: "request[0].timeZone: size must be between 0 and 64"
-    errorMessage1: "request[1].timeZone: size must be between 0 and 64"
-  InvalidWorkingHours:
-    errorMessage0: "request[1].workingHours: size must be between 1 and 32"
-    errorMessage1: "request[1].workingHours: must not be blank"
-    errorMessage2: "request[0].workingHours: must not be blank"
-    errorMessage3: "request[0].workingHours: size must be between 1 and 32"
-    
 # error -> ScenarioName -> errorCode,Message
 errors:
    EmptySearchColumnName:
@@ -171,7 +10,8 @@ errors:
    UnSupportedFilterColumnName:
       errorCode: KER-MSD-316
       errorMessage: Column name doesn't support filter
-      errorMessage1: Column lang_code does not support filter
+      errorMessage1: Column name does not support filter
+      errorMessage2: Column lang_code does not support filter
    EmptyFilterType:
       errorCode: KER-MSD-312
       errorMessage: Filter type is missing
@@ -180,9 +20,12 @@ errors:
       errorMessage: Column <value1> doesn't support filter type <value2>
       errorMessage1: Column isActive doesn't support filter type contains
       errorMessage2: Column isActive doesn't support filter type startsWith
+      errorMessage3: Column name doesn't support filter type between
    InvalidSearchColumnName:
       errorCode: KER-MSD-317
       errorMessage: Column <value> doesn't exist for the searched entity
+      errorMessage1: Column asdg doesn't exist for the searched entity  
+      errorMessage2: Column asdg doesn't exist for the searched entity
    InvalidLanguageCode:
       errorCode: KER-MSD-999
       errorMessage: Language Code is Invalid
@@ -235,6 +78,74 @@ errors:
    InvalidColumnName:
       errorCode: KER-MSD-310
       errorMessage: Invalid column received:<value>
+   InvalidAddressLine1:
+      errorMessage0: 'request[0].addressLine1: must not be blank'
+      errorMessage1: 'request[0].addressLine1: size must be between 1 and 256'
+      errorMessage2: 'request[1].addressLine1: must not be blank'
+      errorMessage3: 'request[1].addressLine1: size must be between 1 and 256'
+   InvalidAddressLine2:
+      errorMessage0: 'request[0].addressLine2: size must be between 0 and 256'
+      errorMessage1: 'request[1].addressLine2: size must be between 0 and 256'
+   InvalidAddressLine3:
+      errorMessage0: 'request[0].addressLine3: size must be between 0 and 256'
+      errorMessage1: 'request[1].addressLine3: size must be between 0 and 256'
+   InvalidCenterTypeCode:
+      errorMessage0: 'request[1].centerTypeCode: size must be between 1 and 36'
+      errorMessage1: 'request[0].centerTypeCode: must not be blank'
+      errorMessage2: 'request[0].centerTypeCode: size must be between 1 and 36'
+      errorMessage3: 'request[1].centerTypeCode: must not be blank'
+      errorMessage4: 'request[0].centerTypeCode: invalid centerTypeCode'
+      errorMessage5: 'request[1].centerTypeCode: invalid centerTypeCode'
+   InvalidContactPerson:
+      errorMessage0: 'request[1].contactPerson: size must be between 0 and 128'
+      errorMessage1: 'request[0].contactPerson: size must be between 0 and 128'
+   InvalidContactPhone:
+      errorMessage0: 'request[1].contactPhone: size must be between 0 and 16'
+      errorMessage1: 'request[0].contactPhone: size must be between 0 and 16'
+   InvalidHolidayLocationCode:
+      errorMessage0: 'request[1].holidayLocationCode: size must be between 1 and 36'
+      errorMessage1: 'request[1].holidayLocationCode: must not be blank'
+      errorMessage2: 'request[0].holidayLocationCode: size must be between 1 and 36'
+      errorMessage3: 'request[0].holidayLocationCode: must not be blank'
+      errorMessage4: 'request[1].holidayLocationCode: invalid holiday location code'
+      errorMessage5: 'request[0].holidayLocationCode: invalid holiday location code'
+   InvalidId:
+      errorMessage0: 'request[1].id: size must be between 1 and 10'
+      errorMessage1: 'request[0].id: size must be between 1 and 10'
+   InvalidLatitude:
+      errorMessage0: 'request[1].latitude: size must be between 1 and 32'
+      errorMessage1: 'request[0].latitude: must not be blank'
+      errorMessage2: 'request[1].latitude: must not be blank'
+      errorMessage3: 'request[0].latitude: size must be between 1 and 32'
+      errorCode: KER-MSD-307
+      errorMessage4: Latitude or Longitude must have minimum 4 digits after decimal
+   InvalidLocationCode:
+      errorMessage0: 'request[1].locationCode: size must be between 1 and 36'
+      errorMessage1: 'request[1].locationCode: must not be blank'
+      errorMessage2: 'request[0].locationCode: size must be between 1 and 36'
+      errorMessage3: 'request[0].locationCode: must not be blank'
+   InvalidLongitude:
+      errorMessage0: 'request[1].longitude: size must be between 1 and 32'
+      errorMessage1: 'request[0].longitude: must not be blank'
+      errorMessage2: 'request[1].longitude: must not be blank'
+      errorMessage3: 'request[0].longitude: size must be between 1 and 32'
+      errorMessage4: Latitude or Longitude must have minimum 4 digits after decimal
+      errorMessage5: 'request[0].longitude: size must be between 1 and 32'
+      errorCode0: KER-MSD-307
+      errorCode1: KER-MSD-999
+   InvalidName:
+      errorMessage0: 'request[0].name: must not be blank'
+      errorMessage1: 'request[1].name: size must be between 1 and 128'
+      errorMessage2: 'request[1].name: must not be blank'
+      errorMessage3: 'request[0].name: size must be between 1 and 128'
+   InvalidTimezone:
+      errorMessage0: 'request[0].timeZone: size must be between 0 and 64'
+      errorMessage1: 'request[1].timeZone: size must be between 0 and 64'
+   InvalidWorkingHours:
+      errorMessage0: 'request[1].workingHours: size must be between 1 and 32'
+      errorMessage1: 'request[1].workingHours: must not be blank'
+      errorMessage2: 'request[0].workingHours: must not be blank'
+      errorMessage3: 'request[0].workingHours: size must be between 1 and 32'
    InvalidFilterTypeInFilterAPI:
       errorCode: KER-MSD-324
       errorMessage: Received Filter Type not supported
@@ -276,3 +187,17 @@ errors:
    EmptyFilterTypeInFilterAPI:
       errorCode: KER-MSD-322
       errorMessage: Filter Type cannot be empty or null
+   CreateEmptyIsActive:
+      errorCode: KER-MSD-999
+      errorMessage: "request.isActive: must not be null"
+   CreateLocationDataCode:
+      errorCode: KER-MSD-999
+      errorMessage: "eng.code:size must be between 1 and 36"
+      errorMessage1: "eng.name:size must be between 1 and 128"
+      errorMessage2: "eng.hierarchyName:size must be between 1 and 64"
+   CreateLocationEmptyLangCode:
+      errorCode: KER-MSD-388
+      errorMessage: "Location data is not present in the primary language : eng"
+   CreateLocationInvalidLangCode:
+      errorCode: KER-MSD-386
+      errorMessage: "Invalid Language Code :  <Language Code>"

@@ -163,7 +163,8 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
       
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$  
+      messageerrors0: $IGNORE$  
       responsetime: $IGNORE$             
            
   Admin_TitleFilter_Invalid_LangCode_neg:
@@ -176,10 +177,11 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
       
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$ 
+      messageerrors0: $IGNORE$    
       responsetime: $IGNORE$        
   
-  Admin_TitleFilter_Default_FilterType_neg:
+  Admin_TitleFilter_Default_FilterType_pos:
     input.filter-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: ""

@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-20T10:09:05.102Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 12,
+    "data": [
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Kenitra",
+        "city": "Kenitra",
+        "zone": "Sidi Allal Tazi",
+        "postalCode": "14050",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.523Z"
+      }
+    ]
+  }
+}

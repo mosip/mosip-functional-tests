@@ -3,7 +3,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: ''
+      textfilters0: 'A1ML28565'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
@@ -33,7 +33,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'A1ML28565'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
@@ -43,7 +43,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'A1ML28565'
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-3-response:
@@ -102,7 +102,7 @@ testdata:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
-      languageCode: $TestData:invalid_LanguageCode$
+      languageCode: $TestData:Invalid_ValueString$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
@@ -125,7 +125,7 @@ testdata:
     input.search-request-twoFilterValues:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'A1ML28565'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -137,11 +137,12 @@ testdata:
     input.search-request-twoFilterValues:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'A1ML28565'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsName$
       typefilters1: $TestData:valid_FilterTypeAll$
+      textfilters1: 'A1ML28565'
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       
@@ -149,7 +150,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: '00-0D-3A-F2-B4-8A'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-5-response:

@@ -23,8 +23,8 @@
         "machineTypeCode": "DKS",
         "minDriverversion": "1.454",
         "description": "To take enrollments",
-        "langCode": "eng",
-        "machineTypeName": "Desktop"
+        "langCode": "fra",
+        "machineTypeName": "Ordinateur"
       }
     ]
   },

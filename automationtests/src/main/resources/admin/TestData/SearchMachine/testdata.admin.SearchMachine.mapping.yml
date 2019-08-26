@@ -110,7 +110,7 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidSortField:errorCode$
-      messageerrors0: 'Invalid sort field names'
+      messageerrors0: $IGNORE$
       responsetime: $IGNORE$
       
       
@@ -603,7 +603,7 @@ testdata:
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-      languageCode: $TestData:invalid_LanguageCode$
+      languageCode: $TestData:Invalid_ValueString$
     output.output-1-expected-emptyLangCode:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$

@@ -30,7 +30,11 @@ import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
-
+/**
+ * 
+ * @author Ashish
+ *
+ */
 public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(SearchTemplateDetails.class);
@@ -158,7 +162,7 @@ public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/r2/v1/masterdata/templates/search";
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/v1/masterdata/templates/search";
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),

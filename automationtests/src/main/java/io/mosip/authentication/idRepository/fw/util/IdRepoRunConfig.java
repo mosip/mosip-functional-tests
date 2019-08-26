@@ -1022,4 +1022,56 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getUnmapDocCategoryType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getSearchLocationDataPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSearchLocationDataPath(String searchLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getFilterLocationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFilterLocationPath(String filterLocationPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getCreateBlackListedWordsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCreateBlackListedWordsPath(String createBlackListedWordsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getCreateLocationDataPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCreateLocationDataPath(String createLocationDataPath) {
+		// TODO Auto-generated method stub
+		
+	}
 }
