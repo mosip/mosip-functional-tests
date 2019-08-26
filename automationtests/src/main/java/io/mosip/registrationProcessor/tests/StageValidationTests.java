@@ -188,7 +188,12 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		logger.info("User list :: "+ userList);
 		logger.info("Db list :: "+ dbList);
 		boolean listStatus=false;
-		for(int i=0;i<dbList.size();i++) {
+		for(int i=0;i<3;i++) {
+			if(dbList .get(i).equals("ERROR"))
+				dbList.add(i, "FAILED");
+		
+		}
+		for(int i=0;i<3;i++) {
 			if(dbList.get(i).equals(userList.get(i)))
 				listStatus=true;
 			else

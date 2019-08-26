@@ -70,7 +70,7 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 					if (syncResponse) {
 						regProcRequests.UploadPacket(packets);
 					}
-				} catch (Exception e) {
+				} catch (IOException | ParseException e) {
 					logger.error("Could Not Sync", e);
 				}
 			}

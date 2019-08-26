@@ -2,7 +2,7 @@
     "id": "mosip.registration.status",
     "version": "1.0",
     "responsetime": "2019-06-28T05:52:46.241Z",
-    "response": null,
+    
     "errors": [
         {
             "errorCode": "RPR-RGS-024",

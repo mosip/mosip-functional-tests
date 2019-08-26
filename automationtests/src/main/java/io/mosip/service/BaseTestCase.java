@@ -16,8 +16,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.kernel.util.CommonLibrary;
-import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
@@ -50,9 +48,7 @@ public class BaseTestCase{
 	public String regSupervisorCookie=null;
 	public String zonalAdminCookie=null;
 	public String zonalApproverCookie=null; 
-	public String adminCookie=null;
-	public static KernelAuthentication kernelAuthLib = null;
-	public static CommonLibrary kernelCmnLib = null;
+	
 		
 	/**
 	 * Method that will take care of framework setup
@@ -86,8 +82,7 @@ public class BaseTestCase{
 	public static void initialize()
 	{
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
-		kernelAuthLib  = new KernelAuthentication();
-		kernelCmnLib = new CommonLibrary();
+		
 		/**
 		 * Make sure test-output is there 
 		 */
@@ -128,10 +123,10 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-		/*	PreRegistrationLibrary pil=new PreRegistrationLibrary();
+			PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			/*new PreregistrationDAO().deleteAvailableSlot();
-			new PreregistrationDAO().makeAllRegistartionCenterActive();*/
+			new PreregistrationDAO().deleteAvailableSlot();
+			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
 			AdminTestUtil.initiateAdminTest();

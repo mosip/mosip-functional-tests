@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
 {
   "emptyRegId" : "",
   "validAndInvalidRegIds" : "20916100110014920190218154630,655665575675",
@@ -17,6 +20,7 @@
  "RetryCountGTThresoldReRegister2" : "",
  "RetryCountLTEThresholdResend1" : "",
  "RetryCountLTEThresoldResend2" : ""
+<<<<<<< HEAD
 =======
 {
   "emptyRegId" : "",
@@ -37,4 +41,6 @@
  "RetryCountLTEThresholdResend1" : "",
  "RetryCountLTEThresoldResend2" : ""
 >>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
 }

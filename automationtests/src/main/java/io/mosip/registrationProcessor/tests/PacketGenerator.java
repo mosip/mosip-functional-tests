@@ -32,6 +32,7 @@ import org.testng.internal.TestResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Verify;
+import com.google.common.base.VerifyException;
 
 import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbentity.TokenGenerationEntity;
@@ -141,9 +142,51 @@ public class PacketGenerator  extends  BaseTestCase implements ITest {
 			
 
 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-	 	 	
+			boolean activateStatus=false;
+	 	 	try {
+	 	 		actualResponse.jsonPath().get("errors").toString();
+	 	 		activateStatus=true;
+			} catch (Exception e) {
+				activateStatus=false;
+			}
+	 	 	if(object.get("testCaseName").toString().contains("smoke") && activateStatus ) {
+	 	 		String errorMessage=actualResponse.jsonPath().get("errors[0].message").toString();
+	 	 		
+	 	 		if(errorMessage.equals("Uin is already DEACTIVATED")) {
+	 	 			try {
+	 	 				JSONObject activateUin=ResponseRequestMapper.mapRequest(testSuite, object);
+	 	 				
+		 	 			JSONObject activateUinRequest=(JSONObject) activateUin.get("request");
+		 	 			
+		 	 			activateUinRequest.put("registrationType", "ACTIVATED");
+		 	 			
+		 	 			activateUin.put("request", activateUinRequest);
+		 	 			
+		 	 			activateUin.put("requesttime", apiRequests.getUTCTime());
+		 	 			
+		 	 			apiRequests.regProcPacketGenerator(activateUin,  prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
+		 	 			
+		 	 			
+					} 
+	 	 			
+	 	 			catch (Exception e) {
+	 	 				e.printStackTrace();
+					}
+	 	 		}
+	 	 		try {
+	 	 			Thread.sleep(20000);
+	 	 			
+	 	 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
+	 	 			
+	 	 		}
+	 	 		catch (Exception e) {
+					e.printStackTrace();
+				}
+	 	 		
+	 	 	}
 
 	 	 	String message="";
+	 	 	
 	 	 	 try {
 	 	 		 message=actualResponse.jsonPath().get("response.message").toString();
 	 	 		 }catch (Exception e) {
@@ -185,7 +228,7 @@ public class PacketGenerator  extends  BaseTestCase implements ITest {
 	 	 	 	 setFinalStatus = true;
 	 	 	 Verify.verify(setFinalStatus);
 	 	 	 softAssert.assertAll();
-	 	 } catch (IOException | ParseException e) {
+	 	 } catch (IOException | ParseException | VerifyException e) {
 	 	 	 logger.error("Exception occcurred in Packet Receiver class in packetReceiver method "+e);
 	 	 }
 	 	 

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
 {
 	"lengthMoreThan29":"",
 	"wrongDateValue":"",
@@ -28,6 +31,7 @@
 	"supervisorStatusEmpty" : "",
 	"validRequestUTC1" : "",
 	"invalidRequestUTC" : ""
+<<<<<<< HEAD
 =======
 {
 	"lengthMoreThan29":"",
@@ -59,4 +63,6 @@
 	"ValidRequestUTC" : "",
 	"InvalidRequestUTC" : ""
 >>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
  }

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
 {
 	"matchedRefIdEmpty" : "",
 	"matchedRefIdInvalid" : "",
@@ -14,6 +17,7 @@
 	"invalidRequestUTC" : "",
 	"requesttimeEmpty" : "",
 	"requesttimeInvalid" : ""
+<<<<<<< HEAD
 =======
 {
 	"matchedRefIdEmpty" : "",
@@ -31,4 +35,6 @@
 	"requesttimeEmpty" : "",
 	"requesttimeInvalid" : ""
 >>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
+=======
+>>>>>>> 0.14.0_Automationtest_RegProc
 }
