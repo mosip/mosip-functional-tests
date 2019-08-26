@@ -119,8 +119,8 @@
 	<test name="RegistrationProcessor Tests">
 
 		<classes>
-		
- <class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
+		 <class name="io.mosip.registrationProcessor.tests.AdminRequirement" />
+<!--  <class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 	 <class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
@@ -139,7 +139,7 @@
 			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
 			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />  
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />   
-			 <class name="io.mosip.registrationProcessor.tests.AdminRequirement" />    
+			 <class name="io.mosip.registrationProcessor.tests.AdminRequirement" /> -->    
 		</classes>
 
 	</test>

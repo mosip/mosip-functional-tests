@@ -66,6 +66,6 @@
             "statusComment": "Reprocess count has exceeded the configured attempts",
             "createdDateTimes": "2019-08-12T10:00:02.313"
         }
-    ],
-    "errors": null
+    ]
+    
 }
