@@ -58,7 +58,8 @@ public class AdminRunConfig extends RunConfig {
 	private String filterMachineSpec;
 	private String searchLocationPath;
 	private String filterLocationPath;
-
+	private String createBlackListedWordsPath;
+	private String createLocationDataPath;
 
 
 	@Override
@@ -105,6 +106,8 @@ public class AdminRunConfig extends RunConfig {
 		setFilterMachineSpec(AdminTestUtil.getPropertyValue("filterMachineSpec"));
 		setSearchLocationDataPath(AdminTestUtil.getPropertyValue("searchLocationDataPath"));
 		setFilterLocationPath(AdminTestUtil.getPropertyValue("filterLocationDataPath"));
+		setCreateBlackListedWordsPath(AdminTestUtil.getPropertyValue("createBlackListedWordsPath"));
+		setCreateLocationDataPath(AdminTestUtil.getPropertyValue("createLocationDataPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -352,6 +355,22 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public void setFilterLocationPath(String filterLocationPath) {
 		this.filterLocationPath = filterLocationPath;
+	}
+	@Override
+	public String getCreateBlackListedWordsPath() {
+		return createBlackListedWordsPath;
+	}
+	@Override
+	public void setCreateBlackListedWordsPath(String createBlackListedWordsPath) {
+		this.createBlackListedWordsPath = createBlackListedWordsPath;
+	}
+	@Override
+	public String getCreateLocationDataPath() {
+		return createLocationDataPath;
+	}
+	@Override
+	public void setCreateLocationDataPath(String createLocationDataPath) {
+		this.createLocationDataPath = createLocationDataPath;
 	}
 	@Override
 	public String getEndPointUrl() {
