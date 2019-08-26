@@ -102,7 +102,7 @@ testdata:
       columnNamefilters0: $TestData:validWordColumnName$
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
-      languageCode: $TestData:invalid_LanguageCode$
+      languageCode: $TestData:Invalid_ValueString$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
