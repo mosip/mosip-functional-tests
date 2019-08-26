@@ -120,7 +120,7 @@
 
 		<classes>
 		
-		 <class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
+ <class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 	 <class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
