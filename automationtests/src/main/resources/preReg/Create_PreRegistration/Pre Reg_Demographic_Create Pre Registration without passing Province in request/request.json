@@ -2,7 +2,7 @@
     "request": {
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "2864123456765432",
+                "referenceIdentityNumber": "2864123456765432",
                 "gender": [
                     {
                         "language": "fra",
@@ -35,7 +35,7 @@
                         "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
-                "localAdministrativeAuthority": [
+                "zone": [
                     {
                         "language": "fra",
                         "value": "SATZ"
@@ -50,7 +50,7 @@
                 "addressLine1": [
                     {
                         "language": "fra",
-                        "value": ""
+                        "value": "global village"
                     },
                     {
                         "language": "ara",
@@ -103,7 +103,7 @@
         },
         "langCode": "fra"
     },
-    "requesttime": "2019-06-28T16:20:05.383Z",
+    "requesttime": "2019-05-28T16:20:05.383Z",
     "id": "mosip.pre-registration.demographic.create",
     "version": "1.0"
 }

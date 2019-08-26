@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"idEmpty" : "",
 	"idInvalid" : "",
@@ -9,4 +10,17 @@
 	"versionInvalid" : "",
 	"invalidRequestUTC" : "",
 	"validRequestUTC1" : ""
+=======
+{
+	"idEmpty" : "",
+	"idInvalid" : "",
+	"regIdEmpty" : "",
+	"regIdNotPresent" : "",
+	"requesttimeEmpty" : "",
+	"requesttimeInvalid" : "",
+	"versionEmpty" : "",
+	"versionInvalid" : "",
+	"InvalidRequestUTC" : "",
+	"ValidRequestUTC" : ""
+>>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
 }

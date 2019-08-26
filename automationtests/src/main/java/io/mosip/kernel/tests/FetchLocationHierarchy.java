@@ -119,7 +119,6 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 		// add parameters to remove in response before comparison like time stamp
 		ArrayList<String> listOfElementToRemove = new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
-
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
 		status = assertions.assertKernel(response, responseObject, listOfElementToRemove);

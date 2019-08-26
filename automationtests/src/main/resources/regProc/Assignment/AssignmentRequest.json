@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"idEmpty" : "",
 	"idInvalid" :"",
@@ -12,4 +13,20 @@
 	"RecordUnavaible" : "",
 	"invalidRequestUTC" : "",
 	"validRequestUTC1" : ""
+=======
+{
+	"idEmpty" : "",
+	"idInvalid" :"",
+	"matchTypeEmpty" : "",
+	"matchTypeInvalid" : "",
+	"requesttimeEmpty" : "",
+	"requesttimeInvalid" : "",
+	"userIdEmpty" : "",
+	"userIdInvalid" : "",
+	"versionEmpty" : "",
+	"versionInvalid" : "",
+	"RecordUnavaible" : "",
+	"InvalidRequestUTC" : "",
+	"ValidRequestUTC1" : ""
+>>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
 }

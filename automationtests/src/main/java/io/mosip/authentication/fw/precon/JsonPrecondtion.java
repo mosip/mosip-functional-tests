@@ -163,8 +163,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(jsonContent, Object.class);
-			return PropertyUtils.getProperty(jsonObj,
-					AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(fieldName)).toString();
+			return mapper.writeValueAsString(PropertyUtils.getProperty(jsonObj,
+					AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(fieldName)));
 		} catch (Exception exp) {
 			JSONPRECONDATION_LOGGER
 					.error("Exception Occured in retrieving the value from json file: " + exp.getMessage());

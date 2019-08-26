@@ -1,0 +1,91 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-13T12:51:18.142Z",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      },
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      }
+    ]
+  },
+  "errors": null
+}

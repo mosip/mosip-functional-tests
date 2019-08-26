@@ -1,0 +1,21 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 4,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$",
+        "code": "POR",
+        "name": "Preuve de relation",
+        "description": "Preuve de relation de la personne",
+        "langCode": "fra"
+      }
+    ]
+  }
+}

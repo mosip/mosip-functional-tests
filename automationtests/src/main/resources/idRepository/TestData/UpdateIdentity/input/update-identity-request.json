@@ -11,7 +11,7 @@
 		    "dateOfBirth": "$REMOVE$",
 			"age": "$REMOVE$",
 			"postalCode": "$REMOVE$",
-			"CNIENumber": "$REMOVE$"
+			"referenceIdentityNumber": "$REMOVE$"
 		}
 	},
 	"requesttime": "2018-02-05T06:12:25.288Z",

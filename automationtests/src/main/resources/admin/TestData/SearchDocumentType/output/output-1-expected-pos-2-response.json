@@ -1,0 +1,79 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-13T06:39:33.458Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.080Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "FRS",
+        "langCode": "eng",
+        "name": "Finger Print Scanner",
+        "description": "For scanning fingerprints"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.080Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "IRS",
+        "langCode": "eng",
+        "name": "Iris Scanner",
+        "description": "For scanning Iris"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.080Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "CMR",
+        "langCode": "eng",
+        "name": "Camera",
+        "description": "For capturing photo"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.080Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "SCN",
+        "langCode": "eng",
+        "name": "Document Scanner",
+        "description": "For scanning documents"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.080Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "PRT",
+        "langCode": "eng",
+        "name": "Printer",
+        "description": "For printing Documents"
+      }
+    ]
+  },
+  "errors": null
+}

@@ -1,0 +1,31 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "POA"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "POB"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "POE"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "POI"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "POR"
+      }
+    ]
+  },
+  "errors": null
+}

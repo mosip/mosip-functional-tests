@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"lengthMoreThan29":"",
 	"wrongDateValue":"",
@@ -27,4 +28,35 @@
 	"supervisorStatusEmpty" : "",
 	"validRequestUTC1" : "",
 	"invalidRequestUTC" : ""
+=======
+{
+	"lengthMoreThan29":"",
+	"wrongDateValue":"",
+	"wrongHourValue":"",
+	"wrongMinuteValue":"",
+	"wrongMonthValue":"",
+	"wrongSecondsValue":"",
+	"wrongSymbols&Numbers":"",
+	"wrongText&Numbers":"",
+	"wrongText&Symbol":"",
+	"wrongYearValue":"",
+	"sizeGreaterThan5mb" : "",
+	"sizeZeroMb" : "",
+	"idEmpty" : "",
+	"idInvalid" : "",
+	"versionEmpty" : "",
+	"versionInvalid": "",
+	"requesttimeEmpty" : "",
+	"requesttimeInvalid" : "",
+	"langCodeEmpty" : "",
+	"langCodeInvalid" : "",
+	"registrationTypeEmpty" : "",
+	"registrationTypeInvalid" : "",
+	"packetHashValueEmpty" : "",
+	"packetHashValueInvalid" : "",
+	"supervisorStatusInvalid" : "",
+	"supervisorStatusEmpty" : "",
+	"ValidRequestUTC" : "",
+	"InvalidRequestUTC" : ""
+>>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
  }

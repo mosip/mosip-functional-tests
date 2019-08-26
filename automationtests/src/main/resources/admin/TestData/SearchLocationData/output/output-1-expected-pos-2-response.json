@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-20T12:53:04.985Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 7,
+    "data": [
+      {
+        "region": "Rabat Sale Kenitra",
+        "province": "Rabat",
+        "city": "Rabat",
+        "zone": "EL YOUSSOUFIA",
+        "postalCode": "10190",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:38.523Z"
+      }
+    ]
+  }
+}

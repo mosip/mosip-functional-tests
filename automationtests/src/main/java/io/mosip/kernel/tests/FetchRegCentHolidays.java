@@ -114,7 +114,6 @@ public class FetchRegCentHolidays extends BaseTestCase implements ITest {
 		responseObject = objectDataArray[1];
 
 				response = applicationLibrary.getWithPathParam(FetchRegCentHolidays_URI, objectData,individualCookie);
-
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
 		if (testcaseName.toLowerCase().contains("smoke")) {

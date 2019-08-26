@@ -91,6 +91,7 @@ import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.service.sync.PacketSynchService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.common.OTPManager;
+import io.mosip.testrunner.MosipTestRunner;
 
 /**
  * @author Arjun chandramohan
@@ -1406,6 +1407,10 @@ public class CommonUtil {
 						e.getMessage());
 			}
 		}
+	}
+	
+	public static String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath();
 	}
 
 }

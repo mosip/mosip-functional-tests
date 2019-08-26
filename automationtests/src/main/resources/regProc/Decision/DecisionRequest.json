@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"matchedRefIdEmpty" : "",
 	"matchedRefIdInvalid" : "",
@@ -13,4 +14,21 @@
 	"invalidRequestUTC" : "",
 	"requesttimeEmpty" : "",
 	"requesttimeInvalid" : ""
+=======
+{
+	"matchedRefIdEmpty" : "",
+	"matchedRefIdInvalid" : "",
+	"matchedRefTypedEmpty" : "",
+	"matchedRefTypedInvalid" : "",
+	"mvUsrIdEmpty" : "",
+	"mvUsrIdInvalid": "",
+	"regIdEmpty" : "",
+	"regIdInvalid" : "",
+	"statusCodeEmpty" : "",
+	"statusCodeInvalid" : "",
+	"ValidRequestUTC" : "",
+	"InvalidRequestUTC" : "",
+	"requesttimeEmpty" : "",
+	"requesttimeInvalid" : ""
+>>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
 }

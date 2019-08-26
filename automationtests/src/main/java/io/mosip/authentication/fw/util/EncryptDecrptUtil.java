@@ -240,4 +240,20 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return e.toString();
 		}
 	}
+	
+	/**
+	 * The method will get encoded data from json content in file
+	 * 
+	 * @param content to be encode
+	 * @return String, Encoded data
+	 */
+	public static String getBase64EncodedString(String content) {
+		try {
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), content.toString(), MediaType.TEXT_PLAIN,
+					MediaType.TEXT_PLAIN).asString();
+		} catch (Exception e) {
+			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
 }

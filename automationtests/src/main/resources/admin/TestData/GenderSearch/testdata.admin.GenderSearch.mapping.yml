@@ -1,0 +1,207 @@
+testdata:
+
+  Admin_GenderSearch_ValidLangCodeAsEng_Smoke:
+    input.genderSearch-request:
+      languageCode: 'eng'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_GenderSearch_ValidSortTypeAsDesc_Smoke:
+    input.genderSearch-request:
+      languageCode: 'eng'
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$    
+      
+  Admin_GenderSearch_ValidLangCodeAsFra_Smoke:
+    input.genderSearch-request:
+      languageCode: $TestData:valid_LanguageCodeFrench$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      langCodedata0: $TestData:valid_LanguageCodeFrench$
+      langCodedata1: $TestData:valid_LanguageCodeFrench$
+      langCodedata2: $TestData:valid_LanguageCodeFrench$
+      genderNamedata0: $TestData:valid_fra_FeMale$
+      genderNamedata1: $TestData:valid_fra_Male$
+      genderNamedata2: $TestData:valid_fra_Others$
+      
+  Admin_GenderSearch_ValidLangCodeAsAra_Smoke:
+    input.genderSearch-request:
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      langCodedata0: $TestData:valid_LanguageCodeArabic$
+      langCodedata1: $TestData:valid_LanguageCodeArabic$
+      langCodedata2: $TestData:valid_LanguageCodeArabic$
+      genderNamedata0: $TestData:valid_ara_FeMale$
+      genderNamedata1: $TestData:valid_ara_Male$
+      genderNamedata2: $TestData:valid_ara_Others$    
+      
+  Admin_GenderSearch_ValidCodeAsEng_Smoke:
+    input.genderSearch-request:
+      languageCode: 'eng'
+      sortFieldsort0: 'code'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderSearch_ValidCodeAsFra_Contains_Smoke:
+    input.genderSearch-request:
+      languageCode: 'fra'
+      sortFieldsort0: 'code'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      langCodedata0: $TestData:valid_LanguageCodeFrench$
+      langCodedata1: $TestData:valid_LanguageCodeFrench$
+      langCodedata2: $TestData:valid_LanguageCodeFrench$
+      genderNamedata0: $TestData:valid_fra_FeMale$
+      genderNamedata1: $TestData:valid_fra_Male$
+      genderNamedata2: $TestData:valid_fra_Others$  
+      
+  Admin_GenderSearch_ValidCodeAsAra_Smoke:
+    input.genderSearch-request:
+      languageCode: 'ara'
+      sortFieldsort0: 'code'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      langCodedata0: $TestData:valid_LanguageCodeArabic$
+      langCodedata1: $TestData:valid_LanguageCodeArabic$
+      langCodedata2: $TestData:valid_LanguageCodeArabic$
+      genderNamedata0: $TestData:valid_ara_FeMale$
+      genderNamedata1: $TestData:valid_ara_Male$
+      genderNamedata2: $TestData:valid_ara_Others$
+      
+      
+  Admin_GenderSearch_ValidGenderNameAsEng_Contains_Smoke:
+    input.genderSearch-request:
+      languageCode: 'eng'
+      sortFieldsort0: 'genderName'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderSearch_ValidGenderNameAsFra_Smoke:
+    input.genderSearch-request:
+      languageCode: 'fra'
+      sortFieldsort0: 'genderName'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      langCodedata0: $TestData:valid_LanguageCodeFrench$
+      langCodedata1: $TestData:valid_LanguageCodeFrench$
+      langCodedata2: $TestData:valid_LanguageCodeFrench$
+      genderNamedata0: $TestData:valid_fra_FeMale$
+      genderNamedata1: $TestData:valid_fra_Male$
+      genderNamedata2: $TestData:valid_fra_Others$  
+      
+  Admin_GenderSearch_ValidGenderNameAsAra_Smoke:
+    input.genderSearch-request:
+      languageCode: 'ara'
+      sortFieldsort0: 'genderName'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      langCodedata0: $TestData:valid_LanguageCodeArabic$
+      langCodedata1: $TestData:valid_LanguageCodeArabic$
+      langCodedata2: $TestData:valid_LanguageCodeArabic$
+      genderNamedata0: $TestData:valid_ara_FeMale$
+      genderNamedata1: $TestData:valid_ara_Male$
+      genderNamedata2: $TestData:valid_ara_Others$ 
+      
+      
+  Admin_GenderSearch_InvalidLangCodeAsEmpty:
+    input.genderSearch-request:
+      languageCode: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderSearch_InvalidLangCodeAsNonExisting:
+    input.genderSearch-request:
+      languageCode: 'lt'
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderSearch_InvalidSortFieldAsEmpty:
+    input.genderSearch-request:
+      sortFieldsort0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+      messageerrors0: $errors:EmptySortFieldType:errorMessage$
+      
+      
+  Admin_GenderSearch_InvalidSortFieldAsNonExisting:
+    input.genderSearch-request:
+      sortFieldsort0: 'is_Active'
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:InvalidSortField:errorCode$
+      messageerrors0: 'Invalid sort field is_Active '   
+      
+  Admin_GenderSearch_InvalidSortTypeAsNonEmpty:
+    input.genderSearch-request:
+      sortTypesort0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+      messageerrors0: $errors:EmptySortFieldType:errorMessage$   
+      
+  Admin_GenderSearch_InvalidSortTypeAsNonEmpty:
+    input.genderSearch-request:
+      sortTypesort0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+      messageerrors0: $errors:EmptySortFieldType:errorMessage$  
+      
+  Admin_GenderSearch_InvalidSortTypeAsNonEmpty:
+    input.genderSearch-request:
+      sortTypesort0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:EmptySortFieldType:errorCode$
+      messageerrors0: $errors:EmptySortFieldType:errorMessage$ 
+      
+      
+  Admin_GenderSearch_InvalidPageFetchValueGrtThanPageStart:
+    input.genderSearch-request:
+      pageStart: '0'
+      pageFetch: '0'
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: 'Invalid pagination  value received pagestart:0 and pagefetch:0' 
+      
+      
+  Admin_GenderSearch_InvalidPageStartAsEmpty:
+    input.genderSearch-request:
+      pageStart: ''
+      pageFetch: '0'
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: 'Invalid pagination  value received pagestart:0 and pagefetch:0' 
+                
+  Admin_GenderSearch_InvalidPageFetchAsEmpty:
+    input.genderSearch-request:
+      pageFetch: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                      
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+      messageerrors0: 'Invalid pagination  value received pagestart:0 and pagefetch:0'
+       
+      
+  Admin_GenderSearch_InvalidIdAsEmpty:
+    input.genderSearch-request:
+      id: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderSearch_InvalidVersionAsEmpty:
+    input.genderSearch-request:
+      version: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderSearch_InvalidRequestTimeAsEmpty:
+    input.genderSearch-request:
+      requesttime: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$                           
+       
+      

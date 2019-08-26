@@ -1,0 +1,13 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-21T07:44:42.312Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "macAddress",
+        "fieldValue": "00-0D-3A-F2-B4-8A"
+      }
+    ]
+  }
+}

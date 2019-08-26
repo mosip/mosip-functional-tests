@@ -83,6 +83,7 @@ public class GetListOfRoles extends BaseTestCase implements ITest{
 	@Test(dataProvider="GetListOfRoles")
 	public void getListOfRoles(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
+		logger.info(testcaseName);
 		// getting request and expected response jsondata from json files.
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		Expectedresponse = objectDataArray[1];		
@@ -94,7 +95,6 @@ public class GetListOfRoles extends BaseTestCase implements ITest{
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
 		listOfElementToRemove.add("lastSyncTime");
-				
 		// Comparing expected and actual response
 		status =  assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
       if (!status) {

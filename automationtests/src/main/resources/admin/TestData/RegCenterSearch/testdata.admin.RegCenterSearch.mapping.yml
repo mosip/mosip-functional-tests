@@ -1,0 +1,84 @@
+testdata:
+  Admin_RegCenterSearch_With_ValidName_Request_Contains_Smoke_Pos:
+    input.regCenterSearch-request:
+      languageCode: 'eng'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterSearch_With_ValidName_Request_Equals_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_Name_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterSearch_With_ValidName_Request_StartsWith_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_Name_eng_search_StartsWith$
+      typefilters0: $TestData:valid_SearchTypeStartsWith$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_RegCenterSearch_With_ValidId_Request_StartsWith_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_id_eng_search_StartsWith$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      columnNamefilters0: $TestData:valid_reg_id_search_colName$
+    output.output-1-expected-pos2-response:
+      responsetime: $IGNORE$    
+               
+  Admin_RegCenterSearch_With_ValidId_Request_Equals_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_id_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      columnNamefilters0: $TestData:valid_reg_id_search_colName$
+    output.output-1-expected-pos3-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_RegCenterSearch_With_ValidId_Request_Contains_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_id_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      columnNamefilters0: $TestData:valid_reg_id_search_colName$
+    output.output-1-expected-pos3-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterSearch_With_ValidCity_Request_Contains_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_city_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      columnNamefilters0: $TestData:valid_reg_city_search_colName$
+    output.output-1-expected-pos4-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterSearch_With_ValidCity_Request_Equals_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_city_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      columnNamefilters0: $TestData:valid_reg_city_search_colName$
+    output.output-1-expected-pos4-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterSearch_With_ValidCity_Request_StartsWith_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_city_eng_search_StartsWith$
+      typefilters0: $TestData:valid_SearchTypeStartsWith$
+      columnNamefilters0: $TestData:valid_reg_city_search_colName$
+    output.output-1-expected-pos4-response:
+      responsetime: $IGNORE$        
+      
+  Admin_RegCenterSearch_With_ValidProvince_Request_Contains_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_city_eng_search_Contains$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      columnNamefilters0: $TestData:valid_reg_province_search_colName$
+    output.output-1-expected-pos4-response:
+      responsetime: $IGNORE$  
+      
+  Admin_RegCenterSearch_With_ValidProvince_Request_Equals_Smoke_Pos:
+    input.regCenterSearch-request:
+      valuefilters0: $TestData:valid_reg_city_eng_search_Equals$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      columnNamefilters0: $TestData:valid_reg_province_search_colName$
+    output.output-1-expected-pos4-response:
+      responsetime: $IGNORE$                        

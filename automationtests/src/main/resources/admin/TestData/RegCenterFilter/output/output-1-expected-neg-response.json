@@ -1,0 +1,11 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-13T14:55:08.493Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}
