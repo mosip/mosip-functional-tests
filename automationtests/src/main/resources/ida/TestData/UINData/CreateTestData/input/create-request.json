@@ -120,7 +120,7 @@
 					"value": "MOROCCO"
 				}
 			],
-			"localAdministrativeAuthority": [
+			"zone": [
 				{
 					"language": "eng",
 					"value": "salma"
@@ -134,7 +134,7 @@
 					"value": "salma"
 				}
 			],
-			"CNIENumber": "6789545678909",
+			"referenceIdentityNumber": "6789545678909",
 			"parentOrGuardianName": [
 				{
 					"language": "eng",

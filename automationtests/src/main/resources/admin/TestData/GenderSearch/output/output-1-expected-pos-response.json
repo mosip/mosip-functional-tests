@@ -1,0 +1,37 @@
+{
+    "errors": [
+    ],
+    "id": "string",
+    "response": {
+        "data": [
+            {
+                "code": "FLE",
+                "createdBy": "superadmin",
+                "createdDateTime": "2019-07-30T06:18:49.899Z",
+                "genderName": "Female",
+                "isActive": true,
+                "langCode": "eng"
+            },
+            {
+                "code": "MLE",
+                "createdBy": "superadmin",
+                "createdDateTime": "2019-07-30T06:18:49.899Z",
+                "genderName": "Male",
+                "isActive": true,
+                "langCode": "eng"
+            },
+            {
+                "code": "OTH",
+                "createdBy": "superadmin",
+                "createdDateTime": "2019-07-30T06:18:49.899Z",
+                "genderName": "Others",
+                "isActive": false,
+                "langCode": "eng"
+            }
+        ],
+        "fromRecord": 1,
+        "toRecord": 3,
+        "totalRecord": 3
+    },
+    "version": "string"
+}

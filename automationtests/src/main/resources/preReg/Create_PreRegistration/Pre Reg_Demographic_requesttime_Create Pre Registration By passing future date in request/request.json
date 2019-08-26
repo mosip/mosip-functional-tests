@@ -2,7 +2,7 @@
     "request": {
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "2864123456765432",
+                "referenceIdentityNumber": "2864123456765432",
                 "gender": [
                     {
                         "language": "fra",
@@ -32,10 +32,10 @@
                     },
                     {
                         "language": "ara",
-                        "value": "Ø¬ÙŽÚ¯ÙŽØ¯Ù�Ø³Ù‡ÙˆÙŽØ±Ù� Ø³Ù�Ù„Ú¤ÙŽØ±ÙŽØ¬"
+                        "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
-                "localAdministrativeAuthority": [
+                "zone": [
                     {
                         "language": "fra",
                         "value": "SATZ"
@@ -60,11 +60,11 @@
                 "addressLine1": [
                     {
                         "language": "fra",
-                        "value": ""
+                        "value": "global village"
                     },
                     {
                         "language": "ara",
-                        "value": "Ù…Ù�Ù†Ø¯ØªØ±Ù�Ù� Ù¾Ù‡ÙŽØ³Ù� Ù¢ØŒ Ú¯Ù„Ù�Ø¨ÙŽÙ„ Ú¤Ù�Ù„Ù„ÙŽÚ¯Ù�"
+                        "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
                     }
                 ],
                 "residenceStatus": [
@@ -84,7 +84,7 @@
                     },
                     {
                         "language": "ara",
-                        "value": "ÙƒÙŽØ±Ù†ÙŽØªÙŽÙƒÙŽ"
+                        "value": "كَرنَتَكَ"
                     }
                 ],
                 "addressLine3": [
@@ -107,14 +107,13 @@
                         "value": "RSK"
                     }
                 ],
-				"phone": "9625625706",
                 "email": "ashish.rastogi@mindtree.com"
 
             }
         },
         "langCode": "fra"
     },
-    "requesttime": "2022-05-28T16:20:05.383Z",
+    "requesttime": "2019-05-28T16:20:05.383Z",
     "id": "mosip.pre-registration.demographic.create",
     "version": "1.0"
 }

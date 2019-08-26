@@ -171,8 +171,8 @@ public class PacketHandlerServiceUpdateUINTest extends BaseConfiguration impleme
 				HashMap<String, String> packetResponse_ForUpdateUIN = commonUtil.packetCreationForUINUpdate(statusCode,
 						biometricDataPath, demographicDataPath, proofImagePath, System.getProperty("userID"), centerID,
 						stationID, uin);
-				commonUtil.verifyAssertionResponse(packetResponse_ForUpdateUIN.get("MESSAGE"),
-						prop.getProperty("ExpectedResponse"));
+				commonUtil.verifyAssertionResponse(
+						prop.getProperty("ExpectedResponse"),packetResponse_ForUpdateUIN.get("MESSAGE"));
 				// Verify whether created packet exist in the local database
 				System.out.println(packetResponse_ForUpdateUIN.get("RANDOMID"));
 				boolean isPresentInDB = DBUtil.checkRegID(packetResponse_ForUpdateUIN.get("RANDOMID"),

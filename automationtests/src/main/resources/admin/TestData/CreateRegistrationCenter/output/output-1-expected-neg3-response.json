@@ -1,0 +1,11 @@
+{
+   "id": "mosip.admin.registrationcenters",
+   "version": "1.0",
+   "responsetime": "2019-07-24T05:32:22.656Z",
+   "metadata": null,
+   "response": null,
+   "errors": [   {
+      "errorCode": "KER-MSD-999",
+      "message": "request[0].contactPhone: size must be between 0 and 16"
+   }]
+}

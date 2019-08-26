@@ -1,8 +1,9 @@
 package io.mosip.authentication.tests;
 
-import java.io.File; 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -24,10 +25,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import io.mosip.authentication.fw.util.AuditValidation;
 import io.mosip.authentication.fw.util.DataProviderClass;
 import io.mosip.authentication.fw.util.DbConnection;
+import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
@@ -149,8 +152,9 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, AuthPartnerAuthentication.testCaseName);
-			if(!result.isSuccess())
-				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getAuthSeriveName(), logFileName, getTestFolder());
+			if (!result.isSuccess())
+				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getAuthSeriveName(), logFileName,
+						getTestFolder());
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -162,9 +166,9 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException 
-	 * @throws JsonMappingException 
-	 * @throws JsonParseException 
+	 * @throws AuthenticationTestException
+	 * @throws JsonMappingException
+	 * @throws JsonParseException
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void authPartnerAuthenticationTest(TestParameters objTestParameters, String testScenario,
@@ -176,22 +180,37 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
+		// Perform encoding here
+		String bioIdentityContent = getContentFromFile(testCaseName.listFiles(), "identity-encrypt");
+		int count = getNumberOfTimeWordPresentInString(bioIdentityContent, "\"data\"");
+		for (int i = 1; i <= count; i++) {
+			String mapperForBioContentToBeEncode = "bioData" + i;
+			String bioContentToBeEncode = JsonPrecondtion.getValueFromJsonUsingMapping(
+					getContentFromFile(testCaseName.listFiles(), "identity-encrypt"), mapping,
+					mapperForBioContentToBeEncode);
+			String encodedBioData = EncryptDecrptUtil.getBase64EncodedString(bioContentToBeEncode);
+			Map<String, String> bioDataMap = new HashMap<String, String>();
+			bioDataMap.put(mapperForBioContentToBeEncode, encodedBioData);
+			modifyRequest(testCaseName.listFiles(), bioDataMap, mapping, "identity-encrypt");
+		}
+		// End of encode bio data
 		String extUrl = getExtendedUrl(new File(objTestParameters.getTestCaseFile() + "/url.properties"));
 		Map<String, String> tempMap = getEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of demo auth request ******************");
 		Reporter.log("<b><u>Modification of demo auth request</u></b>");
-		if(!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "auth-request"))
+		if (!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "auth-request"))
 			throw new AuthenticationTestException("Failed at modifying the request file. Kindly check testdata.");
-		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath()
-				+ extUrl + " *******");
-		if(!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
-				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath() + extUrl, "request", "output-1-actual-res", 200))
-				throw new AuthenticationTestException("Failed at HTTP-POST request");
+		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl()
+				+ RunConfigUtil.objRunConfig.getAuthPath() + extUrl + " *******");
+		if (!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
+				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath() + extUrl,
+				"request", "output-1-actual-res", 200))
+			throw new AuthenticationTestException("Failed at HTTP-POST request");
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AuthenticationTestException("Failed at response output validation");
 		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "auth_transaction")) {
 			wait(5000);
@@ -200,7 +219,7 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 			Map<String, List<OutputValidationDto>> auditTxnvalidation = AuditValidation
 					.verifyAuditTxn(testCaseName.listFiles(), "auth_transaction");
 			Reporter.log(ReportUtil.getOutputValiReport(auditTxnvalidation));
-			if(!OutputValidationUtil.publishOutputResult(auditTxnvalidation)) 
+			if (!OutputValidationUtil.publishOutputResult(auditTxnvalidation))
 				throw new AuthenticationTestException("Failed at Authtransaction validation");
 		}
 		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "audit_log")) {
@@ -210,7 +229,7 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 			Map<String, List<OutputValidationDto>> auditLogValidation = AuditValidation
 					.verifyAuditLog(testCaseName.listFiles(), "audit_log");
 			Reporter.log(ReportUtil.getOutputValiReport(auditLogValidation));
-			if(!OutputValidationUtil.publishOutputResult(auditLogValidation))
+			if (!OutputValidationUtil.publishOutputResult(auditLogValidation))
 				throw new AuthenticationTestException("Failed at auditLog Validation");
 		}
 	}

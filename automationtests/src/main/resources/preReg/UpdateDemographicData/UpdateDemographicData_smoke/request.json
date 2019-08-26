@@ -98,7 +98,7 @@
             "value": "KNT"
           }
         ],
-        "localAdministrativeAuthority": [
+        "zone": [
           {
             "language": "fra",
             "value": "SATZ"
@@ -110,7 +110,7 @@
         ],
         "postalCode": "14022",
         "email": "ashish.rastogi@mindtree.com",
-        "CNIENumber": "2864123456765432"
+        "referenceIdentityNumber": "2864123456765432"
       }
     }
   }

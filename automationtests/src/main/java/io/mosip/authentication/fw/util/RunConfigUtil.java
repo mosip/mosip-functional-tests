@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.RidDto;
 import io.mosip.authentication.fw.dto.TokenIdDto;
 import io.mosip.authentication.fw.dto.UinDto;
@@ -145,6 +146,8 @@ public class RunConfigUtil {
 			objRunConfig = new IdaRunConfig();
 		else if (module.equals("idrepo"))
 			objRunConfig = new IdRepoRunConfig();
+		else if (module.equals("admin"))
+			objRunConfig = new AdminRunConfig();
 	}
 	
 	/**

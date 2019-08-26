@@ -127,7 +127,7 @@ public class FetchAppointmentDetails extends BaseTestCase implements ITest {
 
 		// Creating the Pre-Registration Application
 		Response createApplicationResponse = preRegLib.CreatePreReg(individualToken);
-		preId = createApplicationResponse.jsonPath().get("response.preRegistrationId").toString();
+		preId = preRegLib.getPreId(createApplicationResponse);
 
 		if (testCase.contains("smoke")) {
 

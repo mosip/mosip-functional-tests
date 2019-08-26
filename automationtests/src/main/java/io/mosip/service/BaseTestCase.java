@@ -14,6 +14,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.util.PreRegistrationLibrary;
@@ -126,7 +127,9 @@ public class BaseTestCase{
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
-			AuthTestsUtil.initiateAuthTest();*/
+			AuthTestsUtil.removeOldMosipTempTestResource();
+			AuthTestsUtil.initiateAuthTest();
+			AdminTestUtil.initiateAdminTest();*/
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();

@@ -1,0 +1,112 @@
+testdata:
+
+  Admin_GenderFilter_With_ValidColNameAsGenderNameForUniqueType_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      languageCode: 'eng'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      
+  Admin_GenderFilter_With_ValidColNameAsGenderNameForAllType_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      typefilters0: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$    
+           
+           
+  Admin_GenderFilter_With_ValidColNameAsCodeForAllType_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      typefilters0: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderFilter_With_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      typefilters0: $TestData:valid_FilterTypeUnique$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+         
+      
+  Admin_GenderFilter_With_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      typefilters0: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$ 
+      
+      
+  Admin_GenderFilter_With_ValidLangCodeAsFra_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      languageCode: $TestData:valid_langCode_fra$
+      textfilters0: $TestData:valid_fra_Male$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderFilter_With_ValidLangCodeAsAra_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      languageCode: $TestData:valid_langCode_ara$
+      textfilters0: ''
+    output.output-1-expected-pos2-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderFilter_With_InValidColumnNameAsEmpty:
+    input.genderFilter-request:
+      columnNamefilters0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderFilter_With_InValidColumnNameAsNonExistingValue:
+    input.genderFilter-request:
+      columnNamefilters0: $TestData:invalid_colName$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidColumnNameFilter:errorCode$
+      messageerrors0: $errors:InvalidColumnNameFilter:errorMessage$
+      
+  Admin_GenderFilter_With_InValidTypeAsEmpty:
+    input.genderFilter-request:
+      typefilters0: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidEmptyNullFilter:errorCode$
+      messageerrors0: $errors:InvalidEmptyNullFilter:errorMessage$
+      
+  Admin_GenderFilter_With_InValidTypeAsNonExisting:
+    input.genderFilter-request:
+      typefilters0: $TestData:InvalidFilterType$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorCode$
+      messageerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorMessage$
+      
+  Admin_GenderFilter_With_ValidTextAsEmpty_Request_Contains_Smoke_Pos:
+    input.genderFilter-request:
+      textfilters0: ''
+      languageCode: $TestData:valid_langCode_ara$
+    output.output-1-expected-pos2-response:
+      responsetime: $IGNORE$
+      
+  Admin_GenderFilter_With_InValidTextAsNonExisting:
+    input.genderFilter-request:
+      languageCode: $TestData:valid_langCode_ara$
+      textfilters0: $TestData:valid_eng_Male$
+    output.output-1-expected-neg1-response:
+      responsetime: $IGNORE$ 
+      
+  Admin_GenderFilter_With_InValidIdAsEmpty:
+    input.genderFilter-request:
+      id: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      
+  Admin_GenderFilter_With_InValidVerAsEmpty:
+    input.genderFilter-request:
+      version: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$  
+      
+  Admin_GenderFilter_With_InValidRequestTimeAsEmpty:
+    input.genderFilter-request:
+      requesttime: ''
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$             
+                   
+                           

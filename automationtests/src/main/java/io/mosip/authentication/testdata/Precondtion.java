@@ -27,6 +27,7 @@ import org.testng.Reporter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import io.mosip.admin.fw.util.AdminKeywordUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
@@ -155,6 +156,8 @@ public class Precondtion {
 			objKeywordUtil = new IdaKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("idrepo"))
 			objKeywordUtil = new IdRepoKeywordUtil();
+		else if (moduleName.equalsIgnoreCase("admin"))
+			objKeywordUtil = new AdminKeywordUtil();
 		return objKeywordUtil;
 	}
 

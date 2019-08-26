@@ -12,6 +12,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,11 +40,15 @@ import org.json.simple.parser.ParseException;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.testng.Assert;
 
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
+
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -241,8 +248,9 @@ public class CommonLibrary extends BaseTestCase {
 	 * @param requestJson
 	 * @param responseJson
 	 * @return this method is for comapring 2 json, and return boolean value accordingly.
+	 * @throws AdminTestException 
 	 */
-	public boolean jsonComparator(String requestJson, String responseJson)
+	public boolean jsonComparator(String requestJson, String responseJson) throws AdminTestException
 	{
 		try {
 			JSONAssert.assertEquals(requestJson, responseJson, false);
@@ -252,9 +260,8 @@ public class CommonLibrary extends BaseTestCase {
 			logger.info("EXPECTED AND ACTUAL DATA MISMATCH");
 			logger.info("MISMATCH DETAILS:");
 			logger.info(e.getMessage());
-			logger.info("Obtained ACTUAL RESPONSE is:=> "+responseJson);
-			Assert.fail("DATA MISMATCH FAILURE");
-			return false;
+			logger.info("Obtained ACTUAL RESPONSE is:== "+responseJson);
+			throw new AdminTestException("Failed at output validation");
 		}
 	}
 	/**
@@ -300,6 +307,40 @@ public class CommonLibrary extends BaseTestCase {
 		}
 		return builder.toString();
 	}
+	
+	/**
+		 * The method to remove the json element from the json file
+		 * 
+		 * @return String
+		 * @throws ParseException 
+		 */
+		
+		public String removeJsonElement(String readFilePath,ArrayList<String> eleToRemove) throws ParseException {
+			String jsnString = null;
+			String val = null;
+			
+			try {
+				String yourActualJSONString = new String(Files.readAllBytes(Paths.get(readFilePath)), StandardCharsets.UTF_8);
+				DocumentContext jsonContext = JsonPath.parse(yourActualJSONString);
+				
+				for (int i = 0; i < eleToRemove.size(); i++) 
+			    {
+			    	val=eleToRemove.get(i);
+			    	jsonContext.delete(val);
+			    	jsnString = jsonContext.jsonString();
+			    	/*JSONParser parser = new JSONParser(); 
+			        jsnObject = (JSONObject) parser.parse(myOutput);
+			    	*/
+			    }
+				
+			
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return jsnString;
+			
+		}
 
 	/**
 	 * @param response

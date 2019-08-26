@@ -952,7 +952,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	}*/
 	
 	public static void initiateAuthTest() {
-		removeOldAuthTestResource();
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
 	}
@@ -1319,7 +1318,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 
-	public static void removeOldAuthTestResource() {
+	public static void removeOldMosipTempTestResource() {
 		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 		if (authTestFile.exists())
 			if (FileUtil.deleteDirectory(authTestFile))
@@ -1363,6 +1362,28 @@ public class AuthTestsUtil extends BaseTestCase {
 			i++;
 		}
 		return i;
+	}
+	protected String putRequestWithparm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.putRequestWithParm(url, objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	protected String putRequestWithCookie(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
 	}
 } 
 

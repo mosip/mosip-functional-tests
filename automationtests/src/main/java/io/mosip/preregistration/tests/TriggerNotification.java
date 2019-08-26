@@ -163,6 +163,7 @@ public class TriggerNotification extends BaseTestCase implements ITest {
 		
 		
 		actualReq= preRegUtil.requestJson("TriggerNotification/preReg_TriggerNotification_additionalRecipient_"+val+"_smoke/","request");
+		System.out.println();
 		JSONObject req = preRegUtil.requestJson("TriggerNotification/preReg_TriggerNotification_additionalRecipient_"+val+"_smoke/","val");
 		
 		req.put("requesttime", preRegLib.getCurrentDate());

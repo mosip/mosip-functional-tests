@@ -219,7 +219,8 @@ public class IdRepoKeywordUtil extends KeywordUtil{
 			} else if (entry.getValue().contains("ENCODEFILE")) {
 				String value = entry.getValue().replace("$", "");
 				String[] actVal = value.split(":");
-				String file = new File(RunConfigUtil.getResourcePath() + TestDataConfig.getTestDataPath() + actVal[1])
+				String file = new File(
+						RunConfigUtil.getResourcePath() +TestDataUtil.getScenarioPath()+"/"+ TestDataUtil.getTestCaseName() +"/"+ actVal[1])
 								.getAbsolutePath();
 				returnMap.put(entry.getKey(), EncryptDecrptUtil.getCbeffEncode(new File(file).getAbsolutePath().toString()));
 			} else

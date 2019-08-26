@@ -1,0 +1,33 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-02T05:31:26.473Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:51.906Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "id": "1103",
+        "name": "قالب لرسالة التفويض",
+        "description": "قالب لرسالة التفويض",
+        "fileFormatCode": "txt",
+        "model": null,
+        "fileText": "مصادقة UIN باستخدام $authType هي $date إلى $time hours $status على جهاز تم نشره بواسطة \"خدمات MOSIP\".",
+        "moduleId": "10004",
+        "moduleName": "مصادقة الهوية",
+        "templateTypeCode": "auth-sms",
+        "langCode": "ara"
+      }
+    ]
+  },
+  "errors": null
+}
