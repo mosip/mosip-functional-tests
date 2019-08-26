@@ -1008,4 +1008,24 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String getCreateBlackListedWordsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setCreateBlackListedWordsPath(String createBlackListedWordsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getCreateLocationDataPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setCreateLocationDataPath(String createLocationDataPath) {
+		// TODO Auto-generated method stub
+		
+	}
 }

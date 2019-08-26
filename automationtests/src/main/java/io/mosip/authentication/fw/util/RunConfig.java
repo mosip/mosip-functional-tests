@@ -407,4 +407,8 @@ public abstract class RunConfig {
 		public abstract void setSearchLocationDataPath(String searchLocationPath);
 		public abstract String getFilterLocationPath();
 		public abstract void setFilterLocationPath(String filterLocationPath);
+		public abstract String getCreateBlackListedWordsPath();
+		public abstract void setCreateBlackListedWordsPath(String createBlackListedWordsPath);
+		public abstract String getCreateLocationDataPath();
+		public abstract void setCreateLocationDataPath(String createLocationDataPath);
 }
