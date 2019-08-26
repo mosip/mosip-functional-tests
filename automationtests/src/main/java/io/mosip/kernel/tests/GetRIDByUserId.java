@@ -83,6 +83,7 @@ public class GetRIDByUserId extends BaseTestCase implements ITest {
 	@Test(dataProvider="GetRIDByUserId")
 	public void getRIDByUserId(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
+		logger.info(testcaseName);
 		// getting request and expected response jsondata from json files.
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
@@ -98,7 +99,6 @@ public class GetRIDByUserId extends BaseTestCase implements ITest {
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
-		
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
 		if (!status) {
