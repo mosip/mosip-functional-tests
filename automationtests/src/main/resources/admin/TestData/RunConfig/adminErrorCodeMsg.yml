@@ -187,3 +187,17 @@ errors:
    EmptyFilterTypeInFilterAPI:
       errorCode: KER-MSD-322
       errorMessage: Filter Type cannot be empty or null
+   CreateEmptyIsActive:
+      errorCode: KER-MSD-999
+      errorMessage: "request.isActive: must not be null"
+   CreateLocationDataCode:
+      errorCode: KER-MSD-999
+      errorMessage: "eng.code:size must be between 1 and 36"
+      errorMessage1: "eng.name:size must be between 1 and 128"
+      errorMessage2: "eng.hierarchyName:size must be between 1 and 64"
+   CreateLocationEmptyLangCode:
+      errorCode: KER-MSD-388
+      errorMessage: "Location data is not present in the primary language : eng"
+   CreateLocationInvalidLangCode:
+      errorCode: KER-MSD-386
+      errorMessage: "Invalid Language Code :  <Language Code>"

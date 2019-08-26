@@ -534,11 +534,52 @@ validColumnRegionValue:
      - Rabat Sale Kenitra
 validColumnProvinceValue:
      - Rabat
+validColumnRegionArabic:
+    - منطقة
 validColumnCityValue:
      - Kenitra
 validColumnRegionFrench:
      - Région
 validColumnZoneValue:
-     - EL YOUSSOUFIA
-validColumnRegionArabic:
-     - منطقة
+    - EL YOUSSOUFIA
+    
+#CreateBlackListedWords
+wordLength128:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx
+wordLength127:    
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw
+wordLength129: 
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy
+Description256:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv
+Description257:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW
+Description255:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
+CreateBlackListedWord:
+    - datatesting
+
+#CreateLocationData
+validLocationCode:
+    - MSK
+validLocationName:
+    - maski
+validLocationhierarchyLevel:
+    - 3
+validLocationhierarchyName:
+    - city
+validLocationparentLocCode:
+    - KTA
+validLocationCode36:
+    - abcdefghijklmnopqrstuvwxyzabcdefghij
+validLocationCode35:
+    - abcdefghijklmnopqrstuvwxyzabcdefghi
+validLocationCode37:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijk
+validStringLength64:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijkl
+validStringLength63:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk
+validStringLength65:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm
+    

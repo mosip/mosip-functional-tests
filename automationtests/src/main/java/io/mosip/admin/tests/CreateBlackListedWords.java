@@ -3,6 +3,7 @@ package io.mosip.admin.tests;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,15 +31,17 @@ import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 
-public class SearchLocationData extends AdminTestUtil implements ITest {
+public class CreateBlackListedWords extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(SearchLocationData.class);
+	private static final Logger logger = Logger.getLogger(CreateBlackListedWords.class);
 	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
+	private int count=1;
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -133,7 +136,7 @@ public class SearchLocationData extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, SearchLocationData.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -149,16 +152,15 @@ public class SearchLocationData extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchLocationData(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void createBlackListedWords(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getSearchLocationDataPath();
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateBlackListedWordsPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
@@ -169,6 +171,25 @@ public class SearchLocationData extends AdminTestUtil implements ITest {
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
+		if(testcaseName.toLowerCase().contains("db")) {
+			KernelDataBaseAccess db = new KernelDataBaseAccess();
+			String queryString="Delete from master.blacklisted_words b where b.word='datatesting'";
+			if(!db.deleteQuery(queryString, "masterdata"))
+				throw new AdminTestException("Not able to delete the created data");
+		}
+		if(testcaseName.toLowerCase().contains("wordlength127")) {
+			KernelDataBaseAccess db = new KernelDataBaseAccess();
+			String key127="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw";
+			String queryString="Delete from master.blacklisted_words b where b.word='"+key127+"'";
+			if(!db.deleteQuery(queryString, "masterdata"))
+				throw new AdminTestException("Not able to delete the created data");
+	}
+			if(testcaseName.toLowerCase().contains("wordlength128")) {
+				KernelDataBaseAccess db = new KernelDataBaseAccess();
+				String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
+				String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
+				if(!db.deleteQuery(queryString, "masterdata"))
+					throw new AdminTestException("Not able to delete the created data");
+		}
 	}
 }
