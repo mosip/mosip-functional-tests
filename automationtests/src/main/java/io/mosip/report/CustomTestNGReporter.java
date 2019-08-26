@@ -423,7 +423,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 						objCustomTestNgReporterDto
 								.setDeltaMillis(testResult.getEndMillis() - testResult.getStartMillis());
 						if(testResult.getThrowable()!=null)
-							objCustomTestNgReporterDto.setLog(testResult.getThrowable().getStackTrace().toString());
+							objCustomTestNgReporterDto.setLog(testResult.getThrowable().toString());
 						else
 							objCustomTestNgReporterDto.setLog("NA");
 						customTestReport.put(testMethodName, objCustomTestNgReporterDto);

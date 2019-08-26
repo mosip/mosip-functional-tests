@@ -32,6 +32,7 @@ import org.testng.internal.TestResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Verify;
+import com.google.common.base.VerifyException;
 
 import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbentity.TokenGenerationEntity;
@@ -185,7 +186,7 @@ public class PacketGenerator  extends  BaseTestCase implements ITest {
 	 	 	 	 setFinalStatus = true;
 	 	 	 Verify.verify(setFinalStatus);
 	 	 	 softAssert.assertAll();
-	 	 } catch (IOException | ParseException e) {
+	 	 } catch (IOException | ParseException | VerifyException e) {
 	 	 	 logger.error("Exception occcurred in Packet Receiver class in packetReceiver method "+e);
 	 	 }
 	 	 
