@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0.14.0_Automationtest_RegProc
 {
 	"idEmpty" : "",
 	"idInvalid" : "",
@@ -13,20 +9,4 @@
 	"versionInvalid" : "",
 	"validRequestUTC1" : "",
 	"invalidRequestUTC" :""
-<<<<<<< HEAD
-=======
-{
-	"idEmpty" : "",
-	"idInvalid" : "",
-	"regIdEmpty" : "",
-	"regIdNotPresent" : "",
-	"requesttimeEmpty" : "",
-	"requesttimeInvalid" : "",
-	"versionEmpty" : "",
-	"versionInvalid" : "",
-	"ValidRequestUTC" : "",
-	"InvalidRequestUTC" :""
->>>>>>> f07c7174a3bf9d6daf57163ee729c23e73cc014b
-=======
->>>>>>> 0.14.0_Automationtest_RegProc
 }
