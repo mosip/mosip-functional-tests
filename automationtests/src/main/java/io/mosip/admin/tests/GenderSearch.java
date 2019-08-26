@@ -104,7 +104,9 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 				testCase = testParams.getTestCaseName();
 			}
 		}
-		this.testCaseName = String.format(testCase);
+		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -144,7 +146,7 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, GenderSearch.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -169,7 +171,6 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
 		logger.info("************* Otp generation request ******************");
 		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
@@ -178,10 +179,8 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 		//+ RunConfigUtil.objRunConfig.getAdminRegistrationCentreSearchPath();
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),
-				"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd", AUTHORIZATHION_COOKIENAME);
 		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, cookieValue);
+				0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 

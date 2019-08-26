@@ -46,8 +46,6 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	private String kubernetSeriveName = "";
-	CommonLibrary lib = new CommonLibrary();
 	AssertKernel ass = new AssertKernel();
 	SoftAssert softAssert = new SoftAssert();
 
@@ -104,7 +102,9 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 				testCase = testParams.getTestCaseName();
 			}
 		}
-		this.testCaseName = String.format(testCase);
+		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 	 */
 	@Override
 	public String getTestName() {
-		return this.testCaseName;
+		return testCaseName;
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, UpdateRegistrationCenter.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -169,7 +169,6 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
 		logger.info("************* Otp generation request ******************");
 		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
@@ -177,11 +176,9 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 				+ RunConfigUtil.objRunConfig.getAdminUpdateRegistrationCentrePath();
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),
-				"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd", AUTHORIZATHION_COOKIENAME);
 		
 		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, cookieValue);
+				0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 
@@ -205,11 +202,11 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 		}
 		
 
-		String actRes = lib.removeJsonElement(actReqPath, arrActRes);
-		String exeRes = lib.removeJsonElement(exeReqPath, arrActRes);
+		String actRes = kernelCmnLib.removeJsonElement(actReqPath, arrActRes);
+		String exeRes = kernelCmnLib.removeJsonElement(exeReqPath, arrActRes);
 		logger.info("My actReq::" + actRes);
 		logger.info("My exeReq::" + exeRes);
-		boolean status = lib.jsonComparator(actRes, exeRes);
+		boolean status = kernelCmnLib.jsonComparator(actRes, exeRes);
 
 		Verify.verify(status);
 		softAssert.assertAll();

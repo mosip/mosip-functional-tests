@@ -112,7 +112,7 @@ valid_MachineSearchColumnAsMachineSpecId:
 valid_MachineName:
       - a2ml30933
 invalid_MachineName:
-      - abcdg
+      - fbheafg
 valid_Machine_macAddress:
      - E8-6A-64-1D-75-E4
 valid_Machine_SerialNumber:
@@ -426,9 +426,6 @@ valid_IndividualType_Foreigner_code_equals:
 
 valid_IndividualType_Foreigner_eng_contains:
       - Forei
-      
-      
-      
 
 #Template Search
 valid_TemplateName_Name_eng_equals:
@@ -520,7 +517,21 @@ valid_doctypecode:
      - CIN
 alreadyMapped_doctypecode:
      - DOC001
-     
+valid_machineSpec_Name:
+     - Vostro
+valid_machineType_Name:
+     - Desktop
+valid_machineSpec_halfName:
+     - tro
+valid_machineSpec_NameAra:
+     - ستر
+valid_machineSpec_Brand:
+     - Dell
+valid_machineSpec_Brand_Ara:
+     - دلّ
+valid_machineSpec_Model:
+     - 3568
+     - 3568
 #LocationApi
 validColumnRegion:
      - Region
@@ -582,4 +593,3 @@ validStringLength63:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk
 validStringLength65:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm
-    
