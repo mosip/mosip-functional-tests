@@ -10,12 +10,9 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
- 
-<<<<<<< HEAD
+
 	 <test name="Kernel Tests">
-=======
-	<!--  <test name="Kernel Tests">
->>>>>>> 0.14.0_Automationtest_RegProc
+
 		<classes>
 			<class name="io.mosip.kernel.tests.AuditLog" />
 			<class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
@@ -134,11 +131,7 @@
 				name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
 		</classes>
 	</test>
-<<<<<<< HEAD
 
-=======
- -->
->>>>>>> 0.14.0_Automationtest_RegProc
 
 	 <test name="RegistrationProcessor Tests">
 
@@ -173,11 +166,9 @@
 		</classes>
 
 	</test>
-<<<<<<< HEAD
+
 	<test name="AuthenticationTest">
-=======
-	<!--  <test name="AuthenticationTest">
->>>>>>> 0.14.0_Automationtest_RegProc
+
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -388,5 +379,5 @@
             <class name="io.mosip.admin.tests.CreateLocationData" />
             <class name="io.mosip.admin.tests.CreateBlackListedWords" />
 		</classes>
-	</test>  -->
+	</test>  
 </suite>

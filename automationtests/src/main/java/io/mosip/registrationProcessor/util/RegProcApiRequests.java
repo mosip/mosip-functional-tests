@@ -43,10 +43,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response getResponse = null;
 		try {
 		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
-<<<<<<< HEAD
-		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().log().all().
-				when().post(ApplnURI+url).then().log().all().extract().response();
-=======
+
 		
 		
 			 getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().
@@ -57,7 +54,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			e.printStackTrace();
 		}
 	
->>>>>>> 0.14.0_Automationtest_RegProc
+
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
