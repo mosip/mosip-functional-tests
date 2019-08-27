@@ -43,7 +43,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response getResponse = null;
 		try {
 		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
-
 		
 		
 			 getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart("file", file).expect().
@@ -54,7 +53,6 @@ public class RegProcApiRequests extends BaseTestCase {
 			e.printStackTrace();
 		}
 	
-
 		logger.info("REST:ASSURED: The response from request is:" + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;

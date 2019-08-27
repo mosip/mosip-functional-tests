@@ -159,7 +159,6 @@ public class IntegMethods extends BaseTestCase {
 			//Assert.assertTrue(actualResponse.jsonPath().get("response.status").equals("Packet is in PACKET_RECEIVED status"));
 			return true;
 		}catch (AssertionError e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

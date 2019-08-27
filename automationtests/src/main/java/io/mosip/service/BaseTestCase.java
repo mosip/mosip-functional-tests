@@ -128,7 +128,7 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-			PreRegistrationLibrary pil=new PreRegistrationLibrary();
+		PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();

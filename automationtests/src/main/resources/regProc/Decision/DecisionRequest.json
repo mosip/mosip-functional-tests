@@ -1,4 +1,3 @@
-
 {
 	"matchedRefIdEmpty" : "",
 	"matchedRefIdInvalid" : "",
@@ -14,5 +13,4 @@
 	"invalidRequestUTC" : "",
 	"requesttimeEmpty" : "",
 	"requesttimeInvalid" : ""
-
 }
