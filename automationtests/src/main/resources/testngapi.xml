@@ -373,5 +373,5 @@
             <class name="io.mosip.admin.tests.CreateLocationData" />
             <class name="io.mosip.admin.tests.CreateBlackListedWords" />
 		</classes>
-	</test>  
+	</test>
 </suite>
