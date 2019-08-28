@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
- <test name="Kernel Tests">
+ <!-- <test name="Kernel Tests">
 
 		<classes>
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -222,11 +222,12 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test>
+	</test> -->
  	<test name="Registration Test">
 		<classes>
-
-			<class
+	<class
+				name="io.mosip.registration.tests.DocumentScannerServiceTest" />
+<!-- 			<class
 				name="io.mosip.registration.tests.PacketHandlerServiceTest" />
 
 			<class
@@ -331,11 +332,11 @@
 			<class
 				name="io.mosip.registration.tests.SyncStatusValidatorServiceTest" />
 
-			<class name="io.mosip.registration.tests.JobConfigurationTest" />
+			<class name="io.mosip.registration.tests.JobConfigurationTest" /> -->
 
 		</classes>
 	</test>
-	
+<!-- 	
 	<test name="Admin Tests">
 		 <classes>
 		    <class name="io.mosip.admin.tests.CreateRegistrationCenter" />
@@ -373,5 +374,5 @@
             <class name="io.mosip.admin.tests.CreateLocationData" />
             <class name="io.mosip.admin.tests.CreateBlackListedWords" />
 		</classes>
-	</test>
+	</test> -->
 </suite>
