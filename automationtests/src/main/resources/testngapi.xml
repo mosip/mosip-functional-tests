@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
- <!-- <test name="Kernel Tests">
+  <test name="Kernel Tests">
 
 		<classes>
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -159,7 +159,7 @@
 			 <class name="io.mosip.registrationProcessor.tests.AdminRequirement" />    
 		</classes>
 
-	</test> -->
+	</test>
 
 	<test name="AuthenticationTest">
 
@@ -172,7 +172,7 @@
 				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
-			<!--<class name="io.mosip.authentication.tests.OtpGeneration" />
+			<class name="io.mosip.authentication.tests.OtpGeneration" />
 			<class
 				name="io.mosip.authentication.tests.DemographicAuthentication" />
 			<class
@@ -186,14 +186,14 @@
 			<class
 				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
 			<class
-				name="io.mosip.authentication.tests.EkycPartnerAuthentication" /> -->
+				name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
 			<class name="io.mosip.authentication.tests.OtpAuthentication" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
 
-	<!--<test name="Idrepository Test">
+	<test name="Idrepository Test">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -373,5 +373,5 @@
             <class name="io.mosip.admin.tests.CreateLocationData" />
             <class name="io.mosip.admin.tests.CreateBlackListedWords" />
 		</classes>
-	</test> -->
+	</test>
 </suite>
