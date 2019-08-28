@@ -99,9 +99,9 @@ public class DbConnection {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	private static Query<Map<String, Object>> executeQueryAndGetRecord(Session session, String query) {
-			return session.createSQLQuery(query);
+			return session.createSQLQuery(query).setHint("javax.persistence.query.timeout", 60000);
 	}
 	
 	private static Map<String, String> executeUpdateQuery(Session session, String query) {
