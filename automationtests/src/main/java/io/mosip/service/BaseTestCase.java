@@ -128,13 +128,13 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-		PreRegistrationLibrary pil=new PreRegistrationLibrary();
+		/* PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
-			AdminTestUtil.initiateAdminTest();
+			AdminTestUtil.initiateAdminTest(); */
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();
