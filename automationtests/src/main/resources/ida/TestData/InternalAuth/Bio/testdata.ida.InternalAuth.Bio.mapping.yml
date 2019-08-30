@@ -37,6 +37,7 @@ testdata:
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_face_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
+      hostName: $TestData:audit_log_internalAuthhostName$
       
   InternalAuthentication_Biometric_Finger_With_Valid_Smoke_Pos:
     #endpoint.url:
@@ -365,8 +366,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
+      output.1.response.error.errorMessage: $errors:InvalidVID:errorMessage$
       
   InternalAuthentication_Biometric_Without_Version_In_Request_Neg:
     #endpoint.url:
@@ -899,8 +900,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
+      output.1.response.error.errorMessage: $errors:InvalidVID:errorMessage$
   
   InternalAuthentication_Biometric_With_Invalid_individualId_DeactivedUIN_Neg:
     #endpoint.url:
@@ -1469,13 +1470,15 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:UserIDNotInDB:errorCode$
       output.1.response.error.errorMessage: $errors:UserIDNotInDB:errorMessage$
-      
-  InternalAuthentication_Biometric_Face_With_VID_Neg:
+
+  InternalAuthentication_Biometric_Face_With_VID_Valid_Smoke_Pos:
+    #endpoint.url:
+      ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
       AuthReq.individualId: $VID$
+      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
-      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
     input.identity-encrypt-data:
       identityReq.bioSubType: $TestData:bio_face_subType$
       identityReq.bioType: $TestData:bio_face_type$
@@ -1485,9 +1488,28 @@ testdata:
       identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
       identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      #output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$#endpoint.url:#partnerIDMispLK$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FACE_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FACE_success_statusComment$
+      idType: $TestData:auth_transaction_VID_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_face_moduleName$
+      refIdType: $TestData:audit_log_VID_refIdType$
+      hostName: $TestData:audit_log_internalAuthhostName$
+      
+      

@@ -1520,7 +1520,7 @@ testdata:
       output.2.response.n.err.errorMessage: $errors:OTPAttempExceeds:errorMessage$
       output.2.response.n.err.errorCode: $errors:OTPAttempExceeds:errorCode$
       output.2.response.n.err.transactionID: $input.otp-auth-request:AuthReq.transactionID$
-      output.2.response.n.err.version: $version$
+      output.2.response.n.err.version: $version$      
       
   Authentication_OTP_Expired_Neg:
     endpoint.url:
@@ -1575,5 +1575,4 @@ testdata:
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otp_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
-      
       

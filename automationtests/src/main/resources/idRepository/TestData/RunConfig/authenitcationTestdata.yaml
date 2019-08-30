@@ -10,6 +10,9 @@ id_RetrieveVid_valid:
 id_AddIdentity_Invalid:
       - mosip.id.updateas
       - mosip.ida.update
+id_deactivateVIDs_Invalid:
+      - mosip.vid.deactivates
+      - mosip.vid.deactive
 indvId_Uin_valid:
       - UIN
 indvId_Vid_valid:

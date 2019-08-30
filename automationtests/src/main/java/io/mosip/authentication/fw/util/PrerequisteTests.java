@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.util;
 
-import org.apache.log4j.Logger; 
+import org.apache.log4j.Logger;  
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -15,8 +15,6 @@ public class PrerequisteTests extends AuthTestsUtil{
 		logger.info("Starting authpartner demo application...");
 		AuthPartnerProcessor.startProcess();
 		logger.info("Starting dbConnection session...");
-		DbConnection.startAuditDbSession();
-		DbConnection.startIdaDbSession();
 	}
 	
 	/**
@@ -27,8 +25,6 @@ public class PrerequisteTests extends AuthTestsUtil{
 		logger.info("Terminating authpartner demo application...");
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 		logger.info("Terminated dbConnection session...");
-		DbConnection.terminateAuditDbSession();
-		DbConnection.terminateIdaDbSession();
 	}
 
 }

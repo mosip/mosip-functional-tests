@@ -2033,7 +2033,7 @@ testdata:
       output.1.res.timestamp: $IGNORE$
       output.1.res.entity: $IGNORE$
       
-  Authentication_Create_valid_uin_20_record:
+  Authentication_Create_DR_smoke_record:
     input.cbeff-bio-data:
       BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
       Score1BIR1BIR1: 70

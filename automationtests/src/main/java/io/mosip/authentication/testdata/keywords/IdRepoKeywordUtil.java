@@ -293,10 +293,11 @@ public class IdRepoKeywordUtil extends KeywordUtil{
 	 * @return string
 	 */
 	private String generateTimeStampWithZTimeZone() {
-			Date date = new Date();
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-			dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-			return dateFormat.format(date);
+		DateFormat dateFormatter =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MINUTE, -2);
+		return dateFormatter.format(cal.getTime());
 	}
 	/**
 	 * The method generate invalid ISO timestamo
