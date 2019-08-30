@@ -57,7 +57,9 @@ public class IdRepoRunConfig extends RunConfig{
 	private String validateSignaturePath;
 	private String encryptionPort;
 	private String idRepoRetrieveIdentityByRid;
-	
+	private String idRepoDeactivateVIDs;
+	private String idRepoReactivateVIDs;
+
 	/**
 	 * The method get encryption endpoint path
 	 * 
@@ -251,6 +253,8 @@ public class IdRepoRunConfig extends RunConfig{
 		setClientidsecretkey(IdRepoTestsUtil.getPropertyValue("clientidsecretkey"));
 		//loadingConfigFile
 		loadErrorsData(getErrorsConfigPath());
+		setIdRepoDeactivateVIDs(IdRepoTestsUtil.getPropertyValue("idRepoDeactivateVIDs"));
+		setIdRepoReactivateVIDs(IdRepoTestsUtil.getPropertyValue("idRepoReactivateVIDs"));
 	}	
 	
 	/**
@@ -1024,10 +1028,39 @@ public class IdRepoRunConfig extends RunConfig{
 	}
 
 	@Override
+	public String getIdaInternalOtpPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalOtpPath(String internalPath) {
+		// TODO Auto-generated method stub		
+	}
+	
+	public String getIdRepoDeactivateVIDs() {
+		return idRepoDeactivateVIDs;
+	}
+
+	public void setIdRepoDeactivateVIDs(String idRepoDeactivateVIDs) {
+		this.idRepoDeactivateVIDs = idRepoDeactivateVIDs;
+	}
+
+	public String getIdRepoReactivateVIDs() {
+		return idRepoReactivateVIDs;
+	}
+
+	public void setIdRepoReactivateVIDs(String idRepoReactivateVIDs) {
+		this.idRepoReactivateVIDs = idRepoReactivateVIDs;
+	}
+
+	@Override
 	public String getUnmapDocCategoryType() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
 	public String getSearchLocationDataPath() {
 		// TODO Auto-generated method stub
 		return null;

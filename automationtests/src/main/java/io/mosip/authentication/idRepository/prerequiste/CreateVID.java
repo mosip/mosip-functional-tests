@@ -35,7 +35,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
  * @author Athila
  *
  */
-public class CreateVID extends PrerequisteTests implements ITest {
+public class CreateVID extends AuthTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateVID.class);
 	protected static String testCaseName = "";

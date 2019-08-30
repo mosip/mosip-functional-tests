@@ -7,6 +7,8 @@ id_otp_invalid:
 id_auth_invalid:
       - mosip.auth.identity
       - auth.mosip.identity
+id_internal_otp_valid:
+      - mosip.identity.otp.internal
 id_CreateVid_valid:
       - mosip.vid.create
 id_UpdateVid_valid:
@@ -267,8 +269,7 @@ CNIENumber_valid:
       - 6789545678914
 emailId_valid:
       - vignesh.vijayakumar@mindtree.com
-      - athila.sirajudeen@mindtree.com
-      - Leonamary.Susairaja@mindtree.com
+      - Loganathan.Sekar@mindtree.com
 age_valid:
       - LONG:32
       - LONG:25
@@ -338,7 +339,7 @@ bio_finger_RightThumb_subType:
 bio_face_type:
       - FID
 bio_finger_type:
-      - FMR
+      - FIR
 bio_iris_type:
       - IIR
 bio_face_deviceCode:
@@ -443,6 +444,8 @@ audit_log_demo_moduleName:
       - Demographic Authenticator
 audit_log_VID_refIdType:
       - VID
+audit_log_internalAuthhostName:
+      - $REGEXP:.*authentication-internal-service.*$
 #Demo-Name Normalisation
 name_tittle_UnMarriedfemale_primary_lang:
       - Miss.

@@ -24,7 +24,7 @@ import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.RIDUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 
-public class DeleteUinRecord extends PrerequisteTests implements ITest{
+public class DeleteUinRecord extends AuthTestsUtil implements ITest{
 	
 	private  Logger logger = Logger.getLogger(DeleteUinRecord.class);
 	
@@ -34,7 +34,6 @@ public class DeleteUinRecord extends PrerequisteTests implements ITest{
 	public void setConfig() {
 		RunConfigUtil.getRunConfigObject("ida");
 		RunConfigUtil.objRunConfig.setConfig("ida/TestData", "dummyFile", "dummy");
-		DbConnection.startIdrepoDbSession();
 	}
 	
 	@Test
@@ -79,10 +78,5 @@ public class DeleteUinRecord extends PrerequisteTests implements ITest{
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}
-
-	@AfterClass
-	public void terminateDbConnection() {
-		DbConnection.terminateIdrepoDbSession();
 	}
 }

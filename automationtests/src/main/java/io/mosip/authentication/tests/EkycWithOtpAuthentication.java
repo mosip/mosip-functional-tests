@@ -64,7 +64,6 @@ public class EkycWithOtpAuthentication extends PrerequisteTests implements ITest
 	@BeforeClass
 	public void setTestTypeAndDbConn() {
 		this.testType = RunConfigUtil.getTestLevel();
-		DbConnection.startKernelDbSession();
 	}
 	
 	/**
@@ -230,11 +229,6 @@ public class EkycWithOtpAuthentication extends PrerequisteTests implements ITest
 		if(!verifyResponseUsingDigitalSignature(responseJsonToVerifyDigtalSignature,
 					responseDigitalSignatureValue))
 				throw new AuthenticationTestException("Failed at digital signature verification");
-	}
-	
-	@AfterClass
-	public void endConnection() {
-		DbConnection.terminateKernelDbSession();
 	}
 
 }

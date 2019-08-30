@@ -46,7 +46,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class UpdateIdentity extends IdRepoPrerequisteTests implements ITest {
+public class UpdateIdentity extends IdRepoTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(UpdateIdentity.class);
 	protected static String testCaseName = "";

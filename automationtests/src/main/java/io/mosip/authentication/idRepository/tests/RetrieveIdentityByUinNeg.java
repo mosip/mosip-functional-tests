@@ -48,7 +48,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class RetrieveIdentityByUinNeg extends IdRepoPrerequisteTests implements ITest {
+public class RetrieveIdentityByUinNeg extends IdRepoTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(RetrieveIdentityByUinNeg.class);
 	protected static String testCaseName = "";

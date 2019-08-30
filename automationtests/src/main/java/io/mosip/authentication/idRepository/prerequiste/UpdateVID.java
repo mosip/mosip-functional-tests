@@ -50,7 +50,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class UpdateVID extends PrerequisteTests implements ITest {
+public class UpdateVID extends AuthTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(UpdateVID.class);
 	protected static String testCaseName = "";

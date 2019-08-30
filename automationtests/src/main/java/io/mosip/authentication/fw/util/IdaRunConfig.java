@@ -61,6 +61,7 @@ public class IdaRunConfig extends RunConfig{
 	private String encryptionPort;
 	private String idRepoRegenerateVID;
 	private String idRepoRetrieveUINByVIDPath;
+	private String idaInternalOtpPath;
 	public String getEncryptionPort() {
 		return encryptionPort;
 	}
@@ -377,6 +378,7 @@ public class IdaRunConfig extends RunConfig{
 		//loadingConfigFile
 		loadErrorsData(getErrorsConfigPath());
 		setUinIdentityMapper(AuthTestsUtil.getPropertyValue("uinIdentityMapper"));
+		setIdaInternalOtpPath(AuthTestsUtil.getPropertyValue("internalOtpPath"));
 	}	
 	
 	/**
@@ -989,10 +991,39 @@ public class IdaRunConfig extends RunConfig{
 		return null;
 	}
 	@Override
+	public String getIdaInternalOtpPath() {
+		return this.idaInternalOtpPath;
+	}
+	@Override
+	public void setIdaInternalOtpPath(String internalPath) {
+		this.idaInternalOtpPath=internalPath;
+	}
+	@Override
+	public String getIdRepoDeactivateVIDs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setIdRepoDeactivateVIDs(String idRepoDeactivateVIDs) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getIdRepoReactivateVIDs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setIdRepoReactivateVIDs(String idRepoReactivateVIDs) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
 	public String getUnmapDocCategoryType() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
 	public String getSearchLocationDataPath() {
 		// TODO Auto-generated method stub
 		return null;

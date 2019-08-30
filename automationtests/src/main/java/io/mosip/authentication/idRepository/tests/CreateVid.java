@@ -44,7 +44,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class CreateVid extends IdRepoPrerequisteTests implements ITest {
+public class CreateVid extends IdRepoTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateVid.class);
 	protected static String testCaseName = "";

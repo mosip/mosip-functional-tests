@@ -1,0 +1,9 @@
+{
+  "id": "mosip.vid.deactivate",
+  "metadata": {},
+  "request": {
+    "UIN": 1234567890
+  },
+  "requesttime": "$TIMESTAMPZ$",
+  "version": "$version$"
+}

@@ -1,10 +1,10 @@
 {
   "id":null,
   "version":null,
-  "responsetime":"2019-08-26T07:03:29.898Z",
+  "responsetime":"2019-08-29T07:19:35.900Z",
   "metadata":null,
   "response":{
-    "lastSyncTime":"2019-08-26T07:03:29.887Z",
+    "lastSyncTime":"2019-08-29T07:19:35.889Z",
     "roles":[
       {
         "roleId":"AUTH",
@@ -45,6 +45,11 @@
         "roleId":"PRE_REGISTRATION_ADMIN",
         "roleName":"PRE_REGISTRATION_ADMIN",
         "roleDescription":"preregistration admin"
+      },
+      {
+        "roleId":"RESIDENT_SERVICES",
+        "roleName":"RESIDENT_SERVICES",
+        "roleDescription":"Resident Services"
       },
       {
         "roleId":"ID_AUTHENTICATION",

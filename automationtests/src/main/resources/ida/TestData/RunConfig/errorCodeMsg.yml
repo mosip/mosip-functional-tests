@@ -106,7 +106,7 @@ errors:
     errorMessage: No authentication type selected 
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FMR Authentication usage not allowed as per policy
+    errorMessage: BIO-FIR Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
     errorMessage: BIO-IIR Authentication usage not allowed as per policy
@@ -172,7 +172,7 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingFingerBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data FMR not available in database$
+    errorMessage: $REGEXP:Biometric data FIR not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   InvalidBioSubtype:
     errorCode: IDA-MLC-009
@@ -182,13 +182,13 @@ errors:
     errorMessage: Number of FID records should not exceed 1
   FingerExceed2:
     errorCode: IDA-BIA-003
-    errorMessage: Number of FMR should not exceed 2
+    errorMessage: Number of FIR should not exceed 2
   IrisExceed2:
     errorCode: IDA-BIA-008
     errorMessage: Number of IIR should not exceed 2
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FMR Authentication usage not allowed as per policy
+    errorMessage: BIO-FIR Authentication usage not allowed as per policy
   PolicyWithoutBioFace:
     errorCode: IDA-MPA-006
     errorMessage: BIO-FID Authentication usage not allowed as per policy
@@ -235,7 +235,7 @@ errors:
     actionMessage: Please give your biometrics again
   BiometricFingerMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – FMR did not match
+    errorMessage: Biometric data – FIR did not match
     actionMessage: Please give your biometrics again
   Demo_GenderMismatch:
     errorCode: IDA-DEA-001

@@ -70,7 +70,7 @@
 			<class name="io.mosip.kernel.tests.ValidateLocationByName" />
 		</classes>
 	</test>
-
+ 
 	<test name="PreReg Tests">
 		<classes>
 			<class name="io.mosip.preregistration.tests.BatchJob" />
@@ -142,14 +142,19 @@
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
-			<class
+			 <class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
-			<class name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
-			<class name="io.mosip.authentication.tests.OtpGeneration" />
-			<class name="io.mosip.authentication.tests.DemographicAuthentication" />
-			<class name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
-			<class name="io.mosip.authentication.tests.BiometricAuthentication" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class name="io.mosip.authentication.tests.OtpGeneration" /> 
+			<class
+				name="io.mosip.authentication.tests.DemographicAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.BiometricAuthentication" />
 			<class
 				name="io.mosip.authentication.tests.InternalBiometricAuthentication" />
 			<class name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
@@ -177,14 +182,22 @@
 				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByUinNeg" />
 			<class
 				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByRid" />
-			<class name="io.mosip.authentication.idRepository.tests.CreateVid" />
-			<class name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
-			<class name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.CreateVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" />
+			 <class
+				name="io.mosip.authentication.idRepository.tests.DeactivateVIDsForUIN" /> 
+			<class
+				name="io.mosip.authentication.idRepository.tests.ReactivateVIDsForUIN" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test>
-	<test name="Registration Test">
+	</test> 
+
+  <test name="Registration Test">
 		<classes>
 			<class name="io.mosip.registration.tests.DocumentScannerServiceTest" />
 			<class name="io.mosip.registration.tests.PacketHandlerServiceTest" />
@@ -236,9 +249,8 @@
 		</classes>
 	</test>
 	<test name="Admin Tests">
-		<classes>
-			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
-			<class name="io.mosip.admin.tests.DeviceSearch" />
+		 <classes>
+		    <class name="io.mosip.admin.tests.DeviceSearch" />
 			<class name="io.mosip.admin.tests.DeviceFilter" />
 			<class name="io.mosip.admin.tests.DeviceSpecSearch" />
 			<class name="io.mosip.admin.tests.DeviceSpecFilter" />
@@ -262,7 +274,6 @@
 			<class name="io.mosip.admin.tests.SearchTemplateDetails" />
 			<class name="io.mosip.admin.tests.TitleFilter" />
 			<class name="io.mosip.admin.tests.TitleSearch" />
-			<class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 			<class name="io.mosip.admin.tests.MapDocumentCategoryAndDocumentType" />
 			<class name="io.mosip.admin.tests.GenderSearch" />
 			<class name="io.mosip.admin.tests.GenderFilter" />

@@ -3,7 +3,7 @@
 		"biometrics": [
 			{
 				"data": {
-					"bioSubType": "FMR",
+					"bioSubType": "FIR",
 					"bioType": "LEFT_INDEX",
 					"bioValue": "afsdfadsvdsaffd",
 					"deviceCode": "cogent",
@@ -12,7 +12,7 @@
 			},
 			{
 				"data": {
-					"bioSubType": "FMR",
+					"bioSubType": "FIR",
 					"bioType": "RIGHT_INDEX",
 					"bioValue": "afsdfadsvdsaffd",
 					"deviceCode": "cogent",
@@ -21,7 +21,7 @@
 			},
 			{
 				"data": {
-					"bioSubType": "FMR",
+					"bioSubType": "FIR",
 					"bioType": "UNKNOWN",
 					"bioValue": "afsdfadsvdsaffd",
 					"deviceCode": "cogent",

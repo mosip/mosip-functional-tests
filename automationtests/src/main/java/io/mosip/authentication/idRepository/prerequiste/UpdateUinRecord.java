@@ -42,7 +42,7 @@ import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
 
-public class UpdateUinRecord extends PrerequisteTests implements ITest {
+public class UpdateUinRecord extends AuthTestsUtil implements ITest {
 
 	private static Logger logger = Logger.getLogger(UpdateUinRecord.class);
 	protected static String testCaseName = "";

@@ -1007,4 +1007,40 @@ public class AdminRunConfig extends RunConfig {
 	public void setUnmapDocCategoryType(String unmapDocCategoryType) {
 		this.unmapDocCategoryType = unmapDocCategoryType;
 	}
+
+	@Override
+	public String getIdaInternalOtpPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalOtpPath(String internalPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdRepoDeactivateVIDs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdRepoDeactivateVIDs(String idRepoDeactivateVIDs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdRepoReactivateVIDs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdRepoReactivateVIDs(String idRepoReactivateVIDs) {
+		// TODO Auto-generated method stub
+		
+	}
 }
