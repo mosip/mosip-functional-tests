@@ -1,6 +1,7 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.*;     
+import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath;
+
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,15 +13,15 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.regex.Pattern;
+
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.XML;
 import org.testng.Reporter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,10 +32,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.thoughtworks.xstream.XStream;
 
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.testdata.Precondtion;
 import io.mosip.authentication.testdata.TestDataConfig;
