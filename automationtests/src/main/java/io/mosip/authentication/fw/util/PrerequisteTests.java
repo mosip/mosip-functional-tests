@@ -14,7 +14,6 @@ public class PrerequisteTests extends AuthTestsUtil{
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo application...");
 		AuthPartnerProcessor.startProcess();
-		logger.info("Starting dbConnection session...");
 	}
 	
 	/**
@@ -24,7 +23,6 @@ public class PrerequisteTests extends AuthTestsUtil{
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
-		logger.info("Terminated dbConnection session...");
 	}
 
 }
