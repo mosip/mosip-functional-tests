@@ -287,7 +287,7 @@ public class Audit extends BaseTestCase implements ITest {
 		boolean result = lib.jsonComparison(expectedRequest, auditDatas);
 	}
 
-	@Test
+	/*@Test
 	public void getAuditDataForBatchJobExpired() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -304,9 +304,9 @@ public class Audit extends BaseTestCase implements ITest {
 		JSONObject auditDatas = lib.getAuditData(objs, 0);
 		boolean result = lib.jsonComparison(expectedRequest, auditDatas);
 
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void getAuditDataForBatchJobConsumed() {
 		List<String> preRegistrationId = new ArrayList<String>();
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
@@ -325,7 +325,7 @@ public class Audit extends BaseTestCase implements ITest {
 		JSONObject auditDatas = lib.getAuditData(objs, 0);
 		boolean result = lib.jsonComparison(expectedRequest, auditDatas);
 
-	}
+	}*/
 
 	@Override
 	public String getTestName() {

@@ -150,6 +150,53 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		createPregResponse = appLib.postWithJson(preReg_CreateApplnURI, request, cookie);
 		return createPregResponse;
 	}
+	public List<String> consumedPreId() {
+		List<String> preRegistrationIds = new ArrayList<String>();
+		String PreID = null;
+
+		for (int i = 0; i < 10; i++) {
+			if (!isValidToken(batchJobToken)) {
+				batchJobToken = batchToken();
+			}
+			testSuite = "Create_PreRegistration/createPreRegistration_smoke";
+			JSONObject createPregRequest = createRequest(testSuite);
+			Response createPregResponse = CreatePreReg(createPregRequest, batchJobToken);
+			String preID = createPregResponse.jsonPath().get("response.preRegistrationId").toString();
+			Response documentUploadResponse = documentUpload(createPregResponse, batchJobToken);
+			String expectedDocumentId = documentUploadResponse.jsonPath().get("response.docId").toString();
+			documentId.put(preID, expectedDocumentId);
+			Response fetchCentreResponse = FetchCentre(batchJobToken);
+			String expectedRegCenterId = fetchCentreResponse.jsonPath().get("response.regCenterId").toString();
+			regCenterId.put(preID, expectedRegCenterId);
+			BookAppointment(documentUploadResponse, fetchCentreResponse, preID, batchJobToken);
+			preRegistrationIds.add(preID);
+		}
+		expiredPreId = preRegistrationIds.get(9);
+		dao.setDate(expiredPreId);
+		reverseDataSync(preRegistrationIds);
+		return preRegistrationIds;
+	}
+
+	public List<String> BookExpiredApplication() {
+		List expiredPreId = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+			if (!isValidToken(batchJobToken)) {
+				batchJobToken = batchToken();
+			}
+			testSuite = "Create_PreRegistration/createPreRegistration_smoke";
+			JSONObject createPregRequest = createRequest(testSuite);
+			Response createResponse = CreatePreReg(createPregRequest, batchJobToken);
+			String preID = getPreId(createResponse);
+			Response documentResponse = documentUpload(createResponse, batchJobToken);
+			Response avilibityResponse = FetchCentre(batchJobToken);
+			BookAppointment(documentResponse, avilibityResponse, preID, batchJobToken);
+			dao.setDate(preID);
+			expiredPreId.add(preID);
+		}
+
+		return expiredPreId;
+	}
+
 
 	public JSONObject getRequest(String testSuite) {
 		JSONObject request = null;
@@ -324,6 +371,21 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	public String getToken() {
 		testSuite = "generateOTP/generateOTP_smoke";
 		request = otpRequest(testSuite);
+		generateOTP(request);
+		try {
+			otp = dao.getOTP(userId).get(0);
+		} catch (IndexOutOfBoundsException e) {
+			Assert.assertTrue(false, "send otp failed");
+		}
+		testSuite = "validateOTP/validateOTP_smoke";
+		request = validateOTPRequest(testSuite);
+		Response validateOTPRes = validateOTP(request);
+		String cookieValue = validateOTPRes.getCookie("Authorization");
+		return cookieValue;
+	}
+	public String batchToken() {
+		testSuite = "generateOTP/generateOTP_smoke";
+		request = batchOtpRequest(testSuite);
 		generateOTP(request);
 		try {
 			otp = dao.getOTP(userId).get(0);
@@ -1265,13 +1327,13 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 * @author Ashish
 	 * @return
 	 */
-	public Response expiredStatus() {
+	/*public Response expiredStatus() {
 		if (!isValidToken(preRegAdminToken)) {
 			preRegAdminToken = preRegAdminToken();
 		}
 		response = appLib.putWithoutData(preReg_ExpiredURI, preRegAdminToken);
 		return response;
-	}
+	}*/
 
 	public Response logOut(String cookie) {
 		try {
@@ -1289,13 +1351,13 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 * @author Ashish
 	 * @return
 	 */
-	public Response consumedStatus() {
+	/*public Response consumedStatus() {
 		if (!isValidToken(preRegAdminToken)) {
 			preRegAdminToken = preRegAdminToken();
 		}
 		response = appLib.putWithoutData(preReg_ConsumedURI, preRegAdminToken);
 		return response;
-	}
+	}*/
 
 	/*
 	 * Generic method to Retrieve All PreId By Registration Center Id
@@ -1432,6 +1494,29 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		long number = (long) Math.floor(Math.random() * 9_000_000_00L) + 1_000_000_00L;
 		userId = Long.toString(number);
 		userId = "9" + userId;
+		
+		JSONObject object = null;
+		for (Object key : otpRequest.keySet()) {
+			if (key.equals("request")) {
+				object = (JSONObject) otpRequest.get(key);
+				object.put("userId", userId);
+				otpRequest.replace(key, object);
+			}
+		}
+		otpRequest.put("requesttime", getCurrentDate());
+		return otpRequest;
+	}
+	public JSONObject batchOtpRequest(String testSuite) {
+		JSONObject otpRequest = null;
+		testSuite = "generateOTP/generateOTP_smoke";
+		/**
+		 * Reading request body from configpath
+		 */
+		otpRequest = getRequest(testSuite);
+
+		long number = (long) Math.floor(Math.random() * 9_000_000_00L) + 1_000_000_00L;
+		userId = Long.toString(number);
+		userId = "ashish.rastogi@mindtree.com";
 		
 		JSONObject object = null;
 		for (Object key : otpRequest.keySet()) {

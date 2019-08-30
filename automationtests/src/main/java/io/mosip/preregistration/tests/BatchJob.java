@@ -65,7 +65,7 @@ public class BatchJob extends BaseTestCase implements ITest {
 	/**
 	 * Batch job service for expired application
 	 */
-	@Test
+	/*@Test
 	public void batchJobForExpiredApplication() {
 		String statusCode=null;
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
@@ -90,9 +90,9 @@ public class BatchJob extends BaseTestCase implements ITest {
 	
 	}
 
-	/**
+	*//**
 	 * Batch Job service Consumed Application
-	 */
+	 *//*
 	@Test
 	public void batchJobForConsumedApplication() {
 		String preID = null;
@@ -117,7 +117,7 @@ public class BatchJob extends BaseTestCase implements ITest {
 		Response getPreRegistrationDataResponse = lib.getPreRegistrationData(preID,individualToken);
 		message =lib.getErrorMessage(getPreRegistrationDataResponse);
 		lib.compareValues(message, "No data found for the requested pre-registration id");
-	}
+	}*/
 	@Override
 	public String getTestName() {
 		return this.testCaseName;

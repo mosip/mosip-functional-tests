@@ -2,14 +2,18 @@
 package io.mosip.service;
 
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -53,7 +57,13 @@ public class BaseTestCase{
 	public String adminCookie=null;
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
-		
+	public static HashMap<String, String> documentId=new HashMap<>();
+	public static HashMap<String, String> regCenterId=new HashMap<>();
+	public static String expiredPreId=null;
+	public String batchJobToken=null;
+	public static List<String> expiredPreRegIds=null;
+	public static List<String> consumedPreRegIds=null;
+	static PreRegistrationLibrary lib=new PreRegistrationLibrary();
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -120,7 +130,7 @@ public class BaseTestCase{
 		/*
 		 * Saving TestNG reports to be published
 		 */
-	    //@BeforeSuite(alwaysRun = true)
+	   // @BeforeSuite(alwaysRun = true)
 		public static void suiteSetup() {
 		
 			logger.info("Test Framework for Mosip api Initialized");
@@ -130,11 +140,33 @@ public class BaseTestCase{
 
 		 PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			new PreregistrationDAO().deleteAvailableSlot();
-			new PreregistrationDAO().makeAllRegistartionCenterActive();
+			/**
+			 not needed for now
+			 */
+			/*new PreregistrationDAO().deleteAvailableSlot();
+			new PreregistrationDAO().makeAllRegistartionCenterActive();*/
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
 			AdminTestUtil.initiateAdminTest(); 
+			/**
+			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
+			 * Here after booking appointment setting booking date to yesterday. 
+			 */
+			expiredPreRegIds=lib.BookExpiredApplication();
+			/**
+			 * consumedPreRegIds list contain list of consumed pre registration ids 
+			 * 
+			 */
+			consumedPreRegIds=lib.consumedPreId();
+			/**
+			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
+			 */
+			logger.info("waiting for job run to start");
+		try {
+				TimeUnit.MINUTES.sleep(8);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();

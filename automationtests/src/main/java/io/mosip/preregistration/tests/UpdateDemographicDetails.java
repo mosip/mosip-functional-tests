@@ -86,7 +86,7 @@ public class UpdateDemographicDetails extends BaseTestCase implements ITest {
 		Response getPreRegistrationData = lib.getPreRegistrationData(pre_registration_id,individualToken);
 	}
 
-	@Test
+	/*@Test
 	public void updateDemographicDetailsOfExpiredAppointment() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		String CNIENumber = "8243417898217834901290";
@@ -104,9 +104,9 @@ public class UpdateDemographicDetails extends BaseTestCase implements ITest {
 		lib.compareValues(pre_registration_id,
 				updateDemographicDetailsResponse.jsonPath().get("response.preRegistrationId").toString());
 		Response getPreRegistrationData = lib.getPreRegistrationData(pre_registration_id,individualToken);
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void updateDemographicDetailsOfConsumedApplication() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		String CNIENumber = "8243417898217834901290";
@@ -127,7 +127,7 @@ public class UpdateDemographicDetails extends BaseTestCase implements ITest {
 		Response updateDemographicDetailsResponse = lib.updateDemographicDetails(updateRequest, pre_registration_id,individualToken);
 		lib.compareValues(updateDemographicDetailsResponse.jsonPath().get("errors[0].message").toString(),
 				"No data found for the requested pre-registration id");
-	}
+	}*/
 
 	@Test
 	public void updateDemographicDetailsOfDiscardedApplication() {
