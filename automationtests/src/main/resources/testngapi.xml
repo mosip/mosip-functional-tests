@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-
+<!-- 
 	<test name="Kernel Tests">
 		<classes>
 			<class name="io.mosip.kernel.tests.AuditLog" />
@@ -113,11 +113,12 @@
 			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
 		</classes>
 	</test>
-
+ -->
 
 	<test name="RegistrationProcessor Tests">
 		<classes>
-			<class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
+			<class name="io.mosip.registrationProcessor.tests.Sync" />
+			<!-- <class name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 			<class name="io.mosip.registrationProcessor.tests.StageValidationTests" />
@@ -135,10 +136,10 @@
 			<class name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
 			<class name="io.mosip.registrationProcessor.tests.PrintingStage" />
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />
-			<class name="io.mosip.registrationProcessor.tests.AdminRequirement" />
+			<class name="io.mosip.registrationProcessor.tests.AdminRequirement" /> -->
 		</classes>
 	</test>
-	<test name="AuthenticationTest">
+	<!-- <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -283,5 +284,5 @@
 			<class name="io.mosip.admin.tests.CreateLocationData" />
 			<class name="io.mosip.admin.tests.CreateBlackListedWords" />
 		</classes>
-	</test>
+	</test> -->
 </suite>
