@@ -140,24 +140,24 @@ public class BaseTestCase{
 
 		 PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			*//**
-			 not needed for now
-			 *//*
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
 			AdminTestUtil.initiateAdminTest(); 
-			*//**
+			
+			/**
 			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
 			 * Here after booking appointment setting booking date to yesterday. 
 			 *//*
 			expiredPreRegIds=lib.BookExpiredApplication();
-			*//**
+			/**
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
-			 *//*
+			 */
+			expiredPreRegIds=lib.BookExpiredApplication();
 			consumedPreRegIds=lib.consumedPreId();
+			
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
 			 */
