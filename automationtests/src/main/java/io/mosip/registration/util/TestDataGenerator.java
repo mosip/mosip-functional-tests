@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.registration.DTO.YamlDTO;
+import io.mosip.testrunner.MosipTestRunner;
 
 /**
  * @author Arjun chandramohan
@@ -38,8 +39,10 @@ public class TestDataGenerator {
 		 * "resources" + "/"+"Registration" + "/" + serviceName +
 		 * "/" + testDataFileName + ".yaml";
 		 */
-		String testDataFilePath = this.getClass().getClassLoader().getResource("." + "/" + "Registration"
-				+ "/" + serviceName + "/" + testDataFileName + ".yaml").getPath();
+		/*String testDataFilePath = this.getClass().getClassLoader().getResource("." + "/" + "Registration"
+				+ "/" + serviceName + "/" + testDataFileName + ".yaml").getPath();*/
+		String testDataFilePath=MosipTestRunner.getGlobalResourcePath()+"/"+"Registration"
+				+ "/" + serviceName + "/" + testDataFileName + ".yaml";
 
 		try {
 			inputStream = new FileInputStream(testDataFilePath);

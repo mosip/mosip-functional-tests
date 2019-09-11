@@ -285,10 +285,12 @@ public class CommonUtil {
 		 * String path = this.getClass().getClassLoader() .getResource("./" +
 		 * "Registration" +"/" + apiName).getPath();
 		 */
-		String propertiesFilePath = this.getClass().getClassLoader().getResource(
+	/*	String propertiesFilePath = this.getClass().getClassLoader().getResource(
 				"./" + "Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties")
-				.getPath();
-
+				.getPath();*/
+		String propertiesFilePath=MosipTestRunner.getGlobalResourcePath()+"/"+"Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties";
+		
+		
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Property File Path - " + propertiesFilePath);
 		try {
 			input = new FileInputStream(propertiesFilePath);

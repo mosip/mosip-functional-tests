@@ -24,6 +24,7 @@ import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
 import io.mosip.registration.dto.RegistrationDTO;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.service.config.GlobalParamService;
 import io.mosip.registration.service.operator.UserDetailService;
 import io.mosip.registration.service.operator.UserOnboardService;
@@ -93,7 +94,7 @@ public class PacketCreation extends BaseConfiguration {
 	}
 
 	@BeforeClass(alwaysRun = true)
-	public void dataSetUp() {
+	public void dataSetUp() throws RegBaseCheckedException {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);

@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
-/*import org.yaml.snakeyaml.Yaml;
-*/
 import io.mosip.registration.DTO.YamlDTO;
 
 /**
@@ -35,9 +33,14 @@ public class TestDataGenerator {
 		Yaml yaml = new Yaml();
 		String testdata = null;
 		InputStream inputStream = null;
+		/*
+		 * String testDataFilePath = "src" + "/" + "main" + "/" +
+		 * "resources" + "/"+"Registration" + "/" + serviceName +
+		 * "/" + testDataFileName + ".yaml";
+		 */
+		String testDataFilePath = this.getClass().getClassLoader().getResource("." + "/" + "Registration"
+				+ "/" + serviceName + "/" + testDataFileName + ".yaml").getPath();
 
-		String testDataFilePath = this.getClass().getClassLoader()
-				.getResource("." + "/" + serviceName + "/" + testDataFileName + ".yaml").getPath();
 		try {
 			inputStream = new FileInputStream(testDataFilePath);
 			if (inputDataParameter.contains("_empty"))

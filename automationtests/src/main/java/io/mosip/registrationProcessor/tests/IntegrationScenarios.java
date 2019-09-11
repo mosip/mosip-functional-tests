@@ -2,26 +2,27 @@ package io.mosip.registrationProcessor.tests;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.apache.commons.io.FileUtils;
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.registrationProcessor.service.IntegMethods;
 import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
@@ -34,6 +35,7 @@ import io.mosip.service.BaseTestCase;
  */
 
 public class IntegrationScenarios extends BaseTestCase implements ITest {
+	RegProcTransactionDb transaction=new RegProcTransactionDb();
 	EncryptData encryptData = new EncryptData();
 	protected static String testCaseName = "";
 	IntegMethods scenario = new IntegMethods();
@@ -86,6 +88,19 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 						}
 					}
 				}
+					String regId=packet.getName().substring(0,packet.getName().lastIndexOf('.'));
+					try {
+						Thread.sleep(60000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					List<String> status=transaction.readStatus(regId);
+					/*if(status.size()==15) {
+						Assert.assertTrue(true);
+					}
+					else
+						Assert.fail();*/
 				}
 			
 
@@ -157,5 +172,34 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	public String getTestName() {
 		return this.testCaseName;
 	}
-
+	@BeforeClass
+	public void generateDupePackets() {
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+		File file = new File(apiRequests.getResourcePath()+"regProc/IntegrationScenarios");
+		File[] listOfPackets = file.listFiles();
+		List<File> insideFiles=new ArrayList<File>();
+	 
+		for(File file1:listOfPackets) {
+			insideFiles.add(file1);
+			File[] packets=file1.listFiles();
+			for(File generatedPacket:packets) {
+				if(generatedPacket.getName().contains("generated") || generatedPacket.getName().contains("Temporary"))
+					try {
+						FileUtils.deleteDirectory(generatedPacket);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+			for(File packet:packets) {
+				if(packet.getName().contains(".zip")){
+					File decryptedPacket=scenario.decryptPacket(packet);
+					scenario.updateRegId(decryptedPacket);
+					scenario.updateCheckSum(decryptedPacket);
+					scenario.encryptFile(decryptedPacket);
+				}
+			}
+		} 
+		
+	}
 }
