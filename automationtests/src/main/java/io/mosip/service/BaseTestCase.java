@@ -161,12 +161,12 @@ public class BaseTestCase{
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
 			 */
-			logger.info("waiting for job run to start");
+	/*		logger.info("waiting for job run to start");
 		try {
 				TimeUnit.MINUTES.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}*/
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();

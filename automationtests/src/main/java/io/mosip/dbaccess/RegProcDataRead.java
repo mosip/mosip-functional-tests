@@ -99,6 +99,12 @@ public class RegProcDataRead {
 		int size ;
 		String status_code = null;
 		RegistrationStatusEntity registrationStatusEntity = new RegistrationStatusEntity();
+		try {
+			Thread.sleep(60000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String queryString=" Select *"+
 				" From regprc.registration where regprc.registration.id= :regId_value ";
 		logger.info("regId is : " +regID);																																			

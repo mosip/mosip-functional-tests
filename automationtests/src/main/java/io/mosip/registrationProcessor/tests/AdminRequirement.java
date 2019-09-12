@@ -185,6 +185,11 @@ public class AdminRequirement extends BaseTestCase implements ITest {
 			}*/
 
 			//Asserting actual and expected response
+			if(object.get("testCaseName").toString().contains("smoke")) {
+				if(actualResponse.jsonPath().get("response")!=null)
+					status=true;
+			}
+			else
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
 
