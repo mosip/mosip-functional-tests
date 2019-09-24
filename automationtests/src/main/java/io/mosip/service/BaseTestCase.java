@@ -155,7 +155,7 @@ public class BaseTestCase{
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
 			 */
-			expiredPreRegIds=lib.BookExpiredApplication();
+			//expiredPreRegIds=lib.BookExpiredApplication();
 			consumedPreRegIds=lib.consumedPreId();
 			
 			/**
