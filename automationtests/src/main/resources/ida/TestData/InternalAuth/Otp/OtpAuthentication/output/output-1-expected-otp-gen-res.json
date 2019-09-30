@@ -1,5 +1,5 @@
 {
-  "id": "mosip.identity.otp",
+  "id": "mosip.identity.otp.internal",
   "version": "$version$",
   "transactionID": "1176861120",
   "responseTime": "2019-03-29T15:57:48.152+05:30",

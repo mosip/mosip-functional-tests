@@ -1590,5 +1590,51 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InactiveVID:errorCode$
       output.1.response.error.errorMessage: $errors:InactiveVID:errorMessage$
-       
-  
+      
+  Authentication_Biometric_With_LockedUIN_Iris_With_Left_Neg:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN.bio.IIR.true$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_iris_left_subType$
+      identityReq.bioType: $TestData:bio_iris_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_iris_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_iris_deviceProviderID$
+      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Iris'][Subtype='Left']//following::BDB$
+    output.output-1-expected-n-res:
+      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$
+      
+  Authentication_Biometric_With_LockedVID_Iris_With_Left_Neg:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.bio-auth-request:
+      AuthReq.individualId: $VID.bio.IIR.true$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_iris_left_subType$
+      identityReq.bioType: $TestData:bio_iris_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_iris_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_iris_deviceProviderID$
+      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Iris'][Subtype='Left']//following::BDB$
+    output.output-1-expected-n-res:
+      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$
+      

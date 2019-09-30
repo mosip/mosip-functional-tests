@@ -208,4 +208,9 @@ public class RunConfigUtil {
 	public static String getBioTestDataPath() {
 		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/mdm.biometricTestData.yml";
 	}
+	
+	public static String getAuthTypeStatusPath() {
+		return new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath();
+	}
 }

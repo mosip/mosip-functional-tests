@@ -303,5 +303,43 @@ errors:
   InternalBioVIDNotAllowed:
     errorCode: IDA-MLC-015
     errorMessage: Identity Type - VID not configured for the country
-  
+  InvalidAuthType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - authType(s)
+  MissingAuthType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - authType(s)
+  InvalidAuthSubType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - authSubType
+  MissingAuthSubType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - authSubType 
+  InvalidLocked:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - locked
+  MissingLocked:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - locked 
+  UnSupportAuthTypeForBio:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - bio.*$
+  UnSupportAuthTypeForOtp:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - otp.*$
+  UnSupportAuthTypeForDemo:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - demo.*$
+  DemoAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: demo Auth Type is Locked for the UIN
+  OTPAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: otp Auth Type is Locked for the UIN
+  BioAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: bio Auth Type is Locked for the UIN
+  IdentityMismatch:
+    errorCode: IDA-OTA-010
+    errorMessage: Input Identity Type does not match Identity Type of OTP Request
   

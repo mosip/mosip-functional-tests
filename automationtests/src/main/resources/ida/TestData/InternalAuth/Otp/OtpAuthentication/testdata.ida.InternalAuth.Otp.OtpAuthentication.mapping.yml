@@ -4,7 +4,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -26,7 +26,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-otp-auth-res:
       output.2.response.y.status: $TestData:auth_Pass_status$ 
@@ -47,7 +47,7 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otp_moduleName$
@@ -59,7 +59,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -82,7 +82,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -97,7 +97,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -121,7 +121,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -136,7 +136,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -158,7 +158,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -173,7 +173,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -197,7 +197,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -212,7 +212,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -236,7 +236,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -251,7 +251,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -273,7 +273,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -288,7 +288,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -310,7 +310,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -325,7 +325,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -348,7 +348,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -363,7 +363,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -387,7 +387,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -402,7 +402,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -424,7 +424,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -439,7 +439,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -463,7 +463,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -478,7 +478,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -502,7 +502,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -516,7 +516,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -539,7 +539,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -554,7 +554,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -577,7 +577,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -592,7 +592,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -615,7 +615,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -630,7 +630,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -652,7 +652,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -667,7 +667,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -691,7 +691,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -706,7 +706,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -730,7 +730,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -745,7 +745,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -768,7 +768,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-otp-auth-res:
       output.2.response.y.status: $TestData:auth_Pass_status$ 
@@ -788,7 +788,7 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otp_moduleName$
@@ -799,7 +799,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -821,7 +821,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -836,7 +836,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -858,7 +858,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -873,7 +873,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -896,7 +896,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -911,7 +911,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -935,7 +935,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -950,7 +950,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -974,7 +974,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -989,7 +989,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1012,7 +1012,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1027,7 +1027,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1050,7 +1050,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1065,7 +1065,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1088,7 +1088,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1103,7 +1103,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1127,7 +1127,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1142,7 +1142,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1165,7 +1165,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1180,7 +1180,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1204,7 +1204,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1219,7 +1219,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1243,7 +1243,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1257,7 +1257,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1280,7 +1280,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1295,7 +1295,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1318,7 +1318,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1333,7 +1333,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1357,7 +1357,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1372,7 +1372,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $VID$
       otpReq.individualIdType: $TestData:indvId_Vid_valid$
       otpReq.email: EMAIL
@@ -1396,7 +1396,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1411,7 +1411,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1435,7 +1435,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1450,7 +1450,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1474,7 +1474,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1489,7 +1489,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN:WITH:OTP_EXCEED$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1513,7 +1513,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1528,7 +1528,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1550,7 +1550,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1571,7 +1571,7 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otp_moduleName$
@@ -1582,7 +1582,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1605,7 +1605,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$
@@ -1620,7 +1620,7 @@ testdata:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
     input.otp-generate:
-      #otpReq.id: $TestData:id_otp_valid$
+      #otpReq.id: $TestData:id_internal_otp_valid$
       otpReq.individualId: $UIN$
       otpReq.individualIdType: $TestData:indvId_Uin_valid$
       otpReq.email: EMAIL
@@ -1645,7 +1645,7 @@ testdata:
       output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
       output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.id: $TestData:id_internal_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-error-res:
       output.2.response.n.err.status: $TestData:auth_Fail_status$

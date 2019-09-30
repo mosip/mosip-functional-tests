@@ -31,7 +31,12 @@ import org.testng.Assert;
 public class DbConnection {
 	private static final Logger DBCONNECTION_LOGGER = Logger.getLogger(DbConnection.class);
 	private static Map<String, Object> records;
+	private static List<Map<String, Object>> allRecords;
 	
+	public static void main(String[] arg)
+	{
+		System.out.println(getDataForQuery("update reg_center_machine_device set device_id = '3000022' where regcntr_id = '10003' and device_id='3000033'","MASTER"));
+	}
 	/**
 	 * Execute query to get generated otp value
 	 * 
@@ -56,6 +61,11 @@ public class DbConnection {
 					return executeUpdateQuery("idrepo", query);
 				} else
 					records = executeQueryAndGetRecord("idrepo", query);
+			else if (moduleName.equals("MASTER"))
+				if (query.toLowerCase().startsWith("update")) {
+					return executeUpdateQuery("masterdata", query);
+				} else
+					records = executeQueryAndGetRecord("masterdata", query);
 			Map<String, String> returnMap = new HashMap<String, String>();
 			for (Entry<String, Object> entry : records.entrySet()) {
 				if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
@@ -71,9 +81,65 @@ public class DbConnection {
 		}
 	}
 	
+	public static List<Map<String, String>> getAllDataForQuery(String query, String moduleName) {
+		allRecords = null;
+		try {
+			DBCONNECTION_LOGGER.info("Start of dbConnection execution statement");
+			DBCONNECTION_LOGGER.info("Query: " + query);
+			if (moduleName.equals("KERNEL"))
+				allRecords = executeQueryAndGetAllRecord("kernel", query);
+			else if (moduleName.equals("IDA"))
+				allRecords = executeQueryAndGetAllRecord("ida", query);
+			else if (moduleName.equals("AUDIT"))
+				allRecords = executeQueryAndGetAllRecord("audit", query);
+			else if (moduleName.equals("IDREPO"))
+				allRecords = executeQueryAndGetAllRecord("idrepo", query);
+			List<Map<String, String>> listOfRecordsToBeReturn = new ArrayList<Map<String, String>>();
+			for (int i = 0; i < allRecords.size(); i++) {
+				Map<String, String> records = new HashMap<String, String>();
+				for (Entry<String, Object> entry : allRecords.get(i).entrySet()) {
+					if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
+							|| entry.getValue().equals("null"))
+						records.put(entry.getKey(), "null".toString());
+					else
+						records.put(entry.getKey(), entry.getValue().toString());
+				}
+				listOfRecordsToBeReturn.add(records);
+			}
+			return listOfRecordsToBeReturn;
+		} catch (Exception e) {
+			DBCONNECTION_LOGGER.error("Execption in execution statement: " + e);
+			return null;
+		}
+	}
+	
+	private static List<Map<String, Object>> executeQueryAndGetAllRecord(String moduleName, String query) {
+		Session session = getDataBaseConnection(moduleName);
+		List<Map<String, Object>> allRecords = new ArrayList<Map<String, Object>>();
+		session.doWork(new Work() {
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				Statement statement = connection.createStatement();
+				ResultSet rs = statement.executeQuery(query);
+				ResultSetMetaData md = rs.getMetaData();
+				int columns = md.getColumnCount();
+				while (rs.next()) {
+					Map<String, Object> record = new HashMap<String, Object>(columns);
+					for (int i = 1; i <= columns; i++) {
+						record.put(md.getColumnName(i), rs.getObject(i));
+					}
+					allRecords.add(record);
+				}
+			}
+		});
+		DBCONNECTION_LOGGER.info("==========session  closed=============");
+		session.close();
+		return allRecords;
+	}
+	
 	private static Map<String, Object> executeQueryAndGetRecord(String moduleName, String query) {
 		Session session = getDataBaseConnection(moduleName);
-		Map<String, Object> rowData = new HashMap<String, Object>();
+		Map<String, Object> record = new HashMap<String, Object>();
 		session.doWork(new Work() {
 			@Override
 			public void execute(Connection connection) throws SQLException {
@@ -83,14 +149,14 @@ public class DbConnection {
 				int columns = md.getColumnCount();
 				while (rs.next()) {
 					for (int i = 1; i <= columns; i++) {
-						rowData.put(md.getColumnName(i), rs.getObject(i));
+						record.put(md.getColumnName(i), rs.getObject(i));
 					}
 				}
 			}
 		});
 		DBCONNECTION_LOGGER.info("==========session  closed=============");
 		session.close();
-		return rowData;
+		return record;
 	}
 	
 	private static Map<String, String> executeUpdateQuery(String moduleName, String query) {

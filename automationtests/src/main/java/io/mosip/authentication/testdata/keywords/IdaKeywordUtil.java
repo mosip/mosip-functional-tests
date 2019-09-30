@@ -236,6 +236,16 @@ public class IdaKeywordUtil extends KeywordUtil{
 				returnMap.put(entry.getKey(), str);
 			}
 			// Keyword to get UIN Number
+			else if (entry.getValue().contains("$UIN") && entry.getValue().contains("true$")) {
+				String keyword = entry.getValue().replace("$", "");
+				String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(), keyword);
+				returnMap.put(entry.getKey(), value);
+			}
+			else if (entry.getValue().contains("$VID") && entry.getValue().contains("true$")) {
+				String keyword = entry.getValue().replace("$", "");
+				String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(), keyword);
+				returnMap.put(entry.getKey(), value);
+			}
 			else if (entry.getValue().contains("$UIN") && !entry.getValue().contains("UIN-PIN")) {
 				returnMap.put(entry.getKey(), UINUtil.getUinNumber(entry.getValue()));
 			} else if (entry.getValue().contains("$VID") && !entry.getValue().contains("VID-PIN")) {

@@ -14,9 +14,9 @@ import java.nio.file.Paths;
 public class JsonPathGenMain {
 
 	public static void main(String arg[]) throws IOException {
-		String inputFilePath = "D:\\Git\\QA_IDA\\automationtests\\src\\test\\resources\\ida\\TestData\\Otp\\OtpGeneration\\input\\otp-generate-request.json";
+		String inputFilePath = "D:\\Mosip_git\\mosip-functional-tests-mt\\0.9.1_IDA_V2\\automationtests\\src\\main\\resources\\ida\\TestData\\InternalAuth\\LockUIN\\output\\output-1-expected-error-response.json";
 		JsonPathGen o = new JsonPathGen(new String(Files.readAllBytes(Paths.get(inputFilePath))));
 		o.generateJsonMappingDic(
-				"D:\\Git\\QA_IDA\\automationtests\\src\\test\\resources\\ida\\TestData\\Otp\\OtpGeneration\\map.properties");
+				"D:\\Mosip_git\\mosip-functional-tests-mt\\0.9.1_IDA_V2\\automationtests\\src\\main\\resources\\ida\\TestData\\InternalAuth\\LockUIN\\output\\output-1-expected-error-response.properties");
 	}
 }

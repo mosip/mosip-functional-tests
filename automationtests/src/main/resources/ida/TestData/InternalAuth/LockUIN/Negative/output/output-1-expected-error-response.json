@@ -1,0 +1,12 @@
+{
+	"id": "mosip.identity.authtype.status.update",
+	"version": "$version$",
+	"errors": [
+		{
+			"errorCode": "IDA-MLC-009",
+			"errorMessage": "Invalid Input Parameter - individualIdType",
+			"actionMessage": "$IGNORE$"
+		}
+	],
+	"responseTime": "$TIMESTAMPZ$"
+}

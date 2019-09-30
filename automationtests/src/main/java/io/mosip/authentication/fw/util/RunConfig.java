@@ -342,6 +342,16 @@ public abstract class RunConfig {
 	public abstract void setIdRepoDeactivateVIDs(String idRepoDeactivateVIDs);
 	public abstract String getIdRepoReactivateVIDs();
 	public abstract void setIdRepoReactivateVIDs(String idRepoReactivateVIDs);		
+	public abstract String getIdaInternalAuthTransactionWithVID();
+	public abstract void setIdaInternalAuthTransactionWithVID(String idaInternalAuthTransactionWithVID);
+	public abstract String getIdaInternalAuthTransactionWithUIN();
+	public abstract void setIdaInternalAuthTransactionWithUIN(String idaInternalAuthTransactionWithUIN);
+	public abstract String getIdaInternalUpdateAuthTypePath();
+	public abstract void setIdaInternalUpdateAuthTypePath(String idaInternalUpdateAuthTypePath);
+	public abstract String getIdaInternalRetrieveAuthTypeStatusPathForUIN();
+	public abstract void setIdaInternalRetrieveAuthTypeStatusPathForUIN(String idaInternalRetrieveAuthTypeStatusPathForUIN);
+	public abstract String getIdaInternalRetrieveAuthTypeStatusPathForVID();
+	public abstract void setIdaInternalRetrieveAuthTypeStatusPathForVID(String idaInternalRetrieveAuthTypeStatusPathForVID);
 	//Admin module
 			public abstract String getAdminEndPointUrl();
 			public abstract void setAdminEndPointUrl(String adminEndPointUrl);

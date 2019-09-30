@@ -1107,4 +1107,64 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getIdaInternalAuthTransactionWithVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalAuthTransactionWithVID(String idaInternalAuthTransactionWithVID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdaInternalAuthTransactionWithUIN() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalAuthTransactionWithUIN(String idaInternalAuthTransactionWithUIN) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdaInternalUpdateAuthTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalUpdateAuthTypePath(String idaInternalUpdateAuthTypePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdaInternalRetrieveAuthTypeStatusPathForUIN() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalRetrieveAuthTypeStatusPathForUIN(String idaInternalRetrieveAuthTypeStatusPathForUIN) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIdaInternalRetrieveAuthTypeStatusPathForVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIdaInternalRetrieveAuthTypeStatusPathForVID(String idaInternalRetrieveAuthTypeStatusPathForVID) {
+		// TODO Auto-generated method stub
+		
+	}
 }

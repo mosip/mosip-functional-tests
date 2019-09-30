@@ -1,7 +1,7 @@
 {
   "transactionID": "1082668461",
   "version": "$version$",
-  "id": "mosip.identity.auth",
+  "id": "mosip.identity.auth.internal",
   "errors": [],
   "responseTime": "2019-04-22T16:48:27.025+05:30",
   "response": {

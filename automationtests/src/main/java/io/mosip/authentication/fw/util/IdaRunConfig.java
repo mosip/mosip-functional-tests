@@ -62,6 +62,43 @@ public class IdaRunConfig extends RunConfig{
 	private String idRepoRegenerateVID;
 	private String idRepoRetrieveUINByVIDPath;
 	private String idaInternalOtpPath;
+	private String idaInternalAuthTransactionWithUIN;
+	private String idaInternalAuthTransactionWithVID;
+	private String idaInternalUpdateAuthTypePath;
+	private String idaInternalRetrieveAuthTypeStatusPathForUIN;
+	private String idaInternalRetrieveAuthTypeStatusPathForVID;
+	
+	
+	public String getIdaInternalRetrieveAuthTypeStatusPathForUIN() {
+		return idaInternalRetrieveAuthTypeStatusPathForUIN;
+	}
+	public void setIdaInternalRetrieveAuthTypeStatusPathForUIN(String idaInternalRetrieveAuthTypeStatusPathForUIN) {
+		this.idaInternalRetrieveAuthTypeStatusPathForUIN = idaInternalRetrieveAuthTypeStatusPathForUIN;
+	}
+	public String getIdaInternalRetrieveAuthTypeStatusPathForVID() {
+		return idaInternalRetrieveAuthTypeStatusPathForVID;
+	}
+	public void setIdaInternalRetrieveAuthTypeStatusPathForVID(String idaInternalRetrieveAuthTypeStatusPathForVID) {
+		this.idaInternalRetrieveAuthTypeStatusPathForVID = idaInternalRetrieveAuthTypeStatusPathForVID;
+	}
+	public String getIdaInternalUpdateAuthTypePath() {
+		return idaInternalUpdateAuthTypePath;
+	}
+	public void setIdaInternalUpdateAuthTypePath(String idaInternalUpdateAuthTypePath) {
+		this.idaInternalUpdateAuthTypePath = idaInternalUpdateAuthTypePath;
+	}
+	public String getIdaInternalAuthTransactionWithVID() {
+		return idaInternalAuthTransactionWithVID;
+	}
+	public void setIdaInternalAuthTransactionWithVID(String idaInternalAuthTransactionWithVID) {
+		this.idaInternalAuthTransactionWithVID = idaInternalAuthTransactionWithVID;
+	}
+	public String getIdaInternalAuthTransactionWithUIN() {
+		return idaInternalAuthTransactionWithUIN;
+	}
+	public void setIdaInternalAuthTransactionWithUIN(String idaInternalAuthTransactionWithUIN) {
+		this.idaInternalAuthTransactionWithUIN = idaInternalAuthTransactionWithUIN;
+	}
 	public String getEncryptionPort() {
 		return encryptionPort;
 	}
@@ -379,6 +416,11 @@ public class IdaRunConfig extends RunConfig{
 		loadErrorsData(getErrorsConfigPath());
 		setUinIdentityMapper(AuthTestsUtil.getPropertyValue("uinIdentityMapper"));
 		setIdaInternalOtpPath(AuthTestsUtil.getPropertyValue("internalOtpPath"));
+		setIdaInternalAuthTransactionWithUIN(AuthTestsUtil.getPropertyValue("internalAuthTransactionWithUIN"));
+		setIdaInternalAuthTransactionWithVID(AuthTestsUtil.getPropertyValue("internalAuthTransactionWithVID"));
+		setIdaInternalUpdateAuthTypePath(AuthTestsUtil.getPropertyValue("internalUpdateAuthTypePath"));
+		setIdaInternalRetrieveAuthTypeStatusPathForUIN(AuthTestsUtil.getPropertyValue("internalRetrieveAuthTypeStatusPathForUIN"));
+		setIdaInternalRetrieveAuthTypeStatusPathForVID(AuthTestsUtil.getPropertyValue("internalRetrieveAuthTypeStatusPathForVID"));
 	}	
 	
 	/**

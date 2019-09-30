@@ -158,7 +158,7 @@ public class InternalOtpGeneration extends PrerequisteTests implements ITest {
 			f.setAccessible(true);
 			f.set(baseTestMethod, InternalOtpGeneration.testCaseName);
 			if(!result.isSuccess())
-				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getOtpGenerateSeriveName(), logFileName, getTestFolder());
+				StoreAuthenticationAppLogs.storeApplicationLog(RunConfigUtil.getInternalAuthSeriveName(), logFileName, getTestFolder());
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}

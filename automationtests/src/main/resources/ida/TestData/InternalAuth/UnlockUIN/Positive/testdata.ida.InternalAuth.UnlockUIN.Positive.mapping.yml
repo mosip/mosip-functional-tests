@@ -1,0 +1,120 @@
+testdata:
+  InternalAuthentication_unlockUIN_for_demo_Pos:
+    input.request:
+      individualId: $UIN.demo.true$
+      individualIdType: $TestData:indvId_Uin_valid$
+      authTyperequest: demo
+      authSubTyperequest: $REMOVE$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_UnlockVID_for_otp_Pos:
+    input.request:
+      individualId: $VID.otp.true$
+      individualIdType: $TestData:indvId_Vid_valid$
+      authTyperequest: otp
+      authSubTyperequest: $REMOVE$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_unlockUIN_for_otp_Pos:
+    input.request:
+      individualId: $UIN.otp.true$
+      individualIdType: $TestData:indvId_Uin_valid$
+      authTyperequest: otp
+      authSubTyperequest: $REMOVE$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_UnlockVID_for_demo_Pos:
+    input.request:
+      individualId: $VID.demo.true$
+      individualIdType: $TestData:indvId_Vid_valid$
+      authTyperequest: demo
+      authSubTyperequest: $REMOVE$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_unlockUIN_for_bio_Finger_Pos:
+    input.request:
+      individualId: $UIN.bio.FIR.true$
+      individualIdType: $TestData:indvId_Uin_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_finger_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_UnlockVID_for_bio_finger_Pos:
+    input.request:
+      individualId: $VID.bio.FIR.true$
+      individualIdType: $TestData:indvId_Vid_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_finger_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_unlockUIN_for_bio_Iris_Pos:
+    input.request:
+      individualId: $UIN.bio.IIR.true$
+      individualIdType: $TestData:indvId_Uin_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_iris_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_UnlockVID_for_bio_Iris_Pos:
+    input.request:
+      individualId: $VID.bio.IIR.true$
+      individualIdType: $TestData:indvId_Vid_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_iris_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_unlockUIN_for_bio_Face_Pos:
+    input.request:
+      individualId: $UIN.bio.FID.true$
+      individualIdType: $TestData:indvId_Uin_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_face_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$
+      
+  InternalAuthentication_UnlockVID_for_bio_Face_Pos:
+    input.request:
+      individualId: $VID.bio.FID.true$
+      individualIdType: $TestData:indvId_Vid_valid$
+      authTyperequest: bio
+      authSubTyperequest: $TestData:bio_face_type$
+      requestTime: $TIMESTAMPZ$
+    output.output-1-expected-response:
+      output.responseTime: $TIMESTAMPZ$
+      #output.version: $IGNORE$
+      #output.id: $IGNORE$

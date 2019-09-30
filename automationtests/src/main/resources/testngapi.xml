@@ -139,32 +139,37 @@
 			<class name="io.mosip.registrationProcessor.tests.AdminRequirement" />  
 		</classes>
 	</test>
-	  <test name="AuthenticationTest">
+	 <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
-			 <class
+			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
 			<class
-				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
-			<class name="io.mosip.authentication.tests.OtpGeneration" /> 
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" /> 
+			<class name="io.mosip.authentication.tests.LockUIN" />
+			<class name="io.mosip.authentication.tests.OtpGeneration" />
 			<class
-				name="io.mosip.authentication.tests.DemographicAuthentication" />
+				name="io.mosip.authentication.tests.DemographicAuthentication" />			
 			<class
 				name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
-			<class
+			 <class name="io.mosip.authentication.tests.OtpAuthentication" />
+			 <class
 				name="io.mosip.authentication.tests.BiometricAuthentication" />
-			<class
-				name="io.mosip.authentication.tests.InternalBiometricAuthentication" />
-			<class name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
 			<class
 				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
 			<class name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
-			<class name="io.mosip.authentication.tests.OtpAuthentication" />
+			<class name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
 			<class
-				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+				name="io.mosip.authentication.tests.InternalBiometricAuthentication" />
+			<class name="io.mosip.authentication.tests.InternalOtpGeneration" /> 
+			<class name="io.mosip.authentication.tests.RetrieveAuthTypeStatus" />		
+			<class name="io.mosip.authentication.tests.InternalAuthTransaction" />				
+			<class name="io.mosip.authentication.tests.InternalOtpAuthentication" />	
+			<class name="io.mosip.authentication.tests.UnlockUIN" />
+			<class name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
 	<test name="Idrepository Test">
@@ -196,7 +201,7 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test> 
+	</test>
 
   <test name="Registration Test">
 		<classes>

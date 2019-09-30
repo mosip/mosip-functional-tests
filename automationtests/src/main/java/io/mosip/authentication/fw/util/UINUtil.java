@@ -1,6 +1,8 @@
 package io.mosip.authentication.fw.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
@@ -87,13 +89,18 @@ public class UINUtil extends RunConfigUtil{
 	 * @param keywordToFind
 	 * @return UIN
 	 */
-	static String getUINKey(String keywordToFind) {
+	@SuppressWarnings("null")
+	public static String getUINKey(String keywordToFind) {
 		getUinPropertyValue(getUinPropertyPath());
+		List<String> randomKeys = new ArrayList<String>();
 		for (Entry<String, String> entry : UinDto.getUinData().entrySet()) {
-			if (entry.getValue().contains(keywordToFind))
-				return entry.getKey();
+			if (entry.getValue().contains(keywordToFind)) 
+				randomKeys.add(entry.getKey());
 		}
-		return "NoLoadedUINFound";
+		if (randomKeys.size() != 0)
+			return randomKeys.get(new Random().nextInt(randomKeys.size()));
+		else
+			return "NoLoadedUINFound";
 	}
 	
 	/**

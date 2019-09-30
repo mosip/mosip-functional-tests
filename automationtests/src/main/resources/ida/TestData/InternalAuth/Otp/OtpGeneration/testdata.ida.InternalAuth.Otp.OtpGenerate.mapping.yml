@@ -780,8 +780,8 @@ testdata:
   InternalAuthentication_OTPGenerate_With_UserId_Valid_Request_Smoke_Pos:
     input.otp-generate-request:
       #otpReq.id: $TestData:id_internal_otp_valid$
-      otpReq.individualId: 110087
-      otpReq.individualIdType: USERID
+      otpReq.individualId: $TestData:valid_userid$
+      otpReq.individualIdType: $TestData:indvId_userid_valid$
       otpReq.email: $TestData:otpChannel_EMAIL$
       otpReq.phone: $TestData:otpChannel_MOBILE$
       otpReq.requestTime: $TIMESTAMP$
@@ -803,7 +803,7 @@ testdata:
       reqTime: $FETCH$
       resTime: $FETCH$
       statusComment: $TestData:auth_transaction_OTPREQUEST_success_statusComment$
-      idType: $TestData:auth_transaction_UIN_idType$
+      idType: $TestData:auth_transaction_USERID_idType$
     audit.audit_log:
       refId:  $input.otp-generate-request:otpReq.individualId$
       eventId: $TestData:audit_log_eventId$
@@ -811,6 +811,6 @@ testdata:
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otprequest_moduleName$
-      refIdType: $TestData:audit_log_UIN_refIdType$
+      refIdType: $TestData:audit_log_USERID_refIdType$
       hostName: $TestData:audit_log_internalAuthhostName$   
  

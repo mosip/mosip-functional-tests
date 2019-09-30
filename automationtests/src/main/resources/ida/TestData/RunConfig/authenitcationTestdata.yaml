@@ -9,6 +9,12 @@ id_auth_invalid:
       - auth.mosip.identity
 id_internal_otp_valid:
       - mosip.identity.otp.internal
+id_internal_update_authType_status:
+      - mosip.identity.authtype.status.update
+id_internal_update_authType_status_invalid:
+      - mosip.identity.authtype.update.status
+      - mosip.identity.update.status.authtype
+      - mosip.identity.authtype.status
 id_CreateVid_valid:
       - mosip.vid.create
 id_UpdateVid_valid:
@@ -63,14 +69,16 @@ vid_invalid:
       - 9835845389149
       - 983584538149251
       - 983584538149251
+boolean_invalid:
+      - tree
+      - flse
+      - 1234
+      #- fa%ls
 otpChannel_invalid:
       - tree
       - flse
       - 1234
-      - "true"
-      - "false"
-      - tr^e
-      - fa%ls
+      #- fa%ls
 #idrepo
 name_valid:
       - Vignesh Ravi
@@ -268,7 +276,7 @@ CNIENumber_valid:
       - 6789545678913
       - 6789545678914
 emailId_valid:
-      - vignesh.vijayakumar@mindtree.com
+      #- vignesh.vijayakumar@mindtree.com
       - Loganathan.Sekar@mindtree.com
 age_valid:
       - LONG:32
@@ -399,6 +407,8 @@ auth_transaction_FACE_success_statusComment:
       - $REGEXP:.*Face.*Authentication.*Success.*$
 auth_transaction_FACE_fail_statusComment:
       - $REGEXP:.*Face.*Authentication.*Failed.*$
+auth_transaction_USERID_idType:
+      - USERID
 auth_transaction_UIN_idType:
       - UIN
 auth_transaction_VID_idType:
@@ -420,6 +430,8 @@ audit_log_eventId:
       - $REGEXP:.*IDA.*$
 audit_log_auth_eventName:
       - Authentication Request
+audit_log_internal_auth_eventName:
+      - Internal Authentication Request
 audit_log_ekyc_eventName:
       - eKYC Request
 audit_log_ida_appId:
@@ -438,6 +450,8 @@ audit_log_otp_moduleName:
       - OTP Authenticator
 audit_log_otprequest_moduleName:
       - Otp Requestor
+audit_log_USERID_refIdType:
+      - USER_ID
 audit_log_UIN_refIdType:
       - UIN
 audit_log_demo_moduleName:
@@ -481,3 +495,6 @@ valid_VID_P_Type:
 #CBEFF
 valid_xmlns:
       - http://docs.oasis-open.org/bias/ns/biaspatronformat-1.0/
+#userid:
+valid_userid:
+     - 110087
