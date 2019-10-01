@@ -25,6 +25,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -37,6 +38,7 @@ import com.google.common.base.Verify;
 
 import io.mosip.dbaccess.RegProcDataRead;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.registrationProcessor.util.StageValidationMethods;
 import io.mosip.service.ApplicationLibrary;
@@ -99,7 +101,25 @@ public class PacketInfo extends BaseTestCase implements ITest {
 		String token=generateToken.getToken(tokenEntity);
 		return token;
 		}
-
+	@BeforeClass
+	public void healthCheck() throws Exception {
+		String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
+		Properties properties=new Properties();
+		try {
+			properties.load(new FileReader(new File(propertyFilePath)));
+			HealthCheckUtil healthCheckUtil=new HealthCheckUtil();
+			//String servletPath=properties.getProperty("syncListApi").substring(0,properties.getProperty("syncListApi").lastIndexOf("/"));
+			Boolean status=healthCheckUtil.healthCheck(properties.getProperty("packetInfoApi"));
+			if(status) {
+				Assert.assertTrue(true);
+			} else {
+				throw new Exception("Health Check Failed For The Api");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * This method is used for reading the test data based on the test case name
