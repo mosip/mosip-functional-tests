@@ -202,6 +202,8 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 			logger.debug("PACKET UPLOAD SERVICE", "AUTOMATION", "REG",
 					ExceptionUtils.getStackTrace(interruptedException));
 			Reporter.log(ExceptionUtils.getStackTrace(interruptedException));
+		} catch(NullPointerException nullPointerException) {
+			
 		}
 
 	}

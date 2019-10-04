@@ -30,6 +30,7 @@ import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.RegistrationDTO;
 import io.mosip.registration.exception.RegBaseCheckedException;
+import io.mosip.registration.exception.RegBaseUncheckedException;
 import io.mosip.registration.service.external.impl.ZipCreationServiceImpl;
 import io.mosip.registration.util.BaseConfiguration;
 import io.mosip.registration.util.ConstantValues;
@@ -139,8 +140,8 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 * 
 	 * @throws RegBaseCheckedException
 	 */
-	@Test(expectedExceptions = RegBaseCheckedException.class)
-	public void createPacketcheckedExceptionIncompleteInputTest() throws RegBaseCheckedException {
+	@Test(expectedExceptions = RegBaseUncheckedException.class)
+	public void createPacketcheckedExceptionIncompleteInputTest() throws RegBaseUncheckedException, RegBaseCheckedException {
 		//try {
 		mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionIncompleteInputTest";
 		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();

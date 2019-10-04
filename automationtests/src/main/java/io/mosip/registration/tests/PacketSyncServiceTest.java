@@ -287,6 +287,8 @@ public class PacketSyncServiceTest extends BaseConfiguration implements ITest {
 			logger.debug("PACKET SYNC SERVICE", "AUTOMATION", "REG",
 					ExceptionUtils.getStackTrace(interruptedException));
 			Reporter.log(ExceptionUtils.getStackTrace(interruptedException));
+		} catch(NullPointerException nullPointerException) {
+			
 		}
 	}
 
