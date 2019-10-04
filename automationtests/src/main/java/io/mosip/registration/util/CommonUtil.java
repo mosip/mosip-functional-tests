@@ -1222,7 +1222,7 @@ public class CommonUtil {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			response = mapper.readValue(
-					new File(this.getClass().getClassLoader().getResource(ConstantValues.PRE_REG_PATH).getPath()),
+					new File(MosipTestRunner.getGlobalResourcePath()+"/"+ConstantValues.PRE_REG_PATH),
 					new TypeReference<Map<String, Object>>() {
 					});
 		} catch (NullPointerException nullPointerException) {
@@ -1240,6 +1240,7 @@ public class CommonUtil {
 		} catch (IOException ioException) {
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, ExceptionUtils.getStackTrace(ioException));
 		}
+		
 		return response;
 	}
 
