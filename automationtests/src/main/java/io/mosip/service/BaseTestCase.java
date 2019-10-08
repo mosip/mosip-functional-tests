@@ -138,35 +138,35 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-		 PreRegistrationLibrary pil=new PreRegistrationLibrary();
+		/* PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
-			AdminTestUtil.initiateAdminTest(); 
+			AdminTestUtil.initiateAdminTest(); */
 			
 			/**
 			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
 			 * Here after booking appointment setting booking date to yesterday. 
 			 */
-			expiredPreRegIds=lib.BookExpiredApplication();
+			//expiredPreRegIds=lib.BookExpiredApplication();
 			/**
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
 			 */
 			//expiredPreRegIds=lib.BookExpiredApplication();
-			consumedPreRegIds=lib.consumedPreId();
+			//consumedPreRegIds=lib.consumedPreId();
 			
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
 			 */
-			logger.info("waiting for job run to start");
+	/*		logger.info("waiting for job run to start");
 		try {
 				TimeUnit.MINUTES.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}*/
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();
