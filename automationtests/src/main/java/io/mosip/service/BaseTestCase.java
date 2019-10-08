@@ -2,27 +2,26 @@
 package io.mosip.service;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
@@ -95,6 +94,7 @@ public class BaseTestCase{
 	
 	public static void initialize()
 	{
+		copyDbInTarget();
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib  = new KernelAuthentication();
 		kernelCmnLib = new CommonLibrary();
@@ -240,6 +240,16 @@ public class BaseTestCase{
 			logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
 			return logProp;
 		}
-		
+	private static void copyDbInTarget() {
+		File db=new File(MosipTestRunner.getGlobalResourcePath().substring(0,MosipTestRunner.getGlobalResourcePath().lastIndexOf("target"))+"/db");
+		File targetDb=new File(db.getPath().replace("\\db", "\\target\\db"));
+		try {
+			FileUtils.copyDirectory(db,targetDb);
+			logger.info("Copied :: "+targetDb.getPath()+":: to target");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	}
