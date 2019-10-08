@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-07-23T07:43:39.000Z",
+  "responsetime": "$IGNORE$",
   "metadata": null,
   "response": {
     "fromRecord": 1,
@@ -11,7 +11,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-16T05:57:46.982Z",
+        "createdDateTime": "$IGNORE$",
         "updatedBy": null,
         "updatedDateTime": null,
         "isDeleted": null,

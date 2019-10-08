@@ -5,6 +5,10 @@ Invalid_ValueString:
      - fbheafg
 valid_Search_ColumnNameAsName:
      - name
+valid_ColumnNameAsName_zoneCode:
+     - zoneCode
+valid_Search_ColumnNameAsLangCode:
+     - langCode
 valid_Search_ColumnNameAsCode:
      - code
 valid_Search_ColumnNameAsBrand:
@@ -78,7 +82,7 @@ invalid_Search_FilterType:
 invalid_SortField:
      - namess     
 invalid_requestTime: 
-     - 2019-7-3T05:22:35.845 
+     - 2019-7-3T05:22:35.845
 invalid_version:
      - ABCD
 invalid_id:
@@ -169,7 +173,7 @@ invalid_centerTypeCode:
       - AERretererErtreyrey
       - AE$&ret$&r3  
 invalid_centerTypeCodeAsGreaterThanMaxLength:
-      - 1232435353456789098765432123456789         
+      - 12324353534567890987654321234567891232435353456789098765432123456789        
 valid_contactPerson_fra:
       - Tumkur
 valid_contactPerson_ara:
@@ -288,7 +292,9 @@ valid_Device_MacAddress_Equals:
 valid_Device_IsActive_Equals:
      - true        
 valid_Device_MapStatus_Equals:
-     - Assigned 
+     - Assigned
+valid_Device_MapStatus_Equals_unAssign:
+     - Unassigned 
 valid_DeviceSpecId_Equals:     
      - 165
 invalid_Device_LangCode:
@@ -363,8 +369,8 @@ invalid_DocumentTypeName:
       - w4DDdsjc
       
 #machine search
-valid_MachineSearch_Name_eng_equals:
-     - Desktop
+valid_MachineType_Code_eng_equals:
+     - DKS
 valid_MachineSearch_Name_fra_equals:
      - Ordinateur
 valid_MachineSearch_Name_ara_equals:
@@ -420,9 +426,9 @@ valid_IndividualType_Non-Foreigner_ara_equals:
 valid_IndividualType_Non-Foreigner_fra_equals:
       - Non-étranger
 valid_IndividualType_Non-Foreigner_code_equals:
-      - FR
-valid_IndividualType_Foreigner_code_equals:
       - NFR
+valid_IndividualType_Foreigner_code_equals:
+      - FR
 
 valid_IndividualType_Foreigner_eng_contains:
       - Forei
@@ -534,13 +540,13 @@ valid_machineSpec_Model:
      - 3568
 #LocationApi
 validColumnRegion:
-     - Region
+     - region
 validColumnProvince:
-     - Province
+     - province
 validColumnCity:
-     - City
+     - city
 validColumnZone:
-     - Zone
+     - zone
 validColumnRegionValue:
      - Rabat Sale Kenitra
 validColumnProvinceValue:
@@ -593,3 +599,28 @@ validStringLength63:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk
 validStringLength65:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm
+RegCenterCretedByQuery:
+    - Tcntr
+RegCenterCretedByQuery1:
+    - Tcnt1
+DeviceCretedByQuery:
+    - Tdevice
+DeviceCretedByQuery1:
+    - Tdevice1
+MachineCretedByQuery:
+    - Tmach
+MachineCretedByQuery1:
+    - Tmac1
+valid_nonLeafZoneOfloggedAdmin:
+    - CST
+valid_nonLeafZone:
+    - MOR
+    - NTH
+    - STH
+    - RSK
+valid_center_Name:
+    - Center A Ben Mansour
+valid_center_Name_ara:
+    - المركز أ بن منصور
+valid_center_Name_fra:
+    - Centre A Ben Mansour

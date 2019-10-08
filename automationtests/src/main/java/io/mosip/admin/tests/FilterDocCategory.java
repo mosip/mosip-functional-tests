@@ -149,7 +149,7 @@ public class FilterDocCategory extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchDocCategories(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void filterDocCategory(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);

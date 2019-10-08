@@ -1,0 +1,15 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "code",
+        "text": "P"
+      }
+    ],
+    "languageCode": "fra"
+  },
+  "requesttime": "$IGNORE$",
+  "version": "string"
+}

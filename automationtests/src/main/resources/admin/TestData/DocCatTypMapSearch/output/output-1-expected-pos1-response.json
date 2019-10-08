@@ -19,9 +19,9 @@
           "updatedDateTime": null,
           "isDeleted": null,
           "deletedDateTime": null,
-          "code": "RNC",
-          "name": "Rental contract",
-          "description": "Rental Agreement of address",
+          "code": "CIN",
+          "name": "Reference Identity Card",
+          "description": "Reference Identity Card",
           "langCode": "eng"
         },
         "isActive": true,

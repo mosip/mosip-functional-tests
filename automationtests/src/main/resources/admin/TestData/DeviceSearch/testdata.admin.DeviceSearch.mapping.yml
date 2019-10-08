@@ -21,6 +21,7 @@ testdata:
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$
+     mapStatusdata0: $IGNORE$
    
   Admin_DeviceSearch_Equals_Name_ara_smoke:
     input.search-request:
@@ -43,7 +44,8 @@ testdata:
       serialNumdata0: $IGNORE$
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
-      ipAddressdata0: $IGNORE$   
+      ipAddressdata0: $IGNORE$
+      mapStatusdata0: $IGNORE$ 
       
   Admin_DeviceSearch_Equals_Name_fra_smoke:
     input.search-request:
@@ -67,6 +69,7 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_Equals_SerialNo_smoke:
     input.search-request:
@@ -90,7 +93,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$  
+      totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$  
       
   Admin_DeviceSearch_Equals_MacAddress_smoke:
     input.search-request:
@@ -115,6 +119,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$  
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_Equals_IsActive_smoke:
     input.search-request:
@@ -139,7 +144,8 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$  
       serialNumdata0: $IGNORE$ 
-      totalRecord: $IGNORE$  
+      totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$ 
   
   Admin_DeviceSearch_Equals_MapStatus_smoke:
     input.search-request:
@@ -164,7 +170,8 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$  
       serialNumdata0: $IGNORE$ 
-      totalRecord: $IGNORE$      
+      totalRecord: $IGNORE$ 
+      mapStatusdata0: $IGNORE$     
       
   Admin_DeviceSearch_Equals_DeviceTypeName_smoke:
     input.search-request:
@@ -189,7 +196,8 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$  
       serialNumdata0: $IGNORE$ 
-      totalRecord: $IGNORE$        
+      totalRecord: $IGNORE$ 
+      mapStatusdata0: $IGNORE$       
  
   Admin_DeviceSearch_Equals_DeviceSpecId_smoke:
     input.search-request:
@@ -214,6 +222,7 @@ testdata:
       deviceSpecIddata0: $TestData:valid_DeviceSpecId_Equals$  
       ipAddressdata0: $IGNORE$    
       totalRecord: $IGNORE$   
+      mapStatusdata0: $IGNORE$
 
   Admin_DeviceSearch_Invalid_Value_Name_smoke:
     input.search-request:
@@ -269,6 +278,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_ASC_Name_ara_pos:
     input.search-request:
@@ -292,6 +302,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_ASC_Name_fra_pos:
     input.search-request:
@@ -315,6 +326,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_DESC_Name_eng_pos:
     input.search-request:
@@ -338,6 +350,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
      
   Admin_DeviceSearch_DESC_Name_ara_pos:
     input.search-request:
@@ -361,6 +374,7 @@ testdata:
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
       namedata0: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_DESC_Name_fra_pos:
     input.search-request:
@@ -384,6 +398,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_ASC_DeviceTypeName_eng_pos:
     input.search-request:
@@ -407,6 +422,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_ASC_DeviceTypeName_ara_pos:
     input.search-request:
@@ -430,6 +446,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_ASC_DeviceTypeName_fra_pos:
     input.search-request:
@@ -452,7 +469,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$     
+      totalRecord: $IGNORE$ 
+      mapStatusdata0: $IGNORE$    
       
   Admin_DeviceSearch_DESC_DeviceTypeName_eng_pos:
     input.search-request:
@@ -476,6 +494,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_DESC_DeviceTypeName_ara_pos:
     input.search-request:
@@ -499,6 +518,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_DESC_DeviceTypeName_fra_pos:
     input.search-request:
@@ -521,7 +541,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$   
+      totalRecord: $IGNORE$  
+      mapStatusdata0: $IGNORE$ 
   
   Admin_DeviceSearch_ASC_DeviceSpecId_pos:
     input.search-request:
@@ -544,7 +565,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$           
+      totalRecord: $IGNORE$   
+      mapStatusdata0: $IGNORE$        
   
   Admin_DeviceSearch_DESC_DeviceSpecId_pos:
     input.search-request:
@@ -567,7 +589,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$     
+      totalRecord: $IGNORE$  
+      mapStatusdata0: $IGNORE$   
       
   Admin_DeviceSearch_Contains_Name_eng_pos:
     input.search-request:
@@ -590,7 +613,8 @@ testdata:
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$
-      totalRecord: $IGNORE$    
+      totalRecord: $IGNORE$  
+      mapStatusdata0: $IGNORE$  
       
   Admin_DeviceSearch_Contains_MacAddress_pos:
     input.search-request:
@@ -614,6 +638,7 @@ testdata:
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$    
       totalRecord: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
   Admin_DeviceSearch_Invalid_SortType_neg:
     input.search-request:
@@ -654,7 +679,8 @@ testdata:
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$   
-     totalRecord: $IGNORE$  
+     totalRecord: $IGNORE$ 
+     mapStatusdata0: $IGNORE$ 
      
   Admin_DeviceSearch_StartsWith_DeviceTypeName_eng_pos:
     input.search-request:
@@ -679,6 +705,7 @@ testdata:
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$   
      totalRecord: $IGNORE$  
+     mapStatusdata0: $IGNORE$
  
   Admin_DeviceSearch_Contains_DeviceTypeName_eng_pos:
     input.search-request:
@@ -702,7 +729,8 @@ testdata:
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$   
-     totalRecord: $IGNORE$       
+     totalRecord: $IGNORE$   
+     mapStatusdata0: $IGNORE$    
  
   Admin_DeviceSearch_Contains_SerialNo_eng_pos:
     input.search-request:
@@ -726,7 +754,8 @@ testdata:
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$   
-     totalRecord: $IGNORE$        
+     totalRecord: $IGNORE$  
+     mapStatusdata0: $IGNORE$      
      
   Admin_DeviceSearch_Contains_MapStatus_eng_pos:
     input.search-request:
@@ -750,7 +779,8 @@ testdata:
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
      ipAddressdata0: $IGNORE$   
-     totalRecord: $IGNORE$          
+     totalRecord: $IGNORE$     
+     mapStatusdata0: $IGNORE$     
      
   Admin_DeviceSearch_InvalidPageFetch_neg:
     input.search-request:
@@ -807,7 +837,8 @@ testdata:
      serialNumdata0: $IGNORE$
      macAddressdata0: $IGNORE$
      deviceSpecIddata0: $IGNORE$     
-     ipAddressdata0: $IGNORE$    
+     ipAddressdata0: $IGNORE$ 
+     mapStatusdata0: $IGNORE$   
    
   Admin_DeviceSearch_Invalid_RequestTime_neg:
     input.search-request:
@@ -822,7 +853,7 @@ testdata:
       requesttime: $TestData:invalid_requestTime$
       
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidRequestTime:errorCode$   
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$   
       messageerrors0: $errors:InvalidRequestTime:errorMessage$ 
       responsetime: $IGNORE$  
       
@@ -844,5 +875,54 @@ testdata:
       responsetime: $IGNORE$      
      
            
+  Admin_DeviceSearch_Valid_ThreeFilters_allFilterTypesEquals:
+    input.search-threeSearchValues-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: true
+      sortFieldsort0: $TestData:valid_ColumnNameAsName_zoneCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeEng$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: $TestData:valid_Device_MapStatus_Equals$
+      columnNamefilters2: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+      typefilters2: $TestData:valid_SearchTypeEquals$
+      valuefilters2: $TestData:valid_DeviceTypeName_eng_Equals$
+    output.output-1-expected-pos1-response:
+      langCodedata0: $TestData:valid_LanguageCodeEng$
+      createdDateTimedata0: $IGNORE$
+      responsetime: $IGNORE$
+      fromRecord: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
+      isActivedata0: true
+      isDeleteddata0: $IGNORE$
+      mapStatusdata0: $IGNORE$
       
+  Admin_DeviceSearch_Valid_TwoFilters_allFilterType_Equals:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: true
+      sortFieldsort0: $TestData:valid_ColumnNameAsName_zoneCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeEng$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: $TestData:valid_DeviceTypeName_eng_Equals$
+    output.output-1-expected-pos1-response:
+      langCodedata0: $TestData:valid_LanguageCodeEng$
+      createdDateTimedata0: $IGNORE$
+      responsetime: $IGNORE$
+      fromRecord: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
+      isActivedata0: true
+      isDeleteddata0: $IGNORE$  
+      mapStatusdata0: $IGNORE$    
       

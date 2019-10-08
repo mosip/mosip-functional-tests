@@ -162,7 +162,7 @@ public class RegistrationCenterSearch extends AdminTestUtil implements ITest {
 	 * @throws ParseException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void otpGenerationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+	public void searchRegCenter(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException, AdminTestException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
@@ -170,8 +170,6 @@ public class RegistrationCenterSearch extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		logger.info("************* Otp generation request ******************");
-		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAdminRegistrationCentreSearchPath();
@@ -188,55 +186,6 @@ public class RegistrationCenterSearch extends AdminTestUtil implements ITest {
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-
-		/*Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
-
-				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
-				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
-		logger.info("Test Case Nameee::" + testcaseName);
-
-		String actReqPath = FileUtil.getFilePathName(testCaseName, "output-1-actual").toString();
-
-		String exeReqPath = FileUtil.getFilePathName(testCaseName, "output-1-expected").toString();
-
-		ArrayList<String> arrActRes = new ArrayList<String>();
-
-		if (testcaseName.contains("Smoke")) {
-			arrActRes.add("$.responsetime");
-			arrActRes.add("$.response.data[0].createdDateTime");
-			arrActRes.add("$.response.data[1].createdDateTime");
-			arrActRes.add("$.response.data[2].createdDateTime");
-			arrActRes.add("$.response.data[3].createdDateTime");
-			arrActRes.add("$.response.data[4].createdDateTime");
-			arrActRes.add("$.response.data[5].createdDateTime");
-			arrActRes.add("$.response.data[6].createdDateTime");
-			arrActRes.add("$.response.data[0].id");
-			arrActRes.add("$.response.data[1].id");
-			arrActRes.add("$.response.data[2].id");
-			arrActRes.add("$.response.data[3].id");
-			arrActRes.add("$.response.data[4].id");
-			arrActRes.add("$.response.data[5].id");
-			arrActRes.add("$.response.data[6].id");
-			
-			arrActRes.add("$.response.data[0].id");
-			arrActRes.add("$.response.data[1].id");
-			arrActRes.add("$.response.data[2].id");
-			arrActRes.add("$.response.data[3].id");
-			arrActRes.add("$.response.data[4].id");
-			arrActRes.add("$.response.data[5].id");
-			arrActRes.add("$.response.data[6].id");
-		} else {
-			arrActRes.add("$.responsetime");
-		}
-
-		String actRes = kernelCmnLib.removeJsonElement(actReqPath, arrActRes);
-		String exeRes = kernelCmnLib.removeJsonElement(exeReqPath, arrActRes);
-		logger.info("My actReq::" + actRes);
-		logger.info("My exeReq::" + exeRes);
-		boolean status = kernelCmnLib.jsonComparator(actRes, exeRes);
-
-		Verify.verify(status);
-		softAssert.assertAll();*/
 
 	}
 

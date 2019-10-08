@@ -166,7 +166,7 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidSortField:errorCode$
-      messageerrors0: 'Invalid sort field names'
+      messageerrors0: 'Invalid sort field 12abcd21'
       responsetime: $IGNORE$
       
   Admin_SearchDocumnetType_Invalid_EmptyFilterType:
@@ -193,10 +193,11 @@ testdata:
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-      languageCode: $TestData:invalid_LanguageCode$
+      languageCode: $TestData:Invalid_ValueString$
     output.output-1-expected-emptyLangCode:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
       
   Admin_SearchDocumnetType_Invalid_EmptyLangCode:
     input.search-request:
@@ -486,6 +487,6 @@ testdata:
   Admin_SearchDocumentType_Valid_OnlyLangCode:
     input.search-mandatory-request:
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-2-response:
+    output.output-1-expected-pos3-response:
       langCodedata0: $input.search-mandatory-request:languageCode$
       responsetime: $IGNORE$

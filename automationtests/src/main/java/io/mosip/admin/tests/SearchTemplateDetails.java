@@ -38,7 +38,7 @@ import io.mosip.authentication.testdata.TestDataUtil;
 public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(SearchTemplateDetails.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -97,6 +97,8 @@ public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 			}
 		}
 		this.testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -117,7 +119,6 @@ public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
@@ -137,7 +138,7 @@ public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, SearchTemplateDetails.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -153,22 +154,19 @@ public class SearchTemplateDetails extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchMachines(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void searchTemplateDetails(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/v1/masterdata/templates/search";
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),
-				"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd", AUTHORIZATHION_COOKIENAME);
 		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, cookieValue);
+				0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),

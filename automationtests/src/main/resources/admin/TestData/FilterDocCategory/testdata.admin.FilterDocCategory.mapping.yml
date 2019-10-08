@@ -100,8 +100,6 @@ testdata:
       output.output-1-expected-pos6-response:
          fieldIDfilters0: $input.search-request1:columnNamefilters0$
          fieldValuefilters0: $input.search-request1:textfilters0$
-         fieldIDfilters1: $input.search-request1:columnNamefilters1$
-         fieldIDfilters1: $input.search-request1:columnNamefilters1$
    Admin_FilterDocCategory_Valid_name_filterType_unique_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -124,16 +122,25 @@ testdata:
          fieldIDfilters1: $input.search-request:columnNamefilters0$
          fieldIDfilters2: $input.search-request:columnNamefilters0$
          fieldIDfilters3: $input.search-request:columnNamefilters0$
-   Admin_FilterDocCategory_Valid_filterType_blank:
+   Admin_FilterDocCategory_Valid_DefaultFilterType:
+      input.search-request2:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
+         textfilters0: $TestData:valid_DocCatCode$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request2:columnNamefilters0$
+         fieldValuefilters0: $input.search-request2:textfilters0$
+   Admin_FilterDocCatTypMapping_inValid_filterType_blank:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: ''
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptyFilterTypeInFilterAPI:errorCode$
+         messageerrors0: $errors:EmptyFilterTypeInFilterAPI:errorMessage$
    Admin_FilterDocCategory_inValid_filterColumnName_blank:
       input.search-request:
          columnNamefilters0: ''
@@ -142,7 +149,7 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:EmptyColumnNameInFilterAPI:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:EmptyColumnNameInFilterAPI:errorMessage$
    Admin_FilterDocCategory_inValid_langCode_blank:
       input.search-request:
@@ -162,18 +169,18 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: '2018-12-1006:12:52.994Z'
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidRequestTime:errorMessage$
-   Admin_FilterDocCategory_inValid_RequestTime_UTC_future:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMP$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
-         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+#   Admin_FilterDocCategory_inValid_RequestTime_UTC_future:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+#         typefilters0: $TestData:valid_FilterTypeUnique$
+#         textfilters0: $TestData:valid_DocCatFilter_Text$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMP$
+#      output.output-1-expected-error-response:
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#         messageerrors0: $errors:InvalidRequestTime:errorMessage$
    Admin_FilterDocCategory_inValid_filterColumnName:
       input.search-request:
          columnNamefilters0: $TestData:Invalid_ValueString$
@@ -182,8 +189,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidColumnNameInFilterAPI:errorCode$
-         messageerrors0: $errors:InvalidColumnNameInFilterAPI:errorMessage$
+         errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
+         messageerrors0: $errors:InvalidSearchColumnName:errorMessage$
+         responsetime: $IGNORE$
    Admin_FilterDocCategory_inValid_filterType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$

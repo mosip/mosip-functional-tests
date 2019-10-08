@@ -1,517 +1,448 @@
 testdata:
-
-  Admin_CreateRegCenter_BothOptionalAndMandatoryField_Smoke:
-    input.createRegCenter-request:
-      addressLine2request1: $TestData:valid_addressLine2_ara$
-      addressLine2request0: $TestData:valid_addressLine2_fra$
-    output.output-1-expected-pos-response:
-      addressLine2registrationCenters1: $input.createRegCenter-request:addressLine2request1$
-      addressLine2registrationCenters0: $input.createRegCenter-request:addressLine2request0$
- 
- 
-  Admin_CreateRegCenter_ByPassingOnlyMandatoryField_Smoke:
-    input.createRegCenter-request:
-      addressLine2request1: ''
-      addressLine2request0: ''
-      addressLine3request1: ''
-      addressLine3request0: ''
-      contactPhonerequest1: ''
-      contactPhonerequest0: ''
-      contactPersonrequest1: ''
-      contactPersonrequest0: ''
-      lunchStartTimerequest1: ''
-      lunchStartTimerequest0: ''
-      lunchEndTimerequest1: ''
-      lunchEndTimerequest0: ''
-      timeZonerequest1: ''
-      timeZonerequest0: ''
-    output.output-1-expected-pos-response:
-      addressLine2registrationCenters1: $input.createRegCenter-request:addressLine2request1$
-      addressLine2registrationCenters0: $input.createRegCenter-request:addressLine2request0$
-      addressLine3registrationCenters1: $input.createRegCenter-request:addressLine3request0$
-      addressLine3registrationCenters0: $input.createRegCenter-request:addressLine3request0$
-      contactPhoneregistrationCenters1: $input.createRegCenter-request:addressLine2request0$
-      contactPhoneregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
-      contactPersonregistrationCenters1: $input.createRegCenter-request:addressLine2request0$
-      contactPersonregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
-      lunchStartTimeregistrationCenters1: $input.createRegCenter-request:addressLine2request0$
-      lunchStartTimeregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
-      timeZoneregistrationCenters1: $input.createRegCenter-request:addressLine2request0$
-      timeZoneregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
-      lunchEndTimeregistrationCenters1: $input.createRegCenter-request:addressLine2request0$
-      lunchEndTimeregistrationCenters0: $input.createRegCenter-request:addressLine2request0$
- 
- #AddressLine1 - 1   
-  Admin_CreateRegCenter_EmptyAddressLine1:
-    input.createRegCenter-request:
-      addressLine1request1: ''
-      addressLine1request0: ''
-    output.output-1-expected-neg-response:
-     responsetime: $IGNORE$ 
-     
-#AddressLine1 - 2      
-  Admin_CreateRegCenter_InvalidAddressLine1AsGreaterThanMaxLengthValue:
-    input.createRegCenter-request:
-      addressLine1request1: $TestData:invalid_addressLine_greaterThanMaxLen$
-      addressLine1request0: $TestData:invalid_addressLine_greaterThanMaxLen$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      messageerrors0: 'request[0].addressLine1: size must be between 1 and 256'
-      messageerrors1: 'request[1].addressLine1: size must be between 1 and 256'
-      
-#AddressLine2 - 2      
-  Admin_CreateRegCenter_InvalidAddressLine2AsGreaterThanMaxLengthValue:
-    input.createRegCenter-request:
-      addressLine2request1: $TestData:invalid_addressLine_greaterThanMaxLen$
-      addressLine2request0: $TestData:invalid_addressLine_greaterThanMaxLen$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      messageerrors0: 'request[0].addressLine2: size must be between 0 and 256'
-      messageerrors1: 'request[1].addressLine2: size must be between 0 and 256'
-      
-#AddressLine3 - 1      
-  Admin_CreateRegCenter_InvalidAddressLine3AsGreaterThanMaxLengthValue:
-    input.createRegCenter-request:
-      addressLine3request1: $TestData:invalid_addressLine_greaterThanMaxLen$
-      addressLine3request0: $TestData:invalid_addressLine_greaterThanMaxLen$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      messageerrors0: 'request[0].addressLine3: size must be between 0 and 256'
-      messageerrors1: 'request[1].addressLine3: size must be between 0 and 256'  
-      
-#CenterEndTime - 1      
-  Admin_CreateRegCenter_EmptyCenterEndTime:
-    input.createRegCenter-request:
-      centerEndTimerequest1: ''
-      centerEndTimerequest0: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      
-#CenterEndTime - 2      
-  Admin_CreateRegCenter_InvalidCenterEndTimeAsOtherThanTimeDataType:
-    input.createRegCenter-request:
-      centerEndTimerequest1: $TestData:invalid_centerTime$
-      centerEndTimerequest0: $TestData:invalid_centerTime$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      
-#centerStartTime - 1      
-  Admin_CreateRegCenter_EmptyCenterStartTime:
-    input.createRegCenter-request:
-      centerStartTimerequest1: ''
-      centerStartTimerequest0: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$ 
-      
-   
-#centerStartTime - 2      
-  Admin_CreateRegCenter_InvalidCenterStartTimeAsOtherThanTimeDataType:
-    input.createRegCenter-request:
-      centerStartTimerequest1: $TestData:invalid_centerTime$
-      centerStartTimerequest0: $TestData:invalid_centerTime$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$    
-      
-#centerTypeCode - 1      
-  Admin_CreateRegCenter_EmptyCenterTypeCode:
-    input.createRegCenter-request:
-      centerTypeCoderequest1: ''
-      centerTypeCoderequest0: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$
-      messageerrors3: 'request[1].centerTypeCode: size must be between 1 and 36'
-      messageerrors2: 'request[0].centerTypeCode: must not be blank'
-      messageerrors1: 'request[0].centerTypeCode: size must be between 1 and 36'
-      messageerrors0: 'request[1].centerTypeCode: must not be blank'
-      
-#centerTypeCode - 2
-
-  Admin_CreateRegCenter_InvalidCenterTypeCodeValue:
-    input.createRegCenter-request:
-      centerTypeCoderequest1: $TestData:invalid_centerTypeCode$
-      centerTypeCoderequest0: $TestData:invalid_centerTypeCode$
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$
-      messageerrors0: 'request[0].centerTypeCode: invalid centerTypeCode'
-      messageerrors1: 'request[1].centerTypeCode: invalid centerTypeCode'
-      
-      
-#contactPhone - 1      
-
-  Admin_CreateRegCenter_InvalidContactPhoneValue:
-    input.createRegCenter-request:
-      contactPhonerequest1: $TestData:invalid_contactPhone$
-      contactPhonerequest0: $TestData:invalid_contactPhone$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      messageerrors1: 'request[1].contactPhone: size must be between 0 and 16'
-      messageerrors0: 'request[0].contactPhone: size must be between 0 and 16'
-      
-      
-#contactPerson - 1      
-
-  Admin_CreateRegCenter_InvalidContactPersonValue:
-    input.createRegCenter-request:
-      contactPersonrequest1: $TestData:invalid_contactPerson$
-      contactPersonrequest0: $TestData:invalid_contactPerson$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors1: 'request[1].contactPerson: size must be between 0 and 128'
-      messageerrors0: 'request[0].contactPerson: size must be between 0 and 128'
-      
-#holidayLocationCode - 1      
-
-  Admin_CreateRegCenter_EmptyHolidayLocationCode:
-    input.createRegCenter-request:
-      holidayLocationCoderequest1: ''
-      holidayLocationCoderequest0: ''
-    output.output-1-expected-neg2-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].holidayLocationCode: size must be between 1 and 36'
-      messageerrors2: 'request[1].holidayLocationCode: must not be blank'
-      messageerrors1: 'request[0].holidayLocationCode: size must be between 1 and 36'
-      messageerrors0: 'request[0].holidayLocationCode: must not be blank'
-      
-
-#holidayLocationCode - 2      
-
-  Admin_CreateRegCenter_InvalidHolidayLocationCodeValue:
-    input.createRegCenter-request:
-      holidayLocationCoderequest1: $TestData:invalid_holidayLocationCode$
-      holidayLocationCoderequest0: $TestData:invalid_holidayLocationCode$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].holidayLocationCode: invalid holiday location code'
-      messageerrors2: 'request[0].holidayLocationCode: invalid holiday location code' 
-      
-      
-#langCode - 1      
-
-  Admin_CreateRegCenter_InvalidLangCode:
-    input.createRegCenter-request:
-      langCoderequest1: $TestData:invalid_langCode$
-      langCoderequest0: $TestData:invalid_langCode$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors1: 'request[1].langCode: Language code not supported'
-      messageerrors0: 'request[0].langCode: Language code not supported'
- 
-      
-#langCode - 2      
-
-  Admin_CreateRegCenter_EmptyInvalidLangCode:
-    input.createRegCenter-request:
-      langCoderequest1: ''
-      langCoderequest0: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors1: 'request[1].langCode: Language code not supported'
-      messageerrors0: 'request[0].langCode: Language code not supported'
-      
-
-#latitude - 1      
-
-  Admin_CreateRegCenter_EmptyInvalidlatitude:
-    input.createRegCenter-request:
-      latituderequest1: ''
-      latituderequest0: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].latitude: size must be between 1 and 32'
-      messageerrors2: 'request[0].latitude: must not be blank'                      
-      messageerrors1: 'request[1].latitude: must not be blank'
-      messageerrors0: 'request[0].latitude: size must be between 1 and 32'
-      
-      
-#latitude - 2      
-
-  Admin_CreateRegCenter_Invalidlatitude:
-    input.createRegCenter-request:
-      latituderequest1: $TestData:invalid_LatAndLong$
-      latituderequest0: $TestData:invalid_LatAndLong$
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidLatAndLogCode:errorMessage$
-      errorCodeerrors0: $errors:InvalidLatAndLogCode:errorCode$
-      
-#longitude - 1      
-
-  Admin_CreateRegCenter_EmptyInvalidlongitudeAs:
-    input.createRegCenter-request:
-      longituderequest1: ''
-      longituderequest0: ''
-    output.output-1-expected-neg2-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].longitude: size must be between 1 and 32'
-      messageerrors2: 'request[0].longitude: must not be blank'                      
-      messageerrors1: 'request[1].longitude: must not be blank'
-      messageerrors0: 'request[0].longitude: size must be between 1 and 32' 
-      
-      
-#longitude - 2      
-
-  Admin_CreateRegCenter_Invalidlongitude:
-    input.createRegCenter-request:
-      longituderequest1: $TestData:invalid_LatAndLong$
-      longituderequest0: $TestData:invalid_LatAndLong$
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidLatAndLogCode:errorMessage$
-      errorCodeerrors0: $errors:InvalidLatAndLogCode:errorCode$ 
-      
-#locationCode - 1      
-
-  Admin_CreateRegCenter_EmptyInvalidlocationCode:
-    input.createRegCenter-request:
-      locationCoderequest1: ''
-      locationCoderequest0: ''
-    output.output-1-expected-neg2-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].locationCode: size must be between 1 and 36'
-      messageerrors2: 'request[1].locationCode: must not be blank'
-      messageerrors1: 'request[0].locationCode: size must be between 1 and 36'
-      messageerrors0: 'request[0].locationCode: must not be blank' 
-      
-      
-#locationCode - 2     
-
-  Admin_CreateRegCenter_InvalidlocationCode:
-    input.createRegCenter-request:
-      locationCoderequest1: $TestData:invalid_locationCode$
-      locationCoderequest0: $TestData:invalid_locationCode$
-    output.output-1-expected-neg2-response:
-      responsetime: $IGNORE$      
-      messageerrors3: 'request[1].locationCode: size must be between 1 and 36'
-      messageerrors2: 'request[1].locationCode: must not be blank'
-      messageerrors1: 'request[0].locationCode: size must be between 1 and 36'
-      messageerrors0: 'request[0].locationCode: must not be blank'
-      
-      
-#lunchStartTimeGreaterThanlunchEndTime - 1     
-
-  Admin_CreateRegCenter_InvalidAsLunchStartTimeAsGreaterThanLunchEndTime:
-    input.createRegCenter-request:
-      lunchStartTimerequest1: '20:00:00'
-      lunchStartTimerequest0: '20:00:00'
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
-      errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$ 
-      
-      
-#CenterStartTimeGreaterThanCenterEndTime - 1     
-
-  Admin_CreateRegCenter_InvalidAsCenterStartTimeGreaterThanCenterEndTime:
-    input.createRegCenter-request:
-      centerStartTimerequest1: '20:00:00'
-      centerStartTimerequest0: '20:00:00'
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorMessage$
-      errorCodeerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorCode$  
-      
-
-#LunchStartTimeGreaterThanLunchEndTime - 1     
-
-  Admin_CreateRegCenter_InvalidAsLunchStartTimeGreaterThanLunchEndTime:
-    input.createRegCenter-request:
-      lunchStartTimerequest1: '20:00:00'
-      lunchStartTimerequest0: '20:00:00'
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
-      errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
-      
-      
-#duplicateLangCodeValue - 1     
-
-  Admin_CreateRegCenter_InvalidLangCodeAsDuplicateValue:
-    input.createRegCenter-request:
-      langCoderequest1: $TestData:invalid_duplicateLangCode$
-      langCoderequest0: $TestData:invalid_duplicateLangCode$
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$      
-      messageerrors0: $errors:InvalidLangCodeAsDuplicateValue:errorMessage$
-      errorCodeerrors0: $errors:InvalidLangCodeAsDuplicateValue:errorCode$ 
-      
-
-#Requesttime - 1   
-  Admin_CreateRegCenter_EmptyInvalidrequesttimeAs:
-    input.createRegCenter-request:
-      requesttime: ''
-    output.output-1-expected-neg-response:
-     responsetime: $IGNORE$    
-     
-     
-#Requesttime - 2   
-  Admin_CreateRegCenter_Invalidrequesttime:
-    input.createRegCenter-request:
-      requesttime: $TestData:invalid_requesttime$
-    output.output-1-expected-neg-response:
-     responsetime: $IGNORE$  
-     
-     
-#Version - 1   
-  Admin_CreateRegCenter_EmptyInvalidVersion:
-    input.createRegCenter-request:
-      version: ''
-    output.output-1-expected-neg3-response:
-     responsetime: $IGNORE$   
-     
-     
-#Version - 2   
-  Admin_CreateRegCenter_InvalidVersion:
-    input.createRegCenter-request:
-      version: $TestData:invalid_version$
-    output.output-1-expected-neg3-response:
-     responsetime: $IGNORE$
-     
-     
-#Id - 1   
-  Admin_CreateRegCenter_EmptyInvalidId:
-    input.createRegCenter-request:
-      id: ''
-    output.output-1-expected-neg3-response:
-     responsetime: $IGNORE$   
-     
-     
-#Id - 2   
-  Admin_CreateRegCenter_InvalidId:
-    input.createRegCenter-request:
-      id: $TestData:invalid_id$
-    output.output-1-expected-neg3-response:
-     responsetime: $IGNORE$
-     
-     
-#WorkingHours - 1     
-  Admin_CreateRegCenter_EmptyInvalidWorkingHours:
-    input.createRegCenter-request:
-      workingHoursrequest0: ''
-      workingHoursrequest1: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$      
-      messageerrors0: 'request[1].workingHours: size must be between 1 and 32'
-      messageerrors1: 'request[1].workingHours: must not be blank'
-      messageerrors2: 'request[0].workingHours: must not be blank'
-      messageerrors3: 'request[0].workingHours: size must be between 1 and 32' 
-      
-      
-#WorkingHours - 2      
-      
-  Admin_CreateRegCenter_InvalidWorkingHours:
-    input.createRegCenter-request:
-      workingHoursrequest1: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
-      workingHoursrequest0: $TestData:invalid_workingHoursAsGreaterThanMaxLength$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors0: 'request[0].workingHours: size must be between 1 and 32'
-      messageerrors1: 'request[1].workingHours: size must be between 1 and 32'          
-          
-                    
- #TimeZone - 1      
-      
-  Admin_CreateRegCenter_InvalidTimeZoneAsGreaterThanMaxLengthValue:
-    input.createRegCenter-request:
-      timeZonerequest1: $TestData:invalid_timeZoneGrtThanMaxLength$
-      timeZonerequest0: $TestData:invalid_timeZoneGrtThanMaxLength$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$      
-      messageerrors0: 'request[0].timeZone: size must be between 0 and 64'
-      messageerrors1: 'request[1].timeZone: size must be between 0 and 64'      
-      
-      
-#PerKioskProcessTime - 1      
-      
-  Admin_CreateRegCenter_InvalidPerKioskProcessTimeAsOtherThanTimeDataTypeValue:
-    input.createRegCenter-request:
-      perKioskProcessTimerequest1: $TestData:invalid_perKioskProcessTime$
-      perKioskProcessTimerequest0: $TestData:invalid_perKioskProcessTime$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      
-      
-#PerKioskProcessTime - 2      
-      
-  Admin_CreateRegCenter_EmptyInvalidPerKioskProcessTime:
-    input.createRegCenter-request:
-      perKioskProcessTimerequest1: ''
-      perKioskProcessTimerequest0: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
-      
-      
-#Name - 1      
-      
-  Admin_CreateRegCenter_EmptyInvalidName:
-    input.createRegCenter-request:
-      namerequest1: ''
-      namerequest0: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$     
-      messageerrors0: 'request[0].name: must not be blank'
-      messageerrors1: 'request[1].name: size must be between 1 and 128'
-      messageerrors2: 'request[1].name: must not be blank'
-      messageerrors3: 'request[0].name: size must be between 1 and 128'
-      
-      
-#Name - 2      
-      
-  Admin_CreateRegCenter_InvalidNameAsGrtThanMaxValue:
-    input.createRegCenter-request:
-      namerequest1: $TestData:invalid_nameAsGreaterThanMaxLength$
-      namerequest0: $TestData:invalid_nameAsGreaterThanMaxLength$
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$     
-      messageerrors1: 'request[1].name: size must be between 1 and 128'
-      messageerrors0: 'request[0].name: size must be between 1 and 128'  
-      
-      
-#Longitude - 2      
-      
-  Admin_CreateRegCenter_InvalidLongitudeAsLessThanFourAfterDecimalValue:
-    input.createRegCenter-request:
-      longituderequest1: '12.23'
-      longituderequest0: '12.23'
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$     
-      errorCodeerrors0: 'KER-MSD-307'
-      messageerrors0: 'Latitude or Longitude must have minimum 4 digits after decimal'
-      
-#Longitude - 3      
-      
-  Admin_CreateRegCenter_InvalidLongitudeAsGrtThanMaxLengthValue:
-    input.createRegCenter-request:
-      longituderequest1: $TestData:invalid_LatAndLongGreaterThanMax$
-      longituderequest0: invalid_LatAndLongGreaterThanMax$
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$     
-      errorCodeerrors0: 'KER-MSD-999'
-      messageerrors0: 'request[0].longitude: size must be between 1 and 32'                                             
-                                                   
-                                               
-#Latitude - 2      
-      
-  Admin_CreateRegCenter_InvalidLatitudeAsLessThanFourAfterDecimalValue:
-    input.createRegCenter-request:
-      latituderequest1: '12.23'
-      latituderequest0: '12.23'
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$     
-      errorCodeerrors0: 'KER-MSD-307'
-      messageerrors0: 'Latitude or Longitude must have minimum 4 digits after decimal'
-      
-      
-#Latitude - 3      
-      
-  Admin_CreateRegCenter_InvalidLatitudeAsGrtThanMaxLengthValue:
-    input.createRegCenter-request:
-      latituderequest1: $TestData:invalid_LatAndLongGreaterThanMax$
-      latituderequest0: $TestData:invalid_LatAndLongGreaterThanMax$
-    output.output-1-expected-neg3-response:
-      responsetime: $IGNORE$     
-      errorCodeerrors0: 'KER-MSD-999'
-      messageerrors0: 'request[0].latitude: size must be between 1 and 32'
-      
-      
-            
-                                                                                              
+   Admin_CreateRegCenter_Invalid_HolidayLocationCode:
+      input.createRegCenter-request:
+         holidayLocationCode: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:dbFkeyErrorCode$
+         messageerrors0: $errors:InvalidHolidayLocationCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_HolidayLocationCode_blank:
+      input.createRegCenter-request:
+         holidayLocationCode: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:BlankHolidayLocationCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_with_scndry_Lang_without_CentWithPrmryLang:
+      input.createRegCenter-request:
+         langCode: $TestData:valid_langCode_ara$
+         reid: anyString
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode$
+         messageerrors0: Center ID anyString does not exist for primary language
+   Admin_CreateRegCenter_Invalid_with_scndry_Lang_with_blankId:
+      input.createRegCenter-request:
+         langCode: $TestData:valid_langCode_ara$
+         reid: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: invalid id for secondary language
+   Admin_CreateRegCenter_Invalid_Lang_otherThan_config_lang:
+      input.createRegCenter-request:
+         langCode: $TestData:valid_langCode_fra$
+         reid: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CreateCenterWithOtherThanConfigLang:errorCode$
+         messageerrors0: $errors:CreateCenterWithOtherThanConfigLang:errorMessage$
+   Admin_CreateRegCenter_Invalid_LangCode_blank:
+      input.createRegCenter-request:
+         langCode: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+   Admin_CreateRegCenter_Invalid_LangCode:
+      input.createRegCenter-request:
+         langCode: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode1$
+         messageerrors0: Received language code fbheafg is not a configured language
+   Admin_CreateRegCenter_Invalid_latitude_blank:
+      input.createRegCenter-request:
+         latitude: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidLatitude:errorMessage1$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_latitude:
+      input.createRegCenter-request:
+         latitude: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidLatitude:errorMessage2$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_Latitude_LessThan_FourDigit_AfterDecimal:
+      input.createRegCenter-request:
+         latitude: '12.23'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLatitude:errorCode$
+         messageerrors0: $errors:InvalidLatitude:errorMessage2$
+   Admin_CreateRegCenter_Invalid_Latitude_GrtThan_MaxLength:
+      input.createRegCenter-request:
+         latitude: '23.232141341423445436433464363631'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLatitude:errorMessage0$
+   Admin_CreateRegCenter_Invalid_longitude_blank:
+      input.createRegCenter-request:
+         longitude: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLongitude:errorMessage1$
+   Admin_CreateRegCenter_Invalid_longitude:
+      input.createRegCenter-request:
+         longitude: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLatitude:errorCode$
+         messageerrors0: $errors:InvalidLongitude:errorMessage2$
+   Admin_CreateRegCenter_Invalid_Longitude_LessThan_FourDigit_AfterDecimal:
+      input.createRegCenter-request:
+         longitude: '12.23'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLatitude:errorCode$
+         messageerrors0: $errors:InvalidLatitude:errorMessage2$
+   Admin_CreateRegCenter_Invalid_Longitude_GrtThan_MaxLength:
+      input.createRegCenter-request:
+         longitude: '23.232141341423445436433464363631'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLongitude:errorMessage0$
+   Admin_CreateRegCenter_Invalid_locationCode_blank:
+      input.createRegCenter-request:
+         locationCode: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLocationCode:errorMessage1$
+   Admin_CreateRegCenter_Invalid_locationCode:
+      input.createRegCenter-request:
+         locationCode: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidLocationCode:errorMessage2$
+   Admin_CreateRegCenter_Invalid_LunchStartTime:
+      input.createRegCenter-request:
+         lunchStartTime: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : lunchStartTime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_LunchStartTime_GreaterThan_LunchEndTime:
+      input.createRegCenter-request:
+         lunchStartTime: '20:00:00'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+   Admin_CreateRegCenter_Invalid_LunchStartTime_lessThan_CenterStartTime:
+      input.createRegCenter-request:
+         lunchStartTime: '20:00:00'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+   Admin_CreateRegCenter_Invalid_LunchEndTime_GreaterThan_CenterEndTime:
+      input.createRegCenter-request:
+         lunchEndTime: '20:00:00'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+   Admin_CreateRegCenter_Invalid_LunchEndTime:
+      input.createRegCenter-request:
+         lunchEndTime: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : lunchEndTime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_CenterStartTime_GreaterThan_CenterEndTime:
+      input.createRegCenter-request:
+         centerStartTime: '20:00:00'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidCenterStartTimeGreaterThanCenterEndTime:errorCode$
+   Admin_CreateRegCenter_Invalid_CenterStartTime:
+      input.createRegCenter-request:
+         centerStartTime: $TestData:invalid_centerTime$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : centerStartTime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_CenterEndTime:
+      input.createRegCenter-request:
+         centerEndTime: $TestData:invalid_centerTime$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : centerEndTime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_requesttime_blank:
+      input.createRegCenter-request:
+         requesttime: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : requesttime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_requesttime:
+      input.createRegCenter-request:
+         requesttime: '2019-7-3T05:22:35.845'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'Invalid Format in field : requesttime'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#   Admin_CreateRegCenter_Invalid_Version_blank:
+#      input.createRegCenter-request:
+#         version: ''
+#      output.output-1-expected-neg-response:
+#         Rresponsetime: $IGNORE$
+#         messageerrors0: $errors:InValidRequestVersion:errorMessage1$
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#   Admin_CreateRegCenter_Invalid_Version:
+#      input.createRegCenter-request:
+#         version: $TestData:Invalid_ValueString$
+#      output.output-1-expected-neg-response:
+#         Rresponsetime: $IGNORE$
+#         messageerrors0: $errors:InValidRequestVersion:errorMessage$
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#   Admin_CreateRegCenter_Invalid_Id:
+#      input.createRegCenter-request:
+#         reid: $TestData:Invalid_ValueString$
+#      output.output-1-expected-neg-response:
+#         Rresponsetime: $IGNORE$
+#         messageerrors0: $errors:InValidRequestId:errorMessage$
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_WorkingHours_blank:
+      input.createRegCenter-request:
+         workingHours: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidWorkingHours:errorMessage1$
+   Admin_CreateRegCenter_Invalid_WorkingHours:
+      input.createRegCenter-request:
+         workingHours: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTimeHHMMSS:errorMessage$
+   Admin_CreateRegCenter_Invalid_TimeZone_GreaterThan_MaxLengthValue:
+      input.createRegCenter-request:
+         timeZone: $TestData:invalid_timeZoneGrtThanMaxLength$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTimezone:errorMessage$
+   Admin_CreateRegCenter_Invalid_PerKioskProcessTime:
+      input.createRegCenter-request:
+         perKioskProcessTime: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : perKioskProcessTime'
+   Admin_CreateRegCenter_Invalid_PerKioskProcessTime_blank:
+      input.createRegCenter-request:
+         perKioskProcessTime: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : perKioskProcessTime'
+   Admin_CreateRegCenter_Invalid_Name_blank:
+      input.createRegCenter-request:
+         name: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidName:errorMessage0$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_Name_GrtThanMaxValue:
+      input.createRegCenter-request:
+         name: $TestData:invalid_nameAsGreaterThanMaxLength$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidName:errorMessage1$
+   Admin_CreateRegCenter_Invalid_CenterTypeCode:
+      input.createRegCenter-request:
+         centerTypeCode: $TestData:invalid_centerTypeCode$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidCenterTypeCode:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:dbFkeyErrorCode$
+   Admin_CreateRegCenter_Invalid_CenterTypeCode_grtrThan_maxLength:
+      input.createRegCenter-request:
+         centerTypeCode: $TestData:invalid_centerTypeCodeAsGreaterThanMaxLength$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidCenterTypeCodeLength:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_CenterTypeCode_blank:
+      input.createRegCenter-request:
+         centerTypeCode: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:BlankCenterTypCode:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_ContactPhone_aboveMaxLength:
+      input.createRegCenter-request:
+         contactPhone: $TestData:invalid_contactPhone$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidContactPhone:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_ContactPerson_aboveMaxLength:
+      input.createRegCenter-request:
+         contactPerson: $TestData:invalid_contactPerson$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidContactPerson:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_AddressLine3_GrtrThan_MaxLength:
+      input.createRegCenter-request:
+         addressLine3: $TestData:invalid_addressLine_greaterThanMaxLen$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidAddressLine:errorMessage3$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_AddressLine1_GrtrThan_MaxLength:
+      input.createRegCenter-request:
+         addressLine1: $TestData:invalid_addressLine_greaterThanMaxLen$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:InvalidAddressLine:errorMessage1$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_AddressLine1_blank:
+      input.createRegCenter-request:
+         addressLine1: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: $errors:BlankAddressLine:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+   Admin_CreateRegCenter_Invalid_AddressLine2_GrtrThan_MaxLength:
+      input.createRegCenter-request:
+         addressLine2: $TestData:invalid_addressLine_greaterThanMaxLen$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidAddressLine:errorMessage2$
+   Admin_CreateRegCenter_Invalid_zoneCode:
+      input.createRegCenter-request:
+         zoneCode: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         messageerrors0: $errors:InValidZoneCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_zoneCode_blank:
+      input.createRegCenter-request:
+         zoneCode: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         messageerrors0: $errors:InValidZoneCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_zoneCode_nonLeaf_Under_loggedAdminUser:
+      input.createRegCenter-request:
+         zoneCode: $TestData:valid_nonLeafZoneOfloggedAdmin$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         messageerrors0: $errors:InValidZoneCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_zoneCode_anyNonLeaf:
+      input.createRegCenter-request:
+         zoneCode: $TestData:valid_nonLeafZone$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         messageerrors0: $errors:InValidZoneCode:errorMessage$
+   Admin_CreateRegCenter_Invalid_isActive_blank:
+      input.createRegCenter-request:
+         isActive: ''
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+   Admin_CreateRegCenter_Invalid_isActive:
+      input.createRegCenter-request:
+         isActive: $TestData:Invalid_ValueString$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : isActive'
+   Admin_CreateRegCenter_Invalid_missing_mandatory_field:
+      input.createRegCenter-request:
+         name: $REMOVE$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidName:errorMessage0$
+   Admin_CreateRegCenter_Invalid_unAuthorised_role:
+      input.createRegCenter-request:
+         isActive: true
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: $errors:NoAccessForService:errorCode$
+         messageerrors0: $errors:NoAccessForService:errorMessage$
+   Admin_CreateRegCenter_Optional_TimeZone_blank:
+      input.createRegCenter-request:
+         timeZone: ''
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RtimeZone: $IGNORE$
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_Optional_ContactPhone_blank:
+      input.createRegCenter-request:
+         contactPhone: ''
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RcontactPhone: ''
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_Optional_ContactPerson_blank:
+      input.createRegCenter-request:
+         contactPerson: ''
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RcontactPerson: ''
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_Optional_AddressLine3_blank:
+      input.createRegCenter-request:
+         addressLine3: ''
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RaddressLine3: ''
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_Optional_AddressLine2_blank:
+      input.createRegCenter-request:
+         addressLine2: ''
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RaddressLine2: ''
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_Removing_all_Optional_fields:
+      input.createRegCenter-request:
+         timeZone: $REMOVE$
+         contactPhone: $REMOVE$
+         contactPerson: $REMOVE$
+         lunchStartTime: $REMOVE$
+         lunchEndTime: $REMOVE$
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         RtimeZone: $REMOVE$
+         RcontactPhone: $REMOVE$
+         RcontactPerson: $REMOVE$
+         RlunchStartTime: $REMOVE$
+         RlunchEndTime: $REMOVE$
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_allValid_smoke:
+      input.createRegCenter-request:
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         Rid: $IGNORE$
+   Admin_CreateRegCenter_allValid_Secondary_language_isActive_true:
+      input.createRegCenter-request:
+         requesttime: $TIMESTAMPZ$
+         langCode: $TestData:valid_langCode_ara$
+         reid: Tcntr
+      output.output-1-expected-pos-response:
+         Rresponsetime: $IGNORE$
+         Rid: $IGNORE$
+         RisActive: true
+         RlangCode: ara

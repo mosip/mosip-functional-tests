@@ -1,50 +1,36 @@
 {
-   "id": "string",
-   "version": "string",
-   "responsetime": "2019-08-09T09:37:23.064Z",
-   "metadata": null,
-   "response":    {
-      "fromRecord": 1,
-      "toRecord": 3,
-      "totalRecord": 3,
-      "data":       [
-                  {
-            "code": "OTH",
-            "genderName": "Others",
-            "langCode": "eng",
-            "isActive": false,
-            "createdBy": "superadmin",
-            "createdDateTime": "2019-07-30T06:18:49.899Z",
-            "updatedBy": null,
-            "updatedDateTime": null,
-            "isDeleted": null,
-            "deletedDateTime": null
-         },
-                  {
-            "code": "MLE",
-            "genderName": "Male",
-            "langCode": "eng",
-            "isActive": true,
-            "createdBy": "superadmin",
-            "createdDateTime": "2019-07-30T06:18:49.899Z",
-            "updatedBy": null,
-            "updatedDateTime": null,
-            "isDeleted": null,
-            "deletedDateTime": null
-         },
-                  {
-            "code": "FLE",
-            "genderName": "Female",
-            "langCode": "eng",
-            "isActive": true,
-            "createdBy": "superadmin",
-            "createdDateTime": "2019-07-30T06:18:49.899Z",
-            "updatedBy": null,
-            "updatedDateTime": null,
-            "isDeleted": null,
-            "deletedDateTime": null
-         }
-      ]
-   },
-   "errors": []
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 3,
+    "totalRecord": 3,
+    "data": [
+      {
+        "code": "FLE",
+        "genderName": "Femelle",
+        "langCode": "fra",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$"
+      },
+      {
+        "code": "MLE",
+        "genderName": "Mâle",
+        "langCode": "fra",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$"
+      },
+      {
+        "code": "OTH",
+        "genderName": "Dautres",
+        "langCode": "fra",
+        "isActive": false,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$"
+      }
+    ]
+  }
 }

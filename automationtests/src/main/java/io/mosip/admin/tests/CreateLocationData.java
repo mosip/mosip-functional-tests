@@ -3,7 +3,6 @@ package io.mosip.admin.tests;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,13 +29,12 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
-import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateLocationData extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateLocationData.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -96,6 +94,8 @@ public class CreateLocationData extends AdminTestUtil implements ITest {
 			}
 		}
 		this.testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -163,8 +163,7 @@ public class CreateLocationData extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateLocationDataPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, cookieValue);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
@@ -174,19 +173,19 @@ public class CreateLocationData extends AdminTestUtil implements ITest {
 		
 		if(testcaseName.toLowerCase().contains("db")) {
 			String queryString="Delete from master.location l where l.code='MSK'";
-			if(!db.deleteQuery(queryString, "masterdata"))
+			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 		}
 		if(testcaseName.toLowerCase().contains("codelength36")) {
 			String key36="abcdefghijklmnopqrstuvwxyzabcdefghij";
 			String queryString="Delete from master.location l where l.code='"+key36+"'";
-			if(!db.deleteQuery(queryString, "masterdata"))
+			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 		}
 		if(testcaseName.toLowerCase().contains("codelength35")) {
 			String key35="abcdefghijklmnopqrstuvwxyzabcdefghi";
 			String queryString="Delete from master.location l where l.code='"+key35+"'";
-			if(!db.deleteQuery(queryString, "masterdata"))
+			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 		}
 	}

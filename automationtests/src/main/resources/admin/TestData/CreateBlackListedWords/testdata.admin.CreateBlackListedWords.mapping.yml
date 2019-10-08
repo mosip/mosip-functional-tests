@@ -1,141 +1,137 @@
 testdata:
-  Admin_CreateBlackListedWords_Valid_Smoke_DB:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: 'Creating data for testing purpose' 
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Valid_OnlyMandatoryFields_DB:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: '' 
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Valid_WordLength128:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: 'Creating data for testing purpose' 
-      wordreq: $TestData:wordLength128$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Valid_WordLength127:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: 'Creating data for testing purpose' 
-      wordreq: $TestData:wordLength127$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Invalid_BlacklistedWordsLength129:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: 'Creating data for testing purpose' 
-      wordreq: $TestData:wordLength129$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: 'request.word: size must be between 1 and 128'
-      
-      
-  Admin_CreateBlackListedWords_Valid_DescriptionLength256_DB:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description256$ 
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Valid_DescriptionLength255_DB:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description255$ 
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      wordRes: $input.search-request:wordreq$
-      langCodeRes: $input.search-request:langCodereq$
-      
-  Admin_CreateBlackListedWords_Invalid_DescriptionLength257:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description257$
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: 'request.description: size must be between 1 and 256'
-      
-  Admin_CreateBlackListedWords_InvalidLangCode:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description256$
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:Invalid_ValueString$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errors: $IGNORE$
-      
-  Admin_CreateBlackListedWords_Invalid_EmptyLangCode:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description256$
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: ''
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errors: $IGNORE$
-      
-  Admin_CreateBlackListedWords_Invalid_EmptyWord:
-    input.search-request:
-      isActive: $TestData:valid_isActive_true$
-      description: $TestData:Description256$
-      wordreq: ''
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errors: $IGNORE$
-      
-  Admin_CreateBlackListedWords_Invalid_EmptyIsActive:
-    input.search-request:
-      isActive: ''
-      description: $TestData:Description256$
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CreateEmptyIsActive:errorCode$
-      messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
-      
-  Admin_CreateBlackListedWords_InvalidIsActive:
-    input.search-request:
-      isActive: $TestData:Invalid_ValueString$
-      description: $TestData:Description256$
-      wordreq: $TestData:CreateBlackListedWord$
-      langCodereq: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CreateEmptyIsActive:errorCode$
-      messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+   Admin_CreateBlackListedWords_Valid_Smoke:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: Creating data for testing purpose
+         wordreq: Asshole
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: asshole
+         langCodeRes: $input.search-request:langCodereq$
+   Admin_CreateBlackListedWords_Valid_OnlyMandatoryFields_DB:
+      input.search-request1:
+         isActive: $TestData:valid_isActive_true$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request1:wordreq$
+         langCodeRes: $input.search-request1:langCodereq$
+   Admin_CreateBlackListedWords_Valid_WordLength128:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: Creating data for testing purpose
+         wordreq: $TestData:wordLength128$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+   Admin_UpdateBlackListedWords_inValid_descriptionBlank:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: ''
+         wordreq: Asshole
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: 'request.description: size must be between 1 and 256'
+   Admin_CreateBlackListedWords_Valid_WordLength127:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: Creating data for testing purpose
+         wordreq: $TestData:wordLength127$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+   Admin_CreateBlackListedWords_Invalid_BlacklistedWordsLength129:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: Creating data for testing purpose
+         wordreq: $TestData:wordLength129$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: 'request.word: size must be between 1 and 128'
+   Admin_CreateBlackListedWords_Valid_DescriptionLength256_DB:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description256$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+   Admin_CreateBlackListedWords_Valid_DescriptionLength255_DB:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description255$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+   Admin_CreateBlackListedWords_Invalid_DescriptionLength257:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description257$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: 'request.description: size must be between 1 and 256'
+   Admin_CreateBlackListedWords_InvalidLangCode:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description256$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:Invalid_ValueString$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errors: $IGNORE$
+   Admin_CreateBlackListedWords_Invalid_EmptyLangCode:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description256$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errors: $IGNORE$
+   Admin_CreateBlackListedWords_Invalid_EmptyWord:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $TestData:Description256$
+         wordreq: ''
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errors: $IGNORE$
+   Admin_CreateBlackListedWords_Invalid_EmptyIsActive:
+      input.search-request:
+         isActive: ''
+         description: $TestData:Description256$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:CreateEmptyIsActive:errorCode$
+         messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+   Admin_CreateBlackListedWords_InvalidIsActive:
+      input.search-request:
+         isActive: $TestData:Invalid_ValueString$
+         description: $TestData:Description256$
+         wordreq: $TestData:CreateBlackListedWord$
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:CreateEmptyIsActive:errorCode$
+         messageerrors0: 'Invalid Format in field : isActive'

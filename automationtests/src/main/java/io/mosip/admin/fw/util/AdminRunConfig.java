@@ -58,10 +58,17 @@ public class AdminRunConfig extends RunConfig {
 	private String filterMachineSpec;
 	private String unmapDocCategoryType;
 	private String searchLocationPath;
+	private String setZoneHierarchy;
+	private String setGetZoneNameBasedOnUserIDAndLangCode;
+	private String setGetLeafZones;
 	private String filterLocationPath;
 	private String createBlackListedWordsPath;
 	private String createLocationDataPath;
-
+	private String updateBlackListedWordsPath;
+	private String updateLocationData;
+	private String decommisionMachinePath;
+	private String decommisionDevicePath;
+	private String decommisionRegCenterPath;
 
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
@@ -106,11 +113,18 @@ public class AdminRunConfig extends RunConfig {
 		setSearchMachineSpec(AdminTestUtil.getPropertyValue("searchMachineSpec"));
 		setFilterMachineSpec(AdminTestUtil.getPropertyValue("filterMachineSpec"));
 		setUnmapDocCategoryType(AdminTestUtil.getPropertyValue("unmapDocCategoryType"));
-		
 		setSearchLocationDataPath(AdminTestUtil.getPropertyValue("searchLocationDataPath"));
+		setSetZoneHierarchy(AdminTestUtil.getPropertyValue("getZoneHierarchy"));
+		setSetGetZoneNameBasedOnUserIDAndLangCode(AdminTestUtil.getPropertyValue("getZoneNameBasedOnUserIDAndLangCode"));
+		setSetGetLeafZones(AdminTestUtil.getPropertyValue("getLeafZones"));
 		setFilterLocationPath(AdminTestUtil.getPropertyValue("filterLocationDataPath"));
 		setCreateBlackListedWordsPath(AdminTestUtil.getPropertyValue("createBlackListedWordsPath"));
 		setCreateLocationDataPath(AdminTestUtil.getPropertyValue("createLocationDataPath"));
+		setUpdateBlackListedWordsPath(AdminTestUtil.getPropertyValue("updateBlackListedWordsPath"));
+		setUpdateLocationData(AdminTestUtil.getPropertyValue("updateLocationData"));
+		setDecommisionMachinePath(AdminTestUtil.getPropertyValue("decommisionMachinePath"));
+		setDecommisionDevicePath(AdminTestUtil.getPropertyValue("decommisionDevicePath"));
+		setDecommisionRegCenterPath(AdminTestUtil.getPropertyValue("decommisionRegCenterPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -374,6 +388,27 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public void setCreateLocationDataPath(String createLocationDataPath) {
 		this.createLocationDataPath = createLocationDataPath;
+	}
+	@Override
+	public String getUpdateBlackListedWordsPath() {
+		return updateBlackListedWordsPath;
+	}
+	public void setUpdateBlackListedWordsPath(String updateBlackListedWordsPath) {
+		this.updateBlackListedWordsPath = updateBlackListedWordsPath;
+	}
+	@Override
+	public String getUpdateLocationData() {
+		return updateLocationData;
+	}
+	public void setUpdateLocationData(String updateLocationData) {
+		this.updateLocationData = updateLocationData;
+	}
+	@Override
+	public String getDecommisionMachinePath() {
+		return decommisionMachinePath;
+	}
+	public void setDecommisionMachinePath(String decommisionMachinePath) {
+		this.decommisionMachinePath = decommisionMachinePath;
 	}
 	@Override
 	public String getEndPointUrl() {
@@ -1000,12 +1035,53 @@ public class AdminRunConfig extends RunConfig {
 		this.filterMachineSpec = filterMachineSpec;
 	}
 	@Override
+	public String getSetZoneHierarchy() {
+		return setZoneHierarchy;
+	}
+
+	public void setSetZoneHierarchy(String setZoneHierarchy) {
+		this.setZoneHierarchy = setZoneHierarchy;
+	}
+	@Override
+	public String getSetGetZoneNameBasedOnUserIDAndLangCode() {
+		return setGetZoneNameBasedOnUserIDAndLangCode;
+	}
+
+	public void setSetGetZoneNameBasedOnUserIDAndLangCode(String setGetZoneNameBasedOnUserIDAndLangCode) {
+		this.setGetZoneNameBasedOnUserIDAndLangCode = setGetZoneNameBasedOnUserIDAndLangCode;
+	}
+	@Override
+	public String getSetGetLeafZones() {
+		return setGetLeafZones;
+	}
+
+	public void setSetGetLeafZones(String setGetLeafZones) {
+		this.setGetLeafZones = setGetLeafZones;
+	}
+
+
 	public String getUnmapDocCategoryType() {
 		return unmapDocCategoryType;
 	}
 
 	public void setUnmapDocCategoryType(String unmapDocCategoryType) {
 		this.unmapDocCategoryType = unmapDocCategoryType;
+	}
+	@Override
+	public String getDecommisionDevicePath() {
+		return decommisionDevicePath;
+	}
+
+	public void setDecommisionDevicePath(String decommisionDevicePath) {
+		this.decommisionDevicePath = decommisionDevicePath;
+	}
+	@Override
+	public String getDecommisionRegCenterPath() {
+		return decommisionRegCenterPath;
+	}
+
+	public void setDecommisionRegCenterPath(String decommisionRegCenterPath) {
+		this.decommisionRegCenterPath = decommisionRegCenterPath;
 	}
 
 	@Override

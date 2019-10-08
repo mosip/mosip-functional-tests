@@ -1,0 +1,369 @@
+testdata:
+  Admin_UpdateLocationData_Valid_Smoke_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Valid_OnlyMandatoryFields_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: ''
+      parentLocCoderequest1: ''
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Valid_CodeLength36:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode36$
+      coderequest1: $TestData:validLocationCode36$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Valid_CodeLength35:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode35$
+      coderequest1: $TestData:validLocationCode35$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Invalid_CodeLength37:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode37$
+      coderequest1: $TestData:validLocationCode37$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CreateLocationDataCode:errorCode$
+      messageerrors0: $errors:CreateLocationDataCode:errorMessage$
+      
+  Admin_UpdateLocationData_Valid_NameLength128_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:wordLength128$
+      namerequest1: $TestData:wordLength128$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Valid_NameLength127_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:wordLength127$
+      namerequest1: $TestData:wordLength127$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Invalid_NameLength129:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:wordLength129$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validLocationhierarchyName$
+      hierarchyNamerequest1: $TestData:validLocationhierarchyName$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CreateLocationDataCode:errorCode$
+      messageerrors0: $errors:CreateLocationDataCode:errorMessage1$
+      
+  Admin_UpdateLocationData_Valid_HierarchyLevelName64_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength64$
+      hierarchyNamerequest1: $TestData:validStringLength64$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+      
+  Admin_UpdateLocationData_Valid_HierarchyLevelName63_DB:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      coderesponse0: $input.search-request:coderequest0$
+      coderesponse1: $input.search-request:coderequest1$
+      langCoderesponse0: $input.search-request:langCoderequest0$
+      langCoderesponse1: $input.search-request:langCoderequest1$
+    
+  Admin_UpdateLocationData_Valid_HierarchyLevelName65:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength65$
+      hierarchyNamerequest1: $TestData:validStringLength65$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CreateLocationDataCode:errorCode$
+      messageerrors0: $errors:CreateLocationDataCode:errorMessage2$
+      
+  Admin_UpdateLocationData_InvalidLangCode:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: ''
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CreateLocationInvalidLangCode:errorCode$
+      messageerrors0: 'Invalid Language Code : fbheafg'
+      
+  Admin_UpdateLocationData_Invalid_EmptyLangCode:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:Invalid_ValueString$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CreateLocationEmptyLangCode:errorCode$
+      messageerrors0: $errors:CreateLocationEmptyLangCode:errorMessage$
+      
+  Admin_UpdateLocationData_Invalid_EmptyCode:
+    input.search-request:
+      coderequest0: ''
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errors: $IGNORE$
+      
+  Admin_UpdateLocationData_Invalid_EmptyName:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: ''
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errors: $IGNORE$
+      
+  Admin_UpdateLocationData_Invalid_EmptyHierarchyLevel:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: ''
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: $TestData:validStringLength63$
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errors: $IGNORE$
+      
+  Admin_UpdateLocationData_Invalid_EmptyHierarchyName:
+    input.search-request:
+      coderequest0: $TestData:validLocationCode$
+      coderequest1: $TestData:validLocationCode$
+      namerequest0: $TestData:validLocationName$
+      namerequest1: $TestData:validLocationName$
+      hierarchyLevelrequest0: $TestData:validLocationhierarchyLevel$
+      hierarchyLevelrequest1: $TestData:validLocationhierarchyLevel$
+      hierarchyNamerequest0: ''
+      hierarchyNamerequest1: $TestData:validStringLength63$
+      parentLocCoderequest0: $TestData:validLocationparentLocCode$
+      parentLocCoderequest1: $TestData:validLocationparentLocCode$
+      langCoderequest0: $TestData:valid_LanguageCodeEng$
+      langCoderequest1: $TestData:valid_LanguageCodeArabic$
+      isActiverequest0: $TestData:valid_isActive_true$
+      isActiverequest1: $TestData:valid_isActive_true$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errors: $IGNORE$

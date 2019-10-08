@@ -7,11 +7,11 @@
     "filters": [
       {
         "fieldID": "docCategoryCode",
-        "fieldValue": "POB"
+        "fieldValue": "POA"
       },
       {
         "fieldID": "docCategoryCode",
-        "fieldValue": "POE"
+        "fieldValue": "POB"
       }
     ]
   },

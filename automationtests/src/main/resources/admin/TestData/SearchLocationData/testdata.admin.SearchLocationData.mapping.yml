@@ -26,6 +26,7 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
+      totalRecord: $IGNORE$
       
   Admin_SearchLocationData_Valid_FilterTypeStartsWith:
     input.search-request:
@@ -40,6 +41,7 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
+      totalRecord: $IGNORE$
  
   Admin_SearchLocationData_Valid_ColumnProvinceNTypeEquals:
     input.search-request:
@@ -96,7 +98,22 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$
     output.output-1-expected-pos-1-response:
       responsetime: $IGNORE$
-      
+  Admin_SearchLocationData_Valid_Two_searchColumns_cityNisActive:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: $TestData:validColumnCity$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: $TestData:validColumnCityValue$
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: 'region'
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$      
   Admin_SearchLocationData_Valid_ColumnCityNTypeContains:
     input.search-request:
       columnNamefilters0: $TestData:validColumnCity$
@@ -110,6 +127,7 @@ testdata:
       pageFetch: $TestData:valid_PageFetch$
     output.output-1-expected-pos-1-response:
       responsetime: $IGNORE$
+      totalRecord: $IGNORE$
       
   Admin_SearchLocationData_Valid_ColumnCityNTypeStartsWith:
     input.search-request:
@@ -136,6 +154,23 @@ testdata:
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
+    output.output-1-expected-pos-3-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+  Admin_SearchLocationData_Valid_Two_searchColumns_zoneNisActive:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: $TestData:validColumnZone$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: $TestData:validColumnZoneValue$
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: 'region'
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
     output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
@@ -151,7 +186,7 @@ testdata:
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
+    output.output-1-expected-pos-3-response:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
       
@@ -166,7 +201,7 @@ testdata:
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
+    output.output-1-expected-pos-3-response:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
       
@@ -253,14 +288,14 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:validColumnRegion$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: ''
+      valuefilters0: $TestData:Invalid_ValueString$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       sortFieldsort0: 'region'
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-neg-response:
+    output.output-1-expected-empty-response:
       responsetime: $IGNORE$
       
   Admin_SearchLocationData_Invalid_EmpytSortField:

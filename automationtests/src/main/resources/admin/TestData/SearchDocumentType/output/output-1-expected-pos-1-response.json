@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-07T11:19:44.887Z",
+  "responsetime": "$IGNORE$",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,7 +10,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:49.870Z",
+        "createdDateTime": "$IGNORE$",
         "code": "DOC014",
         "name": "Account statement or passbook of the Post Office",
         "description": "Account statement or passbook of the Post Office",

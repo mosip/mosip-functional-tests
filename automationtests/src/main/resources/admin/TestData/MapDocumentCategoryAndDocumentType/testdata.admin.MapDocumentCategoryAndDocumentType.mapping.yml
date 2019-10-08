@@ -7,13 +7,21 @@ testdata:
          responsetime: $IGNORE$
    Admin_MapDocCatAndDocType_inavlid_doccategorycode:
       input.search-request:
-         doccategorycode: $TestData:invalid_doccategorycode$
+         doccategorycode: $TestData:Invalid_ValueString$
          doctypecode: $TestData:valid_doctypecode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:Invaliddoccategorycode:errorCode$
-         messageerrors0: $errors:Invaliddoccategorycode:errorMessage$
+         errorCodeerrors0: $errors:EXceptionInDataInsertion:errorCode$
+         messageerrors0: $errors:EXceptionInDataInsertion:errorMessage$
          responsetime: $IGNORE$
-   Admin_MapDocCatAndDocType_inavlid_doctypecode:
+   Admin_MapDocCatAndDocType_invalid_doctypecode:
+      input.search-request:
+         doccategorycode: $TestData:valid_doccategorycode$
+         doctypecode: $TestData:Invalid_ValueString$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EXceptionInDataInsertion:errorCode$
+         messageerrors0: $errors:EXceptionInDataInsertion:errorMessage$
+         responsetime: $IGNORE$
+   Admin_MapDocCatAndDocType_inavlid_length_aboveMax_doctypecode:
       input.search-request:
          doccategorycode: $TestData:valid_doccategorycode$
          doctypecode: $TestData:invalid_doctypecode$
@@ -21,13 +29,13 @@ testdata:
          errorCodeerrors0: $errors:Invaliddoctypecode:errorCode$
          messageerrors0: $errors:Invaliddoctypecode:errorMessage$
          responsetime: $IGNORE$
-   Admin_MapDocCatAndDocType_inavlid_doctypecode_doccategorycode:
+   Admin_MapDocCatAndDocType_inavlid_length_aboveMax_docCatcode:
       input.search-request:
          doccategorycode: $TestData:invalid_doccategorycode$
-         doctypecode: $TestData:invalid_doctypecode$
+         doctypecode: $TestData:valid_doctypecode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:Invaliddoctypecode:errorCode$
-         messageerrors0: $errors:Invaliddoctypecode:errorMessage$
+         errorCodeerrors0: $errors:Invaliddoccategorycode:errorCode$
+         messageerrors0: $errors:Invaliddoccategorycode:errorMessage$
          responsetime: $IGNORE$
    Admin_MapDocCatAndDocType_AlreadyMapDocCategoryCodes:
       input.search-request:
@@ -54,5 +62,6 @@ testdata:
          doccategorycode: $TestData:valid_doccategorycode$
          doctypecode: $TestData:valid_doctypecode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:UnAuthorisedRole:errorCode$
-         messageerrors0: $errors:UnAuthorisedRole:errorMessage$
+         errorCodeerrors0: $errors:NoAccessForService:errorCode$
+         messageerrors0: $errors:NoAccessForService:errorMessage$
+         responsetime: $IGNORE$

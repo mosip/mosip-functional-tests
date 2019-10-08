@@ -1105,4 +1105,44 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String getDecommisionRegCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDecommisionDevicePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getSetGetLeafZones() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getSetGetZoneNameBasedOnUserIDAndLangCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getSetZoneHierarchy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDecommisionMachinePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateLocationData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateBlackListedWordsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -6,7 +6,7 @@
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 14,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "code": "POA",
@@ -19,9 +19,9 @@
           "updatedDateTime": null,
           "isDeleted": null,
           "deletedDateTime": null,
-          "code": "RNC",
-          "name": "Rental contract",
-          "description": "Rental Agreement of address",
+          "code": "CIN",
+          "name": "CNIE card",
+          "description": "Moroccan National Electronic ID Card",
           "langCode": "eng"
         },
         "isActive": true,

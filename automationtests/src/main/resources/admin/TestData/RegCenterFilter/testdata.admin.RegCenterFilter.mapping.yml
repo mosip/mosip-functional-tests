@@ -45,24 +45,24 @@ testdata:
       columnNamefilters0: $TestData:invalid_colName$
     output.output-1-expected-neg-response:
       responsetime: $IGNORE$ 
-      errorCodeerrors0: $errors:InvalidColumnNameFilter:errorCode$
-      messageerrors0: $errors:InvalidColumnNameFilter:errorMessage$     
+      errorCodeerrors0: $errors:InvalidColumnNameInFilterAPI:errorCode$
+      messageerrors0: $errors:InvalidColumnNameInFilterAPI:errorMessage$     
       
-  Admin_RegCenterFilter_With_InValidTypeAsEmpty:
+  Admin_RegCenterFilter_With_InValid_filterTypeAsEmpty:
     input.regCenterFilter-request:
-      typefilters0: ' '
+      typefilters0: ''
     output.output-1-expected-neg-response:
       responsetime: $IGNORE$ 
-      errorCodeerrors0: $errors:InvalidEmptyNullFilter:errorCode$
-      messageerrors0: $errors:InvalidEmptyNullFilter:errorMessage$  
+      errorCodeerrors0: $errors:EmptyFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:EmptyFilterTypeInFilterAPI:errorMessage$  
       
   Admin_RegCenterFilter_With_InValidTypeAsNonExisting:
     input.regCenterFilter-request:
       typefilters0: $TestData:InvalidFilterType$
     output.output-1-expected-neg-response:
       responsetime: $IGNORE$ 
-      errorCodeerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorCode$
-      messageerrors0: $errors:InvalidEmptyNullNonExistingFilter:errorMessage$  
+      errorCodeerrors0: $errors:InvalidFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:InvalidFilterTypeInFilterAPI:errorMessage$  
       
       
   Admin_RegCenterFilter_With_InValidTextAsNonExisting:
@@ -71,17 +71,17 @@ testdata:
     output.output-1-expected-neg1-response:
       responsetime: $IGNORE$ 
       
-  Admin_RegCenterFilter_With_InValidIdAsEmpty:
-    input.regCenterFilter-request:
-      id: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$ 
+#  Admin_RegCenterFilter_With_InValidReqIdAsEmpty:
+#    input.regCenterFilter-request:
+#      id: ''
+#    output.output-1-expected-neg1-response:
+#      responsetime: $IGNORE$ 
       
-  Admin_RegCenterFilter_With_InValidVerAsEmpty:
-    input.regCenterFilter-request:
-      ver: ''
-    output.output-1-expected-neg1-response:
-      responsetime: $IGNORE$
+#  Admin_RegCenterFilter_With_InValidReqVerAsEmpty:
+#    input.regCenterFilter-request:
+#      version: ''
+#    output.output-1-expected-neg1-response:
+#      responsetime: $IGNORE$
       
   Admin_RegCenterFilter_With_InValidRequestTimeAsEmpty:
     input.regCenterFilter-request:

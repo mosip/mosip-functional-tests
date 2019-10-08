@@ -6,7 +6,7 @@
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 14,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "code": "POA",
@@ -19,9 +19,9 @@
           "updatedDateTime": null,
           "isDeleted": null,
           "deletedDateTime": null,
-          "code": "RNC",
-          "name": "عقد ايجار",
-          "description": "اتفاق تأجير العنوان",
+          "code": "CIN",
+          "name": "نَتِنَل ِد",
+          "description": "بطاقة الهوية الوطنية المغربية",
           "langCode": "ara"
         },
         "isActive": true,

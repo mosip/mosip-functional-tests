@@ -2,11 +2,10 @@
   "id": "string",
   "version": "string",
   "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 14,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "code": "POA",
@@ -14,11 +13,7 @@
         "documentType": {
           "isActive": true,
           "createdBy": "superadmin",
-          "createdDateTime": "2019-07-30T06:18:49.870Z",
-          "updatedBy": null,
-          "updatedDateTime": null,
-          "isDeleted": null,
-          "deletedDateTime": null,
+          "createdDateTime": "$IGNORE$",
           "code": "RNC",
           "name": "Rental contract",
           "description": "Rental Agreement of address",
@@ -29,6 +24,5 @@
         "name": "Proof of Address"
       }
     ]
-  },
-  "errors": null
+  }
 }

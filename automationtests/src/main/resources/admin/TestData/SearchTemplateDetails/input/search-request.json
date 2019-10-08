@@ -12,11 +12,14 @@
       }
     ],
     "sort": [
-
+		{
+        "sortField": "name",
+        "sortType": "ASC"
+      }
     ],
     "pagination": {
       "pageStart": 0,
-      "pageFetch": 20
+      "pageFetch": 5
     },
     "languageCode": "eng"
   },

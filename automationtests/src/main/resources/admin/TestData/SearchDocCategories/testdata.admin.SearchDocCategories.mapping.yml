@@ -280,21 +280,21 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: '2018-12-10 06:12:52.994Z'
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
-   Admin_SearchDocCategories_inValid_requestTime_UTC_futureTime:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMP$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidMapStatus:errorMessage$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+#   Admin_SearchDocCategories_inValid_requestTime_UTC_futureTime:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+#         typefilters0: $TestData:valid_SearchTypeEquals$
+#         valuefilters0: $TestData:valid_isActive_true$
+#         sortTypesort0: $TestData:valid_SortTypeAscending$
+#         pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMP$
+#      output.output-1-expected-error-response:
+#         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+#         messageerrors0: $errors:InvalidMapStatus:errorMessage$
    Admin_SearchDocCategories_inValid_typeFilter_contains:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

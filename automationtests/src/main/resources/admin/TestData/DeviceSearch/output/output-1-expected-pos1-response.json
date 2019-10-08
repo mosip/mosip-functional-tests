@@ -1,0 +1,35 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-07-11T05:49:01.594Z",
+ "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "3000025",
+        "name": "Dummy Finger Print Scanner 5",
+        "serialNum": "AO3450786448",
+        "deviceSpecId": "165",
+        "macAddress": "BC-34-3E-E4-40-0D",
+        "ipAddress": null,
+        "langCode": "eng",
+        "validityDateTime": null,
+        "zoneCode": "CST",
+        "zone": "Casablanca-Settat",
+        "deviceTypeName": "Finger Print Scanner",
+        "mapStatus": "Center Mehdia",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:40.718Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      }
+    ]
+  },
+  "errors": null
+}

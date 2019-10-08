@@ -1,25 +1,11 @@
 {
    "id": "string",
    "version": "string",
-   "responsetime": "2019-07-29T06:41:41.776Z",
+   "responsetime": "2019-07-24T05:32:22.656Z",
    "metadata": null,
    "response": null,
-   "errors":    [
-            {
-         "errorCode": "KER-MSD-999",
-         "message": "request[0].id: size must be between 1 and 10"
-      },
-            {
-         "errorCode": "KER-MSD-999",
-         "message": "request[1].id: size must be between 1 and 10"
-      },
-            {
-         "errorCode": "KER-MSD-999",
-         "message": "request[1].id: must not be blank"
-      },
-            {
-         "errorCode": "KER-MSD-999",
-         "message": "request[0].id: must not be blank"
-      }
-   ]
+   "errors": [   {
+      "errorCode": "KER-MSD-999",
+      "message": "request[0].contactPhone: size must be between 0 and 16"
+   }]
 }

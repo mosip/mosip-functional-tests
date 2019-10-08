@@ -84,23 +84,25 @@ testdata:
     output.output-1-expected-neg1-response:
       responsetime: $IGNORE$ 
       
-  Admin_GenderFilter_InValidIdAsEmpty:
-    input.genderFilter-request:
-      id: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$
+#  Admin_GenderFilter_InValidIdAsEmpty:
+#    input.genderFilter-request:
+#      id: ''
+#    output.output-1-expected-neg-response:
+#      responsetime: $IGNORE$
       
-  Admin_GenderFilter_InValidVerAsEmpty:
-    input.genderFilter-request:
-      version: ''
-    output.output-1-expected-neg-response:
-      responsetime: $IGNORE$  
+#  Admin_GenderFilter_InValidVerAsEmpty:
+#    input.genderFilter-request:
+#      version: ''
+#    output.output-1-expected-neg-response:
+#      responsetime: $IGNORE$  
       
   Admin_GenderFilter_InValidRequestTimeAsEmpty:
     input.genderFilter-request:
       requesttime: ''
     output.output-1-expected-neg-response:
-      responsetime: $IGNORE$    
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+      messageerrors0: $errors:InvalidRequestTime:errorMessage$   
       
       
   Admin_GenderFilter_InValidTypeAsEmpty:

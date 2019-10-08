@@ -22,7 +22,7 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
+      output.output-1-expected-pos-response:
          langCodedata0: $input.search-request1:languageCode$
          codedata0: $input.search-request1:valuefilters0$
          isActivedata0: $TestData:valid_isActive_true$
@@ -31,11 +31,12 @@ testdata:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
          valuefilters0: $TestData:valid_DocCatCode$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos4-response:
          langCodedata0: $input.search-request:languageCode$
          codedata0: $input.search-request:valuefilters0$
          isActivedata0: $TestData:valid_isActive_true$
@@ -300,21 +301,21 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: '2018-12-10 06:12:52.994Z'
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidRequestTime:errorMessage$
-   Admin_DocCatTypMapSearch_inValid_requestTime_UTC_futureTime:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DocCatCode$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMP$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
-         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+#   Admin_DocCatTypMapSearch_inValid_requestTime_UTC_futureTime:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
+#         typefilters0: $TestData:valid_SearchTypeEquals$
+#         valuefilters0: $TestData:valid_DocCatCode$
+#         sortTypesort0: $TestData:valid_SortTypeAscending$
+#         pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMP$
+#      output.output-1-expected-error-response:
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#         messageerrors0: $errors:InvalidRequestTime:errorMessage$
    Admin_DocCatTypMapSearch_inValid_typeFilter_contains:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$

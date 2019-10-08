@@ -54,15 +54,11 @@ import io.restassured.response.Response;
 
 public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(MapDocumentCategoryAndDocumentType.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	private String kubernetSeriveName="";
-	private AdminTestUtil adminTestUtil = new AdminTestUtil();
-	private CommonLibrary commonLib = new CommonLibrary();
-	private ApplicationLibrary appLib = new ApplicationLibrary();
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -117,6 +113,8 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 			}			
 		}
 		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -156,7 +154,7 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, MapDocumentCategoryAndDocumentType.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -174,7 +172,7 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 	 * @throws ParseException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchDevice(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException, IOException, ParseException {
+	public void mapDocCatDocTyp(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException, IOException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -185,7 +183,7 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/v1/masterdata/validdocuments/map/{doccategorycode}/{doctypecode}";
 		logger.info("******Post request Json to EndPointUrl: " + url+" *******");		
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		if(testcaseName.toLowerCase().contains("smoke") || testcaseName.contains("AfterUnamppedThanMapped"))
+		if(testcaseName.toLowerCase().contains("smoke") || testcaseName.contains("AfterUnamppedThanMapped")||testcaseName.contains("ZonalAdminToken"))
 		{
 			
 			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}", "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, cookieValue);

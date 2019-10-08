@@ -1399,6 +1399,26 @@ public class AuthTestsUtil extends BaseTestCase {
 	    return r.nextInt((max - min) + 1) + min;
 	}
 	
+	protected Response getRequestWithPathParm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.getRequestWithCookieAndPathParm(url,objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
+	protected Response getRequestWithQueryParm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.getRequestWithCookieAndQueryParm(url,objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}	
 } 
 
 

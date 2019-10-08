@@ -163,7 +163,7 @@ public class GenderFilter extends AdminTestUtil implements ITest {
 	 * @throws ParseException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void otpGenerationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+	public void genderFilter(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException, AdminTestException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
@@ -171,8 +171,6 @@ public class GenderFilter extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		logger.info("************* Otp generation request ******************");
-		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAdminGenderFilterPath();
@@ -182,34 +180,11 @@ public class GenderFilter extends AdminTestUtil implements ITest {
 				0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
-
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
-		logger.info("Test Case Nameee::" + testcaseName);
-
-		String actReqPath = FileUtil.getFilePathName(testCaseName, "output-1-actual").toString();
-
-		String exeReqPath = FileUtil.getFilePathName(testCaseName, "output-1-expected").toString();
-
-		ArrayList<String> arrActRes = new ArrayList<String>();
-		if (testcaseName.contains("Smoke")) {
-			
-			arrActRes.add("$.responsetime");
-		} else {
-			arrActRes.add("$.responsetime");
-			
-		}
-
-		String actRes = lib.removeJsonElement(actReqPath, arrActRes);
-		String exeRes = lib.removeJsonElement(exeReqPath, arrActRes);
-		logger.info("My actReq::" + actRes);
-		logger.info("My exeReq::" + exeRes);
-		boolean status = lib.jsonComparator(actRes, exeRes);
-
-		Verify.verify(status);
-		softAssert.assertAll();
-	
-
+		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+			throw new AdminTestException("Failed at output validation");
 	}
 
 }

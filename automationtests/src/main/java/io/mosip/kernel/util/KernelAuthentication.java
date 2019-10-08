@@ -20,7 +20,7 @@ public class KernelAuthentication extends BaseTestCase{
 	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
-	private final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
+	public final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
 	
 	private String individual_appid=props.get("individual_appid");
 	private String individual_password=props.get("individual_password");

@@ -34,7 +34,7 @@ import io.mosip.authentication.testdata.TestDataUtil;
 public class FilterLocationData extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(FilterLocationData.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -93,6 +93,8 @@ public class FilterLocationData extends AdminTestUtil implements ITest {
 			}
 		}
 		this.testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -113,7 +115,6 @@ public class FilterLocationData extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
@@ -133,7 +134,7 @@ public class FilterLocationData extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, FilterLocationData.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -156,13 +157,11 @@ public class FilterLocationData extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getFilterLocationPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, cookieValue);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());

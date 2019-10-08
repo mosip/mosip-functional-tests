@@ -154,14 +154,13 @@ public class DeviceSpecSearch  extends AdminTestUtil implements ITest {
 	 * @throws ParseException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchDevice(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException, IOException, ParseException {
+	public void deviceSpecSearch(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException, IOException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		//String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getDeviceSpecSearchPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+ " *******");

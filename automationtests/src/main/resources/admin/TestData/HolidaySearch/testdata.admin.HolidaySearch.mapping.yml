@@ -18,7 +18,8 @@ testdata:
      holidayDescdata0: $IGNORE$
      holidayDatedata0: $IGNORE$
      langCodedata0: $TestData:valid_LanguageCodeEng$ 
-     responsetime: $IGNORE$ 
+     responsetime: $IGNORE$
+     totalRecord: $IGNORE$
  
  
   Admin_HolidaySearch_equals_holidayName_ara_pos:
@@ -358,7 +359,7 @@ testdata:
      createdDateTimedata0: $IGNORE$
      totalRecord: $IGNORE$         
 
-  Admin_HolidaySearch_Default_PageFetch_pos:
+  Admin_HolidaySearch_inValid_blank_PageFetch:
     input.search-request:
       columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
       typefilters0: $TestData:valid_SearchTypeContains$
@@ -370,15 +371,10 @@ testdata:
       pageFetch: ""    
       requesttime: $TIMESTAMPZ$ 
       
-    output.output-1-expected-pos-response:
-     langCodedata0: $TestData:valid_LanguageCodeEng$ 
-     holidayIddata0: $IGNORE$
-     namesdata0: $IGNORE$
-     holidayDescdata0: $IGNORE$
-     holidayDatedata0: $IGNORE$
-     responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$
-     totalRecord: $IGNORE$         
+    output.output-1-expected-error-response:
+      errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$   
+      messageerrors0: Invalid pagination value received pagestart:1 and pagefetch:0 
+      responsetime: $IGNORE$
 
   Admin_HolidaySearch_Valid_PageStart_PageFetch_smoke:
     input.search-request:
@@ -465,7 +461,7 @@ testdata:
       requesttime: $TestData:invalid_requestTime$
       
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidRequestTime:errorCode$   
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$   
       messageerrors0: $errors:InvalidRequestTime:errorMessage$ 
       responsetime: $IGNORE$             
      

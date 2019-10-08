@@ -1,7 +1,0 @@
-testdata:
-  Admin_CreateRegCenter_With_Valid_Request_Smoke_Pos:
-    input.createRegCenter-request:
-      addressLine1request0: $TestData:addressLine1$
-      addressLine1request1: $TIMESTAMPZ$
-    output.output-1-expected-pos-response:
-      addressLine1registrationCenters0: $input.create-request:addressLine1request0$

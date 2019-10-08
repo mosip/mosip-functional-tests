@@ -29,11 +29,12 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(UpdateBlackListedWords.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -92,6 +93,8 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -112,7 +115,6 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
@@ -148,7 +150,7 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void createBlackListedWords(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void updateBlackListedWords(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -156,11 +158,10 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateBlackListedWordsPath();
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdateBlackListedWordsPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, cookieValue);
+		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
@@ -168,12 +169,12 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-			/*if(testcaseName.toLowerCase().contains("wordlength127")) {
-				KernelDataBaseAccess db = new KernelDataBaseAccess();
-				String key127="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw";
-				String queryString="Delete from master.blacklisted_words b where b.word='"+key127+"'";
-				if(!db.deleteQuery(queryString, "masterdata"))
-					throw new AdminTestException("Not able to delete the created data");
-		}*/
+		if(testcaseName.toLowerCase().contains("wordlength128")) {
+			KernelDataBaseAccess db = new KernelDataBaseAccess();
+			String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
+			String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
+			if(!db.executeQuery(queryString, "masterdata"))
+				throw new AdminTestException("Not able to delete the created data");
+	}
 	}
 }

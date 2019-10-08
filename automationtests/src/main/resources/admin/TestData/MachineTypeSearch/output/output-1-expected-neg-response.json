@@ -1,7 +1,7 @@
 {
    "id": "string",
    "version": "string",
-   "responsetime": "2019-07-17T10:52:36.814Z",
+   "responsetime": "$IGNORE$",
    "metadata": null,
    "response":    {
       "fromRecord": 0,

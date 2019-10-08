@@ -1,21 +1,25 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-20T12:53:04.985Z",
+  "responsetime": "$IGNORE$",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 7,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "region": "Rabat Sale Kenitra",
         "province": "Rabat",
         "city": "Rabat",
-        "zone": "EL YOUSSOUFIA",
-        "postalCode": "10190",
+        "zone": "Souissi",
+        "postalCode": "10105",
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-26T12:18:38.523Z"
+        "createdDateTime": "2019-08-27T12:28:09.508Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
       }
     ]
   }

@@ -255,6 +255,11 @@
 	</test>
 	<test name="Admin Tests">
 		 <classes>
+		    <class name="io.mosip.admin.tests.CreateLocationData" />
+		    <class name="io.mosip.admin.tests.CreateRegistrationCenter" />
+		    <class name="io.mosip.admin.tests.DecommisionDevice" />
+		    <class name="io.mosip.admin.tests.DecommisionMachine" />
+		    <class name="io.mosip.admin.tests.DecommisionRegCenter" />
 		    <class name="io.mosip.admin.tests.DeviceSearch" />
 			<class name="io.mosip.admin.tests.DeviceFilter" />
 			<class name="io.mosip.admin.tests.DeviceSpecSearch" />
@@ -262,31 +267,39 @@
 			<class name="io.mosip.admin.tests.DeviceTypeSearch" />
 			<class name="io.mosip.admin.tests.DeviceTypeFilter" />
 			<class name="io.mosip.admin.tests.DocCatTypMapSearch" />
-			<class name="io.mosip.admin.tests.FilterBlackListedWords" />
 			<class name="io.mosip.admin.tests.FilterDocCategory" />
 			<class name="io.mosip.admin.tests.FilterDocCatTypMapping" />
 			<class name="io.mosip.admin.tests.FilterDocumentType" />
 			<class name="io.mosip.admin.tests.FilterLocationData" />
 			<class name="io.mosip.admin.tests.FilterMachines" />
+			<class name="io.mosip.admin.tests.FilterMachineSpec" />
+			<class name="io.mosip.admin.tests.FilterTempateDetails" />
+			<class name="io.mosip.admin.tests.GenderSearch" />
+            <class name="io.mosip.admin.tests.GenderFilter" />
+            <class name="io.mosip.admin.tests.GetLeafZones" /> 
+            <class name="io.mosip.admin.tests.GetZoneNameBasedOnUserIDAndLangCode" /> 
+            <class name="io.mosip.admin.tests.GetZoneHierarchy" />
+            <class name="io.mosip.admin.tests.HolidaySearch" />
 			<class name="io.mosip.admin.tests.IndividualTypesSearch" />
 			<class name="io.mosip.admin.tests.MachineTypeSearch" />
+			<class name="io.mosip.admin.tests.MapDocumentCategoryAndDocumentType" />
+			<class name="io.mosip.admin.tests.RegistrationCenterFilter" />
 			<class name="io.mosip.admin.tests.RegistrationCenterSearch" />
-			<class name="io.mosip.admin.tests.SearchBlackListedWords" />
 			<class name="io.mosip.admin.tests.SearchDocCategories" />
 			<class name="io.mosip.admin.tests.SearchDocumentType" />
 			<class name="io.mosip.admin.tests.SearchLocationData" />
 			<class name="io.mosip.admin.tests.SearchMachines" />
+			<class name="io.mosip.admin.tests.SearchMachineSpec" />
 			<class name="io.mosip.admin.tests.SearchTemplateDetails" />
 			<class name="io.mosip.admin.tests.TitleFilter" />
 			<class name="io.mosip.admin.tests.TitleSearch" />
-			<class name="io.mosip.admin.tests.MapDocumentCategoryAndDocumentType" />
-			<class name="io.mosip.admin.tests.GenderSearch" />
-			<class name="io.mosip.admin.tests.GenderFilter" />
-			<class name="io.mosip.admin.tests.HolidaySearch" />
-			<class name="io.mosip.admin.tests.SearchMachineSpec" />
-			<class name="io.mosip.admin.tests.FilterMachineSpec" />
-			<class name="io.mosip.admin.tests.CreateLocationData" />
+			<class name="io.mosip.admin.tests.UnmapDocCategoryType" />
 			<class name="io.mosip.admin.tests.CreateBlackListedWords" />
+            <class name="io.mosip.admin.tests.UpdateBlackListedWords" />
+            <class name="io.mosip.admin.tests.SearchBlackListedWords" />
+            <class name="io.mosip.admin.tests.FilterBlackListedWords" />
+            <class name="io.mosip.admin.tests.UpdateLocationData" />
+            <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
 	</test>     
 

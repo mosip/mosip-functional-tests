@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 public class FilterMachineSpec extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(SearchMachines.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -149,7 +149,7 @@ public class FilterMachineSpec extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void searchDocCategories(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void filterMachineSpec(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);

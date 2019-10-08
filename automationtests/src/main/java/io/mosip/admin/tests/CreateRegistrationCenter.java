@@ -3,16 +3,15 @@ package io.mosip.admin.tests;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -22,8 +21,6 @@ import org.testng.asserts.SoftAssert;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
-import com.google.common.base.Verify;
-
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
@@ -31,23 +28,24 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.DataProviderClass;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
+import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
-import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.kernel.service.AssertKernel;
-import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateRegistrationCenter extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(CreateRegistrationCenter.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
 	AssertKernel ass = new AssertKernel();
 	SoftAssert softAssert = new SoftAssert();
+	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
@@ -57,6 +55,11 @@ public class CreateRegistrationCenter extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		String query = queries.get("createRegCenter").toString().replace("true", "false");
+		if (masterDB.executeQuery(query, "masterdata"))
+			logger.info("created regCenter with id as Tcntr successfully using query from query.properties");
+		else
+			logger.info("not able to create regCenter using query from query.properties");
 	}
 
 	/**
@@ -161,7 +164,7 @@ public class CreateRegistrationCenter extends AdminTestUtil implements ITest {
 	 * @throws ParseException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void otpGenerationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+	public void createRegCenter(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException, AdminTestException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
@@ -169,48 +172,39 @@ public class CreateRegistrationCenter extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		String mapping = TestDataUtil.getMappingPath();
-		logger.info("************* Otp generation request ******************");
-		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAdminCreateRegistrationCentrePath();
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, adminCookie);
-
+		boolean cookieChanged=false;
+		if(this.testCaseName.contains("unAuthorised_role"))
+			{
+			adminCookie=kernelAuthLib.getAuthForRegistrationOfficer();
+			cookieChanged=true;
+			}
+postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
+adminCookie = (cookieChanged) ? kernelAuthLib.getAuthForAdmin():adminCookie;
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
-
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
-		logger.info("Test Case Nameee::" + testcaseName);
+		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+			throw new AdminTestException("Failed at output validation");
 
-		String actReqPath = FileUtil.getFilePathName(testCaseName, "output-1-actual").toString();
-
-		String exeReqPath = FileUtil.getFilePathName(testCaseName, "output-1-expected").toString();
-
-		ArrayList<String> arrActRes = new ArrayList<String>();
-
-		if (testcaseName.contains("Smoke")) {
-			arrActRes.add("$.response.registrationCenters[0].createdDateTime");
-			arrActRes.add("$.response.registrationCenters[1].createdDateTime");
-			arrActRes.add("$.response.registrationCenters[0].id");
-			arrActRes.add("$.response.registrationCenters[1].id");
-			arrActRes.add("$.responsetime");
-		} else {
-			arrActRes.add("$.responsetime");
+	}
+	/**
+	 * this method is for deleting or updating the inserted data in db for testing
+	 * (managing class level data not test case level data)
+	 * @throws AdminTestException 
+	 */
+	@AfterClass
+	public void cleanup() throws AdminTestException {
+		if (masterDB.executeQuery(queries.get("deleteCntrCrtdByApi").toString(), "masterdata"))
+			logger.info("deleted all created regCenter successfully");
+		else {
+			logger.info("not able to delete regCenter using query from query.properties");
+			throw new AdminTestException("DB is not updated properly after decommission, not able to delete data form DB");
 		}
-
-		String actRes = kernelCmnLib.removeJsonElement(actReqPath, arrActRes);
-		String exeRes = kernelCmnLib.removeJsonElement(exeReqPath, arrActRes);
-		logger.info("My actReq::" + actRes);
-		logger.info("My exeReq::" + exeRes);
-		boolean status = kernelCmnLib.jsonComparator(actRes, exeRes);
-
-		Verify.verify(status);
-		softAssert.assertAll();
-
 	}
 
 }

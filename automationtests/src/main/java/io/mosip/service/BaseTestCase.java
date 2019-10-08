@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -60,6 +61,7 @@ public class BaseTestCase{
 	public String adminCookie=null;
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
+	public static Map queries;
 	public static HashMap<String, String> documentId=new HashMap<>();
 	public static HashMap<String, String> regCenterId=new HashMap<>();
 	public static String expiredPreId=null;
@@ -102,6 +104,7 @@ public class BaseTestCase{
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib  = new KernelAuthentication();
 		kernelCmnLib = new CommonLibrary();
+		queries = kernelCmnLib.readProperty("adminQueries");
 		/**
 		 * Make sure test-output is there 
 		 */

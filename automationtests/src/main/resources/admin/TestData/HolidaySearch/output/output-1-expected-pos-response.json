@@ -17,7 +17,7 @@
         "langCode": "eng",
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-26T12:18:40.027Z",
+        "createdDateTime": "$IGNORE$",
         "updatedBy": null,
         "updatedDateTime": null,
         "isDeleted": null,

@@ -1,70 +1,61 @@
 testdata:
    Admin_MachineTypeSearch_langCode_eng_smoke:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-pos-response:
          langCodedata0: $input.search-request:languageCode$
-         updatedBydata0: $IGNORE$
-         isDeleteddata0: $IGNORE$
-         deletedDateTimedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
+         codedata0: $input.search-request:valuefilters0$
          responsetime: $IGNORE$
-   Admin_MachineTypeSearch_withoutfilterValue_eng:
-      input.withoutFiltersearch-request:
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+   Admin_MachineTypeSearch_searchBy_langCode:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsLangCode$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_LanguageCodeEng$$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-pos-response:
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         updatedBydata0: $IGNORE$
-         isDeleteddata0: $IGNORE$
-         deletedDateTimedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
+         langCodedata0: $input.search-request:languageCode$
+         responsetime: $IGNORE$
+   Admin_MachineTypeSearch_withoutfilterValue_eng:
+      input.withoutFiltersearch-request:
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+         sorttypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
    Admin_MachineTypeSearch_langCode_ara:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_ara_equals$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeArabic$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          langCodedata0: $TestData:valid_LanguageCodeArabic$
-         namedata0: $TestData:valid_MachineSearch_Name_ara_equals$
-         descriptiondata0: $TestData:valid_MachineSearch_Desktop_Description_ara_Equals$
-         updatedBydata0: $IGNORE$
-         isDeleteddata0: $IGNORE$
-         deletedDateTimedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
+         codedata0: $input.search-request:valuefilters0$
          responsetime: $IGNORE$
    Admin_MachineTypeSearch_langCode_fra:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_fra_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeFrench$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          langCodedata0: $TestData:valid_LanguageCodeFrench$
-         namedata0: $TestData:valid_MachineSearch_Name_fra_equals$
-         descriptiondata0: $TestData:valid_MachineSearch_Desktop_Description_fra_Equals$
-         updatedBydata0: $IGNORE$
-         isDeleteddata0: $IGNORE$
-         deletedDateTimedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
+         codedata0: $input.search-request:valuefilters0$
          responsetime: $IGNORE$
    Admin_MachineSearch_invalid_SortField:
       input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
          sortfieldsort0: $TestData:invalid_MachineSearch_sortField_eng_Equals$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
@@ -79,10 +70,10 @@ testdata:
          responsetime: $IGNORE$
    Admin_MachineSearch_invalid_empty_sortFieldType:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: ''
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
@@ -91,9 +82,9 @@ testdata:
          responsetime: $IGNORE$
    Admin_MachineSearch_invalid_empty_sortField:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
          sortfieldsort0: ''
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
@@ -105,8 +96,8 @@ testdata:
       input.search-request:
          columnNamefilters0: ''
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
@@ -115,10 +106,10 @@ testdata:
          responsetime: $IGNORE$
    Admin_MachineTypeSearch_filterType_empty:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: ''
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
@@ -127,10 +118,10 @@ testdata:
          responsetime: $IGNORE$
    Admin_MachineTypeSearch_invalidPaginationValue:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
          pageStart: $TestData:invalid_MachineSearch_pagination$
@@ -138,50 +129,37 @@ testdata:
          errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
          messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
          responsetime: $IGNORE$
-   Admin_MachineTypeSearch_invalidFromAndToValue:
+
+   Admin_MachineTypeSearch_inValid_filter_type:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: 'between'
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+         sorttypesort0: $TestData:valid_SortTypeAscending$
+         languageCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: Column code doesn't support filter type between
+         responsetime: $IGNORE$
+   Admin_MachineTypeSearch_columnName_withNoSearchSupport:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sorttypesort0: $TestData:valid_SortTypeAscending$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         toValuefilters0: $TestData:$TestData:invalid_MachineSearch_inavlidfromAndToValue$
-         fromValuefilters0: $TestData:$TestData:invalid_MachineSearch_inavlidfromAndToValue$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:invalid_FromAndToValue:errorCode$
-         messageerrors0: $errors:invalid_FromAndToValue:errorMessage$
-         responsetime: $IGNORE$
-   Admin_MachineTypeSearch_columnName_NotSupportFilter:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: 'between'
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_SortTypeAscending$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage3$
-         responsetime: $IGNORE$
-   Admin_MachineTypeSearch_columnName_NotSupportFilterType:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypebetween$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sorttypesort0: $TestData:valid_SortTypeAscending$
-         languageCode: $TestData:valid_LanguageCodeEng$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage3$
+         messageerrors0: Column name doesn't support filter type equals
          responsetime: $IGNORE$
    Admin_MachineSearch_invalid_sortFieldType:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_MachineSearch_Name_eng_equals$
-         sortfieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         valuefilters0: $TestData:valid_MachineType_Code_eng_equals$
+         sortfieldsort0: $TestData:valid_Search_ColumnNameAsCode$
          sorttypesort0: $TestData:valid_invalidSortType_eng$
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:

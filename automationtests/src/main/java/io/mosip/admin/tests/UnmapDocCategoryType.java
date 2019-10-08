@@ -41,12 +41,11 @@ import io.mosip.authentication.testdata.TestDataUtil;
 
 public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(UnmapDocCategoryType.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	private String kubernetSeriveName="";
 
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
@@ -103,6 +102,8 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -143,7 +144,7 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, DeviceFilter.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -159,7 +160,7 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void unmapDocAndCategory(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void unmapDocTypAndDocCat(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -170,8 +171,6 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 		displayContentInFile(testCaseName.listFiles(), "request");		
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUnmapDocCategoryType();
 		logger.info("******Post request Json to EndPointUrl: " + url+" *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+
-		System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		if(testcaseName.contains("AlreadyUnmapped"))
 		{
 			/*putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
@@ -180,7 +179,7 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 				if(requestJson.getName().contains("request")) {
 					try {
 						JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(requestJson.getAbsolutePath()));
-						RestClient.putRequestWithParm(url,objectData,MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,AUTHORIZATHION_COOKIENAME,cookieValue);
+						RestClient.putRequestWithParm(url,objectData,MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,AUTHORIZATHION_COOKIENAME,adminCookie);
 					} catch (IOException | ParseException e) {
 						logger.error("Exception in already unmapped codes test case :: "+e);
 					}
@@ -189,7 +188,7 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 			
 		}
 		putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
-				  cookieValue);
+				adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
@@ -199,7 +198,7 @@ public class UnmapDocCategoryType extends AdminTestUtil implements ITest {
 		if(testcaseName.contains("smoke") || testcaseName.contains("AlreadyUnmapped")) {
 			String mapUrl=url.replaceAll("unmap", "map");
 			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), mapUrl,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
-					  cookieValue);
+					adminCookie);
 		}
 	}
 }

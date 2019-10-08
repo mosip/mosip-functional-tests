@@ -140,6 +140,75 @@ public class AdminTestUtil extends AuthTestsUtil{
 			return false;
 		}
 	}
+	/**
+	 * The method will post request and generate output file
+	 * 
+	 * @param listOfFiles
+	 * @param urlPath
+	 * @param keywordToFind
+	 * @param generateOutputFileKeyword
+	 * @param code
+	 * @return true or false
+	 */
+	protected boolean getRequestAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response=null;
+					String responseJson = "";
+					if (code == 0)
+						response = getRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					else
+						response = getRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					responseJson=response.asString();
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			adminLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected boolean getRequestWithQueryAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response=null;
+					String responseJson = "";
+					if (code == 0)
+						response = getRequestWithQueryParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					else
+						response = getRequestWithQueryParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					responseJson=response.asString();
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			adminLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	
 	
 	/**
 	 * The method will post request and generate output file
@@ -226,6 +295,10 @@ public class AdminTestUtil extends AuthTestsUtil{
 	public static String getCookieRequestFilePathForRegClient() {
 		return RunConfigUtil.getResourcePath()
 				+ "admin/TestData/Security/GetCookie/getRegClientCookieRequest.json".toString();
+	}
+	public static String getCookieRequestFilePath(String fileName) {
+		return RunConfigUtil.getResourcePath()
+				+ "admin/TestData/Security/GetCookie/"+fileName+".json".toString();
 	}
 	
 	public static void initiateAdminTest() {

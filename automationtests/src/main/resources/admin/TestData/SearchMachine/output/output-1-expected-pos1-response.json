@@ -1,0 +1,34 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-07T05:08:17.481Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "10036",
+        "name": "A1ML28565",
+        "serialNum": "FB5962911669",
+        "macAddress": "8C-16-45-BC-96-BF",
+        "ipAddress": "192.168.0.362",
+        "machineSpecId": "1001",
+        "langCode": "eng",
+        "validityDateTime": null,
+        "zoneCode": "ORT",
+        "zone": "Oriental",
+        "machineTypeName": "Desktop",
+        "mapStatus": "Center Ouled Oujih",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-26T12:18:40.863Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null
+      }
+    ]
+  }
+}

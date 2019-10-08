@@ -3,12 +3,10 @@ package io.mosip.admin.tests;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.ITest;
 import org.testng.ITestResult;
@@ -22,8 +20,6 @@ import org.testng.asserts.SoftAssert;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
-import com.google.common.base.Verify;
-
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
@@ -35,14 +31,13 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
-import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.kernel.service.AssertKernel;
 import io.mosip.kernel.util.CommonLibrary;
 
 public class GenderSearch extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(GenderSearch.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -129,7 +124,7 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 	 */
 	@Override
 	public String getTestName() {
-		return this.testCaseName;
+		return testCaseName;
 	}
 
 	/**
@@ -163,7 +158,7 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 	 * @throws ParseException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void otpGenerationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+	public void genderSearch(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException, AdminTestException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
@@ -171,57 +166,20 @@ public class GenderSearch extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		logger.info("************* Otp generation request ******************");
-		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAdminGenderSearchPath();
 		//+ RunConfigUtil.objRunConfig.getAdminRegistrationCentreSearchPath();
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, adminCookie);
+postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
-
-				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
-				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
-		logger.info("Test Case Nameee::" + testcaseName);
-
-		String actReqPath = FileUtil.getFilePathName(testCaseName, "output-1-actual").toString();
-
-		String exeReqPath = FileUtil.getFilePathName(testCaseName, "output-1-expected").toString();
-
-		ArrayList<String> arrActRes = new ArrayList<String>();
-		if (testcaseName.contains("Smoke")) {
-			
-			arrActRes.add("$.responsetime");
-			arrActRes.add("$.response.data[0].isActive");
-			arrActRes.add("$.response.data[1].isActive");
-			arrActRes.add("$.response.data[2].isActive");
-		} else {
-			arrActRes.add("$.responsetime");
-			
-		}
-
-		String actRes = lib.removeJsonElement(actReqPath, arrActRes);
-		String exeRes = lib.removeJsonElement(exeReqPath, arrActRes);
-		logger.info("My actReq::" + actRes);
-		logger.info("My exeReq::" + exeRes);
-		boolean status = lib.jsonComparator(actRes, exeRes);
-
-		Verify.verify(status);
-		softAssert.assertAll();
-		
-		/*Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-
-		*/
-
 	}
 
 }

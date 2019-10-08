@@ -1,6 +1,9 @@
 
 # error -> ScenarioName -> errorCode,Message
 errors:
+   CommonMSDErrorCode:
+     errorCode: KER-MSD-999
+     dbFkeyErrorCode: KER-MSD-060
    EmptySearchColumnName:
       errorCode: KER-MSD-311
       errorMessage: Column is missing in request
@@ -23,11 +26,12 @@ errors:
       errorMessage3: Column name doesn't support filter type between
    InvalidSearchColumnName:
       errorCode: KER-MSD-317
-      errorMessage: Column <value> doesn't exist for the searched entity
+      errorMessage: Column fbheafg doesn't exist for the searched entity
       errorMessage1: Column asdg doesn't exist for the searched entity  
       errorMessage2: Column asdg doesn't exist for the searched entity
    InvalidLanguageCode:
       errorCode: KER-MSD-999
+      errorCode1: KER-MSD-382
       errorMessage: Language Code is Invalid
       errorMessage1: "request.languageCode: Language Code is Invalid"
       errorMessage2: HIN Language Code is Invalid
@@ -61,8 +65,7 @@ errors:
       errorCode: KER-MSD-500
       errorMessage: Page index must not be less than zero!
    InvalidRequestTime:
-      errorCode: KER-MSD-999
-      errorMessage: Invalid requestTime
+      errorMessage: 'Invalid Format in field : requesttime'
    InvalidSortField:
       errorCode: KER-MSD-357
       errorMessage: Invalid Sort Field <Sort field name>
@@ -75,77 +78,72 @@ errors:
    InvalidpaginationStartPage:
       errorCode: KER-MSD-313
       errorMessage: Invalid pagination value received (Page start abc and Page Fetch 20)
+      errorMessage1: Invalid pagination value received pagestart:0 and pagefetch:0
    InvalidColumnName:
       errorCode: KER-MSD-310
       errorMessage: Invalid column received:<value>
-   InvalidAddressLine1:
-      errorMessage0: 'request[0].addressLine1: must not be blank'
-      errorMessage1: 'request[0].addressLine1: size must be between 1 and 256'
-      errorMessage2: 'request[1].addressLine1: must not be blank'
-      errorMessage3: 'request[1].addressLine1: size must be between 1 and 256'
-   InvalidAddressLine2:
-      errorMessage0: 'request[0].addressLine2: size must be between 0 and 256'
-      errorMessage1: 'request[1].addressLine2: size must be between 0 and 256'
-   InvalidAddressLine3:
-      errorMessage0: 'request[0].addressLine3: size must be between 0 and 256'
-      errorMessage1: 'request[1].addressLine3: size must be between 0 and 256'
+   BlankAddressLine:
+      errorMessage: 'request.addressLine1: must not be blank'
+   InvalidAddressLine:
+      errorMessage1: 'request.addressLine1: size must be between 0 and 256'
+      errorMessage2: 'request.addressLine2: size must be between 0 and 256'
+      errorMessage3: 'request.addressLine3: size must be between 0 and 256'
+   InvalidCenterTypeCodeLength:
+      errorMessage: 'request.centerTypeCode: size must be between 0 and 36'
    InvalidCenterTypeCode:
-      errorMessage0: 'request[1].centerTypeCode: size must be between 1 and 36'
-      errorMessage1: 'request[0].centerTypeCode: must not be blank'
-      errorMessage2: 'request[0].centerTypeCode: size must be between 1 and 36'
-      errorMessage3: 'request[1].centerTypeCode: must not be blank'
-      errorMessage4: 'request[0].centerTypeCode: invalid centerTypeCode'
-      errorMessage5: 'request[1].centerTypeCode: invalid centerTypeCode'
+      errorMessage: 'request.centerTypeCode: invalid centerTypeCode'
+   BlankCenterTypCode:
+      errorMessage: 'request.centerTypeCode: must not be blank'
+   InvalidTimeHHMMSS:
+      errorMessage: 'invalid format'
    InvalidContactPerson:
-      errorMessage0: 'request[1].contactPerson: size must be between 0 and 128'
-      errorMessage1: 'request[0].contactPerson: size must be between 0 and 128'
+      errorMessage: 'request.contactPerson: size must be between 0 and 128'
    InvalidContactPhone:
-      errorMessage0: 'request[1].contactPhone: size must be between 0 and 16'
-      errorMessage1: 'request[0].contactPhone: size must be between 0 and 16'
+      errorMessage: 'request.contactPhone: size must be between 0 and 16'
    InvalidHolidayLocationCode:
-      errorMessage0: 'request[1].holidayLocationCode: size must be between 1 and 36'
-      errorMessage1: 'request[1].holidayLocationCode: must not be blank'
-      errorMessage2: 'request[0].holidayLocationCode: size must be between 1 and 36'
-      errorMessage3: 'request[0].holidayLocationCode: must not be blank'
-      errorMessage4: 'request[1].holidayLocationCode: invalid holiday location code'
-      errorMessage5: 'request[0].holidayLocationCode: invalid holiday location code'
+      errorMessage: 'request.holidayLocationCode: inValid holidayLocationCode'
+   BlankHolidayLocationCode:
+      errorMessage: 'request.holidayLocationCode: must not be blank'
+   InValidRequestId:
+      errorMessage: invalid request id
+      errorMessage1: request id must not be blank
+   InValidRequestVersion:
+      errorMessage: invalid request version
+      errorMessage1: request version must not be blank    
    InvalidId:
-      errorMessage0: 'request[1].id: size must be between 1 and 10'
-      errorMessage1: 'request[0].id: size must be between 1 and 10'
+      errorMessage0: 'request[1].id: size must be between 0 and 10'
+      errorMessage1: 'request[0].id: size must be between 0 and 10'
+   InValidZoneCode:
+      errorCode: KER-MSD-346
+      errorMessage: Received Zone Code does not belong to the User
+      errorMessage1: 'request.zoneCode: must not be blank'
+   NoPrimaryLangCenterPresent:
+      errorCode: KER-MSD-381
+   CreateCenterWithOtherThanConfigLang:
+      errorCode: KER-MSD-382
+      errorMessage: Received language code fra is not a configured language
    InvalidLatitude:
-      errorMessage0: 'request[1].latitude: size must be between 1 and 32'
-      errorMessage1: 'request[0].latitude: must not be blank'
-      errorMessage2: 'request[1].latitude: must not be blank'
-      errorMessage3: 'request[0].latitude: size must be between 1 and 32'
+      errorMessage0: 'request.latitude: size must be between 0 and 32'
+      errorMessage1: 'request.latitude: must not be blank'
       errorCode: KER-MSD-307
-      errorMessage4: Latitude or Longitude must have minimum 4 digits after decimal
+      errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
    InvalidLocationCode:
-      errorMessage0: 'request[1].locationCode: size must be between 1 and 36'
-      errorMessage1: 'request[1].locationCode: must not be blank'
-      errorMessage2: 'request[0].locationCode: size must be between 1 and 36'
-      errorMessage3: 'request[0].locationCode: must not be blank'
+      errorMessage0: 'request.locationCode: size must be between 0 and 36'
+      errorMessage1: 'request.locationCode: must not be blank'
+      errorMessage2: 'request.locationCode: invalid value'
    InvalidLongitude:
-      errorMessage0: 'request[1].longitude: size must be between 1 and 32'
-      errorMessage1: 'request[0].longitude: must not be blank'
-      errorMessage2: 'request[1].longitude: must not be blank'
-      errorMessage3: 'request[0].longitude: size must be between 1 and 32'
-      errorMessage4: Latitude or Longitude must have minimum 4 digits after decimal
-      errorMessage5: 'request[0].longitude: size must be between 1 and 32'
+      errorMessage0: 'request.longitude: size must be between 0 and 32'
+      errorMessage1: 'request.longitude: must not be blank'
+      errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
       errorCode0: KER-MSD-307
-      errorCode1: KER-MSD-999
    InvalidName:
-      errorMessage0: 'request[0].name: must not be blank'
-      errorMessage1: 'request[1].name: size must be between 1 and 128'
-      errorMessage2: 'request[1].name: must not be blank'
-      errorMessage3: 'request[0].name: size must be between 1 and 128'
+      errorMessage0: 'request.name: must not be blank'
+      errorMessage1: 'request.name: size must be between 0 and 128'
    InvalidTimezone:
-      errorMessage0: 'request[0].timeZone: size must be between 0 and 64'
-      errorMessage1: 'request[1].timeZone: size must be between 0 and 64'
+      errorMessage: 'request.timeZone: size must be between 0 and 64'
    InvalidWorkingHours:
-      errorMessage0: 'request[1].workingHours: size must be between 1 and 32'
-      errorMessage1: 'request[1].workingHours: must not be blank'
-      errorMessage2: 'request[0].workingHours: must not be blank'
-      errorMessage3: 'request[0].workingHours: size must be between 1 and 32'
+      errorMessage0: 'request.workingHours: size must be between 0 and 32'
+      errorMessage1: 'request.workingHours: must not be blank'
    InvalidFilterTypeInFilterAPI:
       errorCode: KER-MSD-324
       errorMessage: Received Filter Type not supported
@@ -158,7 +156,7 @@ errors:
       
    InvaliddoctypecodeAnddoccategorycode:
       errorCode: KER-MSD-500
-      errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 1 and 36, mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
+      errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 0 and 36, mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
    Invaliddoctypecode:
       errorCode: KER-MSD-500
       errorMessage: 'mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
@@ -187,17 +185,56 @@ errors:
    EmptyFilterTypeInFilterAPI:
       errorCode: KER-MSD-322
       errorMessage: Filter Type cannot be empty or null
+   InvalidUserId:
+      errorCode: KER-MSD-391
+      errorMessage: Entity for user ID specified Not Found
    CreateEmptyIsActive:
       errorCode: KER-MSD-999
       errorMessage: "request.isActive: must not be null"
+      errorMessage1: "request.isActive: invalid value"
    CreateLocationDataCode:
       errorCode: KER-MSD-999
-      errorMessage: "eng.code:size must be between 1 and 36"
-      errorMessage1: "eng.name:size must be between 1 and 128"
-      errorMessage2: "eng.hierarchyName:size must be between 1 and 64"
+      errorMessage: "eng.code:size must be between 0 and 36"
+      errorMessage1: "eng.name:size must be between 0 and 128"
+      errorMessage2: "eng.hierarchyName:size must be between 0 and 64"
    CreateLocationEmptyLangCode:
       errorCode: KER-MSD-388
       errorMessage: "Location data is not present in the primary language : eng"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"
+   RegCenterNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Registration center has been already decommissioned or Registration center not found
+   RegCenterDecomissionInvalidLength:
+      errorCode: KER-MSD-353
+      errorMessage: Center ID specified for decommission has invalid length
+   RegCenterDecomissionMapToDevice:
+      errorCode: KER-MSD-350
+      errorMessage: Cannot Decommission the Registration Center, as some devices are mapped to the Registration Center   
+   RegCenterDecomissionMapToMach:
+      errorCode: KER-MSD-351
+      errorMessage: Cannot Decommission the Registration Center, as some machines are mapped to the Registration Center
+   RegCenterDecomissionMapToUser:
+      errorCode: KER-MSD-352
+      errorMessage: Cannot Decommission the Registration Center, as some users are mapped to the Registration Center
+   UnAuthorizedRole:
+      errorCode: KER-ATH-403
+      errorMessage: Forbidden
+   NoAccessForService:
+      errorCode: KER-MSD-500
+      errorMessage: Access is denied
+   EXceptionInDataInsertion:
+      errorCode: KER-MSD-071
+      errorMessage: Exception during inserting data into DB
+   UnMapDocCatTyp_InValidCatTypCode:
+      errorCode: KER-MSD-361
+   DecomissionDeviceMapToCenter:
+      errorCode: KER-MSD-350
+      errorMessage: Device cannot be Decommissioned as it is assigned to a Registration Center
+   DeviceNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Device ID <id> does not exist
+   MachineNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Machine ID <id> does not exist

@@ -1,53 +1,30 @@
 {
-  "id": "mosip.admin.registrationcenters",
-  "requesttime": "2018-12-10T06:12:52.994Z",
-  "version": "1.0",
+  "id": "string",
   "metadata": {},
-  "request": [ 
-   {
-    "addressLine1": "# 01 - 158,Block 743 , YISHUN AVENUE 5",
-    "addressLine2": "Rabat",
-    "addressLine3": "Morocco",
+  "request": {
+    "addressLine1": "Test Address 1",
+    "addressLine2": "Test Address 2",
+    "addressLine3": "Test Address 3",
     "centerEndTime": "17:00:00",
     "centerStartTime": "09:00:00",
     "centerTypeCode": "REG",
-    "contactPerson": "Almond",
+    "contactPerson": "TestPerson",
     "contactPhone": "9663089998",
     "holidayLocationCode": "RBT",
-    "langCode": "fra",
+    "isActive": true,
+    "langCode": "eng",
     "latitude": "33.995612",
     "locationCode": "RBT",
     "longitude": "-6.815281",
     "lunchEndTime": "14:00:00",
     "lunchStartTime": "13:00:00",
-    "name": "Akhaltsikhe",
+    "name": "Test Center",
     "perKioskProcessTime": "00:15:00",
-    "timeZone": "(GTM + 01h00) HEURE EUROPEENNE CENTRALE",
+    "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"CST"
+    "zoneCode":"STT",
+    "id": ""
   },
-{
-    "addressLine1": "Block 743، YISHUN AVENUE 5 ،158 - 01 #",
-    "addressLine2": "الرباط",
-    "addressLine3": "المغرب",
-    "centerEndTime": "17:00:00",
-    "centerStartTime": "09:00:00",
-    "centerTypeCode": "REG",
-    "contactPerson": "Almond",
-    "contactPhone": "9663089998",
-    "holidayLocationCode": "RBT",
-    "langCode": "ara",
-    "latitude": "33.99999",
-    "locationCode": "RBT",
-    "longitude": "-6.815281",
-    "lunchEndTime": "14:00:00",
-    "lunchStartTime": "13:00:00",
-    "name": "اخالتسيخ",
-    "perKioskProcessTime": "00:15:00",
-    "timeZone": "(GTM + 01: 00) التوقيت الأوروبي المركزي",
-    "workingHours": "8:00:00",
-    "zoneCode":"CST"
-  }
- ]
-  
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
 }

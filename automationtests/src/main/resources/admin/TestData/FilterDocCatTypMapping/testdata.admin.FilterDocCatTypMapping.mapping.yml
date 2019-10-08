@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: POB
+         textfilters0: $TestData:valid_DocCatCode$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -26,14 +26,13 @@ testdata:
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$
    Admin_FilterDocCatTypMapping_Valid_Col_doCatCode_filterType_all:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: POB
+         textfilters0: $TestData:valid_DocCatCode$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -44,16 +43,19 @@ testdata:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeAll$
          textfilters0: $TestData:valid_DocCatFilterHalf_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
+         languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos3-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $TestData:valid_DocCatCode$
+         fieldIDfilters1: $input.search-request:columnNamefilters0$
+         fieldValuefilters1: $TestData:valid_DocCatCode$
    Admin_FilterDocCatTypMapping_Valid_doCatCode_PO_filterType_Unique:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
          textfilters0: $TestData:valid_DocCatFilterHalf_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
+         languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos3-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
@@ -91,7 +93,7 @@ testdata:
       input.search-request1:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: POB
+         textfilters0: $TestData:valid_DocCatCode$
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$ 
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: $TestData:valid_isActive_true$
@@ -100,8 +102,6 @@ testdata:
       output.output-1-expected-pos4-response:
          fieldIDfilters0: $input.search-request1:columnNamefilters0$
          fieldValuefilters0: $input.search-request1:textfilters0$
-         fieldIDfilters1: $input.search-request1:columnNamefilters1$
-         fieldIDfilters1: $input.search-request1:columnNamefilters1$
    Admin_FilterDocCatTypMapping_Valid_Col_docTypeCode_filterType_Unique_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
@@ -109,9 +109,8 @@ testdata:
          textfilters0: $TestData:valid_DocTypeFilter_Text$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$
    Admin_FilterDocCatTypMapping_Valid_filterText_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
@@ -124,16 +123,25 @@ testdata:
          fieldIDfilters1: $input.search-request:columnNamefilters0$
          fieldIDfilters2: $input.search-request:columnNamefilters0$
          fieldIDfilters3: $input.search-request:columnNamefilters0$
-   Admin_FilterDocCatTypMapping_Valid_filterType_blank:
+   Admin_FilterDocCatTypMapping_Valid_DefaultFilterType:
+      input.search-request2:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
+         textfilters0: $TestData:valid_DocCatCode$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request2:columnNamefilters0$
+         fieldValuefilters0: $input.search-request2:textfilters0$
+   Admin_FilterDocCatTypMapping_inValid_filterType_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: ''
          textfilters0: $TestData:valid_DocCatFilter_Text$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptyFilterTypeInFilterAPI:errorCode$
+         messageerrors0: $errors:EmptyFilterTypeInFilterAPI:errorMessage$
    Admin_FilterDocCatTypMapping_inValid_filterColumnName_blank:
       input.search-request:
          columnNamefilters0: ''
@@ -142,7 +150,7 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:EmptyColumnNameInFilterAPI:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:EmptyColumnNameInFilterAPI:errorMessage$
    Admin_FilterDocCatTypMapping_inValid_langCode_blank:
       input.search-request:
@@ -162,18 +170,18 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: '2018-12-1006:12:52.994Z'
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidRequestTime:errorMessage$
-   Admin_FilterDocCatTypMapping_inValid_RequestTime_UTC_future:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMP$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidRequestTime:errorCode$
-         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+#   Admin_FilterDocCatTypMapping_inValid_RequestTime_UTC_future:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
+#         typefilters0: $TestData:valid_FilterTypeUnique$
+#         textfilters0: $TestData:valid_DocCatFilter_Text$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMP$
+#      output.output-1-expected-error-response:
+#         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+#         messageerrors0: $errors:InvalidRequestTime:errorMessage$
    Admin_FilterDocCatTypMapping_inValid_filterColumnName:
       input.search-request:
          columnNamefilters0: $TestData:Invalid_ValueString$
@@ -182,8 +190,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidColumnNameInFilterAPI:errorCode$
-         messageerrors0: $errors:InvalidColumnNameInFilterAPI:errorMessage$
+         errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
+         messageerrors0: $errors:InvalidSearchColumnName:errorMessage$
+         responsetime: $IGNORE$
    Admin_FilterDocCatTypMapping_inValid_filterType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$

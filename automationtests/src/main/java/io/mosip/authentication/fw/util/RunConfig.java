@@ -428,4 +428,12 @@ public abstract class RunConfig {
 			public abstract void setCreateBlackListedWordsPath(String createBlackListedWordsPath);
 			public abstract String getCreateLocationDataPath();
 			public abstract void setCreateLocationDataPath(String createLocationDataPath);
+			public abstract String getDecommisionRegCenterPath();
+			public abstract String getDecommisionDevicePath();
+			public abstract String getSetGetLeafZones();
+			public abstract String getSetGetZoneNameBasedOnUserIDAndLangCode();
+			public abstract String getSetZoneHierarchy();
+			public abstract String getDecommisionMachinePath();
+			public abstract String getUpdateLocationData();
+			public abstract String getUpdateBlackListedWordsPath();
 }

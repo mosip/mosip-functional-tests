@@ -38,6 +38,7 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
       input.search-request:
          valuefilters0: $TestData:valid_TemplateName_Name_eng_contains$
@@ -99,15 +100,6 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-empty-response:
          responsetime: $IGNORE$
-   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_invalid_FromAndTodate:
-      input.search-request:
-         toValuefilters0: $TestData:invalid_toValue$
-         fromValuefilters0: $TestData:invalid_fromValue$
-         typefilters0: between
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:invalid_FromAndToValue:errorCode$
-         messageerrors0: $errors:invalid_FromAndToValue:errorMessage$
-         responsetime: $IGNORE$
    Admin_SearchTemplateDetails_inavlid_Empty_FilterType:
       input.search-request:
          valuefilters0: $TestData:valid_TemplateName_Name_eng_equals$
@@ -148,7 +140,7 @@ testdata:
          pageFetch: $TestData:inavlid_FetchPage_LessThan1$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
-         messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
+         messageerrors0: 'Invalid pagination value received pagestart:0 and pagefetch:0'
    Admin_SearchTemplateDetails_inavlid_paginationValue:
       input.search-request:
          pageStart: $TestData:invalid_MachineSearch_pagination$
@@ -177,6 +169,7 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleId_filterType_Contains:
       input.search-request:
          valuefilters0: $TestData:Valid_TemplateSearch_ModuleId_Contains$
@@ -191,13 +184,14 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleId_filterType_StartsWith:
       input.search-request:
          valuefilters0: $TestData:Valid_TemplateSearch_ModuleId_StartsWith$
          typefilters0: $TestData:valid_SearchTypeStartsWith$
          languageCode: $TestData:valid_LanguageCodeEng$
          columnNamefilters0: $TestData:valid_ColumnName_moduleId$
-      output.output-1-expected-pos-5-response:
+      output.output-1-expected-pos-4-response:
          langCodedata0: $input.search-request:languageCode$
          updatedBydata0: $IGNORE$
          isDeleteddata0: $IGNORE$
@@ -205,6 +199,7 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_Equals:
       input.search-request:
          valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_Equals$
@@ -219,6 +214,7 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_Contains:
       input.search-request:
          valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_Contains$
@@ -233,6 +229,7 @@ testdata:
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
          responsetime: $IGNORE$
+         totalRecord: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleName_filterType_StartsWith:
       input.search-request:
          valuefilters0: $TestData:Valid_TemplateSearch_ModuleName_StartsWith$
@@ -246,6 +243,7 @@ testdata:
          deletedDateTimedata0: $IGNORE$
          createdDateTimedata0: $IGNORE$
          updatedDateTimedata0: $IGNORE$
+         totalRecord: $IGNORE$
          responsetime: $IGNORE$
    Admin_SearchTemplateDetails_LangCode_invalid:
       input.search-request:

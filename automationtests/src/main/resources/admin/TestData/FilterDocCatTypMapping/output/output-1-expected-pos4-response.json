@@ -12,10 +12,6 @@
       {
         "fieldID": "isActive",
         "fieldValue": "true"
-      },
-      {
-        "fieldID": "isActive",
-        "fieldValue": "false"
       }
     ]
   },

@@ -157,7 +157,6 @@ public class DeviceSpecFilter  extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		//String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getDeviceSpecFilterPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+ " *******");

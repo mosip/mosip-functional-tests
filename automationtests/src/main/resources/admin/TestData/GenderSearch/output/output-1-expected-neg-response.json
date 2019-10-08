@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-09T05:24:40.510Z",
+  "responsetime": "$IGNORE$",
   "errors": [
     {
       "errorCode": "KER-MSD-999",

@@ -162,7 +162,7 @@ public class RegistrationCenterFilter extends AdminTestUtil implements ITest {
 	 * @throws ParseException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void otpGenerationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+	public void filterRegCenter(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException, AdminTestException, ParseException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
@@ -170,8 +170,6 @@ public class RegistrationCenterFilter extends AdminTestUtil implements ITest {
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		logger.info("************* Otp generation request ******************");
-		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAdminRegistrationCentreFilterPath();

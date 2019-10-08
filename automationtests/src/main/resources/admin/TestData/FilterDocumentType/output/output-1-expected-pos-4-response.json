@@ -5,93 +5,85 @@
   "metadata": null,
   "response": {
     "filters": [
-      {
+ {
         "fieldID": "name",
-        "fieldValue": "Carte de cantine de l’armée"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Carte de crédit photo"
+        "fieldValue": "Account statement or passbook of the Post Office"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte de ration"
+        "fieldValue": "Birth Certificate"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte d’identification des électeurs"
+        "fieldValue": "Canteen card of the Army"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte d'identité de référence"
+        "fieldValue": "Certificate of Birth"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte médicale délivrée par le govt de l'État"
+        "fieldValue": "Certificate of Marriage"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte PAN"
+        "fieldValue": "Certificate of Relationship"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte PDS"
+        "fieldValue": "Certificate of residence"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Carte photo du Freedom Fighter"
+        "fieldValue": "Certification of Exception"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Cartes d’identité de service de photo émises par un PSU"
+        "fieldValue": "CNIE card"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Cartes d’identité photo émises par le gouvernement"
+        "fieldValue": "Driving licence of the applicant"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Certificat de mariage"
+        "fieldValue": "Either Ration or PDS Photo card"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Certificat de naissance"
+        "fieldValue": "Family entitlement document"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Certificat de relation"
+        "fieldValue": "Licence of Arms"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Certificat de résidence"
+        "fieldValue": "Medical card issued by the State Govt, CGHS, ECHS and ESIC"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Certification dexception"
+        "fieldValue": "PAN card"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Contrat de location"
+        "fieldValue": "Passbook or Bank Statement"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Facture d’eau tant qu’elle n’a pas plus de 3 mois"
+        "fieldValue": "Passport"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Facture d’électricité précédente de 3 mois"
+        "fieldValue": "PDS Card"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Licence d’armes"
+        "fieldValue": "Photo Bank ATM card"
       },
       {
-        "fieldID": "isActive",
-        "fieldValue": "true"
-      },
-      {
-        "fieldID": "isActive",
-        "fieldValue": "false"
+        "fieldID": "name",
+        "fieldValue": "Photo card of the Freedom Fighter"
       }
     ]
   },

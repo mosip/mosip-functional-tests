@@ -39,7 +39,7 @@ import io.mosip.authentication.testdata.TestDataUtil;
 public class SearchMachines extends AdminTestUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(SearchMachines.class);
-	protected static String testCaseName = "";
+	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
@@ -98,6 +98,8 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 			}
 		}
 		this.testCaseName = String.format(testCase);
+		if(!kernelCmnLib.isValidToken(adminCookie))
+			adminCookie = kernelAuthLib.getAuthForAdmin();
 	}
 
 	/**
@@ -118,7 +120,6 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 	/**
 	 * Set current testcaseName
 	 */
-	@SuppressWarnings("static-access")
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
@@ -138,7 +139,7 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
-			f.set(baseTestMethod, SearchMachines.testCaseName);
+			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -166,8 +167,7 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getSearchMachinePath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://"+System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, cookieValue);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
