@@ -242,7 +242,7 @@ public class BaseTestCase{
 		}
 	private static void copyDbInTarget() {
 		File db=new File(MosipTestRunner.getGlobalResourcePath().substring(0,MosipTestRunner.getGlobalResourcePath().lastIndexOf("target"))+"/db");
-		File targetDb=new File(db.getPath().replace("\\db", "\\target\\db"));
+		File targetDb=new File(db.getPath().replace("/db", "/target/db"));
 		try {
 			FileUtils.copyDirectory(db,targetDb);
 			logger.info("Copied :: "+targetDb.getPath()+":: to target");
