@@ -721,7 +721,7 @@ public class CommonUtil {
 		ApplicantDocumentDTO applicantDocumentDTO = new ApplicantDocumentDTO();
 		byte[] data;
 		try {
-			data = IOUtils.toByteArray(new FileInputStream(new File("/acknowledgementReceipt.jpg")));
+			data = IOUtils.toByteArray(new FileInputStream(new File(MosipTestRunner.getGlobalResourcePath()+ConstantValues.ACKNOWLEDGEMENT_IMAGE)));
 			applicantDocumentDTO.setAcknowledgeReceipt(data);
 			applicantDocumentDTO.setAcknowledgeReceiptName("RegistrationAcknowledgement.jpg");
 		} catch (Exception exception) {
@@ -1060,6 +1060,7 @@ public class CommonUtil {
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+				registrationDTO.getRegistrationMetaDataDTO().setConsentOfApplicant("YES");
 			} else {
 				// Set PreRegistration ID to RegistrationDTO
 				registrationDTO.setPreRegistrationId(preRegistrationDTO.getPreRegistrationId());
@@ -1157,6 +1158,7 @@ public class CommonUtil {
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+				registrationDTO.getRegistrationMetaDataDTO().setConsentOfApplicant("YES");
 
 			}
 

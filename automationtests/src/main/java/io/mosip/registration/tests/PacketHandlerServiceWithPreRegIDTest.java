@@ -117,6 +117,7 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 		// new PreIDGenerator().generatePreID(centerID);
 		preRegistrationDataSyncService.getPreRegistrationIds(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+		System.out.println();
 	}
 
 	@Test(dataProvider = "PacketHandlerDataProvider", alwaysRun = true)
@@ -191,7 +192,7 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 			commonUtil.createRegistrationDTOObject(ConstantValues.REGISTRATIONCATEGORY, centerID, stationID);
 			// Get Pre Registration details
 			preRegistrationDTO = commonUtil.getPreRegistrationDetails(preRegIDs.get(packetType));
-			System.out.println(packetType+"==="+preRegIDs.get(packetType));
+			System.out.println(packetType + "===" + preRegIDs.get(packetType));
 			if (preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO().getIdentity() != null) {
 
 				preRegIDStatus = true;
@@ -217,8 +218,19 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 					ResponseDTO uploadResponse = new ResponseDTO();
 					boolean syncNotSuccess = false;
 					boolean uploadNotSuccess = false;
+					/*
+					 * String
+					 * packetPath=this.getClass().getSuperclass().getClassLoader().getResource("").
+					 * toString(); packetPath=packetPath.substring(0,packetPath.indexOf("/auto"));
+					 * packetPath=packetPath+"/PacketStore";
+					 * packetPath=packetPath.concat("/").concat(formatDate(new
+					 * Date(),String.valueOf(ApplicationContext.map().get(RegistrationConstants.
+					 * PACKET_STORE_DATE_FORMAT)))).concat("/").concat(packetResponse.get("RANDOMID"
+					 * ));
+					 */
 					if (syncResponse.isEmpty()) {
 						// Upload packet
+
 						String seperator = "/";
 						String filePath = String
 								.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
@@ -227,7 +239,15 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 										String.valueOf(ApplicationContext.map()
 												.get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
 								.concat(seperator).concat(packetResponse.get("RANDOMID"));
-						File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
+						String packetPath = this.getClass().getSuperclass().getClassLoader().getResource("").toString();
+						packetPath = packetPath.substring(0, packetPath.indexOf("/auto"));
+						packetPath = packetPath + "/PacketStore";
+						packetPath = packetPath.concat("/")
+								.concat(formatDate(new Date(),
+										String.valueOf(ApplicationContext.map()
+												.get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
+								.concat("/").concat(packetResponse.get("RANDOMID"));
+						File packet = new File(packetPath + RegistrationConstants.ZIP_FILE_EXTENSION);
 						uploadResponse = packetUploadService.pushPacket(packet);
 						if (uploadResponse.getSuccessResponseDTO().getCode().equalsIgnoreCase("Success")) {
 
@@ -258,7 +278,7 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 		} catch (NullPointerException nullPointerException) {
 			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(nullPointerException) + "PreRegistration ID is invalid");
-			Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
+				Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
 			Assert.assertTrue(preRegIDStatus, "PreRegistration ID is invalid");
 			Assert.assertTrue(packetstatus, "Registration Client packet is not created succesfully");
 

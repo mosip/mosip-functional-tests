@@ -191,7 +191,7 @@
 			<groupId>io.mosip.registration</groupId>
 			<artifactId>registration-services</artifactId>
 			<version>${registration-services.version}</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>

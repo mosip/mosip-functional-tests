@@ -21,11 +21,14 @@ import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.config.DaoConfig;
 import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.SessionContext;
+import io.mosip.registration.dao.PolicySyncDAO;
 import io.mosip.registration.dto.AuthenticationValidatorDTO;
+import io.mosip.registration.dto.ErrorResponseDTO;
 import io.mosip.registration.dto.LoginUserDTO;
 import io.mosip.registration.dto.RegistrationCenterDetailDTO;
 import io.mosip.registration.dto.UserDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
+import io.mosip.registration.entity.KeyStore;
 import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.CenterMachineRepository;
 import io.mosip.registration.repositories.MachineMasterRepository;
@@ -71,6 +74,9 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 	@Autowired
 	RegistrationCenterUserRepository centeruserRepo;
 
+	/** The policy sync DAO. */
+	@Autowired
+	private PolicySyncDAO policySyncDAO;
 	@Autowired
 	UserMachineMappingRepository userMachineMappingRepository;
 	/**
@@ -90,7 +96,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 		applicationContext.loadResourceBundle();
 	}
 
-	public void baseSetUp() {
+	public void baseSetUp() { 
 		try {
 
 			// Fetching the Global param values from the database
@@ -99,8 +105,15 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 			SessionContext.setApplicationContext(applicationContext);
 			// Sync
 			boolean sync_Status;
+			KeyStore keyStore = policySyncDAO.getPublicKey(RegistrationConstants.KER);
+			System.out.println(keyStore.getPublicKey().toString());
+			
+			
+			
+			
 			ResponseDTO publicKeyResponse = publicKeySyncImpl
 					.getPublicKey(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+			System.out.println();
 			sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 					publicKeyResponse.getSuccessResponseDTO().getMessage());
 			if (sync_Status) {
@@ -108,6 +121,15 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 						"publicKeySyncImpl Synced successfully");
 
 				ResponseDTO globalParamResponse = globalParamService.synchConfigData(false);
+				if(globalParamResponse.getSuccessResponseDTO()!=null) {
+					System.out.println(globalParamResponse.getSuccessResponseDTO().getMessage());
+				} else
+				{
+					for(ErrorResponseDTO errorResponse:globalParamResponse.getErrorResponseDTOs()) {
+						System.out.println(errorResponse.getCode());
+						System.out.println(errorResponse.getMessage());
+					}
+				}
 				sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 						globalParamResponse.getSuccessResponseDTO().getMessage());
 
