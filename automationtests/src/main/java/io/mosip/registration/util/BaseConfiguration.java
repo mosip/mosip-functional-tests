@@ -1,8 +1,5 @@
 package io.mosip.registration.util;
 
-import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
-import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
-
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -11,25 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import org.testng.Reporter;
 
-import io.mosip.registration.context.ApplicationContext;
-import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.config.DaoConfig;
 import io.mosip.registration.constants.RegistrationConstants;
+import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
 import io.mosip.registration.dao.PolicySyncDAO;
 import io.mosip.registration.dto.AuthenticationValidatorDTO;
 import io.mosip.registration.dto.ErrorResponseDTO;
 import io.mosip.registration.dto.LoginUserDTO;
 import io.mosip.registration.dto.RegistrationCenterDetailDTO;
+import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.registration.dto.UserDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
 import io.mosip.registration.entity.KeyStore;
-import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.CenterMachineRepository;
 import io.mosip.registration.repositories.MachineMasterRepository;
 import io.mosip.registration.repositories.RegistrationCenterUserRepository;
@@ -103,6 +98,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());
 			// Set spring Application Context to SessionContext
 			SessionContext.setApplicationContext(applicationContext);
+			System.out.println(globalParamService.getGlobalParams());
 			// Sync
 			boolean sync_Status;
 			KeyStore keyStore = policySyncDAO.getPublicKey(RegistrationConstants.KER);
@@ -171,32 +167,32 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 									LOGGER.info("BASE CONFIGURATION - ", "AUTOMATION - REG", "SYNC",
 											"PolicySyncService Synced successfully");
 								} else {
-									LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+									LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 											"PolicySyncService Sync Failed");
 									Assert.assertTrue(sync_Status);
 								}
 							} else {
-								LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+								LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 										"masterSyncService Sync Failed");
 								Assert.assertTrue(sync_Status);
 							}
 						} else {
-							LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+							LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 									"userDetailService Sync Failed");
 							Assert.assertTrue(sync_Status);
 						}
 					} else {
-						LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+						LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 								"GlobalParamService Sync Failed");
 						Assert.assertTrue(sync_Status);
 					}
 				} else {
-					LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "GlobalParamService Sync Failed");
+					LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "GlobalParamService Sync Failed");
 					Assert.assertTrue(sync_Status);
 				}
 
 			} else {
-				LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "publicKeySyncImpl Sync Failed");
+				LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "publicKeySyncImpl Sync Failed");
 				Assert.assertTrue(sync_Status);
 			}
 			// Get User details from User Detail table
@@ -249,14 +245,14 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 				Assert.assertTrue(sessionContext_Status);
 			}
 		} catch (IOException ioException) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioException));
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioException));
 
 		} catch (ParseException parseException) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
 
 		}
 		catch (Exception exception) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
 
 		}
 
