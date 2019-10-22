@@ -69,6 +69,8 @@ public class AdminRunConfig extends RunConfig {
 	private String decommisionMachinePath;
 	private String decommisionDevicePath;
 	private String decommisionRegCenterPath;
+	private String deviceValidatePath;
+
 
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
@@ -125,6 +127,7 @@ public class AdminRunConfig extends RunConfig {
 		setDecommisionMachinePath(AdminTestUtil.getPropertyValue("decommisionMachinePath"));
 		setDecommisionDevicePath(AdminTestUtil.getPropertyValue("decommisionDevicePath"));
 		setDecommisionRegCenterPath(AdminTestUtil.getPropertyValue("decommisionRegCenterPath"));
+		setDeviceValidatePath(AdminTestUtil.getPropertyValue("deviceValidatePath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1178,5 +1181,14 @@ public class AdminRunConfig extends RunConfig {
 	public void setIdaInternalRetrieveAuthTypeStatusPathForVID(String idaInternalRetrieveAuthTypeStatusPathForVID) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String getDeviceValidatePath() {
+		return deviceValidatePath;
+	}
+
+	public void setDeviceValidatePath(String deviceValidatePath) {
+		this.deviceValidatePath = deviceValidatePath;
 	}
 }

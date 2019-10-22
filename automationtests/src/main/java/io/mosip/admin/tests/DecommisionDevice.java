@@ -34,7 +34,7 @@ import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class DecommisionDevice extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(SearchMachines.class);
+	private static final Logger logger = Logger.getLogger(DecommisionDevice.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

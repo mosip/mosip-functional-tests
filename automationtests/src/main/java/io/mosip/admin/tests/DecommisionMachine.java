@@ -50,7 +50,6 @@ public class DecommisionMachine extends AdminTestUtil implements ITest {
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 		// replacing the deviceID(Tdevice to new ID Tdevice1)
-		System.err.println(queries.get("createMachine").toString());
 		String query = queries.get("createMachine").toString().replace("Tmach", queries.get("machineId1").toString());
 		// replacing the deviceID(Tdevice to new ID Tdevice2) and zoneCode(CST to BRK) 
 		String query1 = queries.get("createMachine").toString().replace("Tmach", queries.get("machineId2").toString()).replace("CST", queries.get("zoneCode").toString());

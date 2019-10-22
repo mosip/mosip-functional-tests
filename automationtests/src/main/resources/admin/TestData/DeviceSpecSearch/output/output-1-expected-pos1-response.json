@@ -1,0 +1,30 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "id": "165",
+        "name": "لوح بصمة",
+        "brand": "سافران مورفو",
+        "model": "Greenbit DactySc",
+        "deviceTypeCode": "FRS",
+        "minDriverversion": "1.12",
+        "description": "لمسح بصمة",
+        "langCode": "ara",
+        "deviceTypeName": "ماسح بصمة الأصبع"
+      }
+    ]
+  }
+}

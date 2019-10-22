@@ -7,7 +7,7 @@
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Fingerprint Scanner"
+        "fieldValue": "Slab Fingerprint"
       }
     ]
   },

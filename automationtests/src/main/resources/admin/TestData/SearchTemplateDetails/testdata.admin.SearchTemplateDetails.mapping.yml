@@ -148,12 +148,12 @@ testdata:
          errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
          messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
          responsetime: $IGNORE$
-   Admin_SearchTemplateDetails_inavlid_LangCode:
+   Admin_SearchTemplateDetails_invalid_LangCode:
       input.search-request:
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_SearchTemplateDetails_ColumnName_ModuleId_FilterType_Equals:
       input.search-request:
@@ -252,5 +252,5 @@ testdata:
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$

@@ -279,6 +279,7 @@ testdata:
       languageCode: ''
     output.output-1-expected-emptyLangCode:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       responsetime: $IGNORE$
       
   Admin_SearchBlackListedWords_Invalid_LangCode:
@@ -294,7 +295,7 @@ testdata:
     output.output-1-expected-emptyLangCode:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
   Admin_SearchBlackListedWords_Valid_MandatoryFieldsOnly:
     input.search-mandatory-request:
       pageStart: $TestData:valid_PageStart$

@@ -32,7 +32,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 
 public class SearchDocCategories extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(SearchMachines.class);
+	private static final Logger logger = Logger.getLogger(SearchDocCategories.class);
 	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

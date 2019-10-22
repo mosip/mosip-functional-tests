@@ -182,7 +182,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_DocCatTypMapSearch_inValid_langCode_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
@@ -195,7 +195,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_DocCatTypMapSearch_inValid_sortField:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
@@ -209,7 +209,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: "Invalid sort field fbheafg "
+         messageerrors0: "Invalid sort field fbheafg"
    Admin_DocCatTypMapSearch_inValid_sortType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$

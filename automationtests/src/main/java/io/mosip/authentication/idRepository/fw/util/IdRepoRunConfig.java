@@ -1215,4 +1215,10 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getDeviceValidatePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

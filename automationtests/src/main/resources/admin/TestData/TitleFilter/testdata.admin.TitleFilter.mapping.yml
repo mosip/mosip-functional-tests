@@ -174,8 +174,8 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
       
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$  
-      messageerrors0: $IGNORE$  
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$  
       responsetime: $IGNORE$             
            
   Admin_TitleFilter_Invalid_LangCode_neg:
@@ -189,7 +189,7 @@ testdata:
       
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage5$    
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$    
       responsetime: $IGNORE$        
   
   Admin_TitleFilter_inValid_FilterType_blank:

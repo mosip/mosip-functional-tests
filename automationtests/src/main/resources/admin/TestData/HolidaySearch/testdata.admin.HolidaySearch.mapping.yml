@@ -262,7 +262,7 @@ testdata:
          
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$ 
       responsetime: $IGNORE$      
  
   Admin_HolidaySearch_Invalid_LangCode_neg:
@@ -279,7 +279,7 @@ testdata:
          
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$ 
       responsetime: $IGNORE$    
  
   Admin_HolidaySearch_Invalid_SortType_neg:

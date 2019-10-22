@@ -1,17 +1,22 @@
 {
-  "id": "string",
-  "version": "string",
-  "responsetime": "2019-08-26T10:17:07.810Z",
-  "metadata": null,
-  "response": [
-    {
-      "code": "MSK",
-      "langCode": "eng"
+    "id": "string",
+    "version": "string",
+    "responsetime": "2019-10-11T06:49:14.530Z",
+    "metadata": null,
+    "response": {
+        "isActive": false,
+        "createdBy": "110005",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "",
+        "name": "Test Location2",
+        "hierarchyLevel": 3,
+        "hierarchyName": "city",
+        "parentLocCode": "KNT",
+        "langCode": "eng"
     },
-    {
-      "code": "MSK",
-      "langCode": "ara"
-    }
-  ],
-  "errors": null
+    "errors": null
 }

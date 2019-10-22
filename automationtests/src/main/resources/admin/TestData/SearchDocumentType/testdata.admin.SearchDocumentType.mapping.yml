@@ -197,7 +197,7 @@ testdata:
     output.output-1-expected-emptyLangCode:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_SearchDocumnetType_Invalid_EmptyLangCode:
     input.search-request:
@@ -211,6 +211,7 @@ testdata:
       languageCode: ''
     output.output-1-expected-emptyLangCode:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       responsetime: $IGNORE$
       
   Admin_SearchDocumnetType_Inavlid_TwoFilterValuesWithOneInvalidValue:

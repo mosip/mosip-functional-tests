@@ -1,16 +1,16 @@
 {
   "id": "string",
-  "requesttime": "2018-12-10T06:12:52.994Z",
-  "version": "string",
   "metadata": {},
   "request": {
     "filters": [
       {
-        "columnName": "id",
+        "columnName": "name",
         "type": "all",
-        "text": "1000"
+        "text": "P"
       }
     ],
     "languageCode": "eng"
-  }
+  },
+  "requesttime": "$IGNORE$",
+  "version": "string"
 }

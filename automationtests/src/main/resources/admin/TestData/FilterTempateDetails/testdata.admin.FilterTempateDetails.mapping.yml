@@ -73,8 +73,12 @@ testdata:
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$         
    Admin_FilterTemplateDetails_empty_langCode:
       input.search-request:
          languageCode: ''
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$          
