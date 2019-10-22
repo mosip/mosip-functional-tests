@@ -2,10 +2,18 @@
 	"id": "mosip.id.create",
 	"request": {
 		"registrationId": "27847657360002520190205113333",
-
 		"identity": {
 			"IDSchemaVersion": 1.0,
-			"residenceStatus": "abc", 
+			"residenceStatus": [
+				{
+					"language": "eng",
+					"value": "MOROCCO"
+				},
+				{
+					"language": "fra",
+					"value": "MOROCCO"
+				}
+			],
 			"UIN": 6738521981,
 			"fullName": [
 				{

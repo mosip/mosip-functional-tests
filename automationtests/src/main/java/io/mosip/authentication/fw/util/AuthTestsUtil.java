@@ -1399,6 +1399,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	    return r.nextInt((max - min) + 1) + min;
 	}
 	
+	//Added by Admin Test Team
 	protected Response getRequestWithPathParm(String filename, String url,String cookieName, String cookieValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
@@ -1418,7 +1419,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return null;
 		}
-	}	
+	}
 } 
 
 
