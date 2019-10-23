@@ -3,11 +3,13 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: 'A1ML28565'
+      textfilters0: 'a2ml30933'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Valid_TypeAll:
     input.search-request:
@@ -16,8 +18,10 @@ testdata:
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: a2ml30933
       
   Admin_FilterMachines_Valid_ColumnStatus:
     input.search-request:
@@ -33,21 +37,25 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'A1ML28565'
+      textfilters0: 'a2ml30933'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Valid_LangCodeFrench:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'A1ML28565'
+      textfilters0: 'a2ml30933'
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-3-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Invalid_EmptyColumnName:
     input.search-request:
@@ -107,7 +115,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_FilterMachines_Invalid_EmptyLangCode:
     input.search-request:
@@ -119,13 +127,13 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_FilterMachines_Valid_TwoFilters_NameNStatus:
     input.search-request-twoFilterValues:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'A1ML28565'
+      textfilters0: 'a2ml30933'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -133,28 +141,17 @@ testdata:
     output.output-1-expected-pos-4-response:
       responsetime: $IGNORE$
       
-  Admin_FilterMachines_Valid_TwoFilters_NameNName:
-    input.search-request-twoFilterValues:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'A1ML28565'
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      columnNamefilters1: $TestData:valid_Search_ColumnNameAsName$
-      typefilters1: $TestData:valid_FilterTypeAll$
-      textfilters1: 'A1ML28565'
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      
   Admin_FilterMachines_Valid_ColumnMacAddress:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: '00-0D-3A-F2-B4-8A'
+      textfilters0: 'E8-6A-64-1D-75-E4'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-5-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Valid_ColumnSerialNumber:
     input.search-request:
@@ -163,8 +160,10 @@ testdata:
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-6-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: YM866672706
       
   Admin_FilterMachines_Valid_ColumnMachineSpecId:
     input.search-request:
@@ -173,5 +172,16 @@ testdata:
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-7-response:
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 1001
+  Admin_FilterMachines_Valid_Column_MapStatus:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-3-response:
       responsetime: $IGNORE$

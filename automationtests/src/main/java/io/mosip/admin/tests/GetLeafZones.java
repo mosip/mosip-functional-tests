@@ -31,7 +31,7 @@ import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 
 public class GetLeafZones  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(DeviceFilter.class);
+	private static final Logger logger = Logger.getLogger(GetLeafZones.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

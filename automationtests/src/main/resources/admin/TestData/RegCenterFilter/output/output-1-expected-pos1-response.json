@@ -6,7 +6,11 @@
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Center Madinat Al Irfane"
+        "fieldValue": "Center Mehdia"
+      },
+      {
+        "fieldID": "name",
+        "fieldValue": "Center Sidi Taibi"
       }
     ]
   }

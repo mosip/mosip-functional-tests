@@ -1,7 +1,7 @@
 testdata:
   Admin_FilterLocationData_Valid_Smoke:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeUnique$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -11,7 +11,7 @@ testdata:
       
   Admin_FilterLocationData_Valid_TypeAll:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -21,7 +21,7 @@ testdata:
       
   Admin_FilterLocationData_Valid_ColumnProvince:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnProvince$
+      columnNamefilters0: Province
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -31,7 +31,7 @@ testdata:
       
   Admin_FilterLocationData_Valid_ColumnCity:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnCity$
+      columnNamefilters0: City
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -41,7 +41,7 @@ testdata:
       
   Admin_FilterLocationData_Valid_ColumnZone:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnZone$
+      columnNamefilters0: Zone
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: 'Mehdia'
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -72,7 +72,7 @@ testdata:
   Admin_FilterLocationData_Invalid_EmptyColumnName:
     input.search-request:
       columnNamefilters0: ''
-      typefilters0: $TestData:validColumnRegion$
+      typefilters0: Region
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
@@ -83,7 +83,7 @@ testdata:
       
   Admin_FilterLocationData_Invalid_EmptyFilterType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: ''
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -107,8 +107,8 @@ testdata:
       
   Admin_FilterLocationData_Invalid_FilterType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
-      typefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
+      typefilters0: $TestData:Invalid_ValueString$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
@@ -119,7 +119,7 @@ testdata:
       
   Admin_FilterLocationData_Invalid_LangCode:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:Invalid_ValueString$
@@ -127,11 +127,11 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_FilterLocationData_Invalid_EmptyLangCode:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: ''
@@ -139,18 +139,19 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_TwoFilters_RegionNRegion:
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
+  
+  Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus:
     input.search-request-twoFilterValues:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      columnNamefilters1: $TestData:validColumnRegion$
-      typefilters1: $TestData:valid_FilterTypeAll$
-    output.output-1-expected-pos-response:
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_FilterTypeUnique$
+      textfilters1: ''
+    output.output-1-expected-pos-6-response:
       responsetime: $IGNORE$
       
       

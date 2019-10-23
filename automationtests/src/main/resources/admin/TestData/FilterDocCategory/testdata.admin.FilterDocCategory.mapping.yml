@@ -160,7 +160,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage5$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_FilterDocCategory_inValid_RequestTime_format:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
@@ -220,4 +220,4 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage5$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$

@@ -107,7 +107,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_FilterBlackListedWords_Invalid_EmptyLangCode:
     input.search-request:
@@ -119,7 +119,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-      messageerrors0: $IGNORE$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
   Admin_FilterBlackListedWords_Valid_TwoFilters_NameNStatus:
     input.search-request-twoFilterValues:

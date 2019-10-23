@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-07-24T08:49:17.678Z",
+  "responsetime": "$IGNORE$",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,15 +10,20 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-07-16T05:57:48.113Z",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
         "id": "165",
-        "name": "Fingerprint Scanner",
-        "brand": "Safran Morpho",
-        "model": "1300 E2",
+        "name": "Slab Fingerprint",
+        "brand": "Syncbyte",
+        "model": "Greenbit DactySc",
         "deviceTypeCode": "FRS",
         "minDriverversion": "1.12",
         "description": "To scan fingerprint",
-        "langCode": "eng"
+        "langCode": "eng",
+        "deviceTypeName": "Finger Print Scanner"
       }
     ]
   }

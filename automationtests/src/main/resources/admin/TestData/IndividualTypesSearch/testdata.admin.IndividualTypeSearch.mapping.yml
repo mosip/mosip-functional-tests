@@ -104,7 +104,7 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: 'Invalid sort field asdg '
+         messageerrors0: 'Invalid sort field asdg'
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_Empty_SortFieldType:
       input.search-request:
@@ -175,7 +175,7 @@ testdata:
          languageCode: $TestData:invalid_LangCode$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_langCode_eng_smoke:
       input.search-request:

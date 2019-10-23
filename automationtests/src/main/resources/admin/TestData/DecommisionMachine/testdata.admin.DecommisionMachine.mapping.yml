@@ -27,19 +27,17 @@ testdata:
       input.search-request:
          machineId: $TestData:MachineCretedByQuery1$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:DecomissionDeviceMapToCenter:errorCode$
-         messageerrors0: $errors:DecomissionDeviceMapToCenter:errorMessage$
+         errorCodeerrors0: $errors:DecomissionMachineMapToCenter:errorCode$
+         messageerrors0: $errors:DecomissionMachineMapToCenter:errorMessage$
    Admin_DecommisionMachine_inValid_unAuthorizedRole:
       input.search-request:
          machineId: $TestData:MachineCretedByQuery$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:NoAccessForService:errorCode$
          messageerrors0: $errors:NoAccessForService:errorMessage$
-         id: $IGNORE$
-         version: $IGNORE$
    Admin_DecommisionMachine_inValid_machine_mapped_to_zone_nonAccessable_by_user:
       input.search-request:
          machineId: Tmac2
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:UnAuthorizedRole:errorCode$
-         messageerrors0: $errors:UnAuthorizedRole:errorMessage$
+         errorCodeerrors0: $errors:DeCommissionMachineMapToDiffZone:errorCode$
+         messageerrors0: $errors:DeCommissionMachineMapToDiffZone:errorMessage$

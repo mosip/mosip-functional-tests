@@ -1,0 +1,131 @@
+testdata:
+   Admin_DeviceValidate_Valid_Request_Smoke:
+      input.search-request:
+         deviceCode: $TestData:valid_Search_ColumnNameAsDocCatCode$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         messageresponse0: 
+
+   Admin_DeviceValidate_inValid_deviceCode_blank:
+      input.search-request:
+         deviceCode: 
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: $errors:InvalidFilterType:errorMessage$
+   Admin_DeviceValidate_inValid_deviceCode_nonExisting_inDB:
+      input.search-request:
+         deviceCode: $TestData:Invalid_ValueString$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_NonExisting_device:errorCode$
+         messageerrors0: $errors:DeviceValidate_NonExisting_device:errorMessage$
+   Admin_DeviceValidate_inValid_deviceCode_inActive:
+      input.search-request:
+         deviceCode: $TestData:Invalid_ValueString$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_Revoked_device:errorCode$
+         messageerrors0: $errors:DeviceValidate_Revoked_device:errorMessage$
+   Admin_DeviceValidate_inValid_deviceProviderId_blank:
+      input.search-request:
+         deviceCode: $TestData:valid_SearchTypeEquals$
+         deviceProviderId: 
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: $errors:InvalidFilterType:errorMessage$
+   Admin_DeviceValidate_inValid_deviceProviderId_nonExisting_inDB:
+      input.search-request:
+         deviceCode: $TestData:valid_SearchTypeEquals$
+         deviceProviderId: $TestData:Invalid_ValueString$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorCode$
+         messageerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorMessage$
+   Admin_DeviceValidate_inValid_deviceProvider_nonExisting_inService:
+      input.search-request:
+         deviceCode: $TestData:valid_DocCatCode$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:Invalid_ValueString$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_notMappedToService_deviceProvider:errorCode$
+         messageerrors0: $errors:DeviceValidate_notMappedToService_deviceProvider:errorMessage$
+   Admin_DeviceValidate_inValid_deviceProviderId_inActive:
+      input.search-request:
+         deviceCode: $TestData:valid_SearchTypeEquals$
+         deviceProviderId: $TestData:Invalid_ValueString$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_Revoked_DeviceProvider:errorCode$
+         messageerrors0: $errors:DeviceValidate_Revoked_DeviceProvider:errorMessage$
+   Admin_DeviceValidate_inValid_deviceServiceId_blank:
+      input.search-request:
+         deviceCode: $TestData:valid_DocCatCode$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: 
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: $errors:InvalidFilterType:errorMessage$
+   Admin_DeviceValidate_inValid_deviceServiceId_nonExisting_inDB:
+      input.search-request:
+         deviceCode: $TestData:valid_SearchTypeEquals$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:Invalid_ValueString$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_NonExisting_MDS:errorCode$
+         messageerrors0: $errors:DeviceValidate_NonExisting_MDS:errorMessage$
+   Admin_DeviceValidate_inValid_deviceServiceId_inActive:
+      input.search-request:
+         deviceCode: $TestData:valid_SearchTypeEquals$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:Invalid_ValueString$
+         deviceServiceVersion: $TestData:valid_SortTypeAscending$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_Revoked_MDS:errorCode$
+         messageerrors0: $errors:DeviceValidate_Revoked_MDS:errorMessage$
+   Admin_DeviceValidate_inValid_deviceServiceVersion_blank:
+      input.search-request:
+         deviceCode: $TestData:valid_SortTypeAscending$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: $errors:InvalidFilterType:errorMessage$
+   Admin_DeviceValidate_inValid_deviceServiceVersion_nonExisting_inService:
+      input.search-request:
+         deviceCode: $TestData:valid_DocCatCode$
+         deviceProviderId: $TestData:valid_SearchTypeEquals$
+         deviceServiceId: $TestData:valid_DocCatCode$
+         deviceServiceVersion: $TestData:Invalid_ValueString$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:DeviceValidate_NonExisting_serviceVersion:errorCode$
+         messageerrors0: $errors:DeviceValidate_NonExisting_serviceVersion:errorMessage$

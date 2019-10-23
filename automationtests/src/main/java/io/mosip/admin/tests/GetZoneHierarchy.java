@@ -31,7 +31,7 @@ import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 
 public class GetZoneHierarchy  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(DeviceFilter.class);
+	private static final Logger logger = Logger.getLogger(GetZoneHierarchy.class);
 	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

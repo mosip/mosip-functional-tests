@@ -162,7 +162,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage5$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_DeviceFilter_Default_FilterType:
       input.filter-request1:
@@ -183,6 +183,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_DeviceFilter_Invalid_RequestTime:
       input.filter-request:

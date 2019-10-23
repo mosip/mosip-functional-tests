@@ -91,7 +91,8 @@ errors:
    InvalidCenterTypeCodeLength:
       errorMessage: 'request.centerTypeCode: size must be between 0 and 36'
    InvalidCenterTypeCode:
-      errorMessage: 'request.centerTypeCode: invalid centerTypeCode'
+      errorCode: KER-MSD-060
+      errorMessage: 'Invalid centerTypeCode'
    BlankCenterTypCode:
       errorMessage: 'request.centerTypeCode: must not be blank'
    InvalidTimeHHMMSS:
@@ -101,7 +102,8 @@ errors:
    InvalidContactPhone:
       errorMessage: 'request.contactPhone: size must be between 0 and 16'
    InvalidHolidayLocationCode:
-      errorMessage: 'request.holidayLocationCode: inValid holidayLocationCode'
+      errorCode: KER-MSD-440
+      errorMessage: 'HolidayLocationCode Not Found'
    BlankHolidayLocationCode:
       errorMessage: 'request.holidayLocationCode: must not be blank'
    InValidRequestId:
@@ -118,7 +120,8 @@ errors:
       errorMessage: Received Zone Code does not belong to the User
       errorMessage1: 'request.zoneCode: must not be blank'
    NoPrimaryLangCenterPresent:
-      errorCode: KER-MSD-381
+      errorCode: KER-MSD-999
+      errorMessage: Cannot create data in secondary language as data does not exist in primary language
    CreateCenterWithOtherThanConfigLang:
       errorCode: KER-MSD-382
       errorMessage: Received language code fra is not a configured language
@@ -128,6 +131,8 @@ errors:
       errorCode: KER-MSD-307
       errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
    InvalidLocationCode:
+      errorCode: KER-MSD-060
+      errorMessage: Invalid Location Code
       errorMessage0: 'request.locationCode: size must be between 0 and 36'
       errorMessage1: 'request.locationCode: must not be blank'
       errorMessage2: 'request.locationCode: invalid value'
@@ -192,14 +197,30 @@ errors:
       errorCode: KER-MSD-999
       errorMessage: "request.isActive: must not be null"
       errorMessage1: "request.isActive: invalid value"
+   CreateLocBlankHierarchyName:
+      errorMessage: "request.hierarchyName: must not be blank"
+   CreateLocBlankHierarchyLevel:
+      errorMessage: "request.hierarchyLevel: must not be blank"
+   CreateLocBlankName:
+      errorMessage: "request.name: must not be blank"
+   CreateLocDuplicateName:
+      errorCode: KER-MSD-385
+      errorMessage: "Location already exist under the hierarchy"
+   CreateLocInvalidCodeSecondLang:
+      errorCode: KER-MSD-387
+      errorMessage: "Location Code should not be different for a Location in different languages"    
    CreateLocationDataCode:
       errorCode: KER-MSD-999
       errorMessage: "eng.code:size must be between 0 and 36"
       errorMessage1: "eng.name:size must be between 0 and 128"
       errorMessage2: "eng.hierarchyName:size must be between 0 and 64"
-   CreateLocationEmptyLangCode:
-      errorCode: KER-MSD-388
-      errorMessage: "Location data is not present in the primary language : eng"
+   CreateLocNameLengthgrtrThanMax:
+      errorMessage: "request.name: size must be between 0 and 128"
+   CreateLocHierNameLengthgrtrThanMax:
+      errorMessage: "request.hierarchyName: size must be between 0 and 64"
+   CreateLocWithoutPrimaryLang:
+      errorCode: KER-MSD-999
+      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"
@@ -230,11 +251,52 @@ errors:
    UnMapDocCatTyp_InValidCatTypCode:
       errorCode: KER-MSD-361
    DecomissionDeviceMapToCenter:
-      errorCode: KER-MSD-350
+      errorCode: KER-MSD-438
       errorMessage: Device cannot be Decommissioned as it is assigned to a Registration Center
+   DecomissionMachineMapToCenter:
+      errorCode: KER-MSD-352
+      errorMessage: Machine cannot Decommissioned as some Registration centers are mapped  
    DeviceNotFoundDecommission:
       errorCode: KER-MSD-042
       errorMessage: Device ID <id> does not exist
    MachineNotFoundDecommission:
       errorCode: KER-MSD-042
       errorMessage: Machine ID <id> does not exist
+   DeviceValidate_NonExisting_device:
+      errorCode: ADM-DPM-001
+      errorMessage: Device does not exist
+   DeviceValidate_Revoked_device:
+      errorCode: ADM-DPM-002
+      errorMessage: Device is Revoked/Retired
+   DeviceValidate_NonExisting_DeviceProvider:
+      errorCode: ADM-DPM-003
+      errorMessage: Device Provider does not exist
+   DeviceValidate_Revoked_DeviceProvider:
+      errorCode: ADM-DPM-004
+      errorMessage: Device Provider is marked Inactive
+   DeviceValidate_NonExisting_MDS:
+      errorCode: ADM-DPM-005
+      errorMessage: MDS does not exist
+   DeviceValidate_Revoked_MDS:
+      errorCode: ADM-DPM-006
+      errorMessage: MDS is marked Inactive
+   DeviceValidate_NonExisting_serviceVersion:
+      errorCode: ADM-DPM-007
+      errorMessage: Software version does not match against the Service ID
+   DeviceValidate_notMappedToService_deviceProvider:
+      errorCode: ADM-DPM-008
+      errorMessage: Device Provider ID does not match against the Service ID
+   DeCommissionDeviceMapToDiffZone:
+      errorCode: KER-MSD-439
+      errorMessage: Admin not authorized to access this Device for this Zone
+   DeCommissionMachineMapToDiffZone:
+      errorCode: KER-MSD-436
+      errorMessage: Admin not authorized to access this Machine for this Zone
+   DeCommissionCenterMapToDiffZone:
+      errorCode: KER-MSD-441
+      errorMessage: Admin not authorized to access this Registration Center for this Zone
+   CreateLocParentNonExist:
+      errorCode: KER-MSD-389
+      errorMessage: Parent location not found   
+   CreateSecondaryDataWithBlankId:
+      errorMessage: Invalid id passed for Secondary language 

@@ -13,14 +13,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Name_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -32,17 +26,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Name_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -54,17 +42,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Brand_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
@@ -79,15 +61,8 @@ testdata:
       output.output-1-expected-pos-response:
          branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         namedata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
          totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Brand_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
@@ -99,18 +74,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          branddata0: $TestData:valid_DeviceSpec_Brand_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
-         namedata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
          totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Brand_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
@@ -122,18 +90,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          branddata0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
-         namedata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
          totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_Model:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
@@ -148,14 +109,8 @@ testdata:
       output.output-1-expected-pos-response:
          modeldata0: $TestData:valid_DeviceSpec_Model_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         namedata0: $IGNORE$
-         branddata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Equals_DeviceTypeName:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
@@ -167,17 +122,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos3-response:
          deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         namedata0: $IGNORE$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Invalid_Value_Name:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -235,14 +184,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_ASC_Name_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -257,14 +200,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_ASC_Name_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -276,17 +213,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_ASC_Name_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -298,17 +229,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_DESC_Name_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -323,14 +248,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_DESC_Name_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -342,17 +261,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_DESC_Name_fra_smoke:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -364,17 +277,11 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_Invalid_FilterType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -405,13 +312,7 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         
    Admin_DeviceSpecSearch_Invalid_LangCode:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -425,7 +326,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $IGNORE$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_DeviceSpecSearch_Blank_LangCode:
       input.search-request:
@@ -440,7 +341,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $IGNORE$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
    Admin_DeviceSpecSearch_Invalid_ColumnName:
       input.search-request:
@@ -486,14 +387,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_TwoValueSearch_pos:
       input.search-twoSearchValues-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -511,14 +406,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_TwoFilterColumns_equals:
       input.search-twoSearchValues-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
@@ -533,17 +422,11 @@ testdata:
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters1: $TestData:valid_SearchTypeEquals$
          valuefilters1: $TestData:valid_isActive_true$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos3-response:
          deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         namedata0: $IGNORE$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_StartsWith_Name_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -558,14 +441,8 @@ testdata:
       output.output-1-expected-pos-response:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         totalRecord: $IGNORE$
+         
    Admin_DeviceSpecSearch_TwoSortValues_pos:
       input.search-twoSortValues-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
@@ -583,11 +460,4 @@ testdata:
          branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
-         namedata0: $IGNORE$
-         modeldata0: $IGNORE$
-         deviceTypeCodedata0: $IGNORE$
-         descriptiondata0: $IGNORE$
-         iddata0: $IGNORE$
-         responsetime: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         minDriverversiondata0: $IGNORE$
+         

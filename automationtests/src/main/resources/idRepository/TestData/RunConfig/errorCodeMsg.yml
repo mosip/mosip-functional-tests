@@ -134,7 +134,7 @@ errors:
     errorMessage: Missing Input Parameter - id
   MissingResidenceStatus:
     errorCode: IDR-IDC-001
-    errorMessage: Missing Input Parameter - identity/residenceStatus
+    errorMessage: Missing Input Parameter - identity/residenceStatus/0/value
   MissingregistrationId:
     errorCode: IDR-IDC-001
     errorMessage: Missing Input Parameter - registrationId

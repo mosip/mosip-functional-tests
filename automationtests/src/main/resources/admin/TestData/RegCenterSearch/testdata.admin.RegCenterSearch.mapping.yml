@@ -1,5 +1,5 @@
 testdata:
-   Admin_RegCenterSearch_Valid_columName_type_equal_eng_Smoke:
+   Admin_RegCenterSearch_Valid_columAsName_type_equal_eng_Smoke:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
@@ -17,7 +17,7 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columName_type_equal_ara_DESC:
+   Admin_RegCenterSearch_Valid_columAsName_type_equal_ara_DESC:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
@@ -35,7 +35,7 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columName_type_equal_fra_DESC:
+   Admin_RegCenterSearch_Valid_columAsName_type_equal_fra_DESC:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
@@ -53,7 +53,7 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columName_type_contains:
+   Admin_RegCenterSearch_Valid_columAsName_type_contains_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeContains$
@@ -71,17 +71,18 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columName_type_contains:
+   Admin_RegCenterSearch_Valid_columAsName_type_contains_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeContains$
          valuefilters0: 'مركز'
+         sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          langCodedata0: $input.search-request:languageCode$
          isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
@@ -89,7 +90,7 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columName_type_startsWith:
+   Admin_RegCenterSearch_Valid_columAsName_type_startsWith:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeStartsWith$
@@ -107,6 +108,280 @@ testdata:
          totalRecord: $IGNORE$
          toRecord: 1
          createdDateTimedata0: $IGNORE$
+
+   Admin_RegCenterSearch_Valid_columIsActive_true_type_equal_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: true
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_columIsActive_false_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: false
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos4-response:
+         responsetime: $IGNORE$
+
+   Admin_RegCenterSearch_Valid_colum_centerTypeName_type_equal_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_centerTypeName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_centerTypeName_type_equal_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_centerTypeName_ara$
+         sortFieldsort0: id
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_centerTypeName_type_equal_fra:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_centerTypeName_fra$
+         sortFieldsort0: id
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeFrench$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos2-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+
+   Admin_RegCenterSearch_Valid_colum_region_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnRegion$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:validColumnRegionValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_region_type_contains_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnRegion$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:validColumnProvinceValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_region_type_contains_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnRegion$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:validColumnProvinceValue_ara$
+         sortFieldsort0: id
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+
+   Admin_RegCenterSearch_Valid_colum_province_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnProvince$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:validColumnCityValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_province_type_startsWith:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnProvince$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: 'K'
+         sortFieldsort0: id
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+         
+   Admin_RegCenterSearch_Valid_colum_city_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnCity$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:validColumnCityValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$
+ 
+   Admin_RegCenterSearch_Valid_colum_zone_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnZone$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:validZoneValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$ 
+         
+   Admin_RegCenterSearch_Valid_colum_postalCode_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnPostalCode$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:validPostalCodeValue$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: $IGNORE$
+         toRecord: 1
+         createdDateTimedata0: $IGNORE$ 
+         
+# user used for this is 110005 mapped to cst, center under cst is 2 so total count should come as 2
+   Admin_RegCenterSearch_Valid_columIsActive_true_type_equal_zoneValidation:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: true
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: 10
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         isActivedata0: $TestData:valid_isActive_true$
+         responsetime: $IGNORE$
+         fromRecord: 1
+         totalRecord: 2
+         toRecord: 2
+         createdDateTimedata0: $IGNORE$
+                
+
+   Admin_RegCenterSearch_inValid_col_name_ofCenter_mapToOtherZoneThanAdmin:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_center_Name_otherThan_CSTzone$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos4-response:
+         responsetime: $IGNORE$
+
    Admin_RegCenterSearch_inValid_columnName_blank:
       input.search-request:
          columnNamefilters0: ''
@@ -171,7 +446,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_RegCenterSearch_inValid_langCode_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -184,7 +459,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_RegCenterSearch_inValid_sortField:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -198,7 +473,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidSortField:errorCode$
-         messageerrors0: 'Invalid sort field fbheafg '
+         messageerrors0: 'Invalid sort field fbheafg'
    Admin_RegCenterSearch_inValid_sortType:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

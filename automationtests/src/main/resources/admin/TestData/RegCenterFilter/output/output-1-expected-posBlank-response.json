@@ -1,8 +1,10 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-13T16:15:30.460Z",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
   "response": {
     "filters": []
-  }
+  },
+  "errors": null
 }

@@ -28,9 +28,11 @@ valid_Search_ColumnNameAsIsActive:
 valid_Search_ColumnNameAsMapStatus:
      - mapStatus  
 valid_MachineSearchColumnAsMachineTypeName:
-      -machineTypeName
+     - machineTypeName
 valid_MachineSearchColumnAsMachineSpecId:
-       -machineSpecId     
+     - machineSpecId
+valid_Search_column_centerTypeName:
+      - centerTypeName  
 valid_MachineName:
       - Machine 1
 valid_SearchTypeEquals:
@@ -320,19 +322,19 @@ InvalidFilterType:
 
 #deviceSpec Search
 valid_DeviceSpec_Name_eng_Equals:
-     - Fingerprint Scanner
+     - Slab Fingerprint
 valid_DeviceSpec_Name_ara_Equals:
-     - كاميرا ويب
+     - لوح بصمة
 valid_DeviceSpec_Name_fra_Equals:
-     - imageFORMULA          
+     - Slab Fingerprint          
 valid_DeviceSpec_Brand_eng_Equals:
-     - Canon
+     - Syncbyte
 valid_DeviceSpec_Brand_ara_Equals:
      - سافران مورفو
 valid_DeviceSpec_Brand_fra_Equals:
-     - Canon          
+     - Syncbyte          
 valid_DeviceSpec_Model_Equals:
-     - 1300 E2         
+     - Greenbit DactySc         
 valid_DeviceSpec_DeviceTypeName_Equals:  
      - Finger Print Scanner   
 valid_DeviceSpec_DeviceTypeName_Output:
@@ -547,18 +549,30 @@ validColumnCity:
      - city
 validColumnZone:
      - zone
+validColumnPostalCode:
+     - postalCode
 validColumnRegionValue:
      - Rabat Sale Kenitra
 validColumnProvinceValue:
      - Rabat
+validColumnProvinceValue_ara:
+     - الرباط
 validColumnRegionArabic:
     - منطقة
 validColumnCityValue:
      - Kenitra
+validColumnCityValue_ara:
+     - القنيطرة
 validColumnRegionFrench:
      - Région
 validColumnZoneValue:
     - EL YOUSSOUFIA
+validZoneValue:
+    - Benslimane
+validPostalCodeValue:
+    - 14110
+validZoneValue:
+    - Mehdia
     
 #CreateBlackListedWords
 wordLength128:
@@ -579,8 +593,20 @@ CreateBlackListedWord:
 #CreateLocationData
 validLocationCode:
     - MSK
+validLocCodeCreatedByQuery:
+    - TestLoc_code_1
 validLocationName:
-    - maski
+    - Test_Loc_A_1
+validLocationName1:
+    - Test_Loc_A_2
+validLocationName2:
+    - Test_Loc_A_3
+validLocationName3:
+    - Test_Loc_A_4
+validLocNameCreatedByquery:
+    - Test_Loc_B_1 
+validLocNameCreatedByquery1:
+    - Test_Loc_B_2
 validLocationhierarchyLevel:
     - 3
 validLocationhierarchyName:
@@ -619,8 +645,22 @@ valid_nonLeafZone:
     - STH
     - RSK
 valid_center_Name:
-    - Center A Ben Mansour
+    - Center Mehdia
+valid_center_Name_otherThan_CSTzone:
+    - Center Agdal
 valid_center_Name_ara:
-    - المركز أ بن منصور
+    - مركز مهدية
 valid_center_Name_fra:
-    - Centre A Ben Mansour
+    - centre mehdia
+valid_centerTypeName:
+    - Regular
+valid_centerTypeName_fra:
+    - Ordinaire
+valid_centerTypeName_ara:
+    - منتظم
+valid_deviceProviderId:
+    - kklkl
+valid_deviceServiceId:
+    - kklkl
+valid_deviceServiceVersion:
+    - kklkl    

@@ -32,7 +32,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 
 public class FilterMachineSpec extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(SearchMachines.class);
+	private static final Logger logger = Logger.getLogger(FilterMachineSpec.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

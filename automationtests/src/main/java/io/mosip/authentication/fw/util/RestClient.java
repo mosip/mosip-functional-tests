@@ -197,6 +197,7 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + putResponse.time());
 		return putResponse;
 	}
+	//Added by Admin Test Team
 	public static Response getRequestWithCookieAndPathParm(String url,HashMap<String, String> body, String contentHeader, String acceptHeader,String cookieName,String cookieValue) {
         RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
         Response getResponse= given().config(config).relaxedHTTPSValidation().pathParams(body).cookie(cookieName, cookieValue)

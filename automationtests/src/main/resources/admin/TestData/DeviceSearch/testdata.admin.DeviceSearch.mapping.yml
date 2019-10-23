@@ -870,8 +870,8 @@ testdata:
       requesttime: $TIMESTAMPZ$ 
     
     output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$   
-      messageerrors0: $errors:InvalidLanguageCode:errorMessage1$ 
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$ 
       responsetime: $IGNORE$      
      
            

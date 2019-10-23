@@ -219,7 +219,7 @@ testdata:
       otpReq.phone: PHONE
       otpReq.requestTime: $TIMESTAMP$
       otpReq.transactionID: $RANDOM:N:10$
-      otpReq.version: $version$
+      otpReq.version: $TestData:id_version_invalid$
     input.otp-auth-request:
       AuthReq.individualId: $input.otp-generate:otpReq.individualId$
       AuthReq.requestTime: $TIMESTAMP$

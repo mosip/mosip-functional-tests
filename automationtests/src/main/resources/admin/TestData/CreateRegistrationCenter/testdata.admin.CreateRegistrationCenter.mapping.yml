@@ -4,7 +4,7 @@ testdata:
          holidayLocationCode: $TestData:Invalid_ValueString$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:dbFkeyErrorCode$
+         errorCodeerrors0: $errors:InvalidHolidayLocationCode:errorCode$
          messageerrors0: $errors:InvalidHolidayLocationCode:errorMessage$
    Admin_CreateRegCenter_Invalid_HolidayLocationCode_blank:
       input.createRegCenter-request:
@@ -20,7 +20,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode$
-         messageerrors0: Center ID anyString does not exist for primary language
+         messageerrors0: $errors:NoPrimaryLangCenterPresent:errorMessage$
    Admin_CreateRegCenter_Invalid_with_scndry_Lang_with_blankId:
       input.createRegCenter-request:
          langCode: $TestData:valid_langCode_ara$
@@ -28,7 +28,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: invalid id for secondary language
+         messageerrors0: $errors:CreateSecondaryDataWithBlankId:errorMessage$
    Admin_CreateRegCenter_Invalid_Lang_otherThan_config_lang:
       input.createRegCenter-request:
          langCode: $TestData:valid_langCode_fra$
@@ -42,15 +42,15 @@ testdata:
          langCode: ''
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidLanguageCode:errorMessage1$
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_CreateRegCenter_Invalid_LangCode:
       input.createRegCenter-request:
          langCode: $TestData:Invalid_ValueString$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode1$
-         messageerrors0: Received language code fbheafg is not a configured language
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
    Admin_CreateRegCenter_Invalid_latitude_blank:
       input.createRegCenter-request:
          latitude: ''
@@ -64,7 +64,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          messageerrors0: $errors:InvalidLatitude:errorMessage2$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         errorCodeerrors0: $errors:InvalidLatitude:errorCode$
    Admin_CreateRegCenter_Invalid_Latitude_LessThan_FourDigit_AfterDecimal:
       input.createRegCenter-request:
          latitude: '12.23'
@@ -119,8 +119,8 @@ testdata:
          locationCode: $TestData:Invalid_ValueString$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidLocationCode:errorMessage2$
+         errorCodeerrors0: $errors:InvalidLocationCode:errorCode$
+         messageerrors0: $errors:InvalidLocationCode:errorMessage$
    Admin_CreateRegCenter_Invalid_LunchStartTime:
       input.createRegCenter-request:
          lunchStartTime: $TestData:Invalid_ValueString$
@@ -219,13 +219,6 @@ testdata:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidWorkingHours:errorMessage1$
-   Admin_CreateRegCenter_Invalid_WorkingHours:
-      input.createRegCenter-request:
-         workingHours: $TestData:Invalid_ValueString$
-      output.output-1-expected-neg-response:
-         Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidTimeHHMMSS:errorMessage$
    Admin_CreateRegCenter_Invalid_TimeZone_GreaterThan_MaxLengthValue:
       input.createRegCenter-request:
          timeZone: $TestData:invalid_timeZoneGrtThanMaxLength$
@@ -267,7 +260,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          messageerrors0: $errors:InvalidCenterTypeCode:errorMessage$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:dbFkeyErrorCode$
+         errorCodeerrors0: $errors:InvalidCenterTypeCode:errorCode$
    Admin_CreateRegCenter_Invalid_CenterTypeCode_grtrThan_maxLength:
       input.createRegCenter-request:
          centerTypeCode: $TestData:invalid_centerTypeCodeAsGreaterThanMaxLength$

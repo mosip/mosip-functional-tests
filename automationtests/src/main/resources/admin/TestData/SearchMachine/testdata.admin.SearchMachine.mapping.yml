@@ -538,6 +538,7 @@ testdata:
       languageCode: ''
     output.output-1-expected-emptyLangCode:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       responsetime: $IGNORE$
       
   Admin_SearchMachine_Invalid_LangCode:
@@ -553,6 +554,7 @@ testdata:
     output.output-1-expected-emptyLangCode:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
  
   Admin_SearchMachine_Valid_onlyWithMandatoryFields:
     input.search-mandatory-request:
@@ -601,7 +603,7 @@ testdata:
       columnNamefilters2: $TestData:valid_MachineSearchColumnAsMachineTypeName$
       typefilters2: $TestData:valid_SearchTypeEquals$
       valuefilters2: $TestData:valid_machineType_Name$
-    output.output-1-expected-pos1-response:
+    output.output-1-expected-pos-response:
       langCodedata0: $TestData:valid_LanguageCodeEng$
       createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
@@ -623,7 +625,7 @@ testdata:
       columnNamefilters1: $TestData:valid_MachineSearchColumnAsMachineTypeName$
       typefilters1: $TestData:valid_SearchTypeEquals$
       valuefilters1: $TestData:valid_machineType_Name$
-    output.output-1-expected-pos1-response:
+    output.output-1-expected-pos-response:
       langCodedata0: $TestData:valid_LanguageCodeEng$
       createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$

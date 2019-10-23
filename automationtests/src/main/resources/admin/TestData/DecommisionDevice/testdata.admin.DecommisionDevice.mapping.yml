@@ -23,11 +23,9 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:NoAccessForService:errorCode$
          messageerrors0: $errors:NoAccessForService:errorMessage$
-         id: $IGNORE$
-         version: $IGNORE$
    Admin_DecommisionDevice_inValid_device_mapped_to_zone_nonAccessable_by_user:
       input.search-request:
          deviceId: Tdevice2
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:UnAuthorizedRole:errorCode$
-         messageerrors0: $errors:UnAuthorizedRole:errorMessage$
+         errorCodeerrors0: $errors:DeCommissionDeviceMapToDiffZone:errorCode$
+         messageerrors0: $errors:DeCommissionDeviceMapToDiffZone:errorMessage$
