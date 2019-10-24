@@ -298,11 +298,10 @@
             <class name="io.mosip.admin.tests.UpdateBlackListedWords" />
             <class name="io.mosip.admin.tests.SearchBlackListedWords" />
             <class name="io.mosip.admin.tests.FilterBlackListedWords" />
-            <!-- <class name="io.mosip.admin.tests.UpdateLocationData" /> -->
+            <class name="io.mosip.admin.tests.UpdateLocationData" />
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
-	</test>      
+	</test>   
 	
-	 
 
 </suite>
