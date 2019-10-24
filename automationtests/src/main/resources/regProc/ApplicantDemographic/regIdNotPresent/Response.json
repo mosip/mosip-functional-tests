@@ -1,5 +1,5 @@
 {
-	
+	"response": null,
     "errors": [
         {
             "errorCode": "KER-FSA-002",
@@ -8,6 +8,5 @@
     ],
     "id": "mosip.manual.verification.demographic",
     "version": "1.0",
-    "responsetime": "2019-05-28T10:47:53.091Z",
-	"file":null
+    "responsetime": "2019-05-28T10:47:53.091Z"
 }
