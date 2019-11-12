@@ -244,7 +244,7 @@ testdata:
       columnNamefilters0: $TestData:invalid_Search_ColumnName$
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:invalid_Device_Name$
-      sortFieldsort0: $TestData:invalid_Search_ColumnName$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -655,7 +655,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$       
       errorCodeerrors0: $errors:InvalidSortType:errorCode$
-      messageerrors0: $errors:InvalidSortType:errorMessage$
+      messageerrors0: Sort type AESCENDING is not supported
   
   Admin_DeviceSearch_StartsWith_Name_eng_pos:
     input.search-request:

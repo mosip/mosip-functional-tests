@@ -123,15 +123,15 @@ testdata:
          fieldIDfilters1: $input.search-request:columnNamefilters0$
          fieldIDfilters2: $input.search-request:columnNamefilters0$
          fieldIDfilters3: $input.search-request:columnNamefilters0$
-   Admin_FilterDocCatTypMapping_Valid_DefaultFilterType:
-      input.search-request2:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-         textfilters0: $TestData:valid_DocCatCode$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request2:columnNamefilters0$
-         fieldValuefilters0: $input.search-request2:textfilters0$
+#   Admin_FilterDocCatTypMapping_Valid_DefaultFilterType:
+#      input.search-request2:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
+#         textfilters0: $TestData:valid_DocCatCode$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $input.search-request2:columnNamefilters0$
+#         fieldValuefilters0: $input.search-request2:textfilters0$
    Admin_FilterDocCatTypMapping_inValid_filterType_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$

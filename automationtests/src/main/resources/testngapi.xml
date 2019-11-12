@@ -270,6 +270,8 @@
 			<class name="io.mosip.admin.tests.FilterDocCategory" />
 			<class name="io.mosip.admin.tests.FilterDocCatTypMapping" />
 			<class name="io.mosip.admin.tests.FilterDocumentType" />
+			<class name="io.mosip.admin.tests.FilterHolidays" />
+			<class name="io.mosip.admin.tests.FilterIndividualType" />
 			<class name="io.mosip.admin.tests.FilterLocationData" />
 			<class name="io.mosip.admin.tests.FilterMachines" />
 			<class name="io.mosip.admin.tests.FilterMachineSpec" />
@@ -298,7 +300,7 @@
             <class name="io.mosip.admin.tests.UpdateBlackListedWords" />
             <class name="io.mosip.admin.tests.SearchBlackListedWords" />
             <class name="io.mosip.admin.tests.FilterBlackListedWords" />
-            <class name="io.mosip.admin.tests.UpdateLocationData" />
+            <!-- <class name="io.mosip.admin.tests.UpdateLocationData" /> -->
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
 	</test>  

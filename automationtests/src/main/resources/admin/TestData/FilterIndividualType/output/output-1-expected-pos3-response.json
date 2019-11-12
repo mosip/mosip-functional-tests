@@ -1,0 +1,19 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "FR"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "NFR"
+      }
+    ]
+  },
+  "errors": null
+}

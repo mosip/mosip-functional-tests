@@ -135,8 +135,8 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage$
+         errorCodeerrors0: $errors:EmptyFilterValue:errorCode$
+         messageerrors0: $errors:EmptyFilterValue:errorMessage$
    Admin_SearchDocCategories_inValid_filter_value_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

@@ -164,16 +164,16 @@ testdata:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
          messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
-   Admin_DeviceFilter_Default_FilterType:
-      input.filter-request1:
-         languageCode: $TestData:valid_LanguageCodeEng$
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         textfilters0: $TestData:valid_Device_Name_eng_Equals$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
-         fieldValuefilters0: $TestData:valid_Device_Name_eng_Equals$
-         responsetime: $IGNORE$
+#   Admin_DeviceFilter_Default_FilterType:
+#      input.filter-request1:
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         textfilters0: $TestData:valid_Device_Name_eng_Equals$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
+#         fieldValuefilters0: $TestData:valid_Device_Name_eng_Equals$
+#         responsetime: $IGNORE$
    Admin_DeviceFilter_Blank_LangCode:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$

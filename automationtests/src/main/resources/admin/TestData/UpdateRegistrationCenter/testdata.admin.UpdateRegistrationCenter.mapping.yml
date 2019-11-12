@@ -393,7 +393,6 @@ testdata:
          messageerrors0: $errors:InvalidName:errorMessage0$
    Admin_UpdateRegCenter_Invalid_unAuthorised_role:
       input.updateRegCenter-request:
-         isActive: true
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
@@ -411,9 +410,14 @@ testdata:
          RisActive: false
          RlangCode: eng
          Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_Optional_TimeZone_blank:
+   Admin_UpdateRegCenter_All_Optional_fields_blank:
       input.updateRegCenter-request:
          timeZone: ''
+         contactPhone: ''
+         contactPerson: ''
+         addressLine3: ''
+         addressLine2: ''
+         isActive: true
          name: UpdatedTestCenter-1
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-pos-response:
@@ -421,46 +425,11 @@ testdata:
          RtimeZone: $IGNORE$
          Rid: $input.updateRegCenter-request:reid$
          Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_Optional_ContactPhone_blank:
-      input.updateRegCenter-request:
-         contactPhone: ''
-         name: UpdatedTestCenter-2
-         reid: $TestData:RegCenterCretedByQuery1$
-      output.output-1-expected-pos-response:
-         Rresponsetime: $IGNORE$
          RcontactPhone: ''
-         Rid: $input.updateRegCenter-request:reid$
-         Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_Optional_ContactPerson_blank:
-      input.updateRegCenter-request:
-         contactPerson: ''
-         name: UpdatedTestCenter-3
-         reid: $TestData:RegCenterCretedByQuery1$
-      output.output-1-expected-pos-response:
-         Rresponsetime: $IGNORE$
          RcontactPerson: ''
-         Rid: $input.updateRegCenter-request:reid$
-         Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_Optional_AddressLine3_blank:
-      input.updateRegCenter-request:
-         addressLine3: ''
-         name: UpdatedTestCenter-4
-         reid: $TestData:RegCenterCretedByQuery1$
-      output.output-1-expected-pos-response:
-         Rresponsetime: $IGNORE$
          RaddressLine3: ''
-         Rid: $input.updateRegCenter-request:reid$
-         Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_Optional_AddressLine2_blank:
-      input.updateRegCenter-request:
-         addressLine2: ''
-         name: UpdatedTestCenter-5
-         reid: $TestData:RegCenterCretedByQuery1$
-      output.output-1-expected-pos-response:
-         Rresponsetime: $IGNORE$
          RaddressLine2: ''
-         Rid: $input.updateRegCenter-request:reid$
-         Rname: $input.updateRegCenter-request:name$
+         RisActive: true
    Admin_UpdateRegCenter_Removing_all_Optional_fields:
       input.updateRegCenter-request:
          timeZone: $REMOVE$
@@ -468,6 +437,7 @@ testdata:
          contactPerson: $REMOVE$
          lunchStartTime: $REMOVE$
          lunchEndTime: $REMOVE$
+         isActive: true
          name: UpdatedTestCenter-6
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-pos-response:
@@ -484,10 +454,12 @@ testdata:
          requesttime: $TIMESTAMPZ$
          name: UpdatedTestCenter-7
          reid: $TestData:RegCenterCretedByQuery1$
+         isActive: false
       output.output-1-expected-pos-response:
          Rresponsetime: $IGNORE$
          Rid: $input.updateRegCenter-request:reid$
          Rname: $input.updateRegCenter-request:name$
+         RisActive: false
    Admin_UpdateRegCenter_valid_Secondary_language_isActive_true:
       input.updateRegCenter-request:
          requesttime: $TIMESTAMPZ$

@@ -248,8 +248,9 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos5-response:
-         toRecord: 0
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:EmptyFilterValue:errorCode$
+         messageerrors0: $errors:EmptyFilterValue:errorMessage$
    Admin_SearchMachineSpec_inValid_filter_value_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

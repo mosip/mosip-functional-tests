@@ -664,3 +664,7 @@ valid_deviceServiceId:
     - kklkl
 valid_deviceServiceVersion:
     - kklkl    
+valid_holidayName:
+    - Saturday - Weekend
+valid_holidayName_ara:
+    - Saturday - Weekend

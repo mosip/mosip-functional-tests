@@ -4,7 +4,7 @@ testdata:
       columnNamefilters0: $TestData:invalid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$

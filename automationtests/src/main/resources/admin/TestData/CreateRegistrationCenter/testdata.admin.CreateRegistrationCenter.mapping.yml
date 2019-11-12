@@ -147,8 +147,8 @@ testdata:
          lunchEndTime: '20:00:00'
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
-         errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+         messageerrors0: $errors:InvalidLunchEndTime_GreaterThan_CenterEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidLunchEndTime_GreaterThan_CenterEndTime:errorCode$
    Admin_CreateRegCenter_Invalid_LunchEndTime:
       input.createRegCenter-request:
          lunchEndTime: $TestData:Invalid_ValueString$
@@ -351,7 +351,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+         messageerrors0: $errors:CreateEmptyIsActive:errorMessage2$
    Admin_CreateRegCenter_Invalid_isActive:
       input.createRegCenter-request:
          isActive: $TestData:Invalid_ValueString$

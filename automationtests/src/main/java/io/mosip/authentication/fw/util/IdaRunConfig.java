@@ -1150,4 +1150,14 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getFilterIndividualTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFilterHolidaysPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

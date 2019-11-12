@@ -53,6 +53,9 @@ errors:
    InvalidCenterStartTimeGreaterThanCenterEndTime:
       errorCode: KER-MSD-309
       errorMessage: Center Start Time must be smaller than Center End Time
+   InvalidLunchEndTime_GreaterThan_CenterEndTime:
+      errorCode: KER-MSD-310
+      errorMessage: Lunch end Time cannot be Greater Than Center End Time
    InvalidLangCodeAsDuplicateValue:
       errorCode: KER-MSD-303
       errorMessage: Received data is not present in all Languages supported by MOSIP
@@ -77,7 +80,7 @@ errors:
       errorMessage: Invalid from value and to value
    InvalidpaginationStartPage:
       errorCode: KER-MSD-313
-      errorMessage: Invalid pagination value received (Page start abc and Page Fetch 20)
+      errorMessage: 'Invalid Format in field : pagination,pageStart'
       errorMessage1: Invalid pagination value received pagestart:0 and pagefetch:0
    InvalidColumnName:
       errorCode: KER-MSD-310
@@ -156,11 +159,11 @@ errors:
       errorCode: KER-MSD-322
       errorMessage: Filter Type cannot be empty or null
    Invaliddoccategorycode:
-      errorCode: KER-MSD-500
+      errorCode: KER-MSD-999
       errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 1 and 36'
       
    InvaliddoctypecodeAnddoccategorycode:
-      errorCode: KER-MSD-500
+      errorCode: KER-MSD-999
       errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 0 and 36, mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
    Invaliddoctypecode:
       errorCode: KER-MSD-500
@@ -195,8 +198,9 @@ errors:
       errorMessage: Entity for user ID specified Not Found
    CreateEmptyIsActive:
       errorCode: KER-MSD-999
-      errorMessage: "request.isActive: must not be null"
+      errorMessage: "Invalid Format in field : isActive"
       errorMessage1: "request.isActive: invalid value"
+      errorMessage2: "request.isActive: must not be null"
    CreateLocBlankHierarchyName:
       errorMessage: "request.hierarchyName: must not be blank"
    CreateLocBlankHierarchyLevel:

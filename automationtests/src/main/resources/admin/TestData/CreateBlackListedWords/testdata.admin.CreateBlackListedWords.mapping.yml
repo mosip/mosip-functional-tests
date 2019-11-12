@@ -124,7 +124,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CreateEmptyIsActive:errorCode$
-         messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+         messageerrors0: $errors:CreateEmptyIsActive:errorMessage2$
    Admin_CreateBlackListedWords_InvalidIsActive:
       input.search-request:
          isActive: $TestData:Invalid_ValueString$

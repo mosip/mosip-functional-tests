@@ -7,12 +7,12 @@ testdata:
    Admin_GetZoneNameBasedOnUserIDAndLangCode_ara:
       input.search-request:
          langCode: $TestData:valid_LanguageCodeArabic$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          responsetime: $IGNORE$
    Admin_GetZoneNameBasedOnUserIDAndLangCode_fra:
       input.search-request:
          langCode: $TestData:valid_LanguageCodeFrench$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos2-response:
          responsetime: $IGNORE$
    Admin_GetZoneNameBasedOnUser_inValid_langCode:
       input.search-request:

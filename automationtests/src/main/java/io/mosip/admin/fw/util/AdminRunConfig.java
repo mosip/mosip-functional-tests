@@ -70,7 +70,8 @@ public class AdminRunConfig extends RunConfig {
 	private String decommisionDevicePath;
 	private String decommisionRegCenterPath;
 	private String deviceValidatePath;
-
+	private String filterIndividualTypePath;
+	private String filterHolidaysPath;
 
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
@@ -128,6 +129,8 @@ public class AdminRunConfig extends RunConfig {
 		setDecommisionDevicePath(AdminTestUtil.getPropertyValue("decommisionDevicePath"));
 		setDecommisionRegCenterPath(AdminTestUtil.getPropertyValue("decommisionRegCenterPath"));
 		setDeviceValidatePath(AdminTestUtil.getPropertyValue("deviceValidatePath"));
+		setFilterIndividualTypePath(AdminTestUtil.getPropertyValue("filterIndividualTypePath"));
+		setFilterHolidaysPath(AdminTestUtil.getPropertyValue("filterHolidaysPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1190,5 +1193,23 @@ public class AdminRunConfig extends RunConfig {
 
 	public void setDeviceValidatePath(String deviceValidatePath) {
 		this.deviceValidatePath = deviceValidatePath;
+	}
+	
+	@Override
+	public String getFilterIndividualTypePath() {
+		return filterIndividualTypePath;
+	}
+
+	public void setFilterIndividualTypePath(String filterIndividualTypePath) {
+		this.filterIndividualTypePath = filterIndividualTypePath;
+	}
+	
+	@Override
+	public String getFilterHolidaysPath() {
+		return filterHolidaysPath;
+	}
+
+	public void setFilterHolidaysPath(String filterHolidaysPath) {
+		this.filterHolidaysPath = filterHolidaysPath;
 	}
 }

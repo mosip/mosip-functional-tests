@@ -23,6 +23,8 @@ testdata:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
          messageerrors0: $errors:InvalidLanguageCode:errorMessage$
          responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
    Admin_GetLeafZones_NorthUser_ara:
       input.search-request:
          langCode: $TestData:valid_LanguageCodeArabic$

@@ -79,7 +79,7 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          pageStart: $TestData:invalid_MachineSearch_pagination$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidpaginationStartPage:errorMessage$
          responsetime: $IGNORE$
    Admin_IndividualTypeSearch_invalid_empty_SortField:

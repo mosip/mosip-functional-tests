@@ -437,4 +437,6 @@ public abstract class RunConfig {
 	public abstract String getUpdateLocationData();
 	public abstract String getUpdateBlackListedWordsPath();
 	public abstract String getDeviceValidatePath();
+	public abstract String getFilterIndividualTypePath();
+	public abstract String getFilterHolidaysPath();
 }

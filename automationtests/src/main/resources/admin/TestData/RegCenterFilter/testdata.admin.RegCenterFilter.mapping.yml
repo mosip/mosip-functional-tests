@@ -21,17 +21,17 @@ testdata:
       output.output-1-expected-pos1-response:
          responsetime: $IGNORE$
 
-   Admin_RegCenterFilter_Valid_col_name_filterType_default:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $REMOVE$
-         textfilters0: $TestData:valid_center_Name$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-         responsetime: $IGNORE$
+#   Admin_RegCenterFilter_Valid_col_name_filterType_default:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $REMOVE$
+#         textfilters0: $TestData:valid_center_Name$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $input.search-request:columnNamefilters0$
+#         fieldValuefilters0: $input.search-request:textfilters0$
+#         responsetime: $IGNORE$
  
    Admin_RegCenterFilter_Valid_lang_ara_col_name:
       input.search-request:

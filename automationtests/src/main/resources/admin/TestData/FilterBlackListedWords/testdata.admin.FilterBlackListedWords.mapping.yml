@@ -132,13 +132,13 @@ testdata:
       typefilters1: $TestData:valid_FilterTypeAll$
     output.output-1-expected-pos-4-response:
       responsetime: $IGNORE$
-  Admin_FilterBlackListedWords_defaultFilterType:
-    input.search-request1:
-      columnNamefilters0: $TestData:validWordColumnName$
-      textfilters0: ''
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
+#  Admin_FilterBlackListedWords_defaultFilterType:
+#    input.search-request1:
+#      columnNamefilters0: $TestData:validWordColumnName$
+#      textfilters0: ''
+#      languageCode: $TestData:valid_LanguageCodeEng$
+#      requesttime: $TIMESTAMPZ$
+#    output.output-1-expected-pos-response:
+#      responsetime: $IGNORE$
       
       

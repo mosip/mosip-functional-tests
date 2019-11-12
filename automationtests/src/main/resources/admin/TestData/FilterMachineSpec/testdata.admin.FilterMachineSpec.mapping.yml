@@ -111,15 +111,15 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-   Admin_FilterMachineSpec_Valid_DefaultFilterType:
-      input.search-request2:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         textfilters0: $TestData:valid_machineSpec_Name$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request2:columnNamefilters0$
-         fieldValuefilters0: $input.search-request2:textfilters0$
+#   Admin_FilterMachineSpec_Valid_DefaultFilterType:
+#      input.search-request2:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         textfilters0: $TestData:valid_machineSpec_Name$
+#         languageCode: $TestData:valid_LanguageCodeEng$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $input.search-request2:columnNamefilters0$
+#         fieldValuefilters0: $input.search-request2:textfilters0$
    Admin_FilterMachineSpec_inValid_filterType_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
