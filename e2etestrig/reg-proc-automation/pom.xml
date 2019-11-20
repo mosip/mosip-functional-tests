@@ -3,7 +3,7 @@
   <parent>
     <groupId>io.mosip.e2etestrig</groupId>
     <artifactId>e2etestrig</artifactId>
-    <version>0.9.1</version>
+    <version>0.10.2</version>
   </parent>
   <artifactId>reg-proc-automation</artifactId>
   	<dependencies>
@@ -47,7 +47,7 @@
 			<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>0.12.4</version>
+			<version>0.10.2</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.ws.rs</groupId>

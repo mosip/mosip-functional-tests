@@ -8,9 +8,7 @@ import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertNull;
 
-import java.io.File;
 import java.lang.reflect.Field;
-import java.net.URISyntaxException;
 import java.util.Properties;
 
 import org.json.JSONObject;
@@ -31,7 +29,6 @@ import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.entity.Template;
-import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.TemplateRepository;
 import io.mosip.registration.service.template.impl.TemplateServiceImpl;
 import io.mosip.registration.util.BaseConfiguration;
