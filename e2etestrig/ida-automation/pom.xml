@@ -3,7 +3,7 @@
   <parent>
     <groupId>io.mosip.e2etestrig</groupId>
     <artifactId>e2etestrig</artifactId>
-    <version>0.10.2</version>
+    <version>0.10.3</version>
   </parent>
   <artifactId>ida-automation</artifactId>
   <dependencies>
