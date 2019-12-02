@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>io.mosip.e2etestrig</groupId>
 		<artifactId>e2etestrig</artifactId>
-		<version>0.10.3</version>
+		<version>0.10.4</version>
 	</parent>
 	<artifactId>e2etests</artifactId>
 	<dependencies>
@@ -15,22 +15,22 @@
 		<dependency>
 		<groupId>io.mosip.e2etestrig</groupId>
 			<artifactId>preregistration</artifactId>
-			<version>0.10.3</version>
+			<version>0.10.4</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.e2etestrig</groupId>
 			<artifactId>reg-proc-automation</artifactId>
-			<version>0.10.3</version>
+			<version>0.10.4</version>
 		</dependency>
 	<dependency>
 			<groupId>io.mosip.e2etestrig</groupId>
 			<artifactId>reg-client-automation</artifactId>
-			<version>0.10.3</version>
+			<version>0.10.4</version>
 		</dependency>
 <dependency>
 <groupId>io.mosip.e2etestrig</groupId>
 <artifactId>ida-automation</artifactId>
-<version>0.10.3</version>
+<version>0.10.4</version>
 </dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

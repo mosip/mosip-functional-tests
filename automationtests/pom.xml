@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>io.mosip</groupId>
 		<artifactId>mosip-parent</artifactId>
-		<version>0.10.3</version>
+		<version>0.10.4</version>
 	</parent>
 	<properties>
 		<!-- kernel versions -->
@@ -150,7 +150,7 @@
 		<jackson.version>2.8.8</jackson.version>
 		<jackson.mapper.asl.version>1.7.1</jackson.mapper.asl.version>
 
-		<mosip.core.kernel.version>${project.version}</mosip.core.kernel.version>
+		<mosip.core.kernel.version>0.10.3</mosip.core.kernel.version>
 		<!-- Derby Version -->
 		<apache.derby.version>10.13.1.1</apache.derby.version>
 
@@ -169,7 +169,7 @@
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
 		<registration-services.version>0.10.0</registration-services.version>
-		<kernel.version>${project.version}</kernel.version>
+		<kernel.version>0.10.3</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
