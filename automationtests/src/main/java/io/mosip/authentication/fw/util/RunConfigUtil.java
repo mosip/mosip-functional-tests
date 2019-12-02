@@ -206,11 +206,18 @@ public class RunConfigUtil {
 	}
 	
 	public static String getBioTestDataPath() {
-		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/mdm.biometricTestData.yml";
+		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/biometricData.yml";
 	}
 	
 	public static String getAuthTypeStatusPath() {
 		return new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath();
+	}
+	
+	public static String getBioValueEncryptionTemplatePath() {
+		return new File(RunConfigUtil.getResourcePath()+"ida/TestData/Bio/bioValueEncryptionTemplate.json").getAbsolutePath();
+	}
+	public static String getInternalBioValueEncryptionTemplatePath() {
+		return new File(RunConfigUtil.getResourcePath()+"ida/TestData/InternalAuth/Bio/bioValueEncryptionTemplate.json").getAbsolutePath();
 	}
 }

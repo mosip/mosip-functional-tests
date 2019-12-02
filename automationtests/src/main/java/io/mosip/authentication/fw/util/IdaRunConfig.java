@@ -67,8 +67,22 @@ public class IdaRunConfig extends RunConfig{
 	private String idaInternalUpdateAuthTypePath;
 	private String idaInternalRetrieveAuthTypeStatusPathForUIN;
 	private String idaInternalRetrieveAuthTypeStatusPathForVID;
+	private String cryptomanagerEncrypt;
+	private String splitEncryptedData;
 	
 	
+	public String getSplitEncryptedData() {
+		return splitEncryptedData;
+	}
+	public void setSplitEncryptedData(String splitEncryptedData) {
+		this.splitEncryptedData = splitEncryptedData;
+	}
+	public String getCryptomanagerEncrypt() {
+		return cryptomanagerEncrypt;
+	}
+	public void setCryptomanagerEncrypt(String cryptomanagerEncrypt) {
+		this.cryptomanagerEncrypt = cryptomanagerEncrypt;
+	}
 	public String getIdaInternalRetrieveAuthTypeStatusPathForUIN() {
 		return idaInternalRetrieveAuthTypeStatusPathForUIN;
 	}
@@ -421,6 +435,8 @@ public class IdaRunConfig extends RunConfig{
 		setIdaInternalUpdateAuthTypePath(AuthTestsUtil.getPropertyValue("internalUpdateAuthTypePath"));
 		setIdaInternalRetrieveAuthTypeStatusPathForUIN(AuthTestsUtil.getPropertyValue("internalRetrieveAuthTypeStatusPathForUIN"));
 		setIdaInternalRetrieveAuthTypeStatusPathForVID(AuthTestsUtil.getPropertyValue("internalRetrieveAuthTypeStatusPathForVID"));
+		setCryptomanagerEncrypt(AuthTestsUtil.getPropertyValue("cryptomanagerEncrypt"));
+		setSplitEncryptedData(AuthTestsUtil.getPropertyValue("splitEncryptedData"));
 	}	
 	
 	/**

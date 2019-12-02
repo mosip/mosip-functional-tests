@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
+import io.mosip.authentication.fw.util.BiometricDataUtility;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
@@ -51,7 +52,7 @@ public class InternalBiometricAuthentication extends PrerequisteTests implements
 	private static final Logger logger = Logger.getLogger(InternalBiometricAuthentication.class);
 	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
-	private String TESTDATA_FILENAME;
+	private String TESTDATA_FILENAME;	
 	private String testType;
 	private int invocationCount = 0;
 	private static String cookieValue;
@@ -188,19 +189,9 @@ public class InternalBiometricAuthentication extends PrerequisteTests implements
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
 		// Perform encoding here
-		String bioIdentityContent = getContentFromFile(testCaseName.listFiles(), "identity-encrypt");
-		int count = getNumberOfTimeWordPresentInString(bioIdentityContent, "\"data\"");
-		for (int i = 1; i <= count; i++) {
-			String mapperForBioContentToBeEncode = "bioData" + i;
-			String bioContentToBeEncode = JsonPrecondtion.getValueFromJsonUsingMapping(
-					getContentFromFile(testCaseName.listFiles(), "identity-encrypt"), mapping,
-					mapperForBioContentToBeEncode);
-			String encodedBioData = EncryptDecrptUtil.getBase64EncodedString(bioContentToBeEncode);
-			Map<String, String> bioDataMap = new HashMap<String, String>();
-			bioDataMap.put(mapperForBioContentToBeEncode, encodedBioData);
-			modifyRequest(testCaseName.listFiles(), bioDataMap, mapping, "identity-encrypt");
-		}
-		// End of encode bio data
+		FileUtil.writeFile(FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath(),
+				BiometricDataUtility
+						.constractBioIdentityRequest(getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),RunConfigUtil.getInternalBioValueEncryptionTemplatePath(),true));
 		Map<String, String> tempMap = getInternalEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of internal bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");

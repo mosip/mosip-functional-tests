@@ -1355,7 +1355,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	public int getNumberOfTimeWordPresentInString(String data, String keyword) {
+	public static int getNumberOfTimeWordPresentInString(String data, String keyword) {
 		int i = 0;
 		Pattern p = Pattern.compile(keyword);
 		Matcher m = p.matcher(data);
@@ -1399,27 +1399,29 @@ public class AuthTestsUtil extends BaseTestCase {
 	    return r.nextInt((max - min) + 1) + min;
 	}
 	
-	//Added by Admin Test Team
-	protected Response getRequestWithPathParm(String filename, String url,String cookieName, String cookieValue) {
+	// Added by Admin Test Team
+	protected Response getRequestWithPathParm(String filename, String url, String cookieName, String cookieValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient
-					.getRequestWithCookieAndPathParm(url,objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+			return RestClient.getRequestWithCookieAndPathParm(url, objectData, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return null;
 		}
 	}
-	protected Response getRequestWithQueryParm(String filename, String url,String cookieName, String cookieValue) {
+
+	protected Response getRequestWithQueryParm(String filename, String url, String cookieName, String cookieValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient
-					.getRequestWithCookieAndQueryParm(url,objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+			return RestClient.getRequestWithCookieAndQueryParm(url, objectData, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return null;
 		}
 	}
+	
 } 
 
 

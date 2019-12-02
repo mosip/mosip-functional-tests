@@ -1,30 +1,30 @@
 testdata:
   Authentication_Create_valid_uin_smoke_1_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -108,30 +108,30 @@ testdata:
       
   Authentication_Create_valid_uin_smoke_2_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -215,30 +215,30 @@ testdata:
       
   Authentication_Create_valid_uin_smoke_3_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -322,30 +322,30 @@ testdata:
       
   Authentication_Create_valid_uin_4_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -429,30 +429,30 @@ testdata:
       
   Authentication_Create_valid_uin_5_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -536,30 +536,30 @@ testdata:
       
   Authentication_Create_valid_uin_6_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -643,30 +643,30 @@ testdata:
       
   Authentication_Create_valid_uin_7_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -750,30 +750,30 @@ testdata:
       
   Authentication_Create_valid_uin_8_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -857,30 +857,30 @@ testdata:
       
   Authentication_Create_valid_uin_9_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -965,30 +965,30 @@ testdata:
       
   Authentication_Create_valid_uin_10_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1072,30 +1072,30 @@ testdata:
       
   Authentication_Create_valid_uin_11_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1179,30 +1179,30 @@ testdata:
       
   Authentication_Create_valid_uin_12_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1286,30 +1286,30 @@ testdata:
       
   Authentication_Create_valid_uin_13_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1393,30 +1393,30 @@ testdata:
       
   Authentication_Create_valid_uin_14_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1500,30 +1500,30 @@ testdata:
       
   Authentication_Create_valid_uin_15_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1607,30 +1607,30 @@ testdata:
       
   Authentication_Create_valid_uin_16_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1714,30 +1714,30 @@ testdata:
       
   Authentication_Create_valid_uin_17_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1821,30 +1821,30 @@ testdata:
       
   Authentication_Create_valid_uin_18_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -1928,30 +1928,30 @@ testdata:
       
   Authentication_Create_valid_uin_19_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2035,30 +2035,30 @@ testdata:
       
   Authentication_Create_DR_smoke_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2142,30 +2142,30 @@ testdata:
       
   Authentication_Create_GenderFLE_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2249,30 +2249,30 @@ testdata:
       
   Authentication_Create_GenderMLE_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2435,30 +2435,30 @@ testdata:
       
   Authentication_OTP_FLOD_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2542,30 +2542,30 @@ testdata:
       
   Authentication_OTP_EXCEED_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2649,30 +2649,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_1:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2756,30 +2756,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_2:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2863,30 +2863,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_3:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -2970,30 +2970,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_4:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3077,30 +3077,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_5:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3184,30 +3184,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_6:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3291,30 +3291,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_7:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3398,30 +3398,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_8:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3505,30 +3505,30 @@ testdata:
       
   Authentication_Create_uin_With_VID_type_temporary_record_9:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3612,30 +3612,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_1_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3719,30 +3719,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_2_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3826,30 +3826,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_3_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -3933,30 +3933,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_4_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -4040,30 +4040,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_5_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -4147,30 +4147,30 @@ testdata:
       
   Authentication_Create_uin_LOCKUIN_6_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
@@ -4254,30 +4254,30 @@ testdata:
       
   Authentication_IdentityMismatch_OTP_record:
     input.cbeff-bio-data:
-      BDB1BIR1BIR1: $BIO~fir~rightIndex~70Percentage$
-      Score1BIR1BIR1: 70
-      BDB1BIR2BIR1: $BIO~fir~leftIndex~70Percentage$
-      Score1BIR1BIR2: 70
-      BDB1BIR3BIR1: $BIO~fir~rightThumb~70Percentage$
-      Score1BIR1BIR3: 70
-      BDB1BIR4BIR1: $BIO~fir~leftThumb~70Percentage$
-      Score1BIR1BIR4: 70
-      BDB1BIR5BIR1: $BIO~fir~rightMiddle~70Percentage$
-      Score1BIR1BIR5: 70
-      BDB1BIR6BIR1: $BIO~fir~leftMiddle~70Percentage$
-      Score1BIR1BIR6: 70
-      BDB1BIR7BIR1: $BIO~fir~rightRing~70Percentage$
-      Score1BIR1BIR7: 70
-      BDB1BIR8BIR1: $BIO~fir~leftRing~70Percentage$
-      Score1BIR1BIR8: 70
-      BDB1BIR9BIR1: $BIO~fir~rightLittle~70Percentage$
-      Score1BIR1BIR9: 70
-      BDB1BIR10BIR1: $BIO~fir~leftLittle~70Percentage$
-      Score1BIR1BIR10: 70
-      BDB1BIR11BIR1: $BIO~iir~right~100Percentage$
-      Score1BIR1BIR11: 100
-      BDB1BIR12BIR1: $BIO~iir~left~100Percentage$
-      Score1BIR1BIR12: 100
+      BDB1BIR1BIR1: $BIO~fir~rightIndex~60Percentage$
+      Score1BIR1BIR1: 60
+      BDB1BIR2BIR1: $BIO~fir~leftIndex~60Percentage$
+      Score1BIR1BIR2: 60
+      BDB1BIR3BIR1: $BIO~fir~rightThumb~60Percentage$
+      Score1BIR1BIR3: 60
+      BDB1BIR4BIR1: $BIO~fir~leftThumb~60Percentage$
+      Score1BIR1BIR4: 60
+      BDB1BIR5BIR1: $BIO~fir~rightMiddle~60Percentage$
+      Score1BIR1BIR5: 60
+      BDB1BIR6BIR1: $BIO~fir~leftMiddle~60Percentage$
+      Score1BIR1BIR6: 60
+      BDB1BIR7BIR1: $BIO~fir~rightRing~60Percentage$
+      Score1BIR1BIR7: 60
+      BDB1BIR8BIR1: $BIO~fir~leftRing~60Percentage$
+      Score1BIR1BIR8: 60
+      BDB1BIR9BIR1: $BIO~fir~rightLittle~60Percentage$
+      Score1BIR1BIR9: 60
+      BDB1BIR10BIR1: $BIO~fir~leftLittle~60Percentage$
+      Score1BIR1BIR10: 60
+      BDB1BIR11BIR1: $BIO~iir~right~80Percentage$
+      Score1BIR1BIR11: 80
+      BDB1BIR12BIR1: $BIO~iir~left~80Percentage$
+      Score1BIR1BIR12: 80
       BDB1BIR13BIR1: $BIO~fid~fid~100Percentage$
       Score1BIR1BIR13: 100
     input.create-request:
