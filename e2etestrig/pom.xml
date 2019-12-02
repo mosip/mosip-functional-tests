@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.mosip.e2etestrig</groupId>
   <artifactId>e2etestrig</artifactId>
-  <version>0.10.3</version>
+  <version>0.10.4</version>
   <packaging>pom</packaging>
   <modules>
   	<module>e2etests</module>
