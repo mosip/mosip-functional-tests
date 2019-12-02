@@ -71,8 +71,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response getPreRegistrationDataResponse = lib.getPreRegistrationData(preID, cookie);
 		String errorCode = lib.getErrorCode(getPreRegistrationDataResponse);
 		String message = lib.getErrorMessage(getPreRegistrationDataResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	
 	@Test
@@ -85,8 +85,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response discardResponse = lib.discardApplication(preID, individualToken);
 		String errorCode = lib.getErrorCode(discardResponse);
 		String message = lib.getErrorMessage(discardResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void bookMultipleAppointmentUsingUserBToken() {
@@ -104,8 +104,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response multipleBookingResponse = lib.multipleBookApp(avilibityResponse, avilibityResponse2, preID, preID2, cookie);
 		String errorCode = lib.getErrorCode(multipleBookingResponse);
 		String message = lib.getErrorMessage(multipleBookingResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 		
 	}
 	@Test
@@ -120,8 +120,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response updateDemographicDetailsResponse = lib.updateDemographicDetails(updateRequest, pre_registration_id,individualToken);
 		String errorCode = lib.getErrorCode(updateDemographicDetailsResponse);
 		String message = lib.getErrorMessage(updateDemographicDetailsResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void uploadUserADocumentUsingUserBToken() {
@@ -133,8 +133,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response documentResponse = lib.documentUpload(createResponse,cookie);
 		String errorCode = lib.getErrorCode(documentResponse);
 		String message = lib.getErrorMessage(documentResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void copyUserADocumentToUserB() {
@@ -149,8 +149,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response copyUploadedDocuments = lib.copyUploadedDocuments(destPreID, sourcePreID, "POA", cookie);
 		String errorCode = lib.getErrorCode(copyUploadedDocuments);
 		String message = lib.getErrorMessage(copyUploadedDocuments);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void deleteDocumentUsingUserBToken() {
@@ -163,8 +163,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response deleteDocumentResponse = lib.deleteAllDocumentByPreId(PreID, cookie);
 		String errorCode = lib.getErrorCode(deleteDocumentResponse);
 		String message = lib.getErrorMessage(deleteDocumentResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void getPreRegistrationStatusUsingUserBToken() {
@@ -176,8 +176,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response getPreRegistrationStatusResponse = lib.getPreRegistrationStatus(PreID, cookie);
 		String errorCode = lib.getErrorCode(getPreRegistrationStatusResponse);
 		String message = lib.getErrorMessage(getPreRegistrationStatusResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void getUserADocumentUsingUserBToken() {
@@ -190,8 +190,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response getAllDocumentForPreIdResponse = lib.getAllDocumentForPreId(PreID, cookie);
 		String errorCode = lib.getErrorCode(getAllDocumentForPreIdResponse);
 		String message = lib.getErrorMessage(getAllDocumentForPreIdResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void getDocumentByDocIdUsingUserBToken() {
@@ -205,8 +205,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response getAllDocumentForDocIdResponse = lib.getAllDocumentForDocId(PreID, docId, cookie);
 		String errorCode = lib.getErrorCode(getAllDocumentForDocIdResponse);
 		String message = lib.getErrorMessage(getAllDocumentForDocIdResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void deleteAllDocumentByDocIdUsingUserBToken() {
@@ -220,8 +220,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response deleteAllDocumentByDocId = lib.deleteAllDocumentByDocId(docId, preID, cookie);
 		String errorCode = lib.getErrorCode(deleteAllDocumentByDocId);
 		String message = lib.getErrorMessage(deleteAllDocumentByDocId);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void bookAppointmentUsingUserBToken() {
@@ -235,8 +235,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response bookingResponse = lib.BookAppointment(documentResponse, avilibityResponse, preID,cookie);
 		String errorCode = lib.getErrorCode(bookingResponse);
 		String message = lib.getErrorMessage(bookingResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void cancelAppointmentUsingUserBToken() {
@@ -251,8 +251,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response cancelBookingAppointmentResponse = lib.CancelBookingAppointment(PreID, cookie);
 		String errorCode = lib.getErrorCode(cancelBookingAppointmentResponse);
 		String message = lib.getErrorMessage(cancelBookingAppointmentResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void rebookAppointmentUsingUserBToken() {
@@ -268,8 +268,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response bookingResponse = lib.BookAppointment(avilibityResponse, preID, cookie);
 		String errorCode = lib.getErrorCode(bookingResponse);
 		String message = lib.getErrorMessage(bookingResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 	@Test
 	public void fetchAppointmentDetailsOfUserAUsingUserBToken() {
@@ -284,8 +284,8 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		Response fetchAppointmentDetailsResponse = lib.FetchAppointmentDetails(preID, cookie);
 		String errorCode = lib.getErrorCode(fetchAppointmentDetailsResponse);
 		String message = lib.getErrorMessage(fetchAppointmentDetailsResponse);
-		lib.compareValues(message, "Requested preregistration id does not belong to the user");
-		lib.compareValues(errorCode, "PRG_PAM_APP_017");
+		lib.compareValues(message, "Demographic record failed to fetch");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 	}
 
 	@Override
