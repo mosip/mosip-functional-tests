@@ -21,6 +21,7 @@ import io.mosip.authentication.fw.dto.VidStaticPinDto;
 import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.IdRepoUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.BiometricDataUtility;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.UINUtil;
@@ -308,7 +309,17 @@ public class IdaKeywordUtil extends KeywordUtil{
 				String thresholdPercentage=keys[3];
 				String bioValue =BiometricTestDataProcessor.getBioMetricTestData(bioType, bioSubType, thresholdPercentage);
 				returnMap.put(entry.getKey(),bioValue);
-			}else
+			} else if (entry.getValue().contains("$Device:")) {
+				String key = entry.getValue().replace("$Device:", "");
+				key = key.replace("$", "");
+				String keys[] = key.split(":");
+				String dataParam = RunConfigUtil.getRunEvironment()+"."+keys[0]+".deviceid";
+				String id=TestDataProcessor.getYamlData("ida", "TestData",
+						"RunConfig/authenitcationTestdata", dataParam.toLowerCase());
+				BiometricDataUtility.storeDeviceDetail(id);
+				returnMap.put(entry.getKey(), BiometricDataUtility.allDeviceParam.get(id).get(keys[1]));
+			}
+			else
 				returnMap.put(entry.getKey(), entry.getValue());
 			currentTestData=returnMap;
 		}

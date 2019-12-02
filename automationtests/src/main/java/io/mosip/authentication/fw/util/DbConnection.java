@@ -52,6 +52,8 @@ public class DbConnection {
 			DBCONNECTION_LOGGER.info("Query: " + query);
 			if (moduleName.equals("KERNEL"))
 				records = executeQueryAndGetRecord("kernel", query);
+			if (moduleName.equals("MASTER"))
+				records = executeQueryAndGetRecord("masterdata", query);
 			else if (moduleName.equals("IDA"))
 				records = executeQueryAndGetRecord("ida", query);
 			else if (moduleName.equals("AUDIT"))

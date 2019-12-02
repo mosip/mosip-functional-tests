@@ -1169,6 +1169,30 @@ public class IdRepoRunConfig extends RunConfig{
 	}
 
 	@Override
+	public String getCryptomanagerEncrypt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCryptomanagerEncrypt(String cryptomanagerEncrypt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSplitEncryptedData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSplitEncryptedData(String splitEncryptedData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public String getDecommisionRegCenterPath() {
 		// TODO Auto-generated method stub
 		return null;
