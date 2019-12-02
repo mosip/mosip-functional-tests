@@ -124,8 +124,8 @@ public class IdRepoUtil extends AuthTestsUtil {
 	public static String generateUinNumberForIda() {
 		return JsonPrecondtion
 				.getValueFromJson(
-						getResponseWithCookieForIdaUinGenerator(RunConfigUtil.objRunConfig.getEndPointUrl()
-								+ RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
+						getResponseWithCookieForIdaUinGenerator(RunConfigUtil.objRunConfig.getEndPointUrl()+
+								 RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
 						"response.uin");
 	}
 

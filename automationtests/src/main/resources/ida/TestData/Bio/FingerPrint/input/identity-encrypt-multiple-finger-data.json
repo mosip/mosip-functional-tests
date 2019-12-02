@@ -11,13 +11,13 @@
 						"serialNo": "78467171",
 						"make": "Logitech",
 						"model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-						"type": "Face",
-						"subType": "Full face",
+						"type": "Finger",
+						"subType": "Slab",
 						"deviceProvider": "SYNCBYTE",
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FACE",
+					"bioType": "FIR",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",
@@ -40,13 +40,13 @@
 						"serialNo": "78467171",
 						"make": "Logitech",
 						"model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-						"type": "Face",
-						"subType": "Full face",
+						"type": "Finger",
+						"subType": "Slab",
 						"deviceProvider": "SYNCBYTE",
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FACE",
+					"bioType": "FIR",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",
@@ -57,7 +57,8 @@
 					"qualityScore": 70
 				},
 				"hash": "$hash$",
-				"sessionKey": "$sessionKey$"
+				"sessionKey": "$sessionKey$",
+				"signature": "$signature$"
 			},
 			{
 				"data": {
@@ -69,13 +70,13 @@
 						"serialNo": "78467171",
 						"make": "Logitech",
 						"model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-						"type": "Face",
-						"subType": "Full face",
+						"type": "Finger",
+						"subType": "Slab",
 						"deviceProvider": "SYNCBYTE",
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FACE",
+					"bioType": "FIR",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",
@@ -86,7 +87,8 @@
 					"qualityScore": 70
 				},
 				"hash": "$hash$",
-				"sessionKey": "$sessionKey$"
+				"sessionKey": "$sessionKey$",
+				"signature": "$signature$"
 			}
 		],
 		"timestamp": "2019-04-04T09:41:57.086+05:30",

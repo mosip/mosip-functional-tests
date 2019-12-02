@@ -147,7 +147,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		} catch (Exception expection) {
 			JSONPRECONDATION_LOGGER
 					.error("Exception Occured in retrieving the value from json file: " + expection.getMessage());
-			return expection.toString();
+			return "Cannot retrieve data or content for the object mapper from  JSON";
 		}
 	}
 	
@@ -493,25 +493,26 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			if (value instanceof JSONArray) {
 				JSONArray array = (JSONArray) value;
 				String finalarrayContent = "";
-				for (int i = 0; i < array.length(); ++i) {
-					if(!array.toString().contains("{") && !array.toString().contains("}"))
-					{
-						Set<String> arr = new HashSet<String>();
-						for (int k = 0; k < array.length(); k++)
-						{
-							arr.add(array.getString(k));
+				if (array.length() != 0) {
+					for (int i = 0; i < array.length(); ++i) {
+						if (!array.toString().contains("{") && !array.toString().contains("}")) {
+							Set<String> arr = new HashSet<String>();
+							for (int k = 0; k < array.length(); k++) {
+								arr.add(array.getString(k));
+							}
+							finalarrayContent = removObjectFromArray(arr);
+						} else {
+							String arrayContent = removeObject(new JSONObject(array.get(i).toString()),
+									finalarrayContent);
+							if (!arrayContent.equals("{}"))
+								finalarrayContent = finalarrayContent + "," + arrayContent;
 						}
-						finalarrayContent=removObjectFromArray(arr);
 					}
-					else
-					{
-					String arrayContent = removeObject(new JSONObject(array.get(i).toString()), finalarrayContent);
-					if (!arrayContent.equals("{}"))
-						finalarrayContent = finalarrayContent + "," + arrayContent;
-					}
-				}
-				finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
-				object.put(key, new JSONArray("[" + finalarrayContent + "]"));
+					finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
+					object.put(key, new JSONArray("[" + finalarrayContent + "]"));
+				} else
+					object.put(key, new JSONArray("[]"));
+
 			} else if (value instanceof JSONObject) {
 				String objectContent = removeObject(new JSONObject(value.toString()));
 				object.put(key, new JSONObject(objectContent));

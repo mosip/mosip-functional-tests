@@ -29,6 +29,7 @@ import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
+import io.mosip.authentication.fw.util.BiometricDataUtility;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
@@ -181,19 +182,12 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
 		// Perform encoding here
-		String bioIdentityContent = getContentFromFile(testCaseName.listFiles(), "identity-encrypt");
-		int count = getNumberOfTimeWordPresentInString(bioIdentityContent, "\"data\"");
-		for (int i = 1; i <= count; i++) {
-			String mapperForBioContentToBeEncode = "bioData" + i;
-			String bioContentToBeEncode = JsonPrecondtion.getValueFromJsonUsingMapping(
-					getContentFromFile(testCaseName.listFiles(), "identity-encrypt"), mapping,
-					mapperForBioContentToBeEncode);
-			String encodedBioData = EncryptDecrptUtil.getBase64EncodedString(bioContentToBeEncode);
-			Map<String, String> bioDataMap = new HashMap<String, String>();
-			bioDataMap.put(mapperForBioContentToBeEncode, encodedBioData);
-			modifyRequest(testCaseName.listFiles(), bioDataMap, mapping, "identity-encrypt");
-		}
-		// End of encode bio data
+		if (FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath()
+				.contains("identity-encrypt-bio-data"))
+			FileUtil.writeFile(FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath(),
+					BiometricDataUtility.constractBioIdentityRequest(
+							getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),
+							RunConfigUtil.getBioValueEncryptionTemplatePath(), false));
 		String extUrl = getExtendedUrl(new File(objTestParameters.getTestCaseFile() + "/url.properties"));
 		Map<String, String> tempMap = getEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of demo auth request ******************");

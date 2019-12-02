@@ -3,21 +3,41 @@
 		"biometrics": [
 			{
 				"data": {
+					"deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+					"deviceProviderID": "SYNCBYTE.MC01A",
+					"deviceServiceID": "",
+					"deviceServiceVersion": "SB.WIN.001",
 					"bioSubType": "FACE",
-					"bioType": "FID",
+					"bioType": "FACE",
 					"bioValue": "afsdfadsvdsaffd",
-					"deviceCode": "cogent",
-					"deviceProviderID": "cogent"
-				}
+					"timestamp": "2019-05-19T11:08:23.023+05:30",
+					"transactionID": "1234567890",
+					"mosipProcess": "Auth",
+					"env": "Staging",
+					"requestedScore": 70,
+					"qualityScore": 70
+				},
+				"hash": "$hash$",
+				"sessionKey": "$sessionKey$"
 			},
 			{
 				"data": {
+					"deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+					"deviceProviderID": "SYNCBYTE.MC01A",
+					"deviceServiceID": "",
+					"deviceServiceVersion": "SB.WIN.001",
 					"bioSubType": "FACE",
-					"bioType": "FID",
+					"bioType": "FACE",
 					"bioValue": "afsdfadsvdsaffd",
-					"deviceCode": "cogent",
-					"deviceProviderID": "cogent"
-				}
+					"timestamp": "2019-05-19T11:08:23.023+05:30",
+					"transactionID": "1234567890",
+					"mosipProcess": "Auth",
+					"env": "Staging",
+					"requestedScore": 70,
+					"qualityScore": 70
+				},
+				"hash": "$hash$",
+				"sessionKey": "$sessionKey$"
 			}
 		],
 		"timestamp": "2019-04-04T09:41:57.086+05:30",

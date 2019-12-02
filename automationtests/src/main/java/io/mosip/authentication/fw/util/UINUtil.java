@@ -8,11 +8,15 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
 import io.mosip.authentication.fw.dto.UinDto;
 import io.mosip.authentication.fw.dto.UinStaticPinDto;
 import io.mosip.authentication.fw.dto.VidDto;
 
 public class UINUtil extends RunConfigUtil{
+	
+	private static final Logger uinUtilLogger = Logger.getLogger(UINUtil.class);
 	
 	/**
 	 * The method return random UIN from property file
@@ -26,6 +30,7 @@ public class UINUtil extends RunConfigUtil{
 			Object[] randomKeys = UinDto.getUinData().keySet().toArray();
 			Object key = randomKeys[new Random().nextInt(randomKeys.length)];
 			if (UinDto.getUinData().get(key).toString().contains("valid")) {
+				uinUtilLogger.info("UIN Key: "+UinDto.getUinData().get(key).toString());
 				return key.toString();
 			}
 			count++;

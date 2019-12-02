@@ -256,4 +256,15 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return e.toString();
 		}
 	}
+	
+	public static String splitEncryptedData(String content)
+	{
+		try {
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getSplitEncryptedData(), content.toString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON).asString();
+		} catch (Exception e) {
+			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
 }

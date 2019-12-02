@@ -67,7 +67,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			return xPath.compile(expression).evaluate(doc).toString();
 		} catch (Exception e) {
 			XMLPRECONDTION_LOGGER.error("Exception in xml precondtion : " + e.getMessage());
-			return e.getMessage();
+			return "Cannot retrieve data or content for the xpath from  XML";
 		}
 	}
 	
