@@ -494,7 +494,7 @@ audit_log_demo_moduleName:
 audit_log_VID_refIdType:
       - VID
 audit_log_internalAuthhostName:
-      - $REGEXP:.*authentication-internal-service.*$
+      - $REGEXP:.*MOSIP.*$
 #Demo-Name Normalisation
 name_tittle_UnMarriedfemale_primary_lang:
       - Miss.
