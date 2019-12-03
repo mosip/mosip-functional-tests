@@ -359,19 +359,19 @@ errors:
     errorMessage: Invalid Input Parameter - request/biometrics/0/deviceServiceVersion
   InvalidDeviceSerialNo:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/serialNo
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/serialNo
   InvalidDeviceMake:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/make
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/make
   InvalidDeviceModel:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/model
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/model
   InvalidDeviceType:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/type
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/type
   InvalidDeviceSubType:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/subType
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/subType
   MissingDeviceProviderID:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/deviceProviderId
