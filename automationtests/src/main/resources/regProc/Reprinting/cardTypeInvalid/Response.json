@@ -5,8 +5,8 @@
     "response": null,
     "errors": [
         {
-            "errorCode": "RPR-PGS-004",
-            "message": "Invalid CardType : Enter UIN or VID"
+             "errorCode": "RPR-PGS-004",
+            "message": "Invalid CardType : Enter UIN or MASKED_UIN"
         }
     ]
 }

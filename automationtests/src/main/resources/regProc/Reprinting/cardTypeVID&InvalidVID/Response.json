@@ -6,7 +6,7 @@
     "errors": [
         {
             "errorCode": "RPR-PGS-004",
-            "message": "VID should not contain any sequential and repeated block of number for 2 or more than two digits"
+            "message": "Invalid CardType : Enter UIN or MASKED_UIN"
         }
     ]
 }

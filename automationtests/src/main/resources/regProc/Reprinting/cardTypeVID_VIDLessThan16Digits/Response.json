@@ -5,8 +5,8 @@
     "response": null,
     "errors": [
         {
-            "errorCode": "RPR-PGS-004",
-            "message": "VID length should be 16 digit."
+          "errorCode": "RPR-PGS-004",
+            "message": "Invalid CardType : Enter UIN or MASKED_UIN"
         }
     ]
 }

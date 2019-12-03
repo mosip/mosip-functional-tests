@@ -8,7 +8,7 @@
     "reason": "Id Type and Card Type is UIN",
     "registrationType": "RES_REPRINT",
     "id": "3952370938",
-    "idType": "VID",
-    "cardType": "VID"
+    "idType": "MASKED_UIN",
+    "cardType": "MASKED_UIN"
   }
 } 
