@@ -40,7 +40,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	 * @author Ashish Consumed booked appointment
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void cosumedBookedAppointment() {
+	public void consumedBookedAppointment() {
 		String status = lib.getConsumedStatus(preID);
 		String actualRegCenterId = lib.getRegCenterIdOfConsumedApplication(preID);
 		String actualDocumentId = lib.getDocumentIdOfConsumedApplication(preID);

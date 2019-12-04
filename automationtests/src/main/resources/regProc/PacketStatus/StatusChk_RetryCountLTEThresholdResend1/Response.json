@@ -8,5 +8,7 @@
             "statusCode": "RESEND"
         }
     ],
-	"errors":null
+	"errors": [
+        
+    ]
 }

@@ -5,7 +5,7 @@
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_APP_005",
+            "errorCode": "PRG_PAM_DOC_020",
             "message": "Demographic record failed to fetch"
         }
     ]

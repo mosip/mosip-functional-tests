@@ -8,5 +8,7 @@
             "statusCode": "REJECTED"
         }
     ],
-	"errors":null
+	"errors": [
+        
+    ]
 }

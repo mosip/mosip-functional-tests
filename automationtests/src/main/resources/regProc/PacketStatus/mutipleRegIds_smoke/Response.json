@@ -12,5 +12,7 @@
             "statusCode": "REREGISTER"
         }
     ],
-	"errors":null
+	"errors": [
+        
+    ]
 }

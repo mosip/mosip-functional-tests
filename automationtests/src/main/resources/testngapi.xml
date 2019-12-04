@@ -303,7 +303,6 @@
             <class name="io.mosip.admin.tests.UpdateLocationData" />
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
-	</test>    
-	
+	</test> 
 
 </suite>

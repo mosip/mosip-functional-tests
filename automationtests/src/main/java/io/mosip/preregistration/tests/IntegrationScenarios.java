@@ -211,7 +211,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		response = lib.documentUpload(response,individualToken);
 
 		String errMessage = lib.getErrorMessage(response);
-		lib.compareValues(errMessage, "No data found for the requested pre-registration id");
+		lib.compareValues(errMessage, "Demographic record failed to fetch expected");
 
 	}
 
@@ -985,8 +985,8 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		Response documentResponse = lib.documentUpload(createResponse,individualToken);
 		String errorCode = documentResponse.jsonPath().get("errors[0].errorCode").toString();
 		String message = documentResponse.jsonPath().get("errors[0].message").toString();
-		lib.compareValues(message, "No data found for the requested pre-registration id");
-		lib.compareValues(errorCode, "PRG_PAM_APP_005");
+		lib.compareValues(message, "Demographic record failed to fetch expected");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 
 	}
 
@@ -1459,9 +1459,9 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String docId = uploadDoc.jsonPath().get("response.docId").toString();
 		Response discardApp = lib.discardApplication(preRegID, individualToken);
 		Response delDocumentByDocId = lib.deleteAllDocumentByDocId(docId, preRegID, individualToken);
-		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_APP_005");
+		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_DOC_020 ");
 		lib.compareValues(lib.getErrorMessage(delDocumentByDocId),
-				"No data found for the requested pre-registration id");
+				"Demographic record failed to fetch");
 
 	}
 
