@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import org.testng.IHookable;
+
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
@@ -22,6 +22,7 @@ import io.mosip.registration.dto.RegistrationCenterDetailDTO;
 import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.registration.dto.UserDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.CenterMachineRepository;
 import io.mosip.registration.repositories.MachineMasterRepository;
 import io.mosip.registration.repositories.RegistrationCenterUserRepository;
@@ -86,7 +87,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 		applicationContext.loadResourceBundle();
 	}
 
-	public void baseSetUp() {
+	public void baseSetUp() throws RegBaseCheckedException {
 		try {
 			// Fetching the Global param values from the database
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());

@@ -124,60 +124,65 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 
 	@Test(dataProvider = "enrolmentByStatus", alwaysRun = true)
 	public void getEnrollmentByStatusTest(String testcaseName, JSONObject object) {
-		commonUtil();
-		String subServiceName = "getEnrolment";
-		// logger.info("Test case: " + testcaseName);
-		mTestCaseName = testcaseName;
-		System.out.println("testcaseName=== " + testcaseName);
-		String testCasePath = serviceName + "/" + subServiceName;
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
-		String statusCodeCase = prop.getProperty("statusCode");
-		String status = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode", statusCodeCase);
-		HashMap<String, String> packetresponse = new HashMap<String, String>();
-		if (testcaseName
-				.equalsIgnoreCase("regClient_RegistrationApprovalService_getEnrolment_validateEnrolment_smoke")) {
-			SessionContext.map().put(RegistrationConstants.IS_Child, Boolean.parseBoolean(prop.getProperty("isChild")));
-			ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG,
-					prop.getProperty("eodConfigFlag"));
-			ArrayList<String> roles = new ArrayList<>();
-			for (String role : prop.getProperty("roles").split(","))
-				roles.add(role);
-			SessionContext.userContext().setRoles(roles);
+		try {
+			commonUtil();
+			String subServiceName = "getEnrolment";
+			// logger.info("Test case: " + testcaseName);
+			mTestCaseName = testcaseName;
+			System.out.println("testcaseName=== " + testcaseName);
+			String testCasePath = serviceName + "/" + subServiceName;
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			String statusCodeCase = prop.getProperty("statusCode");
+			String status = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode", statusCodeCase);
+			HashMap<String, String> packetresponse = new HashMap<String, String>();
+			if (testcaseName
+					.equalsIgnoreCase("regClient_RegistrationApprovalService_getEnrolment_validateEnrolment_smoke")) {
+				SessionContext.map().put(RegistrationConstants.IS_Child,
+						Boolean.parseBoolean(prop.getProperty("isChild")));
+				ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG,
+						prop.getProperty("eodConfigFlag"));
+				ArrayList<String> roles = new ArrayList<>();
+				for (String role : prop.getProperty("roles").split(","))
+					roles.add(role);
+				SessionContext.userContext().setRoles(roles);
 
-			String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
-					prop.getProperty("CreatePacket"));
-			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					"StatusCode: " + statusCode);
-			String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
-					prop.getProperty("bioPath"));
-			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					"Resident Biometric data Path: " + biometricDataPath);
-			String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
-					prop.getProperty("demoPath"));
-			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					"Resident Demographic data Path: " + demographicDataPath);
-			String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
-					prop.getProperty("imagePath"));
-			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
-					"Resident Proof data Path: " + proofImagePath);
+				String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
+						prop.getProperty("CreatePacket"));
+				logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+						"StatusCode: " + statusCode);
+				String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
+						prop.getProperty("bioPath"));
+				logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+						"Resident Biometric data Path: " + biometricDataPath);
+				String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
+						prop.getProperty("demoPath"));
+				logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+						"Resident Demographic data Path: " + demographicDataPath);
+				String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
+						prop.getProperty("imagePath"));
+				logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
+						"Resident Proof data Path: " + proofImagePath);
 
-			packetresponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
-					proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
-					prop.getProperty("invalidRegID"));
-			commonUtil.verifyAssertionResponse(prop.getProperty("PacketResponse"),
-					packetresponse.get("SUCCESSRESPONSE"));
-			// Update UPD_DTIMES
-			Registration registration = syncRegistrationDAO.getRegistrationById(statusCode,
-					packetresponse.get("RANDOMID"));
-			registration.setUpdDtimes(new Timestamp(System.currentTimeMillis()));
-			registrationRepository.update(registration);
-		}
-		List<RegistrationApprovalDTO> list = new ArrayList<>();
-		list = registrationApprovalService.getEnrollmentByStatus(status);
-		if (testcaseName.contains("invalid")) {
-			assertFalse(list.size() > 0);
-		} else {
-			assertTrue(list.size() > 0);
+				packetresponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
+						proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
+						prop.getProperty("invalidRegID"));
+				commonUtil.verifyAssertionResponse(prop.getProperty("PacketResponse"),
+						packetresponse.get("SUCCESSRESPONSE"));
+				// Update UPD_DTIMES
+				Registration registration = syncRegistrationDAO.getRegistrationById(statusCode,
+						packetresponse.get("RANDOMID"));
+				registration.setUpdDtimes(new Timestamp(System.currentTimeMillis()));
+				registrationRepository.update(registration);
+			}
+			List<RegistrationApprovalDTO> list = new ArrayList<>();
+			list = registrationApprovalService.getEnrollmentByStatus(status);
+			if (testcaseName.contains("invalid")) {
+				assertFalse(list.size() > 0);
+			} else {
+				assertTrue(list.size() > 0);
+			}
+		} catch (Exception e) {
+			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
 
@@ -202,6 +207,7 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 
 	@Test(dataProvider = "updateRegistration", alwaysRun = true)
 	public void updateRegistrationTest(String testcaseName, JSONObject object) throws RegBaseCheckedException {
+		try {
 		commonUtil();
 		String subServiceName = "updateRegistration";
 		// logger.info("Test case: " + testcaseName);
@@ -271,6 +277,11 @@ public class RegistrationApprovalServiceTest extends BaseConfiguration implement
 		assertTrue(passed);
 
 		registrationApprovalService.updateRegistration(registrationID, statusComment, "REGISTERED");
+		}
+		catch(Exception e)
+		{
+			Reporter.log("Exception : " + e.getMessage());
+		}
 	}
 
 	private void commonUtil() {

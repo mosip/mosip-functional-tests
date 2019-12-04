@@ -106,7 +106,7 @@ errors:
     errorMessage: No authentication type selected 
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FMR Authentication usage not allowed as per policy
+    errorMessage: BIO-FIR Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
     errorMessage: BIO-IIR Authentication usage not allowed as per policy
@@ -164,7 +164,7 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingFaceBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data FID not available in database$
+    errorMessage: $REGEXP:Biometric data FACE not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingIrisBioInMosipDB:
     errorCode: IDA-BIA-006
@@ -172,26 +172,26 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingFingerBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data FMR not available in database$
+    errorMessage: $REGEXP:Biometric data FIR not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   InvalidBioSubtype:
     errorCode: IDA-MLC-009
     errorMessage: $REGEXP:Invalid Input Parameter - bioSubType - .* for bioType .*$
   FaceExceed1:
     errorCode: IDA-BIA-009
-    errorMessage: Number of FID records should not exceed 1
+    errorMessage: Number of FACE records should not exceed 1
   FingerExceed2:
     errorCode: IDA-BIA-003
-    errorMessage: Number of FMR should not exceed 2
+    errorMessage: Number of FIR should not exceed 2
   IrisExceed2:
-    errorCode: IDA-BIA-008
-    errorMessage: Number of IIR should not exceed 2
+    errorCode: IDA-BIA-007
+    errorMessage: Duplicate Irises in request
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FMR Authentication usage not allowed as per policy
+    errorMessage: BIO-FIR Authentication usage not allowed as per policy
   PolicyWithoutBioFace:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FID Authentication usage not allowed as per policy
+    errorMessage: BIO-FACE Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
     errorMessage: BIO-IIR Authentication usage not allowed as per policy
@@ -200,7 +200,7 @@ errors:
     errorMessage: Missing Input Parameter - bioSubType
   MissingBioType:
     errorCode: IDA-MLC-006
-    errorMessage: Missing Input Parameter - bioType
+    errorMessage: Missing Input Parameter - request/biometrics/0/data/bioType
   MissingBioValue:
     errorCode: IDA-MLC-006
     errorMessage: $REGEXP:.*Missing Input Parameter - bioValue.*$
@@ -235,7 +235,7 @@ errors:
     actionMessage: Please give your biometrics again
   BiometricFingerMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – FMR did not match
+    errorMessage: Biometric data – FIR did not match
     actionMessage: Please give your biometrics again
   Demo_GenderMismatch:
     errorCode: IDA-DEA-001
@@ -303,5 +303,102 @@ errors:
   InternalBioVIDNotAllowed:
     errorCode: IDA-MLC-015
     errorMessage: Identity Type - VID not configured for the country
-  
-  
+  InvalidAuthType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - authType(s)
+  MissingAuthType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - authType(s)
+  InvalidAuthSubType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - authSubType
+  MissingAuthSubType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - authSubType 
+  InvalidLocked:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - locked
+  MissingLocked:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - locked 
+  UnSupportAuthTypeForBio:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - bio.*$
+  UnSupportAuthTypeForOtp:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - otp.*$
+  UnSupportAuthTypeForDemo:
+    errorCode: IDA-MLC-011
+    errorMessage: $REGEXP:Unsupported Authentication Type - demo.*$
+  DemoAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: demo Auth Type is Locked for the UIN
+  OTPAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: otp Auth Type is Locked for the UIN
+  BioAuthenticationLocked:
+    errorCode: IDA-MLC-019
+    errorMessage: bio Auth Type is Locked for the UIN
+  IdentityMismatch:
+    errorCode: IDA-OTA-010
+    errorMessage: Input Identity Type does not match Identity Type of OTP Request
+  InvalidDeviceProviderID:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceProviderId
+  InvalidDeviceProvider:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceProvider
+  InvalidDeviceCode:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceCode
+  InvalidDeviceDateTime:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/dateTime
+  InvalidDeviceServiceVersion:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceServiceVersion
+  InvalidDeviceSerialNo:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/serialNo
+  InvalidDeviceMake:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/make
+  InvalidDeviceModel:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/model
+  InvalidDeviceType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/type
+  InvalidDeviceSubType:
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/subType
+  MissingDeviceProviderID:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/deviceProviderId
+  MissingDeviceProvider:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/deviceProvider
+  MissingDeviceCode:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/deviceCode
+  MissingDeviceDateTime:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/dateTime
+  MissingDeviceServiceVersion:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/deviceServiceVersion
+  MissingDeviceSerialNo:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/serialNo
+  MissingDeviceMake:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/make
+  MissingDeviceModel:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/model
+  MissingDeviceType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/type
+  MissingDeviceSubType:
+    errorCode: IDA-MLC-006
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/subType

@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.poi.util.IOUtils;
 import org.json.simple.JSONArray;
@@ -54,7 +57,6 @@ import io.mosip.registration.dto.RegistrationDTO;
 import io.mosip.registration.dto.RegistrationMetaDataDTO;
 import io.mosip.registration.dto.RegistrationPacketSyncDTO;
 import io.mosip.registration.dto.ResponseDTO;
-import io.mosip.registration.dto.SelectionListDTO;
 import io.mosip.registration.dto.SuccessResponseDTO;
 import io.mosip.registration.dto.SyncRegistrationDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
@@ -89,6 +91,7 @@ import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.service.sync.PacketSynchService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.common.OTPManager;
+import io.mosip.testrunner.MosipTestRunner;
 
 /**
  * @author Arjun chandramohan
@@ -272,12 +275,21 @@ public class CommonUtil {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "readPropertyFile");
 		Properties prop = new Properties();
 		InputStream input = null;
-		/*String propertiesFilePath = "src" + File.separator + "main" + File.separator + "resources" + File.separator+"Registration"+File.separator
-				+ apiname + File.separator + testCaseName + File.separator + propertyFileName + ".properties";*/
-		/*String path = this.getClass().getClassLoader()
-				.getResource("./" + "Registration" +"/" + apiName).getPath();*/
-		String propertiesFilePath=this.getClass().getClassLoader().getResource("./"+"Registration"+"/"
-				+ apiname + "/" + testCaseName + "/" + propertyFileName + ".properties").getPath();
+		/*
+		 * String propertiesFilePath = "src" + File.separator + "main" + File.separator
+		 * + "resources" + File.separator+"Registration"+File.separator + apiname +
+		 * File.separator + testCaseName + File.separator + propertyFileName +
+		 * ".properties";
+		 */
+		/*
+		 * String path = this.getClass().getClassLoader() .getResource("./" +
+		 * "Registration" +"/" + apiName).getPath();
+		 */
+	/*	String propertiesFilePath = this.getClass().getClassLoader().getResource(
+				"./" + "Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties")
+				.getPath();*/
+		String propertiesFilePath=MosipTestRunner.getGlobalResourcePath()+"/"+"Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties";
+		
 		
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Property File Path - " + propertiesFilePath);
 		try {
@@ -407,8 +419,17 @@ public class CommonUtil {
 			mapper.registerModule(new JSR310Module());
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
-			registrationDTO = mapper.readValue(new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath()), RegistrationDTO.class);
-			IndividualIdentity identity = mapper.readValue(new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath()), IndividualIdentity.class);
+
+			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
+			registrationDTO = mapper.readValue(
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
+					RegistrationDTO.class);
+			File demoPath = new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath());
+
+			IndividualIdentity identity = mapper.readValue(
+					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
+					IndividualIdentity.class);
+
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
 			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, POAPOBPORPOIJpg);
 			registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
@@ -514,9 +535,16 @@ public class CommonUtil {
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
 
-			registrationDTO = mapper.readValue(new File(this.getClass().getClassLoader().getResource(biometricPath).getPath()), RegistrationDTO.class);
+			File bioPath = new File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
+			registrationDTO = mapper.readValue(
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
+					RegistrationDTO.class);
+			File demoPath = new File(this.getClass().getClassLoader().getResource(demographicPath).getPath());
 
-			IndividualIdentity identity = mapper.readValue(new File(this.getClass().getClassLoader().getResource(demographicPath).getPath()), IndividualIdentity.class);
+			IndividualIdentity identity = mapper.readValue(
+					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
+					IndividualIdentity.class);
+
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
 
 			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, proofOfImagePath);
@@ -629,7 +657,8 @@ public class CommonUtil {
 		byte[] data;
 		Map<String, DocumentDetailsDTO> documents = new HashMap<String, DocumentDetailsDTO>();
 		try {
-			data = IOUtils.toByteArray(new FileInputStream(new File(this.getClass().getClassLoader().getResource(path).getPath())));
+			data = IOUtils.toByteArray(
+					new FileInputStream(new File(this.getClass().getClassLoader().getResource(path).getPath())));
 			DocumentDetailsDTO documentDetailsDTOAddress = new DocumentDetailsDTO();
 			documentDetailsDTOAddress.setDocument(data);
 			documentDetailsDTOAddress.setType("Passport");
@@ -692,7 +721,7 @@ public class CommonUtil {
 		ApplicantDocumentDTO applicantDocumentDTO = new ApplicantDocumentDTO();
 		byte[] data;
 		try {
-			data = IOUtils.toByteArray(new FileInputStream(new File("/acknowledgementReceipt.jpg")));
+			data = IOUtils.toByteArray(new FileInputStream(new File(MosipTestRunner.getGlobalResourcePath()+ConstantValues.ACKNOWLEDGEMENT_IMAGE)));
 			applicantDocumentDTO.setAcknowledgeReceipt(data);
 			applicantDocumentDTO.setAcknowledgeReceiptName("RegistrationAcknowledgement.jpg");
 		} catch (Exception exception) {
@@ -939,7 +968,11 @@ public class CommonUtil {
 		ResourceBundle applicationLanguageBundle;
 		try {
 
-			registrationDTO = mapper.readValue(new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath()), RegistrationDTO.class);
+			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
+			registrationDTO = mapper.readValue(
+					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
+					RegistrationDTO.class);
+
 			if ((packetType.equalsIgnoreCase("PrIdOfChildWithoutDocs")
 					|| packetType.equalsIgnoreCase("PrIdOfAdultWithoutDocs"))) {
 				// Create RegistrationDTO without docs
@@ -948,6 +981,7 @@ public class CommonUtil {
 				// Set Registration ID to RegistrationDTO
 				registrationDTO.setRegistrationId(preRegistrationDTO.getRegistrationId());
 				// Get identity from preRegistrationDTO to RegistrationDTO
+
 				identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
 						.getIdentity();
 
@@ -971,46 +1005,51 @@ public class CommonUtil {
 					identity.getResidenceStatus().get(i).setValue(individual_typeDetails.get(0).getName());
 				}
 
+				// Set Address details from code to Value in the RegistrationDTO
 				for (int j = 0; j < identity.getRegion().size(); j++) {
 
 					String lang = identity.getRegion().get(j).getLanguage();
 					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
 					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					// get Region details
 					List<LocationDto> regionDetails = masterSync.findLocationByHierarchyCode(
 							applicationLanguageBundle.getString("region"), identity.getRegion().get(j).getLanguage());
+
 					identity.getRegion().get(j).setValue(regionDetails.get(0).getName());
-				}
+					// get Province details
+					List<LocationDto> provincedetails = masterSync.findProvianceByHierarchyCode(
+							regionDetails.get(0).getCode(), identity.getProvince().get(j).getLanguage());
 
-				for (int j = 0; j < identity.getProvince().size(); j++) {
-					String lang = identity.getProvince().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> provinceDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("province"),
-							identity.getProvince().get(j).getLanguage());
-					identity.getProvince().get(j).setValue(provinceDetails.get(0).getName());
-				}
+					String provinceCode = identity.getProvince().get(j).getValue();
 
-				for (int j = 0; j < identity.getCity().size(); j++) {
+					List<LocationDto> provinceResult = provincedetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(provinceCode)).collect(Collectors.toList());
 
-					String lang = identity.getCity().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> cityDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("city"), identity.getCity().get(j).getLanguage());
-					identity.getCity().get(j).setValue(cityDetails.get(0).getName());
+					identity.getProvince().get(j).setValue(provinceResult.get(0).getName());
 
-				}
+					// get City details
+					List<LocationDto> cityDetails = masterSync.findProvianceByHierarchyCode(
+							provinceResult.get(0).getCode(), identity.getCity().get(j).getLanguage());
 
-				for (int j = 0; j < identity.getLocalAdministrativeAuthority().size(); j++) {
-					String lang = identity.getLocalAdministrativeAuthority().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> localAdminAuthorityDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("localAdminAuthority"),
-							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
-					identity.getLocalAdministrativeAuthority().get(j)
-							.setValue(localAdminAuthorityDetails.get(0).getName());
+					String cityCode = identity.getCity().get(j).getValue();
+
+					List<LocationDto> cityResult = cityDetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(cityCode)).collect(Collectors.toList());
+
+					identity.getCity().get(j).setValue(cityResult.get(0).getName());
+
+					// get local admin authority details
+
+					List<LocationDto> localadminDetails = masterSync.findProvianceByHierarchyCode(
+							cityDetails.get(0).getCode(), identity.getZone().get(j).getLanguage());
+
+					String localadminCode = identity.getZone().get(j).getValue();
+
+					List<LocationDto> localadminResult = localadminDetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(localadminCode)).collect(Collectors.toList());
+
+					identity.getZone().get(j).setValue(localadminResult.get(0).getName());
+
 				}
 
 				documents = setDocumentDetailsDTO(identity, documentFile);
@@ -1021,6 +1060,7 @@ public class CommonUtil {
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+				registrationDTO.getRegistrationMetaDataDTO().setConsentOfApplicant("YES");
 			} else {
 				// Set PreRegistration ID to RegistrationDTO
 				registrationDTO.setPreRegistrationId(preRegistrationDTO.getPreRegistrationId());
@@ -1049,49 +1089,67 @@ public class CommonUtil {
 									identity.getResidenceStatus().get(i).getLanguage());
 					identity.getResidenceStatus().get(i).setValue(individual_typeDetails.get(0).getName());
 				}
-
+				// Set Address details from code to Value in the RegistrationDTO
 				for (int j = 0; j < identity.getRegion().size(); j++) {
 
 					String lang = identity.getRegion().get(j).getLanguage();
 					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
 					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
+					// get Region details
 					List<LocationDto> regionDetails = masterSync.findLocationByHierarchyCode(
 							applicationLanguageBundle.getString("region"), identity.getRegion().get(j).getLanguage());
+
 					identity.getRegion().get(j).setValue(regionDetails.get(0).getName());
+
+					// get Province details
+					List<LocationDto> provincedetails = masterSync.findProvianceByHierarchyCode(
+							regionDetails.get(0).getCode(), identity.getProvince().get(j).getLanguage());
+
+					String provinceCode = identity.getProvince().get(j).getValue();
+
+					List<LocationDto> provinceResult = provincedetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(provinceCode)).collect(Collectors.toList());
+
+					identity.getProvince().get(j).setValue(provinceResult.get(0).getName());
+
+					// get City details
+					List<LocationDto> cityDetails = masterSync.findProvianceByHierarchyCode(
+							provinceResult.get(0).getCode(), identity.getCity().get(j).getLanguage());
+
+					String cityCode = identity.getCity().get(j).getValue();
+
+					List<LocationDto> cityResult = cityDetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(cityCode)).collect(Collectors.toList());
+
+					identity.getCity().get(j).setValue(cityResult.get(0).getName());
+
+					// get local admin authority details
+
+					List<LocationDto> localadminDetails = masterSync.findProvianceByHierarchyCode(
+							cityDetails.get(0).getCode(), identity.getZone().get(j).getLanguage());
+
+					String localadminCode = identity.getZone().get(j).getValue();
+
+					List<LocationDto> localadminResult = localadminDetails.stream()
+							.filter(o -> o.getCode().equalsIgnoreCase(localadminCode)).collect(Collectors.toList());
+
+					identity.getZone().get(j).setValue(localadminResult.get(0).getName());
+
+					// get local admin authority details
+
+					List<LocationDto> postalCodeDetails = masterSync.findProvianceByHierarchyCode(
+							localadminResult.get(0).getCode(), identity.getZone().get(j).getLanguage());
+					/*
+					 * String postalCodeCode =
+					 * identity.getLocalAdministrativeAuthority().get(j).getValue();
+					 * 
+					 * List<LocationDto> postalCodeResult = postalCodeDetails.stream() .filter(o ->
+					 * o.getCode().equalsIgnoreCase(postalCodeCode)).collect(Collectors.toList());
+					 */
+
+					identity.setPostalCode(postalCodeDetails.get(0).getCode());
+
 				}
-
-				for (int j = 0; j < identity.getProvince().size(); j++) {
-					String lang = identity.getProvince().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> provinceDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("province"),
-							identity.getProvince().get(j).getLanguage());
-					identity.getProvince().get(j).setValue(provinceDetails.get(0).getName());
-				}
-
-				for (int j = 0; j < identity.getCity().size(); j++) {
-
-					String lang = identity.getCity().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> cityDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("city"), identity.getCity().get(j).getLanguage());
-					identity.getCity().get(j).setValue(cityDetails.get(0).getName());
-
-				}
-
-				for (int j = 0; j < identity.getLocalAdministrativeAuthority().size(); j++) {
-					String lang = identity.getLocalAdministrativeAuthority().get(j).getLanguage();
-					Locale applicationLanguageLocale = new Locale(lang != null ? lang.substring(0, 2) : "");
-					applicationLanguageBundle = ResourceBundle.getBundle("labels", applicationLanguageLocale);
-					List<LocationDto> localAdminAuthorityDetails = masterSync.findLocationByHierarchyCode(
-							applicationLanguageBundle.getString("localAdminAuthority"),
-							identity.getLocalAdministrativeAuthority().get(j).getLanguage());
-					identity.getLocalAdministrativeAuthority().get(j)
-							.setValue(localAdminAuthorityDetails.get(0).getName());
-				}
-
 				documents = setDocumentDetailsDTO(identity, documentFile);
 				registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
 				registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
@@ -1100,6 +1158,7 @@ public class CommonUtil {
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+				registrationDTO.getRegistrationMetaDataDTO().setConsentOfApplicant("YES");
 
 			}
 
@@ -1130,7 +1189,10 @@ public class CommonUtil {
 							RegistrationConstants.EMPTY, RegistrationClientStatusCode.APPROVED.getCode());
 
 				}
+			} else {
+
 			}
+
 		} catch (RegBaseCheckedException regBaseCheckedException) {
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(regBaseCheckedException));
@@ -1161,7 +1223,8 @@ public class CommonUtil {
 		HashMap<String, String> response = new HashMap<String, String>();
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			response = mapper.readValue(new File(this.getClass().getClassLoader().getResource(ConstantValues.PRE_REG_PATH).getPath()),
+			response = mapper.readValue(
+					new File(MosipTestRunner.getGlobalResourcePath()+"/"+ConstantValues.PRE_REG_PATH),
 					new TypeReference<Map<String, Object>>() {
 					});
 		} catch (NullPointerException nullPointerException) {
@@ -1179,6 +1242,7 @@ public class CommonUtil {
 		} catch (IOException ioException) {
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, ExceptionUtils.getStackTrace(ioException));
 		}
+		
 		return response;
 	}
 
@@ -1348,6 +1412,10 @@ public class CommonUtil {
 						e.getMessage());
 			}
 		}
+	}
+	
+	public static String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath();
 	}
 
 }

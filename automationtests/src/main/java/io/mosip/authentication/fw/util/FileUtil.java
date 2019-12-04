@@ -63,6 +63,22 @@ public class FileUtil{
 		}
 		return null;
 	}
+	/**
+	 * The method will get file path from folder using file name keywords
+	 * 
+	 * @param folder, Folder path
+	 * @param keywordToFind, file keyword to find
+	 * @return File
+	 */
+	public static File getFilePathName(File folder, String keywordToFind) {
+		File[] listOfFolders = folder.listFiles();
+		for (int j = 0; j < listOfFolders.length; j++) {
+			if (listOfFolders[j].getName().contains(keywordToFind))
+				return listOfFolders[j].getAbsoluteFile();
+		}
+		return folder;
+		
+	}
 	
 	/**
 	 * The method verify file present in list of files
@@ -261,6 +277,18 @@ public class FileUtil{
             }
         }
         return dir.delete();
+	}
+	
+	public static String getFileContent(FileInputStream fis, String encoding) throws IOException {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(fis, encoding))) {
+			StringBuilder sb = new StringBuilder();
+			String line;
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+				sb.append('\n');
+			}
+			return sb.toString();
+		}
 	}
 
 }

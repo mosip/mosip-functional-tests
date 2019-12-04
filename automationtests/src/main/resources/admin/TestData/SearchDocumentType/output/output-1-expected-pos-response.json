@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$",
+        "code": "DOC001",
+        "name": "Passport",
+        "description": "Proof of Idendity",
+        "langCode": "eng"
+      }
+    ]
+  },
+  "errors": []
+}

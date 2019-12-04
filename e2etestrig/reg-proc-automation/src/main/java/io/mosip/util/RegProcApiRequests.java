@@ -3,9 +3,10 @@ package io.mosip.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-
-import org.json.simple.JSONObject;
 
 import io.mosip.service.BaseTest;
 import io.restassured.http.Cookie;
@@ -83,5 +84,14 @@ public class RegProcApiRequests extends BaseTest {
 	String uin=idRepoResponse.jsonPath().get("response.identity.UIN").toString();
 	
 	return uin;
+	}
+	public Object getUTCTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		 LocalDateTime time= LocalDateTime.now(Clock.systemUTC());
+		 String utcTime = time.format(dateFormat);		    
+		 return utcTime;
+		
+
 	}
 }

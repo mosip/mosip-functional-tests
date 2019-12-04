@@ -3,6 +3,7 @@ package io.mosip.authentication.tests;
 import java.io.File;   
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -19,10 +20,13 @@ import org.testng.internal.TestResult;
 
 import io.mosip.authentication.fw.util.AuditValidation;
 import io.mosip.authentication.fw.util.DataProviderClass;
+import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
+import io.mosip.authentication.fw.util.BiometricDataUtility;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.PrerequisteTests;
 import io.mosip.authentication.fw.util.ReportUtil;
@@ -158,8 +162,8 @@ public class BiometricAuthentication extends PrerequisteTests implements ITest {
 	 * @throws AuthenticationTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void biometricAuthenticationTest(TestParameters objTestParameters, String testScenario,
-			String testcaseName) throws AuthenticationTestException {
+	public void biometricAuthenticationTest(TestParameters objTestParameters, String testScenario, String testcaseName)
+			throws AuthenticationTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,22 +172,27 @@ public class BiometricAuthentication extends PrerequisteTests implements ITest {
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
 		String extUrl = getExtendedUrl(new File(objTestParameters.getTestCaseFile() + "/url.properties"));
+		// Perform encoding here
+		FileUtil.writeFile(FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath(),
+				BiometricDataUtility
+						.constractBioIdentityRequest(getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),RunConfigUtil.getBioValueEncryptionTemplatePath(),false));
 		Map<String, String> tempMap = getEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
-		if(!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "bio-auth"))
+		if (!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "bio-auth"))
 			throw new AuthenticationTestException("Failed at modifying the request file. Kindly check testdata.");
 		displayContentInFile(testCaseName.listFiles(), "bio-auth");
-		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath()
-				+ extUrl + " *******");
-		if(!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
-				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath() + extUrl, "request", "output-1-actual-res", 200))
+		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl()
+				+ RunConfigUtil.objRunConfig.getAuthPath() + extUrl + " *******");
+		if (!postRequestAndGenerateOuputFile(testCaseName.listFiles(),
+				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getAuthPath() + extUrl,
+				"request", "output-1-actual-res", 200))
 			throw new AuthenticationTestException("Failed at HTTP-POST request");
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AuthenticationTestException("Failed at response output validation");
 		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "auth_transaction")) {
 			wait(5000);
@@ -192,7 +201,7 @@ public class BiometricAuthentication extends PrerequisteTests implements ITest {
 			Map<String, List<OutputValidationDto>> auditTxnvalidation = AuditValidation
 					.verifyAuditTxn(testCaseName.listFiles(), "auth_transaction");
 			Reporter.log(ReportUtil.getOutputValiReport(auditTxnvalidation));
-			if(!OutputValidationUtil.publishOutputResult(auditTxnvalidation)) 
+			if (!OutputValidationUtil.publishOutputResult(auditTxnvalidation))
 				throw new AuthenticationTestException("Failed at Authtransaction validation");
 		}
 		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "audit_log")) {
@@ -202,12 +211,11 @@ public class BiometricAuthentication extends PrerequisteTests implements ITest {
 			Map<String, List<OutputValidationDto>> auditLogValidation = AuditValidation
 					.verifyAuditLog(testCaseName.listFiles(), "audit_log");
 			Reporter.log(ReportUtil.getOutputValiReport(auditLogValidation));
-			if(!OutputValidationUtil.publishOutputResult(auditLogValidation))
+			if (!OutputValidationUtil.publishOutputResult(auditLogValidation))
 				throw new AuthenticationTestException("Failed at auditLog Validation");
 		}
-		if(!verifyResponseUsingDigitalSignature(responseJsonToVerifyDigtalSignature,
-					responseDigitalSignatureValue))
-				throw new AuthenticationTestException("Failed at digital signature verification");
+		if (!verifyResponseUsingDigitalSignature(responseJsonToVerifyDigtalSignature, responseDigitalSignatureValue))
+			throw new AuthenticationTestException("Failed at digital signature verification");
 	}
 
 }

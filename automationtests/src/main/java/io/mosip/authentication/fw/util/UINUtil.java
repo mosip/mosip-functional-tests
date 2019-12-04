@@ -1,16 +1,22 @@
 package io.mosip.authentication.fw.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
 
 import io.mosip.authentication.fw.dto.UinDto;
 import io.mosip.authentication.fw.dto.UinStaticPinDto;
 import io.mosip.authentication.fw.dto.VidDto;
 
 public class UINUtil extends RunConfigUtil{
+	
+	private static final Logger uinUtilLogger = Logger.getLogger(UINUtil.class);
 	
 	/**
 	 * The method return random UIN from property file
@@ -24,6 +30,7 @@ public class UINUtil extends RunConfigUtil{
 			Object[] randomKeys = UinDto.getUinData().keySet().toArray();
 			Object key = randomKeys[new Random().nextInt(randomKeys.length)];
 			if (UinDto.getUinData().get(key).toString().contains("valid")) {
+				uinUtilLogger.info("UIN Key: "+UinDto.getUinData().get(key).toString());
 				return key.toString();
 			}
 			count++;
@@ -87,13 +94,18 @@ public class UINUtil extends RunConfigUtil{
 	 * @param keywordToFind
 	 * @return UIN
 	 */
-	static String getUINKey(String keywordToFind) {
+	@SuppressWarnings("null")
+	public static String getUINKey(String keywordToFind) {
 		getUinPropertyValue(getUinPropertyPath());
+		List<String> randomKeys = new ArrayList<String>();
 		for (Entry<String, String> entry : UinDto.getUinData().entrySet()) {
-			if (entry.getValue().contains(keywordToFind))
-				return entry.getKey();
+			if (entry.getValue().contains(keywordToFind)) 
+				randomKeys.add(entry.getKey());
 		}
-		return "NoLoadedUINFound";
+		if (randomKeys.size() != 0)
+			return randomKeys.get(new Random().nextInt(randomKeys.size()));
+		else
+			return "NoLoadedUINFound";
 	}
 	
 	/**

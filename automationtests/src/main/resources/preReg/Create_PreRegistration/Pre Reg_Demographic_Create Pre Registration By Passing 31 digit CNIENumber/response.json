@@ -6,7 +6,7 @@
     "errors": [
         {
             "errorCode": "KER-IOV-004",
-            "message": "Invalid input parameter - identity/CNIENumber"
+            "message": "Invalid input parameter - identity/referenceIdentityNumber"
         }
     ]
 }

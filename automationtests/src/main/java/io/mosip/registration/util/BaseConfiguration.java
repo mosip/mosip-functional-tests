@@ -16,12 +16,15 @@ import io.mosip.registration.config.DaoConfig;
 import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
+import io.mosip.registration.dao.PolicySyncDAO;
 import io.mosip.registration.dto.AuthenticationValidatorDTO;
+import io.mosip.registration.dto.ErrorResponseDTO;
 import io.mosip.registration.dto.LoginUserDTO;
 import io.mosip.registration.dto.RegistrationCenterDetailDTO;
 import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.registration.dto.UserDTO;
 import io.mosip.registration.dto.biometric.BiometricDTO;
+import io.mosip.registration.entity.KeyStore;
 import io.mosip.registration.repositories.CenterMachineRepository;
 import io.mosip.registration.repositories.MachineMasterRepository;
 import io.mosip.registration.repositories.RegistrationCenterUserRepository;
@@ -66,6 +69,9 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 	@Autowired
 	RegistrationCenterUserRepository centeruserRepo;
 
+	/** The policy sync DAO. */
+	@Autowired
+	private PolicySyncDAO policySyncDAO;
 	@Autowired
 	UserMachineMappingRepository userMachineMappingRepository;
 	/**
@@ -85,18 +91,25 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 		applicationContext.loadResourceBundle();
 	}
 
-	public void baseSetUp() {
+	public void baseSetUp() { 
 		try {
-			
-			
+
 			// Fetching the Global param values from the database
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());
 			// Set spring Application Context to SessionContext
 			SessionContext.setApplicationContext(applicationContext);
+			System.out.println(globalParamService.getGlobalParams());
 			// Sync
 			boolean sync_Status;
+			KeyStore keyStore = policySyncDAO.getPublicKey(RegistrationConstants.KER);
+			System.out.println(keyStore.getPublicKey().toString());
+			
+			
+			
+			
 			ResponseDTO publicKeyResponse = publicKeySyncImpl
 					.getPublicKey(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+			System.out.println();
 			sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 					publicKeyResponse.getSuccessResponseDTO().getMessage());
 			if (sync_Status) {
@@ -104,6 +117,15 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 						"publicKeySyncImpl Synced successfully");
 
 				ResponseDTO globalParamResponse = globalParamService.synchConfigData(false);
+				if(globalParamResponse.getSuccessResponseDTO()!=null) {
+					System.out.println(globalParamResponse.getSuccessResponseDTO().getMessage());
+				} else
+				{
+					for(ErrorResponseDTO errorResponse:globalParamResponse.getErrorResponseDTOs()) {
+						System.out.println(errorResponse.getCode());
+						System.out.println(errorResponse.getMessage());
+					}
+				}
 				sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 						globalParamResponse.getSuccessResponseDTO().getMessage());
 
@@ -145,32 +167,32 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 									LOGGER.info("BASE CONFIGURATION - ", "AUTOMATION - REG", "SYNC",
 											"PolicySyncService Synced successfully");
 								} else {
-									LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+									LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 											"PolicySyncService Sync Failed");
 									Assert.assertTrue(sync_Status);
 								}
 							} else {
-								LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+								LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 										"masterSyncService Sync Failed");
 								Assert.assertTrue(sync_Status);
 							}
 						} else {
-							LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+							LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 									"userDetailService Sync Failed");
 							Assert.assertTrue(sync_Status);
 						}
 					} else {
-						LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
+						LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC",
 								"GlobalParamService Sync Failed");
 						Assert.assertTrue(sync_Status);
 					}
 				} else {
-					LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "GlobalParamService Sync Failed");
+					LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "GlobalParamService Sync Failed");
 					Assert.assertTrue(sync_Status);
 				}
 
 			} else {
-				LOGGER.debug("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "publicKeySyncImpl Sync Failed");
+				LOGGER.info("BASE CONFIGURATION", "AUTOMATION - REG", "SYNC", "publicKeySyncImpl Sync Failed");
 				Assert.assertTrue(sync_Status);
 			}
 			// Get User details from User Detail table
@@ -208,7 +230,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 					// Onboard user
 					BiometricDTO bioData = null;
 					String bioPath = "./Registration/testData/UserOnboardServiceData/Resident_BiometricData.json";
-					ClassLoader classLoader=getClass().getClassLoader();
+					ClassLoader classLoader = getClass().getClassLoader();
 					LOGGER.info("USERONBOARD SERVICE TEST - ", "AUTOMATION", "REG", "Path: " + bioPath);
 					bioData = commonUtil.getBiotestData(bioPath);
 					ResponseDTO actualresponse = userOBservice.validate(bioData);
@@ -223,10 +245,14 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 				Assert.assertTrue(sessionContext_Status);
 			}
 		} catch (IOException ioException) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioException));
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(ioException));
 
 		} catch (ParseException parseException) {
-			LOGGER.debug("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(parseException));
+
+		}
+		catch (Exception exception) {
+			LOGGER.info("BASE OCNFIGURATION", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
 
 		}
 

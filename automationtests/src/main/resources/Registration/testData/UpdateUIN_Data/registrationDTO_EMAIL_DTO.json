@@ -225,15 +225,15 @@
 		"applicantTypeCode": null,
 		"fullName": 
 		[
-			{
-				"language": "eng",
-				"value": "paerrt"
-			},
+			                          {
+                                 "language": "eng",
+                                 "value": "Abd al Hakim"
+                          },
+                          {
+                                 "language": "ara",
+                                 "value": "مثقل بن أسامة"
+                          }
 
-			{
-				"language": "ara",
-				"value": "شسبشسسشب"
-			}
 		]
 	},
 

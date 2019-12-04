@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 29,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$",
+        "code": "DOC014",
+        "name": "Account statement or passbook of the Post Office",
+        "description": "Account statement or passbook of the Post Office",
+        "langCode": "eng"
+      }
+    ]
+  },
+  "errors": []
+}

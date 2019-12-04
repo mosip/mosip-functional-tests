@@ -1,0 +1,28 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "value": "Template for authorization content",
+        "fromValue": "string",
+        "toValue": "string",
+        "columnName": "name",
+        "type": "equals"
+      }
+    ],
+    "sort": [
+		{
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 5
+    },
+    "languageCode": "eng"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}

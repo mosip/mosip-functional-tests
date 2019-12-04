@@ -27,6 +27,8 @@ import org.json.simple.parser.JSONParser;
 
 import io.mosip.dao.PreRegistrationDAO;
 import io.mosip.restassured.RestAssuredMethod;
+import io.mosip.testrunner.ExtractResource;
+import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
 
@@ -57,6 +59,9 @@ public class PreRegistartionUtil {
 		
 		return restMethod.postRequestWithToken(request, craeteApplicationURI, token);
 	}
+	public static String getResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath()+"/";
+	}
 
 	/**
 	 * Method to upload document
@@ -75,11 +80,9 @@ public class PreRegistartionUtil {
 		documents.add("POA_birth.pdf");
 		Response response = null;
 		String preReg_DocumentUploadURI = getProperty().get("documentUploadURI");
-		String configPath = System.getProperty("user.dir")+"/src/test/resources/" + "preReg" + "/" + "documents";
+		String configPath = getResourcePath() + "preReg" + "/" + "documents";
 		
 			File file = new File(configPath + "/" + documentName+".pdf");
-			/*ClassLoader classLoader=getClass().getClassLoader();
-			File file =new File(classLoader.getResource("/preReg/documents/"+documentName+".pdf").getFile());*/
 			HashMap<String, String> parm = new HashMap<>();
 			String preRegistrationId = responseCreate.jsonPath().get("response.preRegistrationId").toString();
 			parm.put("preRegistrationId", preRegistrationId);
@@ -250,7 +253,7 @@ public class PreRegistartionUtil {
 		/**
 		 * Reading request body from configpath
 		 */
-		String configPath = System.getProperty("user.dir")+"/src/test/resources/" + "preReg" + "/" + testSuite;
+		String configPath = getResourcePath() + "preReg" + "/" + testSuite;
 		File folder = new File(configPath);
 		File[] listOfFiles = folder.listFiles();
 		for (File f : listOfFiles) {
@@ -489,43 +492,6 @@ public class PreRegistartionUtil {
 		}
 		return response;
 	}
-	/**
-	 * Storing retrive pre registration data into folder
-	 * @param PrID
-	 * @return
-	 */
-	public void storePreRegistrationData(String PrID) {
-		boolean finalResult = false;
-		Response response = retrivePreRegistrationData(PrID);
-		String folderName = "PreRegDocs";
-		String data = response.jsonPath().get("response.zip-bytes").toString();
-		String folder = response.jsonPath().get("response.zip-filename").toString();
-		String folderPath = "src/test/resources/" + "preReg" + "/" + folderName;
-		File f = new File(folderPath + "/" + folder);
-		f.mkdirs();
-		ZipInputStream zipStream = new ZipInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(data)));
-		ZipEntry entry = null;
-		try {
-			while ((entry = zipStream.getNextEntry()) != null) {
 
-				String entryName = entry.getName();
-				
-				String path = folderPath + "/" + folder + "/" + entryName;
-				FileOutputStream out = new FileOutputStream(path);
-
-				byte[] byteBuff = new byte[4096];
-				int bytesRead = 0;
-				while ((bytesRead = zipStream.read(byteBuff)) != -1) {
-					out.write(byteBuff, 0, bytesRead);
-				}
-
-				out.close();
-				zipStream.closeEntry();
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 }

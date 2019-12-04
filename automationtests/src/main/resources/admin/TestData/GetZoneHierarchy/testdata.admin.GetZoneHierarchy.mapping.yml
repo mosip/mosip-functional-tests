@@ -1,0 +1,30 @@
+testdata:
+   Admin_GetZoneHierarchy_NorthUser_eng:
+      input.search-request:
+         langCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-2-response:
+         responsetime: $IGNORE$
+   Admin_GetZoneHierarchy_eng_smoke:
+      input.search-request:
+         langCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-2-response:
+         responsetime: $IGNORE$
+   Admin_GetZoneHierarchy_forNoZoneMap:
+      input.search-request:
+         langCode: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-339
+         messageerrors0: No zone found for the logged-in user 110102
+         responsetime: $IGNORE$
+   Admin_GetZoneHierarchy_with_invalid_langCode:
+      input.search-request:
+         langCode: $TestData:invalid_LangCode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+         messageerrors0: $errors:InvalidLanguageCode:errorMessage$
+         responsetime: $IGNORE$
+   Admin_GetZoneHierarchy_NorthUser_ara:
+      input.search-request:
+         langCode: $TestData:valid_LanguageCodeArabic$
+      output.output-1-expected-pos-3-response:
+         responsetime: $IGNORE$

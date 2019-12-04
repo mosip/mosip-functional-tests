@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.mosip.e2etestrig</groupId>
   <artifactId>e2etestrig</artifactId>
-  <version>0.9.0</version>
+  <version>0.10.4</version>
   <packaging>pom</packaging>
   <modules>
   	<module>e2etests</module>
@@ -36,10 +36,10 @@
 		<lombok.version>1.18.4</lombok.version>
 		<org.json.version>20180813</org.json.version>
 		<log4j.version>2.11.1</log4j.version>
-		<reg-client.automation.verson>0.9.0</reg-client.automation.verson>
-		<reg-proc.automation.version>0.9.0</reg-proc.automation.version>
-		<pre-reg.automation.version>0.9.0</pre-reg.automation.version>
-		<ida-automation.version>0.9.0</ida-automation.version>
+		<reg-client.automation.verson>0.9.1</reg-client.automation.verson>
+		<reg-proc.automation.version>0.9.1</reg-proc.automation.version>
+		<pre-reg.automation.version>0.9.1</pre-reg.automation.version>
+		<ida-automation.version>0.9.1</ida-automation.version>
 		<commons.collection.version>4.0</commons.collection.version>
 		<jsonWebToken.version>0.6.0</jsonWebToken.version>
   </properties>

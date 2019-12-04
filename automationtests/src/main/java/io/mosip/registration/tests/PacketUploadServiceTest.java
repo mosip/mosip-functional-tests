@@ -25,7 +25,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
+import io.mosip.kernel.core.util.exception.JsonProcessingException;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationClientStatusCode;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -56,7 +58,7 @@ import io.mosip.registration.util.TestDataGenerator;
  */
 
 public class PacketUploadServiceTest extends BaseConfiguration implements ITest {
-	
+
 	@Autowired
 	LoginService loginService;
 	@Autowired
@@ -91,7 +93,6 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 	private static final String testDataFileName = "PacketUploadTestData";
 	private static final String testCasePropertyFileName = "condition";
 	protected static String mTestCaseName = "";
-	
 
 	@BeforeMethod
 	public void setTestCaseName() {
@@ -112,34 +113,41 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 
 	@Test(dataProvider = "PacketUploadDataProvider", alwaysRun = true)
 	public void validatePushPacket(String testCaseName, JSONObject object) {
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
-		mTestCaseName = testCaseName;
-		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
-				testCasePropertyFileName);
-
-		SessionContext.map().put(RegistrationConstants.IS_Child, Boolean.parseBoolean(prop.getProperty("isChild")));
-		ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG, prop.getProperty("eodConfigFlag"));
-		ArrayList<String> roles = new ArrayList<>();
-		for (String role : prop.getProperty("roles").split(","))
-			roles.add(role);
-		SessionContext.userContext().setRoles(roles);
-
-		String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
-				prop.getProperty("CreatePacket"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"StatusCode: " + statusCode);
-		String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
-				prop.getProperty("bioPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Biometric data Path: " + biometricDataPath);
-		String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
-				prop.getProperty("demoPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Demographic data Path: " + demographicDataPath);
-		String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
-				prop.getProperty("imagePath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Proof data Path: " + proofImagePath);
-
-		HashMap<String, String> packetResponse = new HashMap<>();
-		ResponseDTO response = new ResponseDTO();
 		try {
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + testCaseName);
+			mTestCaseName = testCaseName;
+			Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
+					testCasePropertyFileName);
+
+			SessionContext.map().put(RegistrationConstants.IS_Child, Boolean.parseBoolean(prop.getProperty("isChild")));
+			ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG,
+					prop.getProperty("eodConfigFlag"));
+			ArrayList<String> roles = new ArrayList<>();
+			for (String role : prop.getProperty("roles").split(","))
+				roles.add(role);
+			SessionContext.userContext().setRoles(roles);
+
+			String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
+					prop.getProperty("CreatePacket"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"StatusCode: " + statusCode);
+			String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
+					prop.getProperty("bioPath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Biometric data Path: " + biometricDataPath);
+			String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
+					prop.getProperty("demoPath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Demographic data Path: " + demographicDataPath);
+			String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
+					prop.getProperty("imagePath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Proof data Path: " + proofImagePath);
+
+			HashMap<String, String> packetResponse = new HashMap<>();
+			ResponseDTO response = new ResponseDTO();
+
 			if (testCaseName.equalsIgnoreCase("regClient_PacketUploadService_Push_DuplicatePacketToServer")
 					|| testCaseName.equalsIgnoreCase("regClient_PacketUploadService_push_valid_packet_toServer")) {
 				Thread.sleep(2000);
@@ -178,16 +186,24 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 							RegistrationClientStatusCode.UPLOAD_SUCCESS_STATUS.getCode()));
 				}
 				boolean result = packetUploadService.updateStatus(packetStatusDTO);
-				boolean expectedResult=true;
-				Assert.assertEquals(result,expectedResult);
+				boolean expectedResult = true;
+				Assert.assertEquals(result, expectedResult);
 			}
 
-		} catch (RegBaseCheckedException | URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (RegBaseCheckedException regBaseCheckedException) {
+			logger.debug("PACKET UPLOAD SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(regBaseCheckedException));
+			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
+		} catch (URISyntaxException uriSyntaxException) {
+			logger.debug("PACKET UPLOAD SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(uriSyntaxException));
+			Reporter.log(ExceptionUtils.getStackTrace(uriSyntaxException));
+		} catch (InterruptedException interruptedException) {
+			logger.debug("PACKET UPLOAD SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(interruptedException));
+			Reporter.log(ExceptionUtils.getStackTrace(interruptedException));
+		} catch(NullPointerException nullPointerException) {
+			
 		}
 
 	}
@@ -205,8 +221,6 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 			Assert.assertTrue(result);
 		}
 	}
-
-
 
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {

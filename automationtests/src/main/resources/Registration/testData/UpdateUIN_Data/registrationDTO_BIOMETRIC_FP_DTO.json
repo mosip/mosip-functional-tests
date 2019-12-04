@@ -357,15 +357,15 @@
 		"applicantTypeCode": null,
 		"fullName": 
 		[
-			{
-				"language": "eng",
-				"value": "sdgddrytu"
-			},
+			                          {
+                                 "language": "eng",
+                                 "value": "Abd al Hakim"
+                          },
+                          {
+                                 "language": "ara",
+                                 "value": "مثقل بن أسامة"
+                          }
 
-			{
-				"language": "ara",
-				"value": "بيايبايبا"
-			}
 		]
 	},
 

@@ -1,0 +1,19 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-21T09:11:16.879Z",
+  "metadata": null,
+  "response": {
+    "filters": [
+      {
+        "fieldID": "mapStatus",
+        "fieldValue": "Assigned"
+      },
+      {
+        "fieldID": "mapStatus",
+        "fieldValue": "Unassigned"
+      }
+    ]
+  },
+  "errors": null
+}

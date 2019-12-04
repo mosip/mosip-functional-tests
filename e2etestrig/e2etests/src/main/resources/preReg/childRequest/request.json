@@ -9,17 +9,17 @@
 		"CNIENumber": "2864123456765432",
 		"gender": [{
 			"language": "ara",
-			"value": "أنثى"
+			"value": "FLE"
 		}, {
 			"language": "eng",
-			"value": "Female"
+			"value": "FLE"
 		}],
 		"city": [{
 			"language": "ara",
-			"value": "القنيطرة"
+			"value": "KNT"
 		}, {
 			"language": "eng",
-			"value": "Kenitra"
+			"value": "KNT"
 		}],
 		"postalCode": "14022",
 		"fullName": [{
@@ -31,19 +31,19 @@
 		}],
 		"localAdministrativeAuthority": [{
 			"language": "ara",
-			"value": "علال التازي"
+			"value": "SDTB"
 		}, {
 			"language": "eng",
-			"value": "Sidi Allal Tazi"
+			"value": "SDTB"
 		}],
-		"dateOfBirth": "1993/09/12",
+		"dateOfBirth": "2008/09/12",
 		"IDSchemaVersion": 1,
 		"province": [{
 			"language": "ara",
-			"value": "القنيطرة"
+			"value": "KTA"
 		}, {
 			"language": "eng",
-			"value": "Kenitra"
+			"value": "KTA"
 		}],
 		"phone": "9680958812",
 		"addressLine1": [{
@@ -55,10 +55,10 @@
 		}],
 		"residenceStatus": [{
 			"language": "ara",
-			"value": "أجنبي"
+			"value": "FR"
 		}, {
 			"language": "eng",
-			"value": "Foreigner"
+			"value": "FR"
 		}],
 		"addressLine2": [{
 			"language": "ara",
@@ -76,10 +76,10 @@
 		}],
 		"region": [{
 			"language": "eng",
-			"value": "Rabat Sale Kenitra"
+			"value": "RSK"
 		}, {
 			"language": "ara",
-			"value": "جهة الرباط سلا القنيطرة"
+			"value": "RSK"
 		}],
 		"email": "leona.marry@mindtree.com"
 	}

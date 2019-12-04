@@ -1,20 +1,31 @@
-
 package io.mosip.service;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
@@ -46,8 +57,17 @@ public class BaseTestCase{
 	public String regSupervisorCookie=null;
 	public String zonalAdminCookie=null;
 	public String zonalApproverCookie=null; 
-	
-		
+	public String adminCookie=null;
+	public static KernelAuthentication kernelAuthLib = null;
+	public static CommonLibrary kernelCmnLib = null;
+	public static Map queries;
+	public static HashMap<String, String> documentId=new HashMap<>();
+	public static HashMap<String, String> regCenterId=new HashMap<>();
+	public static String expiredPreId=null;
+	public String batchJobToken=null;
+	public static List<String> expiredPreRegIds=null;
+	public static List<String> consumedPreRegIds=null;
+	static PreRegistrationLibrary lib=new PreRegistrationLibrary();
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -79,8 +99,11 @@ public class BaseTestCase{
 	
 	public static void initialize()
 	{
+		copyDbInTarget();
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
-		
+		kernelAuthLib  = new KernelAuthentication();
+		kernelCmnLib = new CommonLibrary();
+		queries = kernelCmnLib.readProperty("adminQueries");
 		/**
 		 * Make sure test-output is there 
 		 */
@@ -113,7 +136,7 @@ public class BaseTestCase{
 		/*
 		 * Saving TestNG reports to be published
 		 */
-	    //@BeforeSuite(alwaysRun = true)
+	   // @BeforeSuite(alwaysRun = true)
 		public static void suiteSetup() {
 		
 			logger.info("Test Framework for Mosip api Initialized");
@@ -121,11 +144,35 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-			PreRegistrationLibrary pil=new PreRegistrationLibrary();
+	 PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().deleteAvailableSlot();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
+			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
+			AdminTestUtil.initiateAdminTest();
+			
+			/**
+			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
+			 * Here after booking appointment setting booking date to yesterday. 
+			 */
+			//expiredPreRegIds=lib.BookExpiredApplication();
+			/**
+			 * consumedPreRegIds list contain list of consumed pre registration ids 
+			 * 
+			 */
+			expiredPreRegIds=lib.BookExpiredApplication();
+			consumedPreRegIds=lib.consumedPreId();
+			
+			/**
+			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
+			 */
+		logger.info("waiting for job run to start");
+		try {
+				TimeUnit.MINUTES.sleep(8);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();
@@ -199,7 +246,16 @@ public class BaseTestCase{
 			logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
 			return logProp;
 		}
-		
+	private static void copyDbInTarget() {
+		File db=new File(MosipTestRunner.getGlobalResourcePath().substring(0,MosipTestRunner.getGlobalResourcePath().lastIndexOf("target"))+"/db");
+		File targetDb=new File(db.getPath().replace("/db", "/target/db"));
+		try {
+			FileUtils.copyDirectory(db,targetDb);
+			logger.info("Copied :: "+targetDb.getPath()+":: to target");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	}
-

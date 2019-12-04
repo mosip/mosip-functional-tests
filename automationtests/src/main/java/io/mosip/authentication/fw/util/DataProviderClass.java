@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
 /**
  * Date Provider class will give list of test case or folder name as per the
  * test type such as smoke, regression
@@ -13,6 +15,7 @@ import java.util.Map.Entry;
  */
 public class DataProviderClass {
 
+	private static final Logger dataProviderLogger = Logger.getLogger(DataProviderClass.class);
 	/**
 	 * The method get data provider object for testng suite
 	 * 
@@ -22,21 +25,28 @@ public class DataProviderClass {
 	 * @return Object of data provider
 	 */
 	public static Object[][] getDataProvider(String configFile, String scenario, String testType) {
-		// scenario = scenario.replace("/", "_");
-		Object[][] returnObj = new Object[FileUtil.getFolders(new File(configFile)).size() + 1][];
-		int numberOfTestcase = 1;
-		for (File testcase : FileUtil.getFolders(new File(configFile))) {
-			if (testType.equalsIgnoreCase("smoke")) {
-				if (testcase.getName().toString().toLowerCase().contains(testType.toString().toLowerCase())) {
+		Object[][] returnObj = null;
+		try {
+			// scenario = scenario.replace("/", "_");
+			returnObj = new Object[FileUtil.getFolders(new File(configFile)).size() + 1][];
+			int numberOfTestcase = 1;
+			for (File testcase : FileUtil.getFolders(new File(configFile))) {
+				if (testType.equalsIgnoreCase("smoke")) {
+					if (testcase.getName().toString().toLowerCase().contains(testType.toString().toLowerCase())) {
+						returnObj[numberOfTestcase] = returnObject(testcase, scenario, numberOfTestcase);
+						numberOfTestcase++;
+					}
+				} else if (testType.equalsIgnoreCase("smokeandregression")) {
 					returnObj[numberOfTestcase] = returnObject(testcase, scenario, numberOfTestcase);
 					numberOfTestcase++;
 				}
-			} else if (testType.equalsIgnoreCase("smokeandregression")) {
-				returnObj[numberOfTestcase] = returnObject(testcase, scenario, numberOfTestcase);
-				numberOfTestcase++;
 			}
+			return returnObj;
+		} catch (Exception e) {
+			dataProviderLogger.info("Exception in Data Provider Class: "+e.getMessage());
+			returnObj=new Object[0][];
+			return returnObj;
 		}
-		return returnObj;
 	}
 	
 	/**

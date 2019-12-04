@@ -396,26 +396,6 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 			logger.error("Exception occurred in UpdatePacket class in setResultTestName method "+e);
 		}
 
-
-		/*		if(result.getStatus()==ITestResult.SUCCESS) {
-				Markup m=MarkupHelper.createCodeBlock("Request Body is  :"+System.lineSeparator()+actualRequest.toJSONString());
-				Markup m1=MarkupHelper.createCodeBlock("Expected Response Body is  :"+System.lineSeparator()+expectedResponse.toJSONString());
-				test.log(Status.PASS, m);
-				test.log(Status.PASS, m1);
-			}
-
-			if(result.getStatus()==ITestResult.FAILURE) {
-				Markup m=MarkupHelper.createCodeBlock("Request Body is  :"+System.lineSeparator()+actualRequest.toJSONString());
-				Markup m1=MarkupHelper.createCodeBlock("Expected Response Body is  :"+System.lineSeparator()+expectedResponse.toJSONString());
-				test.log(Status.FAIL, m);
-				test.log(Status.FAIL, m1);
-			}
-			if(result.getStatus()==ITestResult.SKIP) {
-				Markup m=MarkupHelper.createCodeBlock("Request Body is  :"+System.lineSeparator()+actualRequest.toJSONString());
-				Markup m1=MarkupHelper.createCodeBlock("Expected Response Body is  :"+System.lineSeparator()+expectedResponse.toJSONString());
-				test.log(Status.SKIP, m);
-				test.log(Status.SKIP, m1);
-			}*/
 	}
 
 

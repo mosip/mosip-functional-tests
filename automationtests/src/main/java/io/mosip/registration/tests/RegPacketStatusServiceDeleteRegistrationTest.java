@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -81,7 +82,6 @@ public class RegPacketStatusServiceDeleteRegistrationTest extends BaseConfigurat
 	private static final String testDataFileName = "RegPacketStatusServiceTestData";
 	private static final String testCasePropertyFileName = "condition";
 	protected static String mTestCaseName = "";
-	
 
 	@BeforeMethod
 	public void setTestCaseName() {
@@ -94,6 +94,7 @@ public class RegPacketStatusServiceDeleteRegistrationTest extends BaseConfigurat
 		map.put(RegistrationConstants.REG_DELETION_CONFIGURED_DAYS, "120");
 		context.setApplicationMap(map);
 	}
+
 	@DataProvider(name = "RegPacketStatusDataProvider")
 	public Object[][] readTestCase() {
 		// String testParam = context.getCurrentXmlTest().getParameter("testType");
@@ -106,39 +107,46 @@ public class RegPacketStatusServiceDeleteRegistrationTest extends BaseConfigurat
 
 	@Test(dataProvider = "RegPacketStatusDataProvider", alwaysRun = true)
 	public void validatePacketCreation(String testCaseName, JSONObject object) {
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
-		mTestCaseName=testCaseName;
-		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
-				testCasePropertyFileName);
+		try {
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"test case Name:" + testCaseName);
+			mTestCaseName = testCaseName;
+			Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
+					testCasePropertyFileName);
 
-		SessionContext.map().put(RegistrationConstants.IS_Child, Boolean.parseBoolean(prop.getProperty("isChild")));
-		ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG, prop.getProperty("eodConfigFlag"));
-		ArrayList<String> roles = new ArrayList<>();
-		for (String role : prop.getProperty("roles").split(","))
-			roles.add(role);
-		SessionContext.userContext().setRoles(roles);
+			SessionContext.map().put(RegistrationConstants.IS_Child, Boolean.parseBoolean(prop.getProperty("isChild")));
+			ApplicationContext.map().put(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG,
+					prop.getProperty("eodConfigFlag"));
+			ArrayList<String> roles = new ArrayList<>();
+			for (String role : prop.getProperty("roles").split(","))
+				roles.add(role);
+			SessionContext.userContext().setRoles(roles);
 
-		String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
-				prop.getProperty("CreatePacket"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"StatusCode: " + statusCode);
-		String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
-				prop.getProperty("bioPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Biometric data Path: " + biometricDataPath);
-		String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
-				prop.getProperty("demoPath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Demographic data Path: " + demographicDataPath);
-		String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
-				prop.getProperty("imagePath"));
-		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Resident Proof data Path: " + proofImagePath);
+			String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
+					prop.getProperty("CreatePacket"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"StatusCode: " + statusCode);
+			String biometricDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "bioPath",
+					prop.getProperty("bioPath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Biometric data Path: " + biometricDataPath);
+			String demographicDataPath = dataGenerator.getYamlData(serviceName, testDataFileName, "demoPath",
+					prop.getProperty("demoPath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Demographic data Path: " + demographicDataPath);
+			String proofImagePath = dataGenerator.getYamlData(serviceName, testDataFileName, "imagePath",
+					prop.getProperty("imagePath"));
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"Resident Proof data Path: " + proofImagePath);
 
-		List<String> packetIds = commonUtil.getPUSHEDPacketIdsfromDB();
+			List<String> packetIds = commonUtil.getPUSHEDPacketIdsfromDB();
 
-		ResponseDTO response = new ResponseDTO();
+			ResponseDTO response = new ResponseDTO();
 
-		
 			String serverStatusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "serverstatusCode",
 					prop.getProperty("serverStatusCode"));
-			logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"StatusCode: " + serverStatusCode);
+			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+					"StatusCode: " + serverStatusCode);
 
 			Map<String, Object> map = globalParamService.getGlobalParams();
 			map.put(RegistrationConstants.REG_DELETION_CONFIGURED_DAYS,
@@ -148,8 +156,8 @@ public class RegPacketStatusServiceDeleteRegistrationTest extends BaseConfigurat
 			List<String> regIds = new ArrayList<String>();
 			for (int i = 0; i < 3; i++) {
 				packetresponse = commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath,
-						proofImagePath, System.getProperty("userID"), centerID, stationID, 
-						prop.getProperty("status"),prop.getProperty("invalidRegID"));
+						proofImagePath, System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
+						prop.getProperty("invalidRegID"));
 				regIds.add(packetresponse.get("RANDOMID"));
 			}
 			Calendar cal = Calendar.getInstance();
@@ -167,12 +175,18 @@ public class RegPacketStatusServiceDeleteRegistrationTest extends BaseConfigurat
 			for (int i = 0; i < regIds.size(); i++) {
 				boolean isPresentInDB = DBUtil.checkRegID(regIds.get(i), DbQueries.GET_PACKETIDs);
 				Assert.assertEquals(isPresentInDB, true);
-				logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Packet created for deletion is deleted: " + isPresentInDB);
+				logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
+						"Packet created for deletion is deleted: " + isPresentInDB);
 			}
-		commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), response);
-	}
+			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), response);
+		}
 
-	
+		catch (Exception exception) {
+			logger.debug("REG PACKET STATUS SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
+
+	}
 
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {

@@ -1,6 +1,7 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.*;  
+import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath;
+
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,24 +13,28 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.regex.Pattern;
+
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.XML;
 import org.testng.Reporter;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import io.mosip.authentication.fw.util.FileUtil;
+
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.testdata.Precondtion;
 import io.mosip.authentication.testdata.TestDataConfig;
@@ -142,7 +147,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		} catch (Exception expection) {
 			JSONPRECONDATION_LOGGER
 					.error("Exception Occured in retrieving the value from json file: " + expection.getMessage());
-			return expection.toString();
+			return "Cannot retrieve data or content for the object mapper from  JSON";
 		}
 	}
 	
@@ -158,8 +163,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(jsonContent, Object.class);
-			return PropertyUtils.getProperty(jsonObj,
-					AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(fieldName)).toString();
+			return mapper.writeValueAsString(PropertyUtils.getProperty(jsonObj,
+					AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(fieldName)));
 		} catch (Exception exp) {
 			JSONPRECONDATION_LOGGER
 					.error("Exception Occured in retrieving the value from json file: " + exp.getMessage());
@@ -362,11 +367,16 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 * 
 	 * @param Json content
 	 * @return String
+	 * @throws JsonProcessingException 
 	 */
-	public static String convertJsonContentToXml(String content) {
-		return XMLPREFIX + XMLROOT + ">" + XML.toString(new JSONObject(content)) + "</" + XMLROOT + ">";
+	public static String convertJsonContentToXml(String content) throws JsonProcessingException {
+		JSONObject jsonObj = new JSONObject(content);
+		Map<String, Object> jsonToMap = jsonToMap(jsonObj);
+		XmlMapper xmlMapper = new XmlMapper();
+		String xmlContent = xmlMapper.writeValueAsString(jsonToMap);
+		return XMLPREFIX + XMLROOT + ">" + xmlContent + "</" + XMLROOT + ">";
 	}
-	
+
 	public static String parseAndReturnJsonContent(String inputContent,String inputValueToSet, String mapping) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
@@ -483,25 +493,26 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			if (value instanceof JSONArray) {
 				JSONArray array = (JSONArray) value;
 				String finalarrayContent = "";
-				for (int i = 0; i < array.length(); ++i) {
-					if(!array.toString().contains("{") && !array.toString().contains("}"))
-					{
-						Set<String> arr = new HashSet<String>();
-						for (int k = 0; k < array.length(); k++)
-						{
-							arr.add(array.getString(k));
+				if (array.length() != 0) {
+					for (int i = 0; i < array.length(); ++i) {
+						if (!array.toString().contains("{") && !array.toString().contains("}")) {
+							Set<String> arr = new HashSet<String>();
+							for (int k = 0; k < array.length(); k++) {
+								arr.add(array.getString(k));
+							}
+							finalarrayContent = removObjectFromArray(arr);
+						} else {
+							String arrayContent = removeObject(new JSONObject(array.get(i).toString()),
+									finalarrayContent);
+							if (!arrayContent.equals("{}"))
+								finalarrayContent = finalarrayContent + "," + arrayContent;
 						}
-						finalarrayContent=removObjectFromArray(arr);
 					}
-					else
-					{
-					String arrayContent = removeObject(new JSONObject(array.get(i).toString()), finalarrayContent);
-					if (!arrayContent.equals("{}"))
-						finalarrayContent = finalarrayContent + "," + arrayContent;
-					}
-				}
-				finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
-				object.put(key, new JSONArray("[" + finalarrayContent + "]"));
+					finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
+					object.put(key, new JSONArray("[" + finalarrayContent + "]"));
+				} else
+					object.put(key, new JSONArray("[]"));
+
 			} else if (value instanceof JSONObject) {
 				String objectContent = removeObject(new JSONObject(value.toString()));
 				object.put(key, new JSONObject(objectContent));

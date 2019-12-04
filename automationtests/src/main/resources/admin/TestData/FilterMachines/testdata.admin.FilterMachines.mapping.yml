@@ -1,0 +1,187 @@
+testdata:
+  Admin_FilterMachines_Valid_Smoke:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: 'a2ml30933'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      
+  Admin_FilterMachines_Valid_TypeAll:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: a2ml30933
+      
+  Admin_FilterMachines_Valid_ColumnStatus:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterMachines_Valid_LangCodeArabic:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'a2ml30933'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      
+  Admin_FilterMachines_Valid_LangCodeFrench:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'a2ml30933'
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      
+  Admin_FilterMachines_Invalid_EmptyColumnName:
+    input.search-request:
+      columnNamefilters0: ''
+      typefilters0: $TestData:valid_Search_ColumnNameAsName$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+      messageerrors0: $errors:EmptyColumnNameInFilterAPI:errorMessage$
+      
+  Admin_FilterMachines_Invalid_EmptyFilterType:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: ''
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:EmptyFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:EmptyFilterTypeInFilterAPI:errorMessage$
+      
+  Admin_FilterMachines_Invalid_ColumnName:
+    input.search-request:
+      columnNamefilters0: $TestData:Invalid_ValueString$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'machine5'
+      languageCode: $TestData:valid_LanguageCodeFrench$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
+      messageerrors0: $errors:InvalidSearchColumnName:errorMessage$
+      responsetime: $IGNORE$
+      
+  Admin_FilterMachines_Invalid_FilterType:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_Search_ColumnNameAsName$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidFilterTypeInFilterAPI:errorCode$
+      messageerrors0: $errors:InvalidFilterTypeInFilterAPI:errorMessage$
+      
+  Admin_FilterMachines_Invalid_LangCode:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:Invalid_ValueString$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
+      
+  Admin_FilterMachines_Invalid_EmptyLangCode:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: ''
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
+      messageerrors0: $errors:InvalidLanguageCode:errorMessage$
+      
+  Admin_FilterMachines_Valid_TwoFilters_NameNStatus:
+    input.search-request-twoFilterValues:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'a2ml30933'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-4-response:
+      responsetime: $IGNORE$
+      
+  Admin_FilterMachines_Valid_ColumnMacAddress:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'E8-6A-64-1D-75-E4'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      
+  Admin_FilterMachines_Valid_ColumnSerialNumber:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: YM866672706
+      
+  Admin_FilterMachines_Valid_ColumnMachineSpecId:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 1001
+  Admin_FilterMachines_Valid_Column_MapStatus:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-3-response:
+      responsetime: $IGNORE$

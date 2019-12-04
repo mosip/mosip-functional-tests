@@ -148,7 +148,7 @@ public class VIDUtil extends RunConfigUtil{
 				return key.toString();
 			}
 			count++;
-			if(count>100)
+			if(count>9999)
 				return "1234567890123456.DUMMY.DUMMY";
 		}
 		return "NoVIDFound";

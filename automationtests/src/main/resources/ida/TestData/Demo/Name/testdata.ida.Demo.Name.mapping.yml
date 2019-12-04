@@ -1171,3 +1171,45 @@ testdata:
       output.1.response.n.err.errorMessage: $errors:Invalidversion:errorMessage$
       output.1.response.n.err.errorCode: $errors:Invalidversion:errorCode$
       output.1.response.y.transactionID: $input.demo-auth-request:AuthReq.transactionID$
+      
+  Authentication_Demographic_LockUIN_Neg:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.demo-auth-request:
+      AuthReq.individualId: $UIN.demo.true$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.valuename: $idrepo~$input.demo-auth-request:AuthReq.individualId$~valuefullName:langcode:TestData:secondary_lang_code$
+      identityReq.languagename: $TestData:secondary_lang_code$ 
+      identityReq.timestamp: $TIMESTAMP$
+      #identityReq.transactionID: $input.demo-auth-request:AuthReq.transactionID$
+    output.output-1-expected-n-error-res:
+      output.1.response.n.err.status: BOOLEAN:false
+      output.1.response.y.responseTime: $TIMESTAMP$
+      output.1.response.n.err.errorMessage: $errors:DemoAuthenticationLocked:errorMessage$
+      output.1.response.n.err.errorCode: $errors:DemoAuthenticationLocked:errorCode$
+      output.1.response.y.transactionID: $input.demo-auth-request:AuthReq.transactionID$
+      output.1.response.y.staticToken: $IGNORE$
+      
+  Authentication_Demographic_LockVID_Neg:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.demo-auth-request:
+      AuthReq.individualId: $VID.demo.true$
+      AuthReq.individualIdType: VID
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.valuename: $idrepo~$input.demo-auth-request:AuthReq.individualId$~valuefullName:langcode:TestData:secondary_lang_code$
+      identityReq.languagename: $TestData:secondary_lang_code$ 
+      identityReq.timestamp: $TIMESTAMP$
+      #identityReq.transactionID: $input.demo-auth-request:AuthReq.transactionID$
+    output.output-1-expected-n-error-res:
+      output.1.response.n.err.status: BOOLEAN:false
+      output.1.response.y.responseTime: $TIMESTAMP$
+      output.1.response.n.err.errorMessage: $errors:DemoAuthenticationLocked:errorMessage$
+      output.1.response.n.err.errorCode: $errors:DemoAuthenticationLocked:errorCode$
+      output.1.response.y.transactionID: $input.demo-auth-request:AuthReq.transactionID$
+      output.1.response.y.staticToken: $IGNORE$
+ 

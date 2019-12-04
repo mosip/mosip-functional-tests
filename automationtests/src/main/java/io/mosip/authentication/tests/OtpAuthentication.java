@@ -64,7 +64,6 @@ public class OtpAuthentication extends PrerequisteTests implements ITest {
 	@BeforeClass
 	public void setTestTypeAndDbConnection() {
 		this.testType = RunConfigUtil.getTestLevel();
-		DbConnection.startKernelDbSession();
 	}
 
 	/**
@@ -224,7 +223,7 @@ public class OtpAuthentication extends PrerequisteTests implements ITest {
 		if(!OutputValidationUtil.publishOutputResult(ouputValid2))
 			throw new AuthenticationTestException("Failed at otp-auth-response output validation");
 		if (FileUtil.verifyFilePresent(testCaseName.listFiles(), "auth_transaction")) {
-			wait(5000);
+			wait(10000);
 			logger.info("************* Auth Transaction Validation ******************");
 			Reporter.log("<b><u>Auth Transaction Validation</u></b>");
 			Map<String, List<OutputValidationDto>> auditTxnvalidation = AuditValidation
@@ -247,10 +246,4 @@ public class OtpAuthentication extends PrerequisteTests implements ITest {
 					responseDigitalSignatureValue))
 				throw new AuthenticationTestException("Failed at digital signature verification");
 	}
-	
-	@AfterClass
-	public void endConnection() {
-		DbConnection.terminateKernelDbSession();
-	}
-
 }

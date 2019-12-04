@@ -149,7 +149,9 @@
 							"segmentedFingerprints": null,
 							"forceCaptured": false
 						}
-					]
+					],
+
+					"forceCaptured": false
 				}
 			],
 
@@ -380,22 +382,22 @@
 		"applicantTypeCode": null,
 		"fullName": 
 		[
-			{
-				"language": "eng",
-				"value": "أيوب توفيق"
-			},
+			                          {
+                                 "language": "eng",
+                                 "value": "Abd al Hakim"
+                          },
+                          {
+                                 "language": "ara",
+                                 "value": "مثقل بن أسامة"
+                          }
 
-			{
-				"language": "ara",
-				"value": "سيسبسب"
-			}
 		]
 	},
 
 	"osiDataDTO": 
 	{
 		"operatorID": null,
-		"supervisorID": null,
+		"supervisorID": "110018",
 		"introducerType": null,
 		"operatorAuthenticatedByPassword": true,
 		"superviorAuthenticatedByPassword": true,

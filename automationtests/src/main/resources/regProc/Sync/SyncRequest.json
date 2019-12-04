@@ -16,7 +16,7 @@
 	"versionEmpty" : "",
 	"versionInvalid": "",
 	"requesttimeEmpty" : "",
-	"requesttimeInvalid" : "",
+	
 	"langCodeEmpty" : "",
 	"langCodeInvalid" : "",
 	"registrationTypeEmpty" : "",
@@ -25,6 +25,6 @@
 	"packetHashValueInvalid" : "",
 	"supervisorStatusInvalid" : "",
 	"supervisorStatusEmpty" : "",
-	"ValidRequestUTC" : "",
-	"InvalidRequestUTC" : ""
+	"validRequestUTC1" : "",
+	"invalidRequestUTC" : ""
  }

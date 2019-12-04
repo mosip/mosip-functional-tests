@@ -20,7 +20,7 @@ public class KernelAuthentication extends BaseTestCase{
 	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
-	private final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
+	public final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
 	
 	private String individual_appid=props.get("individual_appid");
 	private String individual_password=props.get("individual_password");
@@ -60,6 +60,21 @@ public class KernelAuthentication extends BaseTestCase{
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
 
+	@SuppressWarnings("unchecked")
+	public String getAuthForAdmin() {
+		JSONObject actualrequest = getRequestJson(testsuite);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("admin_appid"));
+		request.put("password", props.get("admin_password"));
+		request.put("userName", props.get("admin_user"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
 		// getting request and expected response jsondata from json files.
@@ -189,7 +204,7 @@ public class KernelAuthentication extends BaseTestCase{
 	public JSONObject getRequestJson(String testSuite){
 		JSONObject Request=null;
 		String configPath = folder + "/" + testSuite+"/request.json";
-		return new CommonLibrary().readJsonData(configPath);
+		return new CommonLibrary().readJsonData(configPath, true);
 		
 	}
 }

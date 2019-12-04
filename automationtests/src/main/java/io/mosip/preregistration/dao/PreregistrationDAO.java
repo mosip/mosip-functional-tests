@@ -11,7 +11,6 @@ import org.hibernate.engine.transaction.jta.platform.internal.SynchronizationReg
 import org.testng.Assert;
 
 import io.mosip.dbaccess.PreregDB;
-import io.mosip.dbdto.Audit;
 import io.mosip.dbentity.PreRegEntity;
 import io.mosip.preregistration.entity.RegistrationBookingEntity;
 import io.mosip.preregistration.util.PreRegistartionDataBaseAccess;

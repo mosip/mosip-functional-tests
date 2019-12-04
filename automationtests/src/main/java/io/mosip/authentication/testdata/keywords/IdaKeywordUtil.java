@@ -21,10 +21,12 @@ import io.mosip.authentication.fw.dto.VidStaticPinDto;
 import io.mosip.authentication.fw.util.EncryptDecrptUtil;
 import io.mosip.authentication.fw.util.IdRepoUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.BiometricDataUtility;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.UINUtil;
 import io.mosip.authentication.fw.util.VIDUtil;
+import io.mosip.authentication.testdata.BiometricTestDataProcessor;
 import io.mosip.authentication.testdata.TestDataConfig;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
@@ -235,6 +237,16 @@ public class IdaKeywordUtil extends KeywordUtil{
 				returnMap.put(entry.getKey(), str);
 			}
 			// Keyword to get UIN Number
+			else if (entry.getValue().contains("$UIN") && entry.getValue().contains("true$")) {
+				String keyword = entry.getValue().replace("$", "");
+				String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(), keyword);
+				returnMap.put(entry.getKey(), value);
+			}
+			else if (entry.getValue().contains("$VID") && entry.getValue().contains("true$")) {
+				String keyword = entry.getValue().replace("$", "");
+				String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(), keyword);
+				returnMap.put(entry.getKey(), value);
+			}
 			else if (entry.getValue().contains("$UIN") && !entry.getValue().contains("UIN-PIN")) {
 				returnMap.put(entry.getKey(), UINUtil.getUinNumber(entry.getValue()));
 			} else if (entry.getValue().contains("$VID") && !entry.getValue().contains("VID-PIN")) {
@@ -286,10 +298,28 @@ public class IdaKeywordUtil extends KeywordUtil{
 				String value = entry.getValue().replace("$", "");
 				String[] actVal = value.split(":");
 				String file = new File(
-						RunConfigUtil.getResourcePath() + TestDataConfig.getTestDataPath() + actVal[1])
+						RunConfigUtil.getResourcePath() +TestDataUtil.getScenarioPath()+"/"+ TestDataUtil.getTestCaseName() +"/"+ actVal[1])
 								.getAbsolutePath();
 				returnMap.put(entry.getKey(), EncryptDecrptUtil.getCbeffEncode(new File(file).getAbsolutePath().toString()));
-			} else
+			}else if (entry.getValue().contains("$BIO") && entry.getValue().startsWith("$BIO")) {
+				String value=entry.getValue().replace("$", "");
+				String keys[] = value.split(Pattern.quote("~"));
+				String bioType = keys[1];
+				String bioSubType = keys[2];
+				String thresholdPercentage=keys[3];
+				String bioValue =BiometricTestDataProcessor.getBioMetricTestData(bioType, bioSubType, thresholdPercentage);
+				returnMap.put(entry.getKey(),bioValue);
+			} else if (entry.getValue().contains("$Device:")) {
+				String key = entry.getValue().replace("$Device:", "");
+				key = key.replace("$", "");
+				String keys[] = key.split(":");
+				String dataParam = RunConfigUtil.getRunEvironment()+"."+keys[0]+".deviceid";
+				String id=TestDataProcessor.getYamlData("ida", "TestData",
+						"RunConfig/authenitcationTestdata", dataParam.toLowerCase());
+				BiometricDataUtility.storeDeviceDetail(id);
+				returnMap.put(entry.getKey(), BiometricDataUtility.allDeviceParam.get(id).get(keys[1]));
+			}
+			else
 				returnMap.put(entry.getKey(), entry.getValue());
 			currentTestData=returnMap;
 		}

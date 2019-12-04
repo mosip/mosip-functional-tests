@@ -187,36 +187,6 @@ testdata:
       output.1.response.error.errorMessage: $errors:RequestTimeIsFuture:errorMessage$
       output.1.response.error.actionMessage: $errors:RequestTimeIsFuture:actionMessage$
       
-  InternalAuthentication_Biometric_With_MoreThan_one_FaceRecord_In_Identity_Neg:
-    #endpoint.url:
-      ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
-    input.bio-auth-request:
-      AuthReq.individualId: $UIN$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-    input.identity-encrypt-exceed-1-face-data:
-      identityReq.bioSubType: $TestData:bio_face_subType$
-      identityReq.bioType: $TestData:bio_face_type$
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.deviceCode: $TestData:bio_face_deviceCode$
-      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
-      identityReq.bioSubType1: $TestData:bio_face_subType$
-      identityReq.bioType1: $TestData:bio_face_type$
-      identityReq.timestamp1: $TIMESTAMP$
-      identityReq.deviceCode1: $TestData:bio_face_deviceCode$
-      identityReq.transactionID1: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID1: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue1: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:FaceExceed1:errorCode$
-      output.1.response.error.errorMessage: $errors:FaceExceed1:errorMessage$
-      
   InternalAuthentication_Biometric_With_requestedAuth_all_set_false_Neg:
     #endpoint.url:
       ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
@@ -365,8 +335,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
+      output.1.response.error.errorMessage: $errors:InvalidVID:errorMessage$
       
   InternalAuthentication_Biometric_Without_Version_In_Request_Neg:
     #endpoint.url:
@@ -443,31 +413,6 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioType:errorCode$
       output.1.response.error.errorMessage: $errors:MissingBioType:errorMessage$
-      
-  InternalAuthentication_Biometric_Without_bioValue_In_Bio_Identity_Neg:
-    #endpoint.url:
-      ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
-    input.bio-auth-request:
-      AuthReq.individualId: $UIN$
-      AuthReq.individualIdType: $TestData:indvId_Uin_valid$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-      AuthReq.bio: $TestData:boolean_true$
-    input.identity-encrypt-data:
-      identityReq.bioSubType: $TestData:bio_face_subType$
-      identityReq.bioType: $TestData:bio_face_type$
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.deviceCode: $TestData:bio_face_deviceCode$
-      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue: $REMOVE$
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingBioValue:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingBioValue:errorMessage$
       
   InternalAuthentication_Biometric_Without_consentObtained_Neg:
     #endpoint.url:
@@ -899,8 +844,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
+      output.1.response.error.errorMessage: $errors:InvalidVID:errorMessage$
   
   InternalAuthentication_Biometric_With_Invalid_individualId_DeactivedUIN_Neg:
     #endpoint.url:
@@ -1102,31 +1047,6 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioType:errorCode$
       output.1.response.error.errorMessage: $errors:MissingBioType:errorMessage$
-      
-  InternalAuthentication_Biometric_Null_bioValue_In_Bio_Identity_Neg:
-    #endpoint.url:
-      ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
-    input.bio-auth-request:
-      AuthReq.individualId: $UIN$
-      AuthReq.individualIdType: $TestData:indvId_Uin_valid$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-      AuthReq.bio: $TestData:boolean_true$
-    input.identity-encrypt-data:
-      identityReq.bioSubType: $TestData:bio_face_subType$
-      identityReq.bioType: $TestData:bio_face_type$
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.deviceCode: $TestData:bio_face_deviceCode$
-      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue: ''
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingBioValue:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingBioValue:errorMessage$
       
   InternalAuthentication_Biometric_Null_consentObtained_Neg:
     #endpoint.url:
@@ -1455,28 +1375,6 @@ testdata:
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
-      identityReq.bioSubType: FACE
-      identityReq.bioType: FID
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.deviceCode: $TestData:bio_face_deviceCode$
-      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:UserIDNotInDB:errorCode$
-      output.1.response.error.errorMessage: $errors:UserIDNotInDB:errorMessage$
-      
-  InternalAuthentication_Biometric_Face_With_VID_Neg:
-    input.bio-auth-request:
-      AuthReq.individualId: $VID$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
-    input.identity-encrypt-data:
       identityReq.bioSubType: $TestData:bio_face_subType$
       identityReq.bioType: $TestData:bio_face_type$
       identityReq.timestamp: $TIMESTAMP$
@@ -1489,5 +1387,557 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:InternalBioVIDNotAllowed:errorCode$
-      output.1.response.error.errorMessage: $errors:InternalBioVIDNotAllowed:errorMessage$
+      output.1.response.error.errorCode: $errors:UserIDNotInDB:errorCode$
+      output.1.response.error.errorMessage: $errors:UserIDNotInDB:errorMessage$
+
+  InternalAuthentication_Biometric_Face_With_VID_Valid_Smoke_Pos:
+    #endpoint.url:
+      ##partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.bio-auth-request:
+      AuthReq.individualId: $VID$
+      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_face_subType$
+      identityReq.bioType: $TestData:bio_face_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_face_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
+      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      #output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$#endpoint.url:#partnerIDMispLK$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FACE_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FACE_success_statusComment$
+      idType: $TestData:auth_transaction_VID_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_face_moduleName$
+      refIdType: $TestData:audit_log_VID_refIdType$
+      
+  InternalAuthentication_Biometric_Face_With_Smilar_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_face_subType$
+      identityReq.bioType: $TestData:bio_face_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_face_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
+      identityReq.bioValue: $BIO~fid~fid~100Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FACE_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FACE_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_face_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_Left_Iris_With_Smilar_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_iris_left_subType$
+      identityReq.bioType: $TestData:bio_iris_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_face_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
+      identityReq.bioValue: $BIO~iir~left~80Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_IRIS_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_IRIS_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_iris_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_Right_Iris_With_Smilar_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_iris_right_subType$
+      identityReq.bioType: $TestData:bio_iris_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_iris_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_iris_deviceProviderID$
+      identityReq.bioValue: $BIO~iir~right~80Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_IRIS_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_IRIS_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_iris_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_LeftIndex_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_LeftIndex_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftIndex~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightIndex_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightIndex_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~rightIndex~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_LeftRing_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_LeftRing_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftRing~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightRing_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightRing_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~rightRing~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_LeftLittle_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_LeftLittle_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftLittle~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightLittle_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightLittle_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~rightLittle~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_LeftMiddle_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_LeftMiddle_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftMiddle~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightMiddle_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightMiddle_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~rightMiddle~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_LeftThumb_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_LeftThumb_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftThumb~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightThumb_Finger_With_ValidData_Pos:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightThumb_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~rightThumb~60Percentage$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FINGER_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FINGER_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_finger_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+      
+  InternalAuthentication_Biometric_RightThumb_Finger_With_OtherFingerValidData_Neg:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_finger_RightIndexOnly_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_finger_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_finger_deviceProviderID$
+      identityReq.bioValue: $BIO~fir~leftIndex~60Percentage$
+    output.output-1-expected-n-res:
+      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
+      output.1.response.error.actionMessage: $errors:BiometricFingerMismatch:actionMessage$
+      
+  InternalAuthentication_Biometric_Right_Iris_With_LeftIrisValidData_Neg:
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_iris_rightOnly_subType$
+      identityReq.bioType: $TestData:bio_iris_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_iris_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_iris_deviceProviderID$
+      identityReq.bioValue: $BIO~iir~left~80Percentage$
+    output.output-1-expected-n-res:
+      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.error.errorCode: $errors:BiometricIrisMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricIrisMismatch:errorMessage$
+      output.1.response.error.actionMessage: $errors:BiometricIrisMismatch:actionMessage$

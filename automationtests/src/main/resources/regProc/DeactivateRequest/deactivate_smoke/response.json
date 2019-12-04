@@ -4,7 +4,7 @@
     "responsetime": "2019-06-28T07:31:42.974Z",
     "response": {
         "registrationId": "10001100010007020190628073140",
-        "status": "SUCCESS",
+        "status": "Packet has reached Packet Receiver",
         "message": "Packet created and uploaded"
     },
     "errors": null

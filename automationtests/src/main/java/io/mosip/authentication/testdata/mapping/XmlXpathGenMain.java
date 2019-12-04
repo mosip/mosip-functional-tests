@@ -3,7 +3,7 @@ package io.mosip.authentication.testdata.mapping;
 public class XmlXpathGenMain {
 	
 	public static void main(String arg[]) {
-		XmlXpathGeneration.generateXpath("C:\\Users\\M1049813\\Desktop\\cbeff-bio-data.xml","C:\\Users\\M1049813\\Desktop\\xml-mapping.properies");
+		XmlXpathGeneration.generateXpath("D:\\Mosip_git\\mosip-functional-tests-mt\\0.9.1_IDA_V1\\automationtests\\src\\main\\resources\\ida\\TestData\\UINData\\CreateTestData\\input\\cbeff-bio-data.xml","D:\\Mosip_git\\mosip-functional-tests-mt\\0.9.1_IDA_V1\\automationtests\\src\\main\\resources\\ida\\TestData\\UINData\\CreateTestData\\input\\cbeff-bio-data.properties");
 	}
 
 }

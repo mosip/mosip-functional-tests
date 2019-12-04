@@ -1,0 +1,14 @@
+{
+    "response": [
+        {
+            "registrationId": "10002100324002620190703101748",
+            "statusCode": "PROCESSING"
+        }
+    ],
+    "errors": [
+        
+    ],
+    "id": "mosip.registration.status",
+    "version": "1.0",
+    "responsetime": "2019-12-04T06:12:18.520Z"
+}

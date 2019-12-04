@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -101,6 +102,7 @@ public class LoginServiceLoginModesTest extends BaseConfiguration implements ITe
 	 */
 	@Test(dataProvider = "loginModesDataProvider", alwaysRun = true)
 	public void testModesOfLogin(String testCaseName, JSONObject object) {
+		try {
 		String subServiceName = "loginMode";
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Test case: " + testCaseName);
 		mTestCaseName = testCaseName;
@@ -120,6 +122,12 @@ public class LoginServiceLoginModesTest extends BaseConfiguration implements ITe
 			assertTrue(modes.size() == 0);
 		else
 			assertTrue(modes.size() > 0);
+		}
+		catch (Exception exception) {
+			logger.debug("LOGIN SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 
 	}
 

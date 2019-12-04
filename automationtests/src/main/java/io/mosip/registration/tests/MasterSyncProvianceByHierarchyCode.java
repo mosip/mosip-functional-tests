@@ -18,11 +18,13 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.mastersync.LocationDto;
 import io.mosip.registration.entity.Location;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.LocationRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.util.BaseConfiguration;
@@ -78,6 +80,7 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 
 	@Test(dataProvider = "ProvianceByHierarchyCode", alwaysRun = true)
 	public void verifyLocationByHierarchyCodeByHierarchyCode(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + provinceSubServiceName, testCaseName,
@@ -108,10 +111,16 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Hierarchy level from service:" + locationHierarchyFromService);
 
 		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);
+		}catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@Test(dataProvider = "ProvianceByHierarchyCode", alwaysRun = true)
 	public void verifyLocationByHierarchyCodeByHierarchyName(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + provinceSubServiceName, testCaseName,
@@ -141,7 +150,12 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Hiearchy level from DB:" + locationHierarchyLevelFromDB);
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Hierarchy level from service:" + locationHierarchyFromService);
 
-		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);
+		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);}
+		catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 

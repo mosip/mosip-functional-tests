@@ -219,7 +219,8 @@ public class IdRepoKeywordUtil extends KeywordUtil{
 			} else if (entry.getValue().contains("ENCODEFILE")) {
 				String value = entry.getValue().replace("$", "");
 				String[] actVal = value.split(":");
-				String file = new File(RunConfigUtil.getResourcePath() + TestDataConfig.getTestDataPath() + actVal[1])
+				String file = new File(
+						RunConfigUtil.getResourcePath() +TestDataUtil.getScenarioPath()+"/"+ TestDataUtil.getTestCaseName() +"/"+ actVal[1])
 								.getAbsolutePath();
 				returnMap.put(entry.getKey(), EncryptDecrptUtil.getCbeffEncode(new File(file).getAbsolutePath().toString()));
 			} else
@@ -292,10 +293,11 @@ public class IdRepoKeywordUtil extends KeywordUtil{
 	 * @return string
 	 */
 	private String generateTimeStampWithZTimeZone() {
-			Date date = new Date();
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-			dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-			return dateFormat.format(date);
+		DateFormat dateFormatter =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MINUTE, -2);
+		return dateFormatter.format(cal.getTime());
 	}
 	/**
 	 * The method generate invalid ISO timestamo

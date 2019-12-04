@@ -26,6 +26,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.kernel.core.logger.spi.Logger;
+import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
@@ -81,6 +84,7 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	@Autowired
 	PreRegistrationDataSyncDAO preRegistrationDAO;
 
+	private static final Logger logger = AppConfig.getLogger(PreRegistrationDataSyncServiceTest.class);
 	private static final String serviceName = "PreRegistrationDataSyncService";
 	private static final String testDataFileName = "PreRegistrationDataSyncTestData";
 	private static final String testCasePropertyFileName = "condition";
@@ -144,44 +148,51 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	@SuppressWarnings("static-access")
 	@Test(dataProvider = "preRegistrationDataProvider", alwaysRun = true, enabled = false)
 	public void getPreRegistrationTest(String testcaseName, JSONObject object) {
+		try {
 
-		mTestCaseName = testcaseName;
-		String subServiceName = "getPreRegistration";
-		String testCasePath = serviceName + "/" + subServiceName;
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			mTestCaseName = testcaseName;
+			String subServiceName = "getPreRegistration";
+			String testCasePath = serviceName + "/" + subServiceName;
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
 
-		String regCenterIdCase = prop.getProperty("regCenterId");
-		String langCodeCase = prop.getProperty("langCode");
+			String regCenterIdCase = prop.getProperty("regCenterId");
+			String langCodeCase = prop.getProperty("langCode");
 
-		String regCenterId = dataGenerator.getYamlData(serviceName, testDataFileName, "regCenterId", regCenterIdCase);
-		String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "langCode", langCodeCase);
+			String regCenterId = dataGenerator.getYamlData(serviceName, testDataFileName, "regCenterId",
+					regCenterIdCase);
+			String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "langCode", langCodeCase);
 
-		Map<String, Object> map = globalParamService.getGlobalParams();
-		map.put(RegistrationConstants.PRE_REG_DELETION_CONFIGURED_DAYS, "120");
+			Map<String, Object> map = globalParamService.getGlobalParams();
+			map.put(RegistrationConstants.PRE_REG_DELETION_CONFIGURED_DAYS, "120");
 
-		RegistrationCenterDetailDTO regCenterDetail = loginService.getRegistrationCenterDetails(regCenterId, langCode);
-		SessionContext.getInstance().userContext().setRegistrationCenterDetailDTO(regCenterDetail);
-		context.setApplicationMap(map);
+			RegistrationCenterDetailDTO regCenterDetail = loginService.getRegistrationCenterDetails(regCenterId,
+					langCode);
+			SessionContext.getInstance().userContext().setRegistrationCenterDetailDTO(regCenterDetail);
+			context.setApplicationMap(map);
 
-		if (testcaseName.contains("invalid")) {
-			String preRegistrationIdCase = prop.getProperty("preRegistrationId");
-			if (preRegistrationIdCase.equalsIgnoreCase("invalid")) {
-				String preRegistrationId = dataGenerator.getYamlData(serviceName, testDataFileName, "preRegistrationId",
-						preRegistrationIdCase);
-				ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistration(preRegistrationId);
-				Assert.assertTrue(responseDTO.getErrorResponseDTOs().size() > 0);
+			if (testcaseName.contains("invalid")) {
+				String preRegistrationIdCase = prop.getProperty("preRegistrationId");
+				if (preRegistrationIdCase.equalsIgnoreCase("invalid")) {
+					String preRegistrationId = dataGenerator.getYamlData(serviceName, testDataFileName,
+							"preRegistrationId", preRegistrationIdCase);
+					ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistration(preRegistrationId);
+					Assert.assertTrue(responseDTO.getErrorResponseDTOs().size() > 0);
+				} else {
+					String preRegistrationId = DBUtil.getPreRegIdFromDB();
+					ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistration(preRegistrationId);
+					// TODO to implement once pre-reg sync starts working
+				}
+
 			} else {
 				String preRegistrationId = DBUtil.getPreRegIdFromDB();
 				ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistration(preRegistrationId);
 				// TODO to implement once pre-reg sync starts working
+				// assertNotNull(responseDTO.getSuccessResponseDTO());
+				// assertNull(responseDTO.getErrorResponseDTOs());
 			}
-
-		} else {
-			String preRegistrationId = DBUtil.getPreRegIdFromDB();
-			ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistration(preRegistrationId);
-			// TODO to implement once pre-reg sync starts working
-			// assertNotNull(responseDTO.getSuccessResponseDTO());
-			// assertNull(responseDTO.getErrorResponseDTOs());
+		} catch (Exception exception) {
+			logger.debug("PRE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 
 	}
@@ -217,35 +228,42 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	@SuppressWarnings("static-access")
 	@Test(dataProvider = "preRegistrationIdsProvider", alwaysRun = true)
 	public void getPreRegistrationIdsTest(String testcaseName, JSONObject object) {
-		mTestCaseName = testcaseName;
-		String subServiceName = "getPreRegistrationIds";
-		String testCasePath = serviceName + "/" + subServiceName;
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
-		String regCenterIdCase = prop.getProperty("regCenterId");
-		String syncJobIdCase = prop.getProperty("syncJobId");
-		String langCodeCase = prop.getProperty("langCode");
+		try {
+			mTestCaseName = testcaseName;
+			String subServiceName = "getPreRegistrationIds";
+			String testCasePath = serviceName + "/" + subServiceName;
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			String regCenterIdCase = prop.getProperty("regCenterId");
+			String syncJobIdCase = prop.getProperty("syncJobId");
+			String langCodeCase = prop.getProperty("langCode");
 
-		String regCenterId = dataGenerator.getYamlData(serviceName, testDataFileName, "regCenterId", regCenterIdCase);
-		String syncJobId = dataGenerator.getYamlData(serviceName, testDataFileName, "syncJobId", syncJobIdCase);
-		String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "langCode", langCodeCase);
+			String regCenterId = dataGenerator.getYamlData(serviceName, testDataFileName, "regCenterId",
+					regCenterIdCase);
+			String syncJobId = dataGenerator.getYamlData(serviceName, testDataFileName, "syncJobId", syncJobIdCase);
+			String langCode = dataGenerator.getYamlData(serviceName, testDataFileName, "langCode", langCodeCase);
 
-		// logger.info("for testcase " + testcaseName);
-		// System.out.print("regCenterId:-" + regCenterId + " & ");
-		// logger.info("syncJobId:-" + syncJobId);
+			// logger.info("for testcase " + testcaseName);
+			// System.out.print("regCenterId:-" + regCenterId + " & ");
+			// logger.info("syncJobId:-" + syncJobId);
 
-		RegistrationCenterDetailDTO regCenterDetail = loginService.getRegistrationCenterDetails(regCenterId, langCode);
-		SessionContext.getInstance().userContext().setRegistrationCenterDetailDTO(regCenterDetail);
+			RegistrationCenterDetailDTO regCenterDetail = loginService.getRegistrationCenterDetails(regCenterId,
+					langCode);
+			SessionContext.getInstance().userContext().setRegistrationCenterDetailDTO(regCenterDetail);
 
-		if (testcaseName.contains("invalid")) {
-			ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistrationIds(syncJobId);
-			List<ErrorResponseDTO> errors = responseDTO.getErrorResponseDTOs();
-			Assert.assertTrue(errors.size() > 0);
-			SuccessResponseDTO success = responseDTO.getSuccessResponseDTO();
-			logger.info("errors.size() gives " + errors.size());
-			logger.info("errors is " + errors.toString());
+			if (testcaseName.contains("invalid")) {
+				ResponseDTO responseDTO = preRegistrationDataSyncService.getPreRegistrationIds(syncJobId);
+				List<ErrorResponseDTO> errors = responseDTO.getErrorResponseDTOs();
+				Assert.assertTrue(errors.size() > 0);
+				SuccessResponseDTO success = responseDTO.getSuccessResponseDTO();
+				// logger.info("errors.size() gives " + errors.size());
+				// logger.info("errors is " + errors.toString());
 
-		} else {
+			} else {
 
+			}
+		} catch (Exception exception) {
+			logger.debug("PRE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 
 	}
@@ -256,12 +274,17 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	 */
 	@Test
 	public void testGetPreRegistrationRecordForDeletion() {
-		mTestCaseName = "regClient_PreRegistrationDataSync_RecordForDeletion";
-		String preRegistrationId = "37805175312708";
-		// preRegistrationId = DBUtil.getPreRegIdFromDB();
-		PreRegistrationList preRegList = preRegistrationDataSyncService
-				.getPreRegistrationRecordForDeletion(preRegistrationId);
-		Assert.assertNull(preRegList);
+		try {
+			mTestCaseName = "regClient_PreRegistrationDataSync_RecordForDeletion";
+			String preRegistrationId = "37805175312708";
+			// preRegistrationId = DBUtil.getPreRegIdFromDB();
+			PreRegistrationList preRegList = preRegistrationDataSyncService
+					.getPreRegistrationRecordForDeletion(preRegistrationId);
+			Assert.assertNull(preRegList);
+		} catch (Exception exception) {
+			logger.debug("PRE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	/**
@@ -302,87 +325,92 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	 */
 	@Test(dataProvider = "deletePreregRecordsDataProvider", alwaysRun = true)
 	public void testDeletePreRegRecords(String testcaseName, JSONObject object) {
-		mTestCaseName = testcaseName;
-		String subServiceName = "deletePreregRecords";
-		String testCasePath = serviceName + "/" + subServiceName;
-
-		Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
-		String packetAgeCase = prop.getProperty("packetAge");
-
-		String packetAgeStr = dataGenerator.getYamlData(serviceName, testDataFileName, "packetAge", packetAgeCase);
-		int packetAge = Integer.parseInt(packetAgeStr);
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("Test String");
-		String packetPath = System.getProperty("user.dir") + "\\samplePacket.zip";
-		File samplePacket = new File(packetPath);
-		ZipOutputStream out = null;
 		try {
-			out = new ZipOutputStream(new FileOutputStream(samplePacket));
-			ZipEntry e = new ZipEntry("mytext.txt");
+			mTestCaseName = testcaseName;
+			String subServiceName = "deletePreregRecords";
+			String testCasePath = serviceName + "/" + subServiceName;
 
-			out.putNextEntry(e);
+			Properties prop = commonUtil.readPropertyFile(testCasePath, testcaseName, testCasePropertyFileName);
+			String packetAgeCase = prop.getProperty("packetAge");
 
-			byte[] data = sb.toString().getBytes();
-			out.write(data, 0, data.length);
-			out.closeEntry();
+			String packetAgeStr = dataGenerator.getYamlData(serviceName, testDataFileName, "packetAge", packetAgeCase);
+			int packetAge = Integer.parseInt(packetAgeStr);
 
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} finally {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Test String");
+			String packetPath = System.getProperty("user.dir") + "\\samplePacket.zip";
+			File samplePacket = new File(packetPath);
+			ZipOutputStream out = null;
 			try {
-				out.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+				out = new ZipOutputStream(new FileOutputStream(samplePacket));
+				ZipEntry e = new ZipEntry("mytext.txt");
+
+				out.putNextEntry(e);
+
+				byte[] data = sb.toString().getBytes();
+				out.write(data, 0, data.length);
+				out.closeEntry();
+
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			} finally {
+				try {
+					out.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		List<PreRegistrationList> list = preRegistrationDataSyncRepository.findAll();
-		int sizeOriginal = list.size();
-		PreRegistrationList preRegEntity = list.get(0);
-		preRegEntity.setId("101");
-		preRegEntity.setIsDeleted(false);
-		preRegEntity.setPacketPath(packetPath);
-		logger.info(preRegEntity.getIsDeleted());
-		Calendar c = Calendar.getInstance();
+			List<PreRegistrationList> list = preRegistrationDataSyncRepository.findAll();
+			int sizeOriginal = list.size();
+			PreRegistrationList preRegEntity = list.get(0);
+			preRegEntity.setId("101");
+			preRegEntity.setIsDeleted(false);
+			preRegEntity.setPacketPath(packetPath);
+			// logger.info(preRegEntity.getIsDeleted());
+			Calendar c = Calendar.getInstance();
 
-		// Age of packet is read from testData.yaml based on the test case
+			// Age of packet is read from testData.yaml based on the test case
 
-		c.add(Calendar.DATE, -packetAge);
-		preRegEntity.setAppointmentDate(Date.from(c.toInstant()));
-		preRegistrationDataSyncRepository.save(preRegEntity);
+			c.add(Calendar.DATE, -packetAge);
+			preRegEntity.setAppointmentDate(Date.from(c.toInstant()));
+			preRegistrationDataSyncRepository.save(preRegEntity);
 
-		// Calendar startCal = Calendar.getInstance();
-		// startCal.add(Calendar.DATE,
-		// -IntegrationTestConstants.PRE_REG_DELETION_CONFIGURED_DAYS);
-		// Date startDate = Date.from(startCal.toInstant());
-		// List<PreRegistrationList> preRegList =
-		// preRegistrationDAO.fetchRecordsToBeDeleted(startDate);
+			// Calendar startCal = Calendar.getInstance();
+			// startCal.add(Calendar.DATE,
+			// -IntegrationTestConstants.PRE_REG_DELETION_CONFIGURED_DAYS);
+			// Date startDate = Date.from(startCal.toInstant());
+			// List<PreRegistrationList> preRegList =
+			// preRegistrationDAO.fetchRecordsToBeDeleted(startDate);
 
-		ApplicationContext.getInstance().map().put(RegistrationConstants.PRE_REG_DELETION_CONFIGURED_DAYS,
-				ConstantValues.PRE_REG_DELETION_CONFIGURED_DAYS.toString());
+			ApplicationContext.getInstance().map().put(RegistrationConstants.PRE_REG_DELETION_CONFIGURED_DAYS,
+					ConstantValues.PRE_REG_DELETION_CONFIGURED_DAYS.toString());
 
-		ResponseDTO responseDTO = new ResponseDTO();
-		// preRegistrationDataSyncService.deletePreRegRecords(responseDTO, preRegList);
-		responseDTO = preRegistrationDataSyncService.fetchAndDeleteRecords();
-		SuccessResponseDTO successRespDto = responseDTO.getSuccessResponseDTO();
-		List<ErrorResponseDTO> errors = responseDTO.getErrorResponseDTOs();
+			ResponseDTO responseDTO = new ResponseDTO();
+			// preRegistrationDataSyncService.deletePreRegRecords(responseDTO, preRegList);
+			responseDTO = preRegistrationDataSyncService.fetchAndDeleteRecords();
+			SuccessResponseDTO successRespDto = responseDTO.getSuccessResponseDTO();
+			List<ErrorResponseDTO> errors = responseDTO.getErrorResponseDTOs();
 
-		if (testcaseName.contains("smoke")) {
-			Assert.assertEquals("PRE_REG_DELETE_SUCCESS", successRespDto.getMessage());
-			PreRegistrationList preRegistrationList = preRegistrationDataSyncRepository.findByPreRegId("101");
-			// String packetPathExtracted = preRegistrationList.getPacketPath();
-			// System.out.println(packetPathExtracted);
-			Assert.assertTrue(preRegistrationList == null);
-			Assert.assertNull(preRegistrationList);
-			// List<PreRegistrationList> list1 =
-			// preRegistrationDataSyncRepository.findAll();
-			// int sizeNew = list1.size();
-			// assertEquals(sizeNew, sizeOriginal);
-		} else {
-			// assertNotNull(errors);
-			List<PreRegistrationList> list1 = preRegistrationDataSyncRepository.findAll();
-			int sizeNew = list1.size();
-			Assert.assertEquals(sizeOriginal + 1, sizeNew);
+			if (testcaseName.contains("smoke")) {
+				Assert.assertEquals("PRE_REG_DELETE_SUCCESS", successRespDto.getMessage());
+				PreRegistrationList preRegistrationList = preRegistrationDataSyncRepository.findByPreRegId("101");
+				// String packetPathExtracted = preRegistrationList.getPacketPath();
+				// System.out.println(packetPathExtracted);
+				Assert.assertTrue(preRegistrationList == null);
+				Assert.assertNull(preRegistrationList);
+				// List<PreRegistrationList> list1 =
+				// preRegistrationDataSyncRepository.findAll();
+				// int sizeNew = list1.size();
+				// assertEquals(sizeNew, sizeOriginal);
+			} else {
+				// assertNotNull(errors);
+				List<PreRegistrationList> list1 = preRegistrationDataSyncRepository.findAll();
+				int sizeNew = list1.size();
+				Assert.assertEquals(sizeOriginal + 1, sizeNew);
+			}
+		} catch (Exception exception) {
+			logger.debug("PRE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}
 
 	}
@@ -394,33 +422,38 @@ public class PreRegistrationDataSyncServiceTest extends BaseConfiguration implem
 	 */
 	@Test // (enabled = false)
 	public void fetchAndDeleteRecordsTest() throws IOException {
-		StringBuilder sb = new StringBuilder();
-		mTestCaseName = "regClient_PreRegistrationDataSyncService_fetchAndDeleteRecordsTest";
-		sb.append("Test String");
-		String packetPath = System.getProperty("user.dir") + "\\samplePacket.zip";
-		File samplePacket = new File(packetPath);
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(samplePacket));
-		ZipEntry e = new ZipEntry("mytext.txt");
-		out.putNextEntry(e);
+		try {
+			StringBuilder sb = new StringBuilder();
+			mTestCaseName = "regClient_PreRegistrationDataSyncService_fetchAndDeleteRecordsTest";
+			sb.append("Test String");
+			String packetPath = System.getProperty("user.dir") + "\\samplePacket.zip";
+			File samplePacket = new File(packetPath);
+			ZipOutputStream out = new ZipOutputStream(new FileOutputStream(samplePacket));
+			ZipEntry e = new ZipEntry("mytext.txt");
+			out.putNextEntry(e);
 
-		byte[] data = sb.toString().getBytes();
-		out.write(data, 0, data.length);
-		out.closeEntry();
+			byte[] data = sb.toString().getBytes();
+			out.write(data, 0, data.length);
+			out.closeEntry();
 
-		out.close();
-		List<PreRegistrationList> list = preRegistrationDataSyncRepository.findAll();
-		/*PreRegistrationList preRegEntity = list.get(0);
-		preRegEntity.setId("101");
-		preRegEntity.setIsDeleted(false);
-		preRegEntity.setPacketPath(packetPath);
-		logger.info(preRegEntity.getIsDeleted());
-		Calendar c = Calendar.getInstance();
-		c.add(Calendar.DATE, -130);
-		preRegEntity.setAppointmentDate(Date.from(c.toInstant()));
-		preRegistrationDataSyncRepository.save(preRegEntity);
-		Assert.assertEquals("PRE_REG_DELETE_SUCCESS",
-				preRegistrationDataSyncService.fetchAndDeleteRecords().getSuccessResponseDTO().getMessage());*/
-		preRegistrationDataSyncRepository.saveAll(list);
+			out.close();
+			List<PreRegistrationList> list = preRegistrationDataSyncRepository.findAll();
+			/*
+			 * PreRegistrationList preRegEntity = list.get(0); preRegEntity.setId("101");
+			 * preRegEntity.setIsDeleted(false); preRegEntity.setPacketPath(packetPath);
+			 * logger.info(preRegEntity.getIsDeleted()); Calendar c =
+			 * Calendar.getInstance(); c.add(Calendar.DATE, -130);
+			 * preRegEntity.setAppointmentDate(Date.from(c.toInstant()));
+			 * preRegistrationDataSyncRepository.save(preRegEntity);
+			 * Assert.assertEquals("PRE_REG_DELETE_SUCCESS",
+			 * preRegistrationDataSyncService.fetchAndDeleteRecords().getSuccessResponseDTO(
+			 * ).getMessage());
+			 */
+			preRegistrationDataSyncRepository.saveAll(list);
+		} catch (Exception exception) {
+			logger.debug("PRE-REGISTRATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

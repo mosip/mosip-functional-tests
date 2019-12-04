@@ -8,6 +8,8 @@ import java.util.stream.Stream;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import io.mosip.testrunner.MosipTestRunner;
+
 @Service
 public class TestCaseReader {
 	/**
@@ -19,8 +21,13 @@ public class TestCaseReader {
 	 * @return return the folder(test case name)
 	 */
 	public Object[][] readTestCases(String apiName, String testType) {
-
-		String path = this.getClass().getClassLoader().getResource("./" + apiName).getPath();
+		// String path = "src" + File.separator + "main" + File.separator + "resources"
+		// + File.separator + "Registration"+ File.separator+apiName;
+		
+		System.out.println("API NAME:="+apiName);
+		System.out.println("PATH:="+CommonUtil.getResourcePath());
+		String path = CommonUtil.getResourcePath()+"/" + apiName;
+		//new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath().toString();
 		File file = new File(path);
 		File[] listOfFolders = file.listFiles();
 

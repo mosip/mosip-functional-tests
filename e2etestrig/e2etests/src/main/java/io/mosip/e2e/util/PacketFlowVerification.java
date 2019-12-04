@@ -7,6 +7,7 @@ import java.util.List;
  * 
  */
 import io.mosip.main.PacketUpload;
+import io.mosip.testrunner.MosipTestRunner;
 
 public class PacketFlowVerification {
 	PacketUpload upload=new PacketUpload();
@@ -16,7 +17,7 @@ public class PacketFlowVerification {
 	 */
 	public List<File> readPacket() {
 		List<File> packets=new ArrayList<File>();
-		File file=new File(System.getProperty("user.dir")+"/src/test/resources/Packets/");
+		File file=new File(MosipTestRunner.getGlobalResourcePath()+"/Packets/");
 		File[] listOfFiles=file.listFiles();
 		for(File packet:listOfFiles) {
 			if(packet.getName().contains(".zip")) {

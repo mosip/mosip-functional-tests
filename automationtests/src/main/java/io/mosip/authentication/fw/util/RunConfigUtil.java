@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.RidDto;
 import io.mosip.authentication.fw.dto.TokenIdDto;
 import io.mosip.authentication.fw.dto.UinDto;
@@ -145,6 +146,8 @@ public class RunConfigUtil {
 			objRunConfig = new IdaRunConfig();
 		else if (module.equals("idrepo"))
 			objRunConfig = new IdRepoRunConfig();
+		else if (module.equals("admin"))
+			objRunConfig = new AdminRunConfig();
 	}
 	
 	/**
@@ -200,5 +203,21 @@ public class RunConfigUtil {
 	
 	public static String getVidUsageCount() {
 		return AuthTestsUtil.getPropertyFromFilePath(new File(RunConfigUtil.getResourcePath()+idaEnvConfigPath).getAbsolutePath()).get("vid.temporary.usageTime").toString();
+	}
+	
+	public static String getBioTestDataPath() {
+		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/biometricData.yml";
+	}
+	
+	public static String getAuthTypeStatusPath() {
+		return new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath();
+	}
+	
+	public static String getBioValueEncryptionTemplatePath() {
+		return new File(RunConfigUtil.getResourcePath()+"ida/TestData/Bio/bioValueEncryptionTemplate.json").getAbsolutePath();
+	}
+	public static String getInternalBioValueEncryptionTemplatePath() {
+		return new File(RunConfigUtil.getResourcePath()+"ida/TestData/InternalAuth/Bio/bioValueEncryptionTemplate.json").getAbsolutePath();
 	}
 }

@@ -59,13 +59,13 @@ errors:
     errorMessage: Invalid Input Parameter - identity/parentOrGuardianName/2/language
   InvalidFirstLangForlocalAdministrativeAuthority:
     errorCode: IDR-IDC-002
-    errorMessage: Invalid Input Parameter - identity/localAdministrativeAuthority/0/language
+    errorMessage: Invalid Input Parameter - identity/zone/0/language
   InvalIDCecLangForlocalAdministrativeAuthority:
     errorCode: IDR-IDC-002
-    errorMessage: Invalid Input Parameter - identity/localAdministrativeAuthority/1/language
+    errorMessage: Invalid Input Parameter - identity/zone/1/language
   InvalidThirdLangForlocalAdministrativeAuthority:
     errorCode: IDR-IDC-002
-    errorMessage: Invalid Input Parameter - identity/localAdministrativeAuthority/2/language
+    errorMessage: Invalid Input Parameter - identity/zone/2/language
   InvalidFirstLangForRegion:
     errorCode: IDR-IDC-002
     errorMessage: Invalid Input Parameter - identity/region/0/language
@@ -134,7 +134,7 @@ errors:
     errorMessage: Missing Input Parameter - id
   MissingResidenceStatus:
     errorCode: IDR-IDC-001
-    errorMessage: Missing Input Parameter - identity/residenceStatus
+    errorMessage: Missing Input Parameter - identity/residenceStatus/0/value
   MissingregistrationId:
     errorCode: IDR-IDC-001
     errorMessage: Missing Input Parameter - registrationId
@@ -158,10 +158,10 @@ errors:
     errorMessage: Missing Input Parameter - /identity/UIN
   MissingCNIENumber:
     errorCode: IDR-IDC-001
-    errorMessage: Missing Input Parameter - identity/CNIENumber
+    errorMessage: Missing Input Parameter - identity/referenceIdentityNumber
   InvalidCNIENumber:
     errorCode: IDR-IDC-002
-    errorMessage: Invalid Input Parameter - identity/CNIENumber
+    errorMessage: Invalid Input Parameter - identity/referenceIdentityNumber
   InvalidUinForRetrieve:
     errorCode: IDR-IDC-002
     errorMessage: Invalid Input Parameter - uin

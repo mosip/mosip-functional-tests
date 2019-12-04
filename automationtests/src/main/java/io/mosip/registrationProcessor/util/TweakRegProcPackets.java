@@ -77,8 +77,8 @@ public class TweakRegProcPackets extends BaseTestCase {
 
 		File decryptedFile = null;
 		JSONObject metaInfo = null;
-		String configPath = apiRequests.getResourcePath()+ validPacketPath;
-		String invalidPacketsPath =apiRequests.getResourcePath() + invalidPacketPath + "OsiValidation/"
+		String configPath =  validPacketPath;
+		String invalidPacketsPath = invalidPacketPath + "OsiValidation/"
 				+ testCaseName;
 		File file = new File(configPath);
 		File[] listOfFiles = file.listFiles();
@@ -152,11 +152,12 @@ public class TweakRegProcPackets extends BaseTestCase {
 
 		File decryptedPacket = null;
 		JSONObject metaInfo = null;
-		String configPath = apiRequests.getResourcePath() + validPacketPath;
+		String configPath = validPacketPath;
 		filesToBeDestroyed = configPath;
 		File file = new File(configPath);
 		File[] listOfFiles = file.listFiles();
-		String invalidPacketsPath = apiRequests.getResourcePath() + invalidPacketPath + "PacketValidator/";
+		String invalidPacketsPath = invalidPacketPath + "PacketValidator/";
+		
 		for (File f : listOfFiles) {
 			if (f.getName().contains(".zip")) {
 				centerId = f.getName().substring(0, 5);

@@ -7,6 +7,14 @@ id_otp_invalid:
 id_auth_invalid:
       - mosip.auth.identity
       - auth.mosip.identity
+id_internal_otp_valid:
+      - mosip.identity.otp.internal
+id_internal_update_authType_status:
+      - mosip.identity.authtype.status.update
+id_internal_update_authType_status_invalid:
+      - mosip.identity.authtype.update.status
+      - mosip.identity.update.status.authtype
+      - mosip.identity.authtype.status
 id_CreateVid_valid:
       - mosip.vid.create
 id_UpdateVid_valid:
@@ -61,37 +69,48 @@ vid_invalid:
       - 9835845389149
       - 983584538149251
       - 983584538149251
+boolean_invalid:
+      - tree
+      - flse
+      - 1234
+      #- fa%ls
 otpChannel_invalid:
       - tree
       - flse
       - 1234
-      - "true"
-      - "false"
-      - tr^e
-      - fa%ls
+      #- fa%ls
 #idrepo
 name_valid:
-      - Vignesh Ravi
-      - Mary Rose
-      - Bala CC
-      - Mindtree Mind
-      - Full Name
-      - Athila Banu
-      - Mosip Test
-      - Automation Test
-      - Arjun Chandra
-      - Dharini Chandra
-      - Yoga Lakshmi
-      - Ragav K
-      - Himaja H
-      - Chitti Robo
-      - Sravya S
-      - Arun Boss
-      - Dinesh Pudukottai
-      - Loga Lead
-      - Arthif Alan
-      - Mohammed Arshad
-      - Asif Jalaudeen
+      - Harry Mccarthy
+      - Nayan Bradley
+      - Diana Gilmore
+      - Rahma Whittle
+      - Yaseen Woodley
+      - Vinay Currie
+      - Corinne Benton
+      - Courtnie Burn
+      - Willie Hughes
+      - Usama Simpson
+      - Hania Hackett
+      - Macaulay Ramirez
+      - Aishah Blackmore
+      - Carley Castro
+      - Benas Hodge
+      - Samantha Phillips
+      - Shuaib Molloy
+      - Taiba Schmitt
+      - Tonya Beltran
+      - Ayda Marks
+      - Heidi Hutchinson
+      - Stewart Bautista
+      - Lulu Cain
+      - Sumaiyah Southern
+      - Rudi Rutledge
+      - Renee Wise
+      - Ruairi Olson
+      - Aaisha Frank
+      - Laurie Owens
+      - Taya Pennington
 french_lang_code_valid:
       - fra
 arabic_lang_code_valid:
@@ -267,8 +286,7 @@ CNIENumber_valid:
       - 6789545678914
 emailId_valid:
       - vignesh.vijayakumar@mindtree.com
-      - athila.sirajudeen@mindtree.com
-      - Leonamary.Susairaja@mindtree.com
+      - Loganathan.Sekar@mindtree.com
 age_valid:
       - LONG:32
       - LONG:25
@@ -284,67 +302,93 @@ email_Mismatch:
 phone_Mismatch:
       - 9446933347
 #bio
+bio_face_only_subType:
+      - FACE
 bio_face_subType:
       - FACE
       - UNKNOWN
 bio_iris_left_subType:
-      - LEFT
+      - Left Iris
       - UNKNOWN
 bio_iris_right_subType:
-      - RIGHT
+      - Right Iris
       - UNKNOWN
 bio_iris_rightOnly_subType:
-      - RIGHT
+      - Right Iris
 bio_iris_leftOnly_subType:
-      - LEFT
+      - Left Iris
 bio_iris_unknownOnly_subType:
       - UNKNOWN
 bio_finger_LeftIndexOnly_subType:
-      - LEFT_INDEX
+      - Left IndexFinger
 bio_finger_RightLittleOnly_subType:
-      - RIGHT_LITTLE
+      - Right LittleFinger
 bio_finger_LeftIndex_subType:
-      - LEFT_INDEX
+      - Left IndexFinger
       - UNKNOWN
 bio_finger_LeftLittle_subType:
-      - LEFT_LITTLE
+      - Left LittleFinger
       - UNKNOWN
 bio_finger_RightLittle_subType:
-      - RIGHT_LITTLE
+      - Right LittleFinger
       - UNKNOWN
 bio_finger_RightIndex_subType:
-      - RIGHT_INDEX
+      - Right IndexFinger
       - UNKNOWN
 bio_finger_RightIndexOnly_subType:
-      - RIGHT_INDEX
+      - Right IndexFinger
 bio_finger_LeftMiddle_subType:
-      - LEFT_MIDDLE
+      - Left MiddleFinger
       - UNKNOWN
 bio_finger_RightMiddle_subType:
-      - RIGHT_MIDDLE
+      - Right MiddleFinger
       - UNKNOWN
 bio_finger_LeftRing_subType:
-      - LEFT_RING
+      - Left RingFinger
       - UNKNOWN
 bio_finger_RightRing_subType:
-      - RIGHT_RING
+      - Right RingFinger
       - UNKNOWN
 bio_finger_LeftThumb_subType:
-      - LEFT_THUMB
+      - Left Thumb
       - UNKNOWN
 bio_finger_RightThumb_subType:
-      - RIGHT_THUMB
+      - Right Thumb
       - UNKNOWN
 bio_face_type:
-      - FID
+      - FACE
 bio_finger_type:
-      - FMR
+      - FIR
 bio_iris_type:
       - IIR
+bio_finger_deviceCode:
+      - bc0b6848-6d45-46d1-a9bd-b334410bf823
+bio_finger_deviceProviderID:
+      - SYNCBYTE.MC01A
+bio_finger_deviceServiceVersion:
+      - SB.WIN.001
+bio_finger_digitalId:
+      - cogent
 bio_face_deviceCode:
-      - cogent
+      - e6457917-da80-4ec4-832a-7418b8aafb1a
 bio_face_deviceProviderID:
-      - cogent
+      - SYNCBYTE.LTC165
+bio_face_deviceServiceVersion:
+      - SB.WIN.001
+bio_face_digitalId:
+      - eyJzZXJpYWxObyI6Ijc4NDY3MTcxIiwibWFrZSI6IkxvZ2l0ZWNoIiwibW9kZWwiOiI0ZDM2ZTk2Yy1lMzI1LTExY2UtYmZjMS0wODAwMmJlMTAzMTgiLCJ0eXBlIjoiRmFjZSIsInN1YlR5cGUiOiJGdWxsIGZhY2UiLCJkZXZpY2VQcm92aWRlciI6IlNZTkNCWVRFIiwiZGV2aWNlUHJvdmlkZXJJZCI6IlNZTkNCWVRFLkxUQzE2NSIsImRhdGVUaW1lIjoiMjAxOS0xMS0xMVQxNToyNzo1Mi45NzMrMDU6MzAifQ
+int.face.deviceid:
+      - SYNCBYTE.LTC165
+qa.face.deviceid:
+      - SYNCBYTE.LTC165
+int.finger.deviceid:
+      - SYNCBYTE.LTC165
+qa.finger.deviceid:
+      - SYNCBYTE.LTC163
+int.iris.deviceid:
+      - SYNCBYTE.LTC165
+qa.iris.deviceid:
+      - SYNCBYTE.LTC164
 bio_iris_deviceCode:
       - cogent
 bio_iris_deviceProviderID:
@@ -398,6 +442,8 @@ auth_transaction_FACE_success_statusComment:
       - $REGEXP:.*Face.*Authentication.*Success.*$
 auth_transaction_FACE_fail_statusComment:
       - $REGEXP:.*Face.*Authentication.*Failed.*$
+auth_transaction_USERID_idType:
+      - USERID
 auth_transaction_UIN_idType:
       - UIN
 auth_transaction_VID_idType:
@@ -419,6 +465,8 @@ audit_log_eventId:
       - $REGEXP:.*IDA.*$
 audit_log_auth_eventName:
       - Authentication Request
+audit_log_internal_auth_eventName:
+      - Internal Authentication Request
 audit_log_ekyc_eventName:
       - eKYC Request
 audit_log_ida_appId:
@@ -437,12 +485,16 @@ audit_log_otp_moduleName:
       - OTP Authenticator
 audit_log_otprequest_moduleName:
       - Otp Requestor
+audit_log_USERID_refIdType:
+      - USER_ID
 audit_log_UIN_refIdType:
       - UIN
 audit_log_demo_moduleName:
       - Demographic Authenticator
 audit_log_VID_refIdType:
       - VID
+audit_log_internalAuthhostName:
+      - $REGEXP:.*MOSIP.*$
 #Demo-Name Normalisation
 name_tittle_UnMarriedfemale_primary_lang:
       - Miss.
@@ -475,3 +527,26 @@ valid_VID_T_Type:
       - Temporary
 valid_VID_P_Type:
       - Perpetual
+#CBEFF
+valid_xmlns:
+      - http://docs.oasis-open.org/bias/ns/biaspatronformat-1.0/
+#userid:
+valid_userid:
+     - 110087
+invalid_DeviceParam:
+    - dqiuteiu16478r69818
+    - 731f2j8827748702
+    - SYNC
+    - BYTE
+    - MDS
+    - 123
+    - WERT
+    - 1231381783
+    - defisidfjis
+    - 1uy188y7J^
+    - lkjqu404$
+    - MT
+    - DUMMY
+    - 12345
+    - EUI746
+    - $@(doiwu

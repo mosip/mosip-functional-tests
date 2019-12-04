@@ -15,7 +15,7 @@ import org.testng.annotations.AfterClass;
 /**
  * 
  * @author Ravi Kant
- * and Arunakumar Rati
+ *
  */
 
 public class KernelDataBaseAccess {
@@ -50,39 +50,102 @@ public class KernelDataBaseAccess {
 	@SuppressWarnings("unchecked")
 	public List<String> getDbData(String queryString, String dbName) {
 
-		return  getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		List<String> data = null;
+		try {
+			data = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+		}
+		return  data;
 
 	}
 	@SuppressWarnings("unchecked")
 	public List<Object> getData(String queryString, String dbName) {
 
-		return  getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		List<Object> data = null;
+		try {
+			data = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+		}
+		return  data;
 
 	}
 	public long validateDBCount(String queryStr, String dbName) {
 		long count = 0;
-		count = ((BigInteger) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryStr).getSingleResult()).longValue();
-		logger.info("obtained objects count from DB is : " + count);
+		try {
+			count = ((BigInteger) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryStr).getSingleResult()).longValue();
+			logger.info("obtained objects count from DB is : " + count);
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+		}
 		return count;
 	}
 
 	public boolean validateDataInDb(String queryString, String dbName) {
-		int size = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list().size();
-		logger.info("Size is : " + size);
+		int size=0;
+		try {
+			size = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list().size();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+		}
 		return (size == 1) ? true : false;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Object[]> getArrayData(String queryString, String dbName) {
-		return (List<Object[]>) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		List<Object[]> data = null;
+		try {
+			data = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+		}
+		return data;
+	}
+	
+	public boolean executeQuery(String queryString, String dbName) {
+		int res = 0;
+		try {
+			res = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).executeUpdate();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+		session.getTransaction().commit();
+		session.close();
+		factory.close();
+		logger.info("==========session  closed=============");
+		}
+		return (res>0) ? true : false;
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void closingSession() {
-		if (session != null)
+		if (session != null) {
 			session.getTransaction().commit();
 		session.close();
 		factory.close();
+		logger.info("==========session  closed=============");
+		}
 	}
 
 }

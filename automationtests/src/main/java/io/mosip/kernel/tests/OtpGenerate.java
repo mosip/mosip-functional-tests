@@ -94,7 +94,10 @@ public class OtpGenerate extends BaseTestCase implements ITest{
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];
-		
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			actualRequest.put("requesttime", lib.getCurrentLocalTime());
+		}
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");

@@ -1,0 +1,12 @@
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "2018-12-10T06:12:52.994Z",
+  "errors": null,
+  "response":  [
+    {
+      "message": "Device details validated successfully"
+    }
+  ]
+}

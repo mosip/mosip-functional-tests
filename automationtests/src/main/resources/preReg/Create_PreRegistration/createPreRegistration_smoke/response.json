@@ -9,7 +9,7 @@
         "langCode": "fra",
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "2864123456765432",
+                "referenceIdentityNumber": "2864123456765432",
                 "gender": [
                     {
                         "language": "fra",
@@ -41,7 +41,7 @@
                         "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
-                "localAdministrativeAuthority": [
+                "zone": [
                     {
                         "language": "fra",
                         "value": "SATZ"
@@ -66,7 +66,7 @@
                 "addressLine1": [
                     {
                         "language": "fra",
-                        "value": ""
+                        "value": "global village"
                     },
                     {
                         "language": "ara",

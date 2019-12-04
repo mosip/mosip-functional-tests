@@ -26,6 +26,7 @@ public class ConstantValues {
 	public static final String PRE_REG_PATH="./Registration/testData/PacketHandlerServiceData/PreRegIds.json";
 	public static final String MODULE_ID="REG-AUTO";
 	public static final String MODULE_NAME="REGISTRATION AUTOMATION";
+	public static final String ACKNOWLEDGEMENT_IMAGE="./Registration/testData/PacketHandlerServiceData/acknowledgementReceipt.jpg";
 	/*
 	 * Constants for PreRegistrationDataSyncServiceTest test cases
 	 */

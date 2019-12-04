@@ -48,7 +48,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class RetrieveIdentityByRid extends IdRepoPrerequisteTests implements ITest {
+public class RetrieveIdentityByRid extends IdRepoTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(RetrieveIdentityByRid.class);
 	protected static String testCaseName = "";

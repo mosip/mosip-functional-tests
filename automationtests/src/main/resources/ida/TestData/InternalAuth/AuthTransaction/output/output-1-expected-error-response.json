@@ -1,0 +1,12 @@
+{
+  "id": "mosip.identity.authtransactions.read",
+  "version": "$version$",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-002",
+      "errorMessage": "Invalid UIN",
+      "actionMessage": "$IGNORE$"
+    }
+  ],
+  "responseTime": "$TIMESTAMPZ$"
+}

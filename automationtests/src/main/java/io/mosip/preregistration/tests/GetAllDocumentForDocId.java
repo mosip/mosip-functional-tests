@@ -126,8 +126,7 @@ public class GetAllDocumentForDocId extends BaseTestCase implements ITest {
 
 		// Creating the Pre-Registration Application
 		Response createApplicationResponse = preRegLib.CreatePreReg(individualToken);
-		preId = createApplicationResponse.jsonPath().get("response.preRegistrationId").toString();
-
+		preId =preRegLib.getPreId(createApplicationResponse);
 		// Document Upload for created application
 		//Response docUploadResponse = preRegLib.documentUploadParm(createApplicationResponse, preId);
 		Response docUploadResponse = preRegLib.documentUpload(createApplicationResponse, preId,null, individualToken);

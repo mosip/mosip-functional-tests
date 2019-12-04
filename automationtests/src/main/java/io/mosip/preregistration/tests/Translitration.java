@@ -88,7 +88,7 @@ public class Translitration extends BaseTestCase implements ITest {
 		JSONObject translitrationRequest = null;
 		String fromLang="fra";
 		String toLang="ara";
-		String from_value = "assurance mensuelle";
+		String from_value = "assuransi minsuilli";
 		translitrationRequest=lib.translitrationRequest(testSuite,fromLang, from_value, toLang);
 		Response translitrationResponse = lib.translitration(translitrationRequest,individualToken);
 		String to_field_value = translitrationResponse.jsonPath().get("response.to_field_value").toString();

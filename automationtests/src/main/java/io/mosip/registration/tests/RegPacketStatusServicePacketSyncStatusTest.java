@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -91,6 +92,7 @@ public class RegPacketStatusServicePacketSyncStatusTest extends BaseConfiguratio
 
 	@Test(dataProvider = "RegPacketStatusDataProvider", alwaysRun = true)
 	public void validatePacketCreation(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName = testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
@@ -177,6 +179,13 @@ public class RegPacketStatusServicePacketSyncStatusTest extends BaseConfiguratio
 
 		} 
 		commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),packetResponse.get("RANDOMID") );
+		}
+
+		catch (Exception exception) {
+			logger.debug("REG PACKET STATUS SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
+		
 	}
 
 	@AfterMethod(alwaysRun = true)

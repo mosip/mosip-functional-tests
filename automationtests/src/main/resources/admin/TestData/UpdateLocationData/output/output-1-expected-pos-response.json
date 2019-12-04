@@ -1,0 +1,17 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-26T10:17:07.810Z",
+  "metadata": null,
+  "response": [
+    {
+      "code": "MSK",
+      "langCode": "eng"
+    },
+    {
+      "code": "MSK",
+      "langCode": "ara"
+    }
+  ],
+  "errors": null
+}

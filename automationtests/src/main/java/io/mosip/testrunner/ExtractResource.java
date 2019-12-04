@@ -1,16 +1,14 @@
 package io.mosip.testrunner;
 
-import java.io.File;
+import java.io.File; 
 import java.io.IOException;
 import java.net.URL;
 import java.security.CodeSource;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-
-import io.mosip.authentication.fw.util.FileUtil;
-import io.mosip.authentication.fw.util.RunConfigUtil;
 
 /**
  * The class to extract resource from jar 
@@ -32,11 +30,15 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
 		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
+		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
+		getListOfFilesFromJarAndCopyToExternalResource("admin/");
+		getListOfFilesFromJarAndCopyToExternalResource("reg/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("version.txt");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
 	}
 	
 	/**
@@ -120,6 +122,17 @@ public class ExtractResource {
             }
         }
         return dir.delete();
+	}
+	private static void copyDbInTarget() {
+		File db=new File(MosipTestRunner.getGlobalResourcePath()+"/db");
+		File targetDb=new File(MosipTestRunner.getGlobalResourcePath().substring(0,MosipTestRunner.getGlobalResourcePath().lastIndexOf("\\"))+"/db");
+		try {
+			FileUtils.copyDirectory(db,targetDb);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

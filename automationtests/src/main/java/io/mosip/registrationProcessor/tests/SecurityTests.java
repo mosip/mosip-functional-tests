@@ -93,12 +93,14 @@ public class SecurityTests extends BaseTestCase implements ITest{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				registrationPacketSyncDto.setRequesttime(apiRequests.getUTCTime().toString());
 				requestToEncrypt=encryptData.encryptData(registrationPacketSyncDto);
 			} else if(f.getName().equals("GetStatus")) {
 				for(File request:f.listFiles()) {
 					if(request.getName().toLowerCase().contains("request")) {
 						try {
 							getRequest = (JSONObject) new JSONParser().parse(new FileReader(request.getPath()));
+							getRequest.put("requesttime", apiRequests.getUTCTime().toString());
 						} catch (IOException | org.json.simple.parser.ParseException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

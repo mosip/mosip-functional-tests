@@ -211,7 +211,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		response = lib.documentUpload(response,individualToken);
 
 		String errMessage = lib.getErrorMessage(response);
-		lib.compareValues(errMessage, "No data found for the requested pre-registration id");
+		lib.compareValues(errMessage, "Demographic record failed to fetch expected");
 
 	}
 
@@ -485,7 +485,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void cancelAppointmentForExpiredApplication() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -503,7 +503,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String msg = CancelBookingAppointmentResponse.jsonPath().get("errors[0].message").toString();
 		lib.compareValues(msg, "Appointment cannot be canceled");
 
-	}
+	}*/
 
 	/**
 	 * @author Ashish Update pre Registration data for expired application
@@ -512,7 +512,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void updatePreRegistrationDataForExpiredApplication()
 			throws FileNotFoundException, IOException, ParseException {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
@@ -529,7 +529,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String updatePreId = updateResponse.jsonPath().get("response.preRegistrationId").toString();
 		lib.compareValues(updatePreId, preID);
 		lib.CancelBookingAppointment( preID,individualToken);
-	}
+	}*/
 
 	/**
 	 * @author Ashish Copy document for discarded application.(discard source pre
@@ -566,7 +566,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void bookAppointmentForExpiredApplication() throws FileNotFoundException, IOException, ParseException {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -584,7 +584,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		Response reBookAnAppointmentResponse = lib.BookAppointment(avilibityResponse, preID,individualToken);
 		lib.compareValues(reBookAnAppointmentResponse.jsonPath().get("response.bookingMessage").toString(),
 				"Appointment booked successfully");
-	}
+	}*/
 
 	/**
 	 * @author Ashish Fetch discarded pre registration created by user
@@ -985,8 +985,8 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		Response documentResponse = lib.documentUpload(createResponse,individualToken);
 		String errorCode = documentResponse.jsonPath().get("errors[0].errorCode").toString();
 		String message = documentResponse.jsonPath().get("errors[0].message").toString();
-		lib.compareValues(message, "No data found for the requested pre-registration id");
-		lib.compareValues(errorCode, "PRG_PAM_APP_005");
+		lib.compareValues(message, "Demographic record failed to fetch expected");
+		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 
 	}
 
@@ -1033,7 +1033,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	/**
 	 * @author Ashish Consumed booked appointment
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void cosumedBookedAppointment() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -1055,11 +1055,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, expectedRegCenterId);
 	}
-
+*/
 	/**
 	 * @author Ashish Consumed Expired appointment
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+/*	@Test(groups = { "IntegrationScenarios" })
 	public void cosumedExpiredAppointment() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -1085,12 +1085,12 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		lib.compareValues(actualDocumentId, expectedDocumentId);
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, expectedRegCenterId);
-	}
+	}*/
 
 	/**
 	 * @author Ashish Changing status to expired using batch job service
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void expiredBatchJobService() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -1105,12 +1105,12 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String status = getPreRegistrationStatusResponse.jsonPath().get("response.statusCode").toString();
 		lib.compareValues(status, "Expired");
 
-	}
+	}*/
 
 	/**
 	 * @author Ashish Changing status to Consumed using batch job service
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void consumedBatchJobService() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -1135,12 +1135,12 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, expectedRegCenterId);
 	}
-
+*/
 	/**
 	 * @author Ashish retrive PreRegistration data for consumed Application
 	 */
 
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void retrivePreRegDataConsumedApplication() {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -1157,12 +1157,12 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].message").toString(),
 				"No data found for the requested pre-registration id");
 
-	}
+	}*/
 
 	/**
 	 * @author Ashish Consumed multiple pre registration ids
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void consumedMultiplePRID() {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
@@ -1185,11 +1185,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 					"No data found for the requested pre-registration id");
 		}
 
-	}
+	}*/
 	/**
 	 * @author Ashish Consumed multiple pre registration ids with some invalid PRID
 	 */
-	@Test(groups = { "IntegrationScenarios" })
+	/*@Test(groups = { "IntegrationScenarios" })
 	public void consumedMultiplePRIDWithInvalidPRID() {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
@@ -1220,7 +1220,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		lib.compareValues(actualCount, "3");
 
 	}
-
+*/
 	// Integration scenario for copy document i.e.,create application,upload
 	// document[for one application],create one more application,copy document
 	// from
@@ -1459,9 +1459,9 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String docId = uploadDoc.jsonPath().get("response.docId").toString();
 		Response discardApp = lib.discardApplication(preRegID, individualToken);
 		Response delDocumentByDocId = lib.deleteAllDocumentByDocId(docId, preRegID, individualToken);
-		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_APP_005");
+		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_DOC_020 ");
 		lib.compareValues(lib.getErrorMessage(delDocumentByDocId),
-				"No data found for the requested pre-registration id");
+				"Demographic record failed to fetch");
 
 	}
 

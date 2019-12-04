@@ -1,0 +1,27 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-08-06T11:19:07.748Z",
+  "metadata": null,
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-07-30T06:18:49.739Z",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "FRS",
+        "langCode": "eng",
+        "name": "Finger Print Scanner",
+        "description": "For scanning fingerprints"
+      }
+    ]
+  },
+  "errors": null
+}

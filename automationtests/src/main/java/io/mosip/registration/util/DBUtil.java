@@ -22,7 +22,7 @@ public class DBUtil {
 	// private static String dbURL = "jdbc:derby:" + System.getProperty("user.dir")
 	// + "/src/test/resources/testData/reg;bootPassword=mosip12345";
 
-	private static String dbURL = "jdbc:derby:" + System.getProperty("user.dir") + "/reg;bootPassword=mosip12345";
+	private static String dbURL = "jdbc:derby:" + System.getProperty("user.dir") + "/db/reg;bootPassword=mosip12345";
 	/** Logger available to subclasses */
 	private static Logger logger = Logger.getLogger(DBUtil.class);
 	private static Connection conn = null;

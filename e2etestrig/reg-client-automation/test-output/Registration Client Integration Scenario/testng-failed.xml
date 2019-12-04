@@ -11,7 +11,7 @@
           <include name="springTestContextBeforeTestMethod"/>
           <include name="springTestContextAfterTestMethod"/>
           <include name="dataSetUp"/>
-          <include name="validatePacketCreation" invocation-numbers="0 1 2 4"/>
+          <include name="validatePacketCreation"/>
         </methods>
       </class> <!-- io.mosip.registration.main.PacketCreation -->
     </classes>

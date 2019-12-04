@@ -48,7 +48,7 @@ import org.testng.Reporter;
  * @author Athila
  *
  */
-public class UpdateVidStatus extends IdRepoPrerequisteTests implements ITest {
+public class UpdateVidStatus extends IdRepoTestsUtil implements ITest {
 
 	private static final Logger logger = Logger.getLogger(UpdateVidStatus.class);
 	protected static String testCaseName = "";

@@ -1520,7 +1520,7 @@ testdata:
       output.2.response.n.err.errorMessage: $errors:OTPAttempExceeds:errorMessage$
       output.2.response.n.err.errorCode: $errors:OTPAttempExceeds:errorCode$
       output.2.response.n.err.transactionID: $input.otp-auth-request:AuthReq.transactionID$
-      output.2.response.n.err.version: $version$
+      output.2.response.n.err.version: $version$      
       
   Authentication_OTP_Expired_Neg:
     endpoint.url:
@@ -1576,4 +1576,117 @@ testdata:
       moduleName: $TestData:audit_log_otp_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
       
+  Authentication_OTP_With_LockedUIN_Neg:
+    endpoint.url:
+      partnerID: $PIDMLKURL:ValidPID$
+      mispLK: $PIDMLKURL:ValidMLK$
+    input.otp-generate:
+      otpReq.id: $TestData:id_otp_valid$
+      otpReq.individualId: $UIN.otp.true$
+      otpReq.individualIdType: $TestData:indvId_Uin_valid$
+      otpReq.email: EMAIL
+      otpReq.phone: PHONE
+      otpReq.requestTime: $TIMESTAMP$
+      otpReq.transactionID: $RANDOM:N:10$
+      otpReq.version: $version$
+    input.identity-encrypt-data:
+      identityReq.timestamp: $TIMESTAMP$
+      #identityReq.transactionID: $input.otp-generate:otpReq.transactionID:$
+      identityReq.otp: '%$input.otp-generate:otpReq.individualId$%_5'
+      #identityReq.otp: 7846
+    input.otp-auth-request:
+      AuthReq.individualId: $input.otp-generate:otpReq.individualId$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $input.otp-generate:otpReq.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-error-res:
+      output.2.response.n.err.status: $TestData:auth_Fail_status$
+      output.2.response.n.err.responseTime: $IGNORE$
+      output.2.response.n.err.errorMessage: $errors:OTPAuthenticationLocked:errorMessage$
+      output.2.response.n.err.errorCode: $errors:OTPAuthenticationLocked:errorCode$
+      output.2.response.n.err.transactionID: $input.otp-auth-request:AuthReq.transactionID$
+      output.2.response.n.err.version: $version$
+      
+  Authentication_OTP_With_LockedVID_Neg:
+    endpoint.url:
+      partnerID: $PIDMLKURL:ValidPID$
+      mispLK: $PIDMLKURL:ValidMLK$
+    input.otp-generate:
+      otpReq.id: $TestData:id_otp_valid$
+      otpReq.individualId: $VID.otp.true$
+      otpReq.individualIdType: $TestData:indvId_Vid_valid$
+      otpReq.email: EMAIL
+      otpReq.phone: PHONE
+      otpReq.requestTime: $TIMESTAMP$
+      otpReq.transactionID: $RANDOM:N:10$
+      otpReq.version: $version$
+    input.identity-encrypt-data:
+      identityReq.timestamp: $TIMESTAMP$
+      #identityReq.transactionID: $input.otp-generate:otpReq.transactionID:$
+      identityReq.otp: '%$input.otp-generate:otpReq.individualId$%_5'
+      #identityReq.otp: 7846
+    input.otp-auth-request:
+      AuthReq.individualId: $input.otp-generate:otpReq.individualId$
+      AuthReq.individualIdType: $TestData:indvId_Vid_valid$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $input.otp-generate:otpReq.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-error-res:
+      output.2.response.n.err.status: $TestData:auth_Fail_status$
+      output.2.response.n.err.responseTime: $IGNORE$
+      output.2.response.n.err.errorMessage: $errors:OTPAuthenticationLocked:errorMessage$
+      output.2.response.n.err.errorCode: $errors:OTPAuthenticationLocked:errorCode$
+      output.2.response.n.err.transactionID: $input.otp-auth-request:AuthReq.transactionID$
+      output.2.response.n.err.version: $version$
+      
+  Authentication_OTP_Different_Identiyt_Type_Neg:
+    endpoint.url:
+      partnerID: $PIDMLKURL:ValidPID$
+      mispLK: $PIDMLKURL:ValidMLK$
+    input.otp-generate:
+      otpReq.id: $TestData:id_otp_valid$
+      otpReq.individualId: $VID:WHERE:UIN:WITH:IdentityMismatch_OTP$
+      otpReq.individualIdType: $TestData:indvId_Vid_valid$
+      otpReq.email: EMAIL
+      otpReq.phone: PHONE
+      otpReq.requestTime: $TIMESTAMP$
+      otpReq.transactionID: $RANDOM:N:10$
+      otpReq.version: $version$
+    input.otp-auth-request:
+      AuthReq.individualId: $UIN:WITH:IdentityMismatch_OTP$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.individualIdType: $TestData:indvId_Uin_valid$
+      AuthReq.transactionID: $input.otp-generate:otpReq.transactionID$
+      AuthReq.version: $version$
+    input.identity-encrypt-data:
+      identityReq.timestamp: $TIMESTAMP$
+      #identityReq.transactionID: $input.otp-auth-request:AuthReq.transactionID$
+      identityReq.otp: '%$input.otp-generate:otpReq.individualId$%_5'
+      #identityReq.otp: 7846
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate:otpReq.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.id: $TestData:id_otp_valid$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-error-res:
+      output.2.response.n.err.status: $TestData:auth_Fail_status$
+      output.2.response.n.err.responseTime: $IGNORE$
+      output.2.response.n.err.errorMessage: $errors:IdentityMismatch:errorMessage$
+      output.2.response.n.err.errorCode: $errors:IdentityMismatch:errorCode$
+      output.2.response.n.err.transactionID: $input.otp-auth-request:AuthReq.transactionID$
+      output.2.response.n.err.version: $version$
       

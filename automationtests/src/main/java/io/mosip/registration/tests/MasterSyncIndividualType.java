@@ -18,11 +18,13 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.IndividualTypeDto;
 import io.mosip.registration.entity.IndividualType;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.IndividualTypeRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.util.BaseConfiguration;
@@ -79,6 +81,7 @@ public class MasterSyncIndividualType extends BaseConfiguration implements ITest
 
 	@Test(dataProvider = "IndividualType", alwaysRun = true)
 	public void verifyIndividualTypeByName(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
 		mTestCaseName=testCaseName;
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + individualTypeSubServiceName, testCaseName,
@@ -106,6 +109,12 @@ public class MasterSyncIndividualType extends BaseConfiguration implements ITest
 		logger.debug(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"Individual type Name from service:" + individualTypeNameFromService);
 
 		Assert.assertEquals(individualTypeNameFromDB, individualTypeNameFromService);
+		}
+		catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 	
 	@AfterMethod(alwaysRun = true)

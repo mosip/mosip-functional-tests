@@ -14,10 +14,11 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import io.mosip.dto.TransactionStatusDTO;
+import io.mosip.testrunner.MosipTestRunner;
 
 public class Stagevalidations {
 	TransactionStatusDTO transactionStatus=new TransactionStatusDTO();
-	String registrationListConfigFilePath=BaseUtil.getGlobalResourcePath()+"/src/test/resources/regproc_qa.cfg.xml";
+	String registrationListConfigFilePath=MosipTestRunner.getGlobalResourcePath()+"/regproc_qa.cfg.xml";
 	File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public Session getCurrentSession() {
 		SessionFactory factory;

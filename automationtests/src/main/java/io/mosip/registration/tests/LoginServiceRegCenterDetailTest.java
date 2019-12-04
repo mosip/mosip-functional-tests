@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
@@ -92,6 +93,7 @@ public class LoginServiceRegCenterDetailTest extends BaseConfiguration implement
 	 */
 	@Test(dataProvider = "registrationCenterDetailsDataProvider", alwaysRun = true)
 	public void testGetRegistrationCenterDetails(String testCaseName, JSONObject object) {
+		try {
 
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,testCaseName);
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,object.toString());
@@ -115,6 +117,12 @@ public class LoginServiceRegCenterDetailTest extends BaseConfiguration implement
 			assertTrue(centerDetailDTO.getRegistrationCenterName() == null);
 		} else
 			assertTrue(centerDetailDTO.getRegistrationCenterName() != null);
+		}
+		catch (Exception exception) {
+			logger.debug("LOGIN SERVICE", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

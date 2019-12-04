@@ -18,11 +18,13 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.mastersync.LocationDto;
 import io.mosip.registration.entity.Location;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.LocationRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.util.BaseConfiguration;
@@ -78,6 +80,7 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 
 	@Test(dataProvider = "LocationByHierarchyCode", alwaysRun = true)
 	public void verifyLocationByHierarchyCodeByHierarchyLevel(String testCaseName, JSONObject object) {
+		try {
 		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
 				"test case Name:" + testCaseName);
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + genderDetailServiceName, testCaseName,
@@ -111,10 +114,18 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 				"Hierarchy level from service:" + locationHierarchyFromService);
 
 		Assert.assertEquals(locationHierarchyLevelFromDB, locationHierarchyFromService);
+		}
+		catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@Test(dataProvider = "LocationByHierarchyCode", alwaysRun = true)
 	public void verifyLocationByHierarchyCode(String testCaseName, JSONObject object) {
+		try
+		{
 		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
 				"test case Name:" + testCaseName);
 		mTestCaseName = testCaseName;
@@ -150,6 +161,12 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 				"Hierarchy Name from service:" + locationHierarchyNameService);
 
 		Assert.assertEquals(locationHierarchyNameFromDB, locationHierarchyNameService);
+		}
+		catch (Exception exception) {
+			logger.debug("MASTER-SYNC", "AUTOMATION", "REG",
+					ExceptionUtils.getStackTrace(exception));
+			Reporter.log(ExceptionUtils.getStackTrace(exception));
+		}
 	}
 
 	@AfterMethod(alwaysRun = true)

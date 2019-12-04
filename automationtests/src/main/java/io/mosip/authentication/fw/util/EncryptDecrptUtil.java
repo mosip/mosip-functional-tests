@@ -136,6 +136,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	public static String getCbeffEncode(String filename) {
 		try {
 			String objectData = FileUtil.readInput(filename);
+			objectData=objectData.replaceAll(" xmlns=\"\"", "");
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
@@ -234,6 +235,33 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 		try {
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
+		} catch (Exception e) {
+			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	
+	/**
+	 * The method will get encoded data from json content in file
+	 * 
+	 * @param content to be encode
+	 * @return String, Encoded data
+	 */
+	public static String getBase64EncodedString(String content) {
+		try {
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), content.toString(), MediaType.TEXT_PLAIN,
+					MediaType.TEXT_PLAIN).asString();
+		} catch (Exception e) {
+			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	
+	public static String splitEncryptedData(String content)
+	{
+		try {
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getSplitEncryptedData(), content.toString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
 			return e.toString();

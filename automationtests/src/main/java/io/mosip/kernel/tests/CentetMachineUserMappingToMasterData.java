@@ -90,7 +90,10 @@ public class CentetMachineUserMappingToMasterData extends BaseTestCase implement
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
 		expectedresponse = objectDataArray[1];
-		
+		if(testcaseName.toLowerCase().contains("utctimevalidation"))
+		{
+			actualRequest.put("requesttime", lib.getCurrentLocalTime());
+		}
 		//  Calling the put method 
 		  Response response = applicationLibrary.putWithJson(CentetMachineUserMappingToMasterData_uri, actualRequest, regProcCookie);
 		
@@ -100,6 +103,7 @@ public class CentetMachineUserMappingToMasterData extends BaseTestCase implement
 		
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
+
 		// Comparing expected and actual response
 		status = assertKernel.assertKernel(response, expectedresponse,listOfElementToRemove);
 	            

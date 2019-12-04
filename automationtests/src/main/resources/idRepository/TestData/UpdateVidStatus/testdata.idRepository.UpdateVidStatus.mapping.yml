@@ -1,17 +1,4 @@
-testdata:
-  IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Temporary:
-    input.create-request:
-      version: $version$
-      requesttime: $TIMESTAMPZ$
-      vidStatus: USED
-      id: $TestData:id_UpdateVid_valid$
-    output.output-1-expected-y-res:
-      output.1.res.status: USED
-      output.1.res.responsetime: $IGNORE$
-      output.1.res.version: $version$
-      output.1.res.VID: $IGNORE$
-      output.1.res.id: $TestData:id_UpdateVid_valid$
-        
+testdata:        
   IdRepository_UpdateVidStatus_withInvalidverion_ForVidType_Temporary:
     input.create-request:
       version: $TestData:id_version_invalid$
@@ -257,19 +244,6 @@ testdata:
       output.1.res.status: REVOKED
       output.1.res.responsetime: $IGNORE$
       output.1.res.version: $version$
-      output.1.res.VID: $IGNORE$
-      output.1.res.id: $TestData:id_UpdateVid_valid$
-  
-  IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Temporary:
-    input.create-request:
-      version: v1
-      requesttime: $TIMESTAMPZ$
-      vidStatus: USED
-      id: $TestData:id_UpdateVid_valid$
-    output.output-1-expected-y-res:
-      output.1.res.status: USED
-      output.1.res.responsetime: $IGNORE$
-      output.1.res.version: v1
       output.1.res.VID: $IGNORE$
       output.1.res.id: $TestData:id_UpdateVid_valid$
   

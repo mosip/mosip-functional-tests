@@ -110,7 +110,7 @@ public class AuditValidation {
 	 */
 	private static String getAuditLogQuery(String app_name, String module_name, String ref_id, String action_dtimes_minTime,
 			String action_dtimes_maxTime) {
-		return "select * from audit.app_audit_log where app_name ='" + app_name + "' and module_name='" + module_name
+		return "select log_id,log_dtimes,log_desc,event_id,event_type,event_name,action_dtimes,host_name,host_ip,session_user_id,session_user_name,app_id,app_name,module_id,module_name,ref_id,ref_id_type,cr_by from audit.app_audit_log where app_name ='" + app_name + "' and module_name='" + module_name
 				+ "' and ref_id ='" + ref_id + "' and action_dtimes >= timestamp '" + action_dtimes_minTime
 				+ "'- interval '10 second'	and action_dtimes <= timestamp '" + action_dtimes_maxTime
 				+ "' + interval '10 second' order by log_dtimes limit 1";
@@ -125,7 +125,7 @@ public class AuditValidation {
 	 * @return String, SQL Query
 	 */
 	private static String getAuditLogQuery(String app_name, String module_name, String ref_id) {
-		return "select * from audit.app_audit_log where app_name ='" + app_name + "' and module_name='" + module_name
+		return "select log_id,log_dtimes,log_desc,event_id,event_type,event_name,action_dtimes,host_name,host_ip,session_user_id,session_user_name,app_id,app_name,module_id,module_name,ref_id,ref_id_type,cr_by from audit.app_audit_log where app_name ='" + app_name + "' and module_name='" + module_name
 				+ "' and ref_id ='" + ref_id + "' order by log_dtimes limit 1";
 	}	
 

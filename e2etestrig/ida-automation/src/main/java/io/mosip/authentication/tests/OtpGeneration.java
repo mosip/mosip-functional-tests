@@ -1,6 +1,6 @@
 package io.mosip.authentication.tests;
 
-import java.io.File; 
+import java.io.File;  
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -33,7 +33,6 @@ import io.mosip.authentication.fw.util.StoreAuthenticationAppLogs;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.authentication.testdata.TestDataUtil;
-import io.mosip.util.EmailUtil;
 
 import org.testng.Reporter;
 
@@ -232,8 +231,8 @@ public class OtpGeneration extends PrerequisteTests implements ITest {
 			currentTestTemplates.put("email.otp", getOtpValue(currentTestTemplates.get("email.otp").toString()));
 			updateMappingDicForEmailOtpNotification(currentTestEmailTemplateFile, currentTestTemplates);
 			currentTestTemplates = getPropertyAsMap(currentTestEmailTemplateFile);
-			EmailUtil objEmailUtil = new EmailUtil();
-			Map<String, String> actualMessage = objEmailUtil.readEmail("EmailConfig", emailAddress, emailPwd);
+			//EmailUtil objEmailUtil = new EmailUtil();
+			/*Map<String, String> actualMessage = objEmailUtil.readEmail("EmailConfig", emailAddress, emailPwd);
 			boolean result = false;
 			if (actualMessage.get("MessageBody")
 					.contains(currentTestTemplates.get("otp.generate.email.fra.message.body").toString())) {
@@ -249,7 +248,7 @@ public class OtpGeneration extends PrerequisteTests implements ITest {
 			} else {
 				Reporter.log("<b>Email notification verification failed. Check log for more details</b>");
 				Assert.assertEquals(result, true);
-			}
+			}*/
 		}
 	}
 

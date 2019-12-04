@@ -3,7 +3,7 @@
   <parent>
     <groupId>io.mosip.e2etestrig</groupId>
     <artifactId>e2etestrig</artifactId>
-    <version>0.9.0</version>
+    <version>0.10.4</version>
   </parent>
   <artifactId>ida-automation</artifactId>
   <dependencies>
@@ -323,12 +323,12 @@
 		<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-partnerdemo-service</artifactId>
-			<version>0.9.0</version>
+			<version>0.12.4</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>0.9.0</version>
+			<version>0.10.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.wink/wink-json4j-provider -->
 		<dependency>

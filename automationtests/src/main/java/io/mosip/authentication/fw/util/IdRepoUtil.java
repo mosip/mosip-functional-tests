@@ -33,9 +33,12 @@ public class IdRepoUtil extends AuthTestsUtil {
 	public static boolean retrieveIdRepo(String uinNumber) {
 		String retrievePath = RunConfigUtil.objRunConfig.getIdRepoRetrieveDataPath().replace("$uin$", uinNumber);
 		String url = RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + retrievePath;
+		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
+				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
+				AUTHORIZATHION_COOKIENAME);
 		if (!FileUtil.checkFileExistForIdRepo(uinNumber + ".json")) {
 			if (FileUtil.createAndWriteFileForIdRepo(uinNumber + ".json",
-					getResponseWithCookie(url, "type=all", AuthTestsUtil.AUTHORIZATHION_COOKIENAME)))
+					getResponseWithCookie(url+"?type=all", AuthTestsUtil.AUTHORIZATHION_COOKIENAME,cookieValue)))
 				return true;
 			else
 				return false;
@@ -121,8 +124,8 @@ public class IdRepoUtil extends AuthTestsUtil {
 	public static String generateUinNumberForIda() {
 		return JsonPrecondtion
 				.getValueFromJson(
-						getResponseWithCookieForIdaUinGenerator(RunConfigUtil.objRunConfig.getEndPointUrl()
-								+ RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
+						getResponseWithCookieForIdaUinGenerator(RunConfigUtil.objRunConfig.getEndPointUrl()+
+								 RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
 						"response.uin");
 	}
 
@@ -132,18 +135,10 @@ public class IdRepoUtil extends AuthTestsUtil {
 	 * @return UIN Number
 	 */
 	public static String generateUinNumberForIdRepo() {
-		boolean flag = false;
-		String uin;
-		do {
-			uin = JsonPrecondtion.getValueFromJson(
+		return JsonPrecondtion.getValueFromJson(
 					getResponseWithCookieForIdRepoUinGenerator(RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()
 							+ RunConfigUtil.objRunConfig.getGenerateUINPath(), AUTHORIZATHION_COOKIENAME),
 					"response.uin");
-			if (uin.startsWith("1") || uin.startsWith("2") || uin.startsWith("3") || uin.startsWith("4")) {
-				flag = true;
-			}
-		} while (flag == false);
-		return uin;
 	}
 
 	/**

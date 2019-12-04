@@ -1,5 +1,5 @@
 {
-	"response" : null,
+
     "errors": [
         {
             "errorCode": "RPR-PKR-005",
@@ -8,5 +8,6 @@
     ],
     "id": "mosip.registration.packet",
     "version": "1.0",
-    "responsetime": "2019-04-11T06:59:00.902Z"
+    "responsetime": "2019-04-11T06:59:00.902Z",
+	"response":null
 }

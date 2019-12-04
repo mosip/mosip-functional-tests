@@ -112,7 +112,7 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 				regId.put("regcenterId", regcenterId);
 				objectData.remove("regcenterId");
 					response = applicationLibrary.getWithPathQueryParam(syncMdatawithRegCentIdKeyIndex, regId, objectData, regAdminCookie);
-		//This method is for checking the authentication is pass or fail in rest services
+					//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
 		// add parameters to remove in response before comparison like time stamp
 			ArrayList<String> listOfElementToRemove = new ArrayList<String>();

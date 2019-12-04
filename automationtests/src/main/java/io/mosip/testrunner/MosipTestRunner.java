@@ -44,6 +44,7 @@ public class MosipTestRunner {
 		runner.setTestSuites(suitefiles);
 		runner.setOutputDirectory("testng-report");
 		runner.run();
+		 System.exit(0);
 	}
 	
 	/**

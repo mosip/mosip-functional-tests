@@ -2,6 +2,8 @@ package io.mosip.registration.main;
 
 import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_ID;
 import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -22,6 +24,7 @@ import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
 import io.mosip.registration.dto.RegistrationDTO;
+import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.service.config.GlobalParamService;
 import io.mosip.registration.service.operator.UserDetailService;
 import io.mosip.registration.service.operator.UserOnboardService;
@@ -91,7 +94,7 @@ public class PacketCreation extends BaseConfiguration {
 	}
 
 	@BeforeClass(alwaysRun = true)
-	public void dataSetUp() {
+	public void dataSetUp() throws RegBaseCheckedException {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
@@ -122,13 +125,13 @@ public class PacketCreation extends BaseConfiguration {
 				ApplicationContext.map().put(RegistrationConstants.CBEFF_UNQ_TAG, ConstantValues.YES);
 				ApplicationContext.map().put(RegistrationConstants.PACKET_STORE_LOCATION,
 						// "src/main/resources/packets/UniqueCBEFF_Packets"
-						prop.getProperty("UniqueCBEFF_path"));
+						new File(this.getClass().getClassLoader().getResource("").getPath()).getAbsolutePath().toString()+prop.getProperty("UniqueCBEFF_path"));
 			} else {
 				// Set CBEFF to UNIQUE & DUPLICATE
 				ApplicationContext.map().put(RegistrationConstants.CBEFF_UNQ_TAG, ConstantValues.NO);
 				ApplicationContext.getInstance().map().put(RegistrationConstants.PACKET_STORE_LOCATION,
 						// "src/main/resources/packets/DuplicateCBEFF_Packets");
-						prop.getProperty("DuplicateCBEFF_path"));
+						new File(this.getClass().getClassLoader().getResource("").getPath()).getAbsolutePath().toString()+prop.getProperty("DuplicateCBEFF_path"));
 			}
 			
 			String uin = dataGenerator.getYamlData(serviceName, testDataFileName, "parentUIN", prop.getProperty("UIN"));

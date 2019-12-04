@@ -36,7 +36,6 @@ import com.google.common.base.Verify;
 import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
-import io.mosip.registrationProcessor.util.RegProcException;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.AssertResponses;
 import io.mosip.service.BaseTestCase;
@@ -113,19 +112,20 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	  * @param testSuite
 	  * @param i
 	  * @param object
-	 * @throws RegProcException 
 	  */
 	 @Test(dataProvider="ActivateUin")
-	 public void packetGenerator(String testSuite, Integer i, JSONObject object) throws RegProcException{
+	 public void packetGenerator(String testSuite, Integer i, JSONObject object){
 	 	 List<String> outerKeys = new ArrayList<String>();
 	 	 List<String> innerKeys = new ArrayList<String>();
+	 	 String currentTestCaseName=object.get("testCaseName").toString();
 	 	 EncrypterDecrypter encrypter = new EncrypterDecrypter();
 	 	 
 
 	 	 try {
 	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
-	 	 	 if(object.get("testCaseName").toString().toLowerCase().contains("requesttime".toLowerCase())==false)
-	 	 	actualRequest.put("requesttime", apiRequests.getUTCTime());
+	 	 	 if(currentTestCaseName.contains("requestTime")==false) {
+		 	 		actualRequest.put("requesttime", apiRequests.getUTCTime());
+		 	 	 }
 	 	 	 expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 	 	 	 outerKeys.add("responsetime");
 	 	 	 innerKeys.add("registrationId");
@@ -138,16 +138,51 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 			
 
 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-		 	String message="";
+			boolean activateStatus=false;
+	 	 	try {
+	 	 		actualResponse.jsonPath().get("errors").toString();
+	 	 		activateStatus=true;
+			} catch (Exception e) {
+				activateStatus=false;
+			}
+	 	 	if(object.get("testCaseName").toString().contains("smoke") && activateStatus ) {
+	 	 		String errorMessage=actualResponse.jsonPath().get("errors[0].message").toString();
+	 	 		
+	 	 		if(errorMessage.equals("Uin is already ACTIVATED")) {
+	 	 			try {
+	 	 				JSONObject activateUin=ResponseRequestMapper.mapRequest(testSuite, object);
+	 	 				
+		 	 			JSONObject activateUinRequest=(JSONObject) activateUin.get("request");
+		 	 			
+		 	 			activateUinRequest.put("registrationType", "DEACTIVATED");
+		 	 			
+		 	 			activateUin.put("request", activateUinRequest);
+		 	 			
+		 	 			activateUin.put("requesttime", apiRequests.getUTCTime());
+		 	 			
+		 	 			apiRequests.regProcPacketGenerator(activateUin,  prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
+		 	 			Thread.sleep(0);
+					} 
+	 	 			
+	 	 			catch (Exception e) {
+	 	 				e.printStackTrace();
+					}
+	 	 		}
+	 	 		try {
+	 	 			Thread.sleep(20000);
+	 	 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
+	 	 		}
+	 	 		catch (Exception e) {
+					e.printStackTrace();
+				}
+	 	 		
+	 	 	}
+
+	 	 	String message="";
 	 	 	 try {
 	 	 		 message=actualResponse.jsonPath().get("response.message").toString();
 	 	 		 }catch (Exception e) {
-	 	 			 try {
-	 	 				message=actualResponse.jsonPath().get("errors[0].message").toString();
-					} catch (IllegalArgumentException e2) {
-						throw new RegProcException(actualResponse.jsonPath().get("message").toString());
-					}
-	 	 			 
+	 	 			 message=actualResponse.jsonPath().get("errors[0].message").toString();
 			}
 	 	 	 boolean idRepoStatus=false;
 	 	  if(message.equals("Packet created and uploaded")) {
@@ -156,7 +191,7 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	 		  	
 	 	 				idRepoStatus=apiRequests.getUinStatusFromIDRepo(actualRequest, idRepoToken, "ACTIVATED");
 	 			
-	 	 	 } 
+	 	 	 }
 	 	
 
 	 	 	 status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);

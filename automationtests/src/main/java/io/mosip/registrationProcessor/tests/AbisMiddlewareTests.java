@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
@@ -18,15 +17,17 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
+
 import io.mosip.dbaccess.AbisDbTransactions;
 import io.mosip.registrationProcessor.service.IntegMethods;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
-import io.mosip.service.BaseTestCase; 
+import io.mosip.service.BaseTestCase;
 
 public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 	IntegMethods regProcRequests = new IntegMethods();
@@ -38,6 +39,7 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 	Map<String, String> getMatchedId = new HashMap<String, String>();
 	Map<String, Set<String>> mapOfIds=new HashMap<String,Set<String>>();
 	private static Logger logger = Logger.getLogger(AbisMiddlewareTests.class);
+	IntegMethods scenario = new IntegMethods();
 	String moduleName = "RegProc";
 	String apiName = "AbisMiddleWareTests";
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
@@ -60,9 +62,10 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 
 	@Test(dataProvider = "AbisTestPackets", priority = 1)
 	public void syncAndUploadPacket(File[] bioDedupePackets) {
-		File file = new File(bioDedupePackets[0].getAbsolutePath());
+		File file = new File(bioDedupePackets[0].getAbsolutePath()+"/generatedPacket");
 		File[] listOfPackets = file.listFiles();
 		for (File packets : listOfPackets) {
+			
 			if (packets.getName().contains(".zip")) {
 
 				try {
@@ -80,7 +83,7 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 
 	@Test(dataProvider = "AbisTestPackets", priority = 2)
 	public void dedupeMatchStatus(File[] bioDedupePackets) {
-		File file = new File(bioDedupePackets[0].getAbsolutePath());
+		File file = new File(bioDedupePackets[0].getAbsolutePath()+"/generatedPacket");
 		File[] listOfPackets = file.listFiles();
 		for (File packets : listOfPackets) {
 			if (packets.getName().contains("zip")) {
@@ -187,4 +190,26 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 	public String getTestName() {
 		return this.testCaseName;
 	}
+	
+	@BeforeClass
+	public void generateAbisPackets() {
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+		File file = new File(apiRequests.getResourcePath()+"regProc/AbisTestpackets");
+		File[] listOfPackets = file.listFiles();
+		List<File> insideFiles=new ArrayList<File>();
+		for(File listOfFile:listOfPackets) {
+			for(File packet:listOfFile.listFiles()) {
+				if(packet.getName().contains(".zip")) {
+					File decryptedPacket=scenario.decryptPacket(packet);
+					scenario.updateRegId(decryptedPacket);
+					scenario.updateCheckSum(decryptedPacket);
+					scenario.encryptFile(decryptedPacket);
+					break;
+				}
+			}
+			break;
+		}
+	 
+	}
+	
 }

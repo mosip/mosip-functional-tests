@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Map.Entry;
 
 import javax.ws.rs.core.MediaType;
@@ -43,6 +45,8 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
+import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
+import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -456,10 +460,10 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param type, BIO,DEMO,ALL
 	 * @return String, Response
 	 */
-	protected static String getResponseWithCookie(String url, String type, String cookieName) {
+	protected static String getResponseWithCookie(String url, String cookieName, String cookieValue) {
 		try {
-			return RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, type,
-					cookieName, getAuthorizationCookie(getCookieRequestFilePath(), getCookieUrlPath(), cookieName)).asString();
+			return RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+					cookieName, cookieValue).asString();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return e.toString();
@@ -949,7 +953,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	}*/
 	
 	public static void initiateAuthTest() {
-		removeOldAuthTestResource();
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
 	}
@@ -1167,7 +1170,9 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String getAuthorizationCookie(String filename, String urlPath,String cookieName) {
 		JSONObject objectData = null;
 		try {
-			objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			String json = getContentFromFile(new File(filename));
+			json=json.replace("$TIMESTAMPZ$", IdaKeywordUtil.generateTimeStampWithZTimeZone());
+			objectData = (JSONObject) new JSONParser().parse(json);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception Occured :" + e.getMessage());
 		}
@@ -1314,7 +1319,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 
-	public static void removeOldAuthTestResource() {
+	public static void removeOldMosipTempTestResource() {
 		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 		if (authTestFile.exists())
 			if (FileUtil.deleteDirectory(authTestFile))
@@ -1349,6 +1354,74 @@ public class AuthTestsUtil extends BaseTestCase {
 			return e.getMessage();
 		}
 	}
+	
+	public static int getNumberOfTimeWordPresentInString(String data, String keyword) {
+		int i = 0;
+		Pattern p = Pattern.compile(keyword);
+		Matcher m = p.matcher(data);
+		while (m.find()) {
+			i++;
+		}
+		return i;
+	}
+	protected String putRequestWithparm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.putRequestWithParm(url, objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	protected String putRequestWithCookie(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}	
+	
+	public String getUinHashWithSalt(String uin) {
+		Long uinModulo = (Long.parseLong(uin) % 1000);
+		String uinSaltQuery = "select salt from ida.uin_hash_salt where id='" + uinModulo.toString() + "'";
+		Map<String, String> uinSalt = DbConnection.getDataForQuery(uinSaltQuery, "IDA");
+		return HMACUtils.digestAsPlainTextWithSalt(uin.getBytes(), uinSalt.get("salt").getBytes());
+	}
+	
+	public static int generateRandomIntRange(int min, int max) {
+	    Random r = new Random();
+	    return r.nextInt((max - min) + 1) + min;
+	}
+	
+	// Added by Admin Test Team
+	protected Response getRequestWithPathParm(String filename, String url, String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient.getRequestWithCookieAndPathParm(url, objectData, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
+
+	protected Response getRequestWithQueryParm(String filename, String url, String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient.getRequestWithCookieAndQueryParm(url, objectData, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
+	
 } 
 
 

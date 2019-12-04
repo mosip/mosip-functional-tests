@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.automationtests</groupId>
@@ -10,7 +11,7 @@
 	<parent>
 		<groupId>io.mosip</groupId>
 		<artifactId>mosip-parent</artifactId>
-		<version>0.9.0</version>
+		<version>0.10.4</version>
 	</parent>
 	<properties>
 		<!-- kernel versions -->
@@ -58,7 +59,7 @@
 		<hibernate.validator.version>6.0.12.Final</hibernate.validator.version>
 
 		<!-- test -->
-		<junit.version>4.12</junit.version>
+		<!-- <junit.version>4.12</junit.version> -->
 		<mockito.version>1.10.19</mockito.version>
 		<powermock.version>1.7.4</powermock.version>
 		<powermock.beta.version>2.0.0-beta.5</powermock.beta.version>
@@ -125,7 +126,7 @@
 		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 
 		<!-- Test & Logging -->
-		<junit.version>4.12</junit.version>
+		<!-- <junit.version>4.12</junit.version> -->
 		<logback.version>1.1.6</logback.version>
 		<slf4j.version>1.7.19</slf4j.version>
 		<mockito.version>1.10.19</mockito.version>
@@ -140,7 +141,7 @@
 		<spring.version>5.0.6.RELEASE</spring.version>
 
 		<!-- Hibernate version -->
-		<hibernate.version>5.4.0.Final</hibernate.version>
+		<hibernate.version>5.4.2.Final</hibernate.version>
 
 		<!-- Apache Commons DPC2 version -->
 		<apache.commons.dpce.version>2.1.1</apache.commons.dpce.version>
@@ -149,7 +150,7 @@
 		<jackson.version>2.8.8</jackson.version>
 		<jackson.mapper.asl.version>1.7.1</jackson.mapper.asl.version>
 
-		<mosip.core.kernel.version>${project.version}</mosip.core.kernel.version>
+		<mosip.core.kernel.version>0.10.3</mosip.core.kernel.version>
 		<!-- Derby Version -->
 		<apache.derby.version>10.13.1.1</apache.derby.version>
 
@@ -167,8 +168,8 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<registration-services.version>${project.version}</registration-services.version>
-		<kernel.version>${project.version}</kernel.version>
+		<registration-services.version>0.10.0</registration-services.version>
+		<kernel.version>0.10.3</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
@@ -269,11 +270,7 @@
 			<artifactId>javax.ws.rs-api</artifactId>
 			<version>2.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-core</artifactId>
-			<version>1.3</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
@@ -401,7 +398,12 @@
 			<artifactId>javase</artifactId>
 			<version>2.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
@@ -429,11 +431,16 @@
 		<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-partnerdemo-service</artifactId>
-			<version>0.12.18</version>
+			<version>0.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
+			<version>${kernel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.mosip.kernel</groupId>
+			<artifactId>kernel-crypto-jce</artifactId>
 			<version>${kernel.version}</version>
 		</dependency>
 		<dependency>
@@ -461,7 +468,12 @@
 			<version>${lombok.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

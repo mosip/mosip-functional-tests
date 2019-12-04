@@ -67,7 +67,7 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
 		if(!lib.isValidToken(regAdminCookie))
 			regAdminCookie=auth.getAuthForRegistrationAdmin();
-		build=io.mosip.report.Reporter.getAppDepolymentVersion().substring(2, 4);
+		build=io.mosip.report.Reporter.getAppDepolymentVersion();
 	} 
 	
 	// Data Providers to read the input json files from the folders
@@ -90,7 +90,7 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 	public void syncConfigurations(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
 		// Getting configurations from the server
-		Response expectedobject=applicationLibrary.getConfigProperties("http://104.211.212.28:51000/registration/"+environment+"/0."+build+".0/");
+		Response expectedobject=applicationLibrary.getConfigProperties("http://104.211.212.28:51000/registration/"+environment+"/"+build+"/");
 		//Getting the registrationConfiguration
 		JSONObject regConfig=(JSONObject) ((JSONObject)((JSONArray)((JSONObject) new JSONParser().parse(expectedobject.asString())).get("propertySources")).get(0)).get("source");
 		//Getting the globalConfig
@@ -128,7 +128,6 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
-
 		// Comparing expected and actual response
 		status = assertKernel.assertKernelWithJsonObject(actualresponse, configDetail,listOfElementToRemove);
  
