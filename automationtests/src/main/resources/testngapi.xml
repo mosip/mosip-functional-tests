@@ -304,5 +304,4 @@
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
 	</test> 
-
 </suite>
