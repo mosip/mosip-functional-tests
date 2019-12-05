@@ -157,8 +157,6 @@
 			 <class name="io.mosip.authentication.tests.OtpAuthentication" />
 			 <class
 				name="io.mosip.authentication.tests.BiometricAuthentication" />
-		     <class
-				name="io.mosip.authentication.tests.MultiFactorAuthentication" />
 			<class
 				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
 			<class name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
@@ -306,4 +304,5 @@
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
 	</test> 
+
 </suite>

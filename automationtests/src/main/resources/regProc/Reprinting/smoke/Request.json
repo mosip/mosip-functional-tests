@@ -1,7 +1,7 @@
 {
   "id": "mosip.uincard.reprint",
   "version": "1.0",
-  "requesttime": "2019-08-09T06:25:44.489Z",
+  "requesttime": "2019-07-31T09:28:52.838Z",
   "request": {
     "centerId": "10002",
     "machineId": "10021",
@@ -9,6 +9,6 @@
     "registrationType": "RES_REPRINT",
     "id": "7187957356",
     "idType": "UIN",
-    "cardType": "UIN"
+    "cardType": ""
   }
 } 
