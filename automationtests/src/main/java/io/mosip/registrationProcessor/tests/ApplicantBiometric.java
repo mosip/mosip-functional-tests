@@ -201,7 +201,7 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 
 
 				if(!isError){
-					String file = actualResponse.jsonPath().get("file"); 
+					String file = actualResponse.jsonPath().get("response.file"); 
 					logger.info("file : "+file );
 					if(file!=null) {
 						finalStatus = "Pass";

@@ -1,12 +1,12 @@
+
 {
     "id": "mosip.uincard.reprint",
     "version": "1.0",
-    "responsetime": "2019-08-12T06:16:00.644Z",
-    "response": null,
-    "errors": [
-        {
-             "errorCode": "RPR-PGS-004",
-            "message": "Invalid CardType : Enter UIN or MASKED_UIN"
-        }
-    ]
+    "responsetime": "2019-12-06T07:02:38.476Z",
+    "response": {
+        "registrationId": "10002100210011020191206070235",
+        "status": "Packet has reached Packet Receiver",
+        "message": "Packet created and uploaded"
+    },
+    "errors": null
 }
