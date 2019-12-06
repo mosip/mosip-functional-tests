@@ -1,7 +1,7 @@
 {
-    "timestamp": "2019-08-14T10:40:42.161+0000",
-    "status": 404,
-    "error": "Not Found",
-    "message": "No message available",
-    "path": "/registrationprocessor/v1/registrationtransaction/search/en/"
+	"timestamp": "2019-12-06T05:22:23.488+0000",
+	"status": 404,
+	"error": "Not Found",
+	"message": "No message available",
+	"path": "/registrationprocessor/v1/registrationtransaction/search/10002100210003420190812064248"
 }

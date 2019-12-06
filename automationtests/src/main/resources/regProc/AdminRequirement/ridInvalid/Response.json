@@ -1,12 +1,7 @@
 {
-    "id": "mosip.registration.transaction",
-    "version": "1.0",
-    "responsetime": "2019-08-14T10:41:20.737Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "RPR-RTS-001",
-            "message": "RID Not Found"
-        }
-    ]
+	"timestamp": "2019-12-06T05:24:13.303+0000",
+	"status": 404,
+	"error": "Not Found",
+	"message": "No message available",
+	"path": "/registrationprocessor/v1/registrationtransaction/search/10002100210003420190812064248"
 }

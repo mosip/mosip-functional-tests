@@ -3042,3 +3042,34 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceSubType:errorCode$
       output.1.response.error.errorMessage: $errors:MissingDeviceSubType:errorMessage$
+      
+  Authentication_Biometric_Face_Without_signature_Neg:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_face_subType$
+      identityReq.bioType: $TestData:bio_face_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
+      #Device
+      identityReq.deviceCode: $Device:face:code$
+      identityReq.deviceProviderID: $Device:face:provider_id$
+      identityReq.deviceServiceVersion: $Device:face:sw_version$
+      identityReq.digitalId.serialNo: $Device:face:serial_number$
+      identityReq.digitalId.make: $Device:face:make$
+      identityReq.digitalId.model: $Device:face:model$
+      identityReq.digitalId.deviceProvider: $Device:face:provider_name$
+      identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
+      identityReq.digitalId.dateTime: $TIMESTAMP$
+    output.output-1-expected-n-res:
+      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.error.errorCode: $errors:InvalidSignature:errorCode$
+      output.1.response.error.errorMessage: $errors:InvalidSignature:errorMessage$

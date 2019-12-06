@@ -187,7 +187,7 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 			FileUtil.writeFile(FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath(),
 					BiometricDataUtility.constractBioIdentityRequest(
 							getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),
-							RunConfigUtil.getBioValueEncryptionTemplatePath(), false));
+							RunConfigUtil.getBioValueEncryptionTemplatePath(),testcaseName, false));
 		String extUrl = getExtendedUrl(new File(objTestParameters.getTestCaseFile() + "/url.properties"));
 		Map<String, String> tempMap = getEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of demo auth request ******************");

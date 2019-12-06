@@ -1,12 +1,10 @@
 {
-    "id": "mosip.registration.transaction",
-    "version": "1.0",
-    "responsetime": "2019-08-14T10:40:16.086Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "RPR-RTS-003",
-            "message": "Invalid request"
-        }
-    ]
+	"id": "mosip.registration.transaction",
+	"version": "1.0",
+	"responsetime": "2019-12-06T05:23:34.472Z",
+	"response": null,
+	"errors": [{
+		"errorCode": "RPR-RTS-003",
+		"message": "Invalid request - langCode"
+	}]
 }

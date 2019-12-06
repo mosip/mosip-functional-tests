@@ -194,6 +194,7 @@ public class UpdateIdentity extends IdRepoTestsUtil implements ITest {
 		if(testCaseName.getName().contains("Deactivated") || testCaseName.getName().contains("Blocked")) 
 		{
 			storeUinData.put(uin, testcaseName);
+			storeUinData();
 		}
 	}
 	
@@ -201,8 +202,7 @@ public class UpdateIdentity extends IdRepoTestsUtil implements ITest {
 	 * The method store or modify updated UIN in property file
 	 * 
 	 */
-	@AfterClass
-	public void storeUinData() {
+	private void storeUinData() {
 		UinDto.setUinData(storeUinData);
 		logger.info("Updated UIN: " + UinDto.getUinData());
 		updateMappingDic(new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()

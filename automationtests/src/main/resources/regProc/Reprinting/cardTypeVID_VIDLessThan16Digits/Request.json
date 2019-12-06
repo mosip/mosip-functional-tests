@@ -7,8 +7,8 @@
     "machineId": "10021",
     "reason": "Id Type and Card Type is UIN",
     "registrationType": "RES_REPRINT",
-    "id": "3952370938",
-    "idType": "MASKED_UIN",
-    "cardType": "MASKED_UIN"
+    "id": "7849057132",
+    "idType": "UIN",
+    "cardType": "UIN"
   }
 } 

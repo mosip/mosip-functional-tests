@@ -180,9 +180,9 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		List<File> insideFiles=new ArrayList<File>();
 	 
 		for(File file1:listOfPackets) {
-			insideFiles.add(file1);
+			//insideFiles.add(file1);
 			File[] packets=file1.listFiles();
-			for(File generatedPacket:packets) {
+	/*		for(File generatedPacket:packets) {
 				if(generatedPacket.getName().contains("generated") || generatedPacket.getName().contains("Temporary"))
 					try {
 						FileUtils.deleteDirectory(generatedPacket);
@@ -190,7 +190,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-			}
+			}*/
 			for(File packet:packets) {
 				if(packet.getName().contains(".zip")){
 					File decryptedPacket=scenario.decryptPacket(packet);

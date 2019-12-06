@@ -191,7 +191,7 @@ public class InternalBiometricAuthentication extends PrerequisteTests implements
 		// Perform encoding here
 		FileUtil.writeFile(FileUtil.getFileFromList(testCaseName.listFiles(), "identity-encrypt").getAbsolutePath(),
 				BiometricDataUtility
-						.constractBioIdentityRequest(getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),RunConfigUtil.getInternalBioValueEncryptionTemplatePath(),true));
+						.constractBioIdentityRequest(getContentFromFile(testCaseName.listFiles(), "identity-encrypt"),RunConfigUtil.getInternalBioValueEncryptionTemplatePath(),testcaseName,true));
 		Map<String, String> tempMap = getInternalEncryptKeyvalue(testCaseName.listFiles(), "identity-encrypt");
 		logger.info("************* Modification of internal bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
