@@ -32,4 +32,12 @@ public class DecodeTest {
 	public void decodeTest() {
 		decodeMock.decode("sampleData");
 	}
+	
+	/**
+	 * Decode file test.
+	 */
+	@Test
+	public void decodeFileTest() {
+		decodeMock.decodeToFile("Sample", "sample");
+	}
 }
