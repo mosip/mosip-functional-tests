@@ -267,7 +267,7 @@ public class Encrypt {
 	
 	@PostMapping(path = "/combineDataToEncrypt", consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public String combineDataToEncrypt(@RequestBody SplittedEncryptedData splittedData) {
-		return CryptoUtil.encodeBase64String(
+		return CryptoUtil.encodeBase64(
 				CryptoUtil.combineByteArray(
 						CryptoUtil.decodeBase64(splittedData.getEncryptedData()), 
 						CryptoUtil.decodeBase64(splittedData.getEncryptedSessionKey()), 

@@ -3,8 +3,6 @@
  */
 package io.mosip.authentication.partnerdemo.service.controller;
 
-import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_AAD_LAST_BYTES_NUM;
-import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_SALT_LAST_BYTES_NUM;
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.UTF_8;
 
 import java.io.ByteArrayInputStream;
@@ -51,7 +49,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.authentication.core.constant.IdAuthCommonConstants;
-import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
 import io.mosip.authentication.core.exception.IdAuthenticationAppException;
 import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
@@ -278,19 +275,24 @@ public class AuthRequestController {
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
-					String encodedDigitalId = CryptoUtil.encodeBase64String(digitalIdStr.getBytes());
+					String encodedDigitalId = CryptoUtil.encodeBase64(digitalIdStr.getBytes());
 					dataMap.put(DIGITAL_ID, encodedDigitalId);
 				}
 
-				String dataStr = mapper.writeValueAsString(dataMap);
+				String dataStrJson = mapper.writeValueAsString(dataMap);
 				try {
-					String dataJws = digitalSign.sign(dataStr);
-					bioMap.put(DATA, dataJws);
+					String dataStr;
+					if(isInternal) {
+						dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
+					} else {
+						dataStr = digitalSign.sign(dataStrJson);
+					}
+					bioMap.put(DATA, dataStr);
 				} catch (KeyStoreException | CertificateException | UnrecoverableEntryException | JoseException e) {
 					e.printStackTrace();
 				}
 
-				String currentHash = digest(getHash(dataStr));
+				String currentHash = digest(getHash(dataStrJson));
 				String concatenatedHash = previousHash + currentHash;
 				byte[] finalHash = getHash(concatenatedHash);
 
@@ -398,7 +400,7 @@ public class AuthRequestController {
 			Map<String, Object> dataMap = map.get(DATA) instanceof Map ? (Map<String, Object>) map.get(DATA) : null;
 			try {
 				if (Objects.nonNull(dataMap)) {
-					Object value = CryptoUtil.encodeBase64String(mapper.writeValueAsBytes(dataMap));
+					Object value = CryptoUtil.encodeBase64(mapper.writeValueAsBytes(dataMap));
 					map.replace(DATA, value);
 				}
 			} catch (JsonProcessingException e) {
