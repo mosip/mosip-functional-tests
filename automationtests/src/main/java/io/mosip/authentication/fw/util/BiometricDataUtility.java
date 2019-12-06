@@ -21,6 +21,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
  
 /**
  * The class to perform or construct biometric identity data which involves
@@ -60,7 +61,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
 	}
 
-	public static String constractBioIdentityRequest(String identityRequest, String bioValueencryptionTemplateJson,
+	public static String constractBioIdentityRequest(String identityRequest, String bioValueencryptionTemplateJson,String testcaseName,
 			boolean isInternal) {
 		int count = getNumberOfTimeWordPresentInString(identityRequest, "\"data\"");
 		String previousHash = getHash("");
@@ -86,6 +87,8 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			else if (isInternal == true)
 				signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
 			// String signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
+			if(testcaseName.toLowerCase().contains("without".toLowerCase()) && testcaseName.toLowerCase().contains("signature".toLowerCase()) && testcaseName.toLowerCase().contains("_neg".toLowerCase()))
+				signedData=signedData.split(Pattern.quote("."))[1];
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, signedData,
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,

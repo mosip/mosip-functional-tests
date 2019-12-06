@@ -402,3 +402,7 @@ errors:
   MissingDeviceSubType:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/subType
+  InvalidSignature:
+    errorCode: IDA-MPA-002
+    errorMessage: Invalid certificate in digital signature
+    
