@@ -93,7 +93,7 @@ http://localhost:8081/v1/identity/createAuthRequest?id=5879610697&idType=UIN&isI
   "requestedAuth": {
     "bio": true,
     "demo": false,
-    "otp": false,
+    "otp": true,
     "pin": false
   },
   "transactionID": "1234567890",
