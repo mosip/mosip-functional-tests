@@ -89,23 +89,49 @@ public class Decrypt {
 	 */
 	@PostMapping(path = "/authRequest/decrypt", produces = MediaType.APPLICATION_JSON_VALUE) 
 	public String decrypt(@RequestBody String data, 
-			@RequestParam(name="refId",required=false) @Nullable String refId)
+			@RequestParam(name="refId",required=false) @Nullable String refId,
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
+			@RequestParam(name="isBiometrics",required=false) @Nullable boolean isBiometrics,
+			@RequestParam(name="salt",required=false) @Nullable String salt,
+			@RequestParam(name="aad",required=false) @Nullable String aad)
 			throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, KeyManagementException {
 		if (refId == null) {
-			refId = appID;
+			refId = getRefId(isInternal, isBiometrics);
 		}
-		return kernelDecrypt(data, refId);
+		return kernelDecrypt(data, refId, salt, aad);
 	}
 	
 	@PostMapping(path = "/authRequest/decryptSplittedData", produces = MediaType.APPLICATION_JSON_VALUE) 
 	public String decryptSplittedData(@RequestBody SplittedEncryptedData splittedData,
-			@RequestParam(name="refId",required=false) @Nullable String refId)
+			@RequestParam(name="refId",required=false) @Nullable String refId,
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isBiometrics,
+			@RequestParam(name="salt",required=false) @Nullable String salt,
+			@RequestParam(name="aad",required=false) @Nullable String aad)
 			throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, KeyManagementException {
 		String data = combine(splittedData.getRequest(), splittedData.getRequestSessionKey());
 		if (refId == null) {
-			refId = appID;
+			refId = getRefId(isInternal, isBiometrics);
 		}
-		return kernelDecrypt(data, refId);
+		return kernelDecrypt(data, refId, salt, aad);
+	}
+	
+	private String getRefId(boolean isInternal, boolean isBiometrics) {
+		String refId;
+		if(isBiometrics) {
+			if (isInternal) {
+				refId = env.getProperty(IdAuthConfigKeyConstants.INTERNAL_BIO_REFERENCE_ID);
+			} else {
+				refId = env.getProperty(IdAuthConfigKeyConstants.PARTNER_BIO_REFERENCE_ID);
+			}
+		} else {
+			if (isInternal) {
+				refId = env.getProperty(IdAuthConfigKeyConstants.INTERNAL_REFERENCE_ID);
+			} else {
+				refId = env.getProperty(IdAuthConfigKeyConstants.PARTNER_REFERENCE_ID);
+			}
+		}
+		return refId;
 	}
 
 	private String combine(String request, String requestSessionKey) {
@@ -119,12 +145,14 @@ public class Decrypt {
 	 * This method is used to call the kernel decrypt api for decryption.
 	 *
 	 * @param data the data
+	 * @param salt 
+	 * @param aad 
 	 * @return the string
 	 * @throws KeyManagementException the key management exception
 	 * @throws NoSuchAlgorithmException the no such algorithm exception
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public String kernelDecrypt(String data, String refId)
+	public String kernelDecrypt(String data, String refId, String salt, String aad)
 			throws KeyManagementException, NoSuchAlgorithmException {
 		Encrypt.turnOffSslChecking();
 		RestTemplate restTemplate = new RestTemplate();
@@ -147,6 +175,8 @@ public class Decrypt {
 		cryptomanagerRequestDto.setApplicationId(appID);
 		cryptomanagerRequestDto.setReferenceId(refId);
 		cryptomanagerRequestDto.setData(data);
+		cryptomanagerRequestDto.setAad(aad);
+		cryptomanagerRequestDto.setSalt(salt);
 		cryptomanagerRequestDto.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
 		
 		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(cryptomanagerRequestDto));

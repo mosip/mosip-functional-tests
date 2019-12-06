@@ -1,5 +1,8 @@
 package io.mosip.authentication.partnerdemo.service.controller;
 
+import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_AAD_LAST_BYTES_NUM;
+import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_SALT_LAST_BYTES_NUM;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
@@ -36,6 +39,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -104,6 +108,9 @@ public class Encrypt {
 	
 	@Autowired
 	private CryptoUtility cryptoUtil;
+	
+	@Value("${mosip.kernel.encrypt-url}")
+	private String encryptURL;
 
 	
 	
@@ -131,10 +138,15 @@ public class Encrypt {
 	@PostMapping(path = "/encrypt")
 	@ApiOperation(value = "Encrypt Identity with sessionKey and Encrypt Session Key with Public Key", response = EncryptionResponseDto.class)
 	public EncryptionResponseDto encrypt(@RequestBody EncryptionRequestDto encryptionRequestDto,
-			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal)
+			@RequestParam(name="refId",required=false) @Nullable String refId,
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isBiometrics)
 			throws NoSuchAlgorithmException, InvalidKeySpecException, IOException, KeyManagementException,
 			JSONException, InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-		return kernelEncrypt(encryptionRequestDto, isInternal);
+		if (refId == null) {
+			refId = getRefId(isInternal, isBiometrics);
+		}
+		return kernelEncrypt(encryptionRequestDto, refId);
 	}
 
 	/**
@@ -155,7 +167,7 @@ public class Encrypt {
 	 * @throws InvalidKeySpecException the invalid key spec exception
 	 * @throws RestClientException             the rest client exception
 	 */
-	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, boolean isInternal)
+	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, String refId)
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			InvalidKeySpecException {
@@ -164,7 +176,7 @@ public class Encrypt {
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(), secretKey);
 		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
-		String publicKeyStr = getPublicKey(identityBlock, isInternal);
+		String publicKeyStr = getPublicKey(identityBlock, refId);
 		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
 				.generatePublic(new X509EncodedKeySpec(CryptoUtil.decodeBase64(publicKeyStr)));
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
@@ -174,6 +186,76 @@ public class Encrypt {
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
 	}
+	
+	@PostMapping(path = "/encryptBiometricValue")
+	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue, 
+			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
+			@RequestParam(name="timestamp",required=false) @Nullable boolean isInternal)
+			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
+			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
+			InvalidKeySpecException {
+		Encrypt.turnOffSslChecking();
+		RestTemplate restTemplate = new RestTemplate();
+		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
+
+			@Override
+			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+					throws IOException {
+				String authToken = generateAuthToken();
+				if(authToken != null && !authToken.isEmpty()) {
+					request.getHeaders().set("Cookie", "Authorization=" + authToken);
+				}
+				return execution.execute(request, body);
+			}
+		};
+
+		restTemplate.setInterceptors(Collections.singletonList(interceptor));
+		
+		
+		byte[] saltLastBytes = getLastBytes(timestamp, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
+		String salt = CryptoUtil.encodeBase64(saltLastBytes);
+		byte[] aadLastBytes = getLastBytes(timestamp, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
+		String aad = CryptoUtil.encodeBase64(aadLastBytes);
+
+		CryptomanagerRequestDto cryptomanagerRequestDto = new CryptomanagerRequestDto();
+		cryptomanagerRequestDto.setApplicationId(appID);
+		cryptomanagerRequestDto.setSalt(salt);
+		cryptomanagerRequestDto.setAad(aad);
+		cryptomanagerRequestDto.setReferenceId(getRefId(isInternal, true));
+		cryptomanagerRequestDto.setData(bioValue);
+		cryptomanagerRequestDto.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
+		
+		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(cryptomanagerRequestDto));
+		ResponseEntity<Map> response = restTemplate.exchange(encryptURL, HttpMethod.POST, httpEntity, Map.class);
+		
+		if(response.getStatusCode() == HttpStatus.OK) {
+			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
+			SplittedEncryptedData splitedEncryptedData = splitEncryptedData(responseData);
+			return splitedEncryptedData;
+		}
+		return null ;
+	}
+	
+	private byte[] getLastBytes(String timestamp, int lastBytesNum) {
+		assert(timestamp.length() >= lastBytesNum);
+		return timestamp.substring(timestamp.length() - lastBytesNum).getBytes();
+	}
+	
+	
+	/**
+	 * Creates the request.
+	 *
+	 * @param <T> the generic type
+	 * @param t the t
+	 * @return the request wrapper
+	 */
+	public static <T> RequestWrapper<T> createRequest(T t){
+    	RequestWrapper<T> request = new RequestWrapper<>();
+    	request.setRequest(t);
+    	request.setId("ida");
+    	request.setRequesttime(DateUtils.getUTCCurrentDateTime());
+    	return request;
+    }
 	
 
 	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE) 
@@ -232,7 +314,7 @@ public class Encrypt {
 	 * @throws JSONException             the JSON exception
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public String getPublicKey(String data, boolean isInternal)
+	public String getPublicKey(String data, String refId)
 			throws IOException, KeyManagementException, NoSuchAlgorithmException, RestClientException, JSONException {
 		turnOffSslChecking();
 		RestTemplate restTemplate = new RestTemplate();
@@ -254,18 +336,35 @@ public class Encrypt {
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
 		request.setApplicationId(appID);
 		request.setData(Base64.encodeBase64URLSafeString(data.getBytes(StandardCharsets.UTF_8)));
-		String publicKeyId = isInternal ? env.getProperty("internal.reference.id") : env.getProperty(IdAuthConfigKeyConstants.PARTNER_REFERENCE_ID);
-		request.setReferenceId(publicKeyId );
+		request.setReferenceId(refId );
 		String utcTime = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 		request.setTimeStamp(utcTime);
 		Map<String, String> uriParams = new HashMap<>();
 		uriParams.put("appId", appID);
 		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(publicKeyURL)
 				.queryParam("timeStamp", utcTime)
-				.queryParam("referenceId", publicKeyId);
+				.queryParam("referenceId", refId);
 		ResponseEntity<Map> response = restTemplate.exchange(builder.build(uriParams), HttpMethod.GET,
 				null, Map.class);
 		return (String) ((Map<String, Object>) response.getBody().get("response")).get("publicKey");
+	}
+
+	private String getRefId(boolean isInternal, boolean isBiometrics) {
+		String refId;
+		if(isBiometrics) {
+			if (isInternal) {
+				refId = env.getProperty(IdAuthConfigKeyConstants.INTERNAL_BIO_REFERENCE_ID);
+			} else {
+				refId = env.getProperty(IdAuthConfigKeyConstants.PARTNER_BIO_REFERENCE_ID);
+			}
+		} else {
+			if (isInternal) {
+				refId = env.getProperty(IdAuthConfigKeyConstants.INTERNAL_REFERENCE_ID);
+			} else {
+				refId = env.getProperty(IdAuthConfigKeyConstants.PARTNER_REFERENCE_ID);
+			}
+		}
+		return refId;
 	}
 
 	/**
