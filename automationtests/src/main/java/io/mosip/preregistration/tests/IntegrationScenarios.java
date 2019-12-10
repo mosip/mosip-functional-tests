@@ -211,7 +211,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		response = lib.documentUpload(response,individualToken);
 
 		String errMessage = lib.getErrorMessage(response);
-		lib.compareValues(errMessage, "Demographic record failed to fetch expected");
+		lib.compareValues(errMessage, "Demographic record failed to fetch");
 
 	}
 
@@ -985,7 +985,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		Response documentResponse = lib.documentUpload(createResponse,individualToken);
 		String errorCode = documentResponse.jsonPath().get("errors[0].errorCode").toString();
 		String message = documentResponse.jsonPath().get("errors[0].message").toString();
-		lib.compareValues(message, "Demographic record failed to fetch expected");
+		lib.compareValues(message, "Demographic record failed to fetch");
 		lib.compareValues(errorCode, "PRG_PAM_DOC_020");
 
 	}
@@ -1459,7 +1459,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String docId = uploadDoc.jsonPath().get("response.docId").toString();
 		Response discardApp = lib.discardApplication(preRegID, individualToken);
 		Response delDocumentByDocId = lib.deleteAllDocumentByDocId(docId, preRegID, individualToken);
-		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_DOC_020 ");
+		lib.compareValues(lib.getErrorCode(delDocumentByDocId), "PRG_PAM_DOC_020");
 		lib.compareValues(lib.getErrorMessage(delDocumentByDocId),
 				"Demographic record failed to fetch");
 

@@ -146,6 +146,20 @@ public class RegProcTransactionDb {
 		}
 		return false;
 	}
-	
+	public String getRef_Id(String regId) {
+		String refId="";
+		Session session=getCurrentSession();
+		 Transaction t=session.beginTransaction();
+		 String queryString="Select bio_ref_id "+
+		 " FROM regprc.reg_bio_ref where regprc.reg_bio_ref.reg_id= :regId ";
+		 Query<String> query=session.createSQLQuery(queryString);
+		 query.setParameter("regId", regId); 
+		 List<String> list=query.getResultList();
+		 for(String id: list) {
+			 refId=id;
+		 }
+		return refId;
+		 
+	}
 	
 }
