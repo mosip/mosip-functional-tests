@@ -97,7 +97,7 @@ testdata:
       
   InternalAuthentication_unlockUIN_for_bio_Face_Pos:
     input.request:
-      individualId: $UIN.bio.FID.true$
+      individualId: $UIN.bio.FACE.true$
       individualIdType: $TestData:indvId_Uin_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_face_type$
@@ -109,7 +109,7 @@ testdata:
       
   InternalAuthentication_UnlockVID_for_bio_Face_Pos:
     input.request:
-      individualId: $VID.bio.FID.true$
+      individualId: $VID.bio.FACE.true$
       individualIdType: $TestData:indvId_Vid_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_face_type$

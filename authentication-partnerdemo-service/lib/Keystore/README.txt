@@ -14,7 +14,7 @@ Export Public Key:
 keytool -export -alias mosip.io -keystore keystore.jks -file PublicKey.pem
 
 Export Private Key:
-keytool -importkeystore -srckeystore keystore.jks -srcstorepass Mosip@dev123 -srckeypass Mosip@dev123 -srcalias mosip.io -destalias mosip.io -destkeystore PrivateKey.p12 -deststoretype PKCS12 -deststorepass Mosip@dev123 -destkeypass Mosip@dev123
+keytool -importkeystore -srckeystore keystore.jks -srcstorepass somepassword -srckeypass somepassword -srcalias mosip.io -destalias mosip.io -destkeystore PrivateKey.p12 -deststoretype PKCS12 -deststorepass somepassword -destkeypass somepassword
 
 //Linux -- Not used
 //openssl pkcs12 -in PrivateKey.p12 -nodes -nocerts -out PrivateKey.pem
@@ -69,4 +69,4 @@ javac ExportPrivateKey.java
 java ExportPrivateKey <path_to_keystore> JCEKS <keystore_password> “<key_alias>” <key_password> <output_file_name>
 
 Example:
-java ExportPrivateKey keystore.jks PKCS12 Mosip@dev123 mosip.io Mosip@dev123 PrivateKey.pem
+java ExportPrivateKey keystore.jks PKCS12 somepassword mosip.io somepassword PrivateKey.pem
