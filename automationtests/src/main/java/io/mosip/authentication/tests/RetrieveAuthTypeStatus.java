@@ -183,7 +183,7 @@ public class RetrieveAuthTypeStatus extends AuthTestsUtil implements ITest{
 		else {
 			uinKey.add("UIN.demo.true");
 			uinKey.add("UIN.bio.IIR.true");
-			uinKey.add("UIN.bio.FID.true");
+			uinKey.add("UIN.bio.FACE.true");
 			uinKey.add("UIN.bio.FIR.true");
 			uinKey.add("UIN.otp.true");
 			String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(),
@@ -202,7 +202,7 @@ public class RetrieveAuthTypeStatus extends AuthTestsUtil implements ITest{
 		else {
 			vidKey.add("VID.demo.true");
 			vidKey.add("VID.bio.IIR.true");
-			vidKey.add("VID.bio.FID.true");
+			vidKey.add("VID.bio.FACE.true");
 			vidKey.add("VID.bio.FIR.true");
 			vidKey.add("VID.otp.true");
 			String value = AuthTestsUtil.getValueFromPropertyFile(RunConfigUtil.getAuthTypeStatusPath(),
@@ -274,17 +274,28 @@ public class RetrieveAuthTypeStatus extends AuthTestsUtil implements ITest{
 		return OutputValidationUtil.compareActuExpValue(actual, expected, testCaseName);
 	}
 	
-	private String getAuthTypeStatusQuery(String uin) {
+	/*private String getAuthTypeStatusQuery(String uin) {
 		return "select * from ida.uin_auth_lock where lock_request_datetime in ((select lock_request_datetime from ida.uin_auth_lock where uin = '"
 				+ uin + "' and auth_type_code = 'demo' order by cr_dtimes desc limit 1),"
 				+ " (select lock_request_datetime from ida.uin_auth_lock where uin = '" + uin
 				+ "' and auth_type_code = 'otp' order by cr_dtimes desc limit 1),"
 				+ " (select lock_request_datetime from ida.uin_auth_lock where uin = '" + uin
-				+ "' and auth_type_code = 'bio-FID' order by cr_dtimes desc limit 1),"
+				+ "' and auth_type_code = 'bio-FACE' order by cr_dtimes desc limit 1),"
 				+ " (select lock_request_datetime from ida.uin_auth_lock where uin = '" + uin
 				+ "' and auth_type_code = 'bio-FIR' order by cr_dtimes desc limit 1),"
 				+ " (select lock_request_datetime from ida.uin_auth_lock where uin = '" + uin
-				+ "' and auth_type_code = 'bio-IIR' order by cr_dtimes desc limit 1)" + ") order by cr_dtimes";
+				+ "' and auth_type_code = 'bio-IIR' order by cr_dtimes desc limit 1)" + ") order by cr_dtimes desc";
+	}*/
+	
+	private String getAuthTypeStatusQuery(String uin) {
+		return "select t.* " + 
+				"from  ida.uin_auth_lock t " + 
+				"inner join ( " + 
+				"    select auth_type_code, MAX(cr_dtimes) as crd " + 
+				"    from ida.uin_auth_lock " + 
+				"    group by uin_hash, auth_type_code " + 
+				") tm on t.auth_type_code = tm.auth_type_code and t.cr_dtimes = tm.crd " + 
+				"where t.uin ='"+uin+"'";
 	}
 
 }

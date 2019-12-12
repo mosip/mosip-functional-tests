@@ -3,6 +3,7 @@ package io.mosip.registrationProcessor.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -10,10 +11,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.ws.rs.core.MediaType;
+
+import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec.MAP;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.mosip.dbaccess.RegProcTransactionDb;
+import io.mosip.dbdto.AbisDeleteDto;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -257,5 +266,29 @@ public class RegProcApiRequests extends BaseTestCase {
 		 return currentTime;
 		
 
+	}
+	public JSONObject getAbisDeleteRequest(String rid) {
+		RegProcTransactionDb transaction=new RegProcTransactionDb();
+		Date date=new Date();
+		AbisDeleteDto deleteDto=new AbisDeleteDto();
+		deleteDto.setEncounter_id(transaction.getRef_Id(rid));
+		deleteDto.setTid(date.getTime());
+		deleteDto.setFaceThreshold("0.0");
+		deleteDto.setFingerThreshold("0.0");
+		deleteDto.setMaxResults("0");
+		deleteDto.setIrisThreshold("0.0");
+		deleteDto.setRequest_type("Delete");
+		JSONObject deleteRequest=new JSONObject();
+		ObjectMapper mapper=new ObjectMapper();
+		Map deleteMap=mapper.convertValue(deleteDto, Map.class);
+		deleteRequest.putAll(deleteMap);
+		return deleteRequest;
+		
+	}
+	public void deleteFromAbis(JSONObject deleteRequest) {
+		String url="https://qa.mosip.io/T5CloudService/1.0/processRequest";
+		Response getResponse = given().relaxedHTTPSValidation().body(deleteRequest).contentType(MediaType.APPLICATION_JSON).log()
+				.all().when().post(url);
+		System.out.println(getResponse.asString());
 	}
 }

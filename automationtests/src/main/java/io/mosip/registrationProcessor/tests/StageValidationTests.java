@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -181,27 +182,33 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 				}
 			}
 		}
-		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		dbList=transaction.readStatus(regID);
 		regID="";
 		logger.info("User list :: "+ userList);
 		logger.info("Db list :: "+ dbList);
 		boolean listStatus=false;
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<dbList.size();i++) {
 			if(dbList .get(i).equals("ERROR"))
 				dbList.add(i, "FAILED");
 		
 		}
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<dbList.size();i++) {
 			if(dbList.get(i).equals(userList.get(i)))
 				listStatus=true;
 			else
 				listStatus=false;
 		}
-		softAssert.assertTrue(listStatus);
+		//softAssert.assertTrue(listStatus);
+		Assert.assertTrue(listStatus);
 		userList.clear();
 		dbList.clear();
-		softAssert.assertAll();
+		//softAssert.assertAll();
 		//cleanUp.prepareQueryList(regID);
 		regID="";
 	

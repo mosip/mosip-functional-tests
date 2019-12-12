@@ -790,7 +790,7 @@ testdata:
     output.output-1-expected-y-res:
       output.1.y.res.resTime: $TIMESTAMP$
       output.1.y.res.txnID: $input.otp-generate-request:otpReq.transactionID$
-      output.1.y.res.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.res.maskedEmail: $REGEXP:.*X.*$
       output.1.y.res.maskedMobile: $REGEXP:XX.*XX.*$
       output.1.y.res.id: $TestData:id_internal_otp_valid$
       #output.1.y.res.ver: $version$
