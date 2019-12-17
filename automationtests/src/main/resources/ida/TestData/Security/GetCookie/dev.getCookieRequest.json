@@ -1,8 +1,8 @@
 {
 	"id": "string",
 	"request": {
-		"clientId": "ida_app_user",
-		"secretKey": "5debb60adbfcf8feea4a6ed6160092ec",
+		"clientId": "ida",
+		"secretKey": "bad25866-e6a5-4f93-831a-08923ea6eee0",
 		"appId": "ida"
 	},
 	"requesttime": "$TIMESTAMPZ$",

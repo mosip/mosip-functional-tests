@@ -381,14 +381,20 @@ int.face.deviceid:
       - SYNCBYTE.LTC165
 qa.face.deviceid:
       - SYNCBYTE.LTC165
+dev.face.deviceid:
+      - SYNCBYTE.LTC165
 int.finger.deviceid:
       - SYNCBYTE.LTC165
 qa.finger.deviceid:
       - SYNCBYTE.LTC163
+dev.finger.deviceid:
+      - SYNCBYTE.MC01A
 int.iris.deviceid:
       - SYNCBYTE.LTC165
 qa.iris.deviceid:
       - SYNCBYTE.LTC164
+dev.iris.deviceid:
+      - SYNCBYTE.TCI322
 bio_iris_deviceCode:
       - cogent
 bio_iris_deviceProviderID:

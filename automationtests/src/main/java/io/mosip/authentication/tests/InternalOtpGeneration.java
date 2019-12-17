@@ -67,7 +67,7 @@ public class InternalOtpGeneration extends PrerequisteTests implements ITest {
 	}
 	
 	public void setCookie() {
-		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
+		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 		getCookieStartTime = Cookie.getCookieCurrentDateTime();

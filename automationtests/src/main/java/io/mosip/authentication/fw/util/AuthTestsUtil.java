@@ -1214,17 +1214,22 @@ public class AuthTestsUtil extends BaseTestCase {
 	
 	protected static String getCookieRequestFilePath() {
 		return RunConfigUtil.getResourcePath()
-				+ "ida/TestData/Security/GetCookie/getCookieRequest.json".toString();
+				+ "ida/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieRequest.json".toString();
 	}
 	
 	protected static String getCookieRequestFilePathForUinGenerator() {
 		return RunConfigUtil.getResourcePath()
-				+ "ida/TestData/Security/GetCookie/getCookieForUinGenerator.json".toString();
+				+ "ida/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieForUinGenerator.json".toString();
 	}
 	
 	protected static String getCookieRequestFilePathForInternalAuth() {
 		return RunConfigUtil.getResourcePath()
-				+ "ida/TestData/Security/GetCookie/getCookieForInternalAuth.json".toString();
+				+ "ida/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieForInternalAuth.json".toString();
+	}
+	
+	protected static String getCookieRequestFilePathForResidentAuth() {
+		return RunConfigUtil.getResourcePath()
+				+ "ida/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".residentServiceCredential.json".toString();
 	}
 	
 	protected String patchRequestWithCookie(String filename, String url,String cookieName,String cookieValue) {

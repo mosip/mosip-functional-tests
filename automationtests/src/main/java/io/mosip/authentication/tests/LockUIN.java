@@ -65,7 +65,7 @@ public class LockUIN extends AuthTestsUtil implements ITest{
 	}
 	
 	public void setCookie() {
-		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
+		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),
 				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 		getCookieStartTime = Cookie.getCookieCurrentDateTime();

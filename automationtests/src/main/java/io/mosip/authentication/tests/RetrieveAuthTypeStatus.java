@@ -78,7 +78,7 @@ public class RetrieveAuthTypeStatus extends AuthTestsUtil implements ITest{
 	}
 	
 	public void setCookie() {
-		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
+		cookieValue = getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),
 				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 	}

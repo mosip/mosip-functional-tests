@@ -33,7 +33,7 @@ public class IdRepoUtil extends AuthTestsUtil {
 	public static boolean retrieveIdRepo(String uinNumber) {
 		String retrievePath = RunConfigUtil.objRunConfig.getIdRepoRetrieveDataPath().replace("$uin$", uinNumber);
 		String url = RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + retrievePath;
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
+		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),
 				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 		if (!FileUtil.checkFileExistForIdRepo(uinNumber + ".json")) {
