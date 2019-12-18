@@ -58,6 +58,7 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 	private int invocationCount = 0;
 	private String kubernetSeriveName="";
 	private static String cookieValue;
+	private static String residentCookieValue;
 	private static String getCookieStartTime;
 
 	/**
@@ -75,6 +76,12 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 		getCookieStartTime = Cookie.getCookieCurrentDateTime();
+	}
+	
+	public void getResidentAccess() {
+		residentCookieValue = getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),
+				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
+				AUTHORIZATHION_COOKIENAME);
 	}
 
 	/**
@@ -179,6 +186,7 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 	@Test(dataProvider = "testcaselist")
 	public void idaOtpAuthenticationTest(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException {
 		setCookie();
+		getResidentAccess();
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -193,7 +201,7 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 				+ " *******");
 		if(!postRequestAndGenerateOuputFileForIntenalAuth(testCaseName.listFiles(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getIdaInternalOtpPath(), "otp-generate", "output-1-actual-res",
-				AUTHORIZATHION_COOKIENAME, cookieValue, 200))
+				AUTHORIZATHION_COOKIENAME, residentCookieValue, 200))
 			throw new AuthenticationTestException("Failed at HTTP-POST otp-generate-request");
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -218,7 +226,7 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 		if (!getTestCaseName().contains("OTP_exceed_more_attemp")) {
 			if (!postRequestAndGenerateOuputFileForIntenalAuth(testCaseName.listFiles(),
 					RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getInternalAuthPath(),
-					"otp-auth-request", "output-2-actual-res", AUTHORIZATHION_COOKIENAME, cookieValue, 200))
+					"otp-auth-request", "output-2-actual-res", AUTHORIZATHION_COOKIENAME, residentCookieValue, 200))
 				throw new AuthenticationTestException("Failed at HTTP-POST otp-auth-request");
 		} else
 			for (int i = 0; i < 10; i++) {
