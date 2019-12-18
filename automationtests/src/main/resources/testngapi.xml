@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	  <!--  <test name="Kernel Tests">
+	 <test name="Kernel Tests">
 		<classes>
 			<class name="io.mosip.kernel.tests.AuditLog" />
 			<class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
@@ -137,7 +137,7 @@
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />
 			<class name="io.mosip.registrationProcessor.tests.AdminRequirement" />  
 		</classes>
-	</test> -->
+	</test>
 	 <test name="AuthenticationTest">
 		<classes>
 			<class
@@ -202,7 +202,7 @@
 		</classes>
 	</test>
 
-  <!-- <test name="Registration Test">
+ <test name="Registration Test">
 		<classes>
 			<class name="io.mosip.registration.tests.DocumentScannerServiceTest" />
 			<class name="io.mosip.registration.tests.PacketHandlerServiceTest" />
@@ -303,5 +303,6 @@
             <class name="io.mosip.admin.tests.UpdateLocationData" />
             <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
 		</classes>
-	</test>   --> 
+	</test>  
+	
 </suite>
