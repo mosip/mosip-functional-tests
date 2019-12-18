@@ -176,7 +176,7 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   InvalidBioSubtype:
     errorCode: IDA-MLC-009
-    errorMessage: $REGEXP:Invalid Input Parameter - bioSubType - .* for bioType .*$
+    errorMessage: $REGEXP:Invalid Input Parameter - request/biometrics/.*/data/bioSubType.*$
   FaceExceed1:
     errorCode: IDA-BIA-009
     errorMessage: Number of FACE records should not exceed 1
@@ -197,7 +197,7 @@ errors:
     errorMessage: BIO-IIR Authentication usage not allowed as per policy
   MissingBioSubtype:
     errorCode: IDA-MLC-006
-    errorMessage: Missing Input Parameter - bioSubType
+    errorMessage: Missing Input Parameter - request/biometrics/0/data/bioSubType
   MissingBioType:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/data/bioType

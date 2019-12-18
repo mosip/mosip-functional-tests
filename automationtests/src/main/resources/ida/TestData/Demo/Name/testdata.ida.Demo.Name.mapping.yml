@@ -194,7 +194,6 @@ testdata:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.demo-auth-request:
       AuthReq.individualId: $UIN$
-      AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
       identityReq.valuename: $idrepo~$input.demo-auth-request:AuthReq.individualId$~valuefullName:langcode:TestData:secondary_lang_code$
