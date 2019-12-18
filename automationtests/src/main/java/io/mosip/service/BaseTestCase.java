@@ -161,18 +161,18 @@ public class BaseTestCase{
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
 			 */
-			expiredPreRegIds=lib.BookExpiredApplication();
+/*			expiredPreRegIds=lib.BookExpiredApplication();
 			consumedPreRegIds=lib.consumedPreId();
-			
+			*/
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are giving wait for 10 min
 			 */
 		logger.info("waiting for job run to start");
-		/*try {
+		try {
 				TimeUnit.MINUTES.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}*/
+			}
 			//authToken=pil.getToken();
 			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
 			extent=new ExtentReports();
