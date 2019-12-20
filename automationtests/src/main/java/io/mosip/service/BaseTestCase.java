@@ -144,9 +144,9 @@ public class BaseTestCase{
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-   PreRegistrationLibrary pil=new PreRegistrationLibrary();
+	   PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			//new PreregistrationDAO().deleteAvailableSlot();
+			/*new PreregistrationDAO().deleteAvailableSlot();*/
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
@@ -161,7 +161,7 @@ public class BaseTestCase{
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
 			 */
-		expiredPreRegIds=lib.BookExpiredApplication();
+			expiredPreRegIds=lib.BookExpiredApplication();
 			consumedPreRegIds=lib.consumedPreId();
 			
 			/**
