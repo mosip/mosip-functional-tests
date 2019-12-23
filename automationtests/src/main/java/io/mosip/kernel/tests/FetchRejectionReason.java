@@ -71,8 +71,8 @@ public class FetchRejectionReason extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(zonalApproverCookie))
-			zonalApproverCookie=auth.getAuthForZonalApprover();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class FetchRejectionReason extends BaseTestCase implements ITest {
 
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
-				response = applicationLibrary.getWithPathParam(FetchRejectionReason_URI,objectData,zonalApproverCookie);
+				response = applicationLibrary.getWithPathParam(FetchRejectionReason_URI,objectData,adminCookie);
 
 
 		//This method is for checking the authentication is pass or fail in rest services

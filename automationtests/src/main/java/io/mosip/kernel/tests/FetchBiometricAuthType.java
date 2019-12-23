@@ -76,8 +76,8 @@ public class FetchBiometricAuthType extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(zonalAdminCookie))
-			zonalAdminCookie = auth.getAuthForZonalAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class FetchBiometricAuthType extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 		// sending get request
-		response = applicationLibrary.getWithPathParam(FetchBiometricAuthType_URI, objectData, zonalAdminCookie);
+		response = applicationLibrary.getWithPathParam(FetchBiometricAuthType_URI, objectData, adminCookie);
 		// DB validation
 
 		// This method is for checking the authentication is pass or fail in rest

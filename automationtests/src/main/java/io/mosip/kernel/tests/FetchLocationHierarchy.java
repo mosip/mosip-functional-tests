@@ -75,8 +75,8 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(regProcCookie))
-			regProcCookie=auth.getAuthForRegistrationProcessor();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -109,11 +109,11 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 				if (objectData.containsKey("hierarchyname"))
-					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_hierarchyname, objectData,regProcCookie);
+					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_hierarchyname, objectData,adminCookie);
 				else if (objectData.containsKey("locationcode"))
-					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_locationcode, objectData,regProcCookie);
+					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_locationcode, objectData,adminCookie);
 				else
-					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_withlangCode, objectData,regProcCookie);
+					response = applicationLibrary.getWithPathParam(FetchLocationHierarchy_URI_withlangCode, objectData,adminCookie);
 
 
 		// add parameters to remove in response before comparison like time stamp

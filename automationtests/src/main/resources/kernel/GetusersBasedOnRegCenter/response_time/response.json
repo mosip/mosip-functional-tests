@@ -1,24 +1,23 @@
 {
   "id":null,
   "version":null,
-  "responsetime":"2019-08-26T06:46:04.089Z",
+  "responsetime":"2019-12-23T07:03:47.244Z",
   "metadata":null,
   "response":{
-    "lastSyncTime":"2019-08-26T06:46:04.066Z",
+    "lastSyncTime":"2019-12-23T07:03:46.961Z",
     "userDetails":[
       {
         "isDeleted":null,
         "langCode":null,
         "isActive":null,
         "userName":"110001",
-        "mail":"sravya.surampalli@mindtree.com",
-        "mobile":"9989636932",
-        "userPassword":"493ADAF78608AE4332F513E58D894360BFFC845B15EF036C3F7B4E9374925655",
-        "name":"test",
+        "mail":"110001@mosip.com",
+        "mobile":"7891110001",
+        "userPassword":"E746B5D4EE780B5823DF2DDE1B0578289E88FCAE38A149E3DF674E94C7DD02E8",
+        "name":"110001 110001",
         "roles":[
-          "REGISTRATION_ADMIN",
           "REGISTRATION_OFFICER",
-          "ZONAL_ADMIN",
+          "REGISTRATION_ADMIN",
           "REGISTRATION_SUPERVISOR"],
         "rid":null
       },
@@ -27,12 +26,29 @@
         "langCode":null,
         "isActive":null,
         "userName":"110030",
-        "mail":"sagar.mahapatra2@mindtree.com",
-        "mobile":"7504871938",
-        "userPassword":"45668BE9522D30821A556C5AB6A4C989BF5A9F3D087477F8BBF1F48633D42F2C",
-        "name":"ridtest",
+        "mail":"110030@mosip.com",
+        "mobile":"7891110030",
+        "userPassword":"D3363E791E2B43595775EA6F2A2BC16FA7610F4EA0B1929818212E0F4178EAA2",
+        "name":"110030 110030",
         "roles":[
-          "ZONAL_ADMIN"],
+          "REGISTRATION_OFFICER",
+          "REGISTRATION_ADMIN",
+          "REGISTRATION_SUPERVISOR"],
+        "rid":null
+      },
+      {
+        "isDeleted":null,
+        "langCode":null,
+        "isActive":null,
+        "userName":"110031",
+        "mail":"110031@mosip.com",
+        "mobile":"7891110031",
+        "userPassword":"C91EE221C3802B338935D0ECA27F6DAB991319A023C0F00D342F567AA22BFAE6",
+        "name":"110031 110031",
+        "roles":[
+          "REGISTRATION_OFFICER",
+          "REGISTRATION_ADMIN",
+          "REGISTRATION_SUPERVISOR"],
         "rid":null
       }]
   },

@@ -79,8 +79,8 @@ public class FetchDeviceSpec extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(zonalApproverCookie))
-			zonalApproverCookie = auth.getAuthForZonalApprover();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -113,9 +113,9 @@ public class FetchDeviceSpec extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 		if (objectData.containsKey("devicetypecode"))
-			response = applicationLibrary.getWithPathParam(FetchDeviceSpec_id_lang_URI, objectData, zonalApproverCookie);
+			response = applicationLibrary.getWithPathParam(FetchDeviceSpec_id_lang_URI, objectData, adminCookie);
 		else
-			response = applicationLibrary.getWithPathParam(FetchDeviceSpec_lang_URI, objectData, zonalApproverCookie);
+			response = applicationLibrary.getWithPathParam(FetchDeviceSpec_lang_URI, objectData, adminCookie);
 
 		// DB Validation
 

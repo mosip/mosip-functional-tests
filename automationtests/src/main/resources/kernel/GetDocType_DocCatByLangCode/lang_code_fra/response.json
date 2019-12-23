@@ -1,7 +1,7 @@
 {
 	"id": null,
 	"version": null,
-	"responsetime": "2019-08-26T08:52:38.597Z",
+	"responsetime": "2019-12-17T12:30:05.534Z",
 	"metadata": null,
 	"response": {
 		"documentcategories": [
@@ -12,6 +12,13 @@
 				"langCode": "fra",
 				"isActive": true,
 				"documenttypes": [
+					{
+						"code": "CIN",
+						"name": "carte didentité",
+						"description": "Carte didentité électronique nationale marocaine",
+						"langCode": "fra",
+						"isActive": true
+					},
 					{
 						"code": "RNC",
 						"name": "Contrat de location",
@@ -102,13 +109,6 @@
 						"description": "Facture d’eau tant qu’elle n’a pas plus de 3 mois",
 						"langCode": "fra",
 						"isActive": true
-					},
-					{
-						"code": "CIN",
-						"name": "Carte d'identité de référence",
-						"description": "Carte d'identité de référence",
-						"langCode": "fra",
-						"isActive": true
 					}
 				]
 			},
@@ -119,6 +119,13 @@
 				"langCode": "fra",
 				"isActive": true,
 				"documenttypes": [
+					{
+						"code": "CIN",
+						"name": "carte didentité",
+						"description": "Carte didentité électronique nationale marocaine",
+						"langCode": "fra",
+						"isActive": true
+					},
 					{
 						"code": "DOC001",
 						"name": "Passeport",
@@ -202,13 +209,6 @@
 						"description": "Certificat de mariage",
 						"langCode": "fra",
 						"isActive": true
-					},
-					{
-						"code": "CIN",
-						"name": "Carte d'identité de référence",
-						"description": "Carte d'identité de référence",
-						"langCode": "fra",
-						"isActive": true
 					}
 				]
 			},
@@ -277,6 +277,22 @@
 				"langCode": "fra",
 				"isActive": true,
 				"documenttypes": []
+			},
+			{
+				"code": "POB",
+				"name": "Preuve de naissance",
+				"description": "Preuve de la date de naissance de la personne",
+				"langCode": "fra",
+				"isActive": true,
+				"documenttypes": [
+					{
+						"code": "COB",
+						"name": "Certificat de naissance",
+						"description": "Preuve de naissance et âge dune personne",
+						"langCode": "fra",
+						"isActive": true
+					}
+				]
 			}
 		]
 	},
