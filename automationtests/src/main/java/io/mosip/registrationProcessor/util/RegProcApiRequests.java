@@ -134,10 +134,10 @@ public class RegProcApiRequests extends BaseTestCase {
 	}
 	
 	public boolean validateToken(String token) {
-		String url="/v1/authmanager/authorize/validateToken";
+		String url="/v1/authmanager/authorize/admin/validateToken";
 		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
 		Response response=given().cookie(builder.build()).relaxedHTTPSValidation()
-				.log().all().when().post(ApplnURI+url).then().log().all().extract().response();
+				.log().all().when().get(ApplnURI+url).then().log().all().extract().response();
 		System.out.println(response.asString());
 		List<String> errors=response.jsonPath().get("errors");
 		if(errors==null) {
