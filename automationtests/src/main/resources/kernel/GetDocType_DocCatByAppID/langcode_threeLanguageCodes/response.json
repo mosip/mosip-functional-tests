@@ -1,7 +1,7 @@
 {
   "id":null,
   "version":null,
-  "responsetime":"2019-08-26T11:21:45.910Z",
+  "responsetime":"2019-12-17T10:59:08.844Z",
   "metadata":null,
   "response":{
     "appTypeCode":"001",
@@ -17,8 +17,8 @@
         "documentTypes":[
           {
             "code":"CIN",
-            "name":"بطاقة الهوية المرجعية",
-            "description":"بطاقة الهوية المرجعية",
+            "name":"نَتِنَل ِد",
+            "description":"بطاقة الهوية الوطنية المغربية",
             "langCode":"ara",
             "isActive":true
           }]
@@ -32,8 +32,8 @@
         "documentTypes":[
           {
             "code":"CIN",
-            "name":"Reference Identity Card",
-            "description":"Reference Identity Card",
+            "name":"CNIE card",
+            "description":"Moroccan National Electronic ID Card",
             "langCode":"eng",
             "isActive":true
           }]
@@ -69,6 +69,21 @@
           }]
       },
       {
+        "code":"POB",
+        "name":"Preuve de naissance",
+        "description":"Preuve de la date de naissance de la personne",
+        "langCode":"fra",
+        "isActive":true,
+        "documentTypes":[
+          {
+            "code":"COB",
+            "name":"Certificat de naissance",
+            "description":"Preuve de naissance et âge dune personne",
+            "langCode":"fra",
+            "isActive":true
+          }]
+      },
+      {
         "code":"POA",
         "name":"إثبات العنوان",
         "description":"عنوان الدليل",
@@ -99,6 +114,21 @@
           }]
       },
       {
+        "code":"POB",
+        "name":"إثبات الميلاد",
+        "description":"تاريخ إثبات ميلاد الشخص",
+        "langCode":"ara",
+        "isActive":true,
+        "documentTypes":[
+          {
+            "code":"COB",
+            "name":"شهادة الميلاد",
+            "description":"إثبات الولادة وعمر الشخص",
+            "langCode":"ara",
+            "isActive":true
+          }]
+      },
+      {
         "code":"POA",
         "name":"Proof of Address",
         "description":"Address Proof",
@@ -110,6 +140,21 @@
             "name":"Rental contract",
             "description":"Rental Agreement of address",
             "langCode":"eng",
+            "isActive":true
+          }]
+      },
+      {
+        "code":"POI",
+        "name":"Preuve didentité",
+        "description":"Preuve didentité",
+        "langCode":"fra",
+        "isActive":true,
+        "documentTypes":[
+          {
+            "code":"CIN",
+            "name":"carte didentité",
+            "description":"Carte didentité électronique nationale marocaine",
+            "langCode":"fra",
             "isActive":true
           }]
       },
@@ -129,17 +174,17 @@
           }]
       },
       {
-        "code":"POI",
-        "name":"Preuve didentité",
-        "description":"Preuve didentité",
-        "langCode":"fra",
+        "code":"POB",
+        "name":"Proof of Birth",
+        "description":"Proof date of birth of the person",
+        "langCode":"eng",
         "isActive":true,
         "documentTypes":[
           {
-            "code":"CIN",
-            "name":"Carte d'identité de référence",
-            "description":"Carte d'identité de référence",
-            "langCode":"fra",
+            "code":"COB",
+            "name":"Certificate of Birth",
+            "description":"Proof birth and age of a person",
+            "langCode":"eng",
             "isActive":true
           }]
       }]

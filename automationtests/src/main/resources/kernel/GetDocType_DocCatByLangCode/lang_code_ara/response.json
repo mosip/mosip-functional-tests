@@ -1,7 +1,7 @@
 {
   "id":null,
   "version":null,
-  "responsetime":"2019-08-26T08:52:38.280Z",
+  "responsetime":"2019-12-17T12:30:05.110Z",
   "metadata":null,
   "response":{
     "documentcategories":[
@@ -12,6 +12,13 @@
         "langCode":"ara",
         "isActive":true,
         "documenttypes":[
+          {
+            "code":"CIN",
+            "name":"نَتِنَل ِد",
+            "description":"بطاقة الهوية الوطنية المغربية",
+            "langCode":"ara",
+            "isActive":true
+          },
           {
             "code":"RNC",
             "name":"عقد ايجار",
@@ -102,13 +109,6 @@
             "description":"فاتورة المياه طالما انها ليست أكثر من 3 أشهر من العمر",
             "langCode":"ara",
             "isActive":true
-          },
-          {
-            "code":"CIN",
-            "name":"بطاقة الهوية المرجعية",
-            "description":"بطاقة الهوية المرجعية",
-            "langCode":"ara",
-            "isActive":true
           }]
       },
       {
@@ -118,6 +118,13 @@
         "langCode":"ara",
         "isActive":true,
         "documenttypes":[
+          {
+            "code":"CIN",
+            "name":"نَتِنَل ِد",
+            "description":"بطاقة الهوية الوطنية المغربية",
+            "langCode":"ara",
+            "isActive":true
+          },
           {
             "code":"DOC001",
             "name":"جواز سفر",
@@ -201,13 +208,6 @@
             "description":"شهادة الزواج",
             "langCode":"ara",
             "isActive":true
-          },
-          {
-            "code":"CIN",
-            "name":"بطاقة الهوية المرجعية",
-            "description":"بطاقة الهوية المرجعية",
-            "langCode":"ara",
-            "isActive":true
           }]
       },
       {
@@ -275,6 +275,21 @@
         "isActive":true,
         "documenttypes":[
         ]
+      },
+      {
+        "code":"POB",
+        "name":"إثبات الميلاد",
+        "description":"تاريخ إثبات ميلاد الشخص",
+        "langCode":"ara",
+        "isActive":true,
+        "documenttypes":[
+          {
+            "code":"COB",
+            "name":"شهادة الميلاد",
+            "description":"إثبات الولادة وعمر الشخص",
+            "langCode":"ara",
+            "isActive":true
+          }]
       }]
   },
   "errors":null

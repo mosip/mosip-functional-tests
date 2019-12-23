@@ -76,8 +76,8 @@ public class UploadPublickey extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(regAdminCookie))
-			regAdminCookie=auth.getAuthForRegistrationAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class UploadPublickey extends BaseTestCase implements ITest {
 			{
 				objectData.put("requesttime", lib.getCurrentLocalTime());
 			}
-				response = applicationLibrary.postWithJson(uploadpublickey, objectData.toJSONString(), regAdminCookie);
+				response = applicationLibrary.postWithJson(uploadpublickey, objectData.toJSONString(), adminCookie);
 				
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);

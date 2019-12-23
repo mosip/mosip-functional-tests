@@ -61,8 +61,8 @@ public class GetIndividualType extends BaseTestCase implements ITest{
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(zonalApproverCookie))
-			zonalApproverCookie=auth.getAuthForZonalApprover();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	} 
 	
 	// Data Providers to read the input json files from the folders
@@ -85,7 +85,7 @@ public class GetIndividualType extends BaseTestCase implements ITest{
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		Expectedresponse = objectDataArray[1];		
 		// Calling the get method with path parameters
-		Response res=applicationLibrary.getWithoutParams(getIndividualType,zonalApproverCookie);
+		Response res=applicationLibrary.getWithoutParams(getIndividualType,adminCookie);
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
 		// Removing of unstable attributes from response

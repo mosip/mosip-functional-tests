@@ -79,8 +79,8 @@ public class FetchMachine extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(zonalAdminCookie))
-			zonalAdminCookie = auth.getAuthForZonalAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -115,15 +115,15 @@ public class FetchMachine extends BaseTestCase implements ITest {
 		responseObject = objectDataArray[1];
 		if(objectData != null) {
 				if (objectData.containsKey("id"))
-					response = applicationLibrary.getWithPathParam(FetchMachine_id_lang_URI, objectData,zonalAdminCookie);
+					response = applicationLibrary.getWithPathParam(FetchMachine_id_lang_URI, objectData,adminCookie);
 				else
-					response = applicationLibrary.getWithPathParam(FetchMachine_lang_URI, objectData,zonalAdminCookie);
+					response = applicationLibrary.getWithPathParam(FetchMachine_lang_URI, objectData,adminCookie);
 
 		}
 
 		// sending request to get request without param
 		if (testcaseName.equalsIgnoreCase("allValid_smoke_get")) {
-			response = applicationLibrary.getWithoutParams(FetchMachine_URI, zonalAdminCookie);
+			response = applicationLibrary.getWithoutParams(FetchMachine_URI, adminCookie);
 			objectData = null;
 		}
 		// DB Validation

@@ -78,8 +78,8 @@ public class EncrptionDecryption extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(regProcCookie))
-			regProcCookie = auth.getAuthForRegistrationProcessor();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class EncrptionDecryption extends BaseTestCase implements ITest {
 
 		logger.info("Json Request Is : " + objectData.toJSONString());
 
-		response = applicationLibrary.postWithJson(encrypt_URI, objectData.toJSONString(), regProcCookie);
+		response = applicationLibrary.postWithJson(encrypt_URI, objectData.toJSONString(), adminCookie);
 
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
@@ -168,7 +168,7 @@ public class EncrptionDecryption extends BaseTestCase implements ITest {
 				break;
 			}
 			objectData.put("request", request);
-			response = applicationLibrary.postWithJson(decrypt_URI, objectData.toJSONString(), regProcCookie);
+			response = applicationLibrary.postWithJson(decrypt_URI, objectData.toJSONString(), adminCookie);
 			statusCode = response.statusCode();
 			logger.info("Decryption Status Code is : " + statusCode);
 			//This method is for checking the authentication is pass or fail in rest services

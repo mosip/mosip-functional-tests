@@ -67,8 +67,8 @@ public class GetAllTemplateByTemplateTypeCode extends BaseTestCase implements IT
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(individualCookie))
-			individualCookie = auth.getAuthForIndividual();
+		if(!lib.isValidToken(idaCookie))
+			idaCookie = auth.getAuthForIDA();
 	}
 	
 	 //Data Providers to read the input json files from the folders
@@ -88,12 +88,13 @@ public class GetAllTemplateByTemplateTypeCode extends BaseTestCase implements IT
 	@Test(dataProvider="GetAllTemplateByTemplateTypeCode")
 	public void getAllTemplateByTemplateTypeCode(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
+		logger.info(testCaseName);
 		// getting request and expected response jsondata from json files.
 		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
 		JSONObject actualRequest = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];
 	    // Calling the get method 
-		Response res=applicationLibrary.getWithPathParam(fetchAllTemplate, actualRequest,individualCookie);
+		Response res=applicationLibrary.getWithPathParam(fetchAllTemplate, actualRequest,idaCookie);
 		
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
