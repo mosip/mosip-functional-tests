@@ -343,29 +343,29 @@ errors:
     errorCode: IDA-OTA-010
     errorMessage: Input Identity Type does not match Identity Type of OTP Request
   InvalidDeviceProviderID:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceProviderId
+    errorCode: IDA-DPM-003
+    errorMessage: Device Provider is not registered with MOSIP
   InvalidDeviceProvider:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceProvider
+    errorCode: IDA-DPM-003
+    errorMessage: Device Provider is not registered with MOSIP
   InvalidDeviceCode:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceCode
+    errorCode: IDA-DPM-001
+    errorMessage: Device is not registered with MOSIP
   InvalidDeviceDateTime:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/dateTime
   InvalidDeviceServiceVersion:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceServiceVersion
+    errorCode: IDA-DPM-002
+    errorMessage: MDS is not registered with MOSIP
   InvalidDeviceSerialNo:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/serialNo
+    errorCode: IDA-DPM-003
+    errorMessage: Device Provider is not registered with MOSIP
   InvalidDeviceMake:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/make
+    errorCode: IDA-DPM-002
+    errorMessage: MDS is not registered with MOSIP
   InvalidDeviceModel:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/model
+    errorCode: IDA-DPM-003
+    errorMessage: MDS is not registered with MOSIP
   InvalidDeviceType:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/type
@@ -405,4 +405,8 @@ errors:
   InvalidSignature:
     errorCode: IDA-MPA-002
     errorMessage: Invalid certificate in digital signature
+  BiometricTechMismatch:
+    errorCode: IDA-BIA-017
+    errorMessage: Unable to Perform Biometric Match due to a Technical Issue
+    actionMessage: Unable to Perform Biometric Match due to a Technical Issue
     

@@ -158,7 +158,7 @@ public class ReactivateVIDsForUIN extends IdRepoTestsUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void reactivateVIDsForUIN(TestParameters objTestParameters, String testScenario,
 			String testcaseName) throws IdRepositoryTestException {		
-		cookieValue=getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()+RunConfigUtil.objRunConfig.getClientidsecretkey(),AUTHORIZATHION_COOKIENAME);
+		cookieValue=getAuthorizationCookie(getCookieRequestFilePathForResidentAuth(),RunConfigUtil.objRunConfig.getIdRepoEndPointUrl()+RunConfigUtil.objRunConfig.getClientidsecretkey(),AUTHORIZATHION_COOKIENAME);
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);

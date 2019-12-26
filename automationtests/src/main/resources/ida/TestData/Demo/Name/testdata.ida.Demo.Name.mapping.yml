@@ -195,6 +195,7 @@ testdata:
     input.demo-auth-request:
       AuthReq.individualId: $UIN$
       AuthReq.transactionID: $RANDOM:N:10$
+      AuthReq.requestTime: $TIMESTAMP$
     input.identity-encrypt-data:
       identityReq.valuename: $idrepo~$input.demo-auth-request:AuthReq.individualId$~valuefullName:langcode:TestData:secondary_lang_code$
       identityReq.languagename: $TestData:secondary_lang_code$ 

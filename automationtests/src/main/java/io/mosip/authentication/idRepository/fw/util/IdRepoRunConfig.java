@@ -1257,4 +1257,16 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getAuthManagerUserIdPwd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAuthManagerUserIdPwd(String authManagerUserIdPwd) {
+		// TODO Auto-generated method stub
+		
+	}
 }

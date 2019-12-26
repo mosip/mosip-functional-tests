@@ -356,6 +356,8 @@ public abstract class RunConfig {
 	public abstract void setCryptomanagerEncrypt(String cryptomanagerEncrypt);	
 	public abstract String getSplitEncryptedData();
 	public abstract void setSplitEncryptedData(String splitEncryptedData);
+	public abstract String getAuthManagerUserIdPwd();
+	public abstract void setAuthManagerUserIdPwd(String authManagerUserIdPwd);
 	
 	//Admin module
 		public abstract String getAdminEndPointUrl();

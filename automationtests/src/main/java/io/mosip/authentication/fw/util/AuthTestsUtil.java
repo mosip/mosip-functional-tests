@@ -511,7 +511,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String getResponseWithCookieForIdRepoUinGenerator(String url, String cookieName) {
 		try {
 			return RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-					cookieName, getAuthorizationCookie(IdRepoTestsUtil.getCookieRequestFilePathForUinGenerator(), getCookieUrlPath(), cookieName)).asString();
+					cookieName, getAuthorizationCookie(AuthTestsUtil.getCookieRequestFilePathForUinGenerator(), getCookieUrlPath(), cookieName)).asString();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return e.toString();

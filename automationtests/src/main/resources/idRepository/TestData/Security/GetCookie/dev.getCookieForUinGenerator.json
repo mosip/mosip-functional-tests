@@ -1,0 +1,11 @@
+{
+  "id": "mosip.otpnotification.send",
+  "metadata": {},
+  "request": {
+  "clientId": "registration-processor",
+    "secretKey": "d80ec0be-bba7-4d8e-bf0c-85ab45bb976b",
+    "appId": "registrationprocessor"
+  },
+  "requesttime": "$TIMESTAMPZ$",
+  "version": "v1.0"
+}

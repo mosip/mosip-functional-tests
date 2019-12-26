@@ -388,7 +388,7 @@ int.finger.deviceid:
 qa.finger.deviceid:
       - SYNCBYTE.LTC163
 dev.finger.deviceid:
-      - SYNCBYTE.MC01A
+      - SYNCBYTE.LTC163
 int.iris.deviceid:
       - SYNCBYTE.LTC165
 qa.iris.deviceid:
@@ -467,12 +467,30 @@ auth_transaction_EKYC_success_statusComment:
 auth_transaction_EKYC_fail_statusComment:
       - $REGEXP:.*KYC.*Authentication.*Failed.*$
 #Audit_log
+audit_log_auth_eventType:
+      - BUSINESS
+audit_log_internal_eventType:
+      - SYSTEM
 audit_log_eventId:
       - $REGEXP:.*IDA.*$
+audit_log_auth_eventId:
+      - IDA-001
+audit_log_otp_eventId:
+      - IDA-002
+audit_log_kyc_eventId:
+      - IDA-003
+audit_log_internal_auth_eventId:
+      - IDA-004
+audit_log_internal_otp_eventId:
+      - IDA-005
 audit_log_auth_eventName:
       - Authentication Request
+audit_log_otp_eventName:
+      - OTP Request
 audit_log_internal_auth_eventName:
       - Internal Authentication Request
+audit_log_internal_otp_eventName:
+      - Internal OTP Request
 audit_log_ekyc_eventName:
       - eKYC Request
 audit_log_ida_appId:
@@ -490,11 +508,25 @@ audit_log_face_moduleName:
 audit_log_otp_moduleName:
       - OTP Authenticator
 audit_log_otprequest_moduleName:
-      - Otp Requestor
+      - OTP Requestor
 audit_log_USERID_refIdType:
       - USER_ID
 audit_log_UIN_refIdType:
       - UIN
+audit_log_demo_moduleId:
+      - Demographic Authenticator
+audit_log_ekyc_moduleId:
+      - IDA-EKA
+audit_log_iris_moduleId:
+      - IDA-ISA
+audit_log_finger_moduleId:
+      - IDA-FPA
+audit_log_face_moduleId:
+      - IDA-FAA
+audit_log_otp_moduleId:
+      - IDA-OTA
+audit_log_otprequest_moduleId:
+      - IDA-OTR
 audit_log_demo_moduleName:
       - Demographic Authenticator
 audit_log_VID_refIdType:

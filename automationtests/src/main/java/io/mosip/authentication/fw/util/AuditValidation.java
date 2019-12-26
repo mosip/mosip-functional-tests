@@ -36,7 +36,7 @@ public class AuditValidation {
 		auth_txn_file = FileUtil.getFileFromList(listOfFiles, keywordToFind);
 		Map<String, String> exp = AuthTestsUtil.getPropertyAsMap(auth_txn_file.getAbsolutePath());
 		Map<String, String> act = DbConnection.getDataForQuery(
-				"select request_dtimes,response_dtimes,id,request_trn_id,auth_type_code,status_code,status_comment,lang_code,ref_id_type,ref_id,cr_dtimes from ida.auth_transaction where request_trn_id = '"
+				"select requested_entity_name,requested_entity_id,requested_entity_type,request_dtimes,response_dtimes,id,request_trn_id,auth_type_code,status_code,status_comment,lang_code,ref_id_type,ref_id,cr_dtimes from ida.auth_transaction where request_trn_id = '"
 						+ exp.get("request_trn_id") + "' order by cr_dtimes desc limit 1",
 				"IDA");
 		AuthTestsUtil.generateMappingDic(auth_txn_file.getAbsolutePath().toString(), preconAuditKeywords(exp, act));
