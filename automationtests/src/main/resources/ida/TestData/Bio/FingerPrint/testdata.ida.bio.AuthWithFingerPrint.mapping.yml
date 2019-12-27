@@ -977,9 +977,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricFingerMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
@@ -1027,9 +1026,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricFingerMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
@@ -1836,9 +1834,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricFingerMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
       
   Authentication_Biometric_Finger_With_Invalid_consentObtained_neither_true_nor_false_In_Request_Neg:
     endpoint.url:

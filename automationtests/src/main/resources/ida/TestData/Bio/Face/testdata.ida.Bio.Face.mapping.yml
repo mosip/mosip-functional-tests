@@ -961,7 +961,6 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
       output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricTechMismatch:actionMessage$
       
   Authentication_Biometric_Face_With_Invalid_consentObtained_neither_true_nor_false_In_Request_Neg:
     endpoint.url:
@@ -1690,8 +1689,6 @@ testdata:
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
       output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricTechMismatch:actionMessage$
-      output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$endpoint.url:partnerIDMispLK$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$

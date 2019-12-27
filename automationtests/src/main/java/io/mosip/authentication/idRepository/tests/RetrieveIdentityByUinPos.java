@@ -60,6 +60,8 @@ public class RetrieveIdentityByUinPos extends IdRepoTestsUtil implements ITest {
 	@BeforeMethod
 	public void setTestCaseName() {
 		this.testCaseName = String.format("Verify Retrieve Identity By UIN");
+		RunConfigUtil.getRunConfigObject("idrepo");
+		RunConfigUtil.objRunConfig.setConfig("Dummy/Dummy", "Dummy", "");
 	}
 	
 	@AfterMethod(alwaysRun = true)

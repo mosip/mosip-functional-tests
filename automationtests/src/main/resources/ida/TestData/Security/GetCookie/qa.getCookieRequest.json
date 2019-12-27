@@ -1,8 +1,8 @@
 {
     "request": {
         "password": "mosip",
-        "appId": "ida_testuser",
-        "userName": "ida_testuser"
+        "appId": "admin",
+        "userName": "test_admin"
     },
     "metadata": "",
     "requesttime": "$TIMESTAMPZ$",

@@ -312,9 +312,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFaceMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricIrisMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricIrisMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
@@ -362,9 +361,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFaceMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricIrisMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricIrisMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
@@ -1991,10 +1989,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricIrisMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricIrisMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricIrisMismatch:actionMessage$
-      output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$endpoint.url:partnerIDMispLK$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
