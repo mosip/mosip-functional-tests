@@ -11,15 +11,11 @@
         "region": "Rabat Sale Kenitra",
         "province": "Rabat",
         "city": "Rabat",
-        "zone": "Souissi",
-        "postalCode": "10105",
+        "zone": "EL YOUSSOUFIA",
+        "postalCode": "10190",
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-08-27T12:28:09.508Z",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "createdDateTime": "$IGNORE$"
       }
     ]
   }

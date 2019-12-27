@@ -6,7 +6,7 @@
   "response": {
     "fromRecord": 1,
     "toRecord": 2,
-    "totalRecord": 4,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "isActive": true,
