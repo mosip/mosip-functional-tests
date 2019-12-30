@@ -343,8 +343,8 @@ errors:
     errorCode: IDA-OTA-010
     errorMessage: Input Identity Type does not match Identity Type of OTP Request
   InvalidDeviceProviderID:
-    errorCode: IDA-DPM-003
-    errorMessage: Device Provider is not registered with MOSIP
+    errorCode: IDA-DPM-001
+    errorMessage: Device is not registered with MOSIP
   InvalidDeviceProvider:
     errorCode: IDA-DPM-003
     errorMessage: Device Provider is not registered with MOSIP
@@ -364,7 +364,7 @@ errors:
     errorCode: IDA-DPM-002
     errorMessage: MDS is not registered with MOSIP
   InvalidDeviceModel:
-    errorCode: IDA-DPM-003
+    errorCode: IDA-DPM-002
     errorMessage: MDS is not registered with MOSIP
   InvalidDeviceType:
     errorCode: IDA-MLC-009
