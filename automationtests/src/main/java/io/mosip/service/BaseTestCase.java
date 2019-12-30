@@ -140,6 +140,8 @@ public class BaseTestCase{
 		public static void suiteSetup() {
 		
 			logger.info("Test Framework for Mosip api Initialized");
+			//Delete Old Log File
+			//FileUtils.forceDelete(new File("src/logs/mosip-api-test.log"));
 			logger.info("Logging initialized: All logs are located at " +  "src/logs/mosip-api-test.log");
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
