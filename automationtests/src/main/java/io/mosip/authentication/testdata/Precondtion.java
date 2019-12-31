@@ -37,6 +37,7 @@ import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.residentService.fw.util.ResidentServiceKeywordUtil;
 
 /**
  * Precondtion json file according to the input and mapping provided in test
@@ -158,6 +159,8 @@ public class Precondtion {
 			objKeywordUtil = new IdRepoKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("admin"))
 			objKeywordUtil = new AdminKeywordUtil();
+		else if (moduleName.equalsIgnoreCase("residentService"))
+			objKeywordUtil = new ResidentServiceKeywordUtil();
 		return objKeywordUtil;
 	}
 
