@@ -388,7 +388,7 @@ int.finger.deviceid:
 qa.finger.deviceid:
       - SYNCBYTE.LTC163
 dev.finger.deviceid:
-      - SYNCBYTE.LTC163
+      - SYNCBYTE.MC01A
 int.iris.deviceid:
       - SYNCBYTE.LTC165
 qa.iris.deviceid:

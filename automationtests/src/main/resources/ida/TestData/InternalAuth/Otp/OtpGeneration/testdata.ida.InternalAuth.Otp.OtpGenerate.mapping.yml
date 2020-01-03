@@ -29,12 +29,12 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-generate-request:otpReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_otp_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otprequest_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
-      hostName: $TestData:audit_log_internalAuthhostName$
+      hostName: $IGNORE$
     #email.emailNotification:
       #email.uin: $input.otp-generate-request:otpReq.individualId$
       #email.fullname: $idrepo~$input.otp-generate-request:otpReq.individualId$~valuefullName1$
@@ -770,12 +770,12 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-generate-request:otpReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_otp_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otprequest_moduleName$
       refIdType: $TestData:audit_log_VID_refIdType$
-      hostName: $TestData:audit_log_internalAuthhostName$
+      hostName: $IGNORE$
       
   InternalAuthentication_OTPGenerate_With_UserId_Valid_Request_Smoke_Pos:
     input.otp-generate-request:
@@ -807,10 +807,10 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-generate-request:otpReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_otp_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otprequest_moduleName$
       refIdType: $TestData:audit_log_USERID_refIdType$
-      hostName: $TestData:audit_log_internalAuthhostName$   
+      hostName: $IGNORE$   
  

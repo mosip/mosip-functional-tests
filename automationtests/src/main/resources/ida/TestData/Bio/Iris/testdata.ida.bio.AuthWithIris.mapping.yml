@@ -23,6 +23,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -70,6 +72,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -117,6 +121,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -164,6 +170,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -212,6 +220,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -260,6 +270,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -308,6 +320,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -357,6 +371,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -405,6 +421,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -436,6 +454,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -467,6 +487,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -507,6 +529,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
       #Device
       identityReq.deviceCode1: $Device:iris:code$
       identityReq.deviceProviderID1: $Device:iris:provider_id$
@@ -517,6 +541,8 @@ testdata:
       identityReq.digitalId.deviceProvider1: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId1: $Device:iris:provider_id$
       identityReq.digitalId.dateTime1: $TIMESTAMP$
+      identityReq.digitalId.type1: $Device:iris:dtype_code$
+      identityReq.digitalId.subType1: $Device:iris:dstype_code$
       #Device
       identityReq.deviceCode2: $Device:iris:code$
       identityReq.deviceProviderID2: $Device:iris:provider_id$
@@ -527,6 +553,8 @@ testdata:
       identityReq.digitalId.deviceProvider2: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId2: $Device:iris:provider_id$
       identityReq.digitalId.dateTime2: $TIMESTAMP$
+      identityReq.digitalId.type2: $Device:iris:dtype_code$
+      identityReq.digitalId.subType2: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -562,6 +590,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -593,6 +623,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -625,6 +657,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -660,6 +694,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -692,6 +728,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -724,6 +762,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -757,6 +797,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -792,6 +834,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -825,6 +869,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -858,6 +904,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -892,6 +940,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -926,6 +976,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -959,6 +1011,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -992,6 +1046,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1025,6 +1081,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1058,6 +1116,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1091,6 +1151,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1124,6 +1186,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1158,6 +1222,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1191,6 +1257,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1224,6 +1292,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1258,6 +1328,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1292,6 +1364,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1326,6 +1400,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1359,6 +1435,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1392,6 +1470,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1424,6 +1504,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1458,6 +1540,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1491,6 +1575,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1524,6 +1610,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1557,6 +1645,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1591,6 +1681,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1624,6 +1716,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1657,6 +1751,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1691,6 +1787,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1725,6 +1823,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1758,6 +1858,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1791,6 +1893,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1824,6 +1928,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1857,6 +1963,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1890,6 +1998,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1923,6 +2033,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1954,6 +2066,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1985,6 +2099,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2034,6 +2150,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2066,6 +2184,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2098,6 +2218,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2129,6 +2251,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2161,6 +2285,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
