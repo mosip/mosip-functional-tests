@@ -140,15 +140,13 @@ public class BaseTestCase{
 		public static void suiteSetup() {
 		
 			logger.info("Test Framework for Mosip api Initialized");
-			//Delete Old Log File
-			//FileUtils.forceDelete(new File("src/logs/mosip-api-test.log"));
 			logger.info("Logging initialized: All logs are located at " +  "src/logs/mosip-api-test.log");
 			initialize();
 			logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
 	   PreRegistrationLibrary pil=new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			//new PreregistrationDAO().deleteAvailableSlot();
+			
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			AuthTestsUtil.removeOldMosipTempTestResource();
 			AuthTestsUtil.initiateAuthTest();
@@ -158,7 +156,7 @@ public class BaseTestCase{
 			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
 			 * Here after booking appointment setting booking date to yesterday. 
 			 */
-			//expiredPreRegIds=lib.BookExpiredApplication();
+			expiredPreRegIds=lib.BookExpiredApplication();
 			/**
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
@@ -171,7 +169,7 @@ public class BaseTestCase{
 			 */
 		logger.info("waiting for job run to start");
 		try {
-				TimeUnit.SECONDS.sleep(8);
+				TimeUnit.MINUTES.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
