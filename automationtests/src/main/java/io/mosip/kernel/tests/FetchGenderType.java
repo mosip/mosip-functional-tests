@@ -79,8 +79,8 @@ public class FetchGenderType extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(idaCookie))
-			idaCookie = auth.getAuthForIDA();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -113,9 +113,9 @@ public class FetchGenderType extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 		if (objectData != null)
-			response = applicationLibrary.getWithPathParam(FetchGenderType_id_lang_URI, objectData, idaCookie);
+			response = applicationLibrary.getWithPathParam(FetchGenderType_id_lang_URI, objectData, adminCookie);
 		else {
-			response = applicationLibrary.getWithoutParams(FetchGenderType_URI, idaCookie);
+			response = applicationLibrary.getWithoutParams(FetchGenderType_URI, adminCookie);
 			objectData = null;
 		}
 		// DB validation

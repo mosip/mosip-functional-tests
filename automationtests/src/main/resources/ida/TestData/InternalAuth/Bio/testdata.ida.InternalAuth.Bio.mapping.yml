@@ -32,7 +32,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_face_moduleName$
@@ -71,7 +71,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -110,7 +110,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_iris_moduleName$
@@ -715,9 +715,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFaceMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricFaceMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricFaceMismatch:actionMessage$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
       
   InternalAuthentication_Biometric_With_Invalid_consentObtained_neither_true_nor_false_In_Request_Neg:
     #endpoint.url:
@@ -1293,10 +1292,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:BiometricFaceMismatch:errorCode$
-      output.1.response.error.errorMessage: $errors:BiometricFaceMismatch:errorMessage$
-      output.1.response.error.actionMessage: $errors:BiometricFaceMismatch:actionMessage$
-      #output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$#endpoint.url:#partnerIDMispLK$
+      output.1.response.error.errorCode: $errors:BiometricTechMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricTechMismatch:errorMessage$
     audit.auth_transaction:
       refId: $input.bio-auth-request:AuthReq.individualId$
       txnId: $input.bio-auth-request:AuthReq.transactionID$
@@ -1309,7 +1306,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_face_moduleName$
@@ -1424,7 +1421,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_face_moduleName$
@@ -1460,7 +1457,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_face_moduleName$
@@ -1496,7 +1493,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_iris_moduleName$
@@ -1532,7 +1529,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_iris_moduleName$
@@ -1568,7 +1565,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1604,7 +1601,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1640,7 +1637,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1676,7 +1673,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1712,7 +1709,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1748,7 +1745,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1784,7 +1781,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1820,7 +1817,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1856,7 +1853,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$
@@ -1892,7 +1889,7 @@ testdata:
     audit.audit_log:
       refId:  $input.bio-auth-request:AuthReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_internal_auth_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_finger_moduleName$

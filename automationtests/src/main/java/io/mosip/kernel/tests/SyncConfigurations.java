@@ -65,8 +65,8 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(regAdminCookie))
-			regAdminCookie=auth.getAuthForRegistrationAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 		build=io.mosip.report.Reporter.getAppDepolymentVersion();
 	} 
 	
@@ -107,13 +107,9 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 				logger.info("value---"+value);
 			}
 		}
-		//Creating a JSONObject and adding both registrationConfiguration and globalConfig
-		JSONObject configDetail= new JSONObject();
-		configDetail.put("registrationConfiguration", regConfig);
-		configDetail.put("globalConfiguration", globalConfig);
 		
 		// Calling the get method 
-		Response res=applicationLibrary.getWithoutParams(syncConf,regAdminCookie);
+		Response res=applicationLibrary.getWithoutParams(syncConf,adminCookie);
 		
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
@@ -121,10 +117,15 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 		JSONObject actualresponse = (JSONObject) ((JSONObject)((JSONObject) new JSONParser().parse(res.asString())).get("response")).get("configDetail");
 		String consent_ara=((JSONObject)actualresponse.get("registrationConfiguration")).get("mosip.registration.consent_ara").toString();
 		String consent_fra=((JSONObject)actualresponse.get("registrationConfiguration")).get("mosip.registration.consent_fra").toString();
+		String pwd = ((JSONObject)actualresponse.get("globalConfiguration")).get("mosip.kernel.pdf_owner_password").toString();
 		//adding the unstable elements from actual response to expected response
 		regConfig.put("mosip.registration.consent_ara", consent_ara);
 		regConfig.put("mosip.registration.consent_fra", consent_fra);
-		
+		globalConfig.put("mosip.kernel.pdf_owner_password", pwd);
+		//Creating a JSONObject and adding both registrationConfiguration and globalConfig
+				JSONObject configDetail= new JSONObject();
+				configDetail.put("registrationConfiguration", regConfig);
+				configDetail.put("globalConfiguration", globalConfig);
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");

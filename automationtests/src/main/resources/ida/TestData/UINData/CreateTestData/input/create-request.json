@@ -8,11 +8,15 @@
 			"residenceStatus": [
 				{
 					"language": "eng",
-					"value": "MOROCCO"
+					"value": "FR"
 				},
 				{
 					"language": "fra",
-					"value": "MOROCCO"
+					"value": "FR"
+				},
+				{
+					"language": "ara",
+					"value": "FR"
 				}
 			],
 			"fullName": [

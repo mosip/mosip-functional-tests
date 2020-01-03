@@ -5,6 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
+import io.mosip.authentication.fw.util.RunConfigUtil;
 
 public class IdRepoPrerequisteTests extends IdRepoTestsUtil{
 	

@@ -274,7 +274,7 @@ testdata:
    Admin_RegCenterSearch_Valid_colum_province_type_startsWith:
       input.search-request:
          columnNamefilters0: $TestData:validColumnProvince$
-         typefilters0: $TestData:valid_SearchTypeEquals$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
          valuefilters0: 'K'
          sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
@@ -359,7 +359,7 @@ testdata:
          pageFetch: 10
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos3-response:
          langCodedata0: $input.search-request:languageCode$
          isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$

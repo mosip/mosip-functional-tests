@@ -1,12 +1,11 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2019-12-27T10:48:18.812Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 24,
+    "totalRecord": 2,
     "data": [
       {
         "id": "10005",
@@ -22,7 +21,7 @@
         "holidayLocationCode": "KTA",
         "holidayLocation": "Kenitra",
         "contactPhone": "887311749",
-        "workingHours": "8:00:00",
+        "workingHours": "8",
         "langCode": "eng",
         "numberOfKiosks": 1,
         "perKioskProcessTime": "00:15:00",
@@ -46,15 +45,33 @@
         "cityCode": "KNT",
         "zoneCode": "BSN",
         "zone": "Benslimane",
+        "workingNonWorkingDays": {
+          "sun": false,
+          "mon": true,
+          "tue": true,
+          "wed": true,
+          "thu": true,
+          "fri": true,
+          "sat": false
+        },
+        "exceptionalHolidayPutPostDto": [
+          {
+            "exceptionHolidayDate": "2019-09-24",
+            "exceptionHolidayName": "Emergency Holiday",
+            "exceptionHolidayReson": "Emergency Holiday"
+          },
+          {
+            "exceptionHolidayDate": "2019-09-25",
+            "exceptionHolidayName": "Emergency Holiday",
+            "exceptionHolidayReson": "Emergency Holiday"
+          }
+        ],
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-08-27T12:28:11.068Z",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "createdDateTime": "2019-10-21T06:50:27.012Z",
+        "updatedBy": "110005",
+        "updatedDateTime": "2019-12-11T07:53:00.605Z"
       }
     ]
-  },
-  "errors": null
+  }
 }

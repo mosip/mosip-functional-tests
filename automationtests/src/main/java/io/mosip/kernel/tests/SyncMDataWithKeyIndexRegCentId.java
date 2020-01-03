@@ -73,8 +73,8 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(regAdminCookie))
-			regAdminCookie=auth.getAuthForRegistrationAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 				HashMap<String, String> regId = new HashMap<String, String>();
 				regId.put("regcenterId", regcenterId);
 				objectData.remove("regcenterId");
-					response = applicationLibrary.getWithPathQueryParam(syncMdatawithRegCentIdKeyIndex, regId, objectData, regAdminCookie);
+					response = applicationLibrary.getWithPathQueryParam(syncMdatawithRegCentIdKeyIndex, regId, objectData, adminCookie);
 					//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
 		// add parameters to remove in response before comparison like time stamp

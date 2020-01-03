@@ -5,15 +5,15 @@
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 4,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "isActive": true,
         "createdBy": "superadmin",
         "createdDateTime": "$IGNORE$",
-        "code": "POR",
-        "name": "Preuve de relation",
-        "description": "Preuve de relation de la personne",
+        "code": "POB",
+        "name": "Preuve de naissance",
+        "description": "Preuve de la date de naissance de la personne",
         "langCode": "fra"
       }
     ]

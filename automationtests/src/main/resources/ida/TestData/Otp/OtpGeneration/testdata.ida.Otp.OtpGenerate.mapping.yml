@@ -32,7 +32,7 @@ testdata:
     audit.audit_log:
       refId:  $input.otp-generate-request:otpReq.individualId$
       eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
+      eventName: $TestData:audit_log_otp_eventName$
       appId: $TestData:audit_log_ida_appId$
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otprequest_moduleName$

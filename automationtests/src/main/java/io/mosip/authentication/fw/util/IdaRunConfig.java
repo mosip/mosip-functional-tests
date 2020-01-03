@@ -69,8 +69,15 @@ public class IdaRunConfig extends RunConfig{
 	private String idaInternalRetrieveAuthTypeStatusPathForVID;
 	private String cryptomanagerEncrypt;
 	private String splitEncryptedData;
+	private String authManagerUserIdPwd;
 	
 	
+	public String getAuthManagerUserIdPwd() {
+		return authManagerUserIdPwd;
+	}
+	public void setAuthManagerUserIdPwd(String authManagerUserIdPwd) {
+		this.authManagerUserIdPwd = authManagerUserIdPwd;
+	}
 	public String getSplitEncryptedData() {
 		return splitEncryptedData;
 	}
@@ -425,7 +432,7 @@ public class IdaRunConfig extends RunConfig{
 		setStoreUINDataPath(AuthTestsUtil.getPropertyValue("storeUINDataPath"));
 		setEncodeFilePath(AuthTestsUtil.getPropertyValue("encodeFilePath"));
 		setDecodeFilePath(AuthTestsUtil.getPropertyValue("decodeFilePath"));
-		setClientidsecretkey(AuthTestsUtil.getPropertyValue("clientidsecretkey"));
+		setClientidsecretkey(AuthTestsUtil.getPropertyValue("useridPwd"));
 		//loadingConfigFile
 		loadErrorsData(getErrorsConfigPath());
 		setUinIdentityMapper(AuthTestsUtil.getPropertyValue("uinIdentityMapper"));
@@ -437,6 +444,7 @@ public class IdaRunConfig extends RunConfig{
 		setIdaInternalRetrieveAuthTypeStatusPathForVID(AuthTestsUtil.getPropertyValue("internalRetrieveAuthTypeStatusPathForVID"));
 		setCryptomanagerEncrypt(AuthTestsUtil.getPropertyValue("cryptomanagerEncrypt"));
 		setSplitEncryptedData(AuthTestsUtil.getPropertyValue("splitEncryptedData"));
+		setAuthManagerUserIdPwd(AuthTestsUtil.getPropertyValue("useridPwd"));
 	}	
 	
 	/**

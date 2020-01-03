@@ -72,8 +72,8 @@ public class FetchBlackListedWord extends BaseTestCase implements ITest {
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(zonalAdminCookie))
-			zonalAdminCookie=auth.getAuthForZonalAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class FetchBlackListedWord extends BaseTestCase implements ITest {
 
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
-				response = applicationLibrary.getWithPathParam(FetchBlackListedWord_URI,objectData,zonalAdminCookie);
+				response = applicationLibrary.getWithPathParam(FetchBlackListedWord_URI,objectData,adminCookie);
 		
 		// add parameters to remove in response before comparison like time stamp
 		ArrayList<String> listOfElementToRemove = new ArrayList<String>();

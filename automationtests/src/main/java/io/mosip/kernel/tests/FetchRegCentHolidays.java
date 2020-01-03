@@ -78,8 +78,8 @@ public class FetchRegCentHolidays extends BaseTestCase implements ITest {
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
-		if(!lib.isValidToken(individualCookie))
-			individualCookie=auth.getAuthForIndividual();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class FetchRegCentHolidays extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 
-				response = applicationLibrary.getWithPathParam(FetchRegCentHolidays_URI, objectData,individualCookie);
+				response = applicationLibrary.getWithPathParam(FetchRegCentHolidays_URI, objectData,adminCookie);
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(response);
 		if (testcaseName.toLowerCase().contains("smoke")) {

@@ -66,8 +66,8 @@ public class CentetMachineUserMappingToMasterData extends BaseTestCase implement
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(regProcCookie))
-			regProcCookie = auth.getAuthForRegistrationProcessor();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 	
 	 // Data Providers to read the input json files from the folders
@@ -95,7 +95,7 @@ public class CentetMachineUserMappingToMasterData extends BaseTestCase implement
 			actualRequest.put("requesttime", lib.getCurrentLocalTime());
 		}
 		//  Calling the put method 
-		  Response response = applicationLibrary.putWithJson(CentetMachineUserMappingToMasterData_uri, actualRequest, regProcCookie);
+		  Response response = applicationLibrary.putWithJson(CentetMachineUserMappingToMasterData_uri, actualRequest, adminCookie);
 		
 		// Removing of unstable attributes from response
 		ArrayList<String> listOfElementToRemove=new ArrayList<String>();

@@ -77,8 +77,8 @@ public class FetchBiometricAttribute extends BaseTestCase implements ITest {
 			throws JsonParseException, JsonMappingException, IOException, ParseException {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(regAdminCookie))
-			regAdminCookie = auth.getAuthForRegistrationAdmin();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie = auth.getAuthForAdmin();
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class FetchBiometricAttribute extends BaseTestCase implements ITest {
 		JSONObject objectData = objectDataArray[0];
 		responseObject = objectDataArray[1];
 		// sending get request
-		response = applicationLibrary.getWithPathParam(FetchBiometricAttribute_URI, objectData, regAdminCookie);
+		response = applicationLibrary.getWithPathParam(FetchBiometricAttribute_URI, objectData, adminCookie);
 
 		// This method is for checking the authentication is pass or fail in rest
 		// services

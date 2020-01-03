@@ -78,14 +78,6 @@ public class IdRepoTestsUtil extends AuthTestsUtil{
 	public static String getPropertyValue(String key) {
 		return getRunConfigData().getProperty(key);
 	}
-	protected static String getCookieRequestFilePath() {
-		return RunConfigUtil.getResourcePath()
-				+ "idRepository/TestData/Security/GetCookie/getCookieRequest.json".toString();
-	}
-	public static String getCookieRequestFilePathForUinGenerator() {
-		return RunConfigUtil.getResourcePath()
-				+ "idRepository/TestData/Security/GetCookie/getCookieForUinGenerator.json".toString();
-	}
 	
 	public static void copyIdrepoTestResource() {
 		try {
@@ -190,5 +182,25 @@ public class IdRepoTestsUtil extends AuthTestsUtil{
 			IDAREPOSCRIPT_LOGGER.error("Exception " + e);
 			return false;
 		}
+	}
+	
+	protected static String getCookieRequestFilePath() {
+		return RunConfigUtil.getResourcePath()
+				+ "idRepository/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieRequest.json".toString();
+	}
+	
+	protected static String getCookieRequestFilePathForUinGenerator() {
+		return RunConfigUtil.getResourcePath()
+				+ "idRepository/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieForUinGenerator.json".toString();
+	}
+	
+	protected static String getCookieRequestFilePathForInternalAuth() {
+		return RunConfigUtil.getResourcePath()
+				+ "idRepository/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".getCookieForInternalAuth.json".toString();
+	}
+	
+	protected static String getCookieRequestFilePathForResidentAuth() {
+		return RunConfigUtil.getResourcePath()
+				+ "idRepository/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".residentServiceCredential.json".toString();
 	}
 }

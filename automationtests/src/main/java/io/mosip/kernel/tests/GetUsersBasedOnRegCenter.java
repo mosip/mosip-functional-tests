@@ -63,8 +63,8 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 	public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) throws Exception {
 		String object = (String) testdata[0];
 		testCaseName = moduleName + "_" + apiName + "_" + object.toString();
-		if(!lib.isValidToken(registrationOfficerCookie))
-			registrationOfficerCookie=auth.getAuthForRegistrationOfficer();
+		if(!lib.isValidToken(adminCookie))
+			adminCookie=auth.getAuthForAdmin();
 	} 
 	
 	// Data Providers to read the input json files from the folders
@@ -92,7 +92,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 		JSONObject actualRequest = objectDataArray[0];
 		Expectedresponse = objectDataArray[1];		
 		// Calling the get method 
-		Response res=applicationLibrary.getWithPathParam(getusersBasedOnRegCenter, actualRequest,registrationOfficerCookie);
+		Response res=applicationLibrary.getWithPathParam(getusersBasedOnRegCenter, actualRequest,adminCookie);
 		
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
@@ -112,7 +112,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 		// Comparing expected and actual response
 		status = AssertResponses.assertResponses(res, Expectedresponse, outerKeys, innerKeys);
 		if (!status) {
-			logger.debug(res);
+			logger.info(res.asString());
 		}
 		Verify.verify(status);
 		softAssert.assertAll();

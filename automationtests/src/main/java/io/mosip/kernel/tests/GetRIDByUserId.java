@@ -63,7 +63,7 @@ public class GetRIDByUserId extends BaseTestCase implements ITest {
 		String object = (String) testdata[0];
 		testCaseName = moduleName+"_"+apiName+"_"+object.toString();
 		if(!lib.isValidToken(regProcCookie))
-			regProcCookie=auth.getAuthForRegistrationOfficer();
+			regProcCookie=auth.getAuthForRegistrationProcessor();
 	} 
 	
 	// Data Providers to read the input json files from the folders

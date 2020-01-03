@@ -6,7 +6,7 @@
   "response": {
     "fromRecord": 1,
     "toRecord": 2,
-    "totalRecord": 4,
+    "totalRecord": "$IGNORE$",
     "data": [
       {
         "isActive": true,
@@ -29,9 +29,9 @@
         "updatedDateTime": null,
         "isDeleted": null,
         "deletedDateTime": null,
-        "code": "POE",
-        "name": "Proof of Biometric Exception",
-        "description": "Proof of Biometric Exception",
+        "code": "POB",
+        "name": "Proof of Birth",
+        "description": "Proof date of birth of the person",
         "langCode": "eng"
       }
     ]

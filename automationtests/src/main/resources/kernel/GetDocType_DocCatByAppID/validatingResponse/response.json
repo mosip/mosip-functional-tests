@@ -1,7 +1,7 @@
 {
 	"id": null,
 	"version": null,
-	"responsetime": "2019-08-26T11:21:47.109Z",
+	"responsetime": "2019-12-17T07:47:14.162Z",
 	"metadata": null,
 	"response": {
 		"appTypeCode": "001",
@@ -17,8 +17,8 @@
 				"documentTypes": [
 					{
 						"code": "CIN",
-						"name": "Reference Identity Card",
-						"description": "Reference Identity Card",
+						"name": "CNIE card",
+						"description": "Moroccan National Electronic ID Card",
 						"langCode": "eng",
 						"isActive": true
 					}
@@ -51,6 +51,22 @@
 						"code": "CRN",
 						"name": "Certificate of Relationship",
 						"description": "Proof relationship of a person",
+						"langCode": "eng",
+						"isActive": true
+					}
+				]
+			},
+			{
+				"code": "POB",
+				"name": "Proof of Birth",
+				"description": "Proof date of birth of the person",
+				"langCode": "eng",
+				"isActive": true,
+				"documentTypes": [
+					{
+						"code": "COB",
+						"name": "Certificate of Birth",
+						"description": "Proof birth and age of a person",
 						"langCode": "eng",
 						"isActive": true
 					}

@@ -161,7 +161,7 @@ testdata:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:validColumnZone$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: Souissi
+      valuefilters0: 'EL YOUSSOUFIA'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       sortFieldsort0: 'region'
