@@ -1,10 +1,12 @@
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version": "1.0",
-   "responsetime": "2019-04-21T13:34:36.737Z",
-   "response": null,
-   "errors": [   {
-      "errorCode": "PRG_PAM_CORE_002",
-      "message": "Request version is invalid"
-   }]
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2020-01-03T05:26:18.255Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_CORE_REQ_002",
+            "message": "Request version is invalid"
+        }
+    ]
 }

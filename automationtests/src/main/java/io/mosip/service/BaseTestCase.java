@@ -171,7 +171,7 @@ public class BaseTestCase{
 			 */
 		logger.info("waiting for job run to start");
 		try {
-				TimeUnit.MINUTES.sleep(8);
+				TimeUnit.SECONDS.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
