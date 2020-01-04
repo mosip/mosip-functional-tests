@@ -156,7 +156,7 @@ public class BaseTestCase{
 			 * expiredPreRegIds list contain list of pre registration ids of yesterday date
 			 * Here after booking appointment setting booking date to yesterday. 
 			 */
-			expiredPreRegIds=lib.BookExpiredApplication();
+			//expiredPreRegIds=lib.BookExpiredApplication();
 			/**
 			 * consumedPreRegIds list contain list of consumed pre registration ids 
 			 * 
