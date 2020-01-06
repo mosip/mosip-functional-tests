@@ -1,10 +1,11 @@
 {
-	"id": "string",
-	"request": {
-		"clientId": "ida",
-		"secretKey": "bad25866-e6a5-4f93-831a-08923ea6eee0",
-		"appId": "ida"
-	},
-	"requesttime": "$TIMESTAMPZ$",
-	"version": "string"
-}	
+    "request": {
+        "password": "mosip",
+        "appId": "admin",
+        "userName": "110005"
+    },
+    "metadata": "",
+    "requesttime": "$TIMESTAMPZ$",
+    "id": "mosip.io.userId.pwd",
+    "version": "1.0"
+}
