@@ -1,1 +1,10 @@
-{"id":"","version":"1.0","responsetime":"2019-06-01T08:02:07.585Z","response":null,"errors":[{"errorCode":"PRG_PAM_CORE_001","message":"Request id is invalid"}]}
+{
+	"id": "mosip.pre-registration.qrcode.generate",
+	"version": "1.0",
+	"responsetime": "2020-01-06T05:26:31.911Z",
+	"response": null,
+	"errors": [{
+		"errorCode": "PRG_PAM_CORE_001",
+		"message": "Request id is invalid"
+	}]
+}
