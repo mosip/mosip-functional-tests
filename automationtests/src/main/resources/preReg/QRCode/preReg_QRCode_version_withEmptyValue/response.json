@@ -1,12 +1,10 @@
-{"id":"mosip.pre-registration.qrcode.generate",
-"version":"",
-"responsetime":"2019-06-01T08:11:11.981Z",
-"response":null,
-"errors":
-[
 {
-"errorCode":"PRG_PAM_CORE_002",
-"message":"Request version is invalid"
-}
-]
+	"id": "mosip.pre-registration.qrcode.generate",
+	"version": "1.0",
+	"responsetime": "2020-01-06T05:31:37.023Z",
+	"response": null,
+	"errors": [{
+		"errorCode": "PRG_CORE_REQ_002",
+		"message": "Request version is invalid"
+	}]
 }
