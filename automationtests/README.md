@@ -1,5 +1,3 @@
-# Automationtests
-This readme provides detailed steps to build and execute the AUTOMATION TEST SUITE for sanity testing of the MOSIP platform. It can be run after successful deployment of the platform code.
 
 ## Pre-requisites:
 For Windows
