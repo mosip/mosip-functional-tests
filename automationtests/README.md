@@ -37,10 +37,10 @@
 	
 		$ cd target
 		$ java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-<version>-jar-with-dependencies.jar
-	1. env.user 	 	Change ‘qa’ to a valid user-id
-	1. env.endpoint	 	env where the application under test is deployed. For example, https://env.mosip.io
-	1. env.testlevel	'smoke' to run the basic smoke tests
-	1. <version> 		MOSIP version deployed, example 1.0.5
+	1. "env.user"		:	Change ‘qa’ to a valid user-id,
+	1. "env.endpoint"	:	env where the application under test is deployed. For example, https://env.mosip.io,
+	1. "env.testlevel"	:	'smoke' to run the basic smoke tests,	
+	1. "version" 		:	MOSIP version deployed, example 1.0.5
 
 1. Verify
 
