@@ -1,3 +1,5 @@
+## Procedure to build and run the MOSIP functional test suite
+
 ### Install maven 3.6.0 or above
 
 	$ sudo apt-get install maven
@@ -22,7 +24,7 @@
 	
 Modify settings.xml inside $HOME/.m2.  Find the element <localRepository> and change its value to the full path where .m2 folder is located
 
-Copy testng-sample-test.xml to testngapi.xml
+Copy testngapi-sample.xml to testngapi.xml
 
 	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi.xml testngapi.xml.backup
  	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi-sample.xml testngapi.xml
@@ -36,13 +38,13 @@ Copy testng-sample-test.xml to testngapi.xml
 	$ cd target
 	$ java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-<version>-jar-with-dependencies.jar
 
-env.user 	 Change ‘qa’ to a valid user-id
+env.user 	 	Change ‘qa’ to a valid user-id
 
-env.endpoint 	 env where the application under test is deployed. For example, https://env.mosip.io
+env.endpoint 	 	env where the application under test is deployed. For example, https://env.mosip.io
 
-env.testlevel 	'smoke' to run the basic smoke tests
+env.testlevel 		'smoke' to run the basic smoke tests
 
-<version> 	is the mosip version, example 1.0.5
+<version> 		MOSIP version deployed, example 1.0.5
 
 
 ### Verify
