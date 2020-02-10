@@ -1,4 +1,4 @@
-### Install maven 3.6.0 or aboc
+### Install maven 3.6.0 or above
 
 	$ sudo apt-get install maven
 
