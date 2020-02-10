@@ -22,9 +22,9 @@
 	$ cd mosip-functional-tess
 	$ cp settings.xml $HOME/.m2
 	
-Modify settings.xml inside $HOME/.m2.  Find the element <localRepository> and change its value to the full path where .m2 folder is located
+1. Modify settings.xml inside $HOME/.m2.  Find the element <localRepository> and change its value to the full path where .m2 folder is located
 
-Copy testngapi-sample.xml to testngapi.xml
+1. Copy testngapi-sample.xml to testngapi.xml
 
 	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi.xml testngapi.xml.backup
  	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi-sample.xml testngapi.xml
@@ -38,14 +38,10 @@ Copy testngapi-sample.xml to testngapi.xml
 	$ cd target
 	$ java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-<version>-jar-with-dependencies.jar
 
-env.user 	 	Change ‘qa’ to a valid user-id
-
-env.endpoint 	 	env where the application under test is deployed. For example, https://env.mosip.io
-
-env.testlevel 		'smoke' to run the basic smoke tests
-
-<version> 		MOSIP version deployed, example 1.0.5
-
+	1. env.user 	 	Change ‘qa’ to a valid user-id
+	1. env.endpoint	 	env where the application under test is deployed. For example, https://env.mosip.io
+	1. env.testlevel	'smoke' to run the basic smoke tests
+	1. <version> 		MOSIP version deployed, example 1.0.5
 
 1. Verify
 
