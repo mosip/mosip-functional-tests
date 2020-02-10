@@ -1,6 +1,6 @@
 ## Procedure to build and run the MOSIP functional test suite
 
-### Install maven 3.6.0 or above
+##### Install maven 3.6.0 or above
 
 	$ sudo apt-get install maven
 
