@@ -1,22 +1,22 @@
-## Procedure to build and run the MOSIP functional test suite
+### Procedure to build and run the MOSIP functional test suite
 
-##### Install maven 3.6.0 or above
+1. Install maven 3.6.0 or above
 
 	$ sudo apt-get install maven
 
-### Create .m2 folder inside your home directory 
+1. Create .m2 folder inside your home directory 
 
 	$ mkdir $HOME/.m2
 								
-### Install git 2.18 or above
+1. Install git 2.18 or above
 
 	$ sudo apt-get install git
             
-### Install Java 8 (and not higher versions)
+1. Install Java 8 (and not higher versions)
 
 	$ sudo apt install openjdk-8-jdk
 						
-### Clone the mosip-functional-tests repo from github
+1. Clone the mosip-functional-tests repo from github
 
 	$ git clone https://github.com/mosip/mosip-functional-tests
 	$ cd mosip-functional-tess
@@ -29,11 +29,11 @@ Copy testngapi-sample.xml to testngapi.xml
 	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi.xml testngapi.xml.backup
  	$ cp $HOME/mosip-functional-tests/automationtests/src/main/resource testngapi-sample.xml testngapi.xml
 
-### Build 
+1. Build 
 
 	$ mvn clean install
 	
-### Run
+1. Run
 	
 	$ cd target
 	$ java -Denv.user=qa -Denv.endpoint=<base_env> -Denv.testLevel=smoke -jar automationtests-<version>-jar-with-dependencies.jar
@@ -47,5 +47,5 @@ env.testlevel 		'smoke' to run the basic smoke tests
 <version> 		MOSIP version deployed, example 1.0.5
 
 
-### Verify
+1. Verify
 
