@@ -1,8 +1,9 @@
 # mosip-functional-tests
 Contains 
-1.  Functional test automation code
-2.  Sample test data
-3.  Procedure and build and run it.
+1.  Test automation code
+2.  Test cases in form of JSON files
+3.  Sample test data
+4.  Procedure to build and run it.
 
 ### How to build
 Follow the steps in https://github.com/mosip/mosip-functional-tests/blob/master/automationtests/README.md
