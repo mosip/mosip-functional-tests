@@ -45,5 +45,12 @@ The below procedure has been tried on Ubuntu LTS 18.04.  For other distros and W
 
 1. Verify
 
+	1. The test report is created in the folder $HOME/mosip-functional-tests/automationtests/target/testng-report.
+	1. Open the file 'emailable-report.html' to get a view of the test cases passsed, skipped and failed. 
+	1. Click the failed test to see the the details of what has failed and details of the error.
+
+
+		
+
 ---
 For other Linux distros and Windows, please add specific instructions here.  Separate each by a horizontal line.  
