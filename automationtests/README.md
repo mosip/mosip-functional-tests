@@ -1,5 +1,5 @@
 ### Procedure to build and run the MOSIP functional test suite
-#### Note: The below procedure has been tried on Ubuntu LTS 18.04.  For other distros and Windows, you can contribute to this README by adding new sections 
+The below procedure has been tried on Ubuntu LTS 18.04.  For other distros and Windows, you can contribute to this README by adding new sections 
 
 1. Install maven 3.6.0 or above
 
