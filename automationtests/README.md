@@ -45,3 +45,5 @@ The below procedure has been tried on Ubuntu LTS 18.04.  For other distros and W
 
 1. Verify
 
+---
+For other Linux distros and Windows, please add specific instructions here.  Separate each by a horizontal line.  
