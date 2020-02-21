@@ -66,7 +66,7 @@
 			"addressLine3": [
 				{
 					"language": "eng",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				},
 				{
 					"language": "ara",
@@ -74,7 +74,7 @@
 				},
 				{
 					"language": "fra",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				}
 			],
 			"region": [
@@ -108,7 +108,7 @@
 			"city": [
 				{
 					"language": "eng",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				},
 				{
 					"language": "ara",
@@ -116,7 +116,7 @@
 				},
 				{
 					"language": "fra",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				}
 			],
 			"localAdministrativeAuthority": [
