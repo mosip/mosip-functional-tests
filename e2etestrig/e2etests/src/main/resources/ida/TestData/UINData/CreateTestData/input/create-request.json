@@ -3,7 +3,7 @@
 	"request": {
 		"registrationId": "27847657360002520190205113333",
 		"identity": {
-		    "residenceStatus": "MOROCCO",
+		    "residenceStatus": "MYCOUNTRY",
 			"IDSchemaVersion": 1.0,
 			"UIN": 6738521981,
 			"fullName": [
@@ -67,7 +67,7 @@
 			"addressLine3": [
 				{
 					"language": "eng",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				},
 				{
 					"language": "ara",
@@ -75,7 +75,7 @@
 				},
 				{
 					"language": "fra",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				}
 			],
 			"region": [
@@ -109,7 +109,7 @@
 			"city": [
 				{
 					"language": "eng",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				},
 				{
 					"language": "ara",
@@ -117,7 +117,7 @@
 				},
 				{
 					"language": "fra",
-					"value": "MOROCCO"
+					"value": "MYCOUNTRY"
 				}
 			],
 			"localAdministrativeAuthority": [
