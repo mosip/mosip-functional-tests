@@ -84,7 +84,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	public void consumedMultiplePRID() {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		preID = null;
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 1; i <= 2; i++) {
 			preRegistrationIds.add(preID);
 			preID = consumedPreRegIds.get(++count);
 		}

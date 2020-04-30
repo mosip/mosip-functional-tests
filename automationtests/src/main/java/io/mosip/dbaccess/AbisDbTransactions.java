@@ -22,13 +22,13 @@ public class AbisDbTransactions {
 	private static Logger logger = Logger.getLogger(AbisDbTransactions.class);
 	TransactionStatusDTO transactionStatus = new TransactionStatusDTO();
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
-	String registrationListConfigFilePath = apiRequests.getResourcePath()+"regproc_qa.cfg.xml";
+	String registrationListConfigFilePath = apiRequests.getResourcePath()+"/dbFiles/regproc_qa.cfg.xml";
 	File registrationListConfigFile = new File(registrationListConfigFilePath);
 
 	public Session getCurrentSession() {
 		SessionFactory factory;
 		Session session;
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();
 		session = factory.getCurrentSession();
 		return session;
 	}

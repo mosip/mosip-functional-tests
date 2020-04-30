@@ -11,18 +11,7 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:MachineNotFoundDecommission:errorCode$
          messageerrors0: Machine ID anStr does not exist
-   Admin_DecommisionMachine_inValid_machineId_Length_greaterThan5:
-      input.search-request:
-         machineId: anyStr
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:RegCenterDecomissionInvalidLength:errorCode$
-         messageerrors0: $errors:RegCenterDecomissionInvalidLength:errorMessage$
-   Admin_DecommisionMachine_inValid_machineId_Length_lessThan5:
-      input.search-request:
-         machineId: aStr
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:RegCenterDecomissionInvalidLength:errorCode$
-         messageerrors0: $errors:RegCenterDecomissionInvalidLength:errorMessage$
+
    Admin_DecommisionMachine_inValid_regCentMapToMachine:
       input.search-request:
          machineId: $TestData:MachineCretedByQuery1$
@@ -33,8 +22,8 @@ testdata:
       input.search-request:
          machineId: $TestData:MachineCretedByQuery$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
    Admin_DecommisionMachine_inValid_machine_mapped_to_zone_nonAccessable_by_user:
       input.search-request:
          machineId: Tmac2

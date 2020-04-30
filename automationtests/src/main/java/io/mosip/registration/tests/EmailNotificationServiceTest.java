@@ -18,7 +18,6 @@ import org.testng.internal.TestResult;
 
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.registration.config.AppConfig;
-import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.ResponseDTO;
 import io.mosip.registration.service.template.NotificationService;
@@ -90,9 +89,8 @@ public class EmailNotificationServiceTest extends BaseConfiguration implements I
 			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
 					"registrationID:" + registrationID);
 			ResponseDTO emalResponseDTO = notificationService.sendEmail(message, emaildID, registrationID);
-			// commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),
-			// emalResponseDTO);
-			commonUtil.verifyAssertNotNull(emalResponseDTO);
+			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),emalResponseDTO);
+			
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}

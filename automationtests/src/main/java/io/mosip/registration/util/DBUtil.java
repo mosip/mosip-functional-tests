@@ -1,8 +1,5 @@
 package io.mosip.registration.util;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,17 +9,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Properties;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import io.mosip.testrunner.MosipTestRunner;
 
 public class DBUtil {
 
 	// private static String dbURL = "jdbc:derby:" + System.getProperty("user.dir")
 	// + "/src/test/resources/testData/reg;bootPassword=mosip12345";
-
-	private static String dbURL = "jdbc:derby:" + System.getProperty("user.dir") + "/db/reg;bootPassword=mosip12345";
+	ClassLoader classLoader=getClass().getClassLoader();
+	
+	
+	//private static String dbURL = "jdbc:derby:" + MosipTestRunner.getGlobalResourcePath()+ "/db/reg;bootPassword=mosip12345";
+	private static String dbURL ="jdbc:derby:db/reg;bootPassword=mosip12345";
 	/** Logger available to subclasses */
 	private static Logger logger = Logger.getLogger(DBUtil.class);
 	private static Connection conn = null;
@@ -35,6 +36,7 @@ public class DBUtil {
 			// Get a connection
 			logger.info(dbURL);
 			conn = DriverManager.getConnection(dbURL);
+			DriverManager.getConnection("jdbc:derby:db/reg;bootPassword=mosip12345");
 			logger.info(conn.toString());
 		} catch (Exception except) {
 			except.printStackTrace();

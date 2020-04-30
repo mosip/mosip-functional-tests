@@ -1,88 +1,17 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-09-30T05:08:54.329Z",
+  "responsetime": "2020-01-20T10:33:30.193Z",
+  "metadata": null,
   "response": {
     "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Account statement or passbook of the Post Office"
-      },
       {
         "fieldID": "name",
         "fieldValue": "Birth Certificate"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Canteen card of the Army"
-      },
-      {
-        "fieldID": "name",
         "fieldValue": "Certificate of Birth"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Certificate of Marriage"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Certificate of Relationship"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Certificate of residence"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Certification of Exception"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "CNIE card"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Driving licence of the applicant"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Either Ration or PDS Photo card"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Family entitlement document"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Licence of Arms"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Medical card issued by the State Govt, CGHS, ECHS and ESIC"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "PAN card"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Passbook or Bank Statement"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Passport"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "PDS Card"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Photo Bank ATM card"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Photo card of the Freedom Fighter"
       },
       {
         "fieldID": "isActive",
@@ -93,5 +22,6 @@
         "fieldValue": "false"
       }
     ]
-  }
+  },
+  "errors": null
 }

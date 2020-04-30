@@ -28,12 +28,12 @@ public class PreRegDbread {
 		boolean flag = false;
 		try {
 			if(BaseTestCase.environment.equalsIgnoreCase("dev"))				
-				factory = new Configuration().configure("preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
+				factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
 						.buildSessionFactory();
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))				
-						factory = new Configuration().configure("preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
+						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
 								.buildSessionFactory();
 				}
 			session = factory.getCurrentSession();
@@ -64,12 +64,12 @@ public class PreRegDbread {
 
 
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("preregdev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("preregqa.cfg.xml")
+						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
 					.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				}
 
@@ -153,12 +153,12 @@ public class PreRegDbread {
 
 
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))				
-			factory = new Configuration().configure("preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
+			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
 					.buildSessionFactory();
 			else
 			{
 				if(BaseTestCase.environment.equalsIgnoreCase("qa"))				
-					factory = new Configuration().configure("preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
+					factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
 							.buildSessionFactory();
 			}
 
@@ -213,12 +213,12 @@ public class PreRegDbread {
 
 
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))				
-			factory = new Configuration().configure("preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
+			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml").addAnnotatedClass(OtpEntity.class)
 					.buildSessionFactory();
 			else
 			{
 				if(BaseTestCase.environment.equalsIgnoreCase("qa"))				
-					factory = new Configuration().configure("preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
+					factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml").addAnnotatedClass(OtpEntity.class)
 							.buildSessionFactory();
 			}
 

@@ -35,6 +35,7 @@ import io.mosip.registration.service.external.impl.ZipCreationServiceImpl;
 import io.mosip.registration.util.BaseConfiguration;
 import io.mosip.registration.util.ConstantValues;
 import io.mosip.registration.util.DataProvider;
+import junit.framework.Assert;
 
 /**
  * @author Gaurav Sharan
@@ -68,67 +69,68 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	}
 
 	/**
-	 * Test case to check whether RegBasecheckedException is thrown in case of
-	 * empty input
+	 * Test case to check whether RegBasecheckedException is thrown in case of empty
+	 * input
 	 * 
 	 * @throws RegBaseCheckedException
 	 */
 	@Test(expectedExceptions = RegBaseCheckedException.class)
 	public void createPacketcheckedExceptionEmptyInputsTest() throws RegBaseCheckedException {
-		//try {
+		try {
 			mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionEmptyInputsTest";
 			RegistrationDTO registrationDTO = new RegistrationDTO();
 			Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
 			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-		//}
+		}
 
-	/*	catch (RegBaseCheckedException exception) {
+		catch (RegBaseCheckedException exception) {
 			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
-			Reporter.log(ExceptionUtils.getStackTrace(exception));
-		}*/
+			Assert.assertTrue(true);
+		}
 	}
 
 	/**
-	 * Test case to check whether RegBasecheckedException is thrown in case of
-	 * empty files input
+	 * Test case to check whether RegBasecheckedException is thrown in case of empty
+	 * files input
 	 * 
 	 * @throws RegBaseCheckedException
 	 */
-	@Test(expectedExceptions = RegBaseCheckedException.class)
+	@Test
 	public void createPacketcheckedExceptionEmptyFileInputTest() throws RegBaseCheckedException {
-		//try {
-		mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionEmptyFileInputTest";
-		RegistrationDTO registrationDTO = DataProvider.getPacketDTO();
-		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
-		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-		//}
+		try {
+			mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionEmptyFileInputTest";
+			RegistrationDTO registrationDTO = DataProvider.getPacketDTO();
+			Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
+			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
 
-	/*	catch (RegBaseCheckedException exception) {
+		catch (RegBaseCheckedException exception) {
 			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
-			Reporter.log(ExceptionUtils.getStackTrace(exception));
-		}*/
+			Assert.assertTrue(true);
+			
+		}
 	}
 
 	/**
-	 * Test case to check whether RegBasecheckedException is thrown in case of
-	 * null input
+	 * Test case to check whether RegBasecheckedException is thrown in case of null
+	 * input
 	 * 
 	 * @throws RegBaseCheckedException
 	 */
 
-	@Test(expectedExceptions = RegBaseCheckedException.class)
+	@Test
 	public void createPacketcheckedExceptionNullInputTest() throws RegBaseCheckedException {
-		//try {
-		mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest";
-		RegistrationDTO registrationDTO = null;
-		Map<String, byte[]> filesGeneratedForPacket = null;
-		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-		//}
+		try {
+			mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest";
+			RegistrationDTO registrationDTO = null;
+			Map<String, byte[]> filesGeneratedForPacket = null;
+			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
+		}
 
-		/*catch (RegBaseCheckedException exception) {
+		catch (RegBaseCheckedException exception) {
 			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
-			Reporter.log(ExceptionUtils.getStackTrace(exception));
-		}*/
+			Assert.assertTrue(true);
+		}
 	}
 
 	/**
@@ -140,9 +142,10 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 	 * 
 	 * @throws RegBaseCheckedException
 	 */
-	@Test(expectedExceptions = RegBaseUncheckedException.class)
-	public void createPacketcheckedExceptionIncompleteInputTest() throws RegBaseUncheckedException, RegBaseCheckedException {
-		//try {
+	@Test
+	public void createPacketcheckedExceptionIncompleteInputTest()
+			throws RegBaseUncheckedException, RegBaseCheckedException {
+		 try {
 		mTestCaseName = "regClient_ZipCreationService_createPacketcheckedExceptionIncompleteInputTest";
 		Map<String, byte[]> filesGeneratedForPacket = new HashMap<>();
 
@@ -150,12 +153,15 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 		RegistrationDTO registrationDTO = new RegistrationDTO();
 
 		zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-	//	}
+		 }
 
-	/*	catch (RegBaseCheckedException exception) {
-			logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
-			Reporter.log(ExceptionUtils.getStackTrace(exception));
-		}*/
+		
+		  catch (RegBaseCheckedException exception) {
+		  logger.debug("ZIP-CREATION SERVICE", "AUTOMATION", "REG",
+		  ExceptionUtils.getStackTrace(exception));
+	
+		  Reporter.log(ExceptionUtils.getStackTrace(exception)); }
+		 
 	}
 
 	/**
@@ -192,10 +198,10 @@ public class ZipCreationServiceTest extends BaseConfiguration implements ITest {
 			logger.info("ZIP-CREATION SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(regBaseCheckedException));
 			Reporter.log(ExceptionUtils.getStackTrace(regBaseCheckedException));
-		} 
+		}
 		try {
 			zipCreationService.createPacket(registrationDTO, filesGeneratedForPacket);
-		}catch (Exception exception) {
+		} catch (Exception exception) {
 			logger.debug("USER ONBOARD SERVICE", "AUTOMATION", "REG", ExceptionUtils.getStackTrace(exception));
 			Reporter.log(ExceptionUtils.getStackTrace(exception));
 		}

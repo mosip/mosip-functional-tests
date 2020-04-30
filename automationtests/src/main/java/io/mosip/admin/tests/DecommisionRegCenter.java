@@ -220,11 +220,10 @@ public class DecommisionRegCenter extends AdminTestUtil implements ITest {
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
 		String query = queries.get("deleteRegCenter").toString().replace("role", kernelAuthLib.props.get("admin_user"));
-		if (masterDB.executeQuery(query, "masterdata")
-				&& masterDB.executeQuery(queries.get("deleteRegCenter1").toString(), "masterdata"))
+		if (masterDB.executeQuery(queries.get("deleteRegCenter1").toString(), "masterdata") && masterDB.executeQuery(query, "masterdata"))
 			logger.info("deleted 3 created regCenter successfully");
 		else {
 			logger.info("not able to delete regCenter using query from query.properties");

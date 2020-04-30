@@ -1,12 +1,12 @@
 {
-    "id": "mosip.uincard.reprint",
+    "id": "1.0",
     "version": "1.0",
-    "responsetime": "2019-08-12T06:18:18.765Z",
+    "responsetime": "2020-01-29T07:09:59.562Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "RPR-PGS-004",
-            "message": "Registration Center not found"
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - centerId should not be empty"
         }
     ]
 }

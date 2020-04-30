@@ -43,11 +43,11 @@ public class LdapBulkInsert {
 	}
 
 	private static Name createUserName(String userName) throws LdapInvalidDnException, InvalidNameException {
-		return new LdapName("uid=" + userName + ",ou=people,c=mycountry");
+		return new LdapName("uid=" + userName + ",ou=people,c=morocco");
 	}
 
 	private static Name createRoleName(String role) throws LdapInvalidDnException, InvalidNameException {
-		return new LdapName("cn=" + role + ",ou=roles,c=mycountry");
+		return new LdapName("cn=" + role + ",ou=roles,c=morocco");
 	}
 
 	public static void main(String[] args) throws LdapInvalidDnException, InvalidNameException {
@@ -68,7 +68,7 @@ public class LdapBulkInsert {
 			user.setGenderCode("MLE");
 			user.setDob("13-02-1996");
 			Name userNameLdap = createUserName(user.getUid());
-			//Name userNameLdap = ldapTemplate.find("uid=" + "pt_user_admin"+i + ",ou=people,c=mycountry", String.class);
+			//Name userNameLdap = ldapTemplate.find("uid=" + "pt_user_admin"+i + ",ou=people,c=morocco", String.class);
 			ldapTemplate.bind(userNameLdap, null, buildUserAttributes(user));
 			ModificationItem[] mods = new ModificationItem[1];
 			mods[0] = new ModificationItem(DirContext.ADD_ATTRIBUTE,

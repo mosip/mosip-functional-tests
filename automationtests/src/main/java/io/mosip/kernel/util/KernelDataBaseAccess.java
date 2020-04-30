@@ -28,7 +28,7 @@ public class KernelDataBaseAccess {
 
 	public Session getDataBaseConnection(String dbName) {
 
-		String dbConfigXml = dbName+env.toLowerCase()+".cfg.xml";
+		String dbConfigXml ="/dbFiles/"+ dbName+env.toLowerCase()+".cfg.xml";
 		try {
 		factory = new Configuration().configure(dbConfigXml).buildSessionFactory();
 		session = factory.getCurrentSession();

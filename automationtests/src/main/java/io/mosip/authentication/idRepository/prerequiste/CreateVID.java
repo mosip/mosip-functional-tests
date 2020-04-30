@@ -97,7 +97,7 @@ public class CreateVID extends AuthTestsUtil implements ITest {
 			uinMap.put(str, prop.getProperty(str));
 		}
 		for (Entry<String, String> entry : uinMap.entrySet()) {
-			if (!(entry.getValue().contains("NoVID") || entry.getValue().contains("Deactivated")
+			if (!(entry.getValue().contains("NoVID") || entry.getValue().contains("NOVID") || entry.getValue().contains("Deactivated")
 					|| entry.getValue().contains("novid"))) {
 				String url = RunConfigUtil.objRunConfig.getEndPointUrl()
 						+ RunConfigUtil.objRunConfig.getIdRepoCreateVIDRecordPath();
@@ -134,6 +134,9 @@ public class CreateVID extends AuthTestsUtil implements ITest {
 				+ RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vid.properties").getAbsolutePath(),
 				vidMap);
 		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "idRepository/"
+				+ RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vid.properties").getAbsolutePath(),
+				vidMap);
+		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/"
 				+ RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vid.properties").getAbsolutePath(),
 				vidMap);
 		if(!status)

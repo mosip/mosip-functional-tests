@@ -110,6 +110,7 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 			 ((JSONObject)((JSONArray)((JSONObject)Expectedresponse.get("response")).get("userDetails")).get(1)).put("userPassword", password1).toString();
 		}
 		// Comparing expected and actual response
+		logger.info(res.asString());
 		status = AssertResponses.assertResponses(res, Expectedresponse, outerKeys, innerKeys);
 		if (!status) {
 			logger.info(res.asString());

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import io.mosip.testrunner.MosipTestRunner;
+
 
 @Service
 public class TestCaseReader {

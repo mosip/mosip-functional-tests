@@ -1,0 +1,66 @@
+testdata:
+   Resident_CheckStatus_Valid_smoke_Pos:
+      input.generate-check-status-request:
+         rindividualIdType: RID
+         rindividualId: 10002100320002120200205073654
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-y-res:
+         Rversion: v1
+         Rerrors: $IGNORE$
+         Rid: mosip.resident.checkstatus
+         RridStatus: 'FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS.' 
+         responseTime: $IGNORE$        
+         
+   Resident_CheckStatus_Invalid_RIDLength_Neg:
+      input.generate-check-status-request:
+         rindividualIdType: RID
+         rindividualId: 278476573600025202001101155503
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-n-res:
+         version: v1
+         errorMessageerrors0: 'Invalid Input Parameter- individualId'
+         errorCodeerrors0: RES-SER-009
+         responseTime: $IGNORE$
+         
+   Resident_CheckStatus_Invalid_RIDFormat_Neg:
+      input.generate-check-status-request:
+         rindividualIdType: RID
+         rindividualId: 2784765736000252020011011552o
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-n-res:
+         version: v1
+         errorMessageerrors0: 'Invalid Input Parameter- individualId'
+         errorCodeerrors0: RES-SER-009
+         responseTime: $IGNORE$
+         
+   Resident_CheckStatus_Invalid_RID_Blank_Neg: 
+      input.generate-check-status-request:
+         rindividualIdType: RID
+         rindividualId: ''
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-n-res:
+         version: v1
+         errorMessageerrors0: 'Invalid Input Parameter- individualId'
+         errorCodeerrors0: RES-SER-009
+         responseTime: $IGNORE$
+         
+   Resident_CheckStatus_Invalid_IndividualIDType_Blank_Neg: 
+      input.generate-check-status-request:
+         rindividualIdType: $REMOVE$
+         rindividualId: 27847657360002520200110115521
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-n-res:
+         version: v1
+         errorMessageerrors0: 'Invalid Input Parameter- individualIdType'
+         errorCodeerrors0: RES-SER-009
+         responseTime: $IGNORE$                                                                            

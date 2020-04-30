@@ -1,0 +1,84 @@
+testdata:
+   Admin_UnmapDeviceRegCentera_All_Valid_Request_Smoke:
+      input.search-request:
+         deviceid: $TestData:valid_deviceId2$
+         regcenterid: $TestData:valid_regcenterid2$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: 'Device TestDeviceToMapNew is successfully Un-Mapped to the Registration Center TestUnmap '
+         
+   Admin_UnmapDeviceRegCenter_inValid_deviceID:
+      input.search-request:
+         deviceid: demostring
+         regcenterid: $TestData:valid_regcenterid2$
+      output.output-1-expected-error-response:  
+         responsetime: $IGNORE$ 
+         errorCodeerrors0: KER-MSD-435
+         messageerrors0: Device not found  
+         
+   Admin_UnmapDeviceRegCenter_inValid_regCenterID:
+      input.search-request:
+         deviceid: $TestData:valid_deviceId2$
+         regcenterid: demostring
+      output.output-1-expected-error-response:  
+         responsetime: $IGNORE$ 
+         errorCodeerrors0: KER-MSD-435
+         messageerrors0: Registration Center not found       
+         
+   Admin_UnmapDeviceRegCenter_regcent_zone_outside_adminZone:
+      input.search-request:
+         deviceid: TestDeviceToMapNew1
+         regcenterid: TestUnmap2
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$ 
+         errorCodeerrors0: KER-MSD-411
+         messageerrors0: Admin not authorized to map/un-map this Registration Center       
+              
+   Admin_UnmapDeviceRegCenter_device_zone_outside_adminZone:
+      input.search-request:
+         deviceid: TestDeviceToMapNew2
+         regcenterid: TestUnmap1
+      output.output-1-expected-error-response:  
+         responsetime: $IGNORE$ 
+         errorCodeerrors0: KER-MSD-415
+         messageerrors0: Admin not authorized to map/un-map this Device
+         
+  # Admin_UnmapDeviceFromRegCenter_decomissioned_device:
+  #   input.search-request:
+  #     deviceid: $TestData:valid_deviceId2$
+  #      regcenterid: $TestData:valid_regcenterid2$
+  #   output.output-1-expected-error-response:
+  #      responsetime: $IGNORE$ 
+  #      errorCodeerrors0: KER-MSD-435
+  #      messageerrors0: mapping does not exist    
+         
+  # Admin_UnmapDeviceFromRegCenter_inactive_device:
+  #    input.search-request:
+  #       deviceid: $TestData:valid_deviceId2$
+  #       regcenterid: $TestData:valid_regcenterid2$
+  #    output.output-1-expected-error-response:
+  #       responsetime: $IGNORE$ 
+  #       errorCodeerrors0: KER-MSD-435
+  #       messageerrors0: mapping does not exist                            
+         
+  # Admin_UnmapDeviceFromRegCenter_decomissioned_regCenter:
+  #    input.search-request:
+  #       deviceid: $TestData:valid_deviceId2$
+  #       regcenterid: $TestData:valid_regcenterid2$
+  #    output.output-1-expected-error-response:
+  #       responsetime: $IGNORE$ 
+  #       errorCodeerrors0: KER-MSD-435
+  #      messageerrors0: mapping does not exist    
+         
+   Admin_UnmapDeviceRegCenterz_inactive_mapping:
+      input.search-request:
+         deviceid: $TestData:valid_deviceId2$
+         regcenterid: $TestData:valid_regcenterid2$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$ 
+         errorCodeerrors0: KER-MSD-434
+         messageerrors0: Already is in inactive status            
+        
+         
+         
+          

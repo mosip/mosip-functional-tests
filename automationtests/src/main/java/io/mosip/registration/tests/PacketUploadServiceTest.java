@@ -27,7 +27,6 @@ import org.testng.internal.TestResult;
 
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.logger.spi.Logger;
-import io.mosip.kernel.core.util.exception.JsonProcessingException;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationClientStatusCode;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -156,15 +155,18 @@ public class PacketUploadServiceTest extends BaseConfiguration implements ITest 
 						prop.getProperty("invalidRegID"));
 				packetSynchService.packetSync(packetResponse.get("RANDOMID"));
 				String seperator = "/";
-				String filePath = String
-						.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
-						.concat(seperator)
-						.concat(formatDate(new Date(),
-								String.valueOf(
-										ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
-						.concat(seperator).concat(packetResponse.get("RANDOMID"));
-				File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
-				response = packetUploadService.pushPacket(packet);
+				/*				String filePath = String
+										.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
+										.concat(seperator)
+										.concat(formatDate(new Date(),
+												String.valueOf(
+														ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
+										.concat(seperator).concat(packetResponse.get("RANDOMID"));
+								File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);*/
+								File packetStore=new File(System.getProperty("user.dir"));
+								//File packetUpload=packetStore.getParentFile();
+								File packet=new File(packetStore.getAbsolutePath()+"/PacketStore/".concat(formatDate(new Date(), String.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT)))).concat(seperator).concat(packetResponse.get("RANDOMID"))+ RegistrationConstants.ZIP_FILE_EXTENSION);
+								response = packetUploadService.pushPacket(packet);
 				if (testCaseName.equalsIgnoreCase("regClient_PacketUploadService_Push_DuplicatePacketToServer")) {
 					response = packetUploadService.pushPacket(packet);
 					commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"),

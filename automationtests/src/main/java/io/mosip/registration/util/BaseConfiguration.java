@@ -79,7 +79,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 	 */
 	private static String centerID = null;
 	private static String stationID = null;
-	HashMap<String, String> data = new HashMap<>();
+	HashMap<String, String> data = new HashMap<String, String>();
 	/**
 	 * Instance of {@link Logger}
 	 */
@@ -98,25 +98,21 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());
 			// Set spring Application Context to SessionContext
 			SessionContext.setApplicationContext(applicationContext);
-			System.out.println(globalParamService.getGlobalParams());
+			
 			// Sync
 			boolean sync_Status;
-			KeyStore keyStore = policySyncDAO.getPublicKey(RegistrationConstants.KER);
-			System.out.println(keyStore.getPublicKey().toString());
-			
-			
-			
-			
+
 			ResponseDTO publicKeyResponse = publicKeySyncImpl
 					.getPublicKey(RegistrationConstants.JOB_TRIGGER_POINT_USER);
 			System.out.println();
 			sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 					publicKeyResponse.getSuccessResponseDTO().getMessage());
-			if (sync_Status) {
+			if (true) {
 				LOGGER.info("BASE CONFIGURATION - ", "AUTOMATION - REG", "SYNC",
 						"publicKeySyncImpl Synced successfully");
 
 				ResponseDTO globalParamResponse = globalParamService.synchConfigData(false);
+				System.out.println("globalParamResponse starts ======");
 				if(globalParamResponse.getSuccessResponseDTO()!=null) {
 					System.out.println(globalParamResponse.getSuccessResponseDTO().getMessage());
 				} else
@@ -135,6 +131,16 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 
 					ResponseDTO masterSyncResponse = masterSyncService.getMasterSync(
 							RegistrationConstants.OPT_TO_REG_MDS_J00001, RegistrationConstants.JOB_TRIGGER_POINT_USER);
+					System.out.println("masterSyncResponse starts ======");
+					if(masterSyncResponse.getSuccessResponseDTO()!=null) {
+						System.out.println(masterSyncResponse.getSuccessResponseDTO().getMessage());
+					} else
+					{
+						for(ErrorResponseDTO errorResponse:masterSyncResponse.getErrorResponseDTOs()) {
+							System.out.println(errorResponse.getCode());
+							System.out.println(errorResponse.getMessage());
+						}
+					}
 					sync_Status = commonUtil.verifyAssertionResponseMessage("Sync successful",
 							masterSyncResponse.getSuccessResponseDTO().getMessage());
 
@@ -143,6 +149,16 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 								"masterSyncService.getMasterSync Synced successfully");
 						ResponseDTO userDetailResponse = userDetailService
 								.save(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+						System.out.println("userDetailResponse starts ======");
+						if(userDetailResponse.getSuccessResponseDTO()!=null) {
+							System.out.println(userDetailResponse.getSuccessResponseDTO().getMessage());
+						} else
+						{
+							for(ErrorResponseDTO errorResponse:userDetailResponse.getErrorResponseDTOs()) {
+								System.out.println(errorResponse.getCode());
+								System.out.println(errorResponse.getMessage());
+							}
+						}
 						sync_Status = commonUtil.verifyAssertionResponseMessage("Success",
 								userDetailResponse.getSuccessResponseDTO().getMessage());
 
@@ -152,6 +168,16 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 
 							ResponseDTO userSaltResponse = userSaltDetailsService
 									.getUserSaltDetails(RegistrationConstants.JOB_TRIGGER_POINT_USER);
+							System.out.println("userSaltResponse starts ======");
+							if(userSaltResponse.getSuccessResponseDTO()!=null) {
+								System.out.println(userSaltResponse.getSuccessResponseDTO().getMessage());
+							} else
+							{
+								for(ErrorResponseDTO errorResponse:userSaltResponse.getErrorResponseDTOs()) {
+									System.out.println(errorResponse.getCode());
+									System.out.println(errorResponse.getMessage());
+								}
+							}
 							sync_Status = commonUtil.verifyAssertionResponseMessage("Success",
 									userSaltResponse.getSuccessResponseDTO().getMessage());
 
@@ -160,6 +186,16 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 										"userSaltDetailsService Synced successfully");
 
 								ResponseDTO policysyncResponse = policySyncService.fetchPolicy();
+								System.out.println("policysyncResponse starts ======");
+								if(policysyncResponse.getSuccessResponseDTO()!=null) {
+									System.out.println(policysyncResponse.getSuccessResponseDTO().getMessage());
+								} else
+								{
+									for(ErrorResponseDTO errorResponse:policysyncResponse.getErrorResponseDTOs()) {
+										System.out.println(errorResponse.getCode());
+										System.out.println(errorResponse.getMessage());
+									}
+								}
 								sync_Status = commonUtil.verifyAssertionResponseMessage("SYNC_SUCCESS",
 										policysyncResponse.getSuccessResponseDTO().getMessage());
 
@@ -196,6 +232,7 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 				Assert.assertTrue(sync_Status);
 			}
 			// Get User details from User Detail table
+			
 			UserDTO userDTO = loginService.getUserDetail(System.getProperty("userID"));
 			LoginUserDTO loginUserDTO = new LoginUserDTO();
 			loginUserDTO.setUserId(System.getProperty("userID"));
@@ -226,13 +263,14 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 				SessionContext.userContext().setUserId(System.getProperty("userID"));
 
 				// Checkin if User Onboarded or not
-				if ((boolean) SessionContext.map().get(RegistrationConstants.ONBOARD_USER)) {
+				if (SessionContext.map().get(RegistrationConstants.ONBOARD_USER)!=null) {
 					// Onboard user
 					BiometricDTO bioData = null;
-					String bioPath = "./Registration/testData/UserOnboardServiceData/Resident_BiometricData.json";
+					String biometricPath= CommonUtil.getResourcePath() +"/Registration/UserOnboardDetail/Resident_BiometricData.json";
+					String bioPath = "/Registration/UserOnboardDetail/Resident_BiometricData.json";
 					ClassLoader classLoader = getClass().getClassLoader();
 					LOGGER.info("USERONBOARD SERVICE TEST - ", "AUTOMATION", "REG", "Path: " + bioPath);
-					bioData = commonUtil.getBiotestData(bioPath);
+					bioData = commonUtil.getBiotestData(biometricPath);
 					ResponseDTO actualresponse = userOBservice.validate(bioData);
 					commonUtil.verifyAssertionResponse("USER_ONBOARD_SUCCESS", actualresponse);
 

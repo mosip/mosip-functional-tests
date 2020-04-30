@@ -6,12 +6,8 @@
   "response": {
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Foreigner"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Non-Foreigner"
+        "fieldID": "holidayName",
+        "fieldValue": "Eid al-Fitr"
       }
     ]
   },

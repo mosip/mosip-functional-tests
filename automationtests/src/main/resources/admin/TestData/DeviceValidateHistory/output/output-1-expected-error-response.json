@@ -1,0 +1,13 @@
+{
+  "id": "string",
+  "version": "1.0",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}

@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -109,19 +110,26 @@ public class SyncMDataWithKeyIndex extends BaseTestCase implements ITest{
 					response = applicationLibrary.getWithQueryParam(syncMdatawithKeyIndex, objectData,adminCookie);
 					//This method is for checking the authentication is pass or fail in rest services
 				new CommonLibrary().responseAuthValidation(response);
+				if(testcaseName.toLowerCase().contains("smoke")||testCaseName.contains("_valid_"))
+				{
+					try {
+						JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(response.asString()))
+								.get("response");
+						JSONArray syncDataArray	= (JSONArray) responseJson.get("dataToSync");
+						logger.info("Number of masterData entities :" + syncDataArray.size());
+						status = syncDataArray.size()==51; 
+						
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else {
 			// add parameters to remove in response before comparison like time stamp
 			ArrayList<String> listOfElementToRemove = new ArrayList<String>();
 			listOfElementToRemove.add("responsetime");
-			listOfElementToRemove.add("lastSyncTime");
-			listOfElementToRemove.add("registrationCenterUserHistory");
-			listOfElementToRemove.add("registrationCenterUserMachineMappingHistory");
-			listOfElementToRemove.add("registrationCenterMachineDeviceHistory");
-			listOfElementToRemove.add("registrationCenterDeviceHistory");
-			listOfElementToRemove.add("registrationCenterMachineHistory");
-			listOfElementToRemove.add("appAuthenticationMethods");
-			listOfElementToRemove.add("templates");
-			listOfElementToRemove.add("documentTypes");
 			status = assertions.assertKernel(response, responseObject, listOfElementToRemove);
+				}
 			if (!status) {
 				logger.debug(response);
 			}

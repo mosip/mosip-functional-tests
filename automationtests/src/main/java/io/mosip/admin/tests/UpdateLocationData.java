@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -39,7 +40,7 @@ public class UpdateLocationData extends AdminTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	public KernelDataBaseAccess db = new KernelDataBaseAccess();
+	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -162,29 +163,26 @@ public class UpdateLocationData extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateLocationDataPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
+		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		if(testcaseName.toLowerCase().contains("db")) {
-			String queryString="Delete from master.location l where l.code='MSK'";
-			if(!db.executeQuery(queryString, "masterdata"))
-				throw new AdminTestException("Not able to delete the created data");
-		}
-		if(testcaseName.toLowerCase().contains("codelength36")) {
-			String key36="abcdefghijklmnopqrstuvwxyzabcdefghij";
-			String queryString="Delete from master.location l where l.code='"+key36+"'";
-			if(!db.executeQuery(queryString, "masterdata"))
-				throw new AdminTestException("Not able to delete the created data");
-		}
-		if(testcaseName.toLowerCase().contains("codelength35")) {
-			String key35="abcdefghijklmnopqrstuvwxyzabcdefghi";
-			String queryString="Delete from master.location l where l.code='"+key35+"'";
-			if(!db.executeQuery(queryString, "masterdata"))
-				throw new AdminTestException("Not able to delete the created data");
+	}
+	/**
+	 * this method is for deleting or updating the inserted data in db for testing
+	 * (managing class level data not test case level data)
+	 * @throws AdminTestException 
+	 */
+	@AfterClass(alwaysRun = true)
+	public void cleanup() throws AdminTestException {
+		if (masterDB.executeQuery(queries.get("deleteCreatedLocations").toString(), "masterdata"))
+			logger.info("deleted all created locations successfully");
+		else {
+			logger.info("not able to delete locations using query from query.properties");
+			throw new AdminTestException("not able to delete locations data form DB");
 		}
 	}
 }

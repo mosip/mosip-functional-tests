@@ -39,13 +39,13 @@ public class RegProcDataRead {
 	Session session;
 	private static Logger logger = Logger.getLogger(RegProcDataRead.class);
 	RegProcApiRequests apiRequests =  new RegProcApiRequests(); 
-	String auditLogConfigFilePath=apiRequests.getResourcePath()+"auditinteg.cfg.xml";
+	String auditLogConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/auditinteg.cfg.xml";
 	File auditLogConfigFile=new File(auditLogConfigFilePath);
 	
 	public Session getCurrentSession() {
 		SessionFactory factory;
 		Session session;
-		factory=new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();
+		factory=new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();
 	 session = factory.getCurrentSession();
 	 return session;
 	}
@@ -91,7 +91,7 @@ public class RegProcDataRead {
 
 	public RegistrationStatusEntity validateRegIdinRegistration(String regID){
 		
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -167,7 +167,7 @@ public class RegProcDataRead {
 	}
 
 	public SyncRegistrationEntity validateRegIdinRegistrationList(String regID){
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -224,7 +224,7 @@ public class RegProcDataRead {
 	}
 
 	public List<Object> countRegIdInRegistrationList(String regId) {
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -243,7 +243,7 @@ public class RegProcDataRead {
 	}
 	
 	public List<Object> countRegIdInRegistration(String regIds) {
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -333,7 +333,7 @@ public class RegProcDataRead {
 
 	public int deleteRegIdinRegistration(String regId) {
 		
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -450,7 +450,7 @@ public class RegProcDataRead {
 		String status_code = null;
 		ManualVerificationDTO manualVerificationDto = new ManualVerificationDTO();
 		
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -502,7 +502,7 @@ public class RegProcDataRead {
 
 	public boolean updateStatusInManualVerification(String userId, String statusCode) {
 		
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -532,7 +532,7 @@ public class RegProcDataRead {
 		 Transaction t=session.beginTransaction();*/
 		 
 		 
-		 factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		 factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 		

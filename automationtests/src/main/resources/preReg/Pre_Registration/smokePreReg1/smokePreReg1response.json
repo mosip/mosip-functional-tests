@@ -71,7 +71,7 @@
           "addressLine1": [
             {
               "language": "eng",
-              "value": "Municipalite Abou Seddiq,Marrakesh,MyCountry 40000"
+              "value": "Municipalite Abou Seddiq,Marrakesh,Morocco 40000"
             },
             {
               "language": "ara",
@@ -81,7 +81,7 @@
           "addressLine2": [
             {
               "language": "eng",
-              "value": "Administrative Palestine, Marrakesh 40000, MyCountry"
+              "value": "Administrative Palestine, Marrakesh 40000, Morocco"
             },
             {
               "language": "ara",
@@ -101,7 +101,7 @@
           "addressLine3": [
             {
               "language": "eng",
-              "value": "Direction Regionale Des Marrakesh 40140, MyCountry"
+              "value": "Direction Regionale Des Marrakesh 40140, Morocco"
             },
             {
               "language": "ara",

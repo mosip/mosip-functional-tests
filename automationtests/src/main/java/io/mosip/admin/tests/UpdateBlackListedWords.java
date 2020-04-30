@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -168,13 +169,19 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testcaseName.toLowerCase().contains("wordlength128")) {
-			KernelDataBaseAccess db = new KernelDataBaseAccess();
-			String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
-			String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
-			if(!db.executeQuery(queryString, "masterdata"))
-				throw new AdminTestException("Not able to delete the created data");
 	}
+	
+	/**
+	 * this method is for deleting or updating data inserted or modified data in db
+	 * (managing class level data not test case level data)
+	 * @throws AdminTestException 
+	 */
+	@AfterClass(alwaysRun = true)
+	public void cleanup() throws AdminTestException {
+		KernelDataBaseAccess db = new KernelDataBaseAccess();
+		String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
+		String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
+		if(!db.executeQuery(queryString, "masterdata"))
+			throw new AdminTestException("Not able to delete the created data");
 	}
 }

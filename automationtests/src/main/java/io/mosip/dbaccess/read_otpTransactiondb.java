@@ -25,12 +25,12 @@ public class read_otpTransactiondb {
 		boolean flag=false;
 		
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))		
-			factory = new Configuration().configure("kerneldev.cfg.xml")                      
+			factory = new Configuration().configure("/dbFiles/kerneldev.cfg.xml")                      
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 			else
 			{
 				if(BaseTestCase.environment.equalsIgnoreCase("qa"))		
-					factory = new Configuration().configure("kernelqa.cfg.xml")                      
+					factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml")                      
 				.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 			}
 		session = factory.getCurrentSession();
@@ -84,12 +84,12 @@ public class read_otpTransactiondb {
 		boolean flag=false;
 		
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))		
-			factory = new Configuration().configure("masterdatadev.cfg.xml")                      
+			factory = new Configuration().configure("/dbFiles/masterdatadev.cfg.xml")                      
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 			else
 			{
 				if(BaseTestCase.environment.equalsIgnoreCase("qa"))		
-					factory = new Configuration().configure("masterdataqa.cfg.xml")                      
+					factory = new Configuration().configure("/dbFiles/masterdataqa.cfg.xml")                      
 				.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 			}
 		

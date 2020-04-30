@@ -18,7 +18,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$    
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$    
  
   Admin_DeviceTypeSearch_Equals_Name_ara_smoke:
     input.search-request:
@@ -39,7 +41,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$ 
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$ 
   
   Admin_DeviceTypeSearch_Equals_Name_fra_smoke:
     input.search-request:
@@ -61,6 +65,8 @@ testdata:
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
      createdDateTimedata0: $IGNORE$ 
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$
 
   Admin_DeviceTypeSearch_Equals_isActive_eng_smoke:
     input.search-request:
@@ -82,7 +88,8 @@ testdata:
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
      createdDateTimedata0: $IGNORE$  
-     totalRecord: $IGNORE$  
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$ 
 
   Admin_DeviceTypeSearch_Contains_Name_eng_smoke:
     input.search-request:
@@ -103,7 +110,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$    
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$    
  
   Admin_DeviceTypeSearch_Contains_Name_ara_smoke:
     input.search-request:
@@ -124,7 +133,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$ 
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$ 
   
   Admin_DeviceTypeSearch_Contains_Name_fra_smoke:
     input.search-request:
@@ -145,7 +156,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$      
+     createdDateTimedata0: $IGNORE$ 
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$     
 
   Admin_DeviceTypeSearch_startsWith_Name_eng_smoke:
     input.search-request:
@@ -166,7 +179,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$    
+     createdDateTimedata0: $IGNORE$ 
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$   
  
   Admin_DeviceTypeSearch_startsWith_Name_ara_smoke:
     input.search-request:
@@ -187,7 +202,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$ 
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$ 
   
   Admin_DeviceTypeSearch_startsWith_Name_fra_smoke:
     input.search-request:
@@ -208,7 +225,9 @@ testdata:
      codedata0: $IGNORE$ 
      descriptiondata0: $IGNORE$  
      responsetime: $IGNORE$ 
-     createdDateTimedata0: $IGNORE$      
+     createdDateTimedata0: $IGNORE$
+     totalRecord: $IGNORE$
+     toRecord: $IGNORE$      
       
   Admin_DeviceTypeSearch_Invalid_Value_Name_smoke:
     input.search-request:

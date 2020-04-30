@@ -1,0 +1,192 @@
+testdata:
+   Admin_RegisterMDS_allValid_smoke:
+      input.input-request:
+         requesttime: $TIMESTAMPZ$
+         swVersion: TestMDS1
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         Rid: $IGNORE$
+         createdDateTime: $IGNORE$
+         isActive: true
+         RswVersion: TestMDS1         
+         
+   Admin_RegisterMDS_inValid_with_dupliCate_data:
+      input.input-request:
+         requesttime: $TIMESTAMPZ$
+         swVersion: TestMDS1
+      output.output-1-expected-error-response:
+         errorCodeerrors0: ADM-DPM-021
+         messageerrors0: MOSIP-Device-Service already exist
+         responsetime: $IGNORE$ 
+        
+   Admin_RegisterMDS_inValid_deviceProviderId_blank:
+      input.input-request:
+         deviceProviderId: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.deviceProviderId: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_deviceProviderId_aboveMaxLen36:
+      input.input-request:
+         deviceProviderId: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.deviceProviderId: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$         
+     
+   Admin_RegisterMDS_inValid_make_blank:
+      input.input-request:
+         make: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.make: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_make_aboveMaxLen36:
+      input.input-request:
+         make: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.make: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_model_blank:
+      input.input-request:
+         model: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_model_aboveMaxLen36:
+      input.input-request:
+         model: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_swBinaryHash_blank:
+      input.input-request:
+         swBinaryHash: ''
+         swVersion: TestMDS2
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.swBinaryHash: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_swBinaryHash_aboveMaxLen36:
+      input.input-request:
+         swBinaryHash: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.swBinaryHash: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_swVersion_blank:
+      input.input-request:
+         swVersion: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.swVersion: Should not be blank or size must be between 1 and 64'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_swVersion_aboveMaxLen64:
+      input.input-request:
+         swVersion: $TestData:validStringLength65$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.swVersion: Should not be blank or size must be between 1 and 64'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_regDtyp_blank:
+      input.input-request:
+         regDeviceTypeCode: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.regDeviceTypeCode: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_regDtyp_aboveMaxLen36:
+      input.input-request:
+         regDeviceTypeCode: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.regDeviceTypeCode: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_regDtyp:
+      input.input-request:
+         regDeviceTypeCode: anyStr
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: ADM-DPM-040
+         messageerrors0: 'Reg Device Type Code not found in the list of Reg Device Types'
+         responsetime: $IGNORE$         
+
+   Admin_RegisterMDS_inValid_regDstyp_blank:
+      input.input-request:
+         regDeviceSubCode: ''
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.regDeviceSubCode: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_regDstyp_aboveMaxLen36:
+      input.input-request:
+         regDeviceSubCode: $TestData:validLocationCode37$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.regDeviceSubCode: Should not be blank or size must be between 1 and 36'
+         responsetime: $IGNORE$
+   Admin_RegisterMDS_inValid_regDsubtyp:
+      input.input-request:
+         regDeviceSubCode: anyStr
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: ADM-DPM-041
+         messageerrors0: 'Reg Device Sub Type Code not found in the list of Reg Device Sub Types'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_isActive_format:
+      input.input-request:
+         risActive: anyThing
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : isActive'
+         responsetime: $IGNORE$
+
+   Admin_RegisterMDS_inValid_swCreateDateTime_format:
+      input.input-request:
+         swCreateDateTime: '2018-12-1006:12:52.994Z'
+         requesttime: '2018-12-1006:12:52.994Z'
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : swCreateDateTime'
+         responsetime: $IGNORE$ 
+
+   Admin_RegisterMDS_inValid_swExpiryDateTime_format:
+      input.input-request:
+         swExpiryDateTime: '2018-12-1006:12:52.994Z'
+         requesttime: '2018-12-1006:12:52.994Z'
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : swExpiryDateTime'
+         responsetime: $IGNORE$
+         
+   Admin_RegisterMDS_inValid_requestTime_format:
+      input.input-request:
+         requesttime: '2018-12-1006:12:52.994Z'
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'Invalid Format in field : requesttime'
+         responsetime: $IGNORE$ 
+         
+                                                                   

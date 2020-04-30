@@ -188,15 +188,18 @@ public class PacketHandlerServiceUpdateUINTest extends BaseConfiguration impleme
 				if (syncResponse.isEmpty()) {
 					// Upload packet
 					String seperator = "/";
-					String filePath = String
-							.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
-							.concat(seperator)
-							.concat(formatDate(new Date(),
-									String.valueOf(ApplicationContext.map()
-											.get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
-							.concat(seperator).concat(packetResponse_ForUpdateUIN.get("RANDOMID"));
-					File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
-					uploadResponse = packetUploadService.pushPacket(packet);
+					/*				String filePath = String
+											.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
+											.concat(seperator)
+											.concat(formatDate(new Date(),
+													String.valueOf(
+															ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
+											.concat(seperator).concat(packetResponse.get("RANDOMID"));
+									File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);*/
+									File packetStore=new File(System.getProperty("user.dir"));
+									//File packetUpload=packetStore.getParentFile();
+									File packetToBeUploaded=new File(packetStore.getAbsolutePath()+"/PacketStore/".concat(formatDate(new Date(), String.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT)))).concat(seperator).concat(packetResponse_ForUpdateUIN.get("RANDOMID"))+ RegistrationConstants.ZIP_FILE_EXTENSION);
+									uploadResponse = packetUploadService.pushPacket(packetToBeUploaded);
 					if (uploadResponse.getSuccessResponseDTO().getCode().equalsIgnoreCase("Success")) {
 
 						Registration registration = syncRegistrationDAO.getRegistrationById(

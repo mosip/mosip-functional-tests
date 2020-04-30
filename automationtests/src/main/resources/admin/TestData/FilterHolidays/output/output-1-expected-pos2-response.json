@@ -6,8 +6,8 @@
   "response": {
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "أجنبي"
+        "fieldID": "holidayName",
+        "fieldValue": "Eid al-Fitr"
       },
       {
         "fieldID": "isActive",

@@ -1,16 +1,12 @@
 {
     "id": "mosip.uincard.reprint",
     "version": "1.0",
-    "responsetime": "2019-08-09T06:23:31.444Z",
+    "responsetime": "2020-02-05T05:50:26.547Z",
     "response": null,
     "errors": [
         {
             "errorCode": "RPR-PGS-011",
             "message": "Invalid Input Parameter - requesttime"
-        },
-        {
-            "errorCode": "RPR-RGS-015",
-            "message": "Invalid Request Value - Input Data is Incorrect"
         }
     ]
 }

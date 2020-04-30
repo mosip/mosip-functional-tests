@@ -3,12 +3,10 @@ package io.mosip.admin.tests;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.ITest;
 import org.testng.ITestResult;
@@ -23,8 +21,6 @@ import org.testng.asserts.SoftAssert;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
-import com.google.common.base.Verify;
-
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
@@ -36,9 +32,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
-import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.kernel.service.AssertKernel;
-import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
@@ -209,14 +203,14 @@ public class UpdateRegistrationCenter extends AdminTestUtil implements ITest {
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
 		
-		if (masterDB.executeQuery(queries.get("deleteRegCenter1").toString().replace("Tcnt2", "Tcntr"), "masterdata"))
-			logger.info("deleted 2 created regCenter successfully");
+		if (masterDB.executeQuery(queries.get("deleteWorkNonWorkDaysUpdate").toString(), "masterdata") && masterDB.executeQuery(queries.get("deleteExcptnlHolidyUpdate").toString(), "masterdata") && masterDB.executeQuery(queries.get("deleteRegCenter1").toString().replace("Tcnt2", "Tcntr"), "masterdata"))
+			logger.info("deleted created regCenters successfully");
 		else {
 			logger.info("not able to delete regCenter using query from query.properties");
-			throw new AdminTestException("DB is not updated properly after decommission, not able to delete data form DB");
+			throw new AdminTestException("not able to delete regCenter using query from query.properties");
 		}
 	}
 

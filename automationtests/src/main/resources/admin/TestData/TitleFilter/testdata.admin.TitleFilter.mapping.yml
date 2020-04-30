@@ -11,17 +11,18 @@ testdata:
      fieldIDfilters0: $TestData:valid_Search_ColumnNameAsTitleName$
      fieldValuefilters0: $TestData:valid_Title_Name_eng_Equals$ 
      responsetime: $IGNORE$ 
-#  Admin_TitleFilter_default_filter_Type:
-#    input.filter-request1:
-#      columnNamefilters0: $TestData:valid_Search_ColumnNameAsTitleName$
-#      textfilters0: $TestData:valid_Title_Name_eng_Equals$
-#      languageCode: $TestData:valid_LanguageCodeEng$
-#      requesttime: $TIMESTAMPZ$
+  
+  Admin_TitleFilter_default_filter_Type:
+    input.filter-request1:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsTitleName$
+      textfilters0: $TestData:valid_Title_Name_eng_Equals$
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
       
-#    output.output-1-expected-pos-response:
-#     fieldIDfilters0: $TestData:valid_Search_ColumnNameAsTitleName$
-#     fieldValuefilters0: $TestData:valid_Title_Name_eng_Equals$ 
-#     responsetime: $IGNORE$ 
+    output.output-1-expected-pos-response:
+     fieldIDfilters0: $TestData:valid_Search_ColumnNameAsTitleName$
+     fieldValuefilters0: $TestData:valid_Title_Name_eng_Equals$ 
+     responsetime: $IGNORE$ 
   
   Admin_TitleFilter_Unique_Name_ara_smoke:
     input.filter-request:

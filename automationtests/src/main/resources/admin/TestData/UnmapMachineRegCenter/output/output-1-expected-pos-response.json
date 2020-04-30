@@ -1,0 +1,11 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$ignore$",
+  "metadata": null,
+  "response": {
+    "status": "Success",
+    "message": "RegCntrMais successfully unmapped to the Registration CenterMapZone1"
+  },
+  "errors": null
+}

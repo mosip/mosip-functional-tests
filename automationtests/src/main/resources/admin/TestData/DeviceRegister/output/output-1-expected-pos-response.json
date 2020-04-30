@@ -1,0 +1,16 @@
+{
+	"timeStamp": "2020-02-07T09:55:17.727Z",
+	"digitalId": {
+		"dateTime": "2020-01-13T07:20:42.195Z",
+		"model": "SMIDCL",
+		"subType": "Single",
+		"type": "Fingerprint",
+		"make": "MC01A",
+		"serialNo": "1801160992",
+		"deviceProvider": "SYNCBYTE",
+		"deviceProviderId": "SYNCBYTE.MC01A"
+	},
+	"deviceCode": "f5f25cac-1cdd-44a5-81c6-f515987735db",
+	"env": "$IGNORE$",
+	"status": "REGISTERED"
+}

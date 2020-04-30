@@ -117,7 +117,6 @@ public class PacketHandlerServiceWithPreRegIDTest extends BaseConfiguration impl
 		stationID = (String) ApplicationContext.map().get(ConstantValues.STATIONIDLBL);
 		// new PreIDGenerator().generatePreID(centerID);
 		preRegistrationDataSyncService.getPreRegistrationIds(RegistrationConstants.JOB_TRIGGER_POINT_USER);
-		System.out.println();
 	}
 
 	@Test(dataProvider = "PacketHandlerDataProvider", alwaysRun = true)

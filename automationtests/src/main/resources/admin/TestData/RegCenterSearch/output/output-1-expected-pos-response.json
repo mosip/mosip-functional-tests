@@ -21,7 +21,7 @@
         "holidayLocationCode": "KTA",
         "holidayLocation": "Kenitra",
         "contactPhone": "887311749",
-        "workingHours": "8",
+        "workingHours": "8:00:00",
         "langCode": "eng",
         "numberOfKiosks": 1,
         "perKioskProcessTime": "00:15:00",

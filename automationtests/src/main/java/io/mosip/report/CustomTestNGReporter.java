@@ -231,7 +231,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					retBuf.append("</tr>");
 				}
 				/* Additing of total testcaseCount */
-				retBuf.append("<tr>");
+/*				retBuf.append("<tr>");
 
 				retBuf.append("<td>");
 				retBuf.append("Total Execution Count");
@@ -253,8 +253,31 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 				retBuf.append(failTestCount);
 				retBuf.append("</td>");
 
-				retBuf.append("<tr>");
+				retBuf.append("<tr>");*/
 			}
+			retBuf.append("<tr>");
+
+			retBuf.append("<td>");
+			retBuf.append("Total Execution Count");
+			retBuf.append("</td>");
+
+			retBuf.append("<td>");
+			retBuf.append(totalCount);
+			retBuf.append("</td>");
+
+			retBuf.append("<td bgcolor=#3cb353>");
+			retBuf.append(passTestCount);
+			retBuf.append("</td>");
+
+			retBuf.append("<td bgcolor=#EEE8AA>");
+			retBuf.append(skipTestCount);
+			retBuf.append("</td>");
+
+			retBuf.append("<td bgcolor=#FF4500>");
+			retBuf.append(failTestCount);
+			retBuf.append("</td>");
+
+			retBuf.append("<tr>");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {

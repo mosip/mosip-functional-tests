@@ -4,7 +4,7 @@
 		"centerId": "10023",
 		"machineId": "10001",
 		"reason": "something",
-		"registrationType": "ACTIVATED",
+		"registrationType": "DEACTIVATED",
 		"uin": "4836159819"
 	},
 	"requesttime": "2019-03-15T09:08:38.548Z",

@@ -14,7 +14,7 @@ import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -65,7 +65,7 @@ public class LoginServiceUserDetailsTest extends BaseConfiguration implements IT
 	private static String centerID = null;
 	private static String stationID = null;
 	
-	@BeforeMethod
+	@BeforeClass
 	public  void setUp() {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);

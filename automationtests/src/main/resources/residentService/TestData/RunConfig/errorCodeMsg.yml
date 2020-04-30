@@ -1,6 +1,0 @@
-# error -> Scenar;ioName -> errorCode,Message,Action
-errors:
-  InvalidUIN:
-    errorCode: IDA-MLC-002
-    errorMessage: Invalid UIN
-    actionMessage: Please retry with the correct UIN

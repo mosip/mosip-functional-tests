@@ -166,7 +166,7 @@ public class IdRepoTestsUtil extends AuthTestsUtil{
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					String responseJson = "";
 					if (code == 0)
-						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue).asString();
 					/*else
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code);*/
 					Reporter.log("<b><u>Actual Patch Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"

@@ -15,7 +15,7 @@ import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -34,7 +34,7 @@ import io.mosip.registration.util.TestCaseReader;
 import io.mosip.registration.util.TestDataGenerator;
 
 /**
- * @author Gaurav Sharan
+ * @author Tabish Khan
  * 
  *         This test class implements the unit tests for the services exposed by
  *         the LoginService class
@@ -65,7 +65,7 @@ public class LoginServiceRegCenterDetailTest extends BaseConfiguration implement
 	protected static String mTestCaseName = "";
 	private static final String subServiceName = "RegCenterDetail";
 	
-	@BeforeMethod
+	@BeforeClass
 	public  void setUp() {
 		baseSetUp();
 		centerID = (String) ApplicationContext.map().get(ConstantValues.CENTERIDLBL);

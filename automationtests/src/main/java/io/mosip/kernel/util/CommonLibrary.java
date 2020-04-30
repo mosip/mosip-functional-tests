@@ -5,32 +5,24 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Instant;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.text.SimpleDateFormat;
-import java.time.Clock;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import org.apache.commons.io.FileUtils;
+
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.simple.JSONArray;
@@ -49,6 +41,7 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.mosip.admin.fw.util.AdminTestException;
+import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -63,7 +56,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	private static Logger logger = Logger.getLogger(CommonLibrary.class);
 	private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
+	private ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	/**
 	 * @param response
 	 *            this method is for validating the response time is in UTC
@@ -266,32 +259,32 @@ public class CommonLibrary extends BaseTestCase {
 	}
 	/**
 	 * @param cookie
-	 * @return this method is for checking cookie(token) is expired or not.
+	 * @return boolean
+	 * this method is for checking cookie(token) is expired or not.
 	 */
 	public boolean isValidToken(String cookie) {
-		// we will have to read configCookieTime, token and secret from property file
-		String token_base = "Mosip-Token";
-		String secret = "authjwtsecret";
-		long configCookieTime = 20;
-		Integer cookieGenerationTimeMili = null;
-
+		
+		logger.info("========= Revalidating the token =========");
+		Response response = applicationLibrary.getWithoutParams("/v1/authmanager/authorize/admin/validateToken", cookie);
+		JSONObject responseJson =null;
 		try {
-			cookieGenerationTimeMili = (Integer) Jwts.parser().setSigningKey(secret)
-					.parseClaimsJws(cookie.substring(token_base.length())).getBody().get("iat");
-		} catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException
-				| IllegalArgumentException | NullPointerException e) {
+			responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(response.asString()))
+					.get("response");
+		} catch (ParseException | NullPointerException e) {
 			logger.info(e.getMessage());
-			return false;
 		}
 
-		Date date = new Date(Long.parseLong(Integer.toString(cookieGenerationTimeMili)) * 1000);
-		Date currentDate = new Date();
-		long intervalMin = (currentDate.getTime() - date.getTime()) / (60 * 1000) % 60;
-
-		if (intervalMin <= configCookieTime)
+		if (responseJson!=null && responseJson.get("errors")==null)
+			{
+			logger.info("========= Valid Token =========");
 			return true;
+			}
 		else
+		{
+			
+			logger.info("========= InValid Token =========");
 			return false;
+		}
 
 	}
 

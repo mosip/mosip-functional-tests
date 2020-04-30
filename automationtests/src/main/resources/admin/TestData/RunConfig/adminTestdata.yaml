@@ -587,6 +587,12 @@ Description257:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW
 Description255:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
+StringLength513:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst513
+StringLength512:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs512
+StringLength1025:
+    - MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQABhkkjhhkjMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzjBhkkjhhkjMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3jlkfCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjMIGfMA0GCADCBiQKBgQCPeK0kuuorYSEqIhX1m4X8fk78zEhO7GTdzKE3sp9saq+7fM8+oz/RDcLWOvsRl+4tT5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9LaIwIDAQABhkkjhhkjqmjnmUZTez;klhkkhkSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQABhkkjhhkjMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQABhkkjhhkj
 CreateBlackListedWord:
     - datatesting
 
@@ -625,6 +631,14 @@ validStringLength63:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk
 validStringLength65:
     - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm
+validStringLength66:
+    - abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmf   
+validStringLen16:
+    - qwertyuiopasdf16
+validStringLen17:
+    - qwertyuiopasdfg17  
+validStringLen18:
+    - qwertyuiopasdfge18          
 RegCenterCretedByQuery:
     - Tcntr
 RegCenterCretedByQuery1:
@@ -665,6 +679,80 @@ valid_deviceServiceId:
 valid_deviceServiceVersion:
     - kklkl    
 valid_holidayName:
-    - Saturday - Weekend
+    - Eid al-Fitr
 valid_holidayName_ara:
-    - Saturday - Weekend
+    - عيد الفطر المبارك
+valid_holidayName_fra:
+    - Eid al-Fitr
+#device provider management
+inActive_regDeviceCode:
+    - inActive-D1
+revoked_regDeviceCode:
+    - Revoked-D1
+retied_regDeviceCode:
+    - Retired-D1
+inActive_swVersion:
+    - inActiveMDSsVersion
+valid_purPose_Auth:
+    - Auth
+valid_purPose_Reg:
+    - Registration 
+valid_deviceId:
+    - 3000025     
+valid_serialNoOfUpperDevice:
+    - AO3450786448
+valid_deviceId1:
+    - 3000045     
+valid_serialNoOfUpperDevice1:
+    - WO3546102256      
+#unmap registration center device
+valid_deviceId2:  
+    - TestDeviceToMapNew    
+valid_regcenterid2:
+    - TestUnmap
+    
+#CreateRegCenter and Device Id 
+valid_RegCenter_id1:
+    - TRegCntr1  
+valid_RegCenter_id2_diffZoneCode:
+    - TRegCntr2
+valid_RegCenter_id3:
+    - TRegCntr3
+valid_RegCenter_id4:
+    - TRegCntr4
+valid_RegCenter_id5:
+    - TRegCntr5
+valid_RegCenter_id6:
+    - TRegCntr6
+valid_RegCenter_id7:
+    - TRegCntr7
+    
+valid_device_id1:
+    - TestDevice1  
+valid_device_id2:
+    - TestDevice2
+valid_device_id3:
+    - TestDevice3
+valid_device_id4:
+    - TestDevice4
+valid_device_id5:
+    - TestDevice5
+valid_device_id6:
+    - TestDevice6
+
+valid_zoneUser_id1:
+    - testuser
+valid_zoneUser_id2:
+    - testuserdiffzone
+valid_zoneUser_id3:
+    - testusernewzone
+valid_zoneUser_id4:
+    - testuservalid
+valid_zoneUser_id5:
+    - testusernorole
+valid_DocumentType_name:
+    - positive2  
+valid_DocumentType_Desc:
+    - Testing positive Doc 
+    
+                   

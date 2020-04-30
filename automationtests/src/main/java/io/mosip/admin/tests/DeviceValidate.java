@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -29,6 +30,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class DeviceValidate extends AdminTestUtil implements ITest {
 
@@ -38,6 +40,7 @@ public class DeviceValidate extends AdminTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
+	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -46,6 +49,10 @@ public class DeviceValidate extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		if (masterDB.executeQuery(queries.get("InsertRegDevice").toString(), "masterdata")&&masterDB.executeQuery(queries.get("InsertMDS").toString(), "masterdata"))
+			logger.info("created regDevices and MDS successfully using query from query.properties");
+		else
+			logger.info("not able to create regDevices and MDS using query from query.properties");
 	}
 
 	/**
@@ -161,7 +168,7 @@ public class DeviceValidate extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getDeviceValidatePath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		getRequestWithQueryAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -170,4 +177,18 @@ public class DeviceValidate extends AdminTestUtil implements ITest {
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 }
+	/**
+	 * this method is for deleting or updating the inserted data in db for testing
+	 * (managing class level data not test case level data)
+	 * @throws AdminTestException 
+	 */
+	@AfterClass(alwaysRun = true)
+	public void cleanup() throws AdminTestException {
+		if (masterDB.executeQuery(queries.get("DeleteRegDevice").toString(), "masterdata")&&masterDB.executeQuery(queries.get("DeleteMDS").toString(), "masterdata"))
+			logger.info("deleted created RegDevice and DeleteMDS successfully");
+		else {
+			logger.info("not able to delete RegDevice and DeleteMDS using query from query.properties");
+			throw new AdminTestException("not able to delete RegDevice and DeleteMDS using query from query.properties");
+		}
+	}
 }

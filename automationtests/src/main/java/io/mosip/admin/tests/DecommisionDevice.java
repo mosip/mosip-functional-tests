@@ -209,7 +209,7 @@ public class DecommisionDevice extends AdminTestUtil implements ITest {
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
 		String query = queries.get("deleteDevice").toString().replace("role", kernelAuthLib.props.get("admin_user"));
 		if (masterDB.executeQuery(queries.get("deleteDevice1").toString(), "masterdata") && masterDB.executeQuery(query, "masterdata"))

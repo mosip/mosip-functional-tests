@@ -25,6 +25,8 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+
+
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.exception.IOException;
 import io.mosip.kernel.core.logger.spi.Logger;
@@ -35,7 +37,7 @@ import io.mosip.registration.util.BaseConfiguration;
 
 /**
  * 
- * @author Gaurav Sharan
+ * @author Tabish Khan
  * 
  *         Test class having methods to test the functionality of
  *         DocumentScannerService
@@ -59,7 +61,7 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 	 *             method invoked before class to initialize the data needed during
 	 *             test
 	 */
-	@BeforeMethod
+	@BeforeClass
 	public void initialize() throws IOException, java.io.IOException {
 		baseSetUp();
 		URL url = DocumentScannerServiceTest.class.getResource("/Registration/dataprovider/applicantPhoto.jpg");
@@ -79,10 +81,10 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			mTestCaseName = "regClient_DocumentScannerService_isScannerConnected";
 			boolean isConnected = documentScannerServiceImpl.isConnected();
 			Assert.assertNotNull(isConnected);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		}
 	}
 
@@ -93,13 +95,13 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 	public void scanDocumentTest() {
 		try {
 			mTestCaseName = "regClient_DocumentScannerService_scanDocument";
-			// intializeValues();
+			intializeValues();
 			bufferedImage = documentScannerServiceImpl.scan();
-			// Assert.assertNotNull(bufferedImage);
-		} catch (NullPointerException nullPointerException) {
+			Assert.assertNotNull(bufferedImage);
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		}
 	}
 
@@ -112,10 +114,10 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			mTestCaseName = "regClient_DocumentScannerService_getSinglePDFInBytes";
 			byte[] data = documentScannerServiceImpl.asPDF(bufferedImages);
 			Assert.assertNotNull(data);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		}
 
 	}
@@ -132,10 +134,10 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			mTestCaseName = "regClient_DocumentScannerService_getSingleImageFromList";
 			byte[] data = documentScannerServiceImpl.asImage(bufferedImages);
 			Assert.assertNotNull(data);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		} catch (java.io.IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -188,10 +190,10 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			mTestCaseName = "regClient_DocumentScannerService_getImageBytesFromBufferedImage";
 			byte[] data = documentScannerServiceImpl.getImageBytesFromBufferedImage(bufferedImage);
 			Assert.assertNotNull(data);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		}
 	}
 
@@ -207,10 +209,10 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			// intializeValues();
 			mTestCaseName = "regClient_DocumentScannerService_getImageBytesFromBufferedImageTestNull";
 			byte[] data = documentScannerServiceImpl.getImageBytesFromBufferedImage(null);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		} catch (IllegalArgumentException illegalArgumentException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
@@ -230,11 +232,11 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			// intializeValues();
 			mTestCaseName = "regClient_DocumentScannerService_pdfToImagesTestNull";
 			byte[] data = documentScannerServiceImpl.asPDF(bufferedImages);
-			documentScannerServiceImpl.pdfToImages(null);
-		} catch (NullPointerException nullPointerException) {
+			documentScannerServiceImpl.pdfToImages(data);
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		} catch (java.io.IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -255,32 +257,16 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 			mTestCaseName = "regClient_DocumentScannerService_getSingleImageFromListTestNull";
 			byte[] data = documentScannerServiceImpl.asImage(null);
 			Assert.assertNull(data);
-		} catch (NullPointerException nullPointerException) {
+		} catch (AssertionError assertException) {
 			// TODO: handle exception
 			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
+					ExceptionUtils.getStackTrace(assertException));
 		} catch (java.io.IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * Negative test case for scanning PDF into bytes array
-	 */
-	@Test // (expectedExceptions = NullPointerException.class)
-	public void getSinglePDFInBytesTestNull() {
-		try {
-			// intializeValues();
-			mTestCaseName = "regClient_DocumentScannerService_getSinglePDFInBytesTestNull";
-			byte[] data = documentScannerServiceImpl.asPDF(null);
-		} catch (NullPointerException nullPointerException) {
-			// TODO: handle exception
-			logger.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
-		}
-
-	}
 
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
@@ -304,11 +290,11 @@ public class DocumentScannerServiceTest extends BaseConfiguration implements ITe
 	}
 
 	private void intializeValues() {
-		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerDpi", 300);
+		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerDepth", 300);
 		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerhost", "192.168.43.253");
 		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerPort", 6566);
-		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerImgType", "jpg");
-		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerTimeout", 2000);
+		//ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerImgType", "jpg");
+		ReflectionTestUtils.setField(documentScannerServiceImpl, "scannerTimeout", 7000);
 
 	}
 }

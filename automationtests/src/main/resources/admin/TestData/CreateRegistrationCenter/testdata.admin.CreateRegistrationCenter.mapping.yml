@@ -1,11 +1,4 @@
 testdata:
-   Admin_CreateRegCenter_Invalid_HolidayLocationCode:
-      input.createRegCenter-request:
-         holidayLocationCode: $TestData:Invalid_ValueString$
-      output.output-1-expected-neg-response:
-         Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:InvalidHolidayLocationCode:errorCode$
-         messageerrors0: $errors:InvalidHolidayLocationCode:errorMessage$
    Admin_CreateRegCenter_Invalid_HolidayLocationCode_blank:
       input.createRegCenter-request:
          holidayLocationCode: ''
@@ -371,8 +364,39 @@ testdata:
          isActive: true
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
+         version: $IGNORE$
+         id: $IGNORE$
+   Admin_CreateRegCenter_inValid_workNonWorkFor5days:
+      input.createRegCenter-request:
+         requesttime: $TIMESTAMPZ$
+         sat: $REMOVE$
+         sun: $REMOVE$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-803
+         messageerrors0: Cannot create as data for all seven days is not received
+         version: $IGNORE$
+         id: $IGNORE$
+   Admin_CreateRegCenter_inValid_workNonWork_format:
+      input.createRegCenter-request:
+         requesttime: $TIMESTAMPZ$
+         sat: string
+         sun: nonBoolean
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Invalid Format in field : workingNonWorkingDays,sat'
+         version: $IGNORE$
+         id: $IGNORE$         
+   Admin_CreateRegCenter_Invalid_ExcptnlHoldy_Dateformat:
+      input.createRegCenter-request:
+         exceptionHolidayDateexceptionalHolidayPutPostDto0: '12/12/2012'
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'request.exceptionalHolidayPutPostDto[0].exceptionHolidayDate: Invalid Date Format'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$                   
    Admin_CreateRegCenter_Optional_TimeZone_blank:
       input.createRegCenter-request:
          timeZone: ''
@@ -415,6 +439,8 @@ testdata:
          contactPerson: $REMOVE$
          lunchStartTime: $REMOVE$
          lunchEndTime: $REMOVE$
+         workingNonWorkingDays: $REMOVE$
+         exceptionalHolidayPutPostDto: $REMOVE$
       output.output-1-expected-pos-response:
          Rresponsetime: $IGNORE$
          RtimeZone: $REMOVE$
@@ -423,6 +449,8 @@ testdata:
          RlunchStartTime: $REMOVE$
          RlunchEndTime: $REMOVE$
          Rid: $IGNORE$
+         RworkingNonWorkingDays: $IGNORE$
+         RexceptionalHolidayPutPostDto: $IGNORE$
    Admin_CreateRegCenter_allValid_smoke:
       input.createRegCenter-request:
          requesttime: $TIMESTAMPZ$
@@ -439,3 +467,6 @@ testdata:
          Rid: $IGNORE$
          RisActive: true
          RlangCode: ara
+         RworkingNonWorkingDays: $IGNORE$
+         RexceptionalHolidayPutPostDto: $IGNORE$
+        

@@ -24,7 +24,6 @@ import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.dto.mastersync.BlacklistedWordsDto;
 import io.mosip.registration.entity.BlacklistedWords;
-import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.repositories.BlacklistedWordsRepository;
 import io.mosip.registration.service.sync.MasterSyncService;
 import io.mosip.registration.util.BaseConfiguration;

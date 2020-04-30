@@ -18,12 +18,12 @@ public class GetUinFromDb {
 	private static Logger logger = Logger.getLogger(GetUinFromDb.class);
 	TransactionStatusDTO transactionStatus=new TransactionStatusDTO();
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"idRepo.cfg.xml";
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/idRepo.cfg.xml";
 	File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public Session getCurrentSession() {
 		SessionFactory factory;
 		Session session;
-		factory=new Configuration().configure("idRepo.cfg.xml").buildSessionFactory();
+		factory=new Configuration().configure("/dbFiles/idRepo.cfg.xml").buildSessionFactory();
 	 session = factory.getCurrentSession();
 	 return session;
 	}

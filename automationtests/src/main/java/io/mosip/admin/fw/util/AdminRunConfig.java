@@ -72,6 +72,34 @@ public class AdminRunConfig extends RunConfig {
 	private String deviceValidatePath;
 	private String filterIndividualTypePath;
 	private String filterHolidaysPath;
+	private String searchRegCenterTypePath;
+	private String filterRegCenterTypePath;
+	private String deviceRegisterPath;
+	private String deviceValidateHistoryPath;
+	private String deviceDeRegisterPath;
+	private String registerDevProviderPath;
+	private String updateDevProviderPath;
+	private String updateDeviceStatusPath;
+	private String registerFTPPath;
+	private String updateFTPPath;
+	private String mapDeviceRegCenterPath;
+	private String mapUserRegistrationCenterPath;
+	private String unmapUserRegistrationCenterPath;
+	private String registerMDSPath;
+	private String updateMDSPath;
+	private String unmapDeviceRegCenterPath;
+    private String mapMachineRegCenterPath;
+    private String unmapMachineRegCenterPath;
+    private String createMachinePath;
+    private String updateMachinePath;
+    private String createDevicePath;
+    private String createDocumentTypePath;
+    private String updateDocumentTypePath;
+    private String fetchPacketStatusPath;
+    private String updateDevicePath;
+    private String fetchHolidayLocationPath;
+    private String fetchRegCenterWorkingDays_kernelPath;
+    private String fetchRegCenterExceptionalHolidays_kernelPath;
 
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
@@ -131,6 +159,34 @@ public class AdminRunConfig extends RunConfig {
 		setDeviceValidatePath(AdminTestUtil.getPropertyValue("deviceValidatePath"));
 		setFilterIndividualTypePath(AdminTestUtil.getPropertyValue("filterIndividualTypePath"));
 		setFilterHolidaysPath(AdminTestUtil.getPropertyValue("filterHolidaysPath"));
+		setSearchRegCenterTypePath(AdminTestUtil.getPropertyValue("searchRegCenterTypePath"));
+		setFilterRegCenterTypePath(AdminTestUtil.getPropertyValue("filterRegCenterTypePath"));
+		setDeviceRegisterPath(AdminTestUtil.getPropertyValue("deviceRegisterPath"));
+		setDeviceValidateHistoryPath(AdminTestUtil.getPropertyValue("deviceValidateHistoryPath"));
+		setDeviceDeRegisterPath(AdminTestUtil.getPropertyValue("deviceDeRegisterPath"));
+		setRegisterDevProviderPath(AdminTestUtil.getPropertyValue("registerDevProviderPath"));
+		setUpdateDevProviderPath(AdminTestUtil.getPropertyValue("updateDevProviderPath"));
+		setUpdateDeviceStatusPath(AdminTestUtil.getPropertyValue("updateDeviceStatusPath"));
+		setRegisterFTPPath(AdminTestUtil.getPropertyValue("registerFTPPath"));
+		setUpdateFTPPath(AdminTestUtil.getPropertyValue("updateFTPPath"));
+		setMapDeviceRegCenterPath((AdminTestUtil.getPropertyValue("mapDeviceRegCenterPath")));
+		setMapUserRegistrationCenterPath((AdminTestUtil.getPropertyValue("mapUserRegistrationCenterPath")));
+		setRegisterMDSPath(AdminTestUtil.getPropertyValue("registerMDSPath"));
+		setUpdateMDSPath(AdminTestUtil.getPropertyValue("updateMDSPath"));
+		setUnmapDeviceRegCenterPath(AdminTestUtil.getPropertyValue("unmapDeviceRegCenterPath"));
+		setMapMachineRegCenterPath(AdminTestUtil.getPropertyValue("mapMachineRegCenterPath"));
+		setUnmapMachineRegCenterPath(AdminTestUtil.getPropertyValue("unmapMachineRegCenterPath"));
+		setCreateMachinePath(AdminTestUtil.getPropertyValue("createMachinePath"));
+		setUpdateMachinePath(AdminTestUtil.getPropertyValue("updateMachinePath"));
+		setUnmapUserRegistrationCenterPath(AdminTestUtil.getPropertyValue("unmapUserRegistrationCenterPath"));
+		setCreateDevicePath(AdminTestUtil.getPropertyValue("createDevicePath"));
+		setCreateDocumentTypePath(AdminTestUtil.getPropertyValue("createDocumentTypePath"));
+		setUpdateDocumentTypePath(AdminTestUtil.getPropertyValue("updateDocumentTypePath"));
+		setFetchPacketStatusPath(AdminTestUtil.getPropertyValue("fetchPacketStatusPath"));
+		setUpdateDevicePath(AdminTestUtil.getPropertyValue("updateDevicePath"));
+		setFetchHolidayLocationPath(AdminTestUtil.getPropertyValue("fetchHolidayLocationPath"));
+		setFetchRegCenterWorkingDays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterWorkingDays_kernelPath"));
+		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1212,6 +1268,254 @@ public class AdminRunConfig extends RunConfig {
 	public void setFilterHolidaysPath(String filterHolidaysPath) {
 		this.filterHolidaysPath = filterHolidaysPath;
 	}
+	
+	@Override
+	public String getSearchRegCenterTypePath() {
+		return searchRegCenterTypePath;
+	}
+
+	public void setSearchRegCenterTypePath(String searchRegCenterTypePath) {
+		this.searchRegCenterTypePath = searchRegCenterTypePath;
+	}
+	
+	@Override
+	public String getFilterRegCenterTypePath() {
+		return filterRegCenterTypePath;
+	}
+
+	public void setFilterRegCenterTypePath(String filterRegCenterTypePath) {
+		this.filterRegCenterTypePath = filterRegCenterTypePath;
+	}
+	
+	@Override
+	public String getDeviceRegisterPath() {
+		return deviceRegisterPath;
+	}
+
+	public void setDeviceRegisterPath(String deviceRegisterPath) {
+		this.deviceRegisterPath = deviceRegisterPath;
+	}
+	
+	@Override
+	public String getDeviceValidateHistoryPath() {
+		return deviceValidateHistoryPath;
+	}
+	
+	public void setDeviceValidateHistoryPath(String deviceValidateHistoryPath) {
+		this.deviceValidateHistoryPath = deviceValidateHistoryPath;
+	}
+	
+	@Override
+	public String getDeviceDeRegisterPath() {
+		return deviceDeRegisterPath;
+	}
+
+	public void setDeviceDeRegisterPath(String deviceDeRegisterPath) {
+		this.deviceDeRegisterPath = deviceDeRegisterPath;
+	}
+	
+	@Override
+	public String getRegisterDevProviderPath() {
+		return registerDevProviderPath;
+	}
+
+	public void setRegisterDevProviderPath(String registerDevProviderPath) {
+		this.registerDevProviderPath = registerDevProviderPath;
+	}
+	
+	@Override
+	public String getUpdateDevProviderPath() {
+		return updateDevProviderPath;
+	}
+
+	public void setUpdateDevProviderPath(String updateDevProviderPath) {
+		this.updateDevProviderPath = updateDevProviderPath;
+	}
+	
+	@Override
+	public String getUpdateDeviceStatusPath() {
+		return updateDeviceStatusPath;
+	}
+
+	public void setUpdateDeviceStatusPath(String updateDeviceStatusPath) {
+		this.updateDeviceStatusPath = updateDeviceStatusPath;
+	}
+
+	@Override
+	public String getRegisterFTPPath() {
+		return registerFTPPath;
+	}
+
+	public void setRegisterFTPPath(String registerFTPPath) {
+		this.registerFTPPath = registerFTPPath;
+	}
+	
+	@Override
+	public String getUpdateFTPPath() {
+		return updateFTPPath;
+	}
+
+	public void setUpdateFTPPath(String updateFTPPath) {
+		this.updateFTPPath = updateFTPPath;
+	}
+	
+	@Override
+	public String getMapDeviceRegCenterPath() {
+		return mapDeviceRegCenterPath;
+	}
+
+	public void setMapDeviceRegCenterPath(String mapDeviceRegCenterPath) {
+		this.mapDeviceRegCenterPath = mapDeviceRegCenterPath;
+	}
+	
+	@Override
+	public String getMapUserRegistrationCenterPath() {
+		return mapUserRegistrationCenterPath;
+	}
+
+	public void setMapUserRegistrationCenterPath(String mapUserRegistrationCenterPath) {
+		this.mapUserRegistrationCenterPath = mapUserRegistrationCenterPath;
+	}
+	
+	@Override
+	public String getUnmapUserRegistrationCenterPath() {
+		return unmapUserRegistrationCenterPath;
+	}
+
+	public void setUnmapUserRegistrationCenterPath(String unmapUserRegistrationCenterPath) {
+		this.unmapUserRegistrationCenterPath = unmapUserRegistrationCenterPath;
+	}
+	
+	@Override
+	public String getRegisterMDSPath() {
+		return registerMDSPath;
+	}
+
+	public void setRegisterMDSPath(String registerMDSPath) {
+		this.registerMDSPath = registerMDSPath;
+	}
+	
+	@Override
+	public String getUpdateMDSPath() {
+		return updateMDSPath;
+	}
+
+	public void setUpdateMDSPath(String updateMDSPath) {
+		this.updateMDSPath = updateMDSPath;
+	}
+	
+	@Override
+	public String getUnmapDeviceRegCenterPath() {
+		return unmapDeviceRegCenterPath;
+	}
+
+	public void setUnmapDeviceRegCenterPath(String unmapDeviceRegCenterPath) {
+		this.unmapDeviceRegCenterPath = unmapDeviceRegCenterPath;
+	}
+	
+	@Override
+	public String getMapMachineRegCenterPath() {
+		return mapMachineRegCenterPath;
+	}
+
+	public void setMapMachineRegCenterPath(String mapMachineRegCenterPath) {
+		this.mapMachineRegCenterPath = mapMachineRegCenterPath;
+	}
+	
+
+	@Override
+	public String getUnmapMachineRegCenterPath() {
+		return unmapMachineRegCenterPath;
+	}
+
+	public void setUnmapMachineRegCenterPath(String unmapMachineRegCenterPath) {
+		this.unmapMachineRegCenterPath = unmapMachineRegCenterPath;
+	}
+	
+	@Override
+	public String getCreateMachinePath() {
+		return createMachinePath;
+	}
+
+	public void setCreateMachinePath(String createMachinePath) {
+		this.createMachinePath = createMachinePath;
+	}
+	
+	@Override
+	public String getUpdateMachinePath() {
+		return updateMachinePath;
+	}
+
+	public void setUpdateMachinePath(String updateMachinePath) {
+		this.updateMachinePath = updateMachinePath;
+	}
+
+	@Override
+	public String getCreateDevicePath() {
+		return createDevicePath;
+	}
+
+	public void setCreateDevicePath(String createDevicePath) {
+		this.createDevicePath = createDevicePath;
+	}
+	@Override
+	public String getCreateDocumentTypePath() {
+		return createDocumentTypePath;
+	}
+
+	public void setCreateDocumentTypePath(String createDocumentTypePath) {
+		this.createDocumentTypePath = createDocumentTypePath;
+	}
+	@Override
+	public String getUpdateDocumentTypePath() {
+		return updateDocumentTypePath;
+	}
+
+	public void setUpdateDocumentTypePath(String updateDocumentTypePath) {
+		this.updateDocumentTypePath = updateDocumentTypePath;
+	}
+	@Override
+	public String getFetchPacketStatusPath() {
+		return fetchPacketStatusPath;
+	}
+
+	public void setFetchPacketStatusPath(String fetchPacketStatusPath) {
+		this.fetchPacketStatusPath = fetchPacketStatusPath;
+	}
+	@Override
+	public String getUpdateDevicePath() {
+		return updateDevicePath;
+	}
+
+	public void setUpdateDevicePath(String updateDevicePath) {
+		this.updateDevicePath = updateDevicePath;
+	}	
+	@Override
+	public String getFetchHolidayLocationPath() {
+		return fetchHolidayLocationPath;
+	}
+
+	public void setFetchHolidayLocationPath(String fetchHolidayLocationPath) {
+		this.fetchHolidayLocationPath = fetchHolidayLocationPath;
+	}
+
+	@Override
+	public String getFetchRegCenterWorkingDays_kernelPath() {
+		return fetchRegCenterWorkingDays_kernelPath;
+	}
+
+	public void setFetchRegCenterWorkingDays_kernelPath(String fetchRegCenterWorkingDays_kernelPath) {
+		this.fetchRegCenterWorkingDays_kernelPath = fetchRegCenterWorkingDays_kernelPath;
+	}
+
+	@Override
+	public String getFetchRegCenterExceptionalHolidays_kernelPath() {
+		return fetchRegCenterExceptionalHolidays_kernelPath;
+	}
+
+	public void setFetchRegCenterExceptionalHolidays_kernelPath(String fetchRegCenterExceptionalHolidays_kernelPath) {
+		this.fetchRegCenterExceptionalHolidays_kernelPath = fetchRegCenterExceptionalHolidays_kernelPath;
+	}
 
 	@Override
 	public String getCryptomanagerEncrypt() {
@@ -1248,4 +1552,125 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getResidentGenerateVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUserIdPwd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUserIdPwd(String userIdPwd) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setResidentGenerateVID(String residentGenerateVID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentRevokeVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentRevokeVID(String residentRevokeVID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthHistory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthHistory(String residentAuthHistory) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthLock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthLock(String residentAuthLock) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthUnlock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthUnlock(String residentAuthUnlock) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidenteUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidenteUin(String residenteUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentPrintUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentPrintUin(String residentPrintUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentUpdateUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentUpdateUin(String residentUpdateUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentCheckStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentCheckStatus(String residentCheckStatus) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -51,17 +51,11 @@ testdata:
          doctypecode: $TestData:valid_doctypecode$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-   Admin_MapDocCatAndDocType_ZonalAdminToken:
-      input.search-request:
-         doccategorycode: $TestData:valid_doccategorycode$
-         doctypecode: $TestData:valid_doctypecode$
-      output.output-1-expected-pos-response:
-         responsetime: $IGNORE$
    Admin_MapDocCatAndDocType_UnAuthorisedRole:
       input.search-request:
          doccategorycode: $TestData:valid_doccategorycode$
          doctypecode: $TestData:valid_doctypecode$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
          responsetime: $IGNORE$

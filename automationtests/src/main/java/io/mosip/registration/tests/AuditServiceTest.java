@@ -37,7 +37,7 @@ import io.mosip.registration.util.TestCaseReader;
 import io.mosip.registration.util.TestDataGenerator;
 
 /**
- * @author Leona Mary S
+ * @author Tabish Khan
  *
  *         Validating the Packet Handler Service is working as expected with
  *         valid inputs and outputs
@@ -105,14 +105,14 @@ public class AuditServiceTest extends BaseConfiguration implements ITest {
 
 		Properties prop = commonUtil.readPropertyFile(serviceName + "/" + subServiceName, testCaseName,
 				testCasePropertyFileName);
-		try {
+		
 			if (!(testCaseName.equalsIgnoreCase("regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL"))) {
 
 				DBUtil.updateValueInDB(prop.getProperty("Audit_log_deletion_configured_days"),
 						DbQueries.UPDATE_AUDITLOG);
 			}
 			if (testCaseName.equalsIgnoreCase("regClient_AuditService_delete_AuditLogs_configuredDaysAs_futureDays")
-					&& testCaseName
+					|| testCaseName
 							.equalsIgnoreCase("regClient_AuditService_delete_AuditLogs_configuredDaysAs_currentDate")) {
 				String statusCode = dataGenerator.getYamlData(serviceName, testDataFileName, "statusCode",
 						prop.getProperty("CreatePacket"));
@@ -132,7 +132,7 @@ public class AuditServiceTest extends BaseConfiguration implements ITest {
 						"Resident Proof data Path: " + proofImagePath);
 
 				commonUtil.packetCreation(statusCode, biometricDataPath, demographicDataPath, proofImagePath,
-						System.getProperty("userID"), testCaseName, testCaseName, prop.getProperty("status"),
+						System.getProperty("userID"), centerID, stationID, prop.getProperty("status"),
 						prop.getProperty("invalidRegID"));
 			}
 
@@ -144,12 +144,7 @@ public class AuditServiceTest extends BaseConfiguration implements ITest {
 			//commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), response);
 		commonUtil.verifyAssertNotNull(response);
 		
-		} catch (NullPointerException nullPointerException) {
-			// TODO: handle exception
-			LOGGER.info(LOG_PKT_HANLDER, APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException)); 
-			Reporter.log(ExceptionUtils.getStackTrace(nullPointerException));
-		}
+		
 	}
 
 	@AfterMethod(alwaysRun = true)

@@ -232,7 +232,7 @@ public class InternalOtpAuthentication extends PrerequisteTests implements ITest
 			for (int i = 0; i < 10; i++) {
 				if (!postRequestAndGenerateOuputFileForIntenalAuth(testCaseName.listFiles(),
 						RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getInternalAuthPath(),
-						"otp-auth-request", "output-2-actual-res", AUTHORIZATHION_COOKIENAME, cookieValue, 200))
+						"otp-auth-request", "output-2-actual-res", AUTHORIZATHION_COOKIENAME, residentCookieValue, 200))
 					throw new AuthenticationTestException("Failed at HTTP-POST otp-auth-request");
 			}
 		Map<String, List<OutputValidationDto>> ouputValid2 = OutputValidationUtil.doOutputValidation(

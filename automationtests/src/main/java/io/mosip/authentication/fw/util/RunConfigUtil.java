@@ -24,6 +24,7 @@ import io.mosip.authentication.fw.dto.VidStaticPinDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.resident.fw.util.ResidentRunConfig;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
@@ -148,6 +149,8 @@ public class RunConfigUtil {
 			objRunConfig = new IdRepoRunConfig();
 		else if (module.equals("admin"))
 			objRunConfig = new AdminRunConfig();
+		else if (module.equals("resident"))
+			objRunConfig = new ResidentRunConfig();
 	}
 	
 	/**
@@ -210,7 +213,7 @@ public class RunConfigUtil {
 	}
 	
 	public static String getAuthTypeStatusPath() {
-		return new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		return new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getModuleFolderName() + "/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath();
 	}
 	

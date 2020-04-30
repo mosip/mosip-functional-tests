@@ -34,12 +34,12 @@ public class PreregDB {
 		boolean flag=false;
 		try {	
 			if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-				factory = new Configuration().configure("preregdev.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
 			.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					else
 					{
 						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("preregqa.cfg.xml")
+							factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
 						.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					}
 		session = factory.getCurrentSession();
@@ -72,12 +72,12 @@ public class PreregDB {
 			boolean flag=false;
 		
 			if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-				factory = new Configuration().configure("preregdev.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
 			.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					else
 					{
 						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("preregqa.cfg.xml")
+							factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
 						.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					}
 			session = factory.getCurrentSession();
@@ -167,12 +167,12 @@ public class PreregDB {
 		//String preId;
 		
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("preregdev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("preregqa.cfg.xml")
+						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
 					.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				}	
 
@@ -232,12 +232,12 @@ public class PreregDB {
 		//String preId;
 		
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("preregdev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("preregqa.cfg.xml")
+						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
 					.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				}
 			session = factory.getCurrentSession();
@@ -306,12 +306,12 @@ public class PreregDB {
 	{
 		List<Object> objs =null;
 		if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-			factory = new Configuration().configure("kerneldev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/kerneldev.cfg.xml")
 		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("kernelqa.cfg.xml")
+						factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml")
 					.addAnnotatedClass(dtoClass).buildSessionFactory();	
 				}
 		session = factory.getCurrentSession();
@@ -376,7 +376,7 @@ public class PreregDB {
 		
 		//factory = new Configuration().configure("preregqa.cfg.xml")
 		//factory = new Configuration().configure("preregint.cfg.xml")
-		factory = new Configuration().configure("preregint.cfg.xml")
+		factory = new Configuration().configure("/dbFiles/preregint.cfg.xml")
 	.addAnnotatedClass(DemographicEntity.class).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
@@ -393,7 +393,7 @@ public class PreregDB {
 		
 		//factory = new Configuration().configure("preregqa.cfg.xml")
 		//factory = new Configuration().configure("preregint.cfg.xml")
-		factory = new Configuration().configure("preregint.cfg.xml")
+		factory = new Configuration().configure("/dbFiles/preregint.cfg.xml")
 	.addAnnotatedClass(DemographicEntity.class).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
@@ -409,7 +409,7 @@ public class PreregDB {
 		int flag;
 		
 		
-		factory = new Configuration().configure("preregint.cfg.xml")
+		factory = new Configuration().configure("/dbFiles/preregint.cfg.xml")
 	.addAnnotatedClass(DemographicEntity.class).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
@@ -424,7 +424,7 @@ public class PreregDB {
 	public static int validateDBdata(String queryStr,String dbName)
 	{
 		int flag;
-		String dbConfigXml = dbName+env+".cfg.xml";
+		String dbConfigXml = "/dbFiles/"+dbName+env+".cfg.xml";
 		//factory = new Configuration().configure("preregqa.cfg.xml")
 		//factory = new Configuration().configure("preregint.cfg.xml")
 		factory = new Configuration().configure(dbConfigXml)
@@ -443,7 +443,7 @@ public class PreregDB {
 	public static List<?> validateDBVal(String queryStr,String dbName)
 	{
 		List<?> flag;
-		String dbConfigXml = dbName+env+".cfg.xml";
+		String dbConfigXml = "/dbFiles/"+dbName+env+".cfg.xml";
 		//factory = new Configuration().configure("preregqa.cfg.xml")
 		//factory = new Configuration().configure("preregint.cfg.xml")
 		//factory = new Configuration().configure("preregint.cfg.xml")

@@ -24,6 +24,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -95,6 +97,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -183,6 +187,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -255,6 +261,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -327,6 +335,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -416,6 +426,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -488,6 +500,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -537,6 +551,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -585,6 +601,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -616,6 +634,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -647,6 +667,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -679,6 +701,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -711,6 +735,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -744,6 +770,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -776,6 +804,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -809,6 +839,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -844,6 +876,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -877,6 +911,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -910,6 +946,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -943,6 +981,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -977,6 +1017,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1011,6 +1053,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1044,6 +1088,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1077,6 +1123,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1110,6 +1158,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1143,6 +1193,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1176,6 +1228,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1210,6 +1264,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1243,6 +1299,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1276,6 +1334,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1309,6 +1369,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1343,6 +1405,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1377,6 +1441,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1411,6 +1477,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1444,6 +1512,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1477,6 +1547,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1509,6 +1581,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1543,6 +1617,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1576,6 +1652,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1609,6 +1687,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1643,6 +1723,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1676,6 +1758,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1709,6 +1793,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1743,6 +1829,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1777,6 +1865,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1810,6 +1900,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1843,6 +1935,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1876,6 +1970,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMPZ$
@@ -1909,6 +2005,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1942,6 +2040,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -1973,6 +2073,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2004,6 +2106,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2053,6 +2157,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2101,6 +2207,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2133,6 +2241,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2165,6 +2275,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2188,7 +2300,7 @@ testdata:
       identityReq.transactionID: $input.ekyc-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.ekyc-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
+      identityReq.deviceCode: $TestData:invalid_DeviceParam$
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
@@ -2197,6 +2309,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2227,8 +2341,10 @@ testdata:
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.deviceProviderId: $TestData:invalid_DeviceParam$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2254,13 +2370,15 @@ testdata:
       #Device
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
+      identityReq.deviceServiceVersion: $TestData:invalid_DeviceParam$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2287,12 +2405,14 @@ testdata:
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
+      identityReq.digitalId.serialNo: $TestData:invalid_DeviceParam$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2320,11 +2440,13 @@ testdata:
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
+      identityReq.digitalId.make: $TestData:invalid_DeviceParam$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2353,10 +2475,12 @@ testdata:
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
+      identityReq.digitalId.model: $TestData:invalid_DeviceParam$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2386,9 +2510,11 @@ testdata:
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
+      identityReq.digitalId.deviceProvider: $TestData:invalid_DeviceParam$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2412,7 +2538,7 @@ testdata:
       identityReq.transactionID: $input.ekyc-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.ekyc-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
+      identityReq.deviceCode: ''
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
@@ -2421,44 +2547,14 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceCode:errorCode$
       output.1.response.error.errorMessage: $errors:MissingDeviceCode:errorMessage$
-      
-  Authentication_EKYC_Biometric_Missing_DeviceProviderId_Neg:
-    endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
-    input.ekyc-request:
-      AuthReq.individualId: $UIN$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-      AuthReq.secondaryLangCode: $REMOVE$
-    input.identity-encrypt-data:
-      identityReq.bioSubType: $TestData:bio_finger_LeftIndex_subType$
-      identityReq.bioType: $TestData:bio_finger_type$
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.transactionID: $input.ekyc-request:AuthReq.transactionID$
-      identityReq.bioValue: $idrepo~$input.ekyc-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
-      #Device
-      identityReq.deviceCode: $Device:finger:code$
-      identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.dateTime: $TIMESTAMP$
-    output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingDeviceProviderID:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingDeviceProviderID:errorMessage$
       
   Authentication_EKYC_Biometric_Missing_DeviceServiceVersion_Neg:
     endpoint.url:
@@ -2478,13 +2574,15 @@ testdata:
       #Device
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
+      identityReq.deviceServiceVersion: ''
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2511,12 +2609,14 @@ testdata:
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
+      identityReq.digitalId.serialNo: ''
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2544,11 +2644,13 @@ testdata:
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
+      identityReq.digitalId.make: ''
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2577,10 +2679,12 @@ testdata:
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
+      identityReq.digitalId.model: ''
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2610,9 +2714,11 @@ testdata:
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
+      identityReq.digitalId.deviceProvider: ''
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2643,8 +2749,10 @@ testdata:
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.deviceProviderId: ''
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2668,7 +2776,7 @@ testdata:
       identityReq.transactionID: $input.ekyc-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.ekyc-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
+      identityReq.deviceCode: $REMOVE$
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
@@ -2677,6 +2785,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2707,8 +2817,10 @@ testdata:
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.deviceProviderId: $REMOVE$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2734,13 +2846,15 @@ testdata:
       #Device
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
+      identityReq.deviceServiceVersion: $REMOVE$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2767,12 +2881,14 @@ testdata:
       identityReq.deviceCode: $Device:finger:code$
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
+      identityReq.digitalId.serialNo: $REMOVE$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2800,11 +2916,13 @@ testdata:
       identityReq.deviceProviderID: $Device:finger:provider_id$
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
+      identityReq.digitalId.make: $REMOVE$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2833,10 +2951,12 @@ testdata:
       identityReq.deviceServiceVersion: $Device:finger:sw_version$
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
+      identityReq.digitalId.model: $REMOVE$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2866,9 +2986,11 @@ testdata:
       identityReq.digitalId.serialNo: $Device:finger:serial_number$
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
+      identityReq.digitalId.deviceProvider: $REMOVE$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -2899,8 +3021,10 @@ testdata:
       identityReq.digitalId.make: $Device:finger:make$
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.deviceProviderId: $REMOVE$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$

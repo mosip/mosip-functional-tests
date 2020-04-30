@@ -320,7 +320,7 @@ public class AuthTestsUtil extends BaseTestCase {
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					String responseJson = "";
 					if (code == 0)
-						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue).asString();
 					/*else
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code);*/
 					Reporter.log("<b><u>Actual Patch Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
@@ -1232,14 +1232,33 @@ public class AuthTestsUtil extends BaseTestCase {
 				+ "ida/TestData/Security/GetCookie/"+RunConfigUtil.getRunEvironment()+".residentServiceCredential.json".toString();
 	}
 	
-	protected String patchRequestWithCookie(String filename, String url,String cookieName,String cookieValue) {
+	protected Response patchRequestWithCookie(String filename, String url,String cookieName,String cookieValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			return RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON,cookieName, cookieValue).asString();
+					MediaType.APPLICATION_JSON,cookieName, cookieValue);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
-			return e.toString();
+			return null;
+		}
+	}
+	
+	protected Response patchRequestWithCookie(String filename, String url, int expCode,String cookieName,String cookieValue) {
+		Response response=null;
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			response = RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName,cookieValue);
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
+			objList.add(verifyStatusCode(response,expCode));
+			objMap.put("Status Code", objList);
+			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
+			return response;
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return response;
 		}
 	}
 	
@@ -1424,6 +1443,96 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return null;
+		}
+	}
+	
+	protected boolean patchRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response;
+					if (code == 0)
+						response = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					else
+						response = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected Response postRequestAndGenerateOuputFileAndReturnResponse(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
+		Response response=null;
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					
+					if (code == 0)
+						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+					else
+						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return response;
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	public static boolean verifyAuthStatusTypeInDB(String uin,String type, String authType,String status) {
+		if(type.equals("VID"))
+			uin=UINUtil.getUinForVid(uin);
+		String query = "select * from ida.uin_auth_lock where uin = '" + uin + "' and auth_type_code = '" + authType
+				+ "' order by cr_dtimes desc limit 1";
+		Map<String, String> actualRecord = DbConnection.getDataForQuery(query, "IDA");
+		if (!actualRecord.get("status_code").equals(status))
+			return false;
+		return true;
+	}
+	
+	protected Response deleteRequestWithPathParm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.deleteRequestWithCookieAndPathParm(url,objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
+	protected String putRequestWithQueryparm(String filename, String url,String cookieName, String cookieValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.putRequestWithQueryParm(url, objectData, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
 		}
 	}
 	

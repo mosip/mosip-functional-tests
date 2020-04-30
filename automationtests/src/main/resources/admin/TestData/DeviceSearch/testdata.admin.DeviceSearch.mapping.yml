@@ -140,6 +140,7 @@ testdata:
       createdDateTimedata0: $IGNORE$
       iddata0: $IGNORE$
       namedata0: $IGNORE$
+      createdBydata0: $IGNORE$
       macAddressdata0: $IGNORE$
       deviceSpecIddata0: $IGNORE$     
       ipAddressdata0: $IGNORE$  

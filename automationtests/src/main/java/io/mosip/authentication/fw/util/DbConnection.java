@@ -179,7 +179,7 @@ public class DbConnection {
 	}
 	
 	private static Session getDataBaseConnection(String dbName) {
-		String dbConfigXml = dbName + RunConfigUtil.getRunEvironment().toLowerCase() + ".cfg.xml";
+		String dbConfigXml = "/dbFiles/"+dbName + RunConfigUtil.getRunEvironment().toLowerCase() + ".cfg.xml";
 		SessionFactory factory = null;
 		Session session = null;
 		try {

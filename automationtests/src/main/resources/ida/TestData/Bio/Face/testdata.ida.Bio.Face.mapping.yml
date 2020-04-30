@@ -2944,7 +2944,6 @@ testdata:
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
       identityReq.digitalId.type: $REMOVE$
-      identityReq.digitalId.type: $Device:face:dtype_code$
       identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-n-res:
       output.1.response.status: $TestData:auth_Fail_status$
@@ -2961,8 +2960,8 @@ testdata:
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
-      identityReq.bioSubType: $TestData:bio_face_subType$
-      identityReq.bioType: $TestData:bio_face_type$
+      identityReq.bioSubType: $TestData:bio_finger_LeftIndex_subType$
+      identityReq.bioType: $TestData:bio_finger_type$
       identityReq.timestamp: $TIMESTAMP$
       identityReq.data.timestamp: $TIMESTAMP$
       identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
@@ -2983,8 +2982,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingDeviceSubType:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingDeviceSubType:errorMessage$
+      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
       
   Authentication_Biometric_Face_Without_signature_Neg:
     endpoint.url:

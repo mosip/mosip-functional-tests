@@ -3,7 +3,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: ''
+      textfilters0: 'Birth'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-4-response:
@@ -13,7 +13,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'Birth'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-4-response:
@@ -33,7 +33,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'الميلاد'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
@@ -43,7 +43,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'naissance'
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-3-response:
@@ -125,7 +125,7 @@ testdata:
     input.search-request-twoFilterValues:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'Birth'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$

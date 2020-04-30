@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package io.mosip.registration.tests;
 
 import static org.testng.Assert.assertNotNull;
@@ -35,7 +33,7 @@ import io.mosip.registration.util.TestCaseReader;
 import io.mosip.registration.util.TestDataGenerator;
 
 /**
- * @author Gaurav Sharan
+ * @author Tabish Khan
  * 
  *         This test class implements the unit tests for the services exposed by
  *         the LoginService class

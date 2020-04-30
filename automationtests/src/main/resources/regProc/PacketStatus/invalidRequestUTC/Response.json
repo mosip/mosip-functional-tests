@@ -1,14 +1,16 @@
 {
-    "response": [
-        {
-            "registrationId": "10002100320000220191205101011",
-            "statusCode": "PROCESSED"
-        }
-    ],
+    "response": null,
     "errors": [
-        
+        {
+            "errorCode": "RPR-RGS-023",
+            "errorMessage": "Invalid Request Parameter - requesttime"
+        },
+        {
+            "errorCode": "RPR-RGS-015",
+            "errorMessage": "Invalid Request Value - Input Data is Incorrect"
+        }
     ],
     "id": "mosip.registration.status",
     "version": "1.0",
-    "responsetime": "2019-12-06T06:35:09.348Z"
+    "responsetime": "2020-01-30T06:20:45.194Z"
 }

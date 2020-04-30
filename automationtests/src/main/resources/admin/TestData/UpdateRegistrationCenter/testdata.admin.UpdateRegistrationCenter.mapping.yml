@@ -1,12 +1,4 @@
 testdata:
-   Admin_UpdateRegCenter_Invalid_HolidayLocationCode:
-      input.updateRegCenter-request:
-         holidayLocationCode: $TestData:Invalid_ValueString$
-         reid: $TestData:RegCenterCretedByQuery1$
-      output.output-1-expected-neg-response:
-         Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:InvalidHolidayLocationCode:errorCode$
-         messageerrors0: $errors:InvalidHolidayLocationCode:errorMessage$
    Admin_UpdateRegCenter_Invalid_HolidayLocationCode_blank:
       input.updateRegCenter-request:
          holidayLocationCode: ''
@@ -165,8 +157,8 @@ testdata:
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         messageerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorMessage$
-         errorCodeerrors0: $errors:InvalidLunchStartTimeGreaterThanLunchEndTime:errorCode$
+         messageerrors0: $errors:InvalidLunchEndTime_GreaterThan_CenterEndTime:errorMessage$
+         errorCodeerrors0: $errors:InvalidLunchEndTime_GreaterThan_CenterEndTime:errorCode$
    Admin_UpdateRegCenter_Invalid_LunchEndTime:
       input.updateRegCenter-request:
          lunchEndTime: $TestData:Invalid_ValueString$
@@ -374,7 +366,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:CreateEmptyIsActive:errorMessage$
+         messageerrors0: $errors:CreateEmptyIsActive:errorMessage2$
    Admin_UpdateRegCenter_Invalid_isActive:
       input.updateRegCenter-request:
          isActive: $TestData:Invalid_ValueString$
@@ -396,8 +388,41 @@ testdata:
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
+         version: $IGNORE$
+         id: $IGNORE$
+   Admin_UpdateRegCenter_inValid_workNonWorkFor5days:
+      input.updateRegCenter1-request:
+         requesttime: $TIMESTAMPZ$
+         sat: $REMOVE$
+         sun: $REMOVE$
+         reid: $TestData:RegCenterCretedByQuery1$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-803
+         messageerrors0: Cannot create as data for all seven days is not received
+         version: $IGNORE$
+         id: $IGNORE$
+   Admin_CreateRegCenter_inValid_workNonWork_format:
+      input.updateRegCenter1-request:
+         requesttime: $TIMESTAMPZ$
+         sat: string
+         sun: nonBoolean
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Invalid Format in field : workingNonWorkingDays,sat'
+         version: $IGNORE$
+         id: $IGNORE$         
+   Admin_UpdateRegCenter_Invalid_ExcptnlHoldy_Dateformat:
+      input.updateRegCenter1-request:
+         exceptionHolidayDateexceptionalHolidayPutPostDto0: '12/12/2012'
+         reid: $TestData:RegCenterCretedByQuery1$
+      output.output-1-expected-neg-response:
+         Rresponsetime: $IGNORE$
+         messageerrors0: 'request.exceptionalHolidayPutPostDto[0].exceptionHolidayDate: Invalid Date Format'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$         
    Admin_UpdateRegCenter_inValid_updt_prmryCntr_isActive_true_evenNoScndry:
       input.updateRegCenter-request:
          requesttime: $TIMESTAMPZ$
@@ -447,18 +472,19 @@ testdata:
          RcontactPerson: $REMOVE$
          RlunchStartTime: $REMOVE$
          RlunchEndTime: $REMOVE$
+         RisActive: true
          Rid: $input.updateRegCenter-request:reid$
          Rname: $input.updateRegCenter-request:name$
-   Admin_UpdateRegCenter_allValid_smoke:
-      input.updateRegCenter-request:
+   Admin_UpdateRegCenterz_allValid_smoke:
+      input.updateRegCenter1-request:
          requesttime: $TIMESTAMPZ$
          name: UpdatedTestCenter-7
          reid: $TestData:RegCenterCretedByQuery1$
          isActive: false
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos1-response:
          Rresponsetime: $IGNORE$
-         Rid: $input.updateRegCenter-request:reid$
-         Rname: $input.updateRegCenter-request:name$
+         Rid: $input.updateRegCenter1-request:reid$
+         Rname: $input.updateRegCenter1-request:name$
          RisActive: false
    Admin_UpdateRegCenter_valid_Secondary_language_isActive_true:
       input.updateRegCenter-request:
@@ -485,4 +511,7 @@ testdata:
          Rid: $input.updateRegCenter-request:reid$
          RisActive: true
          RlangCode: ara
+         RnumberOfKiosks: $IGNORE$
          Rname: createdTestCenter-ByUpdate
+         RworkingNonWorkingDays: $IGNORE$
+         RexceptionalHolidayPutPostDto: $IGNORE$

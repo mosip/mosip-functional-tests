@@ -1,0 +1,22 @@
+{
+	"deviceId": "AutoTestDevice",
+	"purpose": "AUTH",
+	"deviceInfo": {
+		"deviceSubId": "1",
+		"certification": "L0",
+		"digitalId": {
+			"serialNo": "AutoTestSerial",
+			"deviceProvider": "SYNCBYTE",
+			"deviceProviderId": "SYNCBYTE.MC01A",
+			"make": "MC01A",
+			"model": "SMIDCL",
+			"dateTime": "2020-01-13T07:20:42.195Z",
+			"type": "Fingerprint",
+			"subType": "Single"
+		},
+		"firmware": "firmware",
+		"deviceExpiry": "2020-01-13T12:50:42.196Z",
+		"timeStamp": "2020-01-13T12:50:42.208Z"
+	},
+	"foundationalTrustProviderId": ""
+}

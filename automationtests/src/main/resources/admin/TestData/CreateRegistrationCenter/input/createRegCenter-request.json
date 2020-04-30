@@ -23,7 +23,23 @@
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
     "zoneCode":"STT",
-    "id": ""
+    "id": "",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-09-25",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
   },
   "requesttime": "2018-12-10T06:12:52.994Z",
   "version": "string"

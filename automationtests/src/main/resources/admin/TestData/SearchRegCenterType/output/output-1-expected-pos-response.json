@@ -1,0 +1,21 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-11-18T05:04:28.294Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": "$IGNORE$",
+    "data": [
+      {
+        "code": "REG",
+        "langCode": "eng",
+        "name": "Regular",
+        "descr": "Regular Registration Center",
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "$IGNORE$"
+      }
+    ]
+  }
+  }

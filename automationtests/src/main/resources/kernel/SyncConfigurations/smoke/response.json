@@ -203,7 +203,7 @@
     "mosip.id.validation.identity.email":"^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]{2,})$",
     "mosip.right_to_left_orientation":"ara",
     "mosip.signed.response.header":"response-signature",
-    "iam.datastore.commonname":"mycountry",
+    "iam.datastore.commonname":"morocco",
     "mosip.kernel.rid.length":"29",
     "mosip.kernel.transliteration.franch-language-code":"fra",
     "mosip.leftslap_fingerprint_threshold":"0",

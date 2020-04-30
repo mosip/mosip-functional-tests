@@ -1,16 +1,12 @@
 {
     "id": "mosip.registration.packetgenerator",
     "version": "1.0",
-    "responsetime": "2019-06-28T07:22:04.576Z",
+    "responsetime": "2020-01-30T05:40:45.179Z",
     "response": null,
     "errors": [
         {
             "errorCode": "RPR-PGS-011",
             "message": "Invalid Input Parameter - requesttime"
-        },
-        {
-            "errorCode": "RPR-RGS-015",
-            "message": "Invalid Request Value - Input Data is Incorrect"
         }
     ]
 }

@@ -45,7 +45,7 @@ testdata:
            
   Admin_CreateLocationData_Valid_OnlyMandatoryFields:
     input.search-request:
-      Rname: $TestData:validLocationName1$
+      Rname: RandomLoc
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: $TestData:validLocationhierarchyName$
       RparentLocCode: ''
@@ -96,14 +96,17 @@ testdata:
       errorCodeerrors0: $errors:CreateLocWithoutPrimaryLang:errorCode$
       messageerrors0: $errors:CreateLocWithoutPrimaryLang:errorMessage$
 
-  Admin_CreateLocationData_Invalid_name_dupliCate:
+  Admin_CreateLocationDataz_Invalid_name_dupliCate:
     input.search-request:
-      Rname: $TestData:validLocNameCreatedByquery1$
+      Rname: $TestData:validLocNameCreatedByquery$
+      RparentLocCode: KNT
+      RhierarchyName: city
+      RhierarchyLevel: 3
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CreateLocDuplicateName:errorCode$
-      messageerrors0: 'Location Test_Loc_B_2 already exist under the hierarchy'
+      messageerrors0: 'Location Test_Loc_B_1 already exist under the hierarchy'
 
   Admin_CreateLocationData_Invalid_Code_SecondaryLang_without_primary:
     input.search-request:
@@ -153,14 +156,13 @@ testdata:
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: 'Invalid Format in field : hierarchyLevel'
        
-  Admin_CreateLocationData_Invalid_EmptyHierarchyLevel:
+  Admin_CreateLocationData_valid_EmptyHierarchyLevel:
     input.search-request:
       RhierarchyLevel: ''
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-error-response:
+    output.output-1-expected-pos1-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: $errors:CreateLocBlankHierarchyLevel:errorMessage$
+      code: $IGNORE$
           
   Admin_CreateLocationData_inValid_HierarchyName65:
     input.search-request:

@@ -84,6 +84,11 @@ public class IdaKeywordUtil extends KeywordUtil{
 				String dataParam = entry.getValue().replace("$", "").replace("TestData:", "");
 				returnMap.put(entry.getKey(), TestDataProcessor.getYamlData("ida", "TestData",
 						"RunConfig/authenitcationTestdata", dataParam));
+			}else if (entry.getValue().contains("RTestData:") && !entry.getValue().contains("+")
+					&& entry.getValue().startsWith("$RTestData:")) {
+				String dataParam = entry.getValue().replace("$", "").replace("RTestData:", "");
+				returnMap.put(entry.getKey(), TestDataProcessor.getYamlData("resident", "TestData",
+						"RunConfig/residentTestData", dataParam));
 			} else if (entry.getValue().contains("$errors:") && entry.getValue().startsWith("$errors:")) {
 				String value = entry.getValue().replace("$", "");
 				String[] key = value.split(":");
@@ -389,8 +394,22 @@ E	 *
 	 */
 	private String generateInvalidTimeStamp() {
 		Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss.SSS'Z'");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		SimpleDateFormat dateFormat = null;
+		int caseNumber = Integer.parseInt(AuthTestsUtil.randomize(Integer.parseInt("1")));
+		switch (caseNumber) {
+		case 1:
+			dateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss.SSS'Z'");
+		case 2:
+			dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+		case 3:
+			dateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss.SSS");
+		case 4:
+			dateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss.SSS");
+		case 5:
+			dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+		default:
+			dateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+		}
 		return dateFormat.format(date);
 	}
 	/**

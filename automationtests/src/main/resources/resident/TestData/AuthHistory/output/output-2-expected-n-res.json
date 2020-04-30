@@ -1,0 +1,12 @@
+{
+    "id": "mosip.resident.authhistory",
+    "version": "v1",
+    "responsetime": "$TIMESTAMP$",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "Error Code",
+            "message": "Error Message"
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
   "id":null,
   "version":null,
-  "responsetime":"2019-12-17T12:30:05.110Z",
+  "responsetime":"2020-03-19T09:38:26.966Z",
   "metadata":null,
   "response":{
     "documentcategories":[
@@ -274,7 +274,13 @@
         "langCode":"ara",
         "isActive":true,
         "documenttypes":[
-        ]
+          {
+            "code":"COE",
+            "name":"شهادة استثناء",
+            "description":"شهادة استثناء",
+            "langCode":"ara",
+            "isActive":true
+          }]
       },
       {
         "code":"POB",

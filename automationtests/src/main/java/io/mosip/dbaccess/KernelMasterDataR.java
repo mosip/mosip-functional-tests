@@ -40,18 +40,18 @@ public class KernelMasterDataR {
 		switch(env) 
 		{
 		case "dev": 
-			factory = new Configuration().configure("kerneldev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/kerneldev.cfg.xml")
 					.addAnnotatedClass(UinEntity.class).buildSessionFactory();
 		break;
 		
 		case "qa":
-				factory = new Configuration().configure("kernelqa.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml")
 			.addAnnotatedClass(UinEntity.class).buildSessionFactory();
 		
 		break;
 
 		case "int":
-				factory = new Configuration().configure("kernelqa.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml")
 			.addAnnotatedClass(UinEntity.class).buildSessionFactory();
 		
 		}
@@ -120,12 +120,12 @@ public class KernelMasterDataR {
 		List<String> data=null;
 
 		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("masterdatadev.cfg.xml")
+			factory = new Configuration().configure("/dbFiles/masterdatadev.cfg.xml")
 		.addAnnotatedClass(dtoClass).buildSessionFactory();	
 				else
 				{
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("masterdataqa.cfg.xml")
+						factory = new Configuration().configure("/dbFiles/masterdataqa.cfg.xml")
 					.addAnnotatedClass(dtoClass).buildSessionFactory();	
 				}
 		session = factory.getCurrentSession();
@@ -147,12 +147,12 @@ public class KernelMasterDataR {
 			 * Based on the environemnt configuration file is set
 			 */
 			if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-				factory = new Configuration().configure("masterdatadev.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/masterdatadev.cfg.xml")
 			.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					else
 					{
 						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("masterdataqa.cfg.xml")
+							factory = new Configuration().configure("/dbFiles/masterdataqa.cfg.xml")
 						.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
 					}
 		
@@ -188,12 +188,12 @@ public class KernelMasterDataR {
 
 
 			if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-				factory = new Configuration().configure("masterdatadev.cfg.xml")
+				factory = new Configuration().configure("/dbFiles/masterdatadev.cfg.xml")
 			.addAnnotatedClass(dtoClass).buildSessionFactory();	
 					else
 					{
 						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("masterdataqa.cfg.xml")
+							factory = new Configuration().configure("/dbFiles/masterdataqa.cfg.xml")
 						.addAnnotatedClass(dtoClass).buildSessionFactory();	
 
 					}
@@ -214,9 +214,9 @@ public class KernelMasterDataR {
 		
 			try {
 				if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-				factory = new Configuration().configure("kerneldev.cfg.xml").buildSessionFactory();
+				factory = new Configuration().configure("/dbFiles/kerneldev.cfg.xml").buildSessionFactory();
 				else if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-					factory = new Configuration().configure("kernelqa.cfg.xml").buildSessionFactory();
+					factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml").buildSessionFactory();
 				session = factory.getCurrentSession();
 				session.beginTransaction();
 			} catch (HibernateException e) {
@@ -247,10 +247,10 @@ public class KernelMasterDataR {
 			
 			try {
 				if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-					factory = new Configuration().configure("masterdatadev.cfg.xml").buildSessionFactory();
+					factory = new Configuration().configure("/dbFiles/masterdatadev.cfg.xml").buildSessionFactory();
 				else 
 					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("masterdataqa.cfg.xml").buildSessionFactory();
+						factory = new Configuration().configure("/dbFiles/masterdataqa.cfg.xml").buildSessionFactory();
 				
 				session = factory.getCurrentSession();
 				session.beginTransaction();

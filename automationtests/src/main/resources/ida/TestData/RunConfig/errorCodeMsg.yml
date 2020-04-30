@@ -202,8 +202,8 @@ errors:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/data/bioType
   MissingBioValue:
-    errorCode: IDA-MLC-006
-    errorMessage: $REGEXP:.*Missing Input Parameter - bioValue.*$
+    errorCode:  IDA-BIA-017
+    errorMessage: Unable to Perform Biometric Match due to a Technical Issue
   MissingBioDeviceCode:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - deviceCode
@@ -346,8 +346,8 @@ errors:
     errorCode: IDA-DPM-001
     errorMessage: Device is not registered with MOSIP
   InvalidDeviceProvider:
-    errorCode: IDA-DPM-003
-    errorMessage: Device Provider is not registered with MOSIP
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceProvider
   InvalidDeviceCode:
     errorCode: IDA-DPM-001
     errorMessage: Device is not registered with MOSIP
@@ -355,17 +355,17 @@ errors:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/dateTime
   InvalidDeviceServiceVersion:
-    errorCode: IDA-DPM-002
-    errorMessage: MDS is not registered with MOSIP
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceServiceVersion
   InvalidDeviceSerialNo:
-    errorCode: IDA-DPM-003
-    errorMessage: Device Provider is not registered with MOSIP
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/serialNo
   InvalidDeviceMake:
-    errorCode: IDA-DPM-002
-    errorMessage: MDS is not registered with MOSIP
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/make
   InvalidDeviceModel:
-    errorCode: IDA-DPM-002
-    errorMessage: MDS is not registered with MOSIP
+    errorCode: IDA-MLC-009
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/model
   InvalidDeviceType:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/type

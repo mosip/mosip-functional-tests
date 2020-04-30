@@ -44,6 +44,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -90,6 +92,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -168,6 +172,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -220,6 +226,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$
@@ -347,6 +355,8 @@ testdata:
       identityReq.digitalId.deviceProvider: $Device:face:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:face:provider_id$
       identityReq.digitalId.dateTime: $TIMESTAMP$
+      identityReq.digitalId.type: $Device:face:dtype_code$
+      identityReq.digitalId.subType: $Device:face:dstype_code$
     output.output-1-expected-y-res:
       output.1.response.status: $TestData:auth_Pass_status$
       output.1.response.responseTime: $TIMESTAMP$

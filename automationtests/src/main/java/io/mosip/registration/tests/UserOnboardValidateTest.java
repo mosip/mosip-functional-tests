@@ -103,7 +103,7 @@ public class UserOnboardValidateTest extends BaseConfiguration implements ITest 
 					prop.getProperty("pathValue"));
 			logger.info("USERONBOARD SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID, "Path: " + bioPath);
 
-			bioData = commonUtil.getBiotestData(bioPath);
+			bioData = commonUtil.getBiotestData(CommonUtil.getResourcePath()+"/"+bioPath);
 			ResponseDTO actualresponse = userOBservice.validate(bioData);
 
 			commonUtil.verifyAssertionResponse(prop.getProperty("ExpectedResponse"), actualresponse);

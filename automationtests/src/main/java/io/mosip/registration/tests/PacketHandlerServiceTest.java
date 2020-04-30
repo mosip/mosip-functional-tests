@@ -10,11 +10,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.WeakHashMap;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +35,8 @@ import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
 import io.mosip.registration.dao.RegistrationDAO;
-import io.mosip.registration.dto.ErrorResponseDTO;
 import io.mosip.registration.dto.PacketStatusDTO;
 import io.mosip.registration.dto.ResponseDTO;
-import io.mosip.registration.dto.SuccessResponseDTO;
 import io.mosip.registration.entity.Registration;
 import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.service.operator.UserOnboardService;
@@ -171,6 +166,7 @@ public class PacketHandlerServiceTest extends BaseConfiguration implements ITest
 			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					packetResponse.get(prop.getProperty("AssertValue")));
 			boolean isPresentInDB = DBUtil.checkRegID(packetResponse.get("RANDOMID"), DbQueries.GET_PACKETIDs);
+			System.out.println("Status of db is ------->"+ isPresentInDB);
 			Assert.assertEquals(isPresentInDB, true);
 			logger.info("PACKET_HANDLER SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,
 					"Created Registration ID in database: " + isPresentInDB);
@@ -182,15 +178,18 @@ public class PacketHandlerServiceTest extends BaseConfiguration implements ITest
 			if (syncResponse.isEmpty()) {
 				// Upload packet
 				String seperator = "/";
-				String filePath = String
+/*				String filePath = String
 						.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_LOCATION))
 						.concat(seperator)
 						.concat(formatDate(new Date(),
 								String.valueOf(
 										ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT))))
 						.concat(seperator).concat(packetResponse.get("RANDOMID"));
-				File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);
-				uploadResponse = packetUploadService.pushPacket(packet);
+				File packet = new File(filePath + RegistrationConstants.ZIP_FILE_EXTENSION);*/
+				File packetStore=new File(System.getProperty("user.dir"));
+				//File packetUpload=packetStore.getParentFile();
+				File packetToBeUploaded=new File(packetStore.getAbsolutePath()+"/PacketStore/".concat(formatDate(new Date(), String.valueOf(ApplicationContext.map().get(RegistrationConstants.PACKET_STORE_DATE_FORMAT)))).concat(seperator).concat(packetResponse.get("RANDOMID"))+ RegistrationConstants.ZIP_FILE_EXTENSION);
+				uploadResponse = packetUploadService.pushPacket(packetToBeUploaded);
 				if (uploadResponse.getSuccessResponseDTO().getCode().equalsIgnoreCase("Success")) {
 
 					Registration registration = syncRegistrationDAO.getRegistrationById(

@@ -24,7 +24,7 @@ public class PreRegistartionDataBaseAccess {
 
 	public Session getDataBaseConnection(String dbName) {
 
-		String dbConfigXml = dbName+env+".cfg.xml";
+		String dbConfigXml = "/dbFiles/"+dbName+env+".cfg.xml";
 		try {
 
 		factory = new Configuration().configure(dbConfigXml).buildSessionFactory();

@@ -1,6 +1,5 @@
 package io.mosip.registration.util;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 

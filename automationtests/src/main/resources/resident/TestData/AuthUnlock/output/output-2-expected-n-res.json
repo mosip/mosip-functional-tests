@@ -1,0 +1,12 @@
+{
+    "id": "mosip.resident.authunlock",
+    "version": "v1",
+    "responsetime": "$TIMESTAMP$",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "Error Code",
+            "message": "Error Message"
+        }
+    ]
+}

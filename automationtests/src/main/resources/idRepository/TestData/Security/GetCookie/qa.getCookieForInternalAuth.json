@@ -1,11 +1,11 @@
 {
-    "request": {
-        "password": "mosip",
-        "appId": "admin",
-        "userName": "test_admin"
-    },
-    "metadata": "",
-    "requesttime": "$TIMESTAMPZ$",
-    "id": "mosip.io.userId.pwd",
-    "version": "1.0"
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "clientId": "registration-processor",
+    "secretKey": "d80ec0be-bba7-4d8e-bf0c-85ab45bb976b",
+    "appId": "registration-processor"
+  },
+  "requesttime": "$TIMESTAMPZ$",
+  "version": "string"
 }

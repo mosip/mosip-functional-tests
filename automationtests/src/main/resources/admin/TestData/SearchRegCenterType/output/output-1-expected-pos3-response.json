@@ -1,0 +1,14 @@
+
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0,
+    "data": null
+  },
+  "errors": null
+}

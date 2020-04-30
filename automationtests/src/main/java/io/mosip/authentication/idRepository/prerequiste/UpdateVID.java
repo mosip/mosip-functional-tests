@@ -220,6 +220,7 @@ public class UpdateVID extends AuthTestsUtil implements ITest {
 			tempMap.put(uin, vidNumber+"."+vidType+"."+vidStatus);
 			updateMappingDic(RunConfigUtil.getResourcePath()+"ida/TestData/RunConfig/vid.properties", tempMap);
 			updateMappingDic(RunConfigUtil.getResourcePath()+"idRepository/TestData/RunConfig/vid.properties", tempMap);
+			updateMappingDic(RunConfigUtil.getResourcePath()+"resident/TestData/RunConfig/vid.properties", tempMap);
 		}
 		else
 			throw new AuthenticationTestException("Failed at output response validation");

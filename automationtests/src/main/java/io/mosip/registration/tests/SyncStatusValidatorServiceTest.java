@@ -1,9 +1,5 @@
 package io.mosip.registration.tests;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import java.lang.reflect.Field;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +8,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;

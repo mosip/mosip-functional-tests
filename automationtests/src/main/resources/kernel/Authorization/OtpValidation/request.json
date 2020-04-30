@@ -2,7 +2,7 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "appId": "PREREGISTRATION",
+    "appId": "preregistration",
     "otp": "837439",
     "userId": "9972388747"
   },

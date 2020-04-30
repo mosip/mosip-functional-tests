@@ -20,7 +20,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 
-import com.mchange.util.AssertException;
+
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.service.BaseTestCase;

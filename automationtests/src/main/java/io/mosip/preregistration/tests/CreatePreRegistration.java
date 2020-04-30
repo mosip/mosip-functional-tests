@@ -133,6 +133,9 @@ public SoftAssert softAssert = new SoftAssert();
 			actualRequest.put("requesttime", lib.getCurrentDate());
 
 		}
+		if(testCaseName.contains("Language")) {
+			System.out.println(testCaseName);
+		}
 		Expectedresponse = ResponseRequestMapper.mapResponse(testSuite, object);
 		try {
 

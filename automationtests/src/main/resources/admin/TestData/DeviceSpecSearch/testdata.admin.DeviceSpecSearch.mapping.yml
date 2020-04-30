@@ -14,6 +14,9 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Name_ara:
       input.search-request:
@@ -30,6 +33,9 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Name_fra:
       input.search-request:
@@ -46,6 +52,9 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Brand_eng:
       input.search-request:
@@ -62,6 +71,9 @@ testdata:
          branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Brand_ara:
       input.search-request:
@@ -78,6 +90,9 @@ testdata:
          branddata0: $TestData:valid_DeviceSpec_Brand_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Brand_fra:
       input.search-request:
@@ -94,6 +109,9 @@ testdata:
          branddata0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Model:
       input.search-request:
@@ -110,6 +128,9 @@ testdata:
          modeldata0: $TestData:valid_DeviceSpec_Model_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_DeviceTypeName:
       input.search-request:
@@ -126,6 +147,9 @@ testdata:
          deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_Value_Name:
       input.search-request:
@@ -185,6 +209,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_ASC_Name_eng:
       input.search-request:
@@ -201,6 +227,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_ASC_Name_ara:
       input.search-request:
@@ -217,6 +245,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_ASC_Name_fra:
       input.search-request:
@@ -233,6 +263,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_DESC_Name_eng:
       input.search-request:
@@ -249,6 +281,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_DESC_Name_ara:
       input.search-request:
@@ -265,6 +299,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_DESC_Name_fra_smoke:
       input.search-request:
@@ -281,6 +317,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeFrench$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_FilterType:
       input.search-request:
@@ -312,6 +350,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          branddata0: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_LangCode:
       input.search-request:
@@ -388,6 +428,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_TwoValueSearch_pos:
       input.search-twoSearchValues-request:
@@ -407,6 +449,8 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_TwoFilterColumns_equals:
       input.search-twoSearchValues-request:
@@ -426,6 +470,8 @@ testdata:
          deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_StartsWith_Name_eng:
       input.search-request:
@@ -442,22 +488,26 @@ testdata:
          namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_TwoSortValues_pos:
       input.search-twoSortValues-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_SearchTypeEquals$
          valuefilters0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsBrand$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         sortFieldsort1: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort1: $TestData:valid_SortTypeDescending$
+         sortFieldsort1: $TestData:valid_Search_ColumnNameAsBrand$
+         sortTypesort1: $TestData:valid_SortTypeAscending$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-pos4-response:
          branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
+         createdBydata0: $IGNORE$
+         createdDateTimedata0: $IGNORE$
          

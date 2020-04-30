@@ -15,8 +15,19 @@ testdata:
          textfilters0: $TestData:valid_holidayName_ara$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
+         fieldValuefilters0: $TestData:valid_holidayName_ara$
+   Admin_FilterHolidays_Valid_col_holidayName_lang_fra:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_HolidaySearch_ColNameAsHolidayName$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: $TestData:valid_holidayName_fra$
+         languageCode: $TestData:valid_LanguageCodeFrench$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         fieldValuefilters0: $TestData:valid_holidayName_fra$
    Admin_FilterHolidays_Valid_col_status:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

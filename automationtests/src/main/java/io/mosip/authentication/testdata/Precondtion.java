@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
-import org.apache.wink.json4j.OrderedJSONObject;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +37,7 @@ import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
-import io.mosip.residentService.fw.util.ResidentServiceKeywordUtil;
+import io.mosip.resident.fw.util.ResidentKeywordUtil;
 
 /**
  * Precondtion json file according to the input and mapping provided in test
@@ -159,8 +159,8 @@ public class Precondtion {
 			objKeywordUtil = new IdRepoKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("admin"))
 			objKeywordUtil = new AdminKeywordUtil();
-		else if (moduleName.equalsIgnoreCase("residentService"))
-			objKeywordUtil = new ResidentServiceKeywordUtil();
+		else if (moduleName.equalsIgnoreCase("resident"))
+			objKeywordUtil = new ResidentKeywordUtil();
 		return objKeywordUtil;
 	}
 

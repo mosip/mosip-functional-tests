@@ -17,12 +17,6 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:RegCenterDecomissionInvalidLength:errorCode$
          messageerrors0: $errors:RegCenterDecomissionInvalidLength:errorMessage$
-   Admin_DecommisionRegCenter_inValid_RegCenterId_Length_lessThan5:
-      input.search-request:
-         regCenterID: aStr
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:RegCenterDecomissionInvalidLength:errorCode$
-         messageerrors0: $errors:RegCenterDecomissionInvalidLength:errorMessage$
    Admin_DecommisionRegCenter_inValid_regCentMapToDevice_DB:
       input.search-request:
          regCenterID: $TestData:RegCenterCretedByQuery1$
@@ -45,8 +39,8 @@ testdata:
       input.search-request:
          regCenterID: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
    Admin_DecommisionRegCenter_inValid_RegCntr_from_zone_nonAccessable_by_user:
       input.search-request:
          regCenterID: Tcnt2

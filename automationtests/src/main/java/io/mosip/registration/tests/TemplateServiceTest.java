@@ -134,13 +134,13 @@ public class TemplateServiceTest extends BaseConfiguration implements ITest {
 
 			Template result = templateServiceImpl.getTemplate(emailTemplateCode, langCode);
 			logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
-					result.getDescr());
+					result.getDescription());
 			if (testcaseName.contains("invalid")) {
-				assertNull(result.getDescr());
+				assertNull(result.getDescription());
 			} else {
 				// Assert.assertEquals(result.getDescr(),"Acknowledgement generated after
 				// registration - Part 1");
-				assertNotNull(result.getDescr());
+				assertNotNull(result.getDescription());
 			}
 		} catch (Exception exception) {
 			logger.info("TEMPLATE SERVICE TEST - ", APPLICATION_NAME, APPLICATION_ID,

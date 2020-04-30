@@ -202,5 +202,7 @@ public class UpdateUinRecord extends AuthTestsUtil implements ITest {
 				+ "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
 		updateMappingDic(new File(RunConfigUtil.getResourcePath() + "idRepository/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
+		updateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		+ "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
 	}
 }

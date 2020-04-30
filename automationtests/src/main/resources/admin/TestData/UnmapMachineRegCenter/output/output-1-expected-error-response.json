@@ -1,0 +1,13 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$ignore$",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-MSD-114",
+      "message": "Mapping for Machine and Center not found"
+    }
+  ]
+}

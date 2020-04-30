@@ -25,7 +25,7 @@ public class RegProcStageDb {
 	Session session;
 	private static Logger logger = Logger.getLogger(RegProcStageDb.class);
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"regproc_qa.cfg.xml";
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/regproc_qa.cfg.xml";
 	File registrationListConfigFile=new File(registrationListConfigFilePath);
 
 	/**
@@ -38,7 +38,7 @@ public class RegProcStageDb {
 	@SuppressWarnings("deprecation")
 	public List<DemoDedupeDto> regproc_IndividualDemoghraphicDedupe(String regId)
 	{
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -107,7 +107,7 @@ public class RegProcStageDb {
 	public List<DemoDedupeDto> regproc_AllIndividualDemoghraphicDedupe(String name, String genderCode, String dob,
 			String langCode) {
 
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -176,7 +176,7 @@ public class RegProcStageDb {
 	@SuppressWarnings("deprecation")
 	public String regproc_getUIN(String regId)
 	{
-		factory = new Configuration().configure("regproc_qa.cfg.xml").buildSessionFactory();	
+		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 

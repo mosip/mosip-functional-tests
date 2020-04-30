@@ -49,7 +49,7 @@ public class CreateLocationData extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		if (masterDB.executeQuery(queries.get("createLocation").toString(), "masterdata") && masterDB.executeQuery(queries.get("createLocation1").toString(), "masterdata"))
+		if (masterDB.executeQuery(queries.get("createLocation").toString(), "masterdata"))
 			logger.info("created location using query from query.properties");
 		else
 			logger.info("not able to create location using query from query.properties");
@@ -177,18 +177,4 @@ public class CreateLocationData extends AdminTestUtil implements ITest {
 		
 	}
 	
-	/**
-	 * this method is for deleting or updating the inserted data in db for testing
-	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
-	 */
-	@AfterClass
-	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(queries.get("deleteCreatedLocations").toString(), "masterdata"))
-			logger.info("deleted all created locations successfully");
-		else {
-			logger.info("not able to delete locations using query from query.properties");
-			throw new AdminTestException("not able to delete locations data form DB");
-		}
-	}
 }

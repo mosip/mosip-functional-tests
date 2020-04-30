@@ -1,0 +1,68 @@
+#TestData
+uin_idType:
+  - UIN
+vid_idType:
+  - VID
+vidType_perpetual:
+  - PERPETUAL
+vidType_temp:
+  - TEMPORARY
+id_invalid:
+  - mosip.vid.resident
+  - mosip.resident
+  - resident.vid.mosip
+vidStatus_revoke:
+  - REVOKED
+pageStart_valid:
+  - 1
+  - 2
+  - 3
+  - 4
+pageFetch_valid:
+  - 1
+  - 2
+  - 3
+page_invalid:
+  - A
+  - 1*
+page_negativeValue:
+  - 0
+  - -1
+  - -2
+  - -3
+  - -4
+  - -5
+  - -6
+authType_face:
+  - bio-FACE
+authType_iris:
+  - bio-IIR
+authType_finger:
+  - bio-FIR
+authType_demo:
+  - demo
+authType_invalid:
+  - ABC
+  - bio
+  - FIR
+  - IIR
+  - FACE
+  - otp
+indvId_invalid:
+      - VI
+      - UI
+      - A
+      - UVD
+      - 123
+      - ^UI
+id_version_invalid:
+      - 9.*
+      - A.0
+      - 8.D
+      - ^.*
+identityJson:
+  - ewogICJpZGVudGl0eSIgOiB7CiAgICAKICAgICJlbWFpbCIgOiAiZ2lyaXNoLnlhcnJ1QG1pbmR0cmVlLmNvbSIsCiAgICAKCSJVSU4iIDogMzcyNTg5MTI2NywKICAgICJJRFNjaGVtYVZlcnNpb24iIDogMS4wCiAgfQp9IA==
+id:
+  - mosip.resident.updateuin  
+uinForOtp:
+  - 4692607639 

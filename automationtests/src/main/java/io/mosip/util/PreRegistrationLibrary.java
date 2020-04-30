@@ -1393,8 +1393,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 */
 	public String randomRegistrationCenterId() {
 		Random rand = new Random();
-		List<String> givenList = Lists.newArrayList("10002", "10013", "10010", "10015", "10006", "10004",
-				"10008", "10012", "10005", "10003", "10007");
+		List<String> givenList = Lists.newArrayList( "10006","10008","10007");
 		String s = null;
 		int numberOfElements = givenList.size();
 		for (int i = 0; i < numberOfElements; i++) {

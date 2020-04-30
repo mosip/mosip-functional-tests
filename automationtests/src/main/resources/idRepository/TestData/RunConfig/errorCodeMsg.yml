@@ -155,7 +155,7 @@ errors:
     errorMessage: VID is REVOKED
   MissingUIN:
     errorCode: IDR-IDC-001
-    errorMessage: Missing Input Parameter - /identity/UIN
+    errorMessage: Missing Input Parameter - identity/UIN
   MissingCNIENumber:
     errorCode: IDR-IDC-001
     errorMessage: Missing Input Parameter - identity/referenceIdentityNumber

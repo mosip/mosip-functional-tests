@@ -38,15 +38,15 @@ public class ConstantValues {
 	 */
 	// public static final String REREGISTRATION_ROLES = "SUPERADMIN,SUPERVISOR";
 	public static final String REREGISTRATION_ROLES = "REGISTRATION_ADMIN,REGISTRATION_SUPERVISOR";
-	public static final String REREGISTRATION_USERID = "110017";
+	public static final String REREGISTRATION_USERID = "110022";
 
 	/*
 	 * 
 	 * Constants to be used in LoginServiceTest test cases
 	 */
-	public static final String LOGIN_USERID = "110017";
+	public static final String LOGIN_USERID = "110022";
 
-	public static final String RegistrationCenterId_val = "10022";
+	public static final String RegistrationCenterId_val = "10003";
 }
 
 

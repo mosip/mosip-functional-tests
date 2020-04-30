@@ -197,13 +197,17 @@ adminCookie = (cookieChanged) ? kernelAuthLib.getAuthForAdmin():adminCookie;
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(queries.get("deleteCntrCrtdByApi").toString(), "masterdata"))
+		String centrHistDelQuery = queries.get("deleteCntrCrtdByApi").toString().replace("registration_center", "registration_center_h");
+		if (masterDB.executeQuery(queries.get("deleteWorkNonWorkDays").toString(), "masterdata")
+				&& masterDB.executeQuery(queries.get("deleteExcptnlHolidy").toString(), "masterdata")
+				&& masterDB.executeQuery(queries.get("deleteCntrCrtdByApi").toString(), "masterdata")
+				&& masterDB.executeQuery(centrHistDelQuery, "masterdata"))
 			logger.info("deleted all created regCenter successfully");
 		else {
-			logger.info("not able to delete regCenter using query from query.properties");
-			throw new AdminTestException("DB is not updated properly after decommission, not able to delete data form DB");
+			logger.info("not able to delete regCenter and history using query from query.properties");
+			throw new AdminTestException("not able to delete regCenter and history using query from query.properties");
 		}
 	}
 

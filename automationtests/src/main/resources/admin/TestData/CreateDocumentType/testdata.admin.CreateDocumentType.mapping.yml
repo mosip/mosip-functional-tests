@@ -1,0 +1,218 @@
+testdata:
+   Admin_CreateDocumentType_Valid_Smoke:
+      input.search-request:
+         rname: positive1
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: $REMOVE$
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-pos-response:
+         RlangCode: eng
+         Rcode: $IGNORE$
+         Rresponsetime: $IGNORE$
+         Rname: positive1
+         Rdescription: $TestData:valid_DocumentType_Desc$
+         RisActive: false
+         RcreatedBy: 110006
+         RcreatedBy: $IGNORE$
+         RcreatedDateTime: $IGNORE$
+         
+   Admin_CreateDocumentType_Valid_Descr_Blank:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $REMOVE$
+         rcode: $REMOVE$
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-pos-response:
+         RlangCode: eng
+         Rcode: $IGNORE$ 
+         Rresponsetime: $IGNORE$
+         Rname: positive2
+         Rdescription: $IGNORE$
+         RisActive: false
+         RcreatedBy: $IGNORE$
+         RcreatedDateTime: $IGNORE$
+         
+   Admin_CreateDocumentType_Invalid_Code_Char37:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: $TestData:validLocationCode37$
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: 'request.code: size must be between 0 and 36'
+         
+   Admin_CreateDocumentType_Invalid_Name_Char65:
+      input.search-request:
+         rname: $TestData:validStringLength66$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: TestDoc2
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateDocumentType_Invalid_Descr_Char129:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:wordLength129$
+         rcode: TestDoc2
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: 'request.description: size must be between 0 and 128'
+         
+   Admin_CreateDocumentType_Invalid_LangCode_Char4:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: CESC
+         rrequesttime: $REMOVE$
+         rlangCode: engr
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: Language Code is Invalid
+         
+   Admin_CreateDocumentType_Invalid_IsActive_Blank:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: $REMOVE$
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: MAA
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: 'request.isActive: must not be null'
+         
+   Admin_CreateDocumentType_Invalid_LangCode_Blank:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: MAA
+         rrequesttime: $REMOVE$
+         rlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: Language Code is Invalid      
+         
+   Admin_CreateDocumentType_Invalid_Name_Blank:
+      input.search-request:
+         rname: $REMOVE$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: MAA
+         rrequesttime: $REMOVE$
+         rlangCode: eng
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: 'request.name: must not be blank'
+         
+   Admin_CreateDocumentType_Invalid_Code_Blank:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: ''
+         rrequesttime: $REMOVE$
+         rlangCode: ara
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: Invalid id passed for Secondary language
+         
+   Admin_CreateDocumentType_Invalid_NonDefaultLang:
+      input.search-request:
+         rname: $TestData:valid_DocumentType_name$
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: MAA
+         rrequesttime: $REMOVE$
+         rlangCode: ara
+      output.output-1-expected-error-response:
+         response: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         responsetime: $IGNORE$
+         messageerrors0: Invalid id passed for Secondary language
+         
+   Admin_CreateDocumentType_Valid_IsActive_Check:
+      input.search-request:
+         rname: positive1
+         risActive: true
+         rdescription: $TestData:valid_DocumentType_Desc$
+         rcode: Test
+         rrequesttime: $REMOVE$
+         rlangCode: ara
+      output.output-1-expected-pos-response:
+         RlangCode: ara
+         Rcode: Test
+         Rresponsetime: $IGNORE$
+         Rname: positive1
+         Rdescription: $TestData:valid_DocumentType_Desc$
+         RisActive: true  
+         RcreatedBy: $IGNORE$
+         RcreatedDateTime: $IGNORE$  
+         
+   Admin_CreateDocumentType_Valid_PrimLang_False_Act_SeconLang:
+      input.search-request:
+         rname: Activate flag test
+         risActive: true
+         rdescription: Test flag activation
+         rcode: Act
+         rrequesttime: $REMOVE$
+         rlangCode: ara
+      output.output-1-expected-pos-response:
+         RlangCode: ara
+         Rcode: Act
+         Rresponsetime: $IGNORE$
+         Rname: $IGNORE$
+         Rdescription: $IGNORE$
+         RisActive: true
+         RcreatedBy: $IGNORE$
+         RcreatedBy: $IGNORE$
+         RcreatedDateTime: $IGNORE$   
+         
+   Admin_CreateDocumentType_Valid_PrimLang_True_DeAct_SeconLang:
+      input.search-request:
+         rname: Deactivate flag test
+         risActive: false
+         rdescription: Test flag deactivation
+         rcode: DeAct
+         rrequesttime: $REMOVE$
+         rlangCode: ara
+      output.output-1-expected-pos-response:
+         RlangCode: ara
+         Rcode: DeAct
+         Rresponsetime: $IGNORE$
+         Rname: $IGNORE$
+         Rdescription: $IGNORE$
+         RisActive: false
+         RcreatedBy: $IGNORE$
+         RcreatedBy: $IGNORE$
+         RcreatedDateTime: $IGNORE$                                          

@@ -23,17 +23,23 @@ public class UINUtil extends RunConfigUtil{
 	 * 
 	 * @return Random UIN
 	 */
+	private static int uinCount = 0;
+
 	public static String getRandomUINKey() {
 		getUinPropertyValue(getUinPropertyPath());
-		int count = 1;
-		while (count > 0) {
+		if (UinDto.getUinData().size() <= uinCount)
+			uinCount = 0;
+		while (UinDto.getUinData().size() > uinCount) {
 			Object[] randomKeys = UinDto.getUinData().keySet().toArray();
-			Object key = randomKeys[new Random().nextInt(randomKeys.length)];
+			Object key = randomKeys[uinCount];
 			if (UinDto.getUinData().get(key).toString().contains("valid")) {
-				uinUtilLogger.info("UIN Key: "+UinDto.getUinData().get(key).toString());
+				uinUtilLogger.info("UIN Key: " + UinDto.getUinData().get(key).toString());
+				uinCount++;
 				return key.toString();
-			}
-			count++;
+			} else
+				uinCount++;
+			if (UinDto.getUinData().size() <= uinCount)
+				uinCount = 0;
 		}
 		return "NoUINFound";
 	}

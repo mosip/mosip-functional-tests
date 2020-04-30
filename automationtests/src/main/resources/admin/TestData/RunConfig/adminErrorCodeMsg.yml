@@ -20,7 +20,7 @@ errors:
       errorMessage: Filter type is missing
    InvalidFilterType:
       errorCode: KER-MSD-318
-      errorMessage: Column <value1> doesn't support filter type <value2>
+      errorMessage: Column docCategoryCode doesn't support filter type fbheafg
       errorMessage1: Column isActive doesn't support filter type contains
       errorMessage2: Column isActive doesn't support filter type startsWith
       errorMessage3: Column name doesn't support filter type between
@@ -124,7 +124,7 @@ errors:
       errorMessage1: 'request.zoneCode: must not be blank'
    NoPrimaryLangCenterPresent:
       errorCode: KER-MSD-999
-      errorMessage: Cannot create data in secondary language as data does not exist in primary language
+      errorMessage: Invalid id passed for Secondary language
    CreateCenterWithOtherThanConfigLang:
       errorCode: KER-MSD-382
       errorMessage: Received language code fra is not a configured language
@@ -166,7 +166,7 @@ errors:
       errorCode: KER-MSD-999
       errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 0 and 36, mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
    Invaliddoctypecode:
-      errorCode: KER-MSD-500
+      errorCode: KER-MSD-999
       errorMessage: 'mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
    AlreadyMapDocCategoryCodes:
       errorCode: KER-MSD-360
@@ -224,7 +224,7 @@ errors:
       errorMessage: "request.hierarchyName: size must be between 0 and 64"
    CreateLocWithoutPrimaryLang:
       errorCode: KER-MSD-999
-      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
+      errorMessage: "Invalid id passed for Secondary language"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"
@@ -268,28 +268,25 @@ errors:
       errorMessage: Machine ID <id> does not exist
    DeviceValidate_NonExisting_device:
       errorCode: ADM-DPM-001
-      errorMessage: Device does not exist
+      errorMessage: Device is marked Inactive or not found
    DeviceValidate_Revoked_device:
       errorCode: ADM-DPM-002
-      errorMessage: Device is Revoked/Retired
+      errorMessage: Device is revoked/retired
    DeviceValidate_NonExisting_DeviceProvider:
-      errorCode: ADM-DPM-003
-      errorMessage: Device Provider does not exist
-   DeviceValidate_Revoked_DeviceProvider:
       errorCode: ADM-DPM-004
-      errorMessage: Device Provider is marked Inactive
+      errorMessage: Device Provider is marked Inactive or not found
    DeviceValidate_NonExisting_MDS:
       errorCode: ADM-DPM-005
-      errorMessage: MDS does not exist
-   DeviceValidate_Revoked_MDS:
-      errorCode: ADM-DPM-006
-      errorMessage: MDS is marked Inactive
-   DeviceValidate_NonExisting_serviceVersion:
+      errorMessage: MDS is marked Inactive or not found
+   DeviceValidate_SwVer_notMatch_devTyp:
       errorCode: ADM-DPM-007
-      errorMessage: Software version does not match against the Service ID
-   DeviceValidate_notMappedToService_deviceProvider:
+      errorMessage: Software version does not match against the Device Details
+   DeviceValidate_devCode_notMatch_idParm:
       errorCode: ADM-DPM-008
-      errorMessage: Device Provider ID does not match against the Service ID
+      errorMessage: Device Code does not match against the <Attribute Name>
+   DeviceValidate_inValid_detail:
+      errorCode: ADM-DPM-009
+      errorMessage: Error occurred while checking a Device Details      
    DeCommissionDeviceMapToDiffZone:
       errorCode: KER-MSD-439
       errorMessage: Admin not authorized to access this Device for this Zone
@@ -304,3 +301,29 @@ errors:
       errorMessage: Parent location not found   
    CreateSecondaryDataWithBlankId:
       errorMessage: Invalid id passed for Secondary language 
+   RegisterDevice_inValidCertificate:
+      errorMessage: 'Invalid Certification level received'
+   RegisterDevice_missingParam:
+      errorCode: ADM-DPM-025
+      errorMessage: Mandatory input parameter is missing  
+   RegisterDevice_inActiveOrNonexistingDevTyp:
+      errorCode: ADM-DPM-026
+      errorMessage: fbheafg Device Type does not exist 
+   RegisterDevice_inActiveOrNonexistingDevSTyp:
+      errorCode: ADM-DPM-027
+      errorMessage: fbheafg Device Sub-Type does not exist        
+   RegisterDevice_inValidStatus:
+      errorMessage: 'request.statusCode: Invalid Status received'
+   RegisterDevice_inValidDpIdDp:
+      errorCode: ADM-DPM-032
+      errorMessage: Device Provider ID/Name does not exist in the list of Registered Device Providers  
+   RegisterDevice_inValidPurpose:
+      errorMessage: 'Invalid Purpose received'  
+   RegisterDevice_nonExitingDevIDSerialNo:
+      errorCode: ADM-DPM-042
+      errorMessage: Cannot register device as it is not a white-listed device 
+   RegisterDevice_nullEmptyTPDetailForL1:
+      errorMessage: ' If certification level received is L1 then FoundationalTPId OR FoundationalTrustSignature OR FoundationalTrustCertificate should not be null or empty'
+   SystemError:
+      errorCode: KER-MSD-424
+      errorMessage: Error occurred while mapping User to Registration Center                                       

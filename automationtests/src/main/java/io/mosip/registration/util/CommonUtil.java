@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.apache.poi.util.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -92,6 +92,7 @@ import io.mosip.registration.service.sync.PacketSynchService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.common.OTPManager;
 import io.mosip.testrunner.MosipTestRunner;
+
 
 /**
  * @author Arjun chandramohan
@@ -419,19 +420,20 @@ public class CommonUtil {
 			mapper.registerModule(new JSR310Module());
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
-
-			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
+			File bioPath =new File(CommonUtil.getResourcePath()+userJsonFile);
+			//File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
 			registrationDTO = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
-			File demoPath = new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath());
+			File demoPath=new File(CommonUtil.getResourcePath()+identityJsonFile);
+			//File demoPath = new File(this.getClass().getClassLoader().getResource(identityJsonFile).getPath());
 
 			IndividualIdentity identity = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					IndividualIdentity.class);
 
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
-			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, POAPOBPORPOIJpg);
+			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, CommonUtil.getResourcePath()+POAPOBPORPOIJpg);
 			registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
 			registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Set Identity DTO to Registration DTO");
@@ -441,7 +443,8 @@ public class CommonUtil {
 			registrationCenter.setRegistrationCenterId(centerID);
 			SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(registrationCenter);
 			registrationDTO.getOsiDataDTO().setOperatorID(userID);
-
+			registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+			registrationDTO.getRegistrationMetaDataDTO().setMachineId(userID);
 			String randomId = "";
 			if (invalidRegID.equalsIgnoreCase("YES")) {
 				randomId = "1234567890";
@@ -534,12 +537,13 @@ public class CommonUtil {
 			mapper.registerModule(new JSR310Module());
 			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
 			RegistrationDTO registrationDTO;
-
-			File bioPath = new File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
+			File bioPath=new File(CommonUtil.getResourcePath()+biometricPath);
+			//File bioPath = new File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
 			registrationDTO = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
-			File demoPath = new File(this.getClass().getClassLoader().getResource(demographicPath).getPath());
+			File demoPath=new File(CommonUtil.getResourcePath()+demographicPath);
+			//File demoPath = new File(this.getClass().getClassLoader().getResource(demographicPath).getPath());
 
 			IndividualIdentity identity = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
@@ -658,7 +662,7 @@ public class CommonUtil {
 		Map<String, DocumentDetailsDTO> documents = new HashMap<String, DocumentDetailsDTO>();
 		try {
 			data = IOUtils.toByteArray(
-					new FileInputStream(new File(this.getClass().getClassLoader().getResource(path).getPath())));
+					new FileInputStream(new File(path)));
 			DocumentDetailsDTO documentDetailsDTOAddress = new DocumentDetailsDTO();
 			documentDetailsDTOAddress.setDocument(data);
 			documentDetailsDTOAddress.setType("Passport");
@@ -869,7 +873,7 @@ public class CommonUtil {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			JSONParser jsonParser = new JSONParser();
-			FileReader reader = new FileReader(this.getClass().getClassLoader().getResource(Path).getFile());
+			FileReader reader = new FileReader(new File(Path));
 			Object obj = jsonParser.parse(reader);
 			String s = obj.toString();
 			biodto = mapper.readValue(s, BiometricDTO.class);
@@ -967,8 +971,8 @@ public class CommonUtil {
 		/** The application language bundle. */
 		ResourceBundle applicationLanguageBundle;
 		try {
-
-			File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
+			File bioPath=new File(CommonUtil.getResourcePath()+userJsonFile);
+			//File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
 			registrationDTO = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);

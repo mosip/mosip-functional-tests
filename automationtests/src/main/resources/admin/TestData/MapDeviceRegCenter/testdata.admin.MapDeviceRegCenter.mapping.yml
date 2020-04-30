@@ -1,0 +1,92 @@
+testdata:
+   Admin_MapDeviceToRegCenter_allvalid_smoke:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: $TestData:valid_RegCenter_id1$
+      output.output-1-expected-pos-response:
+         status: Success
+         message: 'DeviceId TestDevice1 has been mapped to registration center TRegCntr1'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_regId_notfound_invalid:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: 'anystring'
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-409
+         messageerrors0: 'Registration Center not found'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_regId_diffZoneCode_invalid:
+      input.search-request:
+         deviceId: $TestData:valid_device_id2$
+         regCenterId: $TestData:valid_RegCenter_id2_diffZoneCode$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-411
+         messageerrors0: 'Admin not authorized to map/un-map this Registration Center'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_inValid_deviceId_diffZoneUser:
+      input.search-request:
+         deviceId: $TestData:valid_device_id3$
+         regCenterId: $TestData:valid_RegCenter_id1$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-415
+         messageerrors0: 'Admin not authorized to map/un-map this Device'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_RegId_DeviceId_diffZoneCode_invalid:
+      input.search-request:
+         deviceId: $TestData:valid_device_id5$
+         regCenterId: $TestData:valid_RegCenter_id5$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-416
+         messageerrors0: 'Device cannot be mapped to the Center as Center and Device does not belong to the same Administrative Zone'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_DeviceId_NotFound_invalid:
+      input.search-request:
+         deviceId: 'anystring'
+         regCenterId: $TestData:valid_RegCenter_id1$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-417
+         messageerrors0: 'Device not Found'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_RegId_Decommissioned_invalid:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: $TestData:valid_RegCenter_id7$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-418
+         messageerrors0: 'Cannot map as the Registration Center/Device is Decommissioned'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_deviceId_Already_Mapped_invalid:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: $TestData:valid_RegCenter_id3$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: KER-MSD-419
+         messageerrors0: 'Cannot map the Device as it is mapped to another Registration Center'
+         responsetime: $IGNORE$
+         
+   Admin_MapDeviceToRegCenter_UnAuthorisedRole:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: $TestData:valid_RegCenter_id1$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:NoAccessForService:errorCode$
+         messageerrors0: $errors:NoAccessForService:errorMessage$
+         responsetime: $IGNORE$
+   
+   Admin_MapDeviceToRegCenter_withoutToken:
+      input.search-request:
+         deviceId: $TestData:valid_device_id1$
+         regCenterId: $TestData:valid_RegCenter_id1$
+      output.output-1-expected-error-response:
+         errorCodeerrors0: $errors:invalidToken:errorCode$
+         messageerrors0: $errors:invalidToken:errorMessage$
+         responsetime: $IGNORE$
+   
+   

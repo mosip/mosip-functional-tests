@@ -432,7 +432,7 @@ public class IdaRunConfig extends RunConfig{
 		setStoreUINDataPath(AuthTestsUtil.getPropertyValue("storeUINDataPath"));
 		setEncodeFilePath(AuthTestsUtil.getPropertyValue("encodeFilePath"));
 		setDecodeFilePath(AuthTestsUtil.getPropertyValue("decodeFilePath"));
-		setClientidsecretkey(AuthTestsUtil.getPropertyValue("useridPwd"));
+		setClientidsecretkey(AuthTestsUtil.getPropertyValue("clientidsecretkey"));
 		//loadingConfigFile
 		loadErrorsData(getErrorsConfigPath());
 		setUinIdentityMapper(AuthTestsUtil.getPropertyValue("uinIdentityMapper"));
@@ -1181,6 +1181,247 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public String getFilterHolidaysPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getResidentGenerateVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUserIdPwd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setUserIdPwd(String userIdPwd) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setResidentGenerateVID(String residentGenerateVID) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentRevokeVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentRevokeVID(String residentRevokeVID) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentAuthHistory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentAuthHistory(String residentAuthHistory) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentAuthLock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentAuthLock(String residentAuthLock) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentAuthUnlock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentAuthUnlock(String residentAuthUnlock) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public String getResidentPrintUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentPrintUin(String residentPrintUin) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentUpdateUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentUpdateUin(String residentUpdateUin) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidentCheckStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidentCheckStatus(String residentCheckStatus) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getResidenteUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setResidenteUin(String residenteUin) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getSearchRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFilterRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDeviceRegisterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDeviceValidateHistoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDeviceDeRegisterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getRegisterDevProviderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDevProviderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDeviceStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getRegisterFTPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateFTPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getMapDeviceRegCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getMapUserRegistrationCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUnmapUserRegistrationCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateMDSPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUnmapDeviceRegCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getMapMachineRegCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUnmapMachineRegCenterPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getCreateMachinePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateMachinePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getCreateDevicePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getCreateDocumentTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDocumentTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFetchPacketStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDevicePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFetchHolidayLocationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFetchRegCenterWorkingDays_kernelPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFetchRegCenterExceptionalHolidays_kernelPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getRegisterMDSPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}

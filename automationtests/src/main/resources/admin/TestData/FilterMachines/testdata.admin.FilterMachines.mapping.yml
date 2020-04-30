@@ -157,7 +157,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'YM866672706'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:

@@ -486,8 +486,15 @@ testdata:
       messageerrors0: $IGNORE$
       
   Admin_SearchDocumentType_Valid_OnlyLangCode:
-    input.search-mandatory-request:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: 'CNIE card'
+      sortFieldsort0: $input.search-request:columnNamefilters0$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos3-response:
-      langCodedata0: $input.search-mandatory-request:languageCode$
+      langCodedata0: $input.search-request:languageCode$
       responsetime: $IGNORE$

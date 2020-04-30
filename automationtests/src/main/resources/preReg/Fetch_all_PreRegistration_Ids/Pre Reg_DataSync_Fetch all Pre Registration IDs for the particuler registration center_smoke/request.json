@@ -5,7 +5,7 @@
   "requesttime": "2019-01-22T07:22:57.086Z",
   "request": {
     "registrationCenterId":"10001",
-    "fromDate":"2018-10-01",
-    "toDate":"2019-12-31"
+    "fromDate":"2020-01-31",
+    "toDate":"2020-02-05"
   }
 }

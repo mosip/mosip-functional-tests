@@ -182,22 +182,21 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 		displayContentInFile(testCaseName.listFiles(), "request");
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + "/v1/masterdata/validdocuments/map/{doccategorycode}/{doctypecode}";
 		logger.info("******Post request Json to EndPointUrl: " + url+" *******");		
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		if(testcaseName.toLowerCase().contains("smoke") || testcaseName.contains("AfterUnamppedThanMapped")||testcaseName.contains("ZonalAdminToken"))
 		{
 			
-			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}", "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, cookieValue);
+			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}", "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		}
 		else if (testcaseName.contains("AlreadyMapDocCategoryCodes")) {
-			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/masterdata/validdocuments/map/{doccategorycode}/{doctypecode}", "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, cookieValue);
+			putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/masterdata/validdocuments/map/{doccategorycode}/{doctypecode}", "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		}
 		else if (testcaseName.contains("withoutToken")) {
-			cookieValue="";
+			adminCookie="";
 		}
 		else if (testcaseName.contains("UnAuthorisedRole")) {
-			 cookieValue = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),"https://qa.mosip.io/r2/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			adminCookie = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),"https://qa.mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
-		putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, cookieValue);
+		putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());

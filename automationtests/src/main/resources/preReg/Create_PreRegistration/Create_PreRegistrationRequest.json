@@ -6,6 +6,7 @@
    "Pre Reg_Demographic_Create Pre Registration by passing 6 alphanumeric Postal code":"",
    "Pre Reg_Demographic_Create Pre Registration by passing 8 digit mobile no":"",
    "Pre Reg_Demographic_Create Pre Registration By passing invalid Language Code":"",
+	"Pre Reg_Demographic_Create Pre Registration By passing invalid Language Code as empty":"",
    "Pre Reg_Demographic_Create Pre Registration with invalid email format":"",
    "Pre Reg_Demographic_Create Pre Registration with invalid mobile no format":"",
    "Pre Reg_Demographic_Create Pre Registration without passing name in request":"",

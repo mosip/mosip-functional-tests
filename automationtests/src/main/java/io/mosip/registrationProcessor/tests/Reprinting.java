@@ -172,7 +172,7 @@ public class Reprinting extends BaseTestCase implements ITest {
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
 
-			
+			System.out.println(object.get("testCaseName").toString());
 			actualRequest.put("requesttime", apiRequests.getUTCTime());
 			if(object.get("testCaseName").toString().contains("invalidRequestUTC")) {
 				actualRequest.put("requesttime",apiRequests.getCurrentTime() );

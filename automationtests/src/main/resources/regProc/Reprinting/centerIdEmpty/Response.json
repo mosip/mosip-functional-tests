@@ -1,12 +1,12 @@
 {
-    "id": "mosip.uincard.reprint",
+    "id": "1.0",
     "version": "1.0",
-    "responsetime": "2019-08-12T06:17:33.956Z",
+    "responsetime": "2020-01-29T07:08:56.997Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "RPR-PGS-004",
-            "message": "Center id is mandatory"
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - centerId should not be empty"
         }
     ]
 }

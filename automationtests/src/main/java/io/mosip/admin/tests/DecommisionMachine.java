@@ -49,11 +49,7 @@ public class DecommisionMachine extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		// replacing the deviceID(Tdevice to new ID Tdevice1)
-		String query = queries.get("createMachine").toString().replace("Tmach", queries.get("machineId1").toString());
-		// replacing the deviceID(Tdevice to new ID Tdevice2) and zoneCode(CST to BRK) 
-		String query1 = queries.get("createMachine").toString().replace("Tmach", queries.get("machineId2").toString()).replace("CST", queries.get("zoneCode").toString());
-		if(masterDB.executeQuery(queries.get("createMachine").toString(), "masterdata")&&masterDB.executeQuery(query, "masterdata")&&masterDB.executeQuery(query1, "masterdata"))
+		if(masterDB.executeQuery(queries.get("createMachine").toString(), "masterdata"))
 			logger.info("created 3 machines successfully using query from query.properties");
 		else logger.info("not able to create machine using query from query.properties");
 	}
@@ -209,7 +205,7 @@ public class DecommisionMachine extends AdminTestUtil implements ITest {
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
 		String query = queries.get("deleteMachine").toString().replace("role", kernelAuthLib.props.get("admin_user"));
 		if (masterDB.executeQuery(queries.get("deleteMachine1").toString(), "masterdata") && masterDB.executeQuery(query, "masterdata"))

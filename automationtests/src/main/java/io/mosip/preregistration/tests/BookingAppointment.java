@@ -44,6 +44,7 @@ import io.mosip.util.PreRegistrationLibrary;
 import io.mosip.util.ReadFolder;
 import io.mosip.util.ResponseRequestMapper;
 import io.restassured.response.Response;
+import junit.framework.Assert;
 
 /**
  * Test Class to perform Booking Appointment related Positive and Negative test
@@ -316,8 +317,8 @@ public class BookingAppointment extends BaseTestCase implements ITest {
 				outerKeys.add("responsetime");
 				innerKeys.add("message");
 				
-				preRegLib.compareValues(respAppDate.jsonPath().get("errors[0].message"), "Invalid Booking Date Time found for preregistration id - "+preId);
-				
+				//preRegLib.compareValues(respAppDate.jsonPath().get("errors[0].message"), "Invalid date time format");
+				Assert.assertTrue(respAppDate.jsonPath().get("errors[0].message").equals("Invalid date time format"));
 			}else
 			{
 				outerKeys.add("responsetime");

@@ -42,7 +42,7 @@ public class InvalidateToken extends BaseTestCase implements ITest {
 	public void invalidateToken() {
 		String cookie = lib.getToken();
 		Response invalidateTokenResponse = lib.logOut(cookie);
-		String message = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		String message = invalidateTokenResponse.jsonPath().get("errors[0].message").toString();
 		lib.compareValues(message, "Token has been invalidated successfully");
 		Response createPreRegResponse = lib.CreatePreReg(cookie);
 		String errorCode = createPreRegResponse.jsonPath().get("errors[0].errorCode").toString();
@@ -56,7 +56,7 @@ public class InvalidateToken extends BaseTestCase implements ITest {
 	{
 		String cookie = lib.getToken();
 		Response invalidateTokenResponse = lib.logOut(cookie);
-		String message = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		String message = invalidateTokenResponse.jsonPath().get("errors[].message").toString();
 		lib.compareValues(message, "Token has been invalidated successfully");
 		invalidateTokenResponse = lib.logOut(cookie);
 		String errorCode = lib.getErrorCode(invalidateTokenResponse);

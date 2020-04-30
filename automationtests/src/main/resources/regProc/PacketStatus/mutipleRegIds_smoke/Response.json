@@ -2,7 +2,7 @@
     "response": [
         {
             "registrationId": "10002100320000220191205101011",
-            "statusCode": "PROCESSED"
+            "statusCode": "REREGISTER"
         }
     ],
     "errors": [

@@ -231,6 +231,8 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
                         + "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
            generateMappingDic(new File(RunConfigUtil.getResourcePath() + "idRepository/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
            + "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
+           generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+           + "/RunConfig/uin.properties").getAbsolutePath(), UinDto.getUinData());
      }
      
      /**
@@ -242,6 +244,8 @@ public class CreateUinRecord extends PrerequisteTests implements ITest {
            generateMappingDic(new File(RunConfigUtil.getResourcePath() + "ida/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
                         + "/RunConfig/rid.properties").getAbsolutePath(), RidDto.getRidData());
            generateMappingDic(new File(RunConfigUtil.getResourcePath() + "idRepository/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+           + "/RunConfig/rid.properties").getAbsolutePath(), RidDto.getRidData());
+           generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
            + "/RunConfig/rid.properties").getAbsolutePath(), RidDto.getRidData());
      }
      

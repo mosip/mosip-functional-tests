@@ -1,12 +1,12 @@
 {
     "id": "mosip.registration.packetgenerator",
     "version": "1.0",
-    "responsetime": "2019-06-28T07:22:02.425Z",
+    "responsetime": "2020-01-30T05:39:37.462Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "RPR-PGS-004",
-            "message": "Invalid RegistrationType:Enter ACTIVATED or DEACTIVATED"
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - registrationType should not be empty"
         }
     ]
 }

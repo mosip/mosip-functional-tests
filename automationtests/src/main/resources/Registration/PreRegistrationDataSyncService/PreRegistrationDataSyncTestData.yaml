@@ -6,7 +6,7 @@ syncJobId_invalid:
 - anydata
 - 123e
 regCenterId_valid:
-- 10014
+- 10003
 regCenterId_invalid:
 - 10001
 - 0

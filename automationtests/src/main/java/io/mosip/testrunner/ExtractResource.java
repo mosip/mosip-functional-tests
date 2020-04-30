@@ -32,13 +32,23 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
 		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
 		getListOfFilesFromJarAndCopyToExternalResource("admin/");
+		getListOfFilesFromJarAndCopyToExternalResource("resident/");
 		getListOfFilesFromJarAndCopyToExternalResource("reg/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
-		getListOfFilesFromJarAndCopyToExternalResource("version.txt");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
+		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
+		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
+		getListOfFilesFromJarAndCopyToExternalResource("db");
+		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 	}
 	
 	/**

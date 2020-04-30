@@ -326,9 +326,10 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage1$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         codedata0: $input.search-request:valuefilters0$
+         isActivedata0: $TestData:valid_isActive_true$
    Admin_DocCatTypMapSearch_inValid_typeFilter_startsWith:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
@@ -339,6 +340,7 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
-         messageerrors0: $errors:InvalidFilterType:errorMessage2$
+      output.output-1-expected-pos-response:
+         langCodedata0: $input.search-request:languageCode$
+         codedata0: $input.search-request:valuefilters0$
+         isActivedata0: $TestData:valid_isActive_true$
