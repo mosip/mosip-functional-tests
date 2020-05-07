@@ -239,7 +239,7 @@ testdata:
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
     input.authHistory-request:
-      authHistory.requestTime: $INVALIDTIMESTAMPZ$
+      authHistory.requestTime: '2020-04-30T15:30Z'
       authHistory.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
       authHistory.individualIdType: $RTestData:uin_idType$
       authHistory.individualId: $input.otp-generate-request:otpRequest.individualId$

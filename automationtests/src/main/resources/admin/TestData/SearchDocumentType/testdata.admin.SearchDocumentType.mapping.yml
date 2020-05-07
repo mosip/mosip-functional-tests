@@ -14,6 +14,9 @@ testdata:
       namedata0: $input.search-request:valuefilters0$
       responsetime: $IGNORE$
       createdDateTimedata0: $IGNORE$
+      fromRecord: 1
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
       
   Admin_SearchDocumnetType_Valid_FilterTypeContains:
     input.search-request:
@@ -30,6 +33,9 @@ testdata:
       namedata0: $input.search-request:valuefilters0$
       responsetime: $IGNORE$
       createdDateTimedata0: $IGNORE$
+      fromRecord: 1
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
       
   Admin_SearchDocumnetType_Valid_FilterTypeStartsWith:
     input.search-request:
@@ -46,6 +52,9 @@ testdata:
       namedata0: $input.search-request:valuefilters0$
       responsetime: $IGNORE$
       createdDateTimedata0: $IGNORE$
+      fromRecord: 1
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
       
   Admin_SearchDocumnetType_Valid_ColumnStatusNTypeEquals:
     input.search-request:
@@ -61,6 +70,9 @@ testdata:
       langCodedata0: $input.search-request:languageCode$
       responsetime: $IGNORE$
       createdDateTimedata0: $IGNORE$
+      fromRecord: 1
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
       
   Admin_SearchDocumnetType_Invalid_EmptyColumnName:
      input.search-request:

@@ -226,7 +226,7 @@ testdata:
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
     input.auth-lock-request:
-      authLock.requestTime: $INVALIDTIMESTAMPZ$
+      authLock.requestTime: '2020-04-30T15:30Z'
       authLock.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
       authLock.individualIdType: $RTestData:uin_idType$
       authLock.individualId: $input.otp-generate-request:otpRequest.individualId$

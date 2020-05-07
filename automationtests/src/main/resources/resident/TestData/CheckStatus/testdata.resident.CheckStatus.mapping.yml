@@ -2,7 +2,7 @@ testdata:
    Resident_CheckStatus_Valid_smoke_Pos:
       input.generate-check-status-request:
          rindividualIdType: RID
-         rindividualId: 10002100320002120200205073654
+         rindividualId: 10003100030001620200504122633
          rrequestTime: $TIMESTAMP$
          rid: 'mosip.resident.checkstatus'
          rversion: v1
@@ -10,7 +10,7 @@ testdata:
          Rversion: v1
          Rerrors: $IGNORE$
          Rid: mosip.resident.checkstatus
-         RridStatus: 'FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS.' 
+         RridStatus: 'UNDER PROCESSING - PLEASE CHECK BACK AGAIN LATER.' 
          responseTime: $IGNORE$        
          
    Resident_CheckStatus_Invalid_RIDLength_Neg:
