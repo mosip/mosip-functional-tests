@@ -13,13 +13,14 @@
 	
 	<test name="RegistrationProcessor Tests">
 		<classes>
+		<class
+				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 
-
-			<class
+				<!-- <class
 				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 				<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
-		<!--	<class
+		<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 			<class
 				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
