@@ -29,7 +29,7 @@ public class AbisDbTransactions {
 	public Session getCurrentSession() {
 		SessionFactory factory;
 		Session session;
-		factory = new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();
+		factory = new Configuration().configure(registrationListConfigFile).buildSessionFactory();
 		session = factory.getCurrentSession();
 		return session;
 	}

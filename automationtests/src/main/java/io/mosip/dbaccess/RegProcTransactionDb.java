@@ -26,13 +26,19 @@ public class RegProcTransactionDb {
 	TransactionStatusDTO transactionStatus=new TransactionStatusDTO();
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
 	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"dbFiles\\"+dbFileName; 
 	//File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public Session getCurrentSession() {
-		SessionFactory factory;
-		Session session;
-		factory=new Configuration().configure(registrationListConfigFilePath).buildSessionFactory();
-	 session = factory.getCurrentSession();
+		SessionFactory factory = null;
+		Session session = null;
+		try {
+		File dbFile= new File(registrationListConfigFilePath);
+		factory=new Configuration().configure(dbFile).buildSessionFactory();
+		 
+		}catch (Exception e) {
+			logger.info("DB CONNECTION ERROR --->"+e.getCause());
+		}
+		session = factory.getCurrentSession();
 	 return session;
 	}
 	public List<String> readStatus(String regId) { 
