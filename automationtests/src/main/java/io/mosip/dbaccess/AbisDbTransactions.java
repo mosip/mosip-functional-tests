@@ -22,7 +22,8 @@ public class AbisDbTransactions {
 	private static Logger logger = Logger.getLogger(AbisDbTransactions.class);
 	TransactionStatusDTO transactionStatus = new TransactionStatusDTO();
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
-	String registrationListConfigFilePath = apiRequests.getResourcePath()+"/dbFiles/regproc_qa.cfg.xml";
+	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
 	File registrationListConfigFile = new File(registrationListConfigFilePath);
 
 	public Session getCurrentSession() {

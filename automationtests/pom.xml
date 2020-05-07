@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 
 	<properties>
 		<!-- kernel versions -->
@@ -160,7 +160,6 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<registration-services.version>1.0.8</registration-services.version>
 		<kernel.version>1.0.6-SNAPSHOT</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
@@ -179,11 +178,6 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 
-		<dependency>
-			<groupId>io.mosip.registration</groupId>
-			<artifactId>registration-services</artifactId>
-			<version>${registration-services.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>

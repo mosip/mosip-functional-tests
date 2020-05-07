@@ -19,7 +19,9 @@ public class RegProcDBCleanUp {
 	Session session;
 	private static Logger logger = Logger.getLogger(RegProcDBCleanUp.class);
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/regproc_qa.cfg.xml";
+	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
+	
 	File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public SessionFactory getSessionFactory() {
 		factory=new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();
