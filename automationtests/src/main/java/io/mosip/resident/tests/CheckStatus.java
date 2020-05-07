@@ -89,7 +89,6 @@ public class CheckStatus extends ResidentTestUtil implements ITest {
 	public void setTestDataPathsAndFileNames(int index) {
 		this.TESTDATA_PATH = getTestDataPath(this.getClass().getSimpleName().toString(), index);
 		this.TESTDATA_FILENAME = getTestDataFileName(this.getClass().getSimpleName().toString(), index);
-		System.err.println("Testdata Path----------"+TESTDATA_PATH);
 	}
 
 	/**
@@ -185,20 +184,6 @@ public class CheckStatus extends ResidentTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void residentCheckStatus(TestParameters objTestParameters, String testScenario, String testcaseName)
 			throws AuthenticationTestException {
-		File packet=new File(MosipTestRunner.getGlobalResourcePath()+"\\resident\\TestData\\CheckStatus\\10002100320002120200205073654.zip");
-		IntegMethods scenario=new IntegMethods();
-		try {
-			boolean syncStatus=scenario.syncList(packet);
-			if(syncStatus) {
-				boolean packetUploadStatus=scenario.UploadPacket(packet);
-				if(packetUploadStatus);
-				logger.info("packet uploaded successfully");
-			}
-			
-		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		setCookie();
 		getResidentAccess();
 		File testCaseName = objTestParameters.getTestCaseFile();
@@ -208,7 +193,26 @@ public class CheckStatus extends ResidentTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		String mapping = TestDataUtil.getMappingPath();
+		
+		if (this.testCaseName.contains("smoke")) {
+			File packet = new File(MosipTestRunner.getGlobalResourcePath()
+					+ "\\resident\\TestData\\CheckStatus\\10003100030001620200504122633.zip");
+			IntegMethods scenario = new IntegMethods();
+			try {
+				boolean syncStatus = scenario.syncList(packet);
+				if (syncStatus) {
+					boolean packetUploadStatus = scenario.UploadPacket(packet);
+					if (packetUploadStatus)
+						;
+					logger.info("packet uploaded successfully");
+				}
 
+			} catch (IOException | ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		
 		displayContentInFile(testCaseName.listFiles(), "generate-check-status-request");
 		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getResidentCheckStatus() + " *******");
