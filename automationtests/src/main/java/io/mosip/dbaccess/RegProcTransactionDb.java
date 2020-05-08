@@ -26,7 +26,7 @@ public class RegProcTransactionDb {
 	TransactionStatusDTO transactionStatus=new TransactionStatusDTO();
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
 	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"dbFiles\\"+dbFileName; 
+	String registrationListConfigFilePath=apiRequests.getResourcePath()+"dbFiles/"+dbFileName; 
 	//File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public Session getCurrentSession() {
 		SessionFactory factory = null;

@@ -42,7 +42,7 @@ public class RegProcDataRead {
 	String auditLogConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/auditinteg.cfg.xml";
 	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
 	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
-	File auditLogConfigFile=new File(auditLogConfigFilePath);
+//	File auditLogConfigFile=new File(auditLogConfigFilePath);
 	File dbFile=new File(registrationListConfigFilePath);
 	
 	public Session getCurrentSession() {
@@ -137,7 +137,7 @@ public class RegProcDataRead {
 			registrationStatusEntity.setIsDeleted((boolean)TestData[14]);
 			registrationStatusEntity.setApplicantType((String)TestData[16]);
 			logger.info("Status is : " +status_code);*/
-			String dateInString  = TestData[12].toString();
+			String dateInString  = TestData[10].toString();
 			dateInString = dateInString.substring(0,10)+"T"+dateInString.substring(11,23);
 			String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
@@ -538,15 +538,12 @@ public class RegProcDataRead {
 		 factory = new Configuration().configure(dbFile).buildSessionFactory();	
 			session = factory.getCurrentSession();
 			session.beginTransaction();
-		
+			
 		 
-		 String queryString = "INSERT INTO regprc.registration "
-		 		+ "VALUES ('" +requestedRegId+ "', 'NEW', null, null, '"+statusCode+"', "
-		 		+ "'eng', 'SUCCESS', '35dcb06a-fed8-4b03-a148-9db84849ccf7', "
-		 		+ ""+retryCount+", null, 'true', 'MOSIP_SYSTEM', '2019-07-03 10:22:32.261', "
-		 		+ "'MOSIP_SYSTEM', '2019-07-03 10:23:20.86', 'false', '2019-07-03 10:23:20.86', "
-		 		+ "'"+stage+"', '"+statusCode+"', '" +tranTime+"' ,"+retryCount+", '"+stageName+"')";
-		 Query<String> query=session.createSQLQuery(queryString);
+		 String queryString ="INSERT INTO regprc.registration" + 
+					" VALUES ('" +requestedRegId+ "', 'NEW', null, null, '" +statusCode+ "','eng', 'SUCCESS', '35dcb06a-fed8-4b03-a148-9db84849ccf7', '" +stageName+ "', '" +statusCode+ "', '" +tranTime+ "', '"+ retryCount +"', '" +stageName+ "', '"+ retryCount +"' , null, 'false', 'MOSIP_SYSTEM', '2020-07-03 10:23:20.86', 'MOSIP_SYSTEM', '" +tranTime+ "' ,'false', null)";
+		 @SuppressWarnings("deprecation")
+		Query<String> query=session.createSQLQuery(queryString);
 		 
 		 int update = query.executeUpdate();
 		 

@@ -1,14 +1,14 @@
 {
-    "id": "mosip.registration.status",
-    "version": "1.0",
-    "responsetime": "2019-07-15T10:27:09.239Z",
     "response": [
         {
-            "registrationId": "10002100324002620190703101734",
-            "statusCode": "REREGISTER"
+            "registrationId": "10002100740002920200427042455",
+            "statusCode": "PROCESSED"
         }
     ],
-	"errors": [
+    "errors": [
         
-    ]
+    ],
+    "id": "mosip.registration.status",
+    "version": "1.0",
+    "responsetime": "2020-05-08T07:57:14.166Z"
 }

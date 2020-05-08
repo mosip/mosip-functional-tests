@@ -1,12 +1,12 @@
 {
-    "id": "mosip.uincard.reprint",
+    "id": "1.0",
     "version": "1.0",
-    "responsetime": "2019-08-12T06:16:00.644Z",
+    "responsetime": "2020-05-08T05:44:48.090Z",
     "response": null,
     "errors": [
         {
-             "errorCode": "RPR-PGS-004",
-            "message": "Invalid CardType : Enter UIN or MASKED_UIN"
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - cardType should not be empty"
         }
     ]
 }
