@@ -50,14 +50,13 @@ public class MosipTestRunner {
 		String[] modulesToRun = specifiedModules.split(",");
 		String os=System.getProperty("os.name");
 		System.out.println(os);
+		suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
 		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) {
 			 homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
-			suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
 		}
 		else {
 			File dir=new File(System.getProperty("user.dir"));
 		homeDir = new File(dir.getParent() + "/testNgXmlFiles");
-		suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
 		} 
 		System.out.println(homeDir.getAbsolutePath());
 		for (File file : homeDir.listFiles()) {
