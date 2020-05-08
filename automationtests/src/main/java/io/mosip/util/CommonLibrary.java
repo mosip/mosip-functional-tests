@@ -353,7 +353,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response get_Request_Path_queryParam(String url, HashMap<String, String> path_value,
 			HashMap<String, List<String>> query_value) {
 		Cookie.Builder builder = new Cookie.Builder("Authorization", authToken);
-		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParameters(path_value)
+		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(path_value)
 				.queryParams(query_value).log().all().when().get(url).then().log().all().extract().response();
 		return getResponse;
 	} // end GET_REQUEST
@@ -362,7 +362,7 @@ public class CommonLibrary extends BaseTestCase {
 			String contentHeader, String acceptHeader) {
 
 		Cookie.Builder builder = new Cookie.Builder("Authorization", authToken);
-		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParameters(path_value)
+		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(path_value)
 				.body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log()
 				.all().extract().response();
 		// log then response
@@ -374,7 +374,7 @@ public class CommonLibrary extends BaseTestCase {
 			String contentHeader, String acceptHeader) {
 
 		Cookie.Builder builder = new Cookie.Builder("Authorization", authToken);
-		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParameters(path_value)
+		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(path_value)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log()
 				.all().extract().response();
 		// log then response
@@ -884,7 +884,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response get_Request_Path_queryParamString(String url, HashMap<String, String> path_value,
 			HashMap<String, String> query_value) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
-		Response getResponse = given().relaxedHTTPSValidation().pathParameters(path_value).queryParams(query_value)
+		Response getResponse = given().relaxedHTTPSValidation().pathParams(path_value).queryParams(query_value)
 				.log().all().when().get(url).then().log().all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());

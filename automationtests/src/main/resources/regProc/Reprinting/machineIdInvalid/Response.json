@@ -1,7 +1,12 @@
 {
-    "timestamp": 1580282083393,
-    "status": 500,
-    "error": "Internal Server Error",
-    "message": "RPR-RHM-FAILED-001 --> Invalid Request Value -  Machine not Found",
-    "path": "/registrationprocessor/v1/requesthandler/reprint"
+    "id": "1.0",
+    "version": "1.0",
+    "responsetime": "2020-05-08T05:38:57.163Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - machineId should not be empty"
+        }
+    ]
 }

@@ -39,7 +39,7 @@ public class RegProcStageDb {
 	@SuppressWarnings("deprecation")
 	public List<DemoDedupeDto> regproc_IndividualDemoghraphicDedupe(String regId)
 	{
-		factory = new Configuration().configure(registrationListConfigFilePath).buildSessionFactory();	
+		factory = new Configuration().configure(registrationListConfigFile).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -108,7 +108,7 @@ public class RegProcStageDb {
 	public List<DemoDedupeDto> regproc_AllIndividualDemoghraphicDedupe(String name, String genderCode, String dob,
 			String langCode) {
 
-		factory = new Configuration().configure(registrationListConfigFilePath).buildSessionFactory();	
+		factory = new Configuration().configure(registrationListConfigFile).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 
@@ -177,7 +177,7 @@ public class RegProcStageDb {
 	@SuppressWarnings("deprecation")
 	public String regproc_getUIN(String regId)
 	{
-		factory = new Configuration().configure(registrationListConfigFilePath).buildSessionFactory();	
+		factory = new Configuration().configure(registrationListConfigFile).buildSessionFactory();	
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 

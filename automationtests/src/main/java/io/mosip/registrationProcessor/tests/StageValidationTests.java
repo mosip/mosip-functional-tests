@@ -93,7 +93,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		e.osiValidatorPropertyFileReader("packetProperties.properties", validPacketPath, invalidPacketFolderPath);
 
 
-		e.updatePacketPropertyFileReader("updatePacketProperties.properties",validPacketPath,updatePacketFolderPath);
+		//e.updatePacketPropertyFileReader("updatePacketProperties.properties",validPacketPath,updatePacketFolderPath);
 
 
 		try {

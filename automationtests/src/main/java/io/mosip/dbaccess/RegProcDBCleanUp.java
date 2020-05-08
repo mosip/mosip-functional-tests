@@ -21,10 +21,10 @@ public class RegProcDBCleanUp {
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
 	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
 	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
-	
+	File dbFile=new File(registrationListConfigFilePath);
 	File registrationListConfigFile=new File(registrationListConfigFilePath);
 	public SessionFactory getSessionFactory() {
-		factory=new Configuration().configure("/dbFiles/regproc_qa.cfg.xml").buildSessionFactory();
+		factory=new Configuration().configure(dbFile).buildSessionFactory();
 		return factory;
 	}
 	

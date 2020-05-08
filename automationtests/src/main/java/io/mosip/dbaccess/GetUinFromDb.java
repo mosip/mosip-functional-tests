@@ -23,7 +23,7 @@ public class GetUinFromDb {
 	public Session getCurrentSession() {
 		SessionFactory factory;
 		Session session;
-		factory=new Configuration().configure("/dbFiles/idRepo.cfg.xml").buildSessionFactory();
+		factory=new Configuration().configure(registrationListConfigFile).buildSessionFactory();
 	 session = factory.getCurrentSession();
 	 return session;
 	}
