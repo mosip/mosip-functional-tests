@@ -33,6 +33,7 @@ public class RegProcTransactionDb {
 		Session session = null;
 		try {
 		File dbFile= new File(registrationListConfigFilePath);
+		System.out.println(dbFile.getAbsolutePath());
 		factory=new Configuration().configure(dbFile).buildSessionFactory();
 		 
 		}catch (Exception e) {
