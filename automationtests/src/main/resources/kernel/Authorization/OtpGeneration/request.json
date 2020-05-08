@@ -5,10 +5,10 @@
     "appId": "preregistration",
     "context": "auth-otp",
     "otpChannel": [
-      "MOBILE"
+      "EMAIL"
     ],
     "templateVariables": {},
-    "userId": "9972388747",
+    "userId": "mosiptestmail@gmail.com",
     "useridtype": "USERID"
   },
   "requesttime": "2018-12-10T06:12:52.994Z",

@@ -52,7 +52,7 @@ testdata:
       appName: $TestData:audit_log_ida_appName$
       moduleName: $TestData:audit_log_otp_moduleName$
       refIdType: $TestData:audit_log_UIN_refIdType$
-      hostName: $TestData:audit_log_internalAuthhostName$
+      hostName: $IGNORE$
   
   InternalAuthentication_OTP_Invalid UIN_Neg_02:
     endpoint.url:
