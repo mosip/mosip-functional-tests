@@ -149,13 +149,6 @@ public class BaseTestCase {
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
-
-	                PreRegistrationLibrary pil=new PreRegistrationLibrary();
-			pil.PreRegistrationResourceIntialize();
-			
-			new PreregistrationDAO().makeAllRegistartionCenterActive();
-			AuthTestsUtil.removeOldMosipTempTestResource();
-
 			AuthTestsUtil.initiateAuthTest();
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
