@@ -130,7 +130,7 @@ public class UploadPublickey extends BaseTestCase implements ITest {
 				List<Object[]> keys = new KernelDataBaseAccess().getArrayData(queryStr, "masterdata");
 				
 				String publicKeyFromRequest =((JSONObject)objectData.get("request")).get("publicKey").toString(); 
-				String publicKeyFromDB = BaseEncoding.base64().encode((byte[]) keys.get(0)[0]).replace('/', '_').replace('+', '-');
+				String publicKeyFromDB = keys.get(0)[0].toString();
 				String keyIndexFromResponse = ((HashMap)response.jsonPath().get("response")).get("keyIndex").toString();
 				String keyIndexFromDB = keys.get(0)[1].toString();
 				

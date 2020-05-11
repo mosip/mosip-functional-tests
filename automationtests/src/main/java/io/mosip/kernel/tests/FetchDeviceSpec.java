@@ -171,7 +171,10 @@ public class FetchDeviceSpec extends BaseTestCase implements ITest {
 				status = AssertKernel.validator(deviceSpecFromGet, attributesToValidateExistance,
 						passedAttributesToFetch);
 			} else
+				{
 				status = false;
+				logger.info("Response from the request: "+response.asString());
+				}
 
 		}
 
