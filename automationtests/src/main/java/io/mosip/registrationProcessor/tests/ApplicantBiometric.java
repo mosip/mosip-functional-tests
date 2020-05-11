@@ -175,8 +175,8 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			// outer and inner keys which are dynamic in the actual response
 			outerKeys.add("requesttime");
 			outerKeys.add("responsetime");
-			
-			
+
+			innerKeys.add("file");
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
 
@@ -188,7 +188,12 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
 			logger.info("Status after assertion : " + status);
-
+			if(object.get("testCaseName").toString().toLowerCase().contains("smoke") || object.get("testCaseName").toString().toLowerCase().contains("valid") ) {
+				if(actualResponse.jsonPath().get("response.file")!=null) {
+					status=true;
+				}
+			}
+			 
 			if (!utcCheck && status) {
 
 				boolean isError = false;
