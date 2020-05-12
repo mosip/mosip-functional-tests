@@ -474,6 +474,8 @@ public abstract class RunConfig {
 			public abstract String getFetchRegCenterWorkingDays_kernelPath();
 			public abstract String getFetchRegCenterExceptionalHolidays_kernelPath();
 			public abstract String getRegisterMDSPath();
+			
+			public abstract String getUpdateHolidayPath();
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 

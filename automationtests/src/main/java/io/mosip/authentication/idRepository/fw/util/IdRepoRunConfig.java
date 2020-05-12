@@ -1557,4 +1557,10 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public String getUpdateHolidayPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

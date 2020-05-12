@@ -100,7 +100,10 @@ public class AdminRunConfig extends RunConfig {
     private String fetchHolidayLocationPath;
     private String fetchRegCenterWorkingDays_kernelPath;
     private String fetchRegCenterExceptionalHolidays_kernelPath;
-
+    
+    private String updateHolidayPath;
+    
+    
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
 		setAdminEndPointUrl(AdminTestUtil.getPropertyValue("adminEndpointUrl"));
@@ -187,6 +190,8 @@ public class AdminRunConfig extends RunConfig {
 		setFetchHolidayLocationPath(AdminTestUtil.getPropertyValue("fetchHolidayLocationPath"));
 		setFetchRegCenterWorkingDays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterWorkingDays_kernelPath"));
 		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
+		
+		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1672,5 +1677,14 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+   	public String getUpdateHolidayPath() {
+   		return updateHolidayPath;
+   	}
+
+   	public void setUpdateHolidayPath(String updateHolidayPath) {
+   		this.updateHolidayPath = updateHolidayPath;
+   	}
 
 }
