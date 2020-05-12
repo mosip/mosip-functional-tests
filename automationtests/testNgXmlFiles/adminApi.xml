@@ -13,7 +13,7 @@
 	<test name="Admin Tests">
 		<classes>
 			<class name="io.mosip.admin.tests.CreateDevice" />
-		 <!--	<class name="io.mosip.admin.tests.CreateDocumentType" />
+		 	<class name="io.mosip.admin.tests.CreateDocumentType" />
  		    <class name="io.mosip.admin.tests.CreateMachine" />
 		    <class name="io.mosip.admin.tests.CreateRegistrationCenter" />
 		    <class name="io.mosip.admin.tests.DecommisionDevice" />
@@ -88,7 +88,8 @@
             <class name="io.mosip.admin.tests.UpdateLocationData" />
             <class name="io.mosip.admin.tests.UpdateMachine" />
        	    <class name="io.mosip.admin.tests.UpdateMDS" /> 
-            <class name="io.mosip.admin.tests.UpdateRegistrationCenter" /> -->
+            <class name="io.mosip.admin.tests.UpdateRegistrationCenter" />
+            <class name="io.mosip.admin.tests.UpdateHoliday" />
 		</classes>
 
 	</test>

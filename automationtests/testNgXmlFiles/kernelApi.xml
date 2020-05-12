@@ -13,17 +13,8 @@
 	  <test name="Kernel Tests">
 
 		<classes>
-		<class name="io.mosip.kernel.tests.AuditLog" />
-			<class
-				name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
-			<class name="io.mosip.kernel.tests.EmailNotification" />
-			<class name="io.mosip.kernel.tests.EncrptionDecryption" />
-			<class name="io.mosip.kernel.tests.FetchBiometricAttribute" />
-			<class name="io.mosip.kernel.tests.FetchBiometricAuthType" />
-			<class name="io.mosip.kernel.tests.FetchBlackListedWord" />
-			<!-- <class name="io.mosip.kernel.tests.AuditLog" />
-			<class
-				name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
+		    <class name="io.mosip.kernel.tests.AuditLog" />
+			<class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
 			<class name="io.mosip.kernel.tests.EmailNotification" />
 			<class name="io.mosip.kernel.tests.EncrptionDecryption" />
 			<class name="io.mosip.kernel.tests.FetchBiometricAttribute" />
