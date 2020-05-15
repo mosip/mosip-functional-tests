@@ -102,6 +102,7 @@ public class AdminRunConfig extends RunConfig {
     private String fetchRegCenterExceptionalHolidays_kernelPath;
     
     private String updateHolidayPath;
+    private String createHolidayPath;
     
     
 	@Override
@@ -192,6 +193,7 @@ public class AdminRunConfig extends RunConfig {
 		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
 		
 		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
+		setCreateHolidayPath(AdminTestUtil.getPropertyValue("createHolidayPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1685,6 +1687,14 @@ public class AdminRunConfig extends RunConfig {
 
    	public void setUpdateHolidayPath(String updateHolidayPath) {
    		this.updateHolidayPath = updateHolidayPath;
+   	}
+
+	@Override
+	public String getCreateHolidayPath() {
+		return createHolidayPath;
+	}
+	public void setCreateHolidayPath(String createHolidayPath) {
+   		this.createHolidayPath = createHolidayPath;
    	}
 
 }

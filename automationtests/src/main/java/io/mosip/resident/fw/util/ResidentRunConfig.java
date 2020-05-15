@@ -1431,4 +1431,10 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getCreateHolidayPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

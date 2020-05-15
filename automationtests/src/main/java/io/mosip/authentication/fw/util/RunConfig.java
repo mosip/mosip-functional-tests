@@ -476,6 +476,7 @@ public abstract class RunConfig {
 			public abstract String getRegisterMDSPath();
 			
 			public abstract String getUpdateHolidayPath();
+			public abstract String getCreateHolidayPath();
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 
