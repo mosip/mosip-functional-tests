@@ -103,8 +103,14 @@ public class AdminRunConfig extends RunConfig {
     
     private String updateHolidayPath;
     private String createHolidayPath;
+    private String createGenderPath;
+    private String updateGenderPath;
     
     
+	
+
+	
+
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
 		setAdminEndPointUrl(AdminTestUtil.getPropertyValue("adminEndpointUrl"));
@@ -194,6 +200,8 @@ public class AdminRunConfig extends RunConfig {
 		
 		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
 		setCreateHolidayPath(AdminTestUtil.getPropertyValue("createHolidayPath"));
+		setCreateGenderPath(AdminTestUtil.getPropertyValue("createGenderPath"));
+		setUpdateGenderPath(AdminTestUtil.getPropertyValue("updateGenderPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1697,4 +1705,21 @@ public class AdminRunConfig extends RunConfig {
    		this.createHolidayPath = createHolidayPath;
    	}
 
+	@Override
+	public String getCreateGenderPath() {
+		return createGenderPath;
+	}
+
+	public void setCreateGenderPath(String createGenderPath) {
+		this.createGenderPath = createGenderPath;
+	}
+	
+	@Override
+	public String getUpdateGenderPath() {
+		return updateGenderPath;
+	}
+
+	public void setUpdateGenderPath(String updateGenderPath) {
+		this.updateGenderPath = updateGenderPath;
+	}
 }

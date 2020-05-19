@@ -110,7 +110,7 @@ testdata:
    Admin_CreateHoliday_Invalid_InputParameter_HolidayName_AboveMaxLen64:
       input.create-holiday-request:
          RholidayDate: '2020-08-16'
-         RholidayName: $TestData:invalid_HolidayNameAsGreaterThanMaxLength$
+         RholidayName: $TestData:validStringLength65$
          holidayDesc: AutoTest user Holiday
          requesttime: $TIMESTAMPZ$
          isActive: false
@@ -166,7 +166,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
          isActive: false
          RlangCode: eng
-         RlocationCode: $TestData:invalid_LocationCodeAsGreaterThanMaxLength$
+         RlocationCode: $TestData:wordLength129$
          Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$

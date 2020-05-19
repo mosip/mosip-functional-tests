@@ -754,9 +754,4 @@ valid_DocumentType_name:
     - positive2  
 valid_DocumentType_Desc:
     - Testing positive Doc
-invalid_HolidayNameAsGreaterThanMaxLength:
-    - AkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltRT
-invalid_LocationCodeAsGreaterThanMaxLength:
-    - AkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltsikheAkhaltRThytehdjd         
-    
                    

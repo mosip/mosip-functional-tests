@@ -1437,4 +1437,16 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getCreateGenderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateGenderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -477,6 +477,8 @@ public abstract class RunConfig {
 			
 			public abstract String getUpdateHolidayPath();
 			public abstract String getCreateHolidayPath();
+			public abstract String getCreateGenderPath();
+			public abstract String getUpdateGenderPath();
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 
