@@ -1446,4 +1446,14 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getCreateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -105,10 +105,10 @@ public class AdminRunConfig extends RunConfig {
     private String createHolidayPath;
     private String createGenderPath;
     private String updateGenderPath;
+    private String createDocumentCategoryPath;
+    private String updateDocumentCategoryPath;
     
     
-	
-
 	
 
 	@Override
@@ -202,6 +202,8 @@ public class AdminRunConfig extends RunConfig {
 		setCreateHolidayPath(AdminTestUtil.getPropertyValue("createHolidayPath"));
 		setCreateGenderPath(AdminTestUtil.getPropertyValue("createGenderPath"));
 		setUpdateGenderPath(AdminTestUtil.getPropertyValue("updateGenderPath"));
+		setCreateDocumentCategoryPath(AdminTestUtil.getPropertyValue("createDocumentCategoryPath"));
+		setUpdateDocumentCategoryPath(AdminTestUtil.getPropertyValue("updateDocumentCategoryPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1721,5 +1723,23 @@ public class AdminRunConfig extends RunConfig {
 
 	public void setUpdateGenderPath(String updateGenderPath) {
 		this.updateGenderPath = updateGenderPath;
+	}
+	
+	@Override
+	public String getCreateDocumentCategoryPath() {
+		return createDocumentCategoryPath;
+	}
+
+	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
+		this.createDocumentCategoryPath = createDocumentCategoryPath;
+	}
+	
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		return updateDocumentCategoryPath;
+	}
+
+	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
+		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
 	}
 }
