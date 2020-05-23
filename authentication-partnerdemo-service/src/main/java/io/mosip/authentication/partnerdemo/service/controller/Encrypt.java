@@ -71,6 +71,7 @@ import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -80,6 +81,7 @@ import io.swagger.annotations.ApiOperation;
  */
 
 @RestController
+@Api(tags = { "Encrypt" })
 public class Encrypt {
 
 	@Autowired
@@ -89,6 +91,24 @@ public class Encrypt {
 
 	/** The Constant ASYMMETRIC_ALGORITHM. */
 	private static final String SSL = "SSL";
+	
+	/** The Constant IDA. */
+	private static final String IDA = "IDA";
+	
+	/** The Constant KERNEL. */
+	private static final String KERNEL = "KERNEL";
+	
+	/** The Constant PARTNER. */
+	private static final String PARTNER = "PARTNER";
+	
+	/** The Constant SIGN. */
+	private static final String SIGN = "SIGN";
+	
+	/** The Constant SIGN. */
+	private static final String INTERNAL = "INTERNAL";
+	
+	/** The Constant SIGN. */
+	private static final String IDA_FIR = "IDA-FIR";
 
 	/** The obj mapper. */
 	@Autowired
@@ -112,8 +132,24 @@ public class Encrypt {
 	@Value("${mosip.kernel.encrypt-url}")
 	private String encryptURL;
 
+	@Value("${publicKey.ida}")
+	private String publicKey_ida;
+
+	@Value("${publicKey.kernel}")
+	private String publicKey_kernel;
+
+	@Value("${publicKey.partner}")
+	private String publicKey_partner;
+
+	@Value("${publicKey.sign}")
+	private String publicKey_sign;
 	
+	@Value("${publicKey.internal}")
+	private String publicKey_internel;
 	
+	@Value("${publicKey.ida_fir}")
+	private String publicKey_ida_fir;
+
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Encrypt.class);
 	
@@ -175,8 +211,9 @@ public class Encrypt {
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(), secretKey);
-		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
-		String publicKeyStr = getPublicKey(identityBlock, refId);
+		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));		
+		String publicKeyStr = getPublicKey(refId);	
+		//String publicKeyStr = getPublicKey(identityBlock, refId);
 		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
 				.generatePublic(new X509EncodedKeySpec(CryptoUtil.decodeBase64(publicKeyStr)));
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
@@ -185,6 +222,35 @@ public class Encrypt {
 				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes())).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
+	}
+	
+	/**
+	 * 
+	 * @param refId
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	private String getPublicKey(String refId) {
+		if(refId.equalsIgnoreCase(IDA)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_ida),StandardCharsets.UTF_8);
+		}		
+		if(refId.equalsIgnoreCase(KERNEL)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_kernel),StandardCharsets.UTF_8);
+		}		
+		if(refId.equalsIgnoreCase(PARTNER)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_partner),StandardCharsets.UTF_8);
+		}
+		if(refId.equalsIgnoreCase(SIGN)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_sign),StandardCharsets.UTF_8);
+		}		
+		if(refId.equalsIgnoreCase(INTERNAL)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_internel),StandardCharsets.UTF_8);
+		}
+		if(refId.equalsIgnoreCase(IDA_FIR)) {
+			return new String(CryptoUtil.decodeBase64(publicKey_ida_fir),StandardCharsets.UTF_8);
+		}
+		
+		return "";
 	}
 	
 	@PostMapping(path = "/encryptBiometricValue")
