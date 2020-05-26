@@ -2,7 +2,7 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "appId": "preregistration",
+    "appId": "prereg",
     "context": "auth-otp",
     "otpChannel": [
       "EMAIL"
