@@ -103,6 +103,12 @@ public class Encrypt {
 	
 	/** The Constant SIGN. */
 	private static final String SIGN = "SIGN";
+	
+	/** The Constant SIGN. */
+	private static final String INTERNEL = "SIGN";
+	
+	/** The Constant SIGN. */
+	private static final String IDA_FIR = "IDA-FIR";
 
 	/** The obj mapper. */
 	@Autowired
@@ -124,19 +130,7 @@ public class Encrypt {
 	private CryptoUtility cryptoUtil;
 	
 	@Value("${mosip.kernel.encrypt-url}")
-	private String encryptURL;
-
-	@Value("${publicKey.ida}")
-	private String publicKey_ida;
-
-	@Value("${publicKey.kernel}")
-	private String publicKey_kernel;
-
-	@Value("${publicKey.partner}")
-	private String publicKey_partner;
-
-	@Value("${publicKey.sign}")
-	private String publicKey_sign;
+	private String encryptURL;	
 
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Encrypt.class);
@@ -216,23 +210,10 @@ public class Encrypt {
 	 * 
 	 * @param refId
 	 * @return
-	 */
-	@SuppressWarnings("unused")
-	private String getPublicKey(String refId) {
-		if(refId.equalsIgnoreCase(IDA)) {
-			return new String(CryptoUtil.decodeBase64(publicKey_ida),StandardCharsets.UTF_8);
-		}		
-		if(refId.equalsIgnoreCase(KERNEL)) {
-			return new String(CryptoUtil.decodeBase64(publicKey_kernel),StandardCharsets.UTF_8);
-		}		
-		if(refId.equalsIgnoreCase(PARTNER)) {
-			return new String(CryptoUtil.decodeBase64(publicKey_partner),StandardCharsets.UTF_8);
-		}
-		if(refId.equalsIgnoreCase(SIGN)) {
-			return new String(CryptoUtil.decodeBase64(publicKey_sign),StandardCharsets.UTF_8);
-		}
-		
-		return "";
+	 */	
+	private String getPublicKey(String refId) {		
+		return new String(CryptoUtil.decodeBase64(env.getProperty("publicKey." + refId.toLowerCase())),
+				StandardCharsets.UTF_8);
 	}
 	
 	@PostMapping(path = "/encryptBiometricValue")
