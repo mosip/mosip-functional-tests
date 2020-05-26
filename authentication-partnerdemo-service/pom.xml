@@ -4,7 +4,7 @@
 
 	
 	<groupId>io.mosip.authentication</groupId>
-	<version>1.0.8</version>
+	<version>1.0.8-SNAPSHOT</version>
 	<artifactId>authentication-partnerdemo-service</artifactId>
 	<name>authentication-partnerdemo-service</name>
 	<packaging>jar</packaging>
