@@ -102,8 +102,15 @@ public class AdminRunConfig extends RunConfig {
     private String fetchRegCenterExceptionalHolidays_kernelPath;
     
     private String updateHolidayPath;
+    private String createHolidayPath;
+    private String createGenderPath;
+    private String updateGenderPath;
+    private String createDocumentCategoryPath;
+    private String updateDocumentCategoryPath;
     
     
+	
+
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
 		setAdminEndPointUrl(AdminTestUtil.getPropertyValue("adminEndpointUrl"));
@@ -192,6 +199,11 @@ public class AdminRunConfig extends RunConfig {
 		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
 		
 		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
+		setCreateHolidayPath(AdminTestUtil.getPropertyValue("createHolidayPath"));
+		setCreateGenderPath(AdminTestUtil.getPropertyValue("createGenderPath"));
+		setUpdateGenderPath(AdminTestUtil.getPropertyValue("updateGenderPath"));
+		setCreateDocumentCategoryPath(AdminTestUtil.getPropertyValue("createDocumentCategoryPath"));
+		setUpdateDocumentCategoryPath(AdminTestUtil.getPropertyValue("updateDocumentCategoryPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1687,4 +1699,47 @@ public class AdminRunConfig extends RunConfig {
    		this.updateHolidayPath = updateHolidayPath;
    	}
 
+	@Override
+	public String getCreateHolidayPath() {
+		return createHolidayPath;
+	}
+	public void setCreateHolidayPath(String createHolidayPath) {
+   		this.createHolidayPath = createHolidayPath;
+   	}
+
+	@Override
+	public String getCreateGenderPath() {
+		return createGenderPath;
+	}
+
+	public void setCreateGenderPath(String createGenderPath) {
+		this.createGenderPath = createGenderPath;
+	}
+	
+	@Override
+	public String getUpdateGenderPath() {
+		return updateGenderPath;
+	}
+
+	public void setUpdateGenderPath(String updateGenderPath) {
+		this.updateGenderPath = updateGenderPath;
+	}
+	
+	@Override
+	public String getCreateDocumentCategoryPath() {
+		return createDocumentCategoryPath;
+	}
+
+	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
+		this.createDocumentCategoryPath = createDocumentCategoryPath;
+	}
+	
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		return updateDocumentCategoryPath;
+	}
+
+	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
+		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+	}
 }

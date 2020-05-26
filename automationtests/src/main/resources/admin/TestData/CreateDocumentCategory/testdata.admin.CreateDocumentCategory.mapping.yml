@@ -1,0 +1,234 @@
+testdata:
+   Admin_CreateDocumentCategory_Valid_Smoke:
+      input.create-document-category-request:
+         Rcode: $REMOVE$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         langCode: $input.create-document-category-request:RlangCode$
+         code: $IGNORE$
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateDocumentCategory_All_Valid_Mandatory_Fields:
+      input.create-document-category-request:
+         Rcode: DocTestCode1
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         langCode: $input.create-document-category-request:RlangCode$
+         code: $input.create-document-category-request:Rcode$
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateDocumentCategory_valid_sec_lang_SameDataAsVldScnrio:
+      input.create-document-category-request:
+         Rcode: DocCat00
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: true
+         RlangCode: ara
+      output.output-1-expected-pos-response:
+         langCode: $input.create-document-category-request:RlangCode$
+         code: $input.create-document-category-request:Rcode$
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Code_Missing:
+      input.create-document-category-request:
+         Rcode: $REMOVE$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Code_Empty:
+      input.create-document-category-request:
+         Rcode: ''
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be blank'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36:
+      input.create-document-category-request:
+         Rcode: $TestData:validLocationCode37$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: size must be between 1 and 36' 
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:wordLength129$
+         name: DocCat
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 0 and 128'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Name_Missing:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: $REMOVE$
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Name_Empty:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: ''
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:wordLength129$
+         name: $TestData:validStringLength65$ 
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_Missing:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+
+   Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_Empty:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'
+
+   Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_AboveMaxLen3:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: engr
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: false
+         RlangCode: $TestData:invalid_LangCode$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: Language code not supported'
+         
+   Admin_CreateDocumentCategory_Invalid_InputParameter_isActive_Missing:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: $REMOVE$
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'
+         
+
+   Admin_CreateDocumentCategory_Invalid_InputParameter_isActive_Empty:
+      input.create-document-category-request:
+         Rcode: $TestData:valid_DocCatCode$
+         description: $TestData:valid_DocumentType_Desc$
+         name: DocCat
+         isActive: ''
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be blank'
+         
+         
+                  
+                 
+         
+         
+         
+         
+         
+         
+         
