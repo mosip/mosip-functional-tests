@@ -18,7 +18,7 @@ import org.springframework.test.context.TestContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
 
-import io.mosip.authentication.partnerdemo.service.controller.DigitalSign;
+import io.mosip.authentication.partnerdemo.service.controller.JWSSignAndVerifyController;
 
 
 /**
@@ -33,7 +33,7 @@ public class DigitalSignatureTest {
 	
 	/** The digital sign mock. */
 	@InjectMocks
-	private DigitalSign digitalSignMock;
+	private JWSSignAndVerifyController digitalSignMock;
 	
 	
 	/**
