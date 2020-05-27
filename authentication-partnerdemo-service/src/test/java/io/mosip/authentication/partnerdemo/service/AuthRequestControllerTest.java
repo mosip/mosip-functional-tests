@@ -42,7 +42,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.mosip.authentication.core.exception.IdAuthenticationAppException;
 import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
 import io.mosip.authentication.partnerdemo.service.controller.AuthRequestController;
-import io.mosip.authentication.partnerdemo.service.controller.DigitalSign;
+import io.mosip.authentication.partnerdemo.service.controller.JWSSignAndVerifyController;
 import io.mosip.authentication.partnerdemo.service.controller.Encrypt;
 import io.mosip.authentication.partnerdemo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.partnerdemo.service.dto.EncryptionResponseDto;
@@ -105,7 +105,7 @@ public class AuthRequestControllerTest {
 	private TemplateManagerImpl templateManager;
 	
 	@Mock
-	DigitalSign digitalSign;
+	JWSSignAndVerifyController jWSSignAndVerifyController;
 	
 	@Before
 	public void before() {
@@ -113,7 +113,7 @@ public class AuthRequestControllerTest {
 		ReflectionTestUtils.setField(authReqController, "mapper", mapper);
 		ReflectionTestUtils.setField(authReqController, "templateManager", templateManager);
 		ReflectionTestUtils.setField(authReqController, "encrypt", encrypt);
-		ReflectionTestUtils.setField(authReqController, "digitalSign", digitalSign);
+		ReflectionTestUtils.setField(authReqController, "jWSSignAndVerifyController", jWSSignAndVerifyController);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class AuthRequestControllerTest {
 		Mockito.when(templateManager.merge(Mockito.any(), Mockito.any())).thenReturn(newServletInputStream());
 		SplittedEncryptedData value = new SplittedEncryptedData("123", "456");
 		Mockito.when(encrypt.encryptBiometrics(Mockito.any(), Mockito.any(), Mockito.anyBoolean())).thenReturn(value );
-		Mockito.when(digitalSign.sign(Mockito.any())).thenReturn("1234");
+		Mockito.when(jWSSignAndVerifyController.sign(Mockito.any())).thenReturn("1234");
 
 		authReqController.createAuthRequest("1234567890", "UIN", false, false, null, null, null, reqMap)	;
 		
@@ -215,7 +215,7 @@ public class AuthRequestControllerTest {
 		Mockito.when(templateManager.merge(Mockito.any(), Mockito.any())).thenReturn(newServletInputStream());
 		SplittedEncryptedData value = new SplittedEncryptedData("123", "456");
 		Mockito.when(encrypt.encryptBiometrics(Mockito.any(), Mockito.any(), Mockito.anyBoolean())).thenReturn(value );
-		Mockito.when(digitalSign.sign(Mockito.any())).thenReturn("1234");
+		Mockito.when(jWSSignAndVerifyController.sign(Mockito.any())).thenReturn("1234");
 
 		authReqController.createAuthRequest("1234567890", "UIN", false, false, null, null, null, reqMap)	;
 		
@@ -263,7 +263,7 @@ public class AuthRequestControllerTest {
 		Mockito.when(templateManager.merge(Mockito.any(), Mockito.any())).thenReturn(newServletInputStream());
 		SplittedEncryptedData value = new SplittedEncryptedData("123", "456");
 		Mockito.when(encrypt.encryptBiometrics(Mockito.any(), Mockito.any(), Mockito.anyBoolean())).thenReturn(value );
-		Mockito.when(digitalSign.sign(Mockito.any())).thenReturn("1234");
+		Mockito.when(jWSSignAndVerifyController.sign(Mockito.any())).thenReturn("1234");
 
 		authReqController.createAuthRequest("1234567890", "UIN", true, false, "bio,otp,demo,pin", null, null, reqMap)	;
 	}
@@ -271,7 +271,7 @@ public class AuthRequestControllerTest {
 	@Ignore
 	@SuppressWarnings("unchecked")
 	@Test(expected=IdAuthenticationBusinessException.class)
-	public void noRequest() throws KeyManagementException, InvalidKeyException, IdAuthenticationAppException, IdAuthenticationBusinessException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, IOException, JSONException {
+	public void noRequest() throws KeyManagementException, InvalidKeyException, IdAuthenticationAppException, IdAuthenticationBusinessException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, IOException, JSONException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
 		EncryptionResponseDto encryptionResponse=new EncryptionResponseDto();
 		Mockito.when(encrypt.encrypt(Mockito.any(), Mockito.anyString(), Mockito.anyBoolean(), Mockito.anyBoolean())).thenReturn(encryptionResponse);
 		String reqData="{}";
