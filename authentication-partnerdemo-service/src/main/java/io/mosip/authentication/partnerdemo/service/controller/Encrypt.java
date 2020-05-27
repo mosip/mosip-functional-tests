@@ -71,6 +71,7 @@ import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -80,6 +81,7 @@ import io.swagger.annotations.ApiOperation;
  */
 
 @RestController
+@Api(tags = { "Encrypt" })
 public class Encrypt {
 
 	@Autowired
@@ -89,6 +91,24 @@ public class Encrypt {
 
 	/** The Constant ASYMMETRIC_ALGORITHM. */
 	private static final String SSL = "SSL";
+	
+	/** The Constant IDA. */
+	private static final String IDA = "IDA";
+	
+	/** The Constant KERNEL. */
+	private static final String KERNEL = "KERNEL";
+	
+	/** The Constant PARTNER. */
+	private static final String PARTNER = "PARTNER";
+	
+	/** The Constant SIGN. */
+	private static final String SIGN = "SIGN";
+	
+	/** The Constant SIGN. */
+	private static final String INTERNEL = "SIGN";
+	
+	/** The Constant SIGN. */
+	private static final String IDA_FIR = "IDA-FIR";
 
 	/** The obj mapper. */
 	@Autowired
@@ -110,10 +130,8 @@ public class Encrypt {
 	private CryptoUtility cryptoUtil;
 	
 	@Value("${mosip.kernel.encrypt-url}")
-	private String encryptURL;
+	private String encryptURL;	
 
-	
-	
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Encrypt.class);
 	
@@ -175,8 +193,9 @@ public class Encrypt {
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(), secretKey);
-		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
-		String publicKeyStr = getPublicKey(identityBlock, refId);
+		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));		
+		String publicKeyStr = getPublicKey(refId);	
+		//String publicKeyStr = getPublicKey(identityBlock, refId);
 		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
 				.generatePublic(new X509EncodedKeySpec(CryptoUtil.decodeBase64(publicKeyStr)));
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
@@ -185,6 +204,16 @@ public class Encrypt {
 				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes())).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
+	}
+	
+	/**
+	 * 
+	 * @param refId
+	 * @return
+	 */	
+	private String getPublicKey(String refId) {		
+		return new String(CryptoUtil.decodeBase64(env.getProperty("publicKey." + refId.toLowerCase())),
+				StandardCharsets.UTF_8);
 	}
 	
 	@PostMapping(path = "/encryptBiometricValue")

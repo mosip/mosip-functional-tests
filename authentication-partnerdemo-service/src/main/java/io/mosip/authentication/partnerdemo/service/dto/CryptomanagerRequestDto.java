@@ -10,4 +10,5 @@ public class CryptomanagerRequestDto {
 	String salt;
 	String aad;
 	String timeStamp;
+	
 }
