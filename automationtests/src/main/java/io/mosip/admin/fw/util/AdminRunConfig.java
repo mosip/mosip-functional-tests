@@ -102,8 +102,19 @@ public class AdminRunConfig extends RunConfig {
     private String fetchRegCenterExceptionalHolidays_kernelPath;
     
     private String updateHolidayPath;
+    private String createTitlePath;
+    private String updateTitlePath;
+    private String createMachineTypePath;
+    private String updateMachineTypePath;
+    private String createDeviceSpecificationPath;
+    private String updateDeviceSpecificationPath;
     
     
+    
+	
+
+	
+
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
 		setAdminEndPointUrl(AdminTestUtil.getPropertyValue("adminEndpointUrl"));
@@ -192,6 +203,12 @@ public class AdminRunConfig extends RunConfig {
 		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
 		
 		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
+		setCreateTitlePath(AdminTestUtil.getPropertyValue("createTitlePath"));
+		setUpdateTitlePath(AdminTestUtil.getPropertyValue("updateTitlePath"));
+		setCreateMachineTypePath(AdminTestUtil.getPropertyValue("createMachineTypePath"));
+		setUpdateMachineTypePath(AdminTestUtil.getPropertyValue("updateMachineTypePath"));
+		setCreateDeviceSpecificationPath(AdminTestUtil.getPropertyValue("createDeviceSpecificationPath"));
+		setUpdateDeviceSpecificationPath(AdminTestUtil.getPropertyValue("updateDeviceSpecificationPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -667,12 +684,6 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 
 	}
-
-	
-
-
-
-	
 
 	@Override
 	public String getEncodeFilePath() {
@@ -1686,5 +1697,58 @@ public class AdminRunConfig extends RunConfig {
    	public void setUpdateHolidayPath(String updateHolidayPath) {
    		this.updateHolidayPath = updateHolidayPath;
    	}
+   	@Override
+	public String getCreateTitlePath() {
+		return createTitlePath;
+	}
+
+	public void setCreateTitlePath(String createTitlePath) {
+		this.createTitlePath = createTitlePath;
+	}
+	
+	@Override
+	public String getUpdateTitlePath() {
+		return updateTitlePath;
+	}
+
+	public void setUpdateTitlePath(String updateTitlePath) {
+		this.updateTitlePath = updateTitlePath;
+	}
+	@Override
+	public String getCreateMachineTypePath() {
+		return createMachineTypePath;
+	}
+	
+	public void setCreateMachineTypePath(String createMachineTypePath) {
+		this.createMachineTypePath = createMachineTypePath;
+	}
+	
+	@Override
+	public String getCreateDeviceSpecificationPath() {
+		return createDeviceSpecificationPath;
+	}
+
+	public void setCreateDeviceSpecificationPath(String createDeviceSpecificationPath) {
+		this.createDeviceSpecificationPath = createDeviceSpecificationPath;
+	}
+	
+	@Override
+	public String getUpdateMachineTypePath() {
+		return updateMachineTypePath;
+	}
+
+	public void setUpdateMachineTypePath(String updateMachineTypePath) {
+		this.updateMachineTypePath = updateMachineTypePath;
+	}
+	
+	@Override
+	public String getUpdateDeviceSpecificationPath() {
+		return updateDeviceSpecificationPath;
+	}
+
+	public void setUpdateDeviceSpecificationPath(String updateDeviceSpecificationPath) {
+		this.updateDeviceSpecificationPath = updateDeviceSpecificationPath;
+	}
+
 
 }

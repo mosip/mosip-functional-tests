@@ -1431,4 +1431,40 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getCreateTitlePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateTitlePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateMachineTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateDeviceSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateMachineTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

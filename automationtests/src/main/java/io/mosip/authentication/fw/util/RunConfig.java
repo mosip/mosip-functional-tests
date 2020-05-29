@@ -476,6 +476,12 @@ public abstract class RunConfig {
 			public abstract String getRegisterMDSPath();
 			
 			public abstract String getUpdateHolidayPath();
+			public abstract String getCreateTitlePath();
+			public abstract String getUpdateTitlePath();
+			public abstract String getCreateMachineTypePath();
+			public abstract String getUpdateMachineTypePath();
+			public abstract String getCreateDeviceSpecificationPath();
+			public abstract String getUpdateDeviceSpecificationPath();
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 
