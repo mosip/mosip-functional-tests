@@ -1,0 +1,11 @@
+{
+    "request": {
+        "password": "mosip",
+        "appId": "admin",
+        "userName": "110005"
+    },
+    "metadata": "",
+    "requesttime": "$TIMESTAMPZ$",
+    "id": "mosip.io.userId.pwd",
+    "version": "1.0"
+}
