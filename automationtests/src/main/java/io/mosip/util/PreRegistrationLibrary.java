@@ -10,23 +10,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.TimeZone;
-import java.util.Map.Entry;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Random;
+import java.util.TimeZone;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONTokener;
@@ -38,6 +39,7 @@ import org.springframework.web.client.RestTemplate;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.collections.Lists;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -48,6 +50,7 @@ import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
+
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -154,7 +157,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
 				batchJobToken = batchToken();
 			}
@@ -171,7 +174,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 			BookAppointment(documentUploadResponse, fetchCentreResponse, preID, batchJobToken);
 			preRegistrationIds.add(preID);
 		}
-		expiredPreId = preRegistrationIds.get(9);
+		expiredPreId = preRegistrationIds.get(0);
 		dao.setDate(expiredPreId);
 		reverseDataSync(preRegistrationIds);
 		return preRegistrationIds;
@@ -179,7 +182,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 
 	public List<String> BookExpiredApplication() {
 		List expiredPreId = new ArrayList<>();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
 				batchJobToken = batchToken();
 			}

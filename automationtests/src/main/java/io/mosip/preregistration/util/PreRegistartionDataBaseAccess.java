@@ -34,6 +34,7 @@ public class PreRegistartionDataBaseAccess {
 		}
 		session = factory.getCurrentSession();
 		session.beginTransaction();
+		logger.info("==========session  begins=============");
 		return session;
 	}
 
@@ -42,31 +43,72 @@ public class PreRegistartionDataBaseAccess {
 		try {
 			return (List<String>) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
 
-		} catch (IndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException | HibernateException e) {
+			logger.info(e.getMessage());
 			Assert.assertTrue(false, "error while getting data from db :"+dbName);
-			return null;
-		}
-
+		}finally {
+			session.getTransaction().commit();
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+			}
+		return null;
 	}
 	@SuppressWarnings("unchecked")
 	public void updateDbData(String queryString, String dbName) {
-		Query query = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString);
-		int res = query.executeUpdate();
-		session.getTransaction().commit();	
+		try {
+			Query query = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString);
+			int res = query.executeUpdate();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.getTransaction().commit();
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+			}	
 	}
 	@SuppressWarnings("unchecked")
 	public List<String> getConsumedStatus(String queryString, String dbName) {
-		return (List<String>) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		try {
+			return (List<String>) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.getTransaction().commit();
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+			}
+		return null;
 	}
 	@SuppressWarnings("unchecked")
 	public Date getHoliday(String queryString, String dbName) {
-		return  (Date) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list().get(0);
+		try {
+			return  (Date) getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString).list().get(0);
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.getTransaction().commit();
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+			}
+		return null;
 	}
 	@SuppressWarnings("unchecked")
 	public void delete(String queryString, String dbName) {
-		Query query = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString);
-		int res = query.executeUpdate();
-		session.getTransaction().commit();	
+		try {
+			Query query = getDataBaseConnection(dbName.toLowerCase()).createSQLQuery(queryString);
+			int res = query.executeUpdate();
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+			session.getTransaction().commit();
+			session.close();
+			factory.close();
+			logger.info("==========session  closed=============");
+			}	
 	}
 	
 	
