@@ -2,10 +2,10 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "appId": "PREREGISTRATION",
+    "appId": "prereg",
     "context": "auth-otp",
     "otpChannel": [
-      "MOBILE"
+      "PHONE"
     ],
     "templateVariables": {},
     "userId": "7894561234",

@@ -117,7 +117,7 @@ public class SyncMDataWithKeyIndex extends BaseTestCase implements ITest{
 								.get("response");
 						JSONArray syncDataArray	= (JSONArray) responseJson.get("dataToSync");
 						logger.info("Number of masterData entities :" + syncDataArray.size());
-						status = syncDataArray.size()==51; 
+						status = syncDataArray.size()==52; 
 						if (!status) logger.info("Response from API: "+response.asString());
 						
 					} catch (ParseException e) {

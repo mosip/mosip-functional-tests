@@ -1,0 +1,184 @@
+testdata:
+   Admin_UpdateGender_All_Valid_Smoke:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-2
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-gender-request:Rcode$
+         langCode: $input.update-gender-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateGender_All_Valid_Mandatory_Fields:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-gender-request:Rcode$
+         langCode: $input.update-gender-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateGender_Invalid_InputParameter_Code_Missing:
+      input.update-gender-request:
+         Rcode: $REMOVE$
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be blank'
+   
+   Admin_UpdateGender_Invalid_InputParameter_Code_Empty:
+      input.update-gender-request:
+         Rcode: ''
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be blank'
+         
+   Admin_UpdateGender_Invalid_InputParameter_Code_AboveMaxLen36:
+      input.update-gender-request:
+         Rcode: $TestData:validLocationCode37$
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: size must be between 1 and 36'         
+
+   Admin_UpdateGender_Invalid_InputParameter_GenderName_Missing:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: $REMOVE$
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.genderName: must not be null'
+         
+   Admin_UpdateGender_Invalid_InputParameter_GenderName_Empty:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: ''
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.genderName: must not be blank'
+         
+   Admin_UpdateGender_Invalid_InputParameter_GenderName_AboveMaxLen64:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: $TestData:validStringLength65$
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.genderName: size must be between 1 and 64'
+         
+   Admin_UpdateGender_Invalid_InputParameter_LangCode_Missing:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null' 
+
+         
+   Admin_UpdateGender_Invalid_InputParameter_LangCode_Empty:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'
+         
+   Admin_UpdateGender_Invalid_InputParameter_LangCode:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: xyz
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'         
+         
+   Admin_UpdateGender_Invalid_InputParameter_LangCode_AboveMaxLen3:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: false
+         RlangCode: engr
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langcode: size must be between 1 and 3'
+         
+   Admin_UpdateGender_Invalid_InputParameter_isActive_Missing:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: $REMOVE$
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'
+         
+   Admin_UpdateGender_Invalid_InputParameter_isActive_Empty:
+      input.update-gender-request:
+         Rcode: MLE-Auto-1
+         genderName: Test-Auto-3
+         isActive: ''
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be blank'                  
+         

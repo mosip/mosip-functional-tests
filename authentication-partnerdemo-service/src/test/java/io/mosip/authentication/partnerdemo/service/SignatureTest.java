@@ -16,16 +16,17 @@ import org.springframework.test.context.TestContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
 
-import io.mosip.kernel.crypto.jce.util.JWSValidation;
+import io.mosip.kernel.crypto.jce.core.CryptoCore;
+
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-@ContextConfiguration(classes = { TestContext.class, WebApplicationContext.class, JWSValidation.class })
+@ContextConfiguration(classes = { TestContext.class, WebApplicationContext.class, CryptoCore.class })
 
 public class SignatureTest {
 
 	@Autowired
-	JWSValidation jwsValidation;
+	CryptoCore cryptoCore;
 	
 	@Test
 	public void testSign() throws JoseException {
@@ -37,7 +38,7 @@ public class SignatureTest {
 		List<X509Certificate> certificateChainHeaderValue = jws.getCertificateChainHeaderValue();
 		System.out.println(certificateChainHeaderValue.get(0));
 		X509Certificate certificate = certificateChainHeaderValue.get(0);
-		//jwsValidation.jwsSign(arg0, arg1)
+		//cryptoCore.sign(arg0, arg1)
 	}
 	
 }
