@@ -3,7 +3,7 @@
 	"request": {
 		"registrationId": "27847657360002520190205113333",
 		"identity": {
-			"IDSchemaVersion": 1.0,
+			"IDSchemaVersion": 0.3,
 			"UIN": 6738521981,
 			"residenceStatus": [
 				{
