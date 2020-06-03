@@ -3,7 +3,7 @@ testdata:
     input.search-request:
       Rname: $TestData:validLocationName$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validLocationhierarchyName$
+      RhierarchyName: City
       RlangCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
@@ -17,7 +17,7 @@ testdata:
       Rcode: $TestData:validLocCodeCreatedByQuery$
       Rname: $TestData:validLocNameCreatedByquery$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validLocationhierarchyName$
+      RhierarchyName: 'مدينة'
       RlangCode: $TestData:valid_LanguageCodeArabic$
       RisActive: true
       requesttime: $TIMESTAMPZ$
@@ -27,12 +27,13 @@ testdata:
       langCode: $input.search-request:RlangCode$
       isActive: true
       name: $input.search-request:Rname$
+      hierarchyName: 'مدينة'
       
   Admin_CreateLocationData_Valid_isActive_true_primLang:
     input.search-request:
       Rname: Test_Loc_A_5
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validLocationhierarchyName$
+      RhierarchyName: City
       RlangCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       RisActive: true
@@ -47,7 +48,7 @@ testdata:
     input.search-request:
       Rname: RandomLoc
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validLocationhierarchyName$
+      RhierarchyName: City
       RparentLocCode: ''
       RlangCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
@@ -62,7 +63,7 @@ testdata:
     input.search-request:
       Rname: $TestData:wordLength128$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validLocationhierarchyName$
+      RhierarchyName: City
       RlangCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
@@ -71,19 +72,17 @@ testdata:
       langCode: $input.search-request:RlangCode$
       name: $input.search-request:Rname$
      
-  Admin_CreateLocationData_Valid_HierarchyLevelName64:
+  Admin_CreateLocationData_inValid_hierName_locHierCombo:
     input.search-request:
       Rname: $TestData:validLocationName3$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
-      RhierarchyName: $TestData:validStringLength64$
+      RhierarchyName: anyStr
       RlangCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-response:
+    output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      code: $IGNORE$
-      langCode: $input.search-request:RlangCode$
-      name: $input.search-request:Rname$
-      hierarchyName: $input.search-request:RhierarchyName$
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+      messageerrors0: 'hierarchy_level, hierarchy_level_name, lang_code is not present in hierarchy level'
 
   Admin_CreateLocationData_Invalid_code_for_SecondaryLang:
     input.search-request:
@@ -156,13 +155,14 @@ testdata:
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: 'Invalid Format in field : hierarchyLevel'
        
-  Admin_CreateLocationData_valid_EmptyHierarchyLevel:
+  Admin_CreateLocationData_inValid_hierLevel_locHierCombo:
     input.search-request:
-      RhierarchyLevel: ''
+      RhierarchyLevel: 11
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos1-response:
+    output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      code: $IGNORE$
+      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+      messageerrors0: 'hierarchyLevel, hierarchyLevelName, langCode is not present in hierarchy level'
           
   Admin_CreateLocationData_inValid_HierarchyName65:
     input.search-request:
