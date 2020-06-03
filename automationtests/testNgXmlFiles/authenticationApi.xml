@@ -13,8 +13,7 @@
 	<test name="AuthenticationTest">
 		<classes>
 		<class
-				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
-			<!-- <class
+			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
