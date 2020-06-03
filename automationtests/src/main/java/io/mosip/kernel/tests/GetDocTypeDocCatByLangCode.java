@@ -104,7 +104,7 @@ public class GetDocTypeDocCatByLangCode extends BaseTestCase implements ITest{
 		
 		if (responseJson!= null && responseJson.containsKey("documentcategories")) {
 
-			String query = "select count(DISTINCT doccat_code) from master.valid_document where is_active = true and lang_code = '" + actualRequest.get("languagecode") + "'";
+			String query = "select count(DISTINCT doccat_code) from master.valid_document where is_active = true";
 
 			long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query,"masterdata");
 
@@ -127,7 +127,7 @@ public class GetDocTypeDocCatByLangCode extends BaseTestCase implements ITest{
 				// obtained objects
 				HashMap<String, String> passedAttributesToFetch = new HashMap<String, String>();
 				if (actualRequest != null) {
-					passedAttributesToFetch.put("langCode", actualRequest.get("langcode").toString());
+					passedAttributesToFetch.put("langCode", actualRequest.get("languagecode").toString());
 				}
 
 				status = AssertKernel.validator(responseArrayFromGet, attributesToValidateExistance,
