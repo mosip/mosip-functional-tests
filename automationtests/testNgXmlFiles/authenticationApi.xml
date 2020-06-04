@@ -47,7 +47,7 @@
 				name="io.mosip.authentication.tests.InternalAuthTransaction" />
 			<class
 				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
-			<class name="io.mosip.authentication.tests.UnlockUIN" /> -->
+			<class name="io.mosip.authentication.tests.UnlockUIN" />
 		</classes>
 	</test>
 </suite>
