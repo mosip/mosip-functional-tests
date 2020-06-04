@@ -1,0 +1,427 @@
+testdata:
+   Admin_CreateMachineSpecification_All_Valid_Smoke:
+      input.create-machine-specification-request:
+         brand: HP
+         description: HP brand
+         machineTypeCode: DKS
+         Rid: HP04
+         isActive: true
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         oid: $input.create-machine-specification-request:Rid$
+         langCode: $input.create-machine-specification-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_CreateMachineSpecification_All_Valid_Mandatory_Fields:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         oid: $input.create-machine-specification-request:Rid$
+         langCode: $input.create-machine-specification-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_CreateMachineSpecification_Sec_Data_Present_but_No_Data_Prim_lang:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP-06
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-383
+         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         
+   Admin_CreateMachineSpecification_InputParameter_Name_Missing:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_Name_Empty:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_Name_AboveMaxLen64:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateMachineSpecification_InputParameter_Brand_Missing:
+      input.create-machine-specification-request:
+         brand: $REMOVE$
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_Brand_Empty:
+      input.create-machine-specification-request:
+         brand: ''
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_Brand_AboveMaxLen32:
+      input.create-machine-specification-request:
+         brand: $TestData:validLocationCode37$
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: size must be between 1 and 32'
+         
+   Admin_CreateMachineSpecification_InputParameter_Model_Missing:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         name: HP
+         model: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_Model_Empty:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         name: HP
+         model: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_Model_AboveMaxLen16:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         name: HP
+         model: $TestData:validStringLen17$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: size must be between 1 and 16'
+         
+   Admin_CreateMachineSpecification_InputParameter_machineTypeCode_Missing:
+      input.create-machine-specification-request:
+         machineTypeCode: $REMOVE$
+         brand: HP
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.machineTypeCode: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_machineTypeCode_Empty:
+      input.create-machine-specification-request:
+         machineTypeCode: ''
+         brand: HP
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.machineTypeCode: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36:
+      input.create-machine-specification-request:
+         machineTypeCode: $TestData:validLocationCode37$
+         brand: HP
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.machineTypeCode: size must be between 1 and 36'
+         
+         
+   Admin_CreateMachineSpecification_InputParameter_machineTypeCode:
+      input.create-machine-specification-request:
+         machineTypeCode: DMR
+         brand: HP
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-714
+         messageerrors0: 'Invalid dtype_code received'
+         
+   Admin_CreateMachineSpecification_InputParameter_MinDriverversion_Missing:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         model: 1234
+         name: HP
+         minDriverversion: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_MinDriverversion_Empty:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         model: 1234
+         name: HP
+         minDriverversion: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         model: 1234
+         name: HP
+         minDriverversion: $TestData:validStringLen17$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: size must be between 1 and 16'
+         
+   Admin_CreateMachineSpecification_InputParameter_Description_AboveMaxLen256:
+      input.create-machine-specification-request:
+         description: $TestData:Description257$ 
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 256'
+         
+   Admin_CreateMachineSpecification_InputParameter_LangCode_Missing:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: $REMOVE$
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_CreateMachineSpecification_InputParameter_LangCode_Empty:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: ''
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'        
+         
+   Admin_CreateMachineSpecification_InputParameter_LangCode_AboveMaxLen3:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: engr
+         minDriverversion: 3.2
+         model: 1234
+         name: HP 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         
+   Admin_CreateMachineSpecification_InputParameter_LangCode:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: false
+         RlangCode: GST
+         minDriverversion: 3.2
+         model: 1234
+         name: HP 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: Language code not supported'
+         
+   Admin_CreateMachineSpecification_InputParameter_isActive_Missing:
+      input.create-machine-specification-request:
+         brand: HP
+         machineTypeCode: DKS
+         Rid: HP06
+         isActive: $REMOVE$
+         RlangCode: eng
+         minDriverversion: 3.2
+         model: 1234
+         name: HP
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                    
+
+         

@@ -1,0 +1,190 @@
+testdata:
+   Admin_CreateMachineType_All_Valid_Smoke:
+      input.create-machine-type-request:
+         Rcode: Laptop-2
+         description: Laptop-2 info
+         isActive: false
+         RlangCode: eng
+         name: Laptop-2 test
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.create-machine-type-request:Rcode$
+         langCode: $input.create-machine-type-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateMachineType_All_Valid_Mandatory_Fields:
+      input.create-machine-type-request:
+         Rcode: Laptop2
+         isActive: false
+         RlangCode: eng
+         name: Laptop2 test
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.create-machine-type-request:Rcode$
+         langCode: $input.create-machine-type-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateMachineType_Sec_Data_Present_but_No_Data_Prim_lang:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: ara
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-383
+         messageerrors0: 'Recived data dones not contain data for Primary Langauge'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Code_Missing:
+      input.create-machine-type-request:
+         Rcode: $REMOVE$
+         isActive: true
+         RlangCode: ara
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Code_Empty:
+      input.create-machine-type-request:
+         Rcode: ''
+         isActive: true
+         RlangCode: ara
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be blank' 
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Name_Missing:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: eng
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Name_Empty:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: eng
+         name: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'         
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Name_AboveMaxLen64:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: eng
+         name: $TestData:validStringLength65$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_LangCode:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: GST
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_LangCode_Missing:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: $REMOVE$
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+
+   Admin_CreateMachineType_Invalid_InputParameter_LangCode_Empty:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: ''
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'
+
+   Admin_CreateMachineType_Invalid_InputParameter_LangCode_AboveMaxLen3:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: engr
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'  
+         
+   Admin_CreateMachineType_Invalid_InputParameter_Description_AboveMaxLen128:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: true
+         RlangCode: engr
+         name: Laptop3 test
+         description: $TestData:wordLength129$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 128'
+         
+   Admin_CreateMachineType_Invalid_InputParameter_isActive_Missing:
+      input.create-machine-type-request:
+         Rcode: Laptop3
+         isActive: $REMOVE$
+         RlangCode: eng
+         name: Laptop3 test
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                                            
+         
+         
+                                                                           
+         
+                                
+         

@@ -1,0 +1,204 @@
+testdata:
+   Admin_UpdateTitle_All_Valid_Smoke:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-title-request:Rcode$
+         langCode: $input.update-title-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateTitle_All_Valid_Mandatory_Fields:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-title-request:Rcode$
+         langCode: $input.update-title-request:RlangCode$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateTitle_Invalid_InputParameter_Code_Missing:
+      input.update-title-request:
+         Rcode: $REMOVE$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_Code_Empty:
+      input.update-title-request:
+         Rcode: ''
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be blank'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_Code_AboveMaxLen36:
+      input.update-title-request:
+         Rcode: $TestData:validLocationCode37$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: size must be between 1 and 36'                                    
+         
+   Admin_UpdateTitle_Invalid_InputParameter_TitleName_Missing:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: $REMOVE$
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.titleName: must not be null'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_TitleName_Empty:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: ''
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.titleName: must not be blank'         
+         
+   Admin_UpdateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: $TestData:validStringLength65$
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.titleName: size must be between 1 and 64'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: $TestData:wordLength129$
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.titleDescription: size must be between 1 and 128'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_isActive_Missing:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: $REMOVE$
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_LangCode:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: xyz
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateTitle_Invalid_InputParameter_LangCode_Missing:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+
+   Admin_UpdateTitle_Invalid_InputParameter_LangCode_Empty:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'
+
+   Admin_UpdateTitle_Invalid_InputParameter_LangCode_AboveMaxLen3:
+      input.update-title-request:
+         Rcode: TEST-auto
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: engr
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'                  
+         
+         
+                  
+         
+                           
+         
+         
+                                                     
+                  

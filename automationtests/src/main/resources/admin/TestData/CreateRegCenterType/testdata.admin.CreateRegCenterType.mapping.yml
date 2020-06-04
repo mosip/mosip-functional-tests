@@ -1,0 +1,172 @@
+testdata:
+   Admin_CreateRegCenterType_All_Valid_Smoke:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         name: alternate
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.create-regCenter-type-request:Rcode$
+         langCode: $input.create-regCenter-type-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+   Admin_CreateRegCenterType_All_Valid_Mandatory_Fields:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         name: alternate
+         descr: $REMOVE$
+         isActive: true
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.create-regCenter-type-request:Rcode$
+         langCode: $input.create-regCenter-type-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+   Admin_CreateRegCenterType_Sec_Data_Present_but_No_Data_Prim_lang:
+      input.create-regCenter-type-request:
+         Rcode: ALT-13
+         RlangCode: ara
+         name: alternate
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-383
+         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         
+   Admin_CreateRegCenterType_InputParameter_Name_Missing:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         name: $REMOVE$
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateRegCenterType_InputParameter_Name_Empty:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         name: ''
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'        
+         
+   Admin_CreateRegCenterType_InputParameter_Name_AboveMaxLen64:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         descr: alternate center
+         isActive: true
+         name: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateRegCenterType_InputParameter_Description_AboveMaxLen256:
+      input.create-regCenter-type-request:
+         descr: $TestData:Description257$ 
+         Rcode: ALT-3
+         RlangCode: eng
+         name: alternate
+         isActive: true 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 256'
+         
+   Admin_CreateRegCenterType_InputParameter_LangCode_Missing:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode:  $REMOVE$
+         name: alternate
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_CreateRegCenterType_InputParameter_LangCode_Empty:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: ''
+         name: alternate
+         descr: alternate center
+         isActive: true
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'        
+         
+   Admin_CreateRegCenterType_InputParameter_LangCode_AboveMaxLen3:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: engr
+         name: alternate
+         descr: alternate center
+         isActive: true 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         
+   Admin_CreateRegCenterType_InputParameter_LangCode:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: GST
+         name: alternate
+         descr: alternate center
+         isActive: true 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: Language code not supported'
+         
+   Admin_CreateRegCenterType_InputParameter_isActive_Missing:
+      input.create-regCenter-type-request:
+         Rcode: ALT-3
+         RlangCode: eng
+         name: alternate
+         descr: alternate center
+         isActive: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                    
+         
+                                    
+
+         

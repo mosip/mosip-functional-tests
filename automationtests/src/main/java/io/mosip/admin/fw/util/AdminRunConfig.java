@@ -102,8 +102,22 @@ public class AdminRunConfig extends RunConfig {
     private String fetchRegCenterExceptionalHolidays_kernelPath;
     
     private String updateHolidayPath;
+    private String createTitlePath;
+    private String updateTitlePath;
+    private String createMachineTypePath;
+    private String updateMachineTypePath;
+    private String createDeviceSpecificationPath;
+    private String updateDeviceSpecificationPath;
+    private String createMachineSpecificationPath;
+    private String updateMachineSpecificationPath;
+    private String createRegCenterTypePath;
+    private String updateRegCenterTypePath;
+    private String createTemplateFileFormatPath;
+    private String updateTemplateFileFormatPath;
+    private String createTemplatePath;
     
     
+
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
 		setAdminEndPointUrl(AdminTestUtil.getPropertyValue("adminEndpointUrl"));
@@ -192,6 +206,19 @@ public class AdminRunConfig extends RunConfig {
 		setFetchRegCenterExceptionalHolidays_kernelPath(AdminTestUtil.getPropertyValue("fetchRegCenterExceptionalHolidays_kernelPath"));
 		
 		setUpdateHolidayPath(AdminTestUtil.getPropertyValue("updateHolidayPath"));
+		setCreateTitlePath(AdminTestUtil.getPropertyValue("createTitlePath"));
+		setUpdateTitlePath(AdminTestUtil.getPropertyValue("updateTitlePath"));
+		setCreateMachineTypePath(AdminTestUtil.getPropertyValue("createMachineTypePath"));
+		setUpdateMachineTypePath(AdminTestUtil.getPropertyValue("updateMachineTypePath"));
+		setCreateDeviceSpecificationPath(AdminTestUtil.getPropertyValue("createDeviceSpecificationPath"));
+		setUpdateDeviceSpecificationPath(AdminTestUtil.getPropertyValue("updateDeviceSpecificationPath"));
+		setCreateMachineSpecificationPath(AdminTestUtil.getPropertyValue("createMachineSpecificationPath"));
+		setUpdateMachineSpecificationPath(AdminTestUtil.getPropertyValue("updateMachineSpecificationPath"));
+		setCreateRegCenterTypePath(AdminTestUtil.getPropertyValue("createRegCenterTypePath"));
+		setUpdateRegCenterTypePath(AdminTestUtil.getPropertyValue("updateRegCenterTypePath"));
+		setCreateTemplateFileFormatPath(AdminTestUtil.getPropertyValue("createTemplateFileFormatPath"));
+		setUpdateTemplateFileFormatPath(AdminTestUtil.getPropertyValue("updateTemplateFileFormatPath"));
+		setCreateTemplatePath(AdminTestUtil.getPropertyValue("createTemplatePath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -667,12 +694,6 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 
 	}
-
-	
-
-
-
-	
 
 	@Override
 	public String getEncodeFilePath() {
@@ -1686,5 +1707,117 @@ public class AdminRunConfig extends RunConfig {
    	public void setUpdateHolidayPath(String updateHolidayPath) {
    		this.updateHolidayPath = updateHolidayPath;
    	}
+   	@Override
+	public String getCreateTitlePath() {
+		return createTitlePath;
+	}
+
+	public void setCreateTitlePath(String createTitlePath) {
+		this.createTitlePath = createTitlePath;
+	}
+	
+	@Override
+	public String getUpdateTitlePath() {
+		return updateTitlePath;
+	}
+
+	public void setUpdateTitlePath(String updateTitlePath) {
+		this.updateTitlePath = updateTitlePath;
+	}
+	@Override
+	public String getCreateMachineTypePath() {
+		return createMachineTypePath;
+	}
+	
+	public void setCreateMachineTypePath(String createMachineTypePath) {
+		this.createMachineTypePath = createMachineTypePath;
+	}
+	
+	@Override
+	public String getCreateDeviceSpecificationPath() {
+		return createDeviceSpecificationPath;
+	}
+
+	public void setCreateDeviceSpecificationPath(String createDeviceSpecificationPath) {
+		this.createDeviceSpecificationPath = createDeviceSpecificationPath;
+	}
+	
+	@Override
+	public String getUpdateMachineTypePath() {
+		return updateMachineTypePath;
+	}
+
+	public void setUpdateMachineTypePath(String updateMachineTypePath) {
+		this.updateMachineTypePath = updateMachineTypePath;
+	}
+	
+	@Override
+	public String getUpdateDeviceSpecificationPath() {
+		return updateDeviceSpecificationPath;
+	}
+
+	public void setUpdateDeviceSpecificationPath(String updateDeviceSpecificationPath) {
+		this.updateDeviceSpecificationPath = updateDeviceSpecificationPath;
+	}
+	@Override
+	public String getCreateMachineSpecificationPath() {
+		return createMachineSpecificationPath;
+	}
+
+	public void setCreateMachineSpecificationPath(String createMachineSpecificationPath) {
+		this.createMachineSpecificationPath = createMachineSpecificationPath;
+	}
+	
+	@Override
+	public String getUpdateMachineSpecificationPath() {
+		return updateMachineSpecificationPath;
+	}
+
+	public void setUpdateMachineSpecificationPath(String updateMachineSpecificationPath) {
+		this.updateMachineSpecificationPath = updateMachineSpecificationPath;
+	}
+	
+	@Override
+	public String getCreateRegCenterTypePath() {
+		return createRegCenterTypePath;
+	}
+
+	public void setCreateRegCenterTypePath(String createRegCenterTypePath) {
+		this.createRegCenterTypePath = createRegCenterTypePath;
+	}
+	
+	@Override
+	public String getUpdateRegCenterTypePath() {
+		return updateRegCenterTypePath;
+	}
+
+	public void setUpdateRegCenterTypePath(String updateRegCenterTypePath) {
+		this.updateRegCenterTypePath = updateRegCenterTypePath;
+	}
+	@Override
+	public String getCreateTemplateFileFormatPath() {
+		return createTemplateFileFormatPath;
+	}
+
+	public void setCreateTemplateFileFormatPath(String createTemplateFileFormatPath) {
+		this.createTemplateFileFormatPath = createTemplateFileFormatPath;
+	}
+	@Override
+	public String getUpdateTemplateFileFormatPath() {
+		return updateTemplateFileFormatPath;
+	}
+
+	public void setUpdateTemplateFileFormatPath(String updateTemplateFileFormatPath) {
+		this.updateTemplateFileFormatPath = updateTemplateFileFormatPath;
+	}
+	@Override
+	public String getCreateTemplatePath() {
+		return createTemplatePath;
+	}
+
+	public void setCreateTemplatePath(String createTemplatePath) {
+		this.createTemplatePath = createTemplatePath;
+	}
+
 
 }

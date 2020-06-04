@@ -1,0 +1,418 @@
+testdata:
+   Admin_UpdateDeviceSpecification_All_Valid_Smoke:
+      input.update-device-specification-request:
+         brand: Dell
+         description: Dell DeviceSpec updated
+         deviceTypeCode: CMR
+         Rid: 746
+         isActive: true
+         RlangCode: eng
+         minDriverversion: 1.1
+         model: 2020
+         name: Laptop
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         rid: $input.update-device-specification-request:Rid$
+         langCode: $input.update-device-specification-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+   Admin_UpdateDeviceSpecification_All_Valid_Mandatory_Fields:
+      input.update-device-specification-request:
+         brand: Dell
+         description: $REMOVE$
+         deviceTypeCode: CMR
+         Rid: 746
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Laptop
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         rid: $input.update-device-specification-request:Rid$
+         langCode: $input.update-device-specification-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Name_Missing:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Name_Empty:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Brand_Missing:
+      input.update-device-specification-request:
+         brand: $REMOVE$
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Brand_Empty:
+      input.update-device-specification-request:
+         brand: ''
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
+      input.update-device-specification-request:
+         brand: $TestData:validLocationCode37$
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: size must be between 1 and 32'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Model_Missing:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         name: Dell Laptop
+         model: $REMOVE$
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Model_Empty:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         name: Dell Laptop
+         model: ''
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         name: Dell Laptop
+         model: $TestData:validStringLen17$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: size must be between 1 and 16'
+         
+         
+   Admin_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: $REMOVE$
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_Empty:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: ''
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: $TestData:validLocationCode37$
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: size must be between 1 and 36'
+         
+         
+   Admin_UpdateDeviceSpecification_InputParameter_DeviceTypeCode:
+      input.update-device-specification-request:
+         brand: Dell
+         deviceTypeCode: CST
+         Rid: 748
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.1
+         model: 2020
+         name: Dell Laptop
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-714
+         messageerrors0: 'Invalid dtype_code received'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_MinDriverversion_Missing:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         Rid: 748
+         isActive: false
+         RlangCode: eng
+         minDriverversion: $REMOVE$
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_MinDriverversion_Empty:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: false
+         RlangCode: eng
+         minDriverversion: ''
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: false
+         RlangCode: eng
+         minDriverversion: $TestData:validStringLen17$
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: size must be between 1 and 16'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
+      input.update-device-specification-request:
+         brand: Techno
+         description: $TestData:Description257$ 
+         deviceTypeCode: CMR
+         Rid: 748
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 256'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_LangCode_Missing:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         Rid: 748
+         isActive: false
+         RlangCode: $REMOVE$
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_LangCode_Empty:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 748
+         isActive: false
+         RlangCode: ''
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'        
+         
+   Admin_UpdateDeviceSpecification_InputParameter_LangCode_AboveMaxLen3:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 748
+         isActive: false
+         RlangCode: engr
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_LangCode:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 748
+         isActive: false
+         RlangCode: GST
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: Language code not supported'
+         
+   Admin_UpdateDeviceSpecification_InputParameter_isActive_Missing:
+      input.update-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         id: 748
+         isActive: $REMOVE$
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                    
+
+         
