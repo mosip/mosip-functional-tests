@@ -196,6 +196,13 @@
 			<class name="io.mosip.admin.tests.UpdateGender" />
 			<class name="io.mosip.admin.tests.CreateDocumentCategory" />
 			<class name="io.mosip.admin.tests.UpdateDocumentCategory" />
+			<class name="io.mosip.admin.tests.CreateMachineSpecification" />
+			<class name="io.mosip.admin.tests.UpdateMachineSpecification" />
+			<class name="io.mosip.admin.tests.CreateRegCenterType" />
+			<class name="io.mosip.admin.tests.UpdateRegCenterType" />
+			<class name="io.mosip.admin.tests.CreateTemplateFileFormat" />
+			<class name="io.mosip.admin.tests.UpdateTemplateFileFormat" />
+			<class name="io.mosip.admin.tests.CreateTemplate" />
 		</classes>
 	</test>
 

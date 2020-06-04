@@ -1599,4 +1599,46 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getCreateMachineSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateMachineSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateTemplateFileFormatPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateTemplateFileFormatPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateTemplatePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
