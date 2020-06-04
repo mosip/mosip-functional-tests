@@ -31,7 +31,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -57,7 +57,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -140,7 +140,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -166,7 +166,7 @@ testdata:
       valuelocalAdministrativeAuthority2: NA
       valuelocalAdministrativeAuthority1: NA
       valuelocalAdministrativeAuthority0: NA
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -222,7 +222,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $TestData:uin_invalid$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -248,7 +248,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -305,7 +305,7 @@ testdata:
       registrationId: 98978476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -331,7 +331,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -388,7 +388,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -414,7 +414,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -472,7 +472,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -498,7 +498,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -555,7 +555,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -581,7 +581,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -638,7 +638,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_Invalid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -664,7 +664,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -721,7 +721,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -747,7 +747,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -804,7 +804,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -830,7 +830,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -888,7 +888,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -914,7 +914,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -964,97 +964,14 @@ testdata:
       output.1.res.n.timestamp: $IGNORE$
       output.1.res.n.version: $version$
       output.1.res.n.errorCode: $errors:InvalidId:errorCode$
-      output.1.res.n.errorMessage: $errors:InvalidId:errorMessage$
-   
-  IdRepository_AddIdentity_withInvalidAge:
-    input.create-request:
-      registrationId: 278476573600025+$YYYYMMddHHmmss$
-      UIN: $generate_UIN$
-      dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
-      individualBiometricsVersion: DOUBLE:1.0
-      languagefullName0: $TestData:english_lang_code_valid$
-      languagefullName2: $TestData:french_lang_code_valid$
-      languagefullName1: $TestData:arabic_lang_code_valid$
-      valuefullName2: $TRANSLATE~$input.create-request:valuefullName0$~en~fr$
-      valuefullName1: $TRANSLATE~$input.create-request:valuefullName0$~en~ar$
-      valuefullName0: $TRANSLATE~$TestData:name_valid$~en~en$
-      languageparentOrGuardianName0: $TestData:english_lang_code_valid$
-      languageparentOrGuardianName2: $TestData:french_lang_code_valid$
-      languageparentOrGuardianName1: $TestData:arabic_lang_code_valid$
-      valueparentOrGuardianName2: $TRANSLATE~$input.create-request:valueparentOrGuardianName0$~en~fr$
-      valueparentOrGuardianName1: $TRANSLATE~$input.create-request:valueparentOrGuardianName0$~en~ar$
-      valueparentOrGuardianName0: $TRANSLATE~$TestData:name_valid$~en~en$
-      languagegender2: $TestData:english_lang_code_valid$
-      languagegender1: $TestData:french_lang_code_valid$
-      languagegender0: $TestData:arabic_lang_code_valid$
-      valuegender2: $TestData:male_gender_english_valid$
-      valuegender1: $TestData:male_gender_french_valid$
-      valuegender0: $TestData:male_gender_arabic_valid$
-      languagelocalAdministrativeAuthority0: $TestData:english_lang_code_valid$
-      languagelocalAdministrativeAuthority2: $TestData:french_lang_code_valid$
-      languagelocalAdministrativeAuthority1: $TestData:arabic_lang_code_valid$
-      valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
-      valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
-      valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_Invalid$
-      #residenceStatus: abc
-      languageaddressLine10: $TestData:english_lang_code_valid$
-      languageaddressLine12: $TestData:french_lang_code_valid$
-      languageaddressLine11: $TestData:arabic_lang_code_valid$
-      valueaddressLine12: $TRANSLATE~$input.create-request:valueaddressLine10$~en~fr$
-      valueaddressLine11: $TRANSLATE~$input.create-request:valueaddressLine10$~en~ar$
-      valueaddressLine10: $TRANSLATE~$TestData:addressLine1_valid$~en~en$
-      languageaddressLine20: $TestData:english_lang_code_valid$
-      languageaddressLine22: $TestData:french_lang_code_valid$
-      languageaddressLine21: $TestData:arabic_lang_code_valid$
-      valueaddressLine22: $TRANSLATE~$input.create-request:valueaddressLine20$~en~fr$
-      valueaddressLine21: $TRANSLATE~$input.create-request:valueaddressLine20$~en~ar$
-      valueaddressLine20: $TRANSLATE~$TestData:addressLine2_valid$~en~en$
-      languageaddressLine30: $TestData:english_lang_code_valid$
-      languageaddressLine32: $TestData:french_lang_code_valid$
-      languageaddressLine31: $TestData:arabic_lang_code_valid$
-      valueaddressLine32: $TRANSLATE~$input.create-request:valueaddressLine30$~en~fr$
-      valueaddressLine31: $TRANSLATE~$input.create-request:valueaddressLine30$~en~ar$
-      valueaddressLine30: $TRANSLATE~$TestData:addressLine3_valid$~en~en$
-      languageregion0: $TestData:english_lang_code_valid$
-      languageregion2: $TestData:french_lang_code_valid$
-      languageregion1: $TestData:arabic_lang_code_valid$
-      valueregion2: $TestData:region_fra_valid$
-      valueregion1: $TestData:region_ara_valid$
-      valueregion0: $TestData:region_eng_valid$
-      languageprovince0: $TestData:english_lang_code_valid$
-      languageprovince2: $TestData:french_lang_code_valid$
-      languageprovince1: $TestData:arabic_lang_code_valid$
-      valueprovince2: $TestData:province_fra_valid$
-      valueprovince1: $TestData:province_ara_valid$
-      valueprovince0: $TestData:province_eng_valid$
-      languagecity0: $TestData:english_lang_code_valid$
-      languagecity2: $TestData:french_lang_code_valid$
-      languagecity1: $TestData:arabic_lang_code_valid$
-      valuecity2: $TestData:city_fra_valid$
-      valuecity1: $TestData:city_ara_valid$
-      valuecity0: $TestData:city_eng_valid$
-      timestamp: $TIMESTAMPZ$HOUR+25
-      phone: $TestData:phone_valid$
-      postalCode: $TestData:postalcode_valid$
-      email: $TestData:emailId_valid$
-      CNIENumber: $TestData:CNIENumber_valid$
-      categorydocuments0: individualBiometrics
-      valuedocuments0: $ENCODEFILE:input/cbeff-bio-data.xml$
-    output.output-1-expected-n-res:
-      output.1.res.n.id: $TestData:id_AddIdentity_valid$
-      output.1.res.n.timestamp: $IGNORE$
-      output.1.res.n.version: $version$
-      output.1.res.n.errorCode: $errors:InvalidAge:errorCode$
-      output.1.res.n.errorMessage: $errors:InvalidAge:errorMessage$
+      output.1.res.n.errorMessage: $errors:InvalidId:errorMessage$   
       
   IdRepository_AddIdentity_withInvalidFirstLangCodeForGender:
     input.create-request:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1080,7 +997,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1137,7 +1054,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1163,7 +1080,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1220,7 +1137,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1246,7 +1163,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1303,7 +1220,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:invalid_langCode$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1329,7 +1246,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1386,7 +1303,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1412,7 +1329,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1469,7 +1386,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:invalid_langCode$
@@ -1495,7 +1412,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1552,7 +1469,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1578,7 +1495,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1635,7 +1552,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1661,7 +1578,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1718,7 +1635,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1744,7 +1661,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1801,7 +1718,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1827,7 +1744,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1884,7 +1801,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1910,7 +1827,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -1967,7 +1884,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -1993,7 +1910,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2050,7 +1967,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2076,7 +1993,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2133,7 +2050,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2159,7 +2076,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2216,7 +2133,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2242,7 +2159,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2299,7 +2216,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2325,7 +2242,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2382,7 +2299,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $REMOVE$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2408,7 +2325,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2465,7 +2382,7 @@ testdata:
       registrationId: $REMOVE$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2491,7 +2408,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2548,7 +2465,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2574,7 +2491,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2633,7 +2550,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2659,7 +2576,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2717,7 +2634,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2743,7 +2660,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       residenceStatus: $REMOVE$
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2801,7 +2718,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2827,7 +2744,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
@@ -2885,7 +2802,7 @@ testdata:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
       dateOfBirth: $TestData:dob_valid$
-      IDSchemaVersion: DOUBLE:1.0
+      IDSchemaVersion: DOUBLE:0.1
       individualBiometricsVersion: DOUBLE:1.0
       languagefullName0: $TestData:english_lang_code_valid$
       languagefullName2: $TestData:french_lang_code_valid$
@@ -2911,7 +2828,7 @@ testdata:
       valuelocalAdministrativeAuthority2: $TestData:localAdministrativeAuthority_fra_valid$
       valuelocalAdministrativeAuthority1: $TestData:localAdministrativeAuthority_ara_valid$
       valuelocalAdministrativeAuthority0: $TestData:localAdministrativeAuthority_eng_valid$
-      age: $TestData:age_valid$
+      age: $REMOVE$
       #residenceStatus: abc
       languageaddressLine10: $TestData:english_lang_code_valid$
       languageaddressLine12: $TestData:french_lang_code_valid$
