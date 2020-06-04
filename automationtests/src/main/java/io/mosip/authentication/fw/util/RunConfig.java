@@ -489,6 +489,12 @@ public abstract class RunConfig {
 			public abstract String getCreateTemplateFileFormatPath();
 			public abstract String getUpdateTemplateFileFormatPath();
 			public abstract String getCreateTemplatePath();
+			public abstract String getUpdateDocumentCategoryPath();
+			public abstract String getCreateDocumentCategoryPath();
+			public abstract String getUpdateGenderPath();
+			public abstract String getCreateGenderPath();
+			public abstract String getCreateHolidayPath();
+			
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 

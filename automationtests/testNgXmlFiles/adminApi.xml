@@ -12,7 +12,7 @@
 	</listeners>
 	<test name="Admin Tests">
 		<classes>
-			<class name="io.mosip.admin.tests.CreateDevice" />
+			 <class name="io.mosip.admin.tests.CreateDevice" />
 			<class name="io.mosip.admin.tests.CreateDocumentType" />
 			<class name="io.mosip.admin.tests.CreateMachine" />
 			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
@@ -114,7 +114,6 @@
 			<class name="io.mosip.admin.tests.UpdateTemplateFileFormat" />
 			<class name="io.mosip.admin.tests.CreateTemplate" />
 		
- 
  
 		</classes>
 
