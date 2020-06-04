@@ -13,14 +13,9 @@
 	
 	<test name="RegistrationProcessor Tests">
 		<classes>
-<<<<<<< HEAD
 	<class
 				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 				<!-- <class
-=======
-
-		 <class
->>>>>>> 719331bd40262c402dc6806feeca6fe1190f35c6
 				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 				<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
@@ -50,7 +45,7 @@
 				name="io.mosip.registrationProcessor.tests.PrintingStage" />
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />
 			<class
-				name="io.mosip.registrationProcessor.tests.AdminRequirement" /> 
+				name="io.mosip.registrationProcessor.tests.AdminRequirement" /> --> 
 		</classes>
 	</test>
 </suite>
