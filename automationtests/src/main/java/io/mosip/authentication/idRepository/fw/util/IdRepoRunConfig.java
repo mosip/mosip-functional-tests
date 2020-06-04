@@ -1565,31 +1565,79 @@ public class IdRepoRunConfig extends RunConfig{
 	}
 
 	@Override
-	public String getCreateHolidayPath() {
+	public String getCreateTitlePath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getCreateGenderPath() {
+	public String getUpdateTitlePath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getUpdateGenderPath() {
+	public String getCreateMachineTypePath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getCreateDocumentCategoryPath() {
+	public String getCreateDeviceSpecificationPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getUpdateDocumentCategoryPath() {
+	public String getUpdateMachineTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateMachineSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateMachineSpecificationPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateRegCenterTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateTemplateFileFormatPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateTemplateFileFormatPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateTemplatePath() {
 		// TODO Auto-generated method stub
 		return null;
 	}

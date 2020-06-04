@@ -1,0 +1,427 @@
+testdata:
+   Admin_CreateDeviceSpecification_All_Valid_Smoke:
+      input.create-device-specification-request:
+         brand: Technoforte
+         description: Test DeviceSpec
+         deviceTypeCode: CMR
+         id: 743
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: 2020
+         name: Cam
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         id: $input.create-device-specification-request:id$
+         langCode: $input.create-device-specification-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_CreateDeviceSpecification_All_Valid_Mandatory_Fields:
+      input.create-device-specification-request:
+         brand: Technoforte
+         deviceTypeCode: CMR
+         id: 744
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Tech-2020
+         name: Cam
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         id: $input.create-device-specification-request:id$
+         langCode: $input.create-device-specification-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_CreateDeviceSpecification_Sec_Data_Present_but_No_Data_Prim_lang:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: true
+         RlangCode: ara
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-383
+         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         
+   Admin_CreateDeviceSpecification_InputParameter_Name_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Name_Empty:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 1 and 64'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Brand_Missing:
+      input.create-device-specification-request:
+         brand: $REMOVE$
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Brand_Empty:
+      input.create-device-specification-request:
+         brand: ''
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
+      input.create-device-specification-request:
+         brand: $TestData:validLocationCode37$
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.brand: size must be between 1 and 32'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Model_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: $REMOVE$
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Model_Empty:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: ''
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: FP1
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: $TestData:validStringLen17$
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.model: size must be between 1 and 16'
+         
+   Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: $REMOVE$
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Empty:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: ''
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: $TestData:validLocationCode37$
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.deviceTypeCode: size must be between 1 and 36'
+         
+         
+   Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: DMR
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-714
+         messageerrors0: 'Invalid dtype_code received'
+         
+   Admin_CreateDeviceSpecification_InputParameter_MinDriverversion_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: $REMOVE$
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_MinDriverversion_Empty:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: ''
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: $TestData:validStringLen17$
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.minDriverversion: size must be between 1 and 16'
+         
+   Admin_CreateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
+      input.create-device-specification-request:
+         brand: Techno
+         description: $TestData:Description257$ 
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 256'
+         
+   Admin_CreateDeviceSpecification_InputParameter_LangCode_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         id: 745
+         isActive: false
+         RlangCode: $REMOVE$
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_CreateDeviceSpecification_InputParameter_LangCode_Empty:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: ''
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be blank'        
+         
+   Admin_CreateDeviceSpecification_InputParameter_LangCode_AboveMaxLen3:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: engr
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         
+   Admin_CreateDeviceSpecification_InputParameter_LangCode:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR
+         id: 745
+         isActive: false
+         RlangCode: GST
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: Language code not supported'
+         
+   Admin_CreateDeviceSpecification_InputParameter_isActive_Missing:
+      input.create-device-specification-request:
+         brand: Techno
+         deviceTypeCode: CMR 
+         id: 745
+         isActive: $REMOVE$
+         RlangCode: eng
+         minDriverversion: 1.0
+         model: Techno-2020
+         name: Techno-Cam
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                    
+
+         

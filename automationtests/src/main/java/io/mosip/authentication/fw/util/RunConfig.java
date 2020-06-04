@@ -476,11 +476,19 @@ public abstract class RunConfig {
 			public abstract String getRegisterMDSPath();
 			
 			public abstract String getUpdateHolidayPath();
-			public abstract String getCreateHolidayPath();
-			public abstract String getCreateGenderPath();
-			public abstract String getUpdateGenderPath();
-			public abstract String getCreateDocumentCategoryPath();
-			public abstract String getUpdateDocumentCategoryPath();
+			public abstract String getCreateTitlePath();
+			public abstract String getUpdateTitlePath();
+			public abstract String getCreateMachineTypePath();
+			public abstract String getUpdateMachineTypePath();
+			public abstract String getCreateDeviceSpecificationPath();
+			public abstract String getUpdateDeviceSpecificationPath();
+			public abstract String getCreateMachineSpecificationPath();
+			public abstract String getUpdateMachineSpecificationPath();
+			public abstract String getCreateRegCenterTypePath();
+			public abstract String getUpdateRegCenterTypePath();
+			public abstract String getCreateTemplateFileFormatPath();
+			public abstract String getUpdateTemplateFileFormatPath();
+			public abstract String getCreateTemplatePath();
 		
 		//Resident
 		public abstract String getResidentGenerateVID(); 
