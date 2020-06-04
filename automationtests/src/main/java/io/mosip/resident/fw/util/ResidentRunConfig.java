@@ -1509,6 +1509,7 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+
 	@Override
 	public String getUpdateDocumentCategoryPath() {
 		// TODO Auto-generated method stub
@@ -1540,3 +1541,6 @@ public class ResidentRunConfig extends RunConfig {
 	}
 
 }
+
+
+

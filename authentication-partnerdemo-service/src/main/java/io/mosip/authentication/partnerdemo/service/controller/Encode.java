@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import io.mosip.kernel.core.util.CryptoUtil;
+import io.swagger.annotations.Api;
 
 /**
  * @author ArunBose S
@@ -22,6 +23,7 @@ import io.mosip.kernel.core.util.CryptoUtil;
  * The Class Encode is used to encode the String.
  */
 @RestController
+@Api(tags = { "Encode" })
 public class Encode {
 
 	/**

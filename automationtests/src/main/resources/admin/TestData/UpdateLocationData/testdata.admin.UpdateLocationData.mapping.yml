@@ -12,48 +12,47 @@ testdata:
       Rcode: TestLoc_code_2
       RisActive: false
       RparentLocCode: TestLoc_code_1
-      RhierarchyName: city
-      RhierarchyLevel: 2
+      Rname: Test_Loc_B_2
       RlangCode: $TestData:valid_LanguageCodeArabic$
+      RhierarchyName: 'المحافظة'
+      RhierarchyLevel: 2
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       isActive: false
+      name: Test_Loc_B_2
       parentLocCode: TestLoc_code_1
       code: TestLoc_code_2
-      hierarchyName: city
-      hierarchyLevel: 2
+      hierarchyName: 'المحافظة'
       langCode: $TestData:valid_LanguageCodeArabic$
       
   Admin_UpdateLocationData_valid_Activate:
     input.search-request:
       Rcode: TestLoc_code_2
+      Rname: Test_Loc_B_2
       RisActive: true
-      RparentLocCode: TestLoc_code_1
-      RhierarchyName: city
+      RhierarchyName: Province
       RhierarchyLevel: 2
+      RparentLocCode: TestLoc_code_1
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       isActive: true
+      hierarchyName: Province
+      hierarchyLevel: 2
+      name: Test_Loc_B_2
       parentLocCode: TestLoc_code_1
-      code: TestLoc_code_2
-      hierarchyName: city
-      hierarchyLevel: 2  
+      code: TestLoc_code_2  
   Admin_UpdateLocationData_valid_parentLoc_blank:
     input.search-request:
       Rname: TestLoc_code_3
       RparentLocCode: ''
       RisActive: true
       requesttime: $TIMESTAMPZ$
-      RhierarchyName: city
-      RhierarchyLevel: 2
     output.output-1-expected-pos-response:
       name: TestLoc_code_3
       responsetime: $IGNORE$
       isActive: true
-      hierarchyName: city
-      hierarchyLevel: 2
       parentLocCode: ''
 
   Admin_UpdateLocationData_inValid_ActivateLocIN_oneLang:
@@ -62,6 +61,7 @@ testdata:
       Rname: Activated
       RisActive: true
       RhierarchyLevel: 2
+      RhierarchyName: Province
       RparentLocCode: TestLoc_code_1
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
@@ -69,6 +69,7 @@ testdata:
       isActive: false
       hierarchyLevel: 2
       code: TestLoc_code_3
+      hierarchyName: Province
       parentLocCode: TestLoc_code_1
       name: Activated
           
@@ -128,7 +129,7 @@ testdata:
     input.search-request:
       Rname: 'Test_Loc_1_A_T'
       RparentLocCode: KTA
-      RhierarchyName: city
+      RhierarchyName: City
       RhierarchyLevel: 3
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:

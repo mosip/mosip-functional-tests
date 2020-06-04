@@ -26,6 +26,8 @@ import org.testng.internal.TestResult;
 
 import io.mosip.dbaccess.RegProcDBCleanUp;
 import io.mosip.dbaccess.RegProcTransactionDb;
+import io.mosip.kernel.packetmanager.exception.ApiNotAccessibleException;
+import io.mosip.kernel.packetmanager.exception.PacketDecryptionFailureException;
 import io.mosip.registrationProcessor.service.IntegMethods;
 import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.PacketFlowStatus;
@@ -52,7 +54,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 	PacketFlowStatus packetFlow=new PacketFlowStatus();
 	RegProcTransactionDb transaction=new RegProcTransactionDb();
 	@BeforeClass
-	public void readUserStage() {
+	public void readUserStage() throws PacketDecryptionFailureException, ApiNotAccessibleException {
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
 		Properties folderPath = new Properties();
 		try {

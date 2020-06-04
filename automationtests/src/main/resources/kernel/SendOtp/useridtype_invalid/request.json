@@ -2,13 +2,13 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "appId": "PREREGISTRATION",
+    "appId": "prereg",
     "context": "auth-otp",
     "otpChannel": [
-      "mobile"
+      "EMAIL"
     ],
     "templateVariables": {},
-    "userId": "7894787844",
+    "userId": "mosiptestmail@gmail.com",
     "useridtype": "edfsrefg"
   },
   "requesttime": "2018-12-10T06:12:52.994Z",

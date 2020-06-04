@@ -4,7 +4,7 @@
   "request": {
     "clientId": "registration-processor",
     "secretKey": "d80ec0be-bba7-4d8e-bf0c-85ab45bb976b",
-    "appId": "registration-processor"
+    "appId": "regproc"
   },
   "requesttime": "$TIMESTAMPZ$",
   "version": "string"

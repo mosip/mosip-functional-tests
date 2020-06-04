@@ -31,8 +31,10 @@ import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.partnerdemo.service.dto.ValidateSignRequestDto;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.util.DateUtils;
+import io.swagger.annotations.Api;
 
 @RestController
+@Api(tags = { "Digital Signature" })
 public class SignatureController {
 	
 	@Autowired

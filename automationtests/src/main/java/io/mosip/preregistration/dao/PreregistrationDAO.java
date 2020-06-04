@@ -60,6 +60,7 @@ public class PreregistrationDAO
 		String queryString="update prereg.reg_appointment set appointment_date='"+date+"' where prereg_id='"+preRegId+"'";
 		try {
 			dbAccess.updateDbData(queryString, "prereg");
+			
 		} catch (NullPointerException e) {
 			Assert.assertTrue(false,"Failed stabilized connection with preregdb");
 		}
@@ -71,6 +72,7 @@ public class PreregistrationDAO
 		String queryString = "SELECT  log_desc, event_id, event_type, event_name, session_user_id,module_name,ref_id,ref_id_type FROM audit.app_audit_log Where session_user_id='"+userId+"' order by action_dtimes desc";
 		try {
 			 auditData = dbAccess.getDbData(queryString, "audit");
+			 
 		} catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception while getting data from db");
 		}
@@ -80,6 +82,7 @@ public class PreregistrationDAO
 	{
 		String queryString = "SELECT E.otp FROM kernel.otp_transaction E WHERE id='" + userId + "'";
 		List<String> otp = dbAccess.getDbData(queryString, "kernel");
+		
 		return otp;
 	}
 	public String getConsumedStatus(String PreID)
@@ -88,6 +91,7 @@ public class PreregistrationDAO
 		List<String> preId_status = dbAccess.getConsumedStatus(queryString, "prereg");
 		try {
 			 status = preId_status.get(0).toString();
+			 
 		} catch (IndexOutOfBoundsException e) {
 			Assert.assertTrue(false, "PreRegistartion id is not present in demographic_Consumed table");
 		}
@@ -98,17 +102,20 @@ public class PreregistrationDAO
 		String queryString = "SELECT c.regcntr_id FROM prereg.reg_appointment_consumed c where c.prereg_id='" + PreID + "'";
 		List<String> preId_status = dbAccess.getConsumedStatus(queryString, "prereg");
 		String regCenterId = preId_status.get(0).toString();
+		
 		return regCenterId;
 	}
 	public String getDocumentIdOfConsumedApplication(String PreID) {
 		String queryString = "SELECT c.id FROM prereg.applicant_document_consumed c where c.prereg_id='" + PreID + "'";
 		List<String> preId_status = dbAccess.getConsumedStatus(queryString, "prereg");
 		String documentId = preId_status.get(0).toString();
+		
 		return documentId;
 	}
 	public Date getHolidayDate() {
 		String queryString = "SELECT c.holiday_date FROM master.loc_holiday c";
 		Date date = dbAccess.getHoliday(queryString, "masterdata");
+		
 		return date;
 		 
 	}
@@ -116,22 +123,26 @@ public class PreregistrationDAO
 	{
 		String queryString="update master.registration_center set is_active= "+Boolean.TRUE+ " where is_active="+Boolean.FALSE+ "";
 		dbAccess.updateDbData(queryString, "masterdata");
+		
 		new PreRegistrationLibrary().syncAvailability();
 	}
 	public void makeregistartionCenterActive(String registartionCenter)
 	{
 		String queryString="update master.registration_center set is_active= "+Boolean.TRUE+ " where id='"+registartionCenter+"'";
 		dbAccess.updateDbData(queryString, "masterdata");
+		
 	}
 	public void makeregistartionCenterDeActive(String registartionCenter)
 	{
 		String queryString="update master.registration_center set is_active= "+Boolean.FALSE+ " where id='"+registartionCenter+"'";
 		dbAccess.updateDbData(queryString, "masterdata");
+		
 	}
 	public void deleteAvailableSlot()
 	{
 		String queryString="Delete from prereg.reg_available_slot";
 		dbAccess.delete(queryString, "prereg");
+		
 	}
 	public Date MakeDayAsHoliday()
 	{
@@ -151,6 +162,7 @@ public class PreregistrationDAO
 		  
 		String queryString="update master.loc_holiday set holiday_date= '"+date1+ "' where holiday_date='"+date3+"'";
 		dbAccess.updateDbData(queryString, "masterdata");
+		
 		return date1;
 	}
 	public void updateHoliday(Date date)
@@ -164,5 +176,6 @@ public class PreregistrationDAO
 		}  
 		String queryString="update master.loc_holiday set holiday_date= '"+date3+"' where holiday_date='"+date+"'";
 		dbAccess.updateDbData(queryString, "masterdata");
+		
 	}	
 }

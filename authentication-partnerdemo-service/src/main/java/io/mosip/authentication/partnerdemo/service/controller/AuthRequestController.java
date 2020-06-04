@@ -61,6 +61,7 @@ import io.mosip.kernel.core.templatemanager.spi.TemplateManagerBuilder;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.swagger.annotations.Api;
 
 /**
  * The Class AuthRequestController is used to automate the creation of Auth
@@ -69,6 +70,7 @@ import io.mosip.kernel.core.util.HMACUtils;
  * @author Arun Bose S
  */
 @RestController
+@Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
 
 	private static final String DIGITAL_ID = "digitalId";
@@ -134,7 +136,7 @@ public class AuthRequestController {
 	private ObjectMapper mapper;
 
 	@Autowired
-	DigitalSign digitalSign;
+	JWSSignAndVerifyController jWSSignAndVerifyController;
 
 	@PostConstruct
 	public void idTemplateManagerPostConstruct() {
@@ -169,6 +171,10 @@ public class AuthRequestController {
 	 *                                            exception
 	 * @throws IdAuthenticationBusinessException  the id authentication business
 	 *                                            exception
+	 * @throws JoseException 
+	 * @throws UnrecoverableEntryException 
+	 * @throws CertificateException 
+	 * @throws KeyStoreException 
 	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/createAuthRequest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -182,7 +188,7 @@ public class AuthRequestController {
 			@RequestBody Map<String, Object> request)
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException {
+			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
 		reqValues.put(OTP, false);
@@ -245,7 +251,7 @@ public class AuthRequestController {
 			@RequestBody List<Map<String, Object>> biometrics)
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException {
+			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
 		String previousHash = digest(getHash(""));
 
 		for (Map<String, Object> bioMap : biometrics) {
@@ -275,8 +281,8 @@ public class AuthRequestController {
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
-					String encodedDigitalId = CryptoUtil.encodeBase64(digitalIdStr.getBytes());
-					dataMap.put(DIGITAL_ID, encodedDigitalId);
+					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr);
+					dataMap.put(DIGITAL_ID, signedDititalId);
 				}
 
 				String dataStrJson = mapper.writeValueAsString(dataMap);
@@ -285,7 +291,7 @@ public class AuthRequestController {
 					if(isInternal) {
 						dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
 					} else {
-						dataStr = digitalSign.sign(dataStrJson);
+						dataStr = jWSSignAndVerifyController.sign(dataStrJson);
 					}
 					bioMap.put(DATA, dataStr);
 				} catch (KeyStoreException | CertificateException | UnrecoverableEntryException | JoseException e) {
