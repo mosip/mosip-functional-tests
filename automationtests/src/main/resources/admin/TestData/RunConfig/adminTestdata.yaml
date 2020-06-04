@@ -753,6 +753,5 @@ valid_zoneUser_id5:
 valid_DocumentType_name:
     - positive2  
 valid_DocumentType_Desc:
-    - Testing positive Doc 
-    
+    - Testing positive Doc
                    

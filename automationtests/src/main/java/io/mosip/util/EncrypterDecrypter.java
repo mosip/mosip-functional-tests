@@ -14,9 +14,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.Base64;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import javax.ws.rs.core.MediaType;
@@ -29,7 +27,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.testng.annotations.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -38,6 +36,10 @@ import io.mosip.dbdto.CryptomanagerDto;
 import io.mosip.dbdto.CryptomanagerRequestDto;
 import io.mosip.dbdto.DecrypterDto;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.kernel.packetmanager.exception.ApiNotAccessibleException;
+import io.mosip.kernel.packetmanager.exception.PacketDecryptionFailureException;
+import io.mosip.kernel.packetmanager.impl.PacketDecryptorImpl;
+import io.mosip.kernel.packetmanager.spi.PacketDecryptor;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
@@ -51,11 +53,13 @@ import net.lingala.zip4j.exception.ZipException;
  */
 
 public class EncrypterDecrypter extends BaseTestCase {
+	
+	PacketDecryptorImpl packetDecryptor=new PacketDecryptorImpl();
 	private static Logger logger = Logger.getLogger(EncrypterDecrypter.class);
 	static ApplicationLibrary applnMethods=new ApplicationLibrary();
 	RegProcApiRequests apiRequests=new RegProcApiRequests();
-	private final String decrypterURL="/v1/cryptomanager/decrypt";
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String decrypterURL="/v1/keymanager/decrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	private String applicationId="REGISTRATION";	
 	InputStream outstream = null;
 	TokenGeneration generateToken=new TokenGeneration();
@@ -95,6 +99,7 @@ public class EncrypterDecrypter extends BaseTestCase {
 			validToken = getToken("syncTokenGenerationFilePath");
 			tokenStatus=apiRequests.validateToken(validToken);
 		}
+		
 		Response response = apiRequests.postRequestToDecrypt(decrypterURL, decryptDto,MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 		JSONObject data= (JSONObject) new JSONParser().parse(response.asString());
 		JSONObject responseObject=(JSONObject) data.get("response");
@@ -272,16 +277,16 @@ public class EncrypterDecrypter extends BaseTestCase {
 		String centerId=file.getName().substring(0,5);
 		String machineId=file.getName().substring(5,10);
 		try {
-			encryptedPacket=new FileInputStream(file);
+			//encryptedPacket=new FileInputStream(file);
 			byte [] fileInBytes=FileUtils.readFileToByteArray(file);
-			//String encryptedPacketString= Base64.getEncoder().encodeToString(fileInBytes);
-			String encryptedPacketString = IOUtils.toString(encryptedPacket, "UTF-8");
-			encryptedPacketString=encryptedPacketString.replaceAll("\\s+","");
+			String encryptedPacketString= Base64.getEncoder().encodeToString(fileInBytes);
+			//String encryptedPacketString = IOUtils.toString(encryptedPacket, "UTF-8");
+			//encryptedPacketString=encryptedPacketString.replaceAll("\\s+","");
 			String registrationId=file.getName().substring(0,file.getName().lastIndexOf('.'));
 			String packetCreatedDateTime = registrationId.substring(registrationId.length() - 14);
 			int n = 100 + new Random().nextInt(900);
 			String milliseconds = String.valueOf(n);
-			encryptedPacket.close();
+			//encryptedPacket.close();
 			Date date = formatter.parse(packetCreatedDateTime.substring(0, 8) + "T"
 					+ packetCreatedDateTime.substring(packetCreatedDateTime.length() - 6)+milliseconds);
 			LocalDateTime ldt = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
@@ -536,5 +541,23 @@ public class EncrypterDecrypter extends BaseTestCase {
 			return demo;
 			  
 		}*/
-	
+	public void decryptPacket(File file,String regId) {
+		InputStream outputStream = null;
+		try {
+			outputStream = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		InputStream decryptedPacket;
+		try {
+			decryptedPacket = packetDecryptor.decrypt(outputStream, regId);
+			System.out.println(decryptedPacket);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

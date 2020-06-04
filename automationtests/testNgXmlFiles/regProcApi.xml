@@ -13,8 +13,8 @@
 	
 	<test name="RegistrationProcessor Tests">
 		<classes>
-<class
-				name="io.mosip.registrationProcessor.tests.IntegrationScenarios" />
+	<class
+				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
 				<!-- <class
 				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 				<class
@@ -45,7 +45,7 @@
 				name="io.mosip.registrationProcessor.tests.PrintingStage" />
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />
 			<class
-				name="io.mosip.registrationProcessor.tests.AdminRequirement" /> -->
+				name="io.mosip.registrationProcessor.tests.AdminRequirement" /> --> 
 		</classes>
 	</test>
 </suite>

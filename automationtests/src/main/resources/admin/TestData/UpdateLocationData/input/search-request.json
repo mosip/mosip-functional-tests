@@ -5,7 +5,7 @@
     "code": "TestLoc_code_1",
     "name": "Test_Loc_1_A_T",
     "hierarchyLevel": 3,
-    "hierarchyName": "city",
+    "hierarchyName": "City",
     "parentLocCode": "KNT",
     "langCode": "eng",
     "isActive": true

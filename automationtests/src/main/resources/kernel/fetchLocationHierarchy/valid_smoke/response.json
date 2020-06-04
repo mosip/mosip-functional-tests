@@ -52,7 +52,7 @@
 			},
 			{
 				"code": "MOR",
-				"name": "Morocco",
+				"name": "MyCountry",
 				"hierarchyLevel": 0,
 				"hierarchyName": "Country",
 				"parentLocCode": null,

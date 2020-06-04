@@ -1,0 +1,18 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "holidayDate": "string",
+    "holidayDay": "1",
+    "holidayDesc": "Automation -11",
+    "holidayMonth": "May",
+    "holidayName": "Labour Day-11",
+    "holidayYear": "2020",
+    "id":"20010192",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "KTA"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}

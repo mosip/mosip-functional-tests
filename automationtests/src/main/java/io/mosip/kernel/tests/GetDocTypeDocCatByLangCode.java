@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -29,6 +33,7 @@ import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.kernel.service.AssertKernel;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.kernel.util.TestCaseReader;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -82,7 +87,7 @@ public class GetDocTypeDocCatByLangCode extends BaseTestCase implements ITest{
 	 */
 	@SuppressWarnings("unchecked")
 	@Test(dataProvider="GetDocType_DocCatByLangCode")
-	public void getDocType_DocCatByLangCode(String testcaseName) 
+	public void getDocType_DocCatByLangCode(String testcaseName) throws ParseException 
     {
 		logger.info(testcaseName);
 		// getting request and expected response jsondata from json files.
@@ -94,12 +99,52 @@ public class GetDocTypeDocCatByLangCode extends BaseTestCase implements ITest{
 		Response res=applicationLibrary.getWithPathParam(getDocTypeDocCatByLangCode, actualRequest, adminCookie);
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
-		// Removing of unstable attributes from response
-		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
-		listOfElementToRemove.add("timestamp");
-		listOfElementToRemove.add("responsetime");
-		// Comparing expected and actual response
-		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
+		
+		JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(res.asString())).get("response");
+		
+		if (responseJson!= null && responseJson.containsKey("documentcategories")) {
+
+			String query = "select count(DISTINCT doccat_code) from master.valid_document where is_active = true";
+
+			long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query,"masterdata");
+
+			// fetching json array of objects from response
+			JSONArray responseArrayFromGet = (JSONArray) responseJson.get("documentcategories");
+			logger.info("===Dbcount===" + obtainedObjectsCount + "===Get-count===" + responseArrayFromGet.size());
+
+			// validating number of objects obtained form db and from get request
+			if (responseArrayFromGet.size() == obtainedObjectsCount) {
+
+				// list to validate existance of attributes in response objects
+				List<String> attributesToValidateExistance = new ArrayList<String>();
+				attributesToValidateExistance.add("code");
+				attributesToValidateExistance.add("name");
+				attributesToValidateExistance.add("langCode");
+				attributesToValidateExistance.add("isActive");
+				attributesToValidateExistance.add("documenttypes");
+
+				// key value of the attributes passed to fetch the data, should be same in all
+				// obtained objects
+				HashMap<String, String> passedAttributesToFetch = new HashMap<String, String>();
+				if (actualRequest != null) {
+					passedAttributesToFetch.put("langCode", actualRequest.get("languagecode").toString());
+				}
+
+				status = AssertKernel.validator(responseArrayFromGet, attributesToValidateExistance,
+						passedAttributesToFetch);
+			} else
+				status = false;
+
+		}
+
+		else {
+
+			// add parameters to remove in response before comparison like time stamp
+			ArrayList<String> listOfElementToRemove = new ArrayList<String>();
+			listOfElementToRemove.add("responsetime");
+			status = assertKernel.assertKernel(res, Expectedresponse, listOfElementToRemove);
+		}
+
 		if (!status) {
 			logger.debug(res);
 		}

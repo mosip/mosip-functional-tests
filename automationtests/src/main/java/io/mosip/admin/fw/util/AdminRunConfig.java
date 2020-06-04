@@ -1820,4 +1820,47 @@ public class AdminRunConfig extends RunConfig {
 	}
 
 
+	@Override
+	public String getCreateHolidayPath() {
+		return createHolidayPath;
+	}
+	public void setCreateHolidayPath(String createHolidayPath) {
+   		this.createHolidayPath = createHolidayPath;
+   	}
+
+	@Override
+	public String getCreateGenderPath() {
+		return createGenderPath;
+	}
+
+	public void setCreateGenderPath(String createGenderPath) {
+		this.createGenderPath = createGenderPath;
+	}
+	
+	@Override
+	public String getUpdateGenderPath() {
+		return updateGenderPath;
+	}
+
+	public void setUpdateGenderPath(String updateGenderPath) {
+		this.updateGenderPath = updateGenderPath;
+	}
+	
+	@Override
+	public String getCreateDocumentCategoryPath() {
+		return createDocumentCategoryPath;
+	}
+
+	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
+		this.createDocumentCategoryPath = createDocumentCategoryPath;
+	}
+	
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		return updateDocumentCategoryPath;
+	}
+
+	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
+		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+	}
 }

@@ -27,6 +27,8 @@ import org.json.simple.parser.ParseException;
 
 import io.mosip.dbdto.DecrypterDto;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.kernel.packetmanager.exception.ApiNotAccessibleException;
+import io.mosip.kernel.packetmanager.exception.PacketDecryptionFailureException;
 import io.mosip.registrationProcessor.tests.UpdatePacket;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.EncrypterDecrypter;
@@ -146,9 +148,11 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 * @param invalidPacketPath generates invalid packet which should fail in packet
 	 *                          validator stage packets are created by changing the
 	 *                          packet structure itself
+	 * @throws ApiNotAccessibleException 
+	 * @throws PacketDecryptionFailureException 
 	 */
 	public void generateInvalidPacketForPacketValidator(String fileName, String validPacketPath,
-			String invalidPacketPath) {
+			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException {
 
 		File decryptedPacket = null;
 		JSONObject metaInfo = null;
@@ -166,6 +170,7 @@ public class TweakRegProcPackets extends BaseTestCase {
 				//String regId = generateRegId(centerId, machineId);
 				JSONObject requestBody = encryptDecrypt.generateCryptographicData(f);
 				try {
+					//encryptDecrypt.decryptPacket(f,regId);
 					decryptedPacket = encryptDecrypt.decryptFile(requestBody, configPath, f.getName());
 					// decryptedPacket=
 					// encryptDecrypt.extractFromDecryptedPacket(configPath,f.getName());
@@ -703,10 +708,12 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 * @param validPacketPath
 	 * @param invalidPacketPath reads property files containing set of properties to
 	 *                          be updated packet validator stage
+	 * @throws ApiNotAccessibleException 
+	 * @throws PacketDecryptionFailureException 
 	 */
 
 	public void packetValidatorPropertyFileReader(String propertyFile, String validPacketPath,
-			String invalidPacketPath) {
+			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException {
 		Properties prop = new Properties();
 		TweakRegProcPackets e = new TweakRegProcPackets();
 		String propertyFilePath = apiRequests.getResourcePath() +"config/" + propertyFile;

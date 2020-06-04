@@ -125,7 +125,7 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 						.get("response");
 				JSONArray syncDataArray	= (JSONArray) responseJson.get("dataToSync");
 				logger.info("Number of masterData entities :" + syncDataArray.size());
-				status = syncDataArray.size()==52; 
+				status = syncDataArray.size()==51; 
 				if (!status) logger.info("Response from API: "+response.asString());
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
