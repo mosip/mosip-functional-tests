@@ -1819,48 +1819,35 @@ public class AdminRunConfig extends RunConfig {
 		this.createTemplatePath = createTemplatePath;
 	}
 
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
-	public String getCreateHolidayPath() {
-		return createHolidayPath;
+	public String getCreateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public void setCreateHolidayPath(String createHolidayPath) {
-   		this.createHolidayPath = createHolidayPath;
-   	}
+
+	@Override
+	public String getUpdateGenderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public String getCreateGenderPath() {
-		return createGenderPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setCreateGenderPath(String createGenderPath) {
-		this.createGenderPath = createGenderPath;
-	}
-	
 	@Override
-	public String getUpdateGenderPath() {
-		return updateGenderPath;
+	public String getCreateHolidayPath() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setUpdateGenderPath(String updateGenderPath) {
-		this.updateGenderPath = updateGenderPath;
-	}
-	
-	@Override
-	public String getCreateDocumentCategoryPath() {
-		return createDocumentCategoryPath;
-	}
 
-	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
-		this.createDocumentCategoryPath = createDocumentCategoryPath;
-	}
-	
-	@Override
-	public String getUpdateDocumentCategoryPath() {
-		return updateDocumentCategoryPath;
-	}
-
-	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
-		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
-	}
 }

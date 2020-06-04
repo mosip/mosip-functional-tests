@@ -1509,4 +1509,38 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+
+	@Override
+	public String getUpdateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateDocumentCategoryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateGenderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateGenderPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateHolidayPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+
+
+
