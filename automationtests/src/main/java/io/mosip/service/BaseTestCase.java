@@ -151,6 +151,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
 		}
+		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
+			AuthTestsUtil.initiateAuthTest();
+		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 		}
