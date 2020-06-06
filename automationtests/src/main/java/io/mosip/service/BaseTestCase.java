@@ -158,6 +158,7 @@ public class BaseTestCase {
 			AdminTestUtil.initiateAdminTest();
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
+			AuthTestsUtil.initiateAuthTest();
 			ResidentTestUtil.initiateResidentTest();
 		}
 
