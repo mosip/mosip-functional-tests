@@ -218,14 +218,12 @@ public class Encrypt {
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
-		//CryptomanagerRequest request = new CryptomanagerRequest();
 		request.setApplicationId(appID);
 		request.setSalt(salt);
 		request.setAad(aad);
 		request.setReferenceId(getRefId(isInternal, true));
 		request.setData(bioValue);
 		request.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
-		//cryptomanagerRequestDto.setRequest(request);
 		
 		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(request));
 		ResponseEntity<Map> response = restTemplate.exchange(encryptURL, HttpMethod.POST, httpEntity, Map.class);
@@ -337,13 +335,10 @@ public class Encrypt {
 
 		String utcTime = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
-		//CryptomanagerRequest request = new CryptomanagerRequest();
 		request.setApplicationId(appID);
 		request.setReferenceId(refId);
 		request.setData(Base64.encodeBase64URLSafeString(data.getBytes(StandardCharsets.UTF_8)));
 		request.setTimeStamp(utcTime);
-		//cryptomanagerRequestDto.setRequest(request);		
-		
 		
 		Map<String, String> uriParams = new HashMap<>();
 		uriParams.put("appId", appID);
