@@ -69,7 +69,7 @@ public class Decrypt {
 	private String partnerId;
 	
 	/** The encrypt URL. */
-	@Value("${mosip.kernel.decrypt-url}")
+	@Value("${mosip.ida.decrypt-url}")
 	private String decryptURL;
 	
 	/** The key splitter. */
@@ -175,13 +175,14 @@ public class Decrypt {
 		restTemplate.setInterceptors(Collections.singletonList(interceptor));
 
 		CryptomanagerRequestDto cryptomanagerRequestDto = new CryptomanagerRequestDto();
+		//CryptomanagerRequest cryptomanagerRequestDto = new CryptomanagerRequest();
 		cryptomanagerRequestDto.setApplicationId(appID);
 		cryptomanagerRequestDto.setReferenceId(refId);
 		cryptomanagerRequestDto.setData(data);
 		cryptomanagerRequestDto.setAad(aad);
 		cryptomanagerRequestDto.setSalt(salt);
 		cryptomanagerRequestDto.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
-		
+		//request.setRequest(cryptomanagerRequestDto);
 		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(cryptomanagerRequestDto));
 		ResponseEntity<Map> response = restTemplate.exchange(decryptURL, HttpMethod.POST, httpEntity, Map.class);
 		
