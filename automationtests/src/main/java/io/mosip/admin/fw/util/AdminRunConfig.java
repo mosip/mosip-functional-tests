@@ -114,23 +114,21 @@ public class AdminRunConfig extends RunConfig {
     private String updateRegCenterTypePath;
     private String createTemplateFileFormatPath;
     private String updateTemplateFileFormatPath;
-    private String createTemplatePath;
     
     private String createHolidayPath;
-   
-
 	private String createGenderPath;
-    
 	private String updateGenderPath;
-    
-
 	private String createDocumentCategoryPath;
-    
-
 	private String updateDocumentCategoryPath;
+	
+	private String createTemplatePath;
+    private String updateTemplatePath;
+    private String createTemplateTypePath;
+    private String createDeviceTypePath;
+    private String updateDeviceTypePath;
+    private String createIndividualTypePath;
+    private String updateIndividualTypePath;
     
-    
-
 
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
@@ -238,6 +236,12 @@ public class AdminRunConfig extends RunConfig {
 		setUpdateGenderPath(AdminTestUtil.getPropertyValue("updateGenderPath"));
 		setCreateGenderPath(AdminTestUtil.getPropertyValue("createGenderPath"));
 		setCreateHolidayPath(AdminTestUtil.getPropertyValue("createHolidayPath"));
+		setUpdateTemplatePath(AdminTestUtil.getPropertyValue("updateTemplatePath"));
+		setCreateTemplateTypePath(AdminTestUtil.getPropertyValue("createTemplateTypePath"));
+		setCreateDeviceTypePath(AdminTestUtil.getPropertyValue("createDeviceTypePath"));
+		setUpdateDeviceTypePath(AdminTestUtil.getPropertyValue("updateDeviceTypePath"));
+		setCreateIndividualTypePath(AdminTestUtil.getPropertyValue("createIndividualTypePath"));
+		setUpdateIndividualTypePath(AdminTestUtil.getPropertyValue("updateIndividualTypePath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1879,49 +1883,52 @@ public class AdminRunConfig extends RunConfig {
 	public void setCreateHolidayPath(String createHolidayPath) {
 		this.createHolidayPath = createHolidayPath;
 	}
-
-
 	@Override
-	public String getCreateHolidayPath() {
-		return createHolidayPath;
+	public String getUpdateTemplatePath() {
+		return updateTemplatePath;
 	}
-	public void setCreateHolidayPath(String createHolidayPath) {
-   		this.createHolidayPath = createHolidayPath;
-   	}
 
+	public void setUpdateTemplatePath(String updateTemplatePath) {
+		this.updateTemplatePath = updateTemplatePath;
+	}
 	@Override
-	public String getCreateGenderPath() {
-		return createGenderPath;
+	public String getCreateTemplateTypePath() {
+		return createTemplateTypePath;
 	}
 
-	public void setCreateGenderPath(String createGenderPath) {
-		this.createGenderPath = createGenderPath;
+	public void setCreateTemplateTypePath(String createTemplateTypePath) {
+		this.createTemplateTypePath = createTemplateTypePath;
 	}
-	
 	@Override
-	public String getUpdateGenderPath() {
-		return updateGenderPath;
+	public String getCreateDeviceTypePath() {
+		return createDeviceTypePath;
 	}
 
-	public void setUpdateGenderPath(String updateGenderPath) {
-		this.updateGenderPath = updateGenderPath;
+	public void setCreateDeviceTypePath(String createDeviceTypePath) {
+		this.createDeviceTypePath = createDeviceTypePath;
 	}
-	
 	@Override
-	public String getCreateDocumentCategoryPath() {
-		return createDocumentCategoryPath;
+	public String getUpdateDeviceTypePath() {
+		return updateDeviceTypePath;
 	}
 
-	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
-		this.createDocumentCategoryPath = createDocumentCategoryPath;
+	public void setUpdateDeviceTypePath(String updateDeviceTypePath) {
+		this.updateDeviceTypePath = updateDeviceTypePath;
 	}
-	
 	@Override
-	public String getUpdateDocumentCategoryPath() {
-		return updateDocumentCategoryPath;
+	public String getCreateIndividualTypePath() {
+		return createIndividualTypePath;
 	}
 
-	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
-		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+	public void setCreateIndividualTypePath(String createIndividualTypePath) {
+		this.createIndividualTypePath = createIndividualTypePath;
+	}
+	@Override
+	public String getUpdateIndividualTypePath() {
+		return updateIndividualTypePath;
+	}
+
+	public void setUpdateIndividualTypePath(String updateIndividualTypePath) {
+		this.updateIndividualTypePath = updateIndividualTypePath;
 	}
 }
