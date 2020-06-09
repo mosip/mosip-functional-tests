@@ -1540,6 +1540,42 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getUpdateTemplatePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateTemplateTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateDeviceTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateIndividualTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateIndividualTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 
 

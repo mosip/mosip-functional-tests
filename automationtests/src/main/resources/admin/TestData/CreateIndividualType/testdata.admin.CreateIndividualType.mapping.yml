@@ -1,0 +1,165 @@
+testdata:
+   Admin_CreateIndividualType_All_Valid_Smoke:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         isActive: $input.create-individual-type-request:RisActive$
+         code: $input.create-individual-type-request:Rcode$
+         langCode: $input.create-individual-type-request:RlangCode$
+         name: $input.create-individual-type-request:Rname$         
+         createdBy: $IGNORE$
+         createdDateTime: $IGNORE$
+         updatedBy: $IGNORE$
+         updatedDateTime: $IGNORE$
+         isDeleted: $IGNORE$
+         deletedDateTime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateIndividualType_Sec_Data_Present_but_No_Data_Prim_lang:
+      input.create-individual-type-request:
+         Rcode: TST2
+         Rname: TestInd
+         RisActive: true
+         RlangCode: ara
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: KER-MSD-383
+         messageerrors0: 'Recived data dones not contain data for Primary Langauge'
+         
+   Admin_CreateIndividualType_valid_secondarylang_SameDataAsVldScnrio:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: true
+         RlangCode: ara
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         isActive: $input.create-individual-type-request:RisActive$
+         code: $input.create-individual-type-request:Rcode$
+         langCode: $input.create-individual-type-request:RlangCode$
+         name: $input.create-individual-type-request:Rname$         
+         createdBy: $IGNORE$
+         createdDateTime: $IGNORE$
+         updatedBy: $IGNORE$
+         updatedDateTime: $IGNORE$
+         isDeleted: $IGNORE$
+         deletedDateTime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateIndividualType_InputParameter_Name_Missing:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: $REMOVE$
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_CreateIndividualType_InputParameter_Name_Empty:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: ''
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         
+   Admin_CreateIndividualType_InputParameter_Name_AboveMaxLen64:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         RisActive: false
+         RlangCode: eng
+         Rname: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         
+   Admin_CreateIndividualType_InputParameter_LangCode_Missing:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_CreateIndividualType_InputParameter_LangCode_Empty:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'        
+         
+   Admin_CreateIndividualType_InputParameter_LangCode_AboveMaxLen3:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: engr 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_CreateIndividualType_InputParameter_LangCode:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: GER 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_CreateIndividualType_InputParameter_isActive_Missing:
+      input.create-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: $REMOVE$
+         RlangCode: GER
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                  
+         
+                                    
+         
+         
+                                                     
+                  

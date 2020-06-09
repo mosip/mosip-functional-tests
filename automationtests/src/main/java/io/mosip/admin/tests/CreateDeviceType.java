@@ -32,7 +32,7 @@ import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
-public class UpdateTemplate  extends AdminTestUtil implements ITest {
+public class CreateDeviceType  extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(CreateDevice.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
@@ -48,11 +48,11 @@ public class UpdateTemplate  extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String query = queries.get("updateTemplate").toString();
+		String query = queries.get("createDeviceType").toString();
 		if (masterDB.executeQuery(query, "masterdata"))
-			logger.info("Template updated with new code as Test successfully using query from query.properties");
+			logger.info("Device Type created with new code as Test successfully using query from query.properties");
 		else
-			logger.info("not able to update Template using query from query.properties");
+			logger.info("not able to create Device Type using query from query.properties");
 	}
 
 	/**
@@ -141,6 +141,16 @@ public class UpdateTemplate  extends AdminTestUtil implements ITest {
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, testCaseName);
+			//check whether secondary data inserted in DB without existing primary language
+			if(testCaseName.contains("No_Data_Prim_lang")) {
+				if (masterDB.validateDBCount(queries.get("checkPrimDataAgnstSecData").toString(), "masterdata")==1) {
+				logger.info("Data stored successfully for secondory language but no data present for Primary language");
+				throw new AdminTestException("Recived data dones not contain data for Primary Langauge");
+				
+				}else {
+					logger.info("No DeviceType created  for secondary language");
+				}
+			}
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -156,7 +166,7 @@ public class UpdateTemplate  extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void updateTemplate(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void createDeviceType(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -164,10 +174,10 @@ public class UpdateTemplate  extends AdminTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdateTemplatePath();
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateDeviceTypePath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -183,11 +193,11 @@ public class UpdateTemplate  extends AdminTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(queries.get("deleteUpdateTemplate").toString(), "masterdata"))
-			logger.info("deleted all update Template details successfully");
+		if (masterDB.executeQuery(queries.get("deleteCreatedDeviceType").toString(), "masterdata"))
+			logger.info("deleted all created Device Type details successfully");
 		else {
-			logger.info("not able to delete updated Template details using query from query.properties");
-			throw new AdminTestException("not able to delete updated Template details data form DB");
+			logger.info("not able to delete created Device Type details using query from query.properties");
+			throw new AdminTestException("not able to delete created Device Type details data form DB");
 		}
 	}
 }

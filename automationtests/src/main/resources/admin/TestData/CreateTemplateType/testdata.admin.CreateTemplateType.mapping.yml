@@ -1,0 +1,120 @@
+testdata:
+   Admin_CreateTemplateType_All_Valid_Smoke:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.create-template-type-request:Rcode$
+         langCode: $input.create-template-type-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+         
+   Admin_CreateTemplateType_InputParameter_Code_Missing:
+      input.create-template-type-request:
+         Rcode: $REMOVE$
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_CreateTemplateType_InputParameter_Code_Empty:
+      input.create-template-type-request:
+         Rcode: ''
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_CreateTemplateType_InputParameter_Code_AboveMaxLen36:
+      input.create-template-type-request:
+         Rcode: $TestData:validLocationCode37$
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
+         
+         
+   Admin_CreateTemplateType_InputParameter_LangCode_Missing:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_CreateTemplateType_InputParameter_LangCode_Empty:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'        
+         
+   Admin_CreateTemplateType_InputParameter_LangCode_AboveMaxLen3:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: engr 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_CreateTemplateType_InputParameter_Invalid_LangCode:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: true
+         RlangCode: GST 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_CreateTemplateType_InputParameter_isActive_Missing:
+      input.create-template-type-request:
+         Rcode: Test-info-Template
+         description: Test-info-Template desc
+         isActive: $REMOVE$
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'
+         
