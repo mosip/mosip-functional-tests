@@ -494,6 +494,12 @@ public abstract class RunConfig {
 			public abstract String getUpdateGenderPath();
 			public abstract String getCreateGenderPath();
 			public abstract String getCreateHolidayPath();
+			public abstract String getUpdateTemplatePath();
+			public abstract String getCreateTemplateTypePath();
+			public abstract String getCreateDeviceTypePath();
+			public abstract String getUpdateDeviceTypePath();
+			public abstract String getCreateIndividualTypePath();
+			public abstract String getUpdateIndividualTypePath();
 			
 		
 		//Resident

@@ -203,6 +203,13 @@
 			<class name="io.mosip.admin.tests.CreateTemplateFileFormat" />
 			<class name="io.mosip.admin.tests.UpdateTemplateFileFormat" />
 			<class name="io.mosip.admin.tests.CreateTemplate" />
+			
+			<class name="io.mosip.admin.tests.UpdateTemplate" />
+			<class name="io.mosip.admin.tests.CreateTemplateType" />
+			<class name="io.mosip.admin.tests.CreateDeviceType" />
+			<class name="io.mosip.admin.tests.UpdateDeviceType" />
+			<class name="io.mosip.admin.tests.CreateIndividualType" />
+			<class name="io.mosip.admin.tests.UpdateIndividualType" />
 		</classes>
 	</test>
 
