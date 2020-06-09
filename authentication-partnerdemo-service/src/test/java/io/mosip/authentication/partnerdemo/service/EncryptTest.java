@@ -63,7 +63,7 @@ public class EncryptTest {
 	 */
 	@Before
 	public void before() {
-		ReflectionTestUtils.setField(encryptMock, "publicKeyURL", environment.getProperty("mosip.ida.publicKey-url"));
+		ReflectionTestUtils.setField(encryptMock, "publicKeyURL", environment.getProperty("mosip.kernel.publicKey-url"));
 		ReflectionTestUtils.setField(encryptMock, "appID", environment.getProperty("application.id"));
 		ReflectionTestUtils.setField(encryptMock, "keySplitter", environment.getProperty("mosip.kernel.data-key-splitter"));
 		ReflectionTestUtils.setField(encryptMock, "objMapper", objMapper);
