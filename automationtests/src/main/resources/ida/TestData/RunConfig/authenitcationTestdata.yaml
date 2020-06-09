@@ -351,9 +351,9 @@ bio_finger_RightThumb_subType:
 bio_face_type:
       - FACE
 bio_finger_type:
-      - FIR
+      - Finger
 bio_iris_type:
-      - IIR
+      - Iris
 bio_finger_deviceCode:
       - bc0b6848-6d45-46d1-a9bd-b334410bf823
 bio_finger_deviceProviderID:
