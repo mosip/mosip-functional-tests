@@ -115,6 +115,7 @@ public class AdminRunConfig extends RunConfig {
     private String createTemplateFileFormatPath;
     private String updateTemplateFileFormatPath;
     
+
     private String createHolidayPath;
 	private String createGenderPath;
 	private String updateGenderPath;
@@ -128,6 +129,7 @@ public class AdminRunConfig extends RunConfig {
     private String updateDeviceTypePath;
     private String createIndividualTypePath;
     private String updateIndividualTypePath;
+
     
 
 	@Override
@@ -231,6 +233,7 @@ public class AdminRunConfig extends RunConfig {
 		setCreateTemplateFileFormatPath(AdminTestUtil.getPropertyValue("createTemplateFileFormatPath"));
 		setUpdateTemplateFileFormatPath(AdminTestUtil.getPropertyValue("updateTemplateFileFormatPath"));
 		setCreateTemplatePath(AdminTestUtil.getPropertyValue("createTemplatePath"));
+
 		setUpdateDocumentCategoryPath(AdminTestUtil.getPropertyValue("updateDocumentCategoryPath"));
 		setCreateDocumentCategoryPath(AdminTestUtil.getPropertyValue("createDocumentCategoryPath"));
 		setUpdateGenderPath(AdminTestUtil.getPropertyValue("updateGenderPath"));
@@ -242,7 +245,7 @@ public class AdminRunConfig extends RunConfig {
 		setUpdateDeviceTypePath(AdminTestUtil.getPropertyValue("updateDeviceTypePath"));
 		setCreateIndividualTypePath(AdminTestUtil.getPropertyValue("createIndividualTypePath"));
 		setUpdateIndividualTypePath(AdminTestUtil.getPropertyValue("updateIndividualTypePath"));
-	}
+
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
 		String[] folderList = filePath.getName().split(Pattern.quote("."));
@@ -1841,52 +1844,35 @@ public class AdminRunConfig extends RunConfig {
 	public void setCreateTemplatePath(String createTemplatePath) {
 		this.createTemplatePath = createTemplatePath;
 	}
-	
+
 	@Override
 	public String getUpdateDocumentCategoryPath() {
-		return updateDocumentCategoryPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
-		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
-	}
 	@Override
 	public String getCreateDocumentCategoryPath() {
-		return createDocumentCategoryPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
-		this.createDocumentCategoryPath = createDocumentCategoryPath;
-	}
 	@Override
 	public String getUpdateGenderPath() {
-		return updateGenderPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setUpdateGenderPath(String updateGenderPath) {
-		this.updateGenderPath = updateGenderPath;
-	}
 	@Override
 	public String getCreateGenderPath() {
-		return createGenderPath;
-	}
-
-	public void setCreateGenderPath(String createGenderPath) {
-		this.createGenderPath = createGenderPath;
-	}
-
-	@Override
-	public String getCreateHolidayPath() {
-		return createHolidayPath;
-	}
-
-	public void setCreateHolidayPath(String createHolidayPath) {
-		this.createHolidayPath = createHolidayPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
 	@Override
 	public String getUpdateTemplatePath() {
 		return updateTemplatePath;
 	}
+
 
 	public void setUpdateTemplatePath(String updateTemplatePath) {
 		this.updateTemplatePath = updateTemplatePath;
@@ -1930,5 +1916,11 @@ public class AdminRunConfig extends RunConfig {
 
 	public void setUpdateIndividualTypePath(String updateIndividualTypePath) {
 		this.updateIndividualTypePath = updateIndividualTypePath;
+	}
+
+	@Override
+	public String getCreateHolidayPath() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
