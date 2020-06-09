@@ -67,7 +67,7 @@ public class PMPDataManager {
                 "INSERT INTO pmp.misp_license(misp_id,license_key,valid_from_date,valid_to_date,is_active,cr_by,cr_dtimes)\n" +
                 "VALUES('5479834598','735899345',CURRENT_DATE, CURRENT_DATE + integer '12',true,'Test_user',CURRENT_DATE),\n" +
                 "('9870862555','629877671',CURRENT_DATE, CURRENT_DATE + integer '12',true,'Test_user',CURRENT_DATE),\n" +
-                "('5479834983','635899234',CURRENT_DATE, CURRENT_DATE + integer '12',true,'Test_user',CURRENT_DATE),\n" +
+                "('5479834983','635899234',CURRENT_DATE, CURRENT_DATE + integer '12',false,'Test_user',CURRENT_DATE),\n" +
                 "('5479833455','135898653',CURRENT_DATE, CURRENT_DATE - integer '12',true,'Test_user',CURRENT_DATE);";
     }
 
@@ -98,7 +98,7 @@ public class PMPDataManager {
                 "VALUES('1873299273','92834787293','TP_05','TP_05','1234567890','tp01@gmail.com','Test_001',true,'Test_User',CURRENT_DATE),\n" +
                 "('1873299300','92834787293','TP_01','TP_01','1234567890','tp01@gmail.com','Test_001',true,'Test_User',CURRENT_DATE),\n" +
                 "('1873299776','9903348702934','TP_02','TP_02','1234567890','tp02@gmail.com','Test_001',true,'Test_User',CURRENT_DATE),\n" +
-                "('1873293764','9903348702934','TP_03','TP_03','1234567890','tp03@gmail.com','Test_001',true,'Test_User',CURRENT_DATE),\n" +
+                "('1873293764','9903348702934','TP_03','TP_03','1234567890','tp03@gmail.com','Test_001',false,'Test_User',CURRENT_DATE),\n" +
                 "('18248239994','0983222','TP_04','TP_04','1234567890','tp04@gmail.com','Test_001',true,'Test_User',CURRENT_DATE);\n" +
                 "\n" +
                 "INSERT INTO pmp.partner_policy_request(id,part_id,policy_id,request_datetimes,request_detail,status_code,cr_by,cr_dtimes)\n" +
@@ -113,7 +113,7 @@ public class PMPDataManager {
                 "VALUES('928347872931','1873299273','92834787293',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
                 "('928347872932','1873299300','92834787293',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
                 "('99033487029341','1873299776','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
-                "('99033487029342','1873293764','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
+                "('99033487029342','1873293764','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',false,'Test_User',CURRENT_DATE),\n" +
                 "('0983222','18248239994','0983222',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE);";
     }
 }
