@@ -69,7 +69,7 @@ public class Decrypt {
 	private String partnerId;
 	
 	/** The encrypt URL. */
-	@Value("${mosip.ida.decrypt-url}")
+	@Value("${mosip.kernel.decrypt-url}")
 	private String decryptURL;
 	
 	/** The key splitter. */
