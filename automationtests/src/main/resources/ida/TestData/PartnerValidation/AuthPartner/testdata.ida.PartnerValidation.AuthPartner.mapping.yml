@@ -536,7 +536,8 @@ testdata:
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.type: $TestData:bio_finger_type$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$    
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -569,6 +570,8 @@ testdata:
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -602,7 +605,8 @@ testdata:
       identityReq.digitalId.model: $Device:iris:model$
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
-      identityReq.digitalId.type: $TestData:bio_iris_type$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1208,6 +1212,8 @@ testdata:
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1240,6 +1246,8 @@ testdata:
       identityReq.digitalId.model: $Device:finger:model$
       identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
+      identityReq.digitalId.type: $Device:finger:dtype_code$
+      identityReq.digitalId.subType: $Device:finger:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$    
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1273,6 +1281,8 @@ testdata:
       identityReq.digitalId.model: $Device:iris:model$
       identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
       identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
+      identityReq.digitalId.type: $Device:iris:dtype_code$
+      identityReq.digitalId.subType: $Device:iris:dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
