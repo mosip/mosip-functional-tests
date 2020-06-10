@@ -12,7 +12,7 @@
 	</listeners>
 	<test name="AuthenticationTest">
 		<classes>
-		   <class
+			 <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
@@ -21,9 +21,7 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
 			<class name="io.mosip.authentication.tests.LockUIN" />
-			<class
-				name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
-			<!-- <class name="io.mosip.authentication.tests.OtpGeneration" />
+			<class name="io.mosip.authentication.tests.OtpGeneration" />
 			<class
 				name="io.mosip.authentication.tests.DemographicAuthentication" />
 			<class
@@ -48,11 +46,7 @@
 				name="io.mosip.authentication.tests.InternalAuthTransaction" />
 			<class
 				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
-			<class name="io.mosip.authentication.tests.UnlockUIN" /> -->
-			
-			
-			<class
-				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+			<class name="io.mosip.authentication.tests.UnlockUIN" />
 		</classes>
 	</test>
 </suite>
