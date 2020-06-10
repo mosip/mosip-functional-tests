@@ -106,10 +106,10 @@ errors:
     errorMessage: No authentication type selected 
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Finger Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-IIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Iris Authentication usage not allowed as per policy
   PolicyWithoutDemo:
     errorCode: IDA-MPA-006
     errorMessage: DEMO Authentication usage not allowed as per policy 
@@ -188,13 +188,13 @@ errors:
     errorMessage: Duplicate Irises in request
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Finger Authentication usage not allowed as per policy
   PolicyWithoutBioFace:
     errorCode: IDA-MPA-006
     errorMessage: BIO-FACE Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-IIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Iris Authentication usage not allowed as per policy
   MissingBioSubtype:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/data/bioSubType
