@@ -90,25 +90,7 @@ public class Encrypt {
 	private static final String ASYMMETRIC_ALGORITHM_NAME = "RSA";
 
 	/** The Constant ASYMMETRIC_ALGORITHM. */
-	private static final String SSL = "SSL";
-	
-	/** The Constant IDA. */
-	private static final String IDA = "IDA";
-	
-	/** The Constant KERNEL. */
-	private static final String KERNEL = "KERNEL";
-	
-	/** The Constant PARTNER. */
-	private static final String PARTNER = "PARTNER";
-	
-	/** The Constant SIGN. */
-	private static final String SIGN = "SIGN";
-	
-	/** The Constant SIGN. */
-	private static final String INTERNEL = "SIGN";
-	
-	/** The Constant SIGN. */
-	private static final String IDA_FIR = "IDA-FIR";
+	private static final String SSL = "SSL";	
 
 	/** The obj mapper. */
 	@Autowired
@@ -119,7 +101,7 @@ public class Encrypt {
 	private String keySplitter;
 	
 	/** The encrypt URL. */
-	@Value("${mosip.kernel.publicKey-url}")
+	@Value("${mosip.ida.publicKey-url}")
 	private String publicKeyURL;
 
 	/** The app ID. */
@@ -129,7 +111,7 @@ public class Encrypt {
 	@Autowired
 	private CryptoUtility cryptoUtil;
 	
-	@Value("${mosip.kernel.encrypt-url}")
+	@Value("${mosip.ida.encrypt-url}")
 	private String encryptURL;	
 
 	/** The logger. */
@@ -193,9 +175,8 @@ public class Encrypt {
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(), secretKey);
-		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));		
-		String publicKeyStr = getPublicKey(refId);	
-		//String publicKeyStr = getPublicKey(identityBlock, refId);
+		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));	
+		String publicKeyStr = getPublicKey(identityBlock, refId);
 		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
 				.generatePublic(new X509EncodedKeySpec(CryptoUtil.decodeBase64(publicKeyStr)));
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
@@ -204,16 +185,6 @@ public class Encrypt {
 				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes())).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
-	}
-	
-	/**
-	 * 
-	 * @param refId
-	 * @return
-	 */	
-	private String getPublicKey(String refId) {		
-		return new String(CryptoUtil.decodeBase64(env.getProperty("publicKey." + refId.toLowerCase())),
-				StandardCharsets.UTF_8);
 	}
 	
 	@PostMapping(path = "/encryptBiometricValue")
@@ -246,15 +217,15 @@ public class Encrypt {
 		byte[] aadLastBytes = getLastBytes(timestamp, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 
-		CryptomanagerRequestDto cryptomanagerRequestDto = new CryptomanagerRequestDto();
-		cryptomanagerRequestDto.setApplicationId(appID);
-		cryptomanagerRequestDto.setSalt(salt);
-		cryptomanagerRequestDto.setAad(aad);
-		cryptomanagerRequestDto.setReferenceId(getRefId(isInternal, true));
-		cryptomanagerRequestDto.setData(bioValue);
-		cryptomanagerRequestDto.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
+		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
+		request.setApplicationId(appID);
+		request.setSalt(salt);
+		request.setAad(aad);
+		request.setReferenceId(getRefId(isInternal, true));
+		request.setData(bioValue);
+		request.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
 		
-		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(cryptomanagerRequestDto));
+		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(request));
 		ResponseEntity<Map> response = restTemplate.exchange(encryptURL, HttpMethod.POST, httpEntity, Map.class);
 		
 		if(response.getStatusCode() == HttpStatus.OK) {
@@ -362,12 +333,13 @@ public class Encrypt {
 
 		restTemplate.setInterceptors(Collections.singletonList(interceptor));
 
+		String utcTime = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
 		request.setApplicationId(appID);
+		request.setReferenceId(refId);
 		request.setData(Base64.encodeBase64URLSafeString(data.getBytes(StandardCharsets.UTF_8)));
-		request.setReferenceId(refId );
-		String utcTime = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 		request.setTimeStamp(utcTime);
+		
 		Map<String, String> uriParams = new HashMap<>();
 		uriParams.put("appId", appID);
 		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(publicKeyURL)
