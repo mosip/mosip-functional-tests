@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -44,7 +47,7 @@ import net.lingala.zip4j.exception.ZipException;
 public class TweakRegProcPackets extends BaseTestCase {
 	private static Logger logger = Logger.getLogger(TweakRegProcPackets.class);
 	StringBuilder osiValidatorStageString = new StringBuilder();
-
+	DecryptPacket decryptPacket=new DecryptPacket();
 	StringBuilder packetValidatorStageString = new StringBuilder();
 	StringBuilder demoDedupeStageString = new StringBuilder();
 	static String filesToBeDestroyed = null;
@@ -72,10 +75,11 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 * @param parameterValue       generates invalid packet which should fail in the
 	 *                             osi stage packets are created by changing the
 	 *                             values of metaInfo fields inside the packet
+	 * @throws ZipException 
 	 */
 	@SuppressWarnings("unchecked")
 	public void generateInvalidPacketForOsiValidator(String testCaseName, String parameterToBeChanged,
-			String parameterValue, String validPacketPath, String invalidPacketPath) {
+			String parameterValue, String validPacketPath, String invalidPacketPath) throws ZipException {
 
 		File decryptedFile = null;
 		JSONObject metaInfo = null;
@@ -83,20 +87,25 @@ public class TweakRegProcPackets extends BaseTestCase {
 		String invalidPacketsPath = invalidPacketPath + "OsiValidation/"
 				+ testCaseName;
 		File file = new File(configPath);
+		File[] zippedPacket=null;
+		String regId="";
 		File[] listOfFiles = file.listFiles();
 		for (File f : listOfFiles) {
 			if (f.getName().contains(".zip")) {
-				JSONObject jsonObject = encryptDecrypt.generateCryptographicData(f);
-				String regId = generateRegIdForUpdatePacket(centerId, machineId, f.getName().substring(0, f.getName().lastIndexOf(".")));
+				zippedPacket=decryptPacket.unzipPacket(f);
+				for(File encryptedPacket:zippedPacket) {
+					if(encryptedPacket.getName().contains("_id")) {
+				JSONObject jsonObject = encryptDecrypt.generateCryptographicData(encryptedPacket);
+				centerId = encryptedPacket.getName().substring(0, 5);
+				machineId = encryptedPacket.getName().substring(5, 10);
+				regId = generateRegIdForUpdatePacket(centerId, machineId, encryptedPacket.getName().substring(0, encryptedPacket.getName().lastIndexOf("_")));
 				try {
-					decryptedFile = encryptDecrypt.decryptFile(jsonObject, configPath, f.getName());
+					decryptedFile = encryptDecrypt.decryptFile(jsonObject, configPath, encryptedPacket.getName());
 				} catch (IOException | ZipException | ParseException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
-				// decryptedFile=
-				// encryptDecrypt.extractFromDecryptedPacket(configPath,f.getName());
-
+			
 				filesToBeDestroyed = configPath;
 				File[] packetFiles = decryptedFile.listFiles();
 				for (File info : packetFiles) {
@@ -128,12 +137,44 @@ public class TweakRegProcPackets extends BaseTestCase {
 					}
 
 				}
+				}
+					
+				}
+
 			}
 		}
 		logger.info("packetName :: ======================" + packetName);
 		try {
 
-			encryptDecrypt.encryptFile(decryptedFile, configPath, invalidPacketsPath, packetName);
+			encryptDecrypt.encryptFile(decryptedFile, configPath, invalidPacketsPath, packetName+"_id");
+			
+			for (File encryptedPacket : zippedPacket) {
+				if (encryptedPacket.getName().contains("_evidence")) {
+					Path source = Paths.get(encryptedPacket.getAbsolutePath());
+					Path newdir = Paths
+							.get(invalidPacketsPath + "/"+ packetName + "_evidence.zip");
+
+					try {
+						Files.move(source, newdir);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else if (encryptedPacket.getName().contains("_optional")) {
+					Path source = Paths.get(encryptedPacket.getAbsolutePath());
+					Path newdir = Paths
+							.get(invalidPacketsPath + "/" + packetName + "_optional.zip");
+
+					try {
+						Files.move(source, newdir);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			File generatedFiles=new File(invalidPacketsPath);
+			decryptPacket.createZipFile(generatedFiles.getAbsolutePath()+"/"+packetName,generatedFiles.listFiles());
 
 		} catch (ZipException | IOException e) {
 			logger.error("Packet encryption Failed", e);
@@ -580,9 +621,10 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 * @param validPacketpath
 	 * @param invalidPacketPath reads property files containing set of properties to
 	 *                          be updated osi validation stage
+	 * @throws ZipException 
 	 */
 
-	public void osiValidatorPropertyFileReader(String propertyFiles, String validPacketpath, String invalidPacketPath) {
+	public void osiValidatorPropertyFileReader(String propertyFiles, String validPacketpath, String invalidPacketPath) throws ZipException {
 		EncrypterDecrypter encryptDecrypt = new EncrypterDecrypter();
 		TweakRegProcPackets e = new TweakRegProcPackets();
 		Properties prop = new Properties();
