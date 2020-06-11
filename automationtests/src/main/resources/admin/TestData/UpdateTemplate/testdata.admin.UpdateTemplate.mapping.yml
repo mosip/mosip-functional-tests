@@ -1,0 +1,476 @@
+testdata:
+   Admin_UpdateTemplate_All_Valid_Smoke:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template updated
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         langCode: $input.update-template-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+   Admin_UpdateTemplate_All_Valid_Mandatory_Fields:
+      input.update-template-request:
+         description: $REMOVE$
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: $REMOVE$
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template update
+         templateTypeCode: Acknowledgement-email-subject         
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         langCode: $input.update-template-request:RlangCode$
+         version: $IGNORE$
+         id: $IGNORE$
+         
+   Admin_UpdateTemplate_InputParameter_Id_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: $REMOVE$
+         isActive: true
+         RlangCode: eng
+         model: $REMOVE$
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.id: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_Id_Empty:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: ''
+         isActive: true
+         RlangCode: eng
+         model: model-2
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_UpdateTemplate_InputParameter_Id_AboveMaxLen36:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: $TestData:validLocationCode37$
+         isActive: true
+         RlangCode: eng
+         model: model-3
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
+         
+   Admin_UpdateTemplate_InputParameter_Name_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: $REMOVE$
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_Name_Empty:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: ''
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'        
+         
+   Admin_UpdateTemplate_InputParameter_Name_AboveMaxLen128:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: $TestData:wordLength129$
+         templateTypeCode: Acknowledgement-email-subject 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'
+         
+   Admin_UpdateTemplate_InputParameter_FileFormatCode_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: $REMOVE$
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.fileFormatCode: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_FileFormatCode_Empty:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: ''
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_UpdateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: $TestData:validLocationCode37$
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'
+         
+   Admin_UpdateTemplate_InputParameter_ModuleId_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: $REMOVE$
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.moduleId: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_ModuleName_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: $REMOVE$
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.moduleName: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_TemplateTypeCode_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.templateTypeCode: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_TemplateTypeCode_Empty:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_UpdateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: $TestData:validLocationCode37$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'
+         
+   Admin_UpdateTemplate_InputParameter_ModuleName_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: $REMOVE$
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.moduleName: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_LangCode_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: $REMOVE$
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateTemplate_InputParameter_LangCode_Empty:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: ''
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'        
+         
+   Admin_UpdateTemplate_InputParameter_LangCode_AboveMaxLen3:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: engr
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateTemplate_InputParameter_Invalid_LangCode:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: true
+         RlangCode: GST
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateTemplate_InputParameter_FileText_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: $REMOVE$
+         Rid: test-01
+         isActive: true
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.fileText: must not be null'
+         
+   Admin_UpdateTemplate_InputParameter_isActive_Missing:
+      input.update-template-request:
+         description: test template
+         fileFormatCode: html
+         fileText: abc
+         Rid: test-01
+         isActive: $REMOVE$
+         RlangCode: eng
+         model: model-1
+         moduleId: 10001
+         moduleName: Pre-Registration
+         name: Test-template
+         templateTypeCode: Acknowledgement-email-subject
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'         
+         
+                  
+         
+                                                               
+         
+                           
+         
+         
+         
+                                             
+         
+                           
+                           
+                                            
+         
+                                    
+
+         

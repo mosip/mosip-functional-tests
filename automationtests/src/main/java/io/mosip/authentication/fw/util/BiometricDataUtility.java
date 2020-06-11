@@ -70,7 +70,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			String biometricsMapper = "identityRequest.(biometrics)[" + i + "]";
 			String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 					biometricsMapper + ".data.digitalId");
-			digitalId = EncryptDecrptUtil.getBase64EncodedString(digitalId);
+			digitalId = getSignedData(digitalId);
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 					biometricsMapper + ".data.digitalId");
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");

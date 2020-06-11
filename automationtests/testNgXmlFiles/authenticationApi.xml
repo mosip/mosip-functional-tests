@@ -12,7 +12,7 @@
 	</listeners>
 	<test name="AuthenticationTest">
 		<classes>
-			<class
+			 <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />

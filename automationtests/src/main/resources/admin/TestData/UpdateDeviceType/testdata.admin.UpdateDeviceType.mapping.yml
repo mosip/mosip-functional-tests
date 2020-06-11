@@ -1,0 +1,209 @@
+testdata:
+   Admin_UpdateDeviceType_All_Valid_Smoke:
+      input.update-device-type-request:
+         Rcode: FPT
+         description: test 1.0.8
+         isActive: true
+         RlangCode: eng
+         name: finger print scanner device update
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-device-type-request:Rcode$
+         langCode: $input.update-device-type-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_UpdateDeviceType_All_Valid_Mandatory_Fields:
+      input.update-device-type-request:
+         Rcode: FPT
+         description: $REMOVE$
+         isActive: false
+         RlangCode: eng
+         name: finger print scanner device update
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-device-type-request:Rcode$
+         langCode: $input.update-device-type-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_UpdateDeviceType_valid_secondarylang_SameDataAsVldScnrio:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: GST
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         code: $input.update-device-type-request:Rcode$
+         langCode: $input.update-device-type-request:RlangCode$
+         version: $IGNORE$
+         
+   Admin_UpdateDeviceType_InputParameter_Code_Missing:
+      input.update-device-type-request:
+         Rcode: $REMOVE$
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_UpdateDeviceType_InputParameter_Code_Empty:
+      input.update-device-type-request:
+         Rcode: ''
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: finger print scanner device update
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_UpdateDeviceType_InputParameter_Code_AboveMaxLen36:
+      input.update-device-type-request:
+         Rcode: $TestData:validLocationCode37$
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: finger print scanner device update 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'                  
+         
+   Admin_UpdateDeviceType_InputParameter_Name_Missing:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: $REMOVE$
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_UpdateDeviceType_InputParameter_Name_Empty:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         
+   Admin_UpdateDeviceType_InputParameter_Name_AboveMaxLen64:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: true
+         RlangCode: ara
+         name: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         
+   Admin_UpdateDeviceType_InputParameter_Description_AboveMaxLen128:
+      input.update-device-type-request:
+         description: $TestData:wordLength129$ 
+         Rcode: GST3
+         isActive: false
+         RlangCode: eng
+         name: GST 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.description: size must be between 1 and 128'
+         
+   Admin_UpdateDeviceType_InputParameter_LangCode_Missing:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: false
+         RlangCode: $REMOVE$
+         name: GST
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_UpdateDeviceType_InputParameter_LangCode_Empty:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: false
+         RlangCode: ''
+         name: GST
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'        
+         
+   Admin_UpdateDeviceType_InputParameter_LangCode_AboveMaxLen3:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: false
+         RlangCode: engr
+         name: GST 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateDeviceType_InputParameter_LangCode:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: false
+         RlangCode: GER
+         name: GST 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateDeviceType_InputParameter_isActive_Missing:
+      input.update-device-type-request:
+         Rcode: GST3
+         description: test 1.0.8
+         isActive: $REMOVE$
+         RlangCode: eng
+         name: GST
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                                    
+
+         

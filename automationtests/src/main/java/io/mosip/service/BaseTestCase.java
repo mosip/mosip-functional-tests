@@ -22,6 +22,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.preregistration.dao.PreregistrationDAO;
@@ -150,11 +151,16 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
+			new PMPDataManager(true);
+		}
+		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
+			AuthTestsUtil.initiateAuthTest();
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
+			AuthTestsUtil.initiateAuthTest();
 			ResidentTestUtil.initiateResidentTest();
 		}
 
@@ -211,7 +217,7 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
-
+		new PMPDataManager(false);
 		RestAssured.reset();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");

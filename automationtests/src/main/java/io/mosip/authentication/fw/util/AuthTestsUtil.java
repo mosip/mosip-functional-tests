@@ -1092,8 +1092,8 @@ public class AuthTestsUtil extends BaseTestCase {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());
 			if (urlProperty.containsKey("partnerIDMispLK")) {
 				return "/" + urlProperty.get("partnerIDMispLK").toString();
-			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")) {
-				return "/" + urlProperty.get("partnerID").toString() + "/" + urlProperty.get("mispLK").toString();
+			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")&& urlProperty.containsKey("apiKey")) {
+				return "/" + urlProperty.get("mispLK").toString() + "/" + urlProperty.get("partnerID").toString() + "/" + urlProperty.get("apiKey").toString();
 			}
 		} else
 			return "";

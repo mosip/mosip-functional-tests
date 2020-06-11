@@ -12,6 +12,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -31,6 +32,7 @@ import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.kernel.service.AssertKernel;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.kernel.util.TestCaseReader;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -110,12 +112,49 @@ public class GetDocTypeDocCatByAppID extends BaseTestCase implements ITest {
 		Response res=applicationLibrary.getWithPathParamQueryParamList(getDocType_DocCatByAppID, pathPar,queryParam,individualCookie);
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
-		// Removing of unstable attributes from response
-		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
-		listOfElementToRemove.add("timestamp");
-		listOfElementToRemove.add("responsetime");
-		// Comparing expected and actual response
-		status = assertKernel.assertKernel(res, Expectedresponse,listOfElementToRemove);
+		
+JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(res.asString())).get("response");
+		
+		if (responseJson!= null && responseJson.containsKey("documentCategories")) {
+
+			String query = "select count(DISTINCT doccat_code) from master.applicant_valid_document where is_active = true and apptyp_code = '" + actualRequest.get("applicantId") + "'";
+
+			long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query,"masterdata");
+
+			// fetching json array of objects from response
+			JSONArray responseArrayFromGet = (JSONArray) responseJson.get("documentCategories");
+			logger.info("===Dbcount===" + obtainedObjectsCount + "===Get-count===" + responseArrayFromGet.size());
+
+			// validating number of objects obtained form db and from get request
+			if (responseArrayFromGet.size() >= obtainedObjectsCount) {
+
+				// list to validate existance of attributes in response objects
+				List<String> attributesToValidateExistance = new ArrayList<String>();
+				attributesToValidateExistance.add("code");
+				attributesToValidateExistance.add("name");
+				attributesToValidateExistance.add("langCode");
+				attributesToValidateExistance.add("isActive");
+				attributesToValidateExistance.add("documentTypes");
+
+				// key value of the attributes passed to fetch the data, should be same in all
+				// obtained objects
+				HashMap<String, String> passedAttributesToFetch = new HashMap<String, String>();
+
+				status = AssertKernel.validator(responseArrayFromGet, attributesToValidateExistance,
+						passedAttributesToFetch);
+			} else
+				status = false;
+
+		}
+
+		else {
+
+			// add parameters to remove in response before comparison like time stamp
+			ArrayList<String> listOfElementToRemove = new ArrayList<String>();
+			listOfElementToRemove.add("responsetime");
+			status = assertKernel.assertKernel(res, Expectedresponse, listOfElementToRemove);
+		}
+		
 		if (!status) {
 			logger.debug(res);
 		}

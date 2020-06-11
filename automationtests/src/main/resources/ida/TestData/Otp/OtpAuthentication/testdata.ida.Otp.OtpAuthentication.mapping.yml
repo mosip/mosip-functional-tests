@@ -3,6 +3,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -57,6 +58,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -95,6 +97,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -134,6 +137,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -171,6 +175,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -210,6 +215,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -249,6 +255,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -286,6 +293,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -323,6 +331,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -361,6 +370,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -400,6 +410,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -437,6 +448,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -476,6 +488,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -514,6 +527,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -552,6 +566,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -590,6 +605,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -628,6 +644,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -665,6 +682,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -704,6 +722,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -743,6 +762,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -797,6 +817,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -834,6 +855,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -871,6 +893,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -909,6 +932,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -948,6 +972,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -987,6 +1012,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1025,6 +1051,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1063,6 +1090,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1101,6 +1129,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1140,6 +1169,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1178,6 +1208,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1217,6 +1248,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1255,6 +1287,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1293,6 +1326,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1331,6 +1365,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1370,6 +1405,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID$
@@ -1409,6 +1445,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -1448,6 +1485,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -1487,6 +1525,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN:WITH:OTP_EXCEED$
@@ -1526,6 +1565,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN$
@@ -1580,6 +1620,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $UIN.otp.true$
@@ -1617,6 +1658,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID.otp.true$
@@ -1655,6 +1697,7 @@ testdata:
     endpoint.url:
       partnerID: $PIDMLKURL:ValidPID$
       mispLK: $PIDMLKURL:ValidMLK$
+      apiKey: $PIDMLKURL:ValidAPIKEY$
     input.otp-generate:
       otpReq.id: $TestData:id_otp_valid$
       otpReq.individualId: $VID:WHERE:UIN:WITH:IdentityMismatch_OTP$

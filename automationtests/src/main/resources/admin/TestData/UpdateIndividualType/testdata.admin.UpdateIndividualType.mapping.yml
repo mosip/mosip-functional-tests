@@ -1,0 +1,192 @@
+testdata:
+   Admin_UpdateIndividualType_All_Valid_Smoke:
+      input.update-individual-type-request:
+         Rcode: TST0
+         Rname: TestInd update
+         RisActive: true
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         isActive: $input.update-individual-type-request:RisActive$
+         code: $input.update-individual-type-request:Rcode$
+         langCode: $input.update-individual-type-request:RlangCode$
+         name: $input.update-individual-type-request:Rname$         
+         createdBy: $IGNORE$
+         createdDateTime: $IGNORE$
+         updatedBy: $IGNORE$
+         updatedDateTime: $IGNORE$
+         isDeleted: $IGNORE$
+         deletedDateTime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateIndividualType_Valid_PrimLangz_False_Act_SeconLang:
+      input.update-individual-type-request:
+         Rcode: TST1
+         Rname: TST1
+         RisActive: true
+         RlangCode: ara
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         isActive: $input.update-individual-type-request:RisActive$
+         code: $input.update-individual-type-request:Rcode$
+         langCode: $input.update-individual-type-request:RlangCode$
+         name: $input.update-individual-type-request:Rname$         
+         createdBy: $IGNORE$
+         createdDateTime: $IGNORE$
+         updatedBy: $IGNORE$
+         updatedDateTime: $IGNORE$
+         isDeleted: $IGNORE$
+         deletedDateTime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_UpdateIndividualType_InputParameter_Code_Missing:
+      input.update-individual-type-request:
+         Rcode: $REMOVE$
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: must not be null'
+         
+   Admin_UpdateIndividualType_InputParameter_Code_Empty:
+      input.update-individual-type-request:
+         Rcode: ''
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
+         
+   Admin_UpdateIndividualType_InputParameter_Code_AboveMaxLen36:
+      input.update-individual-type-request:
+         Rcode: $TestData:validLocationCode37$
+         Rname: TST2         
+         RisActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'         
+         
+         
+   Admin_UpdateIndividualType_InputParameter_Name_Missing:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: $REMOVE$
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: must not be null'
+         
+   Admin_UpdateIndividualType_InputParameter_Name_Empty:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: ''
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         
+   Admin_UpdateIndividualType_InputParameter_Name_AboveMaxLen64:
+      input.update-individual-type-request:
+         Rcode: TST0
+         RisActive: true
+         RlangCode: eng
+         Rname: $TestData:validStringLength65$ 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         
+   Admin_UpdateIndividualType_InputParameter_LangCode_Missing:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: $REMOVE$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.langCode: must not be null'
+         
+   Admin_UpdateIndividualType_InputParameter_LangCode_Empty:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'        
+         
+   Admin_UpdateIndividualType_InputParameter_LangCode_AboveMaxLen3:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: engr 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateIndividualType_InputParameter_LangCode:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: false
+         RlangCode: GER 
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'Language Code is Invalid'
+         
+   Admin_UpdateIndividualType_InputParameter_isActive_Missing:
+      input.update-individual-type-request:
+         Rcode: TST-1
+         Rname: TestInd
+         RisActive: $REMOVE$
+         RlangCode: GER
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.isActive: must not be null'                  
+         
+                                    
+         
+         
+                                                     
+                  
