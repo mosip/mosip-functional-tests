@@ -88,7 +88,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.genderName: must not be blank'
+         messageerrors0: 'request.genderName: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateGender_Invalid_InputParameter_GenderName_AboveMaxLen64:
       input.create-gender-request:
@@ -101,7 +101,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.genderName: size must be between 1 and 64'
+         messageerrors0: 'request.genderName: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateGender_Invalid_InputParameter_LangCode_Missing:
       input.create-gender-request:
@@ -127,7 +127,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateGender_Invalid_InputParameter_LangCode:
       input.create-gender-request:
@@ -153,7 +153,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langcode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateGender_Invalid_InputParameter_isActive_Missing:
       input.create-gender-request:

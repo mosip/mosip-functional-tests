@@ -70,7 +70,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be blank'        
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
          
    Admin_UpdateMachineSpecification_InputParameter_Name_AboveMaxLen64:
       input.update-machine-specification-request:
@@ -88,7 +88,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: size must be between 1 and 64'
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          
    Admin_UpdateMachineSpecification_InputParameter_Brand_Missing:
       input.update-machine-specification-request:
@@ -124,7 +124,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: must not be blank'        
+         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'        
          
    Admin_UpdateMachineSpecification_InputParameter_Brand_AboveMaxLen32:
       input.update-machine-specification-request:
@@ -142,7 +142,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: size must be between 1 and 32'
+         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'
          
    Admin_UpdateMachineSpecification_InputParameter_Model_Missing:
       input.update-machine-specification-request:
@@ -177,7 +177,7 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: must not be blank'        
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'        
          
    Admin_UpdateMachineSpecification_InputParameter_Model_AboveMaxLen16:
       input.update-machine-specification-request:
@@ -195,7 +195,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: size must be between 1 and 16'
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'
          
    Admin_UpdateMachineSpecification_InputParameter_machineTypeCode_Missing:
       input.update-machine-specification-request:
@@ -231,7 +231,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.machineTypeCode: must not be blank'        
+         messageerrors0: 'request.machineTypeCode: Should not be blank or size must be between 1 and 36'        
          
    Admin_UpdateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36:
       input.update-machine-specification-request:
@@ -249,7 +249,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.machineTypeCode: size must be between 1 and 36'
+         messageerrors0: 'request.machineTypeCode: Should not be blank or size must be between 1 and 36'
          
          
    Admin_UpdateMachineSpecification_InputParameter_machineTypeCode:
@@ -304,7 +304,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: must not be blank'        
+         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'        
          
    Admin_UpdateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       input.update-machine-specification-request:
@@ -322,7 +322,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: size must be between 1 and 16'
+         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'
          
    Admin_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256:
       input.update-machine-specification-request:
@@ -376,7 +376,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'        
+         messageerrors0: 'Language Code is Invalid'        
          
    Admin_UpdateMachineSpecification_InputParameter_LangCode_AboveMaxLen3:
       input.update-machine-specification-request:
@@ -394,7 +394,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateMachineSpecification_InputParameter_LangCode:
       input.update-machine-specification-request:
@@ -412,7 +412,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: Language code not supported'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateMachineSpecification_InputParameter_isActive_Missing:
       input.update-machine-specification-request:

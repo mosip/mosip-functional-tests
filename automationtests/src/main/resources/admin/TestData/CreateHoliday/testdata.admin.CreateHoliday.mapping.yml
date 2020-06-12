@@ -105,7 +105,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.holidayName: must not be blank'
+         messageerrors0: 'request.holidayName: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateHoliday_Invalid_InputParameter_HolidayName_AboveMaxLen64:
       input.create-holiday-request:
@@ -122,7 +122,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.holidayName: size must be between 1 and 64' 
+         messageerrors0: 'request.holidayName: Should not be blank or size must be between 1 and 64' 
          
    Admin_CreateHoliday_Invalid_InputParameter_LocationCode_Missing:
       input.create-holiday-request:
@@ -224,7 +224,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateHoliday_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.create-holiday-request:
@@ -241,7 +241,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateHoliday_Invalid_InputParameter_isActive_Missing:
       input.create-holiday-request:
