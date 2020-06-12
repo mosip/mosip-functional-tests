@@ -355,7 +355,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         messageerrors0: 'request.langCode: must not be null'
          
    Admin_UpdateTemplate_InputParameter_LangCode_Empty:
       input.update-template-request:
