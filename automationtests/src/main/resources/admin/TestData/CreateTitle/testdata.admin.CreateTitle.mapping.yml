@@ -65,7 +65,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: must not be blank'         
+         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'         
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       input.create-title-request:
@@ -79,7 +79,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: size must be between 1 and 64'
+         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       input.create-title-request:
@@ -93,7 +93,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleDescription: size must be between 1 and 128'
+         messageerrors0: 'request.titleDescription: Should not be blank or size must be between 1 and 128'
          
    Admin_CreateTitle_Invalid_InputParameter_isActive_Missing:
       input.create-title-request:
@@ -149,7 +149,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_CreateTitle_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.create-title-request:
@@ -163,7 +163,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'                  
+         messageerrors0: 'Language Code is Invalid'                  
          
          
                   

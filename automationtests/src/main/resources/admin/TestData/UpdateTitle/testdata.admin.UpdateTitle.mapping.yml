@@ -52,7 +52,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateTitle_Invalid_InputParameter_Code_AboveMaxLen36:
       input.update-title-request:
@@ -66,7 +66,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: size must be between 1 and 36'                                    
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'                                    
          
    Admin_UpdateTitle_Invalid_InputParameter_TitleName_Missing:
       input.update-title-request:
@@ -94,7 +94,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: must not be blank'         
+         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'         
          
    Admin_UpdateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       input.update-title-request:
@@ -108,7 +108,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: size must be between 1 and 64'
+         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'
          
    Admin_UpdateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       input.update-title-request:
@@ -178,7 +178,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_UpdateTitle_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.update-title-request:
@@ -192,7 +192,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'                  
+         messageerrors0: 'Language Code is Invalid'                  
          
          
                   

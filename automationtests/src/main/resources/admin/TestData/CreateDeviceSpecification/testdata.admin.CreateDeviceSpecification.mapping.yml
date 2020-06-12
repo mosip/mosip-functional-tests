@@ -81,7 +81,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be blank'        
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
          
    Admin_CreateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
       input.create-device-specification-request:
@@ -98,7 +98,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: size must be between 1 and 64'
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateDeviceSpecification_InputParameter_Brand_Missing:
       input.create-device-specification-request:
@@ -132,7 +132,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: must not be blank'        
+         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'        
          
    Admin_CreateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
       input.create-device-specification-request:
@@ -149,7 +149,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: size must be between 1 and 32'
+         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'
          
    Admin_CreateDeviceSpecification_InputParameter_Model_Missing:
       input.create-device-specification-request:
@@ -182,7 +182,7 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: must not be blank'        
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'        
          
    Admin_CreateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
       input.create-device-specification-request:
@@ -199,7 +199,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: size must be between 1 and 16'
+         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'
          
    Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
       input.create-device-specification-request:
@@ -233,7 +233,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.deviceTypeCode: must not be blank'        
+         messageerrors0: 'request.deviceTypeCode: Should not be blank or size must be between 1 and 36'        
          
    Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
       input.create-device-specification-request:
@@ -250,7 +250,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.deviceTypeCode: size must be between 1 and 36'
+         messageerrors0: 'request.deviceTypeCode: Should not be blank or size must be between 1 and 36'
          
          
    Admin_CreateDeviceSpecification_InputParameter_DeviceTypeCode:
@@ -302,7 +302,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: must not be blank'        
+         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'        
          
    Admin_CreateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       input.create-device-specification-request:
@@ -319,7 +319,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: size must be between 1 and 16'
+         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'
          
    Admin_CreateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
       input.create-device-specification-request:
@@ -371,7 +371,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'        
+         messageerrors0: 'Language Code is Invalid'        
          
    Admin_CreateDeviceSpecification_InputParameter_LangCode_AboveMaxLen3:
       input.create-device-specification-request:
@@ -388,7 +388,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateDeviceSpecification_InputParameter_LangCode:
       input.create-device-specification-request:
@@ -405,7 +405,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: Language code not supported'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateDeviceSpecification_InputParameter_isActive_Missing:
       input.create-device-specification-request:

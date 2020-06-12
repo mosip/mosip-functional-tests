@@ -87,7 +87,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'        
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
       input.update-templateFile-format-request:
@@ -100,7 +100,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: size must be between 1 and 36'         
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'         
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_Missing:
       input.update-templateFile-format-request:
@@ -126,7 +126,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'        
+         messageerrors0: 'Language Code is Invalid'        
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
       input.update-templateFile-format-request:
@@ -139,7 +139,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateTemplateFileFormat_InputParameter_Invalid_LangCode:
       input.update-templateFile-format-request:

@@ -116,7 +116,9 @@ public class AdminRunConfig extends RunConfig {
     private String updateTemplateFileFormatPath;
     
 
-    private String createHolidayPath;
+    
+
+	private String createHolidayPath;
 	private String createGenderPath;
 	private String updateGenderPath;
 	private String createDocumentCategoryPath;
@@ -245,6 +247,7 @@ public class AdminRunConfig extends RunConfig {
 		setUpdateDeviceTypePath(AdminTestUtil.getPropertyValue("updateDeviceTypePath"));
 		setCreateIndividualTypePath(AdminTestUtil.getPropertyValue("createIndividualTypePath"));
 		setUpdateIndividualTypePath(AdminTestUtil.getPropertyValue("updateIndividualTypePath"));
+	}
 
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -1923,4 +1926,21 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void setCreateHolidayPath(String createHolidayPath) {
+		this.createHolidayPath = createHolidayPath;
+	}
+	public void setCreateGenderPath(String createGenderPath) {
+		this.createGenderPath = createGenderPath;
+	}
+	public void setUpdateGenderPath(String updateGenderPath) {
+		this.updateGenderPath = updateGenderPath;
+	}
+	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
+		this.createDocumentCategoryPath = createDocumentCategoryPath;
+	}
+	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
+		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+	}
+	
 }

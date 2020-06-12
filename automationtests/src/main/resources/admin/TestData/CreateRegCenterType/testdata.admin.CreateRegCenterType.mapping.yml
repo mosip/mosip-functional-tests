@@ -67,7 +67,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be blank'        
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
          
    Admin_CreateRegCenterType_InputParameter_Name_AboveMaxLen64:
       input.create-regCenter-type-request:
@@ -81,7 +81,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: size must be between 1 and 64'
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateRegCenterType_InputParameter_Description_AboveMaxLen256:
       input.create-regCenter-type-request:
@@ -123,7 +123,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'        
+         messageerrors0: 'Language Code is Invalid'        
          
    Admin_CreateRegCenterType_InputParameter_LangCode_AboveMaxLen3:
       input.create-regCenter-type-request:
@@ -137,7 +137,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateRegCenterType_InputParameter_LangCode:
       input.create-regCenter-type-request:
@@ -151,7 +151,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: Language code not supported'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateRegCenterType_InputParameter_isActive_Missing:
       input.create-regCenter-type-request:

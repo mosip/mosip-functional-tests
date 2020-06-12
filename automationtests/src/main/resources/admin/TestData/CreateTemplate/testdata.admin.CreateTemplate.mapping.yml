@@ -75,7 +75,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be blank'        
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'        
          
    Admin_CreateTemplate_InputParameter_Name_AboveMaxLen128:
       input.create-template-request:
@@ -95,7 +95,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: size must be between 1 and 128'
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'
          
    Admin_CreateTemplate_InputParameter_FileFormatCode_Missing:
       input.create-template-request:
@@ -135,7 +135,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: must not be blank'        
+         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'        
          
    Admin_CreateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
       input.create-template-request:
@@ -155,7 +155,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: size must be between 1 and 36'
+         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'
          
    Admin_CreateTemplate_InputParameter_ModuleId_Missing:
       input.create-template-request:
@@ -215,7 +215,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: must not be blank'        
+         messageerrors0: 'request.moduleName: Should not be blank or size must be between 1 and 128'        
          
    Admin_CreateTemplate_InputParameter_ModuleName_AboveMaxLen128:
       input.create-template-request:
@@ -235,7 +235,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: size must be between 1 and 128'
+         messageerrors0: 'request.moduleName: Should not be blank or size must be between 1 and 128'
          
    Admin_CreateTemplate_InputParameter_TemplateTypeCode_Missing:
       input.create-template-request:
@@ -275,7 +275,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: must not be blank'        
+         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'        
          
    Admin_CreateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
       input.create-template-request:
@@ -295,7 +295,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: size must be between 1 and 36'
+         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'
          
    Admin_CreateTemplate_InputParameter_LangCode_Missing:
       input.create-template-request:
@@ -335,7 +335,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be blank'        
+         messageerrors0: 'Language Code is Invalid'        
          
    Admin_CreateTemplate_InputParameter_LangCode_AboveMaxLen3:
       input.create-template-request:
@@ -355,7 +355,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateTemplate_InputParameter_Invalid_LangCode:
       input.create-template-request:
