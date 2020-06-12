@@ -114,9 +114,6 @@ public class AdminRunConfig extends RunConfig {
     private String updateRegCenterTypePath;
     private String createTemplateFileFormatPath;
     private String updateTemplateFileFormatPath;
-    
-
-    
 
 	private String createHolidayPath;
 	private String createGenderPath;
@@ -1850,7 +1847,7 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public String getUpdateDocumentCategoryPath() {
 		// TODO Auto-generated method stub
-		return null;
+		return updateDocumentCategoryPath;
 	}
 	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
 		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
@@ -1859,7 +1856,7 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public String getCreateDocumentCategoryPath() {
 		// TODO Auto-generated method stub
-		return null;
+		return createDocumentCategoryPath;
 	}
 	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
 		this.createDocumentCategoryPath = createDocumentCategoryPath;
@@ -1868,7 +1865,7 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public String getUpdateGenderPath() {
 		// TODO Auto-generated method stub
-		return null;
+		return updateGenderPath;
 	}
 	public void setUpdateGenderPath(String updateGenderPath) {
 		this.updateGenderPath = updateGenderPath;
@@ -1877,7 +1874,7 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public String getCreateGenderPath() {
 		// TODO Auto-generated method stub
-		return null;
+		return createGenderPath;
 	}
 	public void setCreateGenderPath(String createGenderPath) {
 		this.createGenderPath=createGenderPath;
@@ -1936,23 +1933,7 @@ public class AdminRunConfig extends RunConfig {
 	@Override
 	public String getCreateHolidayPath() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public void setCreateHolidayPath(String createHolidayPath) {
-		this.createHolidayPath = createHolidayPath;
-	}
-	public void setCreateGenderPath(String createGenderPath) {
-		this.createGenderPath = createGenderPath;
-	}
-	public void setUpdateGenderPath(String updateGenderPath) {
-		this.updateGenderPath = updateGenderPath;
-	}
-	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
-		this.createDocumentCategoryPath = createDocumentCategoryPath;
-	}
-	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
-		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+		return createHolidayPath;
 	}
 
 	public void setCreateHolidayPath(String createHolidayPath) {
