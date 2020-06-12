@@ -113,7 +113,7 @@ public class PMPDataManager {
                 "VALUES('928347872931','1873299273','92834787293',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
                 "('928347872932','1873299300','92834787293',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
                 "('99033487029341','1873299776','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
-                "('99033487029342','1873293764','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',false,'Test_User',CURRENT_DATE),\n" +
+                "('99033487029342','1873293764','9903348702934',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE),\n" +
                 "('0983222','18248239994','0983222',CURRENT_DATE,CURRENT_DATE + integer '12',true,'Test_User',CURRENT_DATE);";
     }
 }

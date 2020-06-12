@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
+import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.service.BaseTestCase;
 
 /**
@@ -72,6 +73,8 @@ public class MosipTestRunner {
 		runner.setTestSuites(suitefiles);
 		runner.setOutputDirectory("testng-report");
 		runner.run();
+		LOGGER.info("clearing the partner management data used in Authentication");
+		new PMPDataManager(false);
 		System.exit(0);
 	}
 

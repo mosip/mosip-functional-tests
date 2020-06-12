@@ -217,7 +217,6 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
-		new PMPDataManager(false);
 		RestAssured.reset();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
