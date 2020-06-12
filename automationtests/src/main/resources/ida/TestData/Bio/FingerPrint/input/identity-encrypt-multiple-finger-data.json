@@ -17,7 +17,7 @@
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FIR",
+					"bioType": "Finger",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",
@@ -46,7 +46,7 @@
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FIR",
+					"bioType": "Finger",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",
@@ -76,7 +76,7 @@
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
 					},
-					"bioType": "FIR",
+					"bioType": "Finger",
 					"bioSubType": "UNKNOWN",
 					"mosipProcess": "Auth",
 					"env": "Staging",

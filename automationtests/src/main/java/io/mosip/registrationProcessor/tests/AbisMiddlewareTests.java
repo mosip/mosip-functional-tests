@@ -193,6 +193,7 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 	
 	@BeforeClass
 	public void generateAbisPackets() {
+		String regId="";
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
 		File file = new File(apiRequests.getResourcePath()+"regProc/AbisTestpackets");
 		File[] listOfPackets = file.listFiles();
@@ -201,9 +202,9 @@ public class AbisMiddlewareTests extends BaseTestCase implements ITest{
 			for(File packet:listOfFile.listFiles()) {
 				if(packet.getName().contains(".zip")) {
 					File decryptedPacket=scenario.decryptPacket(packet);
-					scenario.updateRegId(decryptedPacket);
+					scenario.updateRegId(decryptedPacket,regId);
 					scenario.updateCheckSum(decryptedPacket);
-					scenario.encryptFile(decryptedPacket);
+					scenario.encryptFile(decryptedPacket,regId);
 					break;
 				}
 			}

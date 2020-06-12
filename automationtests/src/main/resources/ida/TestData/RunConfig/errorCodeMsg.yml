@@ -106,10 +106,10 @@ errors:
     errorMessage: No authentication type selected 
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Finger Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-IIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Iris Authentication usage not allowed as per policy
   PolicyWithoutDemo:
     errorCode: IDA-MPA-006
     errorMessage: DEMO Authentication usage not allowed as per policy 
@@ -168,11 +168,11 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingIrisBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data IIR not available in database$
+    errorMessage: $REGEXP:Biometric data Iris not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingFingerBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data FIR not available in database$
+    errorMessage: $REGEXP:Biometric data Finger not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   InvalidBioSubtype:
     errorCode: IDA-MLC-009
@@ -182,19 +182,19 @@ errors:
     errorMessage: Number of FACE records should not exceed 1
   FingerExceed2:
     errorCode: IDA-BIA-003
-    errorMessage: Number of FIR should not exceed 2
+    errorMessage: Number of Finger should not exceed 2
   IrisExceed2:
     errorCode: IDA-BIA-007
     errorMessage: Duplicate Irises in request
   PolicyWithoutBioFinger:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-FIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Finger Authentication usage not allowed as per policy
   PolicyWithoutBioFace:
     errorCode: IDA-MPA-006
     errorMessage: BIO-FACE Authentication usage not allowed as per policy
   PolicyWithoutBioIris:
     errorCode: IDA-MPA-006
-    errorMessage: BIO-IIR Authentication usage not allowed as per policy
+    errorMessage: BIO-Iris Authentication usage not allowed as per policy
   MissingBioSubtype:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/data/bioSubType
@@ -231,11 +231,11 @@ errors:
     actionMessage: Please give your biometrics again
   BiometricIrisMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – IIR did not match
+    errorMessage: Biometric data – Iris did not match
     actionMessage: Please give your biometrics again
   BiometricFingerMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – FIR did not match
+    errorMessage: Biometric data – Finger did not match
     actionMessage: Please give your biometrics again
   Demo_GenderMismatch:
     errorCode: IDA-DEA-001

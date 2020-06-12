@@ -277,13 +277,14 @@ public class EncrypterDecrypter extends BaseTestCase {
 		String centerId=file.getName().substring(0,5);
 		String machineId=file.getName().substring(5,10);
 		try {
-			//encryptedPacket=new FileInputStream(file);
-			byte [] fileInBytes=FileUtils.readFileToByteArray(file);
-			String encryptedPacketString= Base64.getEncoder().encodeToString(fileInBytes);
-			//String encryptedPacketString = IOUtils.toString(encryptedPacket, "UTF-8");
+			encryptedPacket=new FileInputStream(file);
+			//byte [] fileInBytes=FileUtils.readFileToByteArray(file);
+			//String encryptedPacketString= Base64.getEncoder().encodeToString(fileInBytes);
+			String encryptedPacketString = IOUtils.toString(encryptedPacket, "UTF-8");
 			//encryptedPacketString=encryptedPacketString.replaceAll("\\s+","");
 			String registrationId=file.getName().substring(0,file.getName().lastIndexOf('.'));
-			String packetCreatedDateTime = registrationId.substring(registrationId.length() - 14);
+			String packetCreatedDateTime = registrationId.substring(registrationId.length() - 17);
+			packetCreatedDateTime=packetCreatedDateTime.substring(0,packetCreatedDateTime.lastIndexOf("_"));
 			int n = 100 + new Random().nextInt(900);
 			String milliseconds = String.valueOf(n);
 			//encryptedPacket.close();
@@ -340,7 +341,8 @@ public class EncrypterDecrypter extends BaseTestCase {
 			//String encryptedPacketString = IOUtils.toString(encryptedPacket, "UTF-8");
 			encryptedPacketString=encryptedPacketString.replaceAll("\\s+","");
 			String registrationId=file.getName().substring(0,file.getName().lastIndexOf('.'));
-			String packetCreatedDateTime = registrationId.substring(registrationId.length() - 14);
+			String packetCreatedDateTime = registrationId.substring(registrationId.length() - 17);
+			packetCreatedDateTime=packetCreatedDateTime.substring(0,packetCreatedDateTime.lastIndexOf("_"));
 			int n = 100 + new Random().nextInt(900);
 			String milliseconds = String.valueOf(n);
 			encryptedPacket.close();
@@ -393,17 +395,12 @@ public class EncrypterDecrypter extends BaseTestCase {
 				for(Object obj : hashSequence1){
 					JSONObject label = (JSONObject) obj;
 					logger.info("obj : "+label.get("label"));
-					if(label.get("label").equals("applicantBiometricSequence")){
+					if(label.get("label").equals("biometricSequence")){
 						@SuppressWarnings("unchecked")
 						List<String> docs = (List<String>) label.get("value");
 						logger.info("list of documents :: "+ docs);
 						generateBiometricsHash(docs,listOfFiles);
-					}else if(label.get("label").equals("introducerBiometricSequence")){
-						@SuppressWarnings("unchecked")
-						List<String> docs = (List<String>) label.get("value");
-						logger.info("list of documents :: "+ docs);
-						generateBiometricsHash(docs,listOfFiles);
-					}else if(label.get("label").equals("applicantDemographicSequence")){
+					}else if(label.get("label").equals("demographicSequence")){
 						@SuppressWarnings("unchecked")
 						List<String> docs = (List<String>) label.get("value");
 						logger.info("list of documents :: "+ docs);
@@ -415,13 +412,41 @@ public class EncrypterDecrypter extends BaseTestCase {
 		}
 		return hashCodeGenerated;
 	}
+	
+	public byte[] generateCheckSum2(File[] listOfFiles) throws FileNotFoundException, IOException, ParseException {
+		JSONArray hashSequence1;
+		byte[] hashCodeGenerated = null;
+		for(File f : listOfFiles){
+			if(f.getName().contains("packet_meta_info.json")){
+				FileReader metaFileReader = new FileReader(f.getPath());
+				JSONObject objectData = (JSONObject) new JSONParser().parse(metaFileReader);
+				JSONObject identity = (JSONObject) objectData.get("identity");
+				metaFileReader.close();
+				hashSequence1 = (JSONArray) identity.get("hashSequence2");
+				logger.info("hashSequence1....... : "+hashSequence1);
+				for(Object obj : hashSequence1){
+					JSONObject label = (JSONObject) obj;
+					logger.info("obj : "+label.get("label"));
+					if(label.get("label").equals("otherFiles")){
+						@SuppressWarnings("unchecked")
+						List<String> docs = (List<String>) label.get("value");
+						logger.info("list of documents :: "+ docs);
+						generateDemographicsHash(docs,listOfFiles);
+					}
+				}	
+				hashCodeGenerated = HMACUtils.digestAsPlainText(HMACUtils.updatedHash()).getBytes();
+			}
+		}
+		return hashCodeGenerated;
+	}
+	
 	private void generateBiometricsHash(List<String> docs,File[] listOfFiles ) {
 		byte[] fileByte=null;
-	for(File file:listOfFiles) {
-		if(file.getName().equalsIgnoreCase("Biometric")) {
-			File [] demographicFiles=file.listFiles();
-			for(File demoFiles: demographicFiles) {
-				for(String fileName: docs) {
+	
+		
+			
+			for(String fileName: docs) {
+				for(File demoFiles:listOfFiles) {
 					if(fileName.equals(demoFiles.getName().substring(0,demoFiles.getName().lastIndexOf('.')))) {
 				try {
 					FileInputStream inputStream= new FileInputStream(demoFiles);
@@ -434,17 +459,15 @@ public class EncrypterDecrypter extends BaseTestCase {
 				}
 			}
 			}
-		}
+		
 	}
-	}
+	
 	
 	private void generateDemographicsHash(List<String> docs,File[] listOfFiles) {
 		byte[] fileByte=null;
-		for(File file:listOfFiles) {
-			if(file.getName().equalsIgnoreCase("Demographic")) {
-				File [] demographicFiles=file.listFiles();
-				for(File demoFiles: demographicFiles) {
-					for(String fileName: docs) {
+		
+		for(String fileName: docs) {
+			for(File demoFiles:listOfFiles) {
 						if(fileName.equals(demoFiles.getName().substring(0,demoFiles.getName().lastIndexOf('.')))) {
 					try {
 						FileInputStream inputStream= new FileInputStream(demoFiles);
@@ -457,8 +480,8 @@ public class EncrypterDecrypter extends BaseTestCase {
 					}
 				}
 				}
-			}
-		}
+			
+		
 	}
 		/*@SuppressWarnings("unchecked")
 		public JSONObject generateCryptographicDataEncryption(JSONObject requestJson) throws IOException {

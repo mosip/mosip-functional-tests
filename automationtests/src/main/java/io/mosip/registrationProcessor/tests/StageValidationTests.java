@@ -36,6 +36,7 @@ import io.mosip.registrationProcessor.util.StageValidationMethods;
 import io.mosip.registrationProcessor.util.TweakRegProcPackets;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.SetStageStatusCode;
+import net.lingala.zip4j.exception.ZipException;
 
 public class StageValidationTests extends BaseTestCase implements ITest {
 	protected static String testCaseName = "";
@@ -54,7 +55,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 	PacketFlowStatus packetFlow=new PacketFlowStatus();
 	RegProcTransactionDb transaction=new RegProcTransactionDb();
 	@BeforeClass
-	public void readUserStage() throws PacketDecryptionFailureException, ApiNotAccessibleException {
+	public void readUserStage() throws PacketDecryptionFailureException, ApiNotAccessibleException, ZipException {
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
 		Properties folderPath = new Properties();
 		try {
@@ -90,7 +91,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		File file=new File(invalidPacketFolderPath);
 		File[] listOfFiles=file.listFiles();
 		
-		e.packetValidatorPropertyFileReader("packetValidator.properties", validPacketPath, invalidPacketFolderPath);
+		//e.packetValidatorPropertyFileReader("packetValidator.properties", validPacketPath, invalidPacketFolderPath);
 
 		e.osiValidatorPropertyFileReader("packetProperties.properties", validPacketPath, invalidPacketFolderPath);
 
@@ -106,7 +107,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		}
 	}
  
-	@DataProvider(name = "packetValidatorStage")
+/*	@DataProvider(name = "packetValidatorStage")
 	public File[] getInvalidPacketValidatorPackets() {
 		Object[][] reutr = null;
 		File file = new File(invalidPacketPath + "/PacketValidator");
@@ -123,7 +124,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		 } 
 		return objArray;
 		
-	}
+	}*/
 	@DataProvider(name="osiValidatorStage")
 	public File[] getInvalidOsiValidatorPackets() {
 		

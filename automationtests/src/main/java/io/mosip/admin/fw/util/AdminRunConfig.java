@@ -249,7 +249,6 @@ public class AdminRunConfig extends RunConfig {
 		setUpdateIndividualTypePath(AdminTestUtil.getPropertyValue("updateIndividualTypePath"));
 	}
 
-
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
 		String[] folderList = filePath.getName().split(Pattern.quote("."));
 		String temp = "";
@@ -1853,11 +1852,17 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
+		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
+	}
 
 	@Override
 	public String getCreateDocumentCategoryPath() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public void setCreateDocumentCategoryPath(String createDocumentCategoryPath) {
+		this.createDocumentCategoryPath = createDocumentCategoryPath;
 	}
 
 	@Override
@@ -1865,12 +1870,19 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void setUpdateGenderPath(String updateGenderPath) {
+		this.updateGenderPath = updateGenderPath;
+	}
 
 	@Override
 	public String getCreateGenderPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void setCreateGenderPath(String createGenderPath) {
+		this.createGenderPath=createGenderPath;
+	}
+	
 	@Override
 	public String getUpdateTemplatePath() {
 		return updateTemplatePath;
@@ -1942,5 +1954,8 @@ public class AdminRunConfig extends RunConfig {
 	public void setUpdateDocumentCategoryPath(String updateDocumentCategoryPath) {
 		this.updateDocumentCategoryPath = updateDocumentCategoryPath;
 	}
-	
+
+	public void setCreateHolidayPath(String createHolidayPath) {
+		this.createHolidayPath = createHolidayPath;
+	}
 }

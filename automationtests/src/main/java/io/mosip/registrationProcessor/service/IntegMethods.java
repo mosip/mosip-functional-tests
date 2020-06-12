@@ -48,7 +48,7 @@ public class IntegMethods extends BaseTestCase {
 	public final static String Reg_Proc_PacketLanding_URI="/packetreceiver/v0.1/registration-processor/packet-receiver/registrationpackets";
 	public final static String Reg_Proc_Get_URI="/registrationstatus/v0.1/registration-processor/registration-status/registrationstatus";
 	final static String folder="regProc/IntegrationScenarios";
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	RegProcApiRequests apiRequests=new RegProcApiRequests();
 	String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
 	String registrationID="";
@@ -223,7 +223,7 @@ public class IntegMethods extends BaseTestCase {
 		}
 		return decryptedPacket;
 	}
-	public void updateRegId(File decryptedPacket) {
+	public void updateRegId(File decryptedPacket,String registrationID) {
 		JSONObject metaInfo = null;
 		for (File info : decryptedPacket.listFiles()) {
 			byte[] checkSum = null;
@@ -238,7 +238,7 @@ public class IntegMethods extends BaseTestCase {
 				}
 				JSONObject identity = (JSONObject) metaInfo.get("identity");
 				JSONArray metaData = (JSONArray) identity.get("metaData");
-				JSONArray updatedData = tweakPackets.updateRegId(metaData, regId);
+				JSONArray updatedData = tweakPackets.updateRegId(metaData, registrationID);
 				metaInfo.put("identity", identity);
 				try (FileWriter updatedFile = new FileWriter(info.getAbsolutePath())) {
 					try {
@@ -259,10 +259,14 @@ public class IntegMethods extends BaseTestCase {
 	}
 	public File updateCheckSum(File decryptedPacket) {
 		byte[] checkSum = null;
+		byte[] checkSum2=null;
 		String str = "";
+		String str2="";
 		try {
 			checkSum = encryptDecrypt.generateCheckSum(decryptedPacket.listFiles());
 			str = new String(checkSum, StandardCharsets.UTF_8);
+			checkSum2 = encryptDecrypt.generateCheckSum2(decryptedPacket.listFiles());
+			str2 = new String(checkSum2, StandardCharsets.UTF_8);
 		} catch (IOException | ParseException e) {
 			logger.error("Could Not Update The CheckSum",e);
 		}
@@ -278,16 +282,27 @@ public class IntegMethods extends BaseTestCase {
 				writer.print(str);
 				writer.close();
 
+			}else if (info.getName().equals("packet_operations_hash.txt")) {
+				PrintWriter writer=null;
+				try {
+					writer = new PrintWriter(info);
+				} catch (FileNotFoundException e1) {
+					logger.error("Could not Update Checksum",e1);
+				}
+				writer.print("");
+				writer.print(str2);
+				writer.close();
+
 			}
 		}
 		return decryptedPacket;
 	}
-	public void encryptFile(File decryptedFile) {
+	public void encryptFile(File decryptedFile,String registrationId) {
 		File temporaryFile=new File(decryptedFile.getParent());
 		temporaryFile.getParent();
 		try {
 			encryptDecrypt.encryptFile(decryptedFile,temporaryFile.getParent(),
-					temporaryFile.getParent() + "/generatedPacket" , regId);
+					temporaryFile.getParent() + "/generatedPacket" , registrationId);
 		} catch (ZipException | IOException e) {
 			logger.error("Could Not Encrypt The File",e);
 		}

@@ -44,7 +44,7 @@ public class SignatureController {
 	Decrypt decrypt;
 	
 	/** The encrypt URL. */
-	@Value("${kernel.validate.signature-url}")
+	@Value("${mosip.ida.validate.signature-url}")
 	private String validateSignUrl;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
