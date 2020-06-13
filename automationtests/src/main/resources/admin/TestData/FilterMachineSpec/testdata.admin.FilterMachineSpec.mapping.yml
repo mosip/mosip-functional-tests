@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Name$
+         textfilters0: Testro
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -13,7 +13,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_NameAra$
+         textfilters0: تسترو
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -23,85 +23,88 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Name$
+         textfilters0: Testro
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_col_as_name_filterType_all:
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$
+   Admin_FilterMachineSpec_Valid_col_name_filterType_all_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Name$
+         textfilters0: Testro
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterMachineSpec_Valid_name_tro_filterType_all:
+   Admin_FilterMachineSpec_Valid_name_filterType_all_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_machineSpec_halfName$
-         languageCode: $TestData:valid_LanguageCodeEng$
+         textfilters0: تسترو
+         languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-   Admin_FilterMachineSpec_Valid_name_tro_filterType_unique:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_halfName$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$
+
    Admin_FilterMachineSpec_Valid_col_brand_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Brand$
+         textfilters0: brand
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
+   Admin_FilterMachineSpec_Valid_col_brand_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: العلامة التجارية
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$         
    Admin_FilterMachineSpec_Valid_col_model_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_machineSpec_Model$
+         textfilters0: model
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
+   Admin_FilterMachineSpec_Valid_col_model_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: نموذج
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$         
    Admin_FilterMachineSpec_Valid_col_nameAndisActive_filterType_unique_eng:
       input.search-request1:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Name$
+         textfilters0: Testro
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$ 
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: $TestData:valid_isActive_true$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos6-response:
+      output.output-1-expected-pos1-response:
          fieldIDfilters0: $input.search-request1:columnNamefilters0$
          fieldValuefilters0: $input.search-request1:textfilters0$
          fieldIDfilters1: $input.search-request1:columnNamefilters1$
          fieldIDfilters1: $input.search-request1:columnNamefilters1$
-   Admin_FilterMachineSpec_Valid_name_filterType_unique_fra:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_machineSpec_Name$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos5-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+
    Admin_FilterMachineSpec_Valid_filterText_blank:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -110,11 +113,11 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         filters: $IGNORE$
 #   Admin_FilterMachineSpec_Valid_DefaultFilterType:
 #      input.search-request2:
 #         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-#         textfilters0: $TestData:valid_machineSpec_Name$
+#         textfilters0: Testro
 #         languageCode: $TestData:valid_LanguageCodeEng$
 #         requesttime: $TIMESTAMPZ$
 #      output.output-1-expected-pos-response:
@@ -191,6 +194,7 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidFilterTypeInFilterAPI:errorCode$
          messageerrors0: $errors:InvalidFilterTypeInFilterAPI:errorMessage$
+         responsetime: $IGNORE$
    Admin_FilterMachineSpec_inValid_FilterText:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
@@ -210,3 +214,4 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
          messageerrors0: $errors:InvalidLanguageCode:errorMessage$
+         responsetime: $IGNORE$

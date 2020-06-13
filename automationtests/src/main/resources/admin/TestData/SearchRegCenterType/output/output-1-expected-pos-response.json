@@ -1,21 +1,21 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-11-18T05:04:28.294Z",
+  "responsetime": "2020-05-20T13:56:47.301Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": "$IGNORE$",
+    "totalRecord": 1,
     "data": [
       {
-        "code": "REG",
-        "langCode": "eng",
-        "name": "Regular",
-        "descr": "Regular Registration Center",
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$"
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:25.785Z",
+        "code": "TREG",
+        "langCode": "eng",
+        "name": "Test R cent",
+        "descr": "Center For test"
       }
     ]
   }
-  }
+}

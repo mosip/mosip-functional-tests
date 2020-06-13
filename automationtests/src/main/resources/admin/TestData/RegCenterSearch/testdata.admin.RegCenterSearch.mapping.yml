@@ -3,91 +3,49 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_center_Name$
+         valuefilters0: 'map test center'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_columAsName_type_equal_ara_DESC:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_center_Name_ara$
+         valuefilters0: 'مركز اختبار الخرائط'
          sortTypesort0: $TestData:valid_SortTypeDescending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos1-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columAsName_type_equal_fra_DESC:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_center_Name_fra$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
-         responsetime: $IGNORE$
-         fromRecord: 1
-         totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_columAsName_type_contains_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: 'center'
+         valuefilters0: 'map test'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_columAsName_type_contains_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: 'مركز'
+         valuefilters0: 'مركز اختبار الخر'
          sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
@@ -95,71 +53,50 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos1-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_columAsName_type_startsWith:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeStartsWith$
-         valuefilters0: 'cent'
+         valuefilters0: 'map t'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
+   Admin_RegCenterSearch_Valid_columAsName_type_startsWith_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: 'مركز اختب'
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$         
    Admin_RegCenterSearch_Valid_columIsActive_true_type_equal_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters0: $TestData:valid_SearchTypeEquals$
          valuefilters0: true
-         sortTypesort0: $TestData:valid_SortTypeAscending$
+         sortFieldsort0: centerTypeCode
+         sortTypesort0: $TestData:valid_SortTypeDescending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
-         totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_columIsActive_false_type_equal:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: false
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
-         responsetime: $IGNORE$
-         fromRecord: $IGNORE$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
 
@@ -167,28 +104,21 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: 'Test R cent'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_colum_centerTypeName_type_equal_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName_ara$
+         valuefilters0: اختبار R المائة
          sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
@@ -196,215 +126,158 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos1-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
-   Admin_RegCenterSearch_Valid_colum_centerTypeName_type_equal_fra:
+         toRecord: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_cntrTypNm_type_strtsWth_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName_fra$
-         sortFieldsort0: id
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: 'Test R' 
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
+         languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
+   Admin_RegCenterSearch_Valid_colum_cntrTypNm_type_strtsWth_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_column_centerTypeName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: 'اختبار R' 
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$         
 
    Admin_RegCenterSearch_Valid_colum_region_type_equal:
       input.search-request:
          columnNamefilters0: $TestData:validColumnRegion$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:validColumnRegionValue$
+         valuefilters0: Location test M
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_colum_region_type_contains_eng:
       input.search-request:
          columnNamefilters0: $TestData:validColumnRegion$
          typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:validColumnProvinceValue$
+         valuefilters0: Location test M
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_colum_region_type_contains_ara:
       input.search-request:
          columnNamefilters0: $TestData:validColumnRegion$
          typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:validColumnProvinceValue_ara$
+         valuefilters0: اختبار الموقع
          sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos1-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
 
    Admin_RegCenterSearch_Valid_colum_province_type_equal:
       input.search-request:
          columnNamefilters0: $TestData:validColumnProvince$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:validColumnCityValue$
+         valuefilters0: 'test'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
    Admin_RegCenterSearch_Valid_colum_province_type_startsWith:
       input.search-request:
          columnNamefilters0: $TestData:validColumnProvince$
          typefilters0: $TestData:valid_SearchTypeStartsWith$
-         valuefilters0: 'K'
+         valuefilters0: 'test'
          sortFieldsort0: id
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos1-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
          
    Admin_RegCenterSearch_Valid_colum_city_type_equal:
       input.search-request:
          columnNamefilters0: $TestData:validColumnCity$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:validColumnCityValue$
+         valuefilters0: 'test'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedBydata0: $IGNORE$
- 
-   Admin_RegCenterSearch_Valid_colum_zone_type_equal:
-      input.search-request:
-         columnNamefilters0: $TestData:validColumnZone$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:validZoneValue$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
-         responsetime: $IGNORE$
-         fromRecord: 1
-         totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$ 
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
          
    Admin_RegCenterSearch_Valid_colum_postalCode_type_equal:
       input.search-request:
          columnNamefilters0: $TestData:validColumnPostalCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:validPostalCodeValue$
+         valuefilters0: 'test'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos4-response:
          responsetime: $IGNORE$
-         fromRecord: 1
          totalRecord: $IGNORE$
-         toRecord: 1
-         contactPhonedata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         updatedDateTimedata0: $IGNORE$ 
-         updatedBydata0: $IGNORE$
+         toRecord: $IGNORE$
+ 
+   Admin_RegCenterSearch_Valid_colum_zone_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:validColumnZone$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: 'test' #this zone is of loc table
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos4-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
          
-# user used for this is 110005 mapped to cst, center under cst is 2 so total count should come as 2
+# user used for this is mosipautouser mapped to cst, center under TPRNTZ is 1 so total count should come as 1
    Admin_RegCenterSearch_Valid_columIsActive_true_type_equal_zoneValidation:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -415,25 +288,10 @@ testdata:
          pageFetch: 10
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $TestData:valid_isActive_true$
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         fromRecord: 1
-         totalRecord: $IGNORE$
+         totalRecord: 1
          toRecord: $IGNORE$
-         contactPhonedata0: $IGNORE$
-         contactPhonedata1: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         createdDateTimedata1: $IGNORE$
-         updatedDateTimedata0: $IGNORE$
-         updatedDateTimedata1: $IGNORE$
-         updatedBydata0: $IGNORE$
-         updatedBydata1: $IGNORE$
-         workingNonWorkingDays0: $IGNORE$
-         workingNonWorkingDays1: $IGNORE$
-         exceptionalHolidayPutPostDto0: $IGNORE$
-         exceptionalHolidayPutPostDto1: $IGNORE$
                 
 
    Admin_RegCenterSearch_inValid_col_name_ofCenter_mapToOtherZoneThanAdmin:
@@ -659,3 +517,19 @@ testdata:
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:InvalidFilterType:errorCode$
          messageerrors0: $errors:InvalidFilterType:errorMessage2$
+         
+   Admin_RegCenterSearch_Valid_columIsActive_false_type_equal:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: false
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos4-response:
+         responsetime: $IGNORE$
+         fromRecord: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$         

@@ -1,8 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-06T11:19:07.748Z",
-  "metadata": null,
+  "responsetime": "2020-05-18T05:28:50.408Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,18 +9,13 @@
     "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:49.739Z",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "code": "FRS",
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:24.840Z",
+        "code": "TDtyp",
         "langCode": "eng",
-        "name": "Finger Print Scanner",
-        "description": "For scanning fingerprints"
+        "name": "Finger test Scanner",
+        "description": "For test finger"
       }
     ]
-  },
-  "errors": null
+  }
 }

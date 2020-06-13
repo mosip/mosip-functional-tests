@@ -137,6 +137,26 @@ public class KernelDataBaseAccess {
 		}
 		return (res>0) ? true : false;
 	}
+	
+	public boolean executeQueries(List<String> queries, String dbName) {
+		int res = 0;
+		session = getDataBaseConnection(dbName.toLowerCase());
+		try {
+			for(String query: queries)
+			{
+				res = session.createSQLQuery(query).executeUpdate();
+				logger.info("Result from the above query execution: "+res);
+			}
+		} catch (HibernateException e) {
+			logger.info(e.getMessage());
+		}finally {
+		session.getTransaction().commit();
+		session.close();
+		factory.close();
+		logger.info("==========session  closed=============");
+		}
+		return (res>0) ? true : false;
+	}	
 
 	@AfterClass(alwaysRun = true)
 	public void closingSession() {

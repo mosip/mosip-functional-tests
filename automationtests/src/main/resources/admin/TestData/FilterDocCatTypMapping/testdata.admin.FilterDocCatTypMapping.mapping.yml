@@ -1,132 +1,117 @@
 testdata:
-   Admin_FilterDocCatTypMapping_Valid_Request_Smoke:
+   Admin_FilterDocCatTypMapping_Valid_Smoke_col_catcode_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatCode$
+         textfilters0: 'TDCAT'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_lang_ara_Col_doCatCode_FilterUnique:
+         responsetime: $IGNORE$
+   Admin_FilterDocCatTypMapping_Valid_ara_Col_code_unique:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
+         textfilters0: 'تدوكات'
          languageCode: $TestData:valid_LanguageCodeArabic$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_lang_fra_Col_doCatCode_FilterUnique:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilter_Text$
-         languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-posBlank-response:
          responsetime: $IGNORE$
-   Admin_FilterDocCatTypMapping_Valid_Col_doCatCode_filterType_all:
+
+   Admin_FilterDocCatTypMapping_Valid_Col_catcode_type_all_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocCatCode$
+         textfilters0: 'TDCAT'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_doCatCode_PO_filterType_all:
+         responsetime: $IGNORE$
+   Admin_FilterDocCatTypMapping_Valid_Col_catcode_type_all_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocCatFilterHalf_Text$
+         textfilters0: 'تدوكات'
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_DocCatCode$
-         fieldIDfilters1: $input.search-request:columnNamefilters0$
-         fieldValuefilters1: $TestData:valid_DocCatCode$
-   Admin_FilterDocCatTypMapping_Valid_doCatCode_PO_filterType_Unique:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatFilterHalf_Text$
-         languageCode: $TestData:valid_LanguageCodeArabic$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-   Admin_FilterDocCatTypMapping_Valid_Col_docTypeCode_filterType_Unique_eng:
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$         
+
+   Admin_FilterDocCatTypMapping_Valid_Col_TypCode_Type_Uniq_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocTypeFilter_Text$
+         textfilters0: 'TDTYP'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_Col_docTypeCode_filterType_all_eng:
+         responsetime: $IGNORE$
+   Admin_FilterDocCatTypMapping_Valid_Col_TypeCode_Type_all_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DocTypeFilter_Text$
+         textfilters0: 'TDTYP'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          fieldIDfilters0: $input.search-request:columnNamefilters0$
          fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_Col_docTypeCode_filterType_Unique_ara:
+         responsetime: $IGNORE$
+   Admin_FilterDocCatTypMapping_Valid_Col_TypeCode_Type_Uniq_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocTypeFilter_Text$
+         textfilters0: 'TDTYP'
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_Col_doCatCodeAndisActive_filterType_Unique_eng:
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$
+   Admin_FilterDocCatTypMapping_Valid_Col_TypeCode_Type_all_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: 'TDTYP'
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$         
+   Admin_FilterDocCatTypMapping_Valid_Col_CatCodeNisActive_Type_Unique_eng:
       input.search-request1:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocCatCode$
+         textfilters0: 'TDCAT'
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$ 
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: $TestData:valid_isActive_true$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
+      output.output-1-expected-pos2-response:
          fieldIDfilters0: $input.search-request1:columnNamefilters0$
          fieldValuefilters0: $input.search-request1:textfilters0$
-   Admin_FilterDocCatTypMapping_Valid_Col_docTypeCode_filterType_Unique_fra:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocTypeCode$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DocTypeFilter_Text$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-posBlank-response:
          responsetime: $IGNORE$
-   Admin_FilterDocCatTypMapping_Valid_filterText_blank:
-      input.search-request:
+   Admin_FilterDocCatTypMapping_Valid_Col_CatCodeNisActive_Type_Unique_ara:
+      input.search-request1:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         textfilters0: 'TDCAT'
+         columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$ 
+         typefilters1: $TestData:valid_FilterTypeUnique$
+         textfilters1: $TestData:valid_isActive_true$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldIDfilters1: $input.search-request:columnNamefilters0$
-         fieldIDfilters2: $input.search-request:columnNamefilters0$
-         fieldIDfilters3: $input.search-request:columnNamefilters0$
+      output.output-1-expected-posBlank-response:
+         responsetime: $IGNORE$          
+
 #   Admin_FilterDocCatTypMapping_Valid_DefaultFilterType:
 #      input.search-request2:
 #         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDocCatCode$
-#         textfilters0: $TestData:valid_DocCatCode$
+#         textfilters0: 'TDCAT'
 #         languageCode: $TestData:valid_LanguageCodeEng$
 #         requesttime: $TIMESTAMPZ$
 #      output.output-1-expected-pos-response:

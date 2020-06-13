@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -15,7 +15,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName_ara$
+         valuefilters0: اختبار R المائة
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -27,19 +27,19 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName_fra$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
+      output.output-1-expected-pos3-response:
          responsetime: $IGNORE$
-   Admin_SearchRegCenterType_valid_col_code:
+   Admin_SearchRegCenterType_valid_col_code_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeCode$
+         valuefilters0: TREG
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -47,35 +47,39 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
+   Admin_SearchRegCenterType_valid_col_code_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: TREG
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$         
    Admin_SearchRegCenterType_valid_col_isActive_true:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters0: $TestData:valid_SearchTypeEquals$
          valuefilters0: true
-         sortTypesort0: $TestData:valid_SortTypeAscending$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-   Admin_SearchRegCenterType_valid_col_isActive_false:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: false
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         responsetime: $IGNORE$         
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+       
    Admin_SearchRegCenterType_valid_typeFilter_contains:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -83,11 +87,11 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-   Admin_SearchRegCenterType_valid_typeFilter_startsWith:
+   Admin_SearchRegCenterType_valid_typeFilter_startsWith_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeStartsWith$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -95,11 +99,23 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
+   Admin_SearchRegCenterType_valid_typeFilter_startsWith_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: اختبار R المائة
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$         
    Admin_SearchRegCenterType_inValid_columnName_blank:
       input.search-request:
          columnNamefilters0: ''
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -112,7 +128,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:Invalid_ValueString$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -150,7 +166,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -163,7 +179,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -176,7 +192,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortFieldsort0: $TestData:Invalid_ValueString$
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
@@ -190,7 +206,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:Invalid_ValueString$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -203,7 +219,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortFieldsort0: ''
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
@@ -217,7 +233,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: ''
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -230,7 +246,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:invalid_PageFetch$
@@ -243,7 +259,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: ''
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -256,7 +272,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:Invalid_ValueString$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
@@ -269,7 +285,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_centerTypeName$
+         valuefilters0: Test R cent
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$

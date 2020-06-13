@@ -1,31 +1,27 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-07-11T05:49:01.594Z",
-  "metadata": null,
+  "responsetime": "2020-05-18T16:09:30.533Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 1,
+    "totalRecord": 2,
     "data": [
-      {    
-        "id": "3000061",
-        "name": "Web Camera 1",
-        "serialNum": "H483Y8886310688",
-        "macAddress": "B3-62-78-07-D4-D1",
-        "ipAddress": "192.168.0.150",
-        "deviceSpecId": "165",
+      {
+        "isActive": true,
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-07-26T12:18:40.718Z",
+        "id": "TdeviceSF",
+        "name": "TestDevice",
+        "serialNum": "test serial",
+        "deviceSpecId": "TDSpec",
+        "macAddress": "test mac",
         "langCode": "eng",
-        "validityDateTime": null,
-        "isActive": null,
-        "createdBy": "superadmin",
-        "createdDateTime": "2019-06-14T09:27:18.384Z",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "zoneCode": "TPRNTZ",
+        "zone": "Parent",
+        "deviceTypeName": "Finger test Scanner",
+        "mapStatus": "map test center"
       }
     ]
-  },
-  "errors": null
+  }
 }

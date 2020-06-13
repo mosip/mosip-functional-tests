@@ -98,8 +98,8 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 			}
 		}
 		this.testCaseName = String.format(testCase);
-		if(!kernelCmnLib.isValidToken(adminCookie))
-			adminCookie = kernelAuthLib.getAuthForAdmin();
+		if(!kernelCmnLib.isValidToken(autoTstUsrCkie))
+			autoTstUsrCkie = kernelAuthLib.getAuthForAutoUser();
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class SearchMachines extends AdminTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getSearchMachinePath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, adminCookie);
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 200, AUTHORIZATHION_COOKIENAME, autoTstUsrCkie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());

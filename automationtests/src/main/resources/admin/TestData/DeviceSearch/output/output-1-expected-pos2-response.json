@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2020-05-18T16:09:40.427Z",
+  "responsetime": "2020-05-18T16:09:39.303Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -12,14 +12,14 @@
         "createdBy": "mosipautouser",
         "createdDateTime": "2019-07-26T12:18:40.718Z",
         "id": "TdeviceSF1",
-        "name": "جهاز اختبار 1",
+        "name": "TestDevice1",
         "serialNum": "test serial1",
         "deviceSpecId": "TDSpec",
         "macAddress": "test mac1",
-        "langCode": "ara",
+        "langCode": "eng",
         "zoneCode": "LFZL",
-        "zone": "طفل1",
-        "deviceTypeName": "اختبار الماسح الضوئي",
+        "zone": "Child1",
+        "deviceTypeName": "Finger test Scanner",
         "mapStatus": "unassigned"
       }
     ]

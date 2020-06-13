@@ -1,72 +1,92 @@
 testdata:
-  Admin_FilterLocationData_Valid_Smoke:
+  Admin_FilterLocationData_Valid_Region_eng_Smoke:
     input.search-request:
       columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: ''
+      textfilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_TypeAll:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$    
+  Admin_FilterLocationData_Valid_Region_eng_TypeAll:
     input.search-request:
       columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'childloctest'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+
+  Admin_FilterLocationData_Valid_col_Region_all_Ara:
+    input.search-request:
+      columnNamefilters0: 'منطقة'
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'شاذ'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$      
+      
+  Admin_FilterLocationData_Valid_hierLevNamValue_all_eng:
+    input.search-request:
+      columnNamefilters0: test parent
+      typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_ColumnProvince:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 'Location test M'
+  Admin_FilterLocationData_Valid_hierLevNamValue_all_ara:
     input.search-request:
-      columnNamefilters0: Province
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-2-response:
-      responsetime: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_ColumnCity:
-    input.search-request:
-      columnNamefilters0: City
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-1-response:
-      responsetime: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_ColumnZone:
-    input.search-request:
-      columnNamefilters0: Zone
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'Mehdia'
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$
-      
-  Admin_FilterLocationData_Valid_LangCodeArabic:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnRegionArabic$
+      columnNamefilters0: 'اختبار الوالدين'
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: ''
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-4-response:
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 'اختبار الموقع'      
+  Admin_FilterLocationData_Valid_hierLevNamValue_eng:
+    input.search-request:
+      columnNamefilters0: test parent
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: 'test M'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 'Location test M'
+  Admin_FilterLocationData_Valid_hierLevNamValue_all_ara:
+    input.search-request:
+      columnNamefilters0: 'اختبار الوالدين'
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: 'الموقع'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: 'اختبار الموقع'
       
   Admin_FilterLocationData_Valid_LangCodeFrench:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegionFrench$
+      columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'fra'
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-5-response:
+    output.output-1-expected-pos-1-response:
       responsetime: $IGNORE$
       
   Admin_FilterLocationData_Invalid_EmptyColumnName:
@@ -141,17 +161,32 @@ testdata:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
       messageerrors0: $errors:InvalidLanguageCode:errorMessage$
   
-  Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus:
+  Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus_eng:
     input.search-request-twoFilterValues:
       columnNamefilters0: Region
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
       typefilters1: $TestData:valid_FilterTypeUnique$
       textfilters1: ''
-    output.output-1-expected-pos-6-response:
+    output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$ 
       
-      
+  Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus_ara:
+    input.search-request-twoFilterValues:
+      columnNamefilters0: 'منطقة'
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'شاذ'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_FilterTypeUnique$
+      textfilters1: ''
+    output.output-1-expected-pos-2-response:
+      responsetime: $IGNORE$  
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$     

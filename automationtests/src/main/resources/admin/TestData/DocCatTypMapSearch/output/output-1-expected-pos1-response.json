@@ -1,54 +1,28 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-29T04:52:14.658Z",
   "response": {
     "fromRecord": 1,
-    "toRecord": 2,
-    "totalRecord": 14,
+    "toRecord": 1,
+    "totalRecord": 1,
     "data": [
       {
-        "code": "POA",
-        "description": "Address Proof",
+        "code": "TDCAT",
+        "description": "وثيقة اختبار",
         "documentType": {
           "isActive": true,
-          "createdBy": "superadmin",
-          "createdDateTime": "$IGNORE$",
-          "updatedBy": null,
-          "updatedDateTime": null,
-          "isDeleted": null,
-          "deletedDateTime": null,
-          "code": "CIN",
-          "name": "Reference Identity Card",
-          "description": "Reference Identity Card",
-          "langCode": "eng"
+          "createdBy": "mosipautouser",
+          "createdDateTime": "2019-10-21T06:50:27.732Z",
+          "code": "TDTYP",
+          "name": "تدوطي",
+          "description": "وثيقة اختبار",
+          "langCode": "ara"
         },
         "isActive": true,
-        "langCode": "eng",
-        "name": "Proof of Address"
-      },
-      {
-        "code": "POA",
-        "description": "Address Proof",
-        "documentType": {
-          "isActive": true,
-          "createdBy": "superadmin",
-          "createdDateTime": "$IGNORE$",
-          "updatedBy": null,
-          "updatedDateTime": null,
-          "isDeleted": null,
-          "deletedDateTime": null,
-          "code": "COR",
-          "name": "Certificate of residence",
-          "description": "Proof of Resident",
-          "langCode": "eng"
-        },
-        "isActive": true,
-        "langCode": "eng",
-        "name": "Proof of Address"
+        "langCode": "ara",
+        "name": "تدوكات"
       }
     ]
-  },
-  "errors": null
+  }
 }

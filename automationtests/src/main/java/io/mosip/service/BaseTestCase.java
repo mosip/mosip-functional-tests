@@ -60,6 +60,8 @@ public class BaseTestCase {
 	public String zonalAdminCookie = null;
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
+	public String autoTstUsrCkie = null;
+	
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
 	public static Map queries;
@@ -158,6 +160,7 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
+			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -217,6 +220,16 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
+		String testModule = ctx.getName();
+		if(testModule.equalsIgnoreCase("Admin Tests"))
+			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
+		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
+			new PMPDataManager(false);
+		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
+		{
+			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
+			new PMPDataManager(false);
+		}
 		RestAssured.reset();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");

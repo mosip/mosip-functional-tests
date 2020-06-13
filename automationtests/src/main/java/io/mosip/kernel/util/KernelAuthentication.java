@@ -200,6 +200,20 @@ public class KernelAuthentication extends BaseTestCase{
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForAutoUser() {
+		JSONObject actualrequest = getRequestJson(testsuite);	
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("autoUsr_appid"));
+		request.put("password", props.get("autoUsr_password"));
+		request.put("userName", props.get("autoUsr_user"));
+		actualrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
 	//Reading the request file from folder
 	public JSONObject getRequestJson(String testSuite){
 		JSONObject Request=null;

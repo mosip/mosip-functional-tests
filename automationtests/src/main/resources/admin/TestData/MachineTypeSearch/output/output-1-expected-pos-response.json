@@ -1,8 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-19T11:39:39.900Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,18 +9,13 @@
     "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime":null,
-        "code": "DKS",
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:25.446Z",
+        "code": "TMTYP",
         "langCode": "eng",
-        "name": "Desktop",
-        "description": "Desktop Computer"
+        "name": "Test M Type",
+        "description": "Test Mach type"
       }
     ]
-  },
-  "errors": null
+  }
 }

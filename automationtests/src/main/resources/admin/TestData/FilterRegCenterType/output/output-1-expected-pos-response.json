@@ -1,16 +1,14 @@
 {
-	"id": "string",
-	"version": "string",
-	"responsetime": "$IGNORE$",
-	"metadata": null,
-	"response": {
-		"filters": [
-			{
-				"fieldID": "name",
-				"fieldValue": "Regular",
-				"fieldCode": "REG"
-			}
-		]
-	},
-	"errors": null
+  "id": "string",
+  "version": "string",
+  "responsetime": "2020-05-20T13:21:37.935Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Test R cent",
+        "fieldCode": "TREG"
+      }
+    ]
+  }
 }

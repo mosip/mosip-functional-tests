@@ -1,25 +1,28 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-07T05:08:17.481Z",
+  "responsetime": "2020-05-19T16:29:03.542Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
     "totalRecord": 1,
     "data": [
       {
-        "id": "10005",
-        "name": "a2ml30933",
-        "serialNum": "YM866672706",
-        "macAddress": "E8-6A-64-1D-75-E4",
-        "ipAddress": "192.168.0.119",
-        "machineSpecId": "1001",
-        "langCode": "eng",
-        "zoneCode": "CST",
-        "zone": "Casablanca-Settat",
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "2019-07-30T06:18:52.209Z"
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:27.523Z",
+        "id": "TMachid1",
+        "name": "test mach1",
+        "serialNum": "test serial1",
+        "macAddress": "test mac1",
+        "ipAddress": "test ip1",
+        "machineSpecId": "TMSPC",
+        "langCode": "eng",
+        "validityDateTime": "2029-10-21T06:50:27.523Z",
+        "zoneCode": "LFZL",
+        "zone": "Child1",
+        "machineTypeName": "Test M Type",
+        "mapStatus": "map test center"
       }
     ]
   }

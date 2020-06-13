@@ -3,57 +3,55 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         textfilters0: 'Test R cent'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_centerTypeName$
-   Admin_FilterRegCenterType_Valid_col_name_withText:
+         fieldValuefilters0: $input.search-request:textfilters0$
+   Admin_FilterRegCenterType_Valid_col_name_all:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: 'lar'
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: 'Test R cent'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_centerTypeName$
+         fieldValuefilters0: $input.search-request:textfilters0$
    Admin_FilterRegCenterType_Valid_col_name_lang_ara:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         textfilters0: 'اختبار R المائة'
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_centerTypeName_ara$
+         fieldValuefilters0: $input.search-request:textfilters0$
    Admin_FilterRegCenterType_Valid_col_name_lang_fra:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         textfilters0: 'Test R cent'
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
+      output.output-1-expected-posBlank-response:
          responsetime: $IGNORE$
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_centerTypeName_fra$
    Admin_FilterRegCenterType_Valid_col_code:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         textfilters0: 'TREG'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $TestData:valid_centerTypeCode$
+         fieldValuefilters0: $input.search-request:textfilters0$
    Admin_FilterRegCenterType_Valid_col_isActive:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$

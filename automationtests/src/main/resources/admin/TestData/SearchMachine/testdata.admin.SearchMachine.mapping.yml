@@ -3,7 +3,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:invalid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
@@ -18,48 +18,38 @@ testdata:
     input.search-request:
       typefilters0: $TestData:valid_SearchTypeContains$
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_SortFieldDESC:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       typefilters0: $TestData:valid_SearchTypeContains$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$ 
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_TwoSortFields_DescNDesc:
     input.search-twoSortFields-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       typefilters0: $TestData:valid_SearchTypeContains$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -67,21 +57,16 @@ testdata:
       sortFieldsort1: $TestData:valid_Search_ColumnNameAsMacAddress$
       sortTypesort1: $TestData:valid_SortTypeDescending$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-twoSortFields-request:languageCode$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_TwoSortFields_AscNDesc:
     input.search-twoSortFields-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       typefilters0: $TestData:valid_SearchTypeContains$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -89,19 +74,14 @@ testdata:
       sortFieldsort1: $TestData:valid_Search_ColumnNameAsMacAddress$
       sortTypesort1: $TestData:valid_SortTypeDescending$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-twoSortFields-request:languageCode$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
-      createdDateTimedata0: $IGNORE$
       
   Admin_SearchMachine_Invalid_SortField:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       typefilters0: $TestData:valid_SearchTypeContains$
       sortFieldsort0: $TestData:invalid_Search_ColumnName$
       sortTypesort0: $TestData:valid_SortTypeAscending$
@@ -118,8 +98,8 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: ''
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -133,298 +113,316 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      namedata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
+  Admin_SearchMachine_Valid_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: اختبار 1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$      
       
-  Admin_SearchMachine_Valid_FilterTypeContains:
+  Admin_SearchMachine_Valid_FilterTypeContains_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      namedata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
+  Admin_SearchMachine_Valid_FilterTypeContains_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      valuefilters0: اختبار 1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$      
       
-  Admin_SearchMachine_Valid_FilterTypeStartsWith:
+  Admin_SearchMachine_Valid_FilterTypeStartsWith_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-startsWith-response:
-      langCodedata0: $input.search-request:languageCode$
-      namedata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
+  Admin_SearchMachine_Valid_FilterTypeStartsWith_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_SearchTypeStartsWith$
+      valuefilters0: اختبار 1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$      
       
   Admin_SearchMachine_Valid_ColumnMacAddressNFilterTypeEquals:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_Machine_macAddress$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mac1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      macAddressdata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ColumnMacAddressNTypeContains:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:valid_Machine_macAddress$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mac1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      macAddressdata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ColumnMacAddressNTypeStartsWith:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:valid_Machine_macAddress$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mac1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      macAddressdata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ColumnSerialNumberNTypeEquals:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_Machine_SerialNumber$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test serial1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      serialNumdata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isDeleteddata0: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ColumnSerialNumberNTypeContains:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters0: $TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:valid_Machine_SerialNumber$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test serial1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-request:languageCode$
-      serialNumdata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ColumnSerialNumberNTypeStartsWith:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:valid_Machine_SerialNumber$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test serial1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-startsWith-response:
-      langCodedata0: $input.search-request:languageCode$
-      serialNumdata0: $input.search-request:valuefilters0$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      createdDateTimedata0: $IGNORE$
       
-  Admin_SearchMachine_Valid_ColumnMapStatusNTypeEquals:
+  Admin_SearchMachine_Valid_Col_MapStatus_Equals_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_Machine_MapStatus$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
+      valuefilters0: $TestData:valid_Device_MapStatus_Equals$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidMapStatus:errorCode$
-      messageerrors0: $errors:InvalidMapStatus:errorMessage$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      
-  Admin_SearchMachine_Valid_ColumnMapStatusNTypeContains:
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
+  Admin_SearchMachine_Valid_Col_MapStatus_Equals_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: $TestData:valid_Device_MapStatus_Equals$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeDescending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
+            
+  Admin_SearchMachine_Valid_Col_MapStatus_Contains_unassigned_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
       typefilters0: $TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:valid_Machine_MapStatus$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
+      valuefilters0: $TestData:valid_Device_MapStatus_Equals_unAssign$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidMapStatus:errorCode$
-      messageerrors0: $errors:InvalidMapStatus:errorMessage$
+    output.output-1-expected-pos3-response:
       responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
+  Admin_SearchMachine_Valid_Col_MapStatus_Contains_unassigned_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      valuefilters0: $TestData:valid_Device_MapStatus_Equals_unAssign$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      sortTypesort0: $TestData:valid_SortTypeDescending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos2-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$      
       
   Admin_SearchMachine_Valid_ColumnMapStatusNTypeStartsWith:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:valid_Machine_MapStatus$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: $TestData:valid_Device_MapStatus_Equals$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-error-response:
-      errorCodeerrors0: $errors:InvalidMapStatus:errorCode$
-      messageerrors0: $errors:InvalidMapStatus:errorMessage$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$
     
   Admin_SearchMachine_Valid_ColumnMachineSpecIdNTypeEquals:
     input.search-request:
       columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineSpecId$
+      valuefilters0: TMSPC
       sortFieldsort0: $TestData:valid_Search_ColumnNameAsSerialNum$
       sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-startsWith-response:
-      langCodedata0: $input.search-request:languageCode$
-      machineSpecIddata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
       
-  Admin_SearchMachine_Valid_ColumnMachineSpecIdNTypeContains:
+  Admin_SearchMachine_Valid_ColumnMachineSpecIdNTypeContains_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       typefilters0: $TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:valid_MachineSpecId$
+      valuefilters0: TMSPC
       sortFieldsort0: $TestData:valid_Search_ColumnNameAsSerialNum$
       sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-startsWith-response:
-      langCodedata0: $input.search-request:languageCode$
-      machineSpecIddata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
+  Admin_SearchMachine_Valid_ColumnMachineSpecIdNTypeContains_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      typefilters0: $TestData:valid_SearchTypeContains$
+      valuefilters0: TMSPC
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsSerialNum$
+      sortTypesort0: $TestData:valid_SortTypeDescending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      languageCode: $TestData:valid_LanguageCodeArabic$
+    output.output-1-expected-pos1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+      toRecord: $IGNORE$      
       
   Admin_SearchMachine_Valid_ColumnMachineSpecIdNTypeStartsWith:
     input.search-request:
       columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:valid_MachineSpecId$
+      valuefilters0: TMSPC
       sortFieldsort0: $TestData:valid_Search_ColumnNameAsSerialNum$
       sortTypesort0: $TestData:valid_SortTypeDescending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-    output.output-1-expected-startsWith-response:
-      langCodedata0: $input.search-request:languageCode$
-      machineSpecIddata0: $input.search-request:valuefilters0$
-      createdDateTimedata0: $IGNORE$
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
       
   Admin_SearchMachine_Valid_TwoFilterValues_TypeEqualsNEquals:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       sortFieldsort0: 'id'
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
@@ -432,22 +430,17 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters1: $TestData:valid_SearchTypeEquals$
-      valuefilters1: $TestData:valid_Machine_macAddress$
+      valuefilters1: test mac1
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-twoSearchValues-request:languageCode$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
       
   Admin_SearchMachine_Valid_ThreeFilterValues_TypeEqualsNEqualsNEquals:
     input.search-threeSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       sortFieldsort0: 'id'
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
@@ -455,25 +448,20 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters1: $TestData:valid_SearchTypeEquals$
-      valuefilters1: $TestData:valid_Machine_macAddress$
+      valuefilters1: test mac1
       columnNamefilters2: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters2: $TestData:valid_SearchTypeEquals$
-      valuefilters2: $TestData:valid_Machine_SerialNumber$
+      valuefilters2: test serial1
     output.output-1-expected-pos-response:
-      langCodedata0: $TestData:valid_LanguageCodeEng$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
       
   Admin_SearchMachine_Valid_TwoFilterValues_ColumnnameNameNName:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       sortFieldsort0: 'id'
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
@@ -481,30 +469,25 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsName$
       typefilters1: $TestData:valid_SearchTypeEquals$
-      valuefilters1: $TestData:valid_MachineName$
+      valuefilters1: test mach1
     output.output-1-expected-pos-response:
-      langCodedata0: $input.search-twoSearchValues-request:languageCode$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
       
   Admin_SearchMachine_Invalid_TwoFilterValuesWithOneInvalidColumnname:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
       columnNamefilters1: $TestData:invalid_Search_ColumnNameAsName$
       typefilters1: $TestData:valid_SearchTypeEquals$
-      valuefilters1: $TestData:valid_MachineName$
+      valuefilters1: test mach1
     output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
       messageerrors0: $IGNORE$
@@ -514,8 +497,8 @@ testdata:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -530,13 +513,13 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: ''
-    output.output-1-expected-emptyLangCode:
+    output.output-1-expected-error-response:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
       messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       responsetime: $IGNORE$
@@ -545,13 +528,13 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
-      sortFieldsort0: $input.search-request:columnNamefilters0$
+      valuefilters0: test mach1
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:Invalid_ValueString$
-    output.output-1-expected-emptyLangCode:
+    output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
       messageerrors0: $errors:InvalidLanguageCode:errorMessage$
@@ -561,23 +544,18 @@ testdata:
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       languageCode: $TestData:valid_LanguageCodeEng$
-      sortFieldsort0: $TestData:valid_Search_ColumnNameAsSerialNum$
+      sortFieldsort0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       sortTypesort0: $TestData:valid_SortTypeDescending$
-    output.output-1-expected-pos-response:
-      langCodedata0: $input.search-mandatory-request:languageCode$
-      createdDateTimedata0: $IGNORE$
+    output.output-1-expected-pos3-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: $IGNORE$
-      isDeleteddata0: $IGNORE$
       
   Admin_SearchMachine_Invalid_EmptySortField:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:valid_MachineName$
+      valuefilters0: test mach1
       sortFieldsort0: ''
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
@@ -602,16 +580,11 @@ testdata:
       valuefilters1: $TestData:valid_Device_MapStatus_Equals$
       columnNamefilters2: $TestData:valid_MachineSearchColumnAsMachineTypeName$
       typefilters2: $TestData:valid_SearchTypeEquals$
-      valuefilters2: $TestData:valid_machineType_Name$
+      valuefilters2: Test M Type
     output.output-1-expected-pos-response:
-      langCodedata0: $TestData:valid_LanguageCodeEng$
-      createdDateTimedata0: $IGNORE$
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: true
-      isDeleteddata0: $IGNORE$
   Admin_SearchMachine_Valid_TwoFilters_allFilterType_Equals:
     input.search-twoSearchValues-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
@@ -624,13 +597,8 @@ testdata:
       languageCode: $TestData:valid_LanguageCodeEng$
       columnNamefilters1: $TestData:valid_MachineSearchColumnAsMachineTypeName$
       typefilters1: $TestData:valid_SearchTypeEquals$
-      valuefilters1: $TestData:valid_machineType_Name$
-    output.output-1-expected-pos-response:
-      langCodedata0: $TestData:valid_LanguageCodeEng$
-      createdDateTimedata0: $IGNORE$
+      valuefilters1: Test M Type
+    output.output-1-expected-pos3-response:
       responsetime: $IGNORE$
-      fromRecord: $IGNORE$
       totalRecord: $IGNORE$
       toRecord: $IGNORE$
-      isActivedata0: true
-      isDeleteddata0: $IGNORE$

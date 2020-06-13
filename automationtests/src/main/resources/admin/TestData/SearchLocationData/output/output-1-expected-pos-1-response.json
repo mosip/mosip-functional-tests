@@ -1,21 +1,22 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
+  "responsetime": "2020-05-21T12:43:34.816Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": "$IGNORE$",
+    "totalRecord": 1,
     "data": [
       {
-        "region": "Rabat Sale Kenitra",
-        "province": "Kenitra",
-        "city": "Kenitra",
-        "zone": "Sidi Allal Tazi",
-        "postalCode": "14050",
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$"
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:25.316Z",
+        "code": "TCLOC",
+        "name": "شاذ",
+        "region": "شاذ",
+        "hierarchyLevel": 1,
+        "hierarchyName": "منطقة",
+        "parentLocCode": "TLOC"
       }
     ]
   }

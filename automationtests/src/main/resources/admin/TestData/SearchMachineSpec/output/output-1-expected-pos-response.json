@@ -1,8 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-19T12:29:00.222Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,23 +9,18 @@
     "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "id": "1001",
-        "name": "Vostro",
-        "brand": "Dell",
-        "model": "3568",
-        "machineTypeCode": "DKS",
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:26.846Z",
+        "id": "TMSPC",
+        "name": "Testro",
+        "brand": "brand",
+        "model": "model",
+        "machineTypeCode": "TMTYP",
         "minDriverversion": "1.454",
-        "description": "To take enrollments",
+        "description": "To test enrol",
         "langCode": "eng",
-        "machineTypeName": "Desktop"
+        "machineTypeName": "Test M Type"
       }
     ]
-  },
-  "errors": null
+  }
 }
