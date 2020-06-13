@@ -1,40 +1,21 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-28T11:09:25.576Z",
   "response": {
     "fromRecord": 1,
-    "toRecord": 2,
-    "totalRecord": "$IGNORE$",
+    "toRecord": 1,
+    "totalRecord": 1,
     "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "code": "POA",
-        "name": "Proof of Address",
-        "description": "Address Proof",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "code": "POB",
-        "name": "Proof of Birth",
-        "description": "Proof date of birth of the person",
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:27.732Z",
+        "code": "TDCAT",
+        "name": "Tdoccat",
+        "description": "test document",
         "langCode": "eng"
       }
     ]
-  },
-  "errors": null
+  }
 }

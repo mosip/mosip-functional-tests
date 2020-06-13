@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -16,6 +18,7 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
@@ -380,5 +383,37 @@ public class AdminTestUtil extends AuthTestsUtil{
 		} catch (Exception e) {
 			adminLogger.error("Exception occured while copying the file: "+e.getMessage());
 		}
+	}
+	
+	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
+	
+	/**
+	 * method for creating test data in master DB for admin search and filter apis
+	 */
+	public static void createMasterDataForAdminFilterSearchApis()
+	{
+		String crtQuerKeys[] = queries.get("allAutoCrt").toString().split(",");
+		List<String> crtQueries = new LinkedList<String>();
+		for(String queryKeys: crtQuerKeys)
+			crtQueries.add(queries.get(queryKeys).toString());
+		if (masterDB.executeQueries(crtQueries, "masterdata"))
+			logger.info("created test data for admin search and filter apis");
+		else
+			logger.info("not able to create test data for admin search and filter apis, Search and Filter APIs will Fail");
+	}
+	
+	/**
+	 * method for deleting created test data in master DB for admin search and filter apis
+	 */
+	public static void deleteMasterDataForAdminFilterSearchApis()
+	{
+		String dltQueryKeys[] = queries.get("allAutoDlt").toString().split(",");
+		List<String> dltQueries = new LinkedList<String>();
+		for(String queryKeys: dltQueryKeys)
+			dltQueries.add(queries.get(queryKeys).toString());
+		if (masterDB.executeQueries(dltQueries, "masterdata"))
+			logger.info("deleted created test data for admin search and filter apis");
+		else
+			logger.info("not able to delete test data of admin search and filter apis");
 	}
 }

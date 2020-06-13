@@ -8,6 +8,14 @@
       {
         "fieldID": "name",
         "fieldValue": "إثبات هوية"
+      },
+       {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      },
+       {
+        "fieldID": "isActive",
+        "fieldValue": "false"
       }
     ]
   },

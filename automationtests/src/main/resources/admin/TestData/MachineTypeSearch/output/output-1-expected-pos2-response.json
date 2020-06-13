@@ -1,27 +1,10 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-19T11:41:32.129Z",
   "response": {
-    "fromRecord": 1,
-    "toRecord": 1,
-    "totalRecord": 1,
-    "data": [
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "code": "DKS",
-        "langCode": "fra",
-        "name": "Ordinateur",
-        "description": "Ordinateurs de bureau"
-      }
-    ]
-  },
-  "errors": null
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
 }

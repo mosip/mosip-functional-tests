@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_center_Name$
+         textfilters0: map test center
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -11,15 +11,17 @@ testdata:
          fieldValuefilters0: $input.search-request:textfilters0$
          responsetime: $IGNORE$
 
-   Admin_RegCenterFilter_Valid_lang_eng_col_name_textBlank:
+   Admin_RegCenterFilter_Valid_lang_eng_col_name_all:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''  # it will fetch all the data of name column
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: 'map test center'
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos1-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$
 
 #   Admin_RegCenterFilter_Valid_col_name_filterType_default:
 #      input.search-request:
@@ -37,7 +39,7 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_center_Name_ara$
+         textfilters0: مركز اختبار الخرائط
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -49,19 +51,17 @@ testdata:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_center_Name_fra$
+         textfilters0: 'map test center'
          languageCode: $TestData:valid_LanguageCodeFrench$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-posBlank-response:
          responsetime: $IGNORE$
          
    Admin_RegCenterFilter_Valid_col_id:
       input.search-request:
          columnNamefilters0: $TestData:valid_centerColNameAsIdName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: 10005  #update the value according to center id present in DB to loggedin user's zone
+         textfilters0: TRCnt
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
@@ -69,15 +69,17 @@ testdata:
          fieldValuefilters0: $input.search-request:textfilters0$
          responsetime: $IGNORE$
          
-   Admin_RegCenterFilter_Valid_col_id_textBlank:
+   Admin_RegCenterFilter_Valid_col_id_ype_all:
       input.search-request:
          columnNamefilters0: $TestData:valid_centerColNameAsIdName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: ''
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: TRCnt
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         responsetime: $IGNORE$         
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$ 
+         fieldIDfilters0: $input.search-request:columnNamefilters0$
+         fieldValuefilters0: $input.search-request:textfilters0$        
                  
    Admin_RegCenterFilter_Valid_col_isActive:
       input.search-request:
@@ -86,29 +88,43 @@ testdata:
          textfilters0: true
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $input.search-request:columnNamefilters0$
-         fieldValuefilters0: $input.search-request:textfilters0$
+      output.output-1-expected-pos1-response:
          responsetime: $IGNORE$
 
    Admin_RegCenterFilter_Valid_Two_col_nameNisActive_eng:
       input.search-request1:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: ''
+         textfilters0: 'map test center'
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: ''
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos3-response:
-         responsetime: $IGNORE$               
+         responsetime: $IGNORE$ 
+         fieldIDfilters0: $input.search-request1:columnNamefilters0$
+         fieldValuefilters0: $input.search-request1:textfilters0$
+   Admin_RegCenterFilter_Valid_Two_col_nameNisActive_ara:
+      input.search-request1:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: 'مركز اختبار الخرائط'
+         columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters1: $TestData:valid_FilterTypeUnique$
+         textfilters1: ''
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos3-response:
+         responsetime: $IGNORE$ 
+         fieldIDfilters0: $input.search-request1:columnNamefilters0$
+         fieldValuefilters0: $input.search-request1:textfilters0$                       
          
    Admin_RegCenterFilter_inValid_col_id_OfDiffZone_than_user:
       input.search-request:
          columnNamefilters0: $TestData:valid_centerColNameAsIdName$
          typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: 10008
+         textfilters0: TRCnt
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-posBlank-response:

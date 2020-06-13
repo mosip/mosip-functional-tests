@@ -1,60 +1,82 @@
 testdata:
-   Admin_SearchDocCategories_Valid_Request_Smoke:
+   Admin_SearchDocCategories_Valid_colIsActive_equals_eng_smoke:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: true
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+   Admin_SearchDocCategories_Valid_colIsActive_equals_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: true
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$         
+   Admin_SearchDocCategories_Valid_code_equals_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: 'TDCAT'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-   Admin_SearchDocCategories_Valid_sort_as_blank_defaultSort:
-      input.search-request1:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         langCodedata0: $input.search-request1:languageCode$
-         isActivedata0: $input.search-request1:valuefilters0$
-   Admin_SearchDocCategories_Valid_languageCode_fra_:
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+   Admin_SearchDocCategories_Valid_code_equals_ara:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-   Admin_SearchDocCategories_Valid_languageCode_ara_:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: 'TDCAT'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
-         langCodedata0: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
+      output.output-1-expected-pos1-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+                  
+   Admin_SearchDocCategories_Valid_sort_as_blank_defaultSort:
+      input.search-request1:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: 'TDCAT'
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+
    Admin_SearchDocCategories_Valid_pageFetch_as_2_and_pageStart_as_0:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: 'TDCAT'
          sortFieldsort0: code
          sortTypesort0: $TestData:valid_SortTypeAscending$
          pageStart: $TestData:valid_PageStart$
@@ -62,15 +84,14 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
    Admin_SearchDocCategories_Valid_sortBy_code:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: 'TDCAT'
          sortTypesort0: $TestData:valid_SortTypeAscending$
          sortFieldsort0: code
          pageStart: $TestData:valid_PageStart$
@@ -78,26 +99,54 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
    Admin_SearchDocCategories_Valid_sortType_DESC:
       input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
          typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_isActive_true$
+         valuefilters0: 'TDCAT'
          sortTypesort0: $TestData:valid_SortTypeDescending$
          sortFieldsort0: code
          pageStart: $TestData:valid_PageStart$
          pageFetch: $TestData:valid_PageFetch2$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos5-response:
-         langCodedata0: $input.search-request:languageCode$
-         langCodedata1: $input.search-request:languageCode$
-         isActivedata0: $input.search-request:valuefilters0$
-         isActivedata1: $input.search-request:valuefilters0$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+
+   Admin_SearchDocCategories_inValid_code_startsWith_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: 'TDCAT'
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: Column code doesn't support filter type startsWith
+   Admin_SearchDocCategories_inValid_code_contains_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: 'TDCAT'
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:InvalidFilterType:errorCode$
+         messageerrors0: Column code doesn't support filter type contains         
+         
    Admin_SearchDocCategories_inValid_columnName_blank:
       input.search-request:
          columnNamefilters0: ''

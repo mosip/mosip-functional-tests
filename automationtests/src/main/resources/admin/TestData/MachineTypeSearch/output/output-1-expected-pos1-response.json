@@ -1,8 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-05-19T11:39:30.909Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,18 +9,13 @@
     "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null,
-        "code": "DKS",
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:25.446Z",
+        "code": "TMTYP",
         "langCode": "ara",
-        "name": "الحاسوب",
-        "description": "أجهزة الكمبيوتر المكتبية"
+        "name": "اختبار نوع M",
+        "description": "اختبار نوع ماخ"
       }
     ]
-  },
-  "errors": null
+  }
 }

@@ -11,12 +11,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Name_ara:
       input.search-request:
@@ -30,31 +27,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos1-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_Equals_Name_fra:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeFrench$
-         totalRecord: $IGNORE$
-         toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Brand_eng:
       input.search-request:
@@ -68,12 +43,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
          
    Admin_DeviceSpecSearch_Equals_Brand_ara:
       input.search-request:
@@ -87,33 +59,11 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos1-response:
-         branddata0: $TestData:valid_DeviceSpec_Brand_ara_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeArabic$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
          
-   Admin_DeviceSpecSearch_Equals_Brand_fra:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsBrand$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         branddata0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeFrench$
-         totalRecord: $IGNORE$
-         toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_Equals_Model:
+   Admin_DeviceSpecSearch_Equals_Model_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
          typefilters0: $TestData:valid_SearchTypeEquals$
@@ -125,14 +75,26 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         modeldata0: $TestData:valid_DeviceSpec_Model_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecSearch_Equals_Model_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_DeviceSpec_Model_Equals_ara$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsModel$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$         
          
-   Admin_DeviceSpecSearch_Equals_DeviceTypeName:
+   Admin_DeviceSpecSearch_Equals_DeviceTypeName_eng:
       input.search-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
          typefilters0: $TestData:valid_SearchTypeEquals$
@@ -143,13 +105,235 @@ testdata:
          pageFetch: $TestData:valid_PageFetch$
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos3-response:
-         deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
          totalRecord: $IGNORE$
          toRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecSearch_Equals_DeviceTypeName_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_DeviceSpec_DeviceTypeName_Equals_ara$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecSearch_contains_DeviceTypeName_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_DeviceTypeName_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$ 
+   Admin_DeviceSpecSearch_contains_DeviceTypeName_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_DeviceTypeName_Equals_ara$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$                          
+         
+   Admin_DeviceSpecSearch_StartsWith_Name_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecSearch_StartsWith_Name_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeStartsWith$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$ 
+                  
+   Admin_DeviceSpecSearch_ASC_Name_contains_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$        
+   Admin_DeviceSpecSearch_ASC_Name_contains_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$         
+   Admin_DeviceSpecSearch_DESC_Name_contains_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$        
+   Admin_DeviceSpecSearch_DESC_Name_contains_ara:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos1-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+
+   Admin_DeviceSpecSearch_Valid_PageStart_PageFetch:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+
+   Admin_DeviceSpecSearch_Contains_Name_eng:
+      input.search-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+         
+   Admin_DeviceSpecSearch_name_brand_contain_pos:
+      input.search-twoSearchValues-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+         typefilters0: $TestData:valid_SearchTypeContains$
+         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
+         columnNamefilters1: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters1: $TestData:valid_SearchTypeContains$
+         valuefilters1: $TestData:valid_DeviceSpec_Brand_eng_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+         
+   Admin_DeviceSpecSearch_name_DtypName_equals:
+      input.search-twoSearchValues-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_DeviceSpec_DeviceTypeName_Equals$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeAscending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+         columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+         typefilters1: $TestData:valid_SearchTypeEquals$
+         valuefilters1: $TestData:valid_isActive_true$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
+         
+   Admin_DeviceSpecSearch_TwoSortValues_pos:
+      input.search-twoSortValues-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+         typefilters0: $TestData:valid_SearchTypeEquals$
+         valuefilters0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
+         sortFieldsort1: $TestData:valid_Search_ColumnNameAsBrand$
+         sortTypesort1: $TestData:valid_SortTypeAscending$
+         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+         sortTypesort0: $TestData:valid_SortTypeDescending$
+         pageStart: $TestData:valid_PageStart$
+         pageFetch: $TestData:valid_PageFetch$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_Value_Name:
       input.search-request:
@@ -194,131 +378,6 @@ testdata:
          errorCodeerrors0: $errors:InvalidpaginationStartPage:errorCode$
          messageerrors0: $IGNORE$
          responsetime: $IGNORE$
-   Admin_DeviceSpecSearch_Valid_PageStart_PageFetch:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_ASC_Name_eng:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_ASC_Name_ara:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeArabic$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos1-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeArabic$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_ASC_Name_fra:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeFrench$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_DESC_Name_eng:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_DESC_Name_ara:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeArabic$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos1-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_ara_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeArabic$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_DESC_Name_fra_smoke:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos2-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeFrench$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_FilterType:
       input.search-request:
@@ -347,11 +406,9 @@ testdata:
          languageCode: $TestData:valid_LanguageCodeEng$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         branddata0: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
+         totalRecord: $IGNORE$
+         toRecord: $IGNORE$
+         responsetime: $IGNORE$
          
    Admin_DeviceSpecSearch_Invalid_LangCode:
       input.search-request:
@@ -413,101 +470,76 @@ testdata:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:InvalidRequestTime:errorMessage$
          responsetime: $IGNORE$
-   Admin_DeviceSpecSearch_Contains_Name_eng:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_TwoValueSearch_pos:
-      input.search-twoSearchValues-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeContains$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         columnNamefilters1: $TestData:valid_Search_ColumnNameAsBrand$
-         typefilters1: $TestData:valid_SearchTypeContains$
-         valuefilters1: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_TwoFilterColumns_equals:
-      input.search-twoSearchValues-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsDeviceTypeName$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DeviceSpec_DeviceTypeName_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-         columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
-         typefilters1: $TestData:valid_SearchTypeEquals$
-         valuefilters1: $TestData:valid_isActive_true$
-      output.output-1-expected-pos3-response:
-         deviceTypeCodedata0: $TestData:valid_DeviceSpec_DeviceTypeName_Output$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_StartsWith_Name_eng:
-      input.search-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_SearchTypeStartsWith$
-         valuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeAscending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         namedata0: $TestData:valid_DeviceSpec_Name_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
-   Admin_DeviceSpecSearch_TwoSortValues_pos:
-      input.search-twoSortValues-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         typefilters0: $TestData:valid_SearchTypeEquals$
-         valuefilters0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         sortFieldsort1: $TestData:valid_Search_ColumnNameAsBrand$
-         sortTypesort1: $TestData:valid_SortTypeAscending$
-         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
-         sortTypesort0: $TestData:valid_SortTypeDescending$
-         pageStart: $TestData:valid_PageStart$
-         pageFetch: $TestData:valid_PageFetch$
-         languageCode: $TestData:valid_LanguageCodeEng$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos4-response:
-         branddata0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
-         langCodedata0: $TestData:valid_LanguageCodeEng$
-         totalRecord: $IGNORE$
-         createdBydata0: $IGNORE$
-         createdDateTimedata0: $IGNORE$
-         
+
+# fra lang tets cases commented for now, can be updated and uncommented later after inserting data in fra.
+
+#   Admin_DeviceSpecSearch_Equals_Name_fra:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $TestData:valid_SearchTypeEquals$
+#         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+#         sortTypesort0: $TestData:valid_SortTypeAscending$
+#         pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos2-response:
+#         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         langCodedata0: $TestData:valid_LanguageCodeFrench$
+#         totalRecord: $IGNORE$
+#         toRecord: $IGNORE$
+#         createdBydata0: $IGNORE$
+#         createdDateTimedata0: $IGNORE$
+#   Admin_DeviceSpecSearch_Equals_Brand_fra:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+#         typefilters0: $TestData:valid_SearchTypeEquals$
+#         valuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         sortFieldsort0: $TestData:valid_Search_ColumnNameAsBrand$
+#         sortTypesort0: $TestData:valid_SortTypeAscending$
+#        pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos2-response:
+#         branddata0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         langCodedata0: $TestData:valid_LanguageCodeFrench$
+#         totalRecord: $IGNORE$
+#         toRecord: $IGNORE$
+#         createdBydata0: $IGNORE$
+#         createdDateTimedata0: $IGNORE$
+#   Admin_DeviceSpecSearch_ASC_Name_fra:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $TestData:valid_SearchTypeContains$
+#         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+#         sortTypesort0: $TestData:valid_SortTypeAscending$
+#         pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos2-response:
+#         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         langCodedata0: $TestData:valid_LanguageCodeFrench$
+#         totalRecord: $IGNORE$
+#         createdBydata0: $IGNORE$
+#         createdDateTimedata0: $IGNORE$
+#   Admin_DeviceSpecSearch_DESC_Name_fra_smoke:
+#      input.search-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $TestData:valid_SearchTypeContains$
+#         valuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         sortFieldsort0: $TestData:valid_Search_ColumnNameAsName$
+#         sortTypesort0: $TestData:valid_SortTypeDescending$
+#         pageStart: $TestData:valid_PageStart$
+#         pageFetch: $TestData:valid_PageFetch$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos2-response:
+#         namedata0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         langCodedata0: $TestData:valid_LanguageCodeFrench$
+#         totalRecord: $IGNORE$
+#         createdBydata0: $IGNORE$
+#         createdDateTimedata0: $IGNORE$                                    

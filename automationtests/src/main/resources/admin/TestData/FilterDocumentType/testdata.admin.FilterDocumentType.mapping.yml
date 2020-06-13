@@ -1,23 +1,61 @@
 testdata:
-  Admin_FilterDocumentType_Valid_Smoke:
+  Admin_FilterDocumentType_Valid_Smoke_eng_name:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: 'Birth'
+      textfilters0: 'Tdoctyp'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-4-response:
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       responsetime: $IGNORE$
       
-  Admin_FilterDocumentType_Valid_TypeAll:
+  Admin_FilterDocumentType_Valid_TypeAll_eng:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'Birth'
+      textfilters0: 'Tdoctyp'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-4-response:
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       responsetime: $IGNORE$
+
+  Admin_FilterDocumentType_Valid_TypeAll_code_eng:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'TDTYP'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      responsetime: $IGNORE$
+  Admin_FilterDocumentType_Valid_TypeAll_code_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'TDTYP'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      responsetime: $IGNORE$
+  Admin_FilterDocumentType_Valid_TypeUnique_code_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsCode$
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: 'TDTYP'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      responsetime: $IGNORE$                   
       
   Admin_FilterDocumentType_Valid_ColumnStatus:
     input.search-request:
@@ -29,25 +67,28 @@ testdata:
     output.output-1-expected-pos-1-response:
       responsetime: $IGNORE$
       
-  Admin_FilterDocumentType_Valid_LangCodeArabic:
+  Admin_FilterDocumentType_Valid_name_ara_unique:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'الميلاد'
+      typefilters0: $TestData:valid_FilterTypeUnique$
+      textfilters0: 'تدوطي'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-2-response:
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
       responsetime: $IGNORE$
-      
-  Admin_FilterDocumentType_Valid_LangCodeFrench:
+  Admin_FilterDocumentType_Valid_name_ara_all:
     input.search-request:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'naissance'
-      languageCode: $TestData:valid_LanguageCodeFrench$
+      textfilters0: 'تدوطي'
+      languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$
+    output.output-1-expected-pos-response:
+      fieldIDfilters0: $input.search-request:columnNamefilters0$
+      fieldValuefilters0: $input.search-request:textfilters0$
+      responsetime: $IGNORE$      
       
   Admin_FilterDocumentType_Invalid_EmptyColumnName:
     input.search-request:
@@ -121,17 +162,32 @@ testdata:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
       messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
-  Admin_FilterDocumentType_Valid_TwoFilterColumns_nameNStatus:
+  Admin_FilterDocumentType_Valid_TwoFltrCol_nameNStatus_eng:
     input.search-request-twoFilterValues:
       columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'Birth'
+      textfilters0: 'Tdoctyp'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
       typefilters1: $TestData:valid_FilterTypeAll$
-    output.output-1-expected-pos-response:
+    output.output-1-expected-pos-2-response:
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$
       responsetime: $IGNORE$
+  Admin_FilterDocumentType_Valid_TwoFltrCol_nameNStatus_ara:
+    input.search-request-twoFilterValues:
+      columnNamefilters0: $TestData:TestData:valid_Search_ColumnNameAsName$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: 'تدوطي'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-2-response:
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$
+      responsetime: $IGNORE$      
 
       
       

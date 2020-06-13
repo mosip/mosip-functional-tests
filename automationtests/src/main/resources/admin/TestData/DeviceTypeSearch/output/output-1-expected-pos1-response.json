@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2020-05-20T13:57:01.292Z",
+  "responsetime": "2020-05-18T05:31:46.730Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
@@ -10,11 +10,11 @@
       {
         "isActive": true,
         "createdBy": "mosipautouser",
-        "createdDateTime": "2019-10-21T06:50:25.785Z",
-        "code": "TREG",
+        "createdDateTime": "2019-10-21T06:50:24.840Z",
+        "code": "TDtyp",
         "langCode": "ara",
-        "name": "اختبار R المائة",
-        "descr": "مركز الاختبار"
+        "name": "اختبار الماسح الضوئي",
+        "description": "For test finger"
       }
     ]
   }

@@ -6,20 +6,16 @@
   "response": {
     "filters": [
       {
-        "fieldID": "docCategoryCode",
+        "fieldID": "code",
         "fieldValue": "POA"
       },
       {
-        "fieldID": "docCategoryCode",
-        "fieldValue": "POB"
+        "fieldID": "isActive",
+        "fieldValue": "true"
       },
       {
-        "fieldID": "docCategoryCode",
-        "fieldValue": "POI"
-      },
-      {
-        "fieldID": "docCategoryCode",
-        "fieldValue": "POR"
+        "fieldID": "isActive",
+        "fieldValue": "false"
       }
     ]
   },

@@ -5,12 +5,12 @@
   "response": {
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Center Mehdia"
+        "fieldID": "isActive",
+        "fieldValue": "true"
       },
       {
-        "fieldID": "name",
-        "fieldValue": "Center Sidi Taibi"
+        "fieldID": "isActive",
+        "fieldValue": "false"
       }
     ]
   }

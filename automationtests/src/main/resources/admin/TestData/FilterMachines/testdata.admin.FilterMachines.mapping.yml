@@ -3,7 +3,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeUnique$
-      textfilters0: 'a2ml30933'
+      textfilters0: 'test mach'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
@@ -15,13 +15,13 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: 'test mach'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
       fieldIDfilters0: $input.search-request:columnNamefilters0$
-      fieldValuefilters0: a2ml30933
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Valid_ColumnStatus:
     input.search-request:
@@ -37,7 +37,7 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'a2ml30933'
+      textfilters0: 'test mach'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
@@ -49,13 +49,11 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'a2ml30933'
+      textfilters0: 'test mach'
       languageCode: $TestData:valid_LanguageCodeFrench$
       requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-2-response:
+    output.output-1-expected-pos-5-response:
       responsetime: $IGNORE$
-      fieldIDfilters0: $input.search-request:columnNamefilters0$
-      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Invalid_EmptyColumnName:
     input.search-request:
@@ -129,23 +127,40 @@ testdata:
       errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
       messageerrors0: $errors:InvalidLanguageCode:errorMessage$
       
-  Admin_FilterMachines_Valid_TwoFilters_NameNStatus:
+  Admin_FilterMachines_Valid_TwoFilters_macNStatus:
     input.search-request-twoFilterValues:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'a2ml30933'
+      textfilters0: 'test mac'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
       typefilters1: $TestData:valid_FilterTypeAll$
     output.output-1-expected-pos-4-response:
       responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$
+  Admin_FilterMachines_Valid_TwoFilters_specNStatus:
+    input.search-request-twoFilterValues:
+      columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: TMSPC
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_FilterTypeAll$
+    output.output-1-expected-pos-4-response:
+      responsetime: $IGNORE$
+      fieldIDfilters0: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters0: $input.search-request-twoFilterValues:textfilters0$ 
+      fieldIDfilters1: $input.search-request-twoFilterValues:columnNamefilters0$
+      fieldValuefilters1: $input.search-request-twoFilterValues:textfilters0$     
       
   Admin_FilterMachines_Valid_ColumnMacAddress:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMacAddress$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'E8-6A-64-1D-75-E4'
+      textfilters0: 'test mac'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
@@ -157,26 +172,26 @@ testdata:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsSerialNum$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: 'YM866672706'
+      textfilters0: 'test serial'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
       fieldIDfilters0: $input.search-request:columnNamefilters0$
-      fieldValuefilters0: YM866672706
+      fieldValuefilters0: $input.search-request:textfilters0$
       
   Admin_FilterMachines_Valid_ColumnMachineSpecId:
     input.search-request:
       columnNamefilters0: $TestData:valid_MachineSearchColumnAsMachineSpecId$
       typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
+      textfilters0: TMSPC
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-2-response:
       responsetime: $IGNORE$
       fieldIDfilters0: $input.search-request:columnNamefilters0$
-      fieldValuefilters0: 1001
-  Admin_FilterMachines_Valid_Column_MapStatus:
+      fieldValuefilters0: $input.search-request:textfilters0$
+  Admin_FilterMachines_Valid_Column_MapStatus_eng:
     input.search-request:
       columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
       typefilters0: $TestData:valid_FilterTypeAll$
@@ -185,3 +200,12 @@ testdata:
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-3-response:
       responsetime: $IGNORE$
+  Admin_FilterMachines_Valid_Column_MapStatus_ara:
+    input.search-request:
+      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
+      typefilters0: $TestData:valid_FilterTypeAll$
+      textfilters0: ''
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-pos-3-response:
+      responsetime: $IGNORE$        

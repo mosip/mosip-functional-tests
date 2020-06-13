@@ -5,6 +5,12 @@
     "filters": [
       {
         "columnName": "name",
+        "type": "unique",
+        "text": "Document scanner"
+      },
+      {
+        "columnName": "name",
+        "type": "unique",
         "text": "Document scanner"
       }
     ],

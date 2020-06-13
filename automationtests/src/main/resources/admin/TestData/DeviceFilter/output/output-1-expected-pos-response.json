@@ -6,8 +6,9 @@
   "response": {
     "filters": [
       {
-        "fieldID": "deviceSpecId",
-        "fieldValue": "165"
+        "fieldID": "macAddress",
+        "fieldValue": "test mac",
+        "fieldCode": "TdeviceSF"
       }
     ]
   },

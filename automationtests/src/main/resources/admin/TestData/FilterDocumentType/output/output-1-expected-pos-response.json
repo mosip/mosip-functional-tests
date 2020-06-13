@@ -8,18 +8,6 @@
       {
         "fieldID": "name",
         "fieldValue": "Birth Certificate"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "Certificate of Birth"
-      },
-      {
-        "fieldID": "isActive",
-        "fieldValue": "true"
-      },
-      {
-        "fieldID": "isActive",
-        "fieldValue": "false"
       }
     ]
   },

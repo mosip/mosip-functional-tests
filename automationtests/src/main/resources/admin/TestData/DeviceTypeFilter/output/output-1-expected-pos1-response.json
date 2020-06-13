@@ -1,21 +1,23 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-21T09:48:09.393Z",
+  "responsetime": "2019-08-07T06:50:56.801Z",
   "metadata": null,
   "response": {
     "filters": [
       {
-        "fieldID": "Region",
-        "fieldValue": "Rabat Sale Kenitra"
+        "fieldID": "name",
+        "fieldValue": "Document Scanner"
       },
       {
         "fieldID": "isActive",
-        "fieldValue": "true"
+        "fieldValue": "true",
+        "fieldCode": ""
       },
       {
         "fieldID": "isActive",
-        "fieldValue": "false"
+        "fieldValue": "false",
+        "fieldCode": ""
       }
     ]
   },

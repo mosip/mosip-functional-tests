@@ -21,18 +21,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_Name_fra_smoke:
-      input.filter-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
-         fieldValuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Name_eng_smoke:
+   Admin_DeviceSpecFilter_All_Name_eng:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeAll$
@@ -43,7 +32,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Name_eng_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Name_ara_smoke:
+   Admin_DeviceSpecFilter_All_Name_ara:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
          typefilters0: $TestData:valid_FilterTypeAll$
@@ -54,18 +43,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Name_ara_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Name_fra_smoke:
-      input.filter-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
-         typefilters0: $TestData:valid_FilterTypeAll$
-         textfilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
-         fieldValuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
-         responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_Brand_eng_smoke:
+   Admin_DeviceSpecFilter_Unique_Brand_eng:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -76,7 +54,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_Brand_ara_smoke:
+   Admin_DeviceSpecFilter_Unique_Brand_ara:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -87,18 +65,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_ara_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_Brand_fra_smoke:
-      input.filter-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Brand_eng_smoke:
+   Admin_DeviceSpecFilter_All_Brand_eng:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -109,7 +76,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_eng_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Brand_ara_smoke:
+   Admin_DeviceSpecFilter_All_Brand_ara:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -120,18 +87,7 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_ara_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_All_Brand_fra_smoke:
-      input.filter-request:
-         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         typefilters0: $TestData:valid_FilterTypeUnique$
-         textfilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         languageCode: $TestData:valid_LanguageCodeFrench$
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
-         fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
-         responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_Model_smoke:
+   Admin_DeviceSpecFilter_Unique_Model_eng:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -142,7 +98,40 @@ testdata:
          fieldIDfilters0: $TestData:valid_Search_ColumnNameAsModel$
          fieldValuefilters0: $TestData:valid_DeviceSpec_Model_Equals$
          responsetime: $IGNORE$
-   Admin_DeviceSpecFilter_Unique_IsActive_smoke:
+   Admin_DeviceSpecFilter_Unique_Model_ara:
+      input.filter-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_FilterTypeUnique$
+         textfilters0: $TestData:valid_DeviceSpec_Model_Equals_ara$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsModel$
+         fieldValuefilters0: $TestData:valid_DeviceSpec_Model_Equals_ara$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecFilter_all_Model_eng:
+      input.filter-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: $TestData:valid_DeviceSpec_Model_Equals$
+         languageCode: $TestData:valid_LanguageCodeEng$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsModel$
+         fieldValuefilters0: $TestData:valid_DeviceSpec_Model_Equals$
+         responsetime: $IGNORE$
+   Admin_DeviceSpecFilter_all_Model_ara:
+      input.filter-request:
+         columnNamefilters0: $TestData:valid_Search_ColumnNameAsModel$
+         typefilters0: $TestData:valid_FilterTypeAll$
+         textfilters0: $TestData:valid_DeviceSpec_Model_Equals_ara$
+         languageCode: $TestData:valid_LanguageCodeArabic$
+         requesttime: $TIMESTAMPZ$
+      output.output-1-expected-pos-response:
+         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsModel$
+         fieldValuefilters0: $TestData:valid_DeviceSpec_Model_Equals_ara$
+         responsetime: $IGNORE$                  
+   Admin_DeviceSpecFilter_Unique_IsActive:
       input.filter-request:
          columnNamefilters0: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters0: $TestData:valid_FilterTypeUnique$
@@ -238,3 +227,49 @@ testdata:
          errorCodeerrors0: $errors:InvalidSearchColumnName:errorCode$
          messageerrors0: $errors:InvalidSearchColumnName:errorMessage$
          responsetime: $IGNORE$
+         
+# fra lang tets cases commented for now, can be updated and uncommented later after inserting data in fra.
+#   Admin_DeviceSpecFilter_Unique_Name_fra_smoke:
+#      input.filter-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $TestData:valid_FilterTypeUnique$
+#         textfilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
+#         fieldValuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         responsetime: $IGNORE$
+#   Admin_DeviceSpecFilter_All_Name_fra_smoke:
+#      input.filter-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsName$
+#         typefilters0: $TestData:valid_FilterTypeAll$
+#         textfilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsName$
+#         fieldValuefilters0: $TestData:valid_DeviceSpec_Name_fra_Equals$
+#         responsetime: $IGNORE$
+#   Admin_DeviceSpecFilter_Unique_Brand_fra_smoke:
+#      input.filter-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+#         typefilters0: $TestData:valid_FilterTypeUnique$
+#         textfilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
+#         fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         responsetime: $IGNORE$
+#   Admin_DeviceSpecFilter_All_Brand_fra_smoke:
+#      input.filter-request:
+#         columnNamefilters0: $TestData:valid_Search_ColumnNameAsBrand$
+#         typefilters0: $TestData:valid_FilterTypeUnique$
+#         textfilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         languageCode: $TestData:valid_LanguageCodeFrench$
+#         requesttime: $TIMESTAMPZ$
+#      output.output-1-expected-pos-response:
+#         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsBrand$
+#         fieldValuefilters0: $TestData:valid_DeviceSpec_Brand_fra_Equals$
+#         responsetime: $IGNORE$                                   

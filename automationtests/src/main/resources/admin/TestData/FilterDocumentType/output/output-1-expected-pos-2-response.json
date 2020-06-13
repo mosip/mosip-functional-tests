@@ -1,19 +1,23 @@
 {
-  "id": "string",
-  "version": "string",
-  "responsetime": "2020-01-20T10:31:08.943Z",
-  "metadata": null,
-  "response": {
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "شهادة الميلاد"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "شهادة الميلاد"
-      }
-    ]
-  },
-  "errors": null
+	"id": "string",
+	"version": "string",
+	"responsetime": "2019-08-09T10:03:45.869Z",
+	"metadata": null,
+	"response": {
+		"filters": [
+			{
+				"fieldID": "name",
+				"fieldValue": "doc"
+			},
+			{
+				"fieldID": "isActive",
+				"fieldValue": "true"
+			},
+			{
+				"fieldID": "isActive",
+				"fieldValue": "false"
+			}
+		]
+	},
+	"errors": null
 }

@@ -1,23 +1,29 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2019-08-21T09:15:38.789Z",
-  "metadata": null,
+  "responsetime": "2020-05-19T13:19:32.980Z",
   "response": {
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "a2ml30933"
+        "fieldID": "macAddress",
+        "fieldValue": "test mac",
+        "fieldCode": "TMachid"
+      },
+      {
+        "fieldID": "macAddress",
+        "fieldValue": "test mac1",
+        "fieldCode": "TMachid1"
       },
       {
         "fieldID": "isActive",
-        "fieldValue": "true"
+        "fieldValue": "true",
+        "fieldCode": ""
       },
       {
         "fieldID": "isActive",
-        "fieldValue": "false"
+        "fieldValue": "false",
+        "fieldCode": ""
       }
     ]
-  },
-  "errors": null
+  }
 }

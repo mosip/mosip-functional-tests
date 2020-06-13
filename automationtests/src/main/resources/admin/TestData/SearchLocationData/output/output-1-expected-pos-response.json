@@ -1,21 +1,22 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
+  "responsetime": "2020-05-21T12:43:42.775Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 1,
-    "totalRecord": 19,
+    "totalRecord": 1,
     "data": [
       {
-        "region": "Rabat Sale Kenitra",
-        "province": "Rabat",
-        "city": "Rabat",
-        "zone": "EL YOUSSOUFIA",
-        "postalCode": "10190",
         "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$"
+        "createdBy": "mosipautouser",
+        "createdDateTime": "2019-10-21T06:50:25.316Z",
+        "code": "TCLOC",
+        "name": "childloctest",
+        "region": "childloctest",
+        "hierarchyLevel": 1,
+        "hierarchyName": "Region",
+        "parentLocCode": "TLOC"
       }
     ]
   }
