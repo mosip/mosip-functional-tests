@@ -11,7 +11,7 @@
 			"make": "MC01A",
 			"model": "SMIDCL",
 			"dateTime": "2020-01-13T07:20:42.195Z",
-			"type": "Fingerprint",
+			"type": "Finger",
 			"subType": "Single"
 		},
 		"firmware": "firmware",
