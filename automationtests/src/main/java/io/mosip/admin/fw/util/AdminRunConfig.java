@@ -1939,4 +1939,10 @@ public class AdminRunConfig extends RunConfig {
 	public void setCreateHolidayPath(String createHolidayPath) {
 		this.createHolidayPath = createHolidayPath;
 	}
+
+	@Override
+	public String getRetrievePartnerPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

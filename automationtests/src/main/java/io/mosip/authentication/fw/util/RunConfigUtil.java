@@ -1,32 +1,18 @@
 package io.mosip.authentication.fw.util;
 
-import java.io.File; 
-import java.io.IOException;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Random;
-import java.util.Map.Entry;
-import java.util.regex.Pattern;
 
-import javax.ws.rs.core.MediaType;
-
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import io.mosip.admin.fw.util.AdminRunConfig;
-import io.mosip.authentication.fw.dto.RidDto;
 import io.mosip.authentication.fw.dto.TokenIdDto;
-import io.mosip.authentication.fw.dto.UinDto;
-import io.mosip.authentication.fw.dto.UinStaticPinDto;
-import io.mosip.authentication.fw.dto.VidDto;
-import io.mosip.authentication.fw.dto.VidStaticPinDto;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
-import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.pmp.fw.util.PartnerRunConfig;
 import io.mosip.resident.fw.util.ResidentRunConfig;
 import io.mosip.testrunner.MosipTestRunner;
-import io.restassured.response.Response;
 
 /**
  * The class perform picking up UIN,VID,TokenID,PartnerID,LicenseKey,StaticPin
@@ -151,6 +137,8 @@ public class RunConfigUtil {
 			objRunConfig = new AdminRunConfig();
 		else if (module.equals("resident"))
 			objRunConfig = new ResidentRunConfig();
+		else if (module.equals("partner"))
+			objRunConfig = new PartnerRunConfig();
 	}
 	
 	/**

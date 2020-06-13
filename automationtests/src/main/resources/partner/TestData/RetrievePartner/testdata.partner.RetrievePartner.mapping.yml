@@ -1,0 +1,14 @@
+testdata:
+  Partner_RetrievePartner_All_Valid_Smoke:
+    input.retrieve-partner-request:
+      partnerId: 59505
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      RpartnerID: 59505
+      policyGroup: Insurance Policy
+      organizationName: LIC
+      contactNumber: 8553967572
+      emailId: $IGNORE$
+         
+         
