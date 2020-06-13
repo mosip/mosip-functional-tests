@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Partner Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener
+			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+	<test name="Partner Tests">
+		<classes>
+			<!-- <class name="io.mosip.pmp.tests.RegisterPartner" />
+			<class name="io.mosip.pmp.tests.UpdatePartnerApikeyToPolicyMappings" />
+			<class name="io.mosip.pmp.tests.UpdatePartner" />
+			<class name="io.mosip.pmp.tests.RetrievePartner" />
+			<class name="io.mosip.pmp.tests.SubmitPartnerApiKeyReq" />
+			<class name="io.mosip.pmp.tests.ApiKeyReqStatus" />
+			<class name="io.mosip.pmp.tests.ActivatePartner" />
+			<class name="io.mosip.pmp.tests.ActivateDeactivatePartnerAPIKey" /> -->
+			
+			<class name="io.mosip.pmp.tests.RetrievePartner" />
+		</classes>
+
+	</test>
+
+</suite>

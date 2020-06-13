@@ -1,0 +1,15 @@
+{
+    "id": "mosip.partnermanagement.partners.retrieve",
+    "version": "1.0",
+    "responsetime": "2020-06-13T06:29:42.316Z",
+    "metadata": null,
+    "response": {
+        "partnerID": "59505",
+        "policyGroup": "Insurance Policy",
+        "organizationName": "LIC",
+        "address": "INDIA",
+        "contactNumber": "8553967572",
+        "emailId": "xyz@xyz.com"
+    },
+    "errors": null
+}

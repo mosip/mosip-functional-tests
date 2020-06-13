@@ -4,39 +4,21 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-import java.util.regex.Pattern;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.regex.Pattern;
 
-import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.testng.Reporter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
 import io.mosip.admin.fw.util.AdminKeywordUtil;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.fw.util.RunConfig;
-import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.pmp.fw.util.PartnerKeywordUtil;
 import io.mosip.resident.fw.util.ResidentKeywordUtil;
 
 /**
@@ -161,6 +143,8 @@ public class Precondtion {
 			objKeywordUtil = new AdminKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("resident"))
 			objKeywordUtil = new ResidentKeywordUtil();
+		else if (moduleName.equalsIgnoreCase("partner"))
+			objKeywordUtil = new PartnerKeywordUtil();
 		return objKeywordUtil;
 	}
 

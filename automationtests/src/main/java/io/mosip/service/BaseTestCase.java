@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
@@ -60,6 +61,7 @@ public class BaseTestCase {
 	public String zonalAdminCookie = null;
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
+	public String partnerCookie = null;
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
 	public static Map queries;
@@ -71,6 +73,7 @@ public class BaseTestCase {
 	public static List<String> consumedPreRegIds = null;
 	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map residentQueries;
+	public static Map partnerQueries;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -104,6 +107,7 @@ public class BaseTestCase {
 		kernelAuthLib = new KernelAuthentication();
 		kernelCmnLib = new CommonLibrary();
 		queries = kernelCmnLib.readProperty("adminQueries");
+		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
 		/**
 		 * Make sure test-output is there
@@ -162,6 +166,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
 			ResidentTestUtil.initiateResidentTest();
+		}
+		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
+			PartnerTestUtil.initiatePartnerTest();
 		}
 
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {

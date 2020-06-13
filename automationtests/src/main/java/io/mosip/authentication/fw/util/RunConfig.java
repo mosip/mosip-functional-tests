@@ -523,4 +523,8 @@ public abstract class RunConfig {
 		public abstract void setResidentUpdateUin(String residentUpdateUin);
 		public abstract String getResidentCheckStatus();
 		public abstract void setResidentCheckStatus(String residentCheckStatus);
+		
+		
+		// Partner Management
+		public abstract String getRetrievePartnerPath();
 }
