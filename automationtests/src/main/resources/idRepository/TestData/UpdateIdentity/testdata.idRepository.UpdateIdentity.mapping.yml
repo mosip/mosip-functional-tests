@@ -64,7 +64,7 @@ testdata:
       output.1.res.timestamp: $IGNORE$
       output.1.res.id: mosip.id.update
   
-  IdRepository_UpdateIdentity_withCNIENumber:
+  IdRepository_UpdateIdentity_with_refIdntityNo:
     input.update-identity-request:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: LONG:+$UIN$    
@@ -310,7 +310,7 @@ testdata:
       output.1.res.n.errorCode: $errors:InvalidRequestTime:errorCode$
       output.1.res.n.errorMessage: $errors:InvalidRequestTime:errorMessage$
       
-  IdRepository_UpdateIdentity_with Invalid CNIENumber:
+  IdRepository_UpdateIdentity_with Invalid refIdntityNo:
     input.update-identity-request:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: LONG:+$UIN$    

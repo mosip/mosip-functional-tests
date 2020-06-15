@@ -2713,7 +2713,7 @@ testdata:
       output.1.res.n.errorCode: $errors:MissingResidenceStatus:errorCode$
       output.1.res.n.errorMessage: $errors:MissingResidenceStatus:errorMessage$
   
-  IdRepository_AddIdentity_withInvalidCNIENumber:
+  IdRepository_AddIdentity_withInvalid_refIdntityNo:
     input.create-request:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
@@ -2797,7 +2797,7 @@ testdata:
       output.1.res.n.errorCode: $errors:InvalidCNIENumber:errorCode$
       output.1.res.n.errorMessage: $errors:InvalidCNIENumber:errorMessage$
   
-  IdRepository_AddIdentity_withMissingCNIENumber:
+  IdRepository_AddIdentity_withMissing_refIdntityNo:
     input.create-request:
       registrationId: 278476573600025+$YYYYMMddHHmmss$
       UIN: $generate_UIN$
