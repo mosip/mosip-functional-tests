@@ -1,0 +1,10 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "newPolicyID": "string",
+    "oldPolicyID": "string"
+  },
+  "requesttime": "2020-06-11T09:08:31.392Z",
+  "version": "string"
+}

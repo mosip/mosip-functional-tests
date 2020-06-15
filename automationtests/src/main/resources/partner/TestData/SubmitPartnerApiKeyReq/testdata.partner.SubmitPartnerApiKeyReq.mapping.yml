@@ -1,0 +1,16 @@
+testdata:
+   Partner_SubmitPartnerApiKeyReq_All_Valid_Smoke:
+      input.register-partner-request:
+         policyName: Insurance Policy
+         useCaseDescription: Need to submit the payment
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         apiRequestId: PSR-ID-01
+         message: partnerAPIKeyRequest successfully created
+         id: $IGNORE$
+         metadata: $IGNORE$
+         errors: $IGNORE$
+         version: $IGNORE$
+         
+         
+         

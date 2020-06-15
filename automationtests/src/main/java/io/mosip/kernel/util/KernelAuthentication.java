@@ -76,6 +76,21 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings("unchecked")
+	public String getAuthForPartner() {
+		JSONObject actualrequest = getRequestJson(testsuite);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("partner_appid"));
+		request.put("password", props.get("partner_password"));
+		request.put("userName", props.get("partner_user"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
 		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson(testsuite+"/OtpGeneration");
