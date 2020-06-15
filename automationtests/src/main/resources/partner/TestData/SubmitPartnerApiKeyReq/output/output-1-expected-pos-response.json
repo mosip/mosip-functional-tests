@@ -1,0 +1,11 @@
+{
+    "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+    "version": "1.0",
+    "responsetime": "2020-05-20T09:01:55.295Z",
+    "metadata": null,
+    "response": {
+        "apiRequestId": "782862",
+        "message": "PartnerAPIKeyRequest successfully created"
+    },
+    "errors": null
+}

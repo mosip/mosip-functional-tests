@@ -1,0 +1,16 @@
+testdata:
+   Partner_UpdatePartner_All_Valid_Smoke:
+      input.update-partner-request:
+         address: INDIA
+         contactNumber: 8553967572
+         emailId: support@lic.com
+         organizationName: LIC
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         partnerId: 59505
+         status: Active
+         id: $IGNORE$
+         version: $IGNORE$
+         
+         
+         
