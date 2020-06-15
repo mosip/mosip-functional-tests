@@ -1,0 +1,21 @@
+testdata:
+  Partner_ApiKeyReqStatus_All_Valid_Smoke:
+    input.status-partner-request:
+      partnerID: '859205'
+      RapiKeyReqID: '24494'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      partnerApiKey: 55400178
+      apiKeyReqID: 24494
+      apiKeyRequestStatus: Approved
+      validityTill: $IGNORE$
+      version: $IGNORE$
+      
+      
+      
+      
+         
+         
+         
+         

@@ -1,0 +1,13 @@
+testdata:
+   Partner_ActivatePartner_All_Valid_Smoke:
+      input.activate-partner-request:
+         status: Active
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: Partner status updated successfully
+         id: $IGNORE$
+         metadata: $IGNORE$
+         errors: $IGNORE$
+         version: $IGNORE$    
+         
+     

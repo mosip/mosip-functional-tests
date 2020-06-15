@@ -104,17 +104,71 @@ public class PartnerRunConfig extends RunConfig {
     private String updateHolidayPath;
     
     
-    /*private String registerPartnerPath;
-    private String updatePartnerPath;
-    private String submitPartnerApiKeyReqPath;*/
     private String retrievePartnerPath;
-    /*private String apiKeyReqStatusPath;
+    private String registerPartnerPath;
+    private String updatePartnerPath;
+    private String submitPartnerApiKeyReqPath;
     private String updatePartnerApikeyToPolicyMappingsPath;
+    private String apiKeyReqStatusPath;
     private String activatePartnerPath;
-    private String activateDeactivatePartnerAPIKeyPath;*/
- 
-	
+    private String activateDeactivatePartnerAPIKeyPath;
+    
+    public String getActivateDeactivatePartnerAPIKeyPath() {
+		return activateDeactivatePartnerAPIKeyPath;
+	}
 
+	public void setActivateDeactivatePartnerAPIKeyPath(String activateDeactivatePartnerAPIKeyPath) {
+		this.activateDeactivatePartnerAPIKeyPath = activateDeactivatePartnerAPIKeyPath;
+	}
+
+	public String getActivatePartnerPath() {
+		return activatePartnerPath;
+	}
+
+	public void setActivatePartnerPath(String activatePartnerPath) {
+		this.activatePartnerPath = activatePartnerPath;
+	}
+
+	public String getApiKeyReqStatusPath() {
+		return apiKeyReqStatusPath;
+	}
+
+	public void setApiKeyReqStatusPath(String apiKeyReqStatusPath) {
+		this.apiKeyReqStatusPath = apiKeyReqStatusPath;
+	}
+
+	public String getUpdatePartnerApikeyToPolicyMappingsPath() {
+		return updatePartnerApikeyToPolicyMappingsPath;
+	}
+
+	public void setUpdatePartnerApikeyToPolicyMappingsPath(String updatePartnerApikeyToPolicyMappingsPath) {
+		this.updatePartnerApikeyToPolicyMappingsPath = updatePartnerApikeyToPolicyMappingsPath;
+	}
+
+	public String getSubmitPartnerApiKeyReqPath() {
+		return submitPartnerApiKeyReqPath;
+	}
+
+	public void setSubmitPartnerApiKeyReqPath(String submitPartnerApiKeyReqPath) {
+		this.submitPartnerApiKeyReqPath = submitPartnerApiKeyReqPath;
+	}
+
+	public String getUpdatePartnerPath() {
+		return updatePartnerPath;
+	}
+
+	public void setUpdatePartnerPath(String updatePartnerPath) {
+		this.updatePartnerPath = updatePartnerPath;
+	}
+
+	public String getRegisterPartnerPath() {
+		return registerPartnerPath;
+	}
+
+	public void setRegisterPartnerPath(String registerPartnerPath) {
+		this.registerPartnerPath = registerPartnerPath;
+	}
+    
 	public String getRetrievePartnerPath() {
 		return retrievePartnerPath;
 	}
@@ -213,14 +267,14 @@ public class PartnerRunConfig extends RunConfig {
 		setUpdateHolidayPath(PartnerTestUtil.getPropertyValue("updateHolidayPath"));
 		
 		
-		/*setRegisterPartnerPath(PartnerTestUtil.getPropertyValue("registerPartnerPath"));
+		setRegisterPartnerPath(PartnerTestUtil.getPropertyValue("registerPartnerPath"));
 		setUpdatePartnerPath(PartnerTestUtil.getPropertyValue("updatePartnerPath"));
-		setSubmitPartnerApiKeyReqPath(PartnerTestUtil.getPropertyValue("submitPartnerApiKeyReqPath"));*/
+		setSubmitPartnerApiKeyReqPath(PartnerTestUtil.getPropertyValue("submitPartnerApiKeyReqPath"));
 		setRetrievePartnerPath(PartnerTestUtil.getPropertyValue("retrievePartnerPath"));
-		/*setApiKeyReqStatusPath(PartnerTestUtil.getPropertyValue("apiKeyReqStatusPath"));
 		setUpdatePartnerApikeyToPolicyMappingsPath(PartnerTestUtil.getPropertyValue("updatePartnerApikeyToPolicyMappingsPath"));
+		setApiKeyReqStatusPath(PartnerTestUtil.getPropertyValue("apiKeyReqStatusPath"));
 		setActivatePartnerPath(PartnerTestUtil.getPropertyValue("activatePartnerPath"));
-		setActivateDeactivatePartnerAPIKeyPath(PartnerTestUtil.getPropertyValue("activateDeactivatePartnerAPIKeyPath"));*/
+		setActivateDeactivatePartnerAPIKeyPath(PartnerTestUtil.getPropertyValue("activateDeactivatePartnerAPIKeyPath"));
 		
 	}
 

@@ -1,0 +1,13 @@
+{
+    "id": "mosip.partnermanagement.partners.update",
+    "version": "1.0",
+    "responsetime": "2020-06-12T06:04:03.623Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_PMP_014",
+            "message": "Policy does not exist"
+        }
+    ]
+}

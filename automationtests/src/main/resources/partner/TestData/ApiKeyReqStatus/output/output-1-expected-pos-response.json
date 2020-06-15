@@ -1,0 +1,13 @@
+{
+    "id": "mosip.partnermanagement.partners.retrieve",
+    "version": "1.0",
+    "responsetime": "2020-06-11T09:08:31.392Z",
+    "metadata": null,
+    "response": {
+        "apiKeyReqID": "24494",
+        "apiKeyRequestStatus": "Approved",
+        "partnerApiKey": "55400178",
+        "validityTill": "2020-07-10T06:00:01.252Z"
+    },
+    "errors": null
+}

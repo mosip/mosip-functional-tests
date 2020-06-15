@@ -526,5 +526,18 @@ public abstract class RunConfig {
 		
 		
 		// Partner Management
+		public abstract String getRegisterPartnerPath();
+		public abstract void setRegisterPartnerPath(String registerPartnerPath);
 		public abstract String getRetrievePartnerPath();
+		public abstract String getUpdatePartnerPath();
+		public abstract void setUpdatePartnerPath(String updatePartnerPath);
+		public abstract String getSubmitPartnerApiKeyReqPath();
+		public abstract void setSubmitPartnerApiKeyReqPath(String submitPartnerApiKeyReq);
+		public abstract String getUpdatePartnerApikeyToPolicyMappingsPath();
+		public abstract void setUpdatePartnerApikeyToPolicyMappingsPath(String updatePartnerApikeyToPolicyMappingsPath);
+		public abstract void setApiKeyReqStatusPath(String apiKeyReqStatusPath);
+		public abstract String getApiKeyReqStatusPath();
+		public abstract String getActivatePartnerPath();
+		public abstract void setActivateDeactivatePartnerAPIKeyPath(String activateDeactivatePartnerAPIKeyPath);
+		public abstract String getActivateDeactivatePartnerAPIKeyPath();
 }

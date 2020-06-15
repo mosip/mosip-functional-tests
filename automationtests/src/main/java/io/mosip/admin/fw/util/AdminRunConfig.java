@@ -1945,4 +1945,82 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getRegisterPartnerPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setRegisterPartnerPath(String registerPartnerPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePartnerPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdatePartnerPath(String updatePartnerPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSubmitPartnerApiKeyReqPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSubmitPartnerApiKeyReqPath(String submitPartnerApiKeyReq) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePartnerApikeyToPolicyMappingsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdatePartnerApikeyToPolicyMappingsPath(String updatePartnerApikeyToPolicyMappingsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setApiKeyReqStatusPath(String apiKeyReqStatusPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApiKeyReqStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getActivatePartnerPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setActivateDeactivatePartnerAPIKeyPath(String activateDeactivatePartnerAPIKeyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getActivateDeactivatePartnerAPIKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
