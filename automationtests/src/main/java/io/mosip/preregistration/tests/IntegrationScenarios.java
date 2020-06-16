@@ -846,6 +846,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		Response FetchAppointmentDetails = lib.FetchAppointmentDetails(preID,individualToken);
 		lib.CancelBookingAppointment (preID,individualToken);
 		Response retrivePreRegistrationDataResponse = lib.retrivePreRegistrationData(preID);
+		logger.info("retrivePreRegistrationDataForCancelAppointment===="+retrivePreRegistrationDataResponse.asString());
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].message"),
 				"Booking data not found");
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].errorCode"), "PRG_BOOK_RCI_013");
@@ -868,6 +869,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String preID = createResponse.jsonPath().get("response.preRegistrationId").toString();
 
 		Response retrivePreRegistrationDataResponse = lib.retrivePreRegistrationData(preID);
+		logger.info("retrivePreRegistrationDataAfterUploadingDemographicDetails========"+retrivePreRegistrationDataResponse.asString());
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].message").toString(),
 				"Booking data not found");
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].errorCode").toString(),
@@ -1006,6 +1008,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 		String preID = createResponse.jsonPath().get("response.preRegistrationId").toString();
 		lib.documentUpload(createResponse,individualToken);
 		Response retrivePreRegistrationDataResponse = lib.retrivePreRegistrationData(preID);
+		logger.info("retrivePreRegistrationDataAfterUploadingDocument======="+retrivePreRegistrationDataResponse.asString());
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].message").toString(),
 				"Booking data not found");
 		lib.compareValues(retrivePreRegistrationDataResponse.jsonPath().get("errors[0].errorCode").toString(),

@@ -318,39 +318,33 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	}
 
 	/**
+	 * @author Ravi Kant
 	 * @param cookie
 	 * @return this method is for checking cookie(token) is expired or not.
 	 */
 	public boolean isValidToken(String cookie) {
 		
-		if(regproc.validateToken(cookie))
-		{
-			// we will have to read configCookieTime, token and secret from property file
-			String token_base = "Mosip-Token";
-			String secret = "authjwtsecret";
-			long configCookieTime = 20;
-			Integer cookieGenerationTimeMili = null;
-
-			try {
-				cookieGenerationTimeMili = (Integer) Jwts.parser().setSigningKey(secret)
-						.parseClaimsJws(cookie.substring(token_base.length())).getBody().get("iat");
-			} catch (ExpiredJwtException | NullPointerException | UnsupportedJwtException | MalformedJwtException
-					| SignatureException | IllegalArgumentException e) {
-				logger.info(e.getMessage());
-				return false;
-			}
-			Date date = new Date(Long.parseLong(Integer.toString(cookieGenerationTimeMili)) * 1000);
-			Date currentDate = new Date();
-			long intervalMin = (currentDate.getTime() - date.getTime()) / (60 * 1000) % 60;
-
-			if (intervalMin <= configCookieTime)
-				return true;
-			else
-				return false;
-
+		logger.info("========= Revalidating the token =========");
+		Response response = appLib.getWithoutParams("/v1/authmanager/authorize/admin/validateToken", cookie);
+		JSONObject responseJson =null;
+		try {
+			responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(response.asString()))
+					.get("response");
+		} catch (ParseException | NullPointerException e) {
+			logger.info(e.getMessage());
 		}
+
+		if (responseJson!=null && responseJson.get("errors")==null)
+			{
+			logger.info("========= Valid Token =========");
+			return true;
+			}
 		else
+		{
+			
+			logger.info("========= InValid Token =========");
 			return false;
+		}
 		
 	}
 
