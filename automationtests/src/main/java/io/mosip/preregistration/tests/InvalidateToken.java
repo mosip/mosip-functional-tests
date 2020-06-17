@@ -42,13 +42,13 @@ public class InvalidateToken extends BaseTestCase implements ITest {
 	public void invalidateToken() {
 		String cookie = lib.getToken();
 		Response invalidateTokenResponse = lib.logOut(cookie);
-		String message = invalidateTokenResponse.jsonPath().get("errors[0].message").toString();
-		lib.compareValues(message, "Token has been invalidated successfully");
+		String message = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		lib.compareValues(message, "successfully loggedout");
 		Response createPreRegResponse = lib.CreatePreReg(cookie);
 		String errorCode = createPreRegResponse.jsonPath().get("errors[0].errorCode").toString();
 		String errorMessage = createPreRegResponse.jsonPath().get("errors[0].message").toString();
 		lib.compareValues(errorCode, "KER-ATH-401");
-		lib.compareValues(errorMessage, "Invalid Token");
+		lib.compareValues(errorMessage, "Authentication Failed");
 		
 	}
 	@Test
@@ -56,13 +56,13 @@ public class InvalidateToken extends BaseTestCase implements ITest {
 	{
 		String cookie = lib.getToken();
 		Response invalidateTokenResponse = lib.logOut(cookie);
-		String message = invalidateTokenResponse.jsonPath().get("errors[].message").toString();
-		lib.compareValues(message, "Token has been invalidated successfully");
+		String message = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		lib.compareValues(message, "successfully loggedout");
 		invalidateTokenResponse = lib.logOut(cookie);
-		String errorCode = lib.getErrorCode(invalidateTokenResponse);
-		message=lib.getErrorMessage(invalidateTokenResponse);
-		lib.compareValues(message, "Token is not present in datastore,Please try with new token");
-		lib.compareValues(errorCode, "KER-ATH-008");
+		String status = invalidateTokenResponse.jsonPath().get("response.status").toString();
+		String resMessage = invalidateTokenResponse.jsonPath().get("response.message").toString();
+		lib.compareValues(status, "Success");
+		lib.compareValues(resMessage, "successfully loggedout");
 	}
 	@BeforeMethod(alwaysRun=true)
 	public void login( Method method)

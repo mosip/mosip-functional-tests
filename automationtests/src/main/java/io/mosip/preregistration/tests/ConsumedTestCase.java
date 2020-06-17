@@ -44,6 +44,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 		String status = lib.getConsumedStatus(preID);
 		String actualRegCenterId = lib.getRegCenterIdOfConsumedApplication(preID);
 		String actualDocumentId = lib.getDocumentIdOfConsumedApplication(preID);
+		logger.info("consumedBookedAppointment===status"+status+"===actualRegCenterId=="+actualRegCenterId+"===actualDocumentId=="+actualDocumentId);
 		lib.compareValues(actualDocumentId, documentId.get(preID));
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, regCenterId.get(preID));
@@ -55,11 +56,13 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	@Test(groups = { "IntegrationScenarios" })
 	public void consumedBatchJobService() {
 		Response getPreRegistrationDataResponse = lib.getPreRegistrationData(preID, batchJobToken);
+		logger.info("consumedBatchJobService========"+getPreRegistrationDataResponse.asString());
 		lib.compareValues(getPreRegistrationDataResponse.jsonPath().get("errors[0].message").toString(),
 				"No data found for the requested pre-registration id");
 		String status = lib.getConsumedStatus(preID);
 		String actualRegCenterId = lib.getRegCenterIdOfConsumedApplication(preID);
 		String actualDocumentId = lib.getDocumentIdOfConsumedApplication(preID);
+		logger.info("consumedBatchJobService===status"+status+"===actualRegCenterId=="+actualRegCenterId+"===actualDocumentId=="+actualDocumentId);
 		lib.compareValues(actualDocumentId, documentId.get(preID));
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, regCenterId.get(preID));
@@ -83,6 +86,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	@Test(groups = { "IntegrationScenarios" })
 	public void consumedMultiplePRID() {
 		List<String> preRegistrationIds = new ArrayList<String>();
+		logger.info("consumedMultiplePRID========"+consumedPreRegIds);
 		preID = null;
 		for (int i = 1; i <= 2; i++) {
 			preRegistrationIds.add(preID);
@@ -90,6 +94,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 		}
 		for (String PreRegId : preRegistrationIds) {
 			Response getPreRegistrationStatusResposne = lib.getPreRegistrationStatus(PreRegId, batchJobToken);
+			logger.info("consumedMultiplePRID========"+getPreRegistrationStatusResposne.asString());
 			lib.compareValues(getPreRegistrationStatusResposne.jsonPath().get("errors[0].message").toString(),
 					"No data found for the requested pre-registration id");
 		}
