@@ -5,8 +5,8 @@ errors:
     errorMessage: Invalid UIN
     actionMessage: Please retry with the correct UIN
   DeactivatedUIN:
-    errorCode: IDA-MLC-003
-    errorMessage: UIN has been deactivated
+    errorCode: IDA-MLC-022
+    errorMessage: UIN is deactivated/blocked
     actionMessage: Your UIN status is not active
   InvalidVID:
     errorCode: IDA-MLC-004
@@ -227,15 +227,15 @@ errors:
     errorMessage: Invalid Input Parameter - deviceProviderID
   BiometricFaceMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – FACE did not match
+    errorMessage: Biometric data - FACE did not match
     actionMessage: Please give your biometrics again
   BiometricIrisMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – Iris did not match
+    errorMessage: Biometric data - Iris did not match
     actionMessage: Please give your biometrics again
   BiometricFingerMismatch:
     errorCode: IDA-BIA-001
-    errorMessage: Biometric data – Finger did not match
+    errorMessage: Biometric data - Finger did not match
     actionMessage: Please give your biometrics again
   Demo_GenderMismatch:
     errorCode: IDA-DEA-001
