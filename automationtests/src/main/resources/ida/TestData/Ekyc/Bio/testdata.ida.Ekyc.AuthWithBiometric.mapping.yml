@@ -1589,7 +1589,7 @@ testdata:
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:DeactivatedUIN:errorCode$
       output.1.response.error.errorMessage: $errors:DeactivatedUIN:errorMessage$
-      output.1.response.error.actionMessage: $errors:DeactivatedUIN:actionMessage$
+      output.1.response.error.actionMessage: $IGNORE$
           
   Authentication_EKYC_Biometric_With_Invalid_individualIdType_Neg:
     endpoint.url:
