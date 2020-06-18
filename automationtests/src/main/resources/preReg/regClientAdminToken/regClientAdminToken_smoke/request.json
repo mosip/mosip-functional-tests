@@ -1,9 +1,9 @@
 {
   "id": "string",
   "request": {
-    "appId": "admin",
+    "appId": "registrationclient",
     "password": "mosip",
-    "userName": "110006"
+    "userName": "test_admin"
   },
   "timestamp": "string",
   "version": "string"
