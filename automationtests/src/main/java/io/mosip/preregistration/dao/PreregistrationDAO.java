@@ -57,7 +57,7 @@ public class PreregistrationDAO
 		c.setTime(new Date()); // Now use today date.
 		c.add(Calendar.DATE, -1); 
 		String date = sdf.format(c.getTime());
-		String queryString="update prereg.reg_appointment set appointment_date='"+date+"' where prereg_id='"+preRegId+"'";
+		String queryString="update prereg.applicant_demographic set status_code='Expired' where prereg_id='"+preRegId+"'";
 		try {
 			dbAccess.updateDbData(queryString, "prereg");
 			
