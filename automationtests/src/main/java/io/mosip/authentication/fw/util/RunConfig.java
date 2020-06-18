@@ -540,4 +540,9 @@ public abstract class RunConfig {
 		public abstract String getActivatePartnerPath();
 		public abstract void setActivateDeactivatePartnerAPIKeyPath(String activateDeactivatePartnerAPIKeyPath);
 		public abstract String getActivateDeactivatePartnerAPIKeyPath();
+		public abstract void setApproveRejectPartnerAPIKeyReqPath(String approveRejectPartnerAPIKeyReqPath);
+		public abstract String getApproveRejectPartnerAPIKeyReqPath();
+		public abstract String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath();
+		public abstract String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath();
+		
 }

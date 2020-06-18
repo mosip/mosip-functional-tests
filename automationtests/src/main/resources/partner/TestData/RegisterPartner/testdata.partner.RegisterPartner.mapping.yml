@@ -1,11 +1,11 @@
 testdata:
    Partner_RegisterPartner_All_Valid_Smoke:
       input.register-partner-request:
-         address: Add-1
-         contactNumber: 8553967573
-         emailId: pmp@gmail.com
-         organizationName: HDFC-29
-         policyGroup: Insurance Policy
+         address: BTM
+         contactNumber: 8651119791
+         emailId: hsr@gmail.com
+         organizationName: FUN-TEST-O2
+         policyGroup: MOSIP POLICY
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          partnerId: $IGNORE$
@@ -15,17 +15,16 @@ testdata:
    Partner_RegisterPartner_Invalid_InputParameter_PolicyGroup:
       input.register-partner-request:
          address: Add-2
-         contactNumber: 8553967573
-         emailId: pmp@gmail.com
+         contactNumber: 8651119791
+         emailId: hsr@gmail.com
          organizationName: HDFC-291
-         policyGroup: Insurance
+         policyGroup: Insu
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCode: PMS_PRT_002
-         message: 'Policy Group does not exist'
+         message: Policy Group does not exist
          id: $IGNORE$
          version: $IGNORE$
-         
          
          
          

@@ -10,7 +10,9 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,6 +29,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
 public class ActivateDeactivatePartnerAPIKey extends PartnerTestUtil implements ITest {
@@ -36,22 +39,28 @@ public class ActivateDeactivatePartnerAPIKey extends PartnerTestUtil implements 
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
-	//KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
+	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
 	 * @param testType
 	 */
-	/*@BeforeClass
+	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String query = partnerQueries.get("activateDeactivatePartnerAPIKey").toString();
-		if (masterDB.executeQuery(query, "pmp"))
+		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
+		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
+		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
+		String createPartApiKey = partnerQueries.get("createPartnerAPIKey").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pmp")
+				&& masterDB.executeQuery(createAuthQuery, "pmp")
+				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
+				&& masterDB.executeQuery(createPartApiKey, "pmp"))
 			logger.info("ActivateDeactivatePartnerAPIKey Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to ActivateDeactivatePartnerAPIKey using query from partnerQueries.properties");
-	}*/
+	}
 
 	/**
 	 * Method set Test data path and its filename
@@ -179,13 +188,16 @@ public class ActivateDeactivatePartnerAPIKey extends PartnerTestUtil implements 
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	/*@AfterClass(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteActivatePartner").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
 			logger.info("deleted all activatePartner data successfully");
 		else {
 			logger.info("not able to delete activatePartner data using query from query.properties");
 		}
 		logger.info("END");
-		}*/
+		}
 }

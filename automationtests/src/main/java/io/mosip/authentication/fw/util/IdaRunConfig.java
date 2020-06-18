@@ -1621,4 +1621,24 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public void setApproveRejectPartnerAPIKeyReqPath(String approveRejectPartnerAPIKeyReqPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getApproveRejectPartnerAPIKeyReqPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

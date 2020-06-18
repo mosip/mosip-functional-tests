@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -48,8 +49,12 @@ public class UpdatePartner extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String query = partnerQueries.get("updatePartner").toString();
-		if (masterDB.executeQuery(query, "pmp"))
+		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
+		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
+		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pmp")
+				&& masterDB.executeQuery(createAuthQuery, "pmp")
+				&& masterDB.executeQuery(registerPartnerQuery, "pmp"))
 			logger.info("update partner with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to update partner using query from partnerQueries.properties");
@@ -181,13 +186,15 @@ public class UpdatePartner extends PartnerTestUtil implements ITest {
 	 * (managing class level data not test case level data)
 	 * @throws AdminTestException 
 	 */
-	/*@AfterClass(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
 			logger.info("deleted all update Partner data successfully");
 		else {
 			logger.info("not able to delete update Partner data using query from query.properties");
 		}
 		logger.info("END");
-		}*/
+		}
 }
