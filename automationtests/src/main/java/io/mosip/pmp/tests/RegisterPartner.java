@@ -50,8 +50,12 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String query = partnerQueries.get("registerPartner").toString();
-		if (masterDB.executeQuery(query, "pmp"))
+		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
+		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
+		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pmp")
+				&& masterDB.executeQuery(createAuthQuery, "pmp")
+				&& masterDB.executeQuery(registerPartnerQuery, "pmp"))
 			logger.info("register partner with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to register partner using query from partnerQueries.properties");
@@ -185,7 +189,9 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
 			logger.info("deleted all Register Partner data successfully");
 		else {
 			logger.info("not able to delete Register Partner data using query from query.properties");

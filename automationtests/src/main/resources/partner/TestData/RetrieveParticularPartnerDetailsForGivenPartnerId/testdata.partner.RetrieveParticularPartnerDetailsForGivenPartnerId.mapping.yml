@@ -1,0 +1,13 @@
+testdata:
+  Partner_RetrieveParticularPartnerDetailsForGivenPartnerId_All_Valid_Smoke:
+    input.retrieve-partner-request:
+      RpartnerID: PMP-PART-ID-01
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      partnerID: PMP-PART-ID-01
+      status: Active
+      organizationName: FUN-TEST-O1
+      contactNumber: 8651119791
+      address: HSR
+      emailId: $IGNORE$

@@ -112,8 +112,37 @@ public class PartnerRunConfig extends RunConfig {
     private String apiKeyReqStatusPath;
     private String activatePartnerPath;
     private String activateDeactivatePartnerAPIKeyPath;
+    private String approveRejectPartnerAPIKeyReqPath;
+    private String retrieveParticularPartnerDetailsForGivenPartnerIdPath;
+    private String retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath;
     
-    public String getActivateDeactivatePartnerAPIKeyPath() {
+    public String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath() {
+		return retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath;
+	}
+
+	public void setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(
+			String retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath) {
+		this.retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath = retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath;
+	}
+
+	public String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath() {
+		return retrieveParticularPartnerDetailsForGivenPartnerIdPath;
+	}
+
+	public void setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(
+			String retrieveParticularPartnerDetailsForGivenPartnerIdPath) {
+		this.retrieveParticularPartnerDetailsForGivenPartnerIdPath = retrieveParticularPartnerDetailsForGivenPartnerIdPath;
+	}
+
+	public String getApproveRejectPartnerAPIKeyReqPath() {
+		return approveRejectPartnerAPIKeyReqPath;
+	}
+
+	public void setApproveRejectPartnerAPIKeyReqPath(String approveRejectPartnerAPIKeyReqPath) {
+		this.approveRejectPartnerAPIKeyReqPath = approveRejectPartnerAPIKeyReqPath;
+	}
+
+	public String getActivateDeactivatePartnerAPIKeyPath() {
 		return activateDeactivatePartnerAPIKeyPath;
 	}
 
@@ -275,7 +304,9 @@ public class PartnerRunConfig extends RunConfig {
 		setApiKeyReqStatusPath(PartnerTestUtil.getPropertyValue("apiKeyReqStatusPath"));
 		setActivatePartnerPath(PartnerTestUtil.getPropertyValue("activatePartnerPath"));
 		setActivateDeactivatePartnerAPIKeyPath(PartnerTestUtil.getPropertyValue("activateDeactivatePartnerAPIKeyPath"));
-		
+		setApproveRejectPartnerAPIKeyReqPath(PartnerTestUtil.getPropertyValue("approveRejectPartnerAPIKeyReqPath"));
+		setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(PartnerTestUtil.getPropertyValue("retrieveParticularPartnerDetailsForGivenPartnerIdPath"));
+		setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(PartnerTestUtil.getPropertyValue("retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {

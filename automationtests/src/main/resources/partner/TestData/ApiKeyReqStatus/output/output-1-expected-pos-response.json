@@ -1,13 +1,11 @@
 {
-    "id": "mosip.partnermanagement.partners.retrieve",
+    "id": "mosip.partnermanagement",
     "version": "1.0",
-    "responsetime": "2020-06-11T09:08:31.392Z",
+    "responsetime": "2020-06-18T07:03:18.268Z",
     "metadata": null,
-    "response": {
-        "apiKeyReqID": "24494",
-        "apiKeyRequestStatus": "Approved",
-        "partnerApiKey": "55400178",
-        "validityTill": "2020-07-10T06:00:01.252Z"
-    },
-    "errors": null
+    "response": null,
+    "errors": {
+        "errorCode": "PMS_PRT_106",
+        "message": "APIKeyReqID status is In-progress"
+    }
 }
