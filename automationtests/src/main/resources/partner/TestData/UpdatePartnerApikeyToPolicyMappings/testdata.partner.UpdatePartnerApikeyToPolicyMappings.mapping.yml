@@ -1,8 +1,8 @@
 testdata:
    Partner_UpdatePartnerApikeyToPolicyMappings_All_Valid_Smoke:
       input.update-partner-request:
-         newPolicyID: 455692
-         oldPolicyID: 684861
+         newPolicyID: TF-POLICY-ID-01
+         oldPolicyID: MOSIP-POLICY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner api key to Policy Mappings updated successfully

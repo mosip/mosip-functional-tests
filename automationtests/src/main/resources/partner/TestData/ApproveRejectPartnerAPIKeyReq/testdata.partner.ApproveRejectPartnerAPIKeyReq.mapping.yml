@@ -1,0 +1,14 @@
+testdata:
+   Partner_ApproveRejectPartnerAPIKeyReq_Approved_Valid_Smoke:
+      input.register-partner-request:
+         status: Approved
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: PartnerAPIKey Updated successfully
+         id: $IGNORE$
+         metadata: $IGNORE$
+         errors: $IGNORE$
+         version: $IGNORE$
+         
+         
+         

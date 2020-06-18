@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -28,6 +29,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
 public class ApiKeyReqStatus extends PartnerTestUtil implements ITest {
@@ -37,6 +39,7 @@ public class ApiKeyReqStatus extends PartnerTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
+	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
@@ -46,6 +49,17 @@ public class ApiKeyReqStatus extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
+		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
+		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
+		String submitPartnerQuery = partnerQueries.get("submitPartnerApiKeyReq").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pmp")
+				&& masterDB.executeQuery(createAuthQuery, "pmp")
+				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
+				&& masterDB.executeQuery(submitPartnerQuery, "pmp"))
+			logger.info("ApiKeyReqStatus Test successfully using query from partnerQueries.properties");
+		else
+			logger.info("not able to ApiKeyReqStatus using query from partnerQueries.properties");
 	}
 
 	/**
@@ -175,8 +189,8 @@ public class ApiKeyReqStatus extends PartnerTestUtil implements ITest {
 		}
 		else
 		{
-			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),"https://"+
-					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),
+					System.getProperty("env.endpoint")+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
 				  cookieValue); 		
@@ -188,4 +202,16 @@ public class ApiKeyReqStatus extends PartnerTestUtil implements ITest {
 			throw new AdminTestException("Failed at output validation");
 		
 	}
+	@AfterClass(alwaysRun = true)
+	public void cleanup() throws AdminTestException {
+		if (masterDB.executeQuery(partnerQueries.get("deleteSubmitPartnerApiKeyReq").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+			logger.info("deleted all ApiKeyReqStatus data successfully");
+		else {
+			logger.info("not able to delete ApiKeyReqStatus data using query from query.properties");
+		}
+		logger.info("END");
+		}
 }
