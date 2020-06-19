@@ -2,8 +2,8 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "clientId": "ida",
-    "secretKey": "bda44d9b-bb1f-4c25-9351-66671bf07b73",
+    "clientId": "mosip-ida-client",
+    "secretKey": "abc123",
     "appId": "ida"
   },
   "requesttime": "$TIMESTAMPZ$",

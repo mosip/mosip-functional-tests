@@ -2,8 +2,8 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "clientId": "registration-processor",
-    "secretKey": "d80ec0be-bba7-4d8e-bf0c-85ab45bb976b",
+    "clientId": "mosip-regproc-client",
+    "secretKey": "abc123",
     "appId": "regproc"
   },
   "requesttime": "$TIMESTAMPZ$",
