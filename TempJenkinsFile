@@ -27,7 +27,7 @@ stage ('---------- mvn-clean-test ---------------') {
 	  dir(branch+"/"+projectToBuild)
   {
 	sh '/usr/local/maven/bin/mvn clean install'
-	sh "java -Dmaven.test.failure.ignore=true -Dmaven.test.failure.ignore=true -Denv.user=${params.Environment} -Denv.endpoint=https://${params.BaseUrl} -Denv.testLevel=smokeAndRegression -DuserID=110022 -Dmodules=${params.Modules} -jar ./target/automationtests-1.0.10-jar-with-dependencies.jar"	  
+	sh "java -Dmaven.test.failure.ignore=true -Dmaven.test.failure.ignore=true -Denv.user=${params.Environment} -Denv.endpoint=https://${params.BaseUrl} -Denv.testLevel=${params.TestLevel} -DuserID=110022 -Dmodules=${params.Modules} -jar ./target/automationtests-1.0.10-jar-with-dependencies.jar"	  
 	  
   }
   
