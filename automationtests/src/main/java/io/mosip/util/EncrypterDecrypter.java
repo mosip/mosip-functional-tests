@@ -58,8 +58,8 @@ public class EncrypterDecrypter extends BaseTestCase {
 	private static Logger logger = Logger.getLogger(EncrypterDecrypter.class);
 	static ApplicationLibrary applnMethods=new ApplicationLibrary();
 	RegProcApiRequests apiRequests=new RegProcApiRequests();
-	private final String decrypterURL="/v1/keymanager/decrypt";
-	private final String encrypterURL="/v1/keymanager/encrypt";
+	private final String decrypterURL="/idauthentication/v1/internal/decrypt";
+	private final String encrypterURL="/idauthentication/v1/internal/encrypt";
 	private String applicationId="REGISTRATION";	
 	InputStream outstream = null;
 	TokenGeneration generateToken=new TokenGeneration();
