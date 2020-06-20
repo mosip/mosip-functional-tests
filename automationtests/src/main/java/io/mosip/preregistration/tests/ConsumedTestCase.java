@@ -82,12 +82,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	 */
 	@Test(groups = { "IntegrationScenarios" })
 	public void consumedMultiplePRID() {
-		List<String> preRegistrationIds = new ArrayList<String>();
-		preID = null;
-		for (int i = 1; i <= 2; i++) {
-			preRegistrationIds.add(preID);
-			preID = consumedPreRegIds.get(++count);
-		}
+		List<String> preRegistrationIds = new ArrayList<String>(consumedPreRegIds);
 		for (String PreRegId : preRegistrationIds) {
 			Response getPreRegistrationStatusResposne = lib.getPreRegistrationStatus(PreRegId, batchJobToken);
 			lib.compareValues(getPreRegistrationStatusResposne.jsonPath().get("errors[0].message").toString(),

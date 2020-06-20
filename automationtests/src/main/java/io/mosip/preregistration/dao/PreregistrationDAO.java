@@ -57,7 +57,25 @@ public class PreregistrationDAO
 		c.setTime(new Date()); // Now use today date.
 		c.add(Calendar.DATE, -1); 
 		String date = sdf.format(c.getTime());
-		String queryString="update prereg.applicant_demographic set status_code='Expired' where prereg_id='"+preRegId+"'";
+		String queryString="update prereg.reg_appointment set appointment_date='"+date+"' where prereg_id='"+preRegId+"'";
+		try {
+			dbAccess.updateDbData(queryString, "prereg");
+			
+		} catch (NullPointerException e) {
+			Assert.assertTrue(false,"Failed stabilized connection with preregdb");
+		}
+	
+	}
+	/**
+	 * This method is for changing the status of prereg with prid directly by modifying the status in DB
+	 * @author Ravi Kant
+	 * @param preRegId
+	 * @param status
+	 */
+	public void changeStatusWithPrId(String preRegId, String status)
+	{
+		
+		String queryString="update prereg.applicant_demographic set status_code='"+status+"' where prereg_id='"+preRegId+"'";
 		try {
 			dbAccess.updateDbData(queryString, "prereg");
 			

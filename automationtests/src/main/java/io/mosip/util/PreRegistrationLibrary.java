@@ -153,11 +153,11 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		createPregResponse = appLib.postWithJson(preReg_CreateApplnURI, request, cookie);
 		return createPregResponse;
 	}
-	public List<String> consumedPreId() {
+	public List<String> createConsumedPreId() {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
 
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 2; i++) {
 			if (!isValidToken(batchJobToken)) {
 				batchJobToken = batchToken();
 			}
@@ -180,7 +180,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		return preRegistrationIds;
 	}
 
-	public List<String> BookExpiredApplication() {
+	public List<String> createExpiredApplication() {
 		List expiredPreId = new ArrayList<>();
 		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
@@ -193,7 +193,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 			Response documentResponse = documentUpload(createResponse, batchJobToken);
 			Response avilibityResponse = FetchCentre(batchJobToken);
 			BookAppointment(documentResponse, avilibityResponse, preID, batchJobToken);
-			dao.setDate(preID);
+			dao.changeStatusWithPrId(preID, "Expired");
 			expiredPreId.add(preID);
 		}
 

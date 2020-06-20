@@ -178,8 +178,8 @@ public class BaseTestCase {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
-			expiredPreRegIds = lib.BookExpiredApplication();
-			consumedPreRegIds = lib.consumedPreId();
+			expiredPreRegIds = lib.createExpiredApplication();
+			consumedPreRegIds = lib.createConsumedPreId();
 
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are
