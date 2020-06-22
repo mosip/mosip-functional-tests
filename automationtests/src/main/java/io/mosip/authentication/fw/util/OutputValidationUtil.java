@@ -398,6 +398,10 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	public static boolean compareTwoKycMap(Map<String, Object> expMap, Map<String, Object> actualMap) {
 		for (Entry<String, Object> entry : expMap.entrySet()) {
 			if (actualMap.containsKey(entry.getKey())) {
+				
+				if(entry.getValue()==null || actualMap.get(entry.getKey())==null)
+					continue;
+				try {
 				if (actualMap.get(entry.getKey()).toString().contains(",")
 						&& entry.getValue().toString().contains(",")) {
 					String value[] = entry.getValue().toString().split(Pattern.quote("}, {"));
@@ -411,6 +415,10 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				}
 				else if (!actualMap.get(entry.getKey()).equals(entry.getValue())) {
 					return false;
+				}
+				}catch(Exception e)
+				{
+					e.printStackTrace();
 				}
 			}
 		}
