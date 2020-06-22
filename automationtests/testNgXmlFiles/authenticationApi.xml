@@ -12,7 +12,17 @@
 	</listeners>
 	<test name="AuthenticationTest">
 		<classes>
-			 <class
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class
+				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
+			 <!-- <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
@@ -48,7 +58,7 @@
 				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
 			<class name="io.mosip.authentication.tests.UnlockUIN" />
 			<class
-				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" /> -->
 		</classes>
 	</test>
 </suite>
