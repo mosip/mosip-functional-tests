@@ -382,7 +382,9 @@ sandbox.face.deviceid:
 preprod.face.deviceid:
       - SYNCBYTE.LTC165:097b9460-d3d3-4e14-8ac9-c95a734d5d81:6bdd1fc6-810f-11d0-bec7-08002be2092f 
 dev-test.face.deviceid:
-      - SYNCBYTE.LTC165:097b9460-d3d3-4e14-8ac9-c95a734d5d81:6bdd1fc6-810f-11d0-bec7-08002be2092f                 
+      - SYNCBYTE.LTC165:097b9460-d3d3-4e14-8ac9-c95a734d5d81:6bdd1fc6-810f-11d0-bec7-08002be2092f 
+extint.face.deviceid:
+      - SYNCBYTE.LTC165:097b9460-d3d3-4e14-8ac9-c95a734d5d81:6bdd1fc6-810f-11d0-bec7-08002be2092f                      
 int.finger.deviceid:
       - SYNCBYTE.LTC163:SYNCBYTE.LTC163:4d36e96c-e325-11ce-bfc1-08002be10316
 qa.finger.deviceid:
@@ -394,7 +396,9 @@ sandbox.finger.deviceid:
 preprod.finger.deviceid:
       - SYNCBYTE.LTC163:SYNCBYTE.LTC163:4d36e96c-e325-11ce-bfc1-08002be10316
 dev-test.finger.deviceid:
-      - SYNCBYTE.LTC163:SYNCBYTE.LTC163:4d36e96c-e325-11ce-bfc1-08002be10316                  
+      - SYNCBYTE.LTC163:SYNCBYTE.LTC163:4d36e96c-e325-11ce-bfc1-08002be10316 
+extint.finger.deviceid:
+      - SYNCBYTE.LTC163:SYNCBYTE.LTC163:4d36e96c-e325-11ce-bfc1-08002be10316                       
 int.iris.deviceid:
       - SYNCBYTE.LTC164:SYNCBYTE.LTC164:4d36e96c-e325-11ce-bfc1-08002be10317
 qa.iris.deviceid:
@@ -406,7 +410,9 @@ sandbox.iris.deviceid:
 preprod.iris.deviceid:
       - SYNCBYTE.LTC164:SYNCBYTE.LTC164:4d36e96c-e325-11ce-bfc1-08002be10317 
 dev-test.iris.deviceid:
-      - SYNCBYTE.LTC164:SYNCBYTE.LTC164:4d36e96c-e325-11ce-bfc1-08002be10317                  
+      - SYNCBYTE.LTC164:SYNCBYTE.LTC164:4d36e96c-e325-11ce-bfc1-08002be10317
+extint.iris.deviceid:
+      - SYNCBYTE.LTC164:SYNCBYTE.LTC164:4d36e96c-e325-11ce-bfc1-08002be10317                        
 bio_iris_deviceCode:
       - cogent
 bio_iris_deviceProviderID:
