@@ -37,6 +37,7 @@ public class IdRepoUtil extends AuthTestsUtil {
 				RunConfigUtil.objRunConfig.getIdRepoEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
 		if (!FileUtil.checkFileExistForIdRepo(uinNumber + ".json")) {
+			IDREPO_UTILITY_LOGGER.info("To retrieve identity Sending get request to: "+url);
 			if (FileUtil.createAndWriteFileForIdRepo(uinNumber + ".json",
 					getResponseWithCookie(url+"?type=all", AuthTestsUtil.AUTHORIZATHION_COOKIENAME,cookieValue)))
 				return true;

@@ -148,6 +148,7 @@ public class FileUtil{
 	 * @return true or false
 	 */
 	public static boolean createAndWriteFileForIdRepo(String fileName, String content) {
+		FILEUTILITY_LOGGER.info("Retrieved identity Response from get Request is: "+content);
 		try {
 			Path path = Paths
 					.get(new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getStoreUINDataPath() + "/" + fileName)
