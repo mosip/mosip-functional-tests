@@ -545,4 +545,13 @@ public abstract class RunConfig {
 		public abstract String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath();
 		public abstract String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath();
 		
+		public abstract String getCreatePolicyGroupPath();
+		public abstract void setCreatePolicyGroupPath(String createPolicyGroupPath);
+		public abstract String getGetPolicyBasedOnPolicyIdPath();
+		public abstract String getRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath();
+		public abstract String getUpdateExistingPolicyForPolicyGroupPath();
+		public abstract void setUpdateExistingPolicyForPolicyGroupPath(String updateExistingPolicyForPolicyGroupPath);
+		public abstract void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath);
+		public abstract String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
+		
 }
