@@ -82,12 +82,7 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 	 */
 	@Test(groups = { "IntegrationScenarios" })
 	public void consumedMultiplePRID() {
-		List<String> preRegistrationIds = new ArrayList<String>();
-		preID = null;
-		for (int i = 1; i <= 2; i++) {
-			preRegistrationIds.add(preID);
-			preID = consumedPreRegIds.get(++count);
-		}
+		List<String> preRegistrationIds = new ArrayList<String>(consumedPreRegIds);
 		for (String PreRegId : preRegistrationIds) {
 			Response getPreRegistrationStatusResposne = lib.getPreRegistrationStatus(PreRegId, batchJobToken);
 			lib.compareValues(getPreRegistrationStatusResposne.jsonPath().get("errors[0].message").toString(),
@@ -102,7 +97,6 @@ public class ConsumedTestCase extends BaseTestCase implements ITest {
 		String status = lib.getConsumedStatus(expPreId);
 		String actualRegCenterId = lib.getRegCenterIdOfConsumedApplication(expPreId);
 		String actualDocumentId = lib.getDocumentIdOfConsumedApplication(expPreId);
-		System.err.println(lib.documentId.get(expPreId));
 		lib.compareValues(actualDocumentId, documentId.get(expPreId));
 		lib.compareValues(status, "Consumed");
 		lib.compareValues(actualRegCenterId, regCenterId.get(expPreId));

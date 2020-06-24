@@ -66,6 +66,24 @@ public class PreregistrationDAO
 		}
 	
 	}
+	/**
+	 * This method is for changing the status of prereg with prid directly by modifying the status in DB
+	 * @author Ravi Kant
+	 * @param preRegId
+	 * @param status
+	 */
+	public void changeStatusWithPrId(String preRegId, String status)
+	{
+		
+		String queryString="update prereg.applicant_demographic set status_code='"+status+"' where prereg_id='"+preRegId+"'";
+		try {
+			dbAccess.updateDbData(queryString, "prereg");
+			
+		} catch (NullPointerException e) {
+			Assert.assertTrue(false,"Failed stabilized connection with preregdb");
+		}
+	
+	}
 	public List<String> getAuditData(String userId)
 	{
 		List<String> auditData = null;

@@ -45,7 +45,6 @@ public class ExpiredTestCase extends BaseTestCase implements ITest {
 	public void login(Method method) {
 		testCaseName = "preReg_ExpiredBatchJob_" + method.getName();
 		preID  = expiredPreRegIds.get(i);
-		i++;
 		if (!lib.isValidToken(batchJobToken)) {
 			batchJobToken =lib. batchToken();
 		}
@@ -93,6 +92,7 @@ public class ExpiredTestCase extends BaseTestCase implements ITest {
 		Response reBookAnAppointmentResponse = lib.BookAppointment(avilibityResponse, preID, batchJobToken);
 		lib.compareValues(reBookAnAppointmentResponse.jsonPath().get("response.bookingMessage").toString(),
 				"Appointment booked successfully");
+		dao.changeStatusWithPrId(preID, "Expired");
 	}
 
 	/**

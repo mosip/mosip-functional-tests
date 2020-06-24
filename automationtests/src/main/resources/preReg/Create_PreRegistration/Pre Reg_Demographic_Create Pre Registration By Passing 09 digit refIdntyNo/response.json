@@ -1,8 +1,14 @@
 {
-    "request": {
+    "id": "mosip.pre-registration.demographic.create",
+    "version": "1.0",
+    "responsetime": "2020-06-16T09:55:43.959Z",
+    "response": {
+        "preRegistrationId": "46836178392159",
+        "createdDateTime": "2020-06-16T09:55:43.930Z",
+        "statusCode": "Pending_Appointment",
+        "langCode": "fra",
         "demographicDetails": {
             "identity": {
-                "referenceIdentityNumber": "1234567890098765432112345678901",
                 "gender": [
                     {
                         "language": "fra",
@@ -11,7 +17,6 @@
                     {
                         "language": "ara",
                         "value": "FLE"
-
                     }
                 ],
                 "city": [
@@ -35,17 +40,8 @@
                         "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
-                "zone": [
-                    {
-                        "language": "fra",
-                        "value": "SATZ"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "SATZ"
-                    }
-                ],
                 "dateOfBirth": "1996/01/01",
+                "referenceIdentityNumber": "142325675",
                 "IDSchemaVersion": 1,
                 "province": [
                     {
@@ -55,6 +51,16 @@
                     {
                         "language": "ara",
                         "value": "KTA"
+                    }
+                ],
+                "zone": [
+                    {
+                        "language": "fra",
+                        "value": "SATZ"
+                    },
+                    {
+                        "language": "ara",
+                        "value": "SATZ"
                     }
                 ],
                 "addressLine1": [
@@ -108,13 +114,8 @@
                     }
                 ],
                 "email": "ashish.rastogi@mindtree.com"
-
             }
-        },
-        "langCode": "fra"
+        }
     },
-    "requesttime": "2019-05-28T16:20:05.383Z",
-    "id": "mosip.pre-registration.demographic.create",
-    "version": "1.0"
+    "errors": null
 }
-

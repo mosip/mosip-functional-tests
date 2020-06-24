@@ -70,6 +70,7 @@ public class BaseTestCase {
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
+	public static String consumedPreRegId = null;
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
@@ -157,6 +158,7 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
+			new PMPDataManager(false);
 			new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
@@ -164,6 +166,7 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
+			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
@@ -178,8 +181,8 @@ public class BaseTestCase {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
-			expiredPreRegIds = lib.BookExpiredApplication();
-			consumedPreRegIds = lib.consumedPreId();
+			expiredPreRegIds = lib.createExpiredApplication();
+			consumedPreRegIds = lib.createConsumedPreId();
 
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are
