@@ -20,7 +20,6 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
-//import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.DataProviderClass;
@@ -33,15 +32,15 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class RegisterPartner extends PartnerTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
+public class CreatePolicyGroup extends PartnerTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(CreatePolicyGroup.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
 	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	
+
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -50,13 +49,6 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp"))
-			logger.info("register partner with id as Test successfully using query from partnerQueries.properties");
-		else
-			logger.info("not able to register partner using query from partnerQueries.properties");
 	}
 
 	/**
@@ -103,7 +95,7 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
-		if(!kernelCmnLib.isValidToken(partnerCookie))
+		if (!kernelCmnLib.isValidToken(partnerCookie))
 			partnerCookie = kernelAuthLib.getAuthForPartner();
 	}
 
@@ -156,11 +148,12 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException 
-	 * @throws AdminTestException 
+	 * @throws AuthenticationTestException
+	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void registerPartner(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void registerPartner(TestParameters objTestParameters, String testScenario, String testcaseName)
+			throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,32 +161,35 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getRegisterPartnerPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
-				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
-		
+		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
+				+ RunConfigUtil.objRunConfig.getCreatePolicyGroupPath();
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
+				0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-}
+	}
+
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing
 	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
+	 * 
+	 * @throws AdminTestException
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAuthH").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("deleted all Register Partner data successfully");
+			logger.info("deleted all CreatePolicyGroup data successfully");
 		else {
-			logger.info("not able to delete Register Partner data using query from query.properties");
+			logger.info("not able to delete CreatePolicyGroup data using query from query.properties");
 		}
 		logger.info("END");
-		}
+	}
 }

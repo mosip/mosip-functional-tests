@@ -1,0 +1,16 @@
+{
+    "id": "mosip.partnermanagement.policy.update",
+    "version": "1.0",
+    "responsetime": "2020-06-22T05:41:00.669Z",
+    "response": {
+        "id": "MOSIP-POLICY-ID-01",
+        "name": "MOSIP POLICY UPDATE",
+        "desc": "DESCR MOSIP POLICY UPDATE",
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-06-22T05:41:00.67",
+        "up_by": "pm_testuser",
+        "upd_dtimes": "2020-06-22T05:41:00.67",
+        "_Active": true
+    },
+    "errors": []
+}

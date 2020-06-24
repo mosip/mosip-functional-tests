@@ -20,7 +20,6 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
-//import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.DataProviderClass;
@@ -33,15 +32,15 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class RegisterPartner extends PartnerTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
-	protected String testCaseName = "";
+public class RetrievePartnerPolicyDetailsForGivenPartnerAPIKey extends PartnerTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(RetrievePartnerPolicyDetailsForGivenPartnerAPIKey.class);
+	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
 	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	
+
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -52,11 +51,16 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
 		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp"))
-			logger.info("register partner with id as Test successfully using query from partnerQueries.properties");
+		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
+		String crearePartnerAPIKeyQuery = partnerQueries.get("createPartnerAPIKey").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pmp") && masterDB.executeQuery(createAuthQuery, "pmp")
+				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
+				&& masterDB.executeQuery(crearePartnerAPIKeyQuery, "pmp"))
+			logger.info(
+					"RetrievePartnerPolicyDetailsForGivenPartnerAPIKey with id as Test successfully using query from partnerQueries.properties");
 		else
-			logger.info("not able to register partner using query from partnerQueries.properties");
+			logger.info(
+					"not able to RetrievePartnerPolicyDetailsForGivenPartnerAPIKey using query from partnerQueries.properties");
 	}
 
 	/**
@@ -103,8 +107,6 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
-		if(!kernelCmnLib.isValidToken(partnerCookie))
-			partnerCookie = kernelAuthLib.getAuthForPartner();
 	}
 
 	/**
@@ -114,6 +116,7 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 */
 	@DataProvider(name = "testcaselist")
 	public Object[][] getTestCaseList() {
+		System.out.println("inside dataprovider");
 		invocationCount++;
 		setTestDataPathsAndFileNames(invocationCount);
 		setConfigurations(testType);
@@ -156,44 +159,64 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException 
-	 * @throws AdminTestException 
+	 * @throws AuthenticationTestException
+	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void registerPartner(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void retrievePartnerPolicyDetailsForGivenPartnerAPIKey(TestParameters objTestParameters, String testScenario, String testcaseName)
+			throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
+		String cookieValue = null;
 		displayLog(testCaseName, testCaseNumber);
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
+		// String mapping = TestDataUtil.getMappingPath();
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getRegisterPartnerPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
-				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
-		
+		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
+				+ RunConfigUtil.objRunConfig.getRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath();
+		logger.info("******Get request Json to EndPointUrl: " + url + " *******");
+		if (testcaseName.contains("smoke")) {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),
+					"https://" + System.getProperty("env.user") + ".mosip.io/v1/authmanager/authenticate/useridPwd",
+					AUTHORIZATHION_COOKIENAME);
+		} else if (testcaseName.toLowerCase().contains("northuser")) {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),
+					"https://" + System.getProperty("env.user") + ".mosip.io/v1/authmanager/authenticate/useridPwd",
+					AUTHORIZATHION_COOKIENAME);
+		} else if (testcaseName.toLowerCase().contains("nozonemap")) {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("noZoneMap"),
+					"https://" + System.getProperty("env.user") + ".mosip.io/v1/authmanager/authenticate/useridPwd",
+					AUTHORIZATHION_COOKIENAME);
+		} else {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),
+					System.getProperty("env.endpoint") + "/v1/authmanager/authenticate/useridPwd",
+					AUTHORIZATHION_COOKIENAME);
+		}
+
+		getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
+				0, AUTHORIZATHION_COOKIENAME, cookieValue);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-}
-	/**
-	 * this method is for deleting or updating the inserted data in db for testing
-	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
-	 */
+
+	}
+
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("deleted all Register Partner data successfully");
+			logger.info("retrievePartner all Register Partner data successfully");
 		else {
-			logger.info("not able to delete Register Partner data using query from query.properties");
+			logger.info(
+					"not able to delete RetrievePartnerPolicyDetailsForGivenPartnerAPIKey data using query from query.properties");
 		}
 		logger.info("END");
-		}
+	}
 }

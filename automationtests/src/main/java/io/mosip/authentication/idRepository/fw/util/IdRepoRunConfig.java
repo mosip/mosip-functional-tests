@@ -1815,4 +1815,53 @@ public class IdRepoRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getCreatePolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCreatePolicyGroupPath(String createPolicyGroupPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getGetPolicyBasedOnPolicyIdPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateExistingPolicyForPolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateExistingPolicyForPolicyGroupPath(String updateExistingPolicyForPolicyGroupPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(
+			String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

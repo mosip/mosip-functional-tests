@@ -20,7 +20,6 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
-//import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.DataProviderClass;
@@ -33,8 +32,8 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class RegisterPartner extends PartnerTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
+public class UpdateTheStatusActivateDeactivateForTheGivenPolicyId extends PartnerTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(UpdateTheStatusActivateDeactivateForTheGivenPolicyId.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -51,12 +50,10 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp"))
-			logger.info("register partner with id as Test successfully using query from partnerQueries.properties");
+		if (masterDB.executeQuery(createPolicyQuery, "pmp"))
+			logger.info("UpdateTheStatusActivateDeactivateForTheGivenPolicyId Test successfully using query from partnerQueries.properties");
 		else
-			logger.info("not able to register partner using query from partnerQueries.properties");
+			logger.info("not able to UpdateTheStatusActivateDeactivateForTheGivenPolicyId using query from partnerQueries.properties");
 	}
 
 	/**
@@ -160,7 +157,7 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void registerPartner(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void activateDeactivatePartnerAPIKey(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,10 +165,10 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getRegisterPartnerPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
+		logger.info("******Patch request Json to EndPointUrl: " + url+
 				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -187,12 +184,10 @@ public class RegisterPartner extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("deleted all Register Partner data successfully");
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+			logger.info("deleted all activatePartner data successfully");
 		else {
-			logger.info("not able to delete Register Partner data using query from query.properties");
+			logger.info("not able to delete UpdateTheStatusActivateDeactivateForTheGivenPolicyId data using query from query.properties");
 		}
 		logger.info("END");
 		}
