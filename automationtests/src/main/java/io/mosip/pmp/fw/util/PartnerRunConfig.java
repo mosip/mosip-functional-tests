@@ -115,8 +115,56 @@ public class PartnerRunConfig extends RunConfig {
     private String approveRejectPartnerAPIKeyReqPath;
     private String retrieveParticularPartnerDetailsForGivenPartnerIdPath;
     private String retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath;
+    private String retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath;
+    private String updateExistingPolicyForPolicyGroupPath;
+    private String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
     
-    public String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath() {
+    public String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath() {
+		return updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
+	}
+
+	public void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(
+			String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath) {
+		this.updateTheStatusActivateDeactivateForTheGivenPolicyIdPath = updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
+	}
+
+	public String getUpdateExistingPolicyForPolicyGroupPath() {
+		return updateExistingPolicyForPolicyGroupPath;
+	}
+
+	public void setUpdateExistingPolicyForPolicyGroupPath(String updateExistingPolicyForPolicyGroupPath) {
+		this.updateExistingPolicyForPolicyGroupPath = updateExistingPolicyForPolicyGroupPath;
+	}
+
+	public String getRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath() {
+		return retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath;
+	}
+
+	public void setRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath(
+			String retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath) {
+		this.retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath = retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath;
+	}
+
+	private String createPolicyGroupPath;
+    private String getPolicyBasedOnPolicyIdPath;
+    
+    public String getGetPolicyBasedOnPolicyIdPath() {
+		return getPolicyBasedOnPolicyIdPath;
+	}
+
+	public void setGetPolicyBasedOnPolicyIdPath(String getPolicyBasedOnPolicyIdPath) {
+		this.getPolicyBasedOnPolicyIdPath = getPolicyBasedOnPolicyIdPath;
+	}
+
+	public String getCreatePolicyGroupPath() {
+		return createPolicyGroupPath;
+	}
+
+	public void setCreatePolicyGroupPath(String createPolicyGroupPath) {
+		this.createPolicyGroupPath = createPolicyGroupPath;
+	}
+
+	public String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath() {
 		return retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath;
 	}
 
@@ -307,6 +355,14 @@ public class PartnerRunConfig extends RunConfig {
 		setApproveRejectPartnerAPIKeyReqPath(PartnerTestUtil.getPropertyValue("approveRejectPartnerAPIKeyReqPath"));
 		setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(PartnerTestUtil.getPropertyValue("retrieveParticularPartnerDetailsForGivenPartnerIdPath"));
 		setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(PartnerTestUtil.getPropertyValue("retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath"));
+		
+		
+		setCreatePolicyGroupPath(PartnerTestUtil.getPropertyValue("createPolicyGroupPath"));
+		setGetPolicyBasedOnPolicyIdPath(PartnerTestUtil.getPropertyValue("getPolicyBasedOnPolicyIdPath"));
+		setRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath(PartnerTestUtil.getPropertyValue("retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath"));
+		setUpdateExistingPolicyForPolicyGroupPath(PartnerTestUtil.getPropertyValue("updateExistingPolicyForPolicyGroupPath"));
+		setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(PartnerTestUtil.getPropertyValue("updateTheStatusActivateDeactivateForTheGivenPolicyIdPath"));
+		
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {

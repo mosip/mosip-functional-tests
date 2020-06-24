@@ -1,0 +1,18 @@
+testdata:
+   Partner_UpdateExistingPolicyForPolicyGroup_All_Valid_Smoke:
+      input.update-partner-request:
+         name: MOSIP POLICY UPDATE
+         desc: DESCR MOSIP POLICY UPDATE
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         Rname: MOSIP POLICY UPDATE
+         Rid: MOSIP-POLICY-ID-01
+         _Active: true
+         Rdesc: DESCR MOSIP POLICY UPDATE
+         cr_dtimes: $IGNORE$
+         upd_dtimes: $IGNORE$
+         up_by: $IGNORE$
+         cr_by: $IGNORE$
+         

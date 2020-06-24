@@ -1,0 +1,19 @@
+testdata:
+  Partner_RetrievePartnerPolicyDetailsForGivenPartnerAPIKey_All_Valid_Smoke:
+    input.retrieve-partner-request:
+      partnerApiKey: PAT-API-KEY-ID-01
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      descr: DESCR MOSIP POLICY
+      userId: $IGNORE$
+      Rid: MOSIP-POLICY-ID-01
+      name: MOSIP POLICY
+      delDtimes: $IGNORE$
+      isDeleted: $IGNORE$
+      updDtimes: $IGNORE$
+      updBy: $IGNORE$
+      crBy: $IGNORE$
+      isActive: true
+      version: $IGNORE$
+      crDtimes: $IGNORE$

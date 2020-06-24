@@ -1,0 +1,36 @@
+{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2020-05-22T05:37:30.724Z",
+  "metadata": {},
+  "request": {
+      "name": "string",
+      "desc": "string",
+      "policies": {
+             "authPolicies": [     
+                {"authType": "otp","mandatory": true},
+                 {"authType": "otp-request","mandatory": true},
+                {"authType": "demo","mandatory": true},
+                {"authType": "bio","authSubType": "FINGER","mandatory": false},
+                {"authType": "bio","authSubType": "IRIS","mandatory": false},
+                {"authType": "bio","authSubType": "FACE","mandatory": false},
+                {"authType": "kyc","mandatory": false}
+            ],
+            "allowedKycAttributes": [  
+                    {"attributeName": "fullName","required": true},
+                    {"attributeName": "dateOfBirth","required": true},
+                    {"attributeName": "gender","required": true},
+                    {"attributeName": "phone","required": true},
+                    {"attributeName": "email","required": true},
+                    {"attributeName": "addressLine1","required": true},
+                    {"attributeName": "addressLine2","required": true},
+                    {"attributeName": "addressLine3","required": true},
+                    {"attributeName": "location1","required": true},
+                    {"attributeName": "location2","required": true},
+                    {"attributeName": "location3","required": true},
+                    {"attributeName": "postalCode","required": false},
+                    {"attributeName": "photo","required": true}
+            ]
+        }
+    }
+}
