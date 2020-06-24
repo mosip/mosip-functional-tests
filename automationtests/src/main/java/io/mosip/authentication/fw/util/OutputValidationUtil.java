@@ -203,6 +203,11 @@ public class OutputValidationUtil extends AuthTestsUtil{
 						OUTPUTVALIDATION_LOGGER.info("Kyc Verification Passed");
 						OUTPUTVALIDATION_LOGGER.info("Expected Kyc: "+expMap);
 						OUTPUTVALIDATION_LOGGER.info("Actual Kyc: "+actualMap);
+						objOpDto.setFieldName(expEntry.getKey());
+						objOpDto.setFieldHierarchy(expEntry.getKey());
+						objOpDto.setActualValue(actualMap.toString());
+						objOpDto.setExpValue(expMap.toString());
+						objOpDto.setStatus("PASS");
 					}
 					else
 					{
@@ -210,8 +215,13 @@ public class OutputValidationUtil extends AuthTestsUtil{
 						OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed");
 						OUTPUTVALIDATION_LOGGER.error("Expected Kyc: "+expMap);
 						OUTPUTVALIDATION_LOGGER.error("Actual Kyc: "+actualMap);
+						objOpDto.setFieldName(expEntry.getKey());
+						objOpDto.setFieldHierarchy(expEntry.getKey());
+						objOpDto.setActualValue(actualMap.toString());
+						objOpDto.setExpValue(expMap.toString());
+						objOpDto.setStatus("FAIL");
 					}
-					Verify.verify(compareTwoKycMap(expMap,actualMap));
+					//Verify.verify(compareTwoKycMap(expMap,actualMap));
 				}
 			} else if (!expEntry.getValue().equals("$IGNORE$")) {
 				objOpDto.setFieldName(expEntry.getKey());
