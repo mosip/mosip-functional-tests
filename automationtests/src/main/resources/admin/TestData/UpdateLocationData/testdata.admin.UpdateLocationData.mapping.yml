@@ -20,6 +20,7 @@ testdata:
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       isActive: false
+      hierarchyLevel: 2
       name: Test_Loc_B_2
       parentLocCode: TestLoc_code_1
       code: TestLoc_code_2
@@ -125,12 +126,13 @@ testdata:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: $errors:CreateLocBlankName:errorMessage$
-  Admin_UpdateLocationData_invalid_with_duplicate_name:
+  Admin_UpdateLocationData_zinvalid_with_duplicate_name:
     input.search-request:
+      Rcode: TestLoc_code_2
       Rname: 'Test_Loc_1_A_T'
-      RparentLocCode: KTA
-      RhierarchyName: City
-      RhierarchyLevel: 3
+      RparentLocCode: TestLoc_code_1
+      RhierarchyName: Province
+      RhierarchyLevel: 2
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
