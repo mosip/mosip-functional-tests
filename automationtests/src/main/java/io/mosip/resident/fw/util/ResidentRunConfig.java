@@ -1732,6 +1732,53 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getCreateMISPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateMISPPath(String updateMISPPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdateMISPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getValidateMISPLicensePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getApproveMISPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getRejectMISPPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getActivateMISPLicense() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getRetrieveMISPByMispIDPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 

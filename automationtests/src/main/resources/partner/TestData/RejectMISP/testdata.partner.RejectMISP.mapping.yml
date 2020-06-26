@@ -1,0 +1,34 @@
+testdata:
+   Partner_RejectMISP_All_Valid_Smoke:
+      input.reject-misp-request:
+         RmispStatus: rejected
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         mispStatus: Active
+         mispStatusCode: $input.reject-misp-request:RmispStatus$
+         message: MISP rejected successfully
+         mispLicenseKeyStatus: $IGNORE$
+         mispLicenseKey: $IGNORE$ 
+         mispLicenseKeyExpiry: $IGNORE$
+         mispID: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_RejectMISP_InvalidParameter_MISP_Allready_Rejected:
+      input.reject-misp-request:
+         RmispStatus: rejected
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_014
+         messageerrors0: 'Misp already rejected'
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+         
+         
+         
+         
+         
+         

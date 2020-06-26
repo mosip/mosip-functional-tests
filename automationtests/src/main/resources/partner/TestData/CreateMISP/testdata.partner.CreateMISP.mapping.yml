@@ -1,0 +1,17 @@
+testdata:
+   Partner_CreateMISP_All_Valid_Smoke:
+      input.create-misp-request:
+         organizationName: Telecom
+         contactNumber: 9840587089
+         emailId: misp@telecom.com
+         name: MISP_Test03
+         address: India
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         mispStatus: Active
+         id: $IGNORE$
+         mispID: $IGNORE$
+         
+         
+         
+         

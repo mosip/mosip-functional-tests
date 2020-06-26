@@ -119,6 +119,71 @@ public class PartnerRunConfig extends RunConfig {
     private String updateExistingPolicyForPolicyGroupPath;
     private String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
     
+    private String createMISPPath;
+    private String updateMISPPath;
+    private String validateMISPLicensePath;
+    private String approveMISPPath;
+    private String rejectMISPPath;
+    private String activateMISPLicense;
+    private String retrieveMISPByMispIDPath;
+    
+    public String getRetrieveMISPByMispIDPath() {
+		return retrieveMISPByMispIDPath;
+	}
+
+	public void setRetrieveMISPByMispIDPath(String retrieveMISPByMispIDPath) {
+		this.retrieveMISPByMispIDPath = retrieveMISPByMispIDPath;
+	}
+
+	public String getActivateMISPLicense() {
+		return activateMISPLicense;
+	}
+
+	public void setActivateMISPLicense(String activateMISPLicense) {
+		this.activateMISPLicense = activateMISPLicense;
+	}
+
+	public String getRejectMISPPath() {
+		return rejectMISPPath;
+	}
+
+	public void setRejectMISPPath(String rejectMISPPath) {
+		this.rejectMISPPath = rejectMISPPath;
+	}
+
+	public String getApproveMISPPath() {
+		return approveMISPPath;
+	}
+
+	public void setApproveMISPPath(String approveMISPPath) {
+		this.approveMISPPath = approveMISPPath;
+	}
+
+	public String getValidateMISPLicensePath() {
+		return validateMISPLicensePath;
+	}
+
+	public void setValidateMISPLicensePath(String validateMISPLicensePath) {
+		this.validateMISPLicensePath = validateMISPLicensePath;
+	}
+
+	public String getUpdateMISPPath() {
+		return updateMISPPath;
+	}
+
+	public void setUpdateMISPPath(String updateMISPPath) {
+		this.updateMISPPath = updateMISPPath;
+	}
+
+	public String getCreateMISPPath() {
+		return createMISPPath;
+	}
+
+	public void setCreateMISPPath(String createMISPPath) {
+		this.createMISPPath = createMISPPath;
+	}
+    
+    
     public String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath() {
 		return updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
 	}
@@ -363,6 +428,13 @@ public class PartnerRunConfig extends RunConfig {
 		setUpdateExistingPolicyForPolicyGroupPath(PartnerTestUtil.getPropertyValue("updateExistingPolicyForPolicyGroupPath"));
 		setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(PartnerTestUtil.getPropertyValue("updateTheStatusActivateDeactivateForTheGivenPolicyIdPath"));
 		
+		setCreateMISPPath(PartnerTestUtil.getPropertyValue("createMISPPath"));
+		setUpdateMISPPath(PartnerTestUtil.getPropertyValue("updateMISPPath"));
+		setValidateMISPLicensePath(PartnerTestUtil.getPropertyValue("validateMISPLicensePath"));
+		setApproveMISPPath(PartnerTestUtil.getPropertyValue("approveMISPPath"));
+		setRejectMISPPath(PartnerTestUtil.getPropertyValue("rejectMISPPath"));
+		setActivateMISPLicense(PartnerTestUtil.getPropertyValue("activateMISPLicense"));
+		setRetrieveMISPByMispIDPath(PartnerTestUtil.getPropertyValue("retrieveMISPByMispIDPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {

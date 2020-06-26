@@ -1,0 +1,16 @@
+testdata:
+   Partner_ActivateDeactivateMISPLincense_All_Valid_Smoke:
+      input.activate-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: Active
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         RmispLicenseKeyStatus: Active
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         mispLicenseKeyStatus: $input.activate-misp-request:RmispLicenseKeyStatus$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+         
+         
+         
