@@ -29,18 +29,19 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.fw.util.TestParameters;
 import io.mosip.authentication.testdata.TestDataProcessor;
+import io.mosip.authentication.testdata.TestDataUtil;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class CreateMISP extends PartnerTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
-	protected String testCaseName = "";
+public class RetrieveMISPByMispID extends PartnerTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(RetrieveMISPByMispID.class);
+	protected static String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
 	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	
+
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -49,14 +50,13 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		/*
-		 * String query = partnerQueries.get("registerPartner").toString(); if
-		 * (masterDB.executeQuery(query, "pmp")) logger.
-		 * info("register partner with id as Test successfully using query from partnerQueries.properties"
-		 * ); else logger.
-		 * info("not able to register partner using query from partnerQueries.properties"
-		 * );
-		 */
+		String createMISIPQuery = partnerQueries.get("createMISP").toString();
+		String validateMISIPLicenceQuery = partnerQueries.get("validateMISPLicence").toString();
+		if (masterDB.executeQuery(createMISIPQuery, "pmp") 
+				&& masterDB.executeQuery(validateMISIPLicenceQuery, "pmp"))
+			logger.info("RetrieveMISPByMispID Test successfully using query from partnerQueries.properties");
+		else
+			logger.info("not able to RetrieveMISPByMispID using query from partnerQueries.properties");
 	}
 
 	/**
@@ -103,8 +103,6 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
-		if(!kernelCmnLib.isValidToken(partnerCookie))
-			partnerCookie = kernelAuthLib.getAuthForPartner();
 	}
 
 	/**
@@ -114,6 +112,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 */
 	@DataProvider(name = "testcaselist")
 	public Object[][] getTestCaseList() {
+		System.out.println("inside dataprovider");
 		invocationCount++;
 		setTestDataPathsAndFileNames(invocationCount);
 		setConfigurations(testType);
@@ -157,41 +156,58 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 * @param testScenario
 	 * @param testcaseName
 	 * @throws AuthenticationTestException 
-	 * @throws AdminTestException 
+	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void createMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void retrieveMISPByMispID(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
+		String cookieValue=null;
 		displayLog(testCaseName, testCaseNumber);
 		setTestFolder(testCaseName);
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
-		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateMISPPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
-				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
-		
+		//String mapping = TestDataUtil.getMappingPath();
+		displayContentInFile(testCaseName.listFiles(), "request");	
+		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getRetrieveMISPByMispIDPath();
+		logger.info("******Get request Json to EndPointUrl: " + url+" *******");
+		if(testcaseName.contains("smoke"))
+		{
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),"https://"+
+					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+		}
+		else if (testcaseName.toLowerCase().contains("northuser")) {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),"https://"+
+					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+		}
+		else if (testcaseName.toLowerCase().contains("nozonemap")) {
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("noZoneMap"),"https://"+
+					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+		}
+		else
+		{
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalPartner"),
+					System.getProperty("env.endpoint")+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+		}
+		getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
+				  cookieValue); 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-}
-	/**
-	 * this method is for deleting or updating the inserted data in db for testing
-	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
-	 */
+		
+	}
+	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
-			logger.info("deleted all created misp data successfully");
+		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+			logger.info("deleted all MispID data successfully");
 		else {
-			logger.info("not able to delete created misp data using query from query.properties");
+			logger.info("not able to delete MispID data using query from query.properties");
 		}
 		logger.info("END");
-		}
+	}
 }

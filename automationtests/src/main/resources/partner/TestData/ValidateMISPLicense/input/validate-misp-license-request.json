@@ -1,0 +1,9 @@
+{
+  "id": "mosip.partnermanagement.misp.license.validate",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "mispLicenseKey": "string"
+  }
+}

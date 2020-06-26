@@ -554,4 +554,14 @@ public abstract class RunConfig {
 		public abstract void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath);
 		public abstract String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
 		
+		
+		public abstract String getCreateMISPPath();
+		public abstract void setUpdateMISPPath(String updateMISPPath);
+		public abstract String getUpdateMISPPath();
+		public abstract String getValidateMISPLicensePath();
+		public abstract String getApproveMISPPath();
+		public abstract String getRejectMISPPath();
+		public abstract String getActivateMISPLicense();
+		public abstract String getRetrieveMISPByMispIDPath();
+		
 }

@@ -1,0 +1,13 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-06-18T07:04:29.745Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_MSP_006",
+            "message": "MISP License Key does not exists 4g7rMcn6xxmmV2MOB8FCuzeLgSQU0PX1rNwHLbTkKiIO6vEJEK1"
+        }
+    ]
+}

@@ -29,6 +29,15 @@
 			<class name="io.mosip.pmp.tests.RetrievePartnerPolicyDetailsForGivenPartnerAPIKey" />
 			<class name="io.mosip.pmp.tests.UpdateExistingPolicyForPolicyGroup" />
 			<class name="io.mosip.pmp.tests.UpdateTheStatusActivateDeactivateForTheGivenPolicyId" />
+			
+			<class name="io.mosip.pmp.tests.CreateMISP" />
+			<class name="io.mosip.pmp.tests.UpdateMISP" />
+			<class name="io.mosip.pmp.tests.ValidateMISPLicense" />
+			<class name="io.mosip.pmp.tests.ApproveMISP" />
+			<class name="io.mosip.pmp.tests.RejectMISP" />
+			<class name="io.mosip.pmp.tests.ActivateDeactivateMISPLincense" />
+			<class name="io.mosip.pmp.tests.RetrieveMISPByMispID" />
+			
 		</classes>
 	</test>
 

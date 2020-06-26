@@ -1,0 +1,23 @@
+testdata:
+   Partner_UpdateMISP_All_Valid_Smoke:
+      input.update-misp-request:
+         organizationName: Telecom
+         RcontactNumber: 9840587080
+         RemailId: misp@telecom.com
+         RmispID: MISP-FUN-ID-01
+         Rname: MISP_Test0002
+         Raddress: HSR Bangalore
+         status_code: Active
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         name: $input.update-misp-request:Rname$
+         contactNumber: $input.update-misp-request:RcontactNumber$
+         emailId: $IGNORE$
+         address: $input.update-misp-request:Raddress$
+         mispID: $input.update-misp-request:RmispID$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+         
+         
+         

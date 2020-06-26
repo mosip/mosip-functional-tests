@@ -32,8 +32,8 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class CreateMISP extends PartnerTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
+public class ApproveMISP extends PartnerTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(ApproveMISP.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -49,14 +49,14 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		/*
-		 * String query = partnerQueries.get("registerPartner").toString(); if
-		 * (masterDB.executeQuery(query, "pmp")) logger.
-		 * info("register partner with id as Test successfully using query from partnerQueries.properties"
-		 * ); else logger.
-		 * info("not able to register partner using query from partnerQueries.properties"
-		 * );
-		 */
+		String createMISIPQuery = partnerQueries.get("createMISP").toString();
+		String validateMISIPLicenceQuery = partnerQueries.get("validateMISPLicence").toString();
+		if (masterDB.executeQuery(createMISIPQuery, "pmp") 
+				&& masterDB.executeQuery(validateMISIPLicenceQuery, "pmp"))
+			logger.info("ApproveMISP Test successfully using query from partnerQueries.properties");
+		else
+			logger.info("not able to ApproveMISP using query from partnerQueries.properties");
+
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void createMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void approveMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,10 +168,10 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateMISPPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getApproveMISPPath();
+		logger.info("******Patch request Json to EndPointUrl: " + url+
 				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -187,11 +187,12 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
-			logger.info("deleted all created misp data successfully");
+		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pmp")
+				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+			logger.info("deleted all ApproveMISP data successfully");
 		else {
-			logger.info("not able to delete created misp data using query from query.properties");
+			logger.info("not able to delete ApproveMISP data using query from query.properties");
 		}
 		logger.info("END");
-		}
+	}
 }

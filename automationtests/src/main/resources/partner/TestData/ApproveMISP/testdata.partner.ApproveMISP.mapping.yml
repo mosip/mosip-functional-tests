@@ -1,0 +1,34 @@
+testdata:
+   Partner_ApproveMISP_All_Valid_Smoke:
+      input.approve-misp-request:
+         RmispStatus: approved
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         mispStatus: Active
+         mispStatusCode: $input.approve-misp-request:RmispStatus$
+         message: MISP approved successfully
+         mispLicenseKeyStatus: active
+         mispLicenseKey: $IGNORE$
+         mispLicenseKeyExpiry: $IGNORE$
+         mispID: MISP-FUN-ID-01
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_ValidateMISPLicense_InvalidParameter_MISP_Allready_Approved:
+      input.approve-misp-request:
+         RmispStatus: approved
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_014
+         messageerrors0: Misp already approved
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+         
+         
+         
+         
+         
+         

@@ -32,7 +32,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 
-public class CreateMISP extends PartnerTestUtil implements ITest {
+public class UpdateMISP extends PartnerTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(RegisterPartner.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
@@ -49,14 +49,13 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		/*
-		 * String query = partnerQueries.get("registerPartner").toString(); if
-		 * (masterDB.executeQuery(query, "pmp")) logger.
-		 * info("register partner with id as Test successfully using query from partnerQueries.properties"
-		 * ); else logger.
-		 * info("not able to register partner using query from partnerQueries.properties"
-		 * );
-		 */
+		
+		  String query = partnerQueries.get("createMISP").toString(); 
+		  if(masterDB.executeQuery(query, "pmp")) 
+		      logger.info("misp updated successfully using query from partnerQueries.properties"); 
+		  else 
+		     logger.info("not able to update misp using query from partnerQueries.properties");
+		 
 	}
 
 	/**
@@ -160,7 +159,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 * @throws AdminTestException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void createMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void updateMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,10 +167,10 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateMISPPath();
+		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdateMISPPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
