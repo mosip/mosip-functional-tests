@@ -117,8 +117,8 @@ errors:
     errorCode: IDA-MPA-006
     errorMessage: OTP Authentication usage not allowed as per policy 
   PIDMISPNotMapped:
-    errorCode: IDA-MPA-010
-    errorMessage: MISP and Partner not mapped
+    errorCode: IDA-MPA-014
+    errorMessage: Partner is not assigned with any policy
   MSLKNotRegisteredToPID:
     errorCode: IDA-MPA-007
     errorMessage: License key does not belong to a registered MISP
@@ -339,6 +339,7 @@ errors:
   BioAuthenticationLocked:
     errorCode: IDA-MLC-019
     errorMessage: bio Auth Type is Locked for the UIN
+    errorMessageFace: bio-FACE Auth Type is Locked for the UIN
   IdentityMismatch:
     errorCode: IDA-OTA-010
     errorMessage: Input Identity Type does not match Identity Type of OTP Request

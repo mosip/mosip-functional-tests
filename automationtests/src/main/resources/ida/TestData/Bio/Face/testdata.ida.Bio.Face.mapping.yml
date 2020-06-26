@@ -1819,7 +1819,7 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$  
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFace$  
       
   Authentication_Biometric_With_LockedVID_Face_Neg:
     endpoint.url:
@@ -1853,7 +1853,7 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$  
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFace$  
       
   Authentication_Biometric_Face_With_ValidData_Pos:
     endpoint.url:
