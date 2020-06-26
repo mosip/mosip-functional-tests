@@ -12,7 +12,7 @@
 						"make": "Logitech",
 						"model": "4d36e96c-e325-11ce-bfc1-08002be10318",
 						"type": "Face",
-						"subType": "Full face",
+						"deviceSubType": "Full face",
 						"deviceProvider": "SYNCBYTE",
 						"deviceProviderId": "SYNCBYTE.LTC165",
 						"dateTime": "2019-11-11T15:27:52.973+05:30"
