@@ -126,10 +126,10 @@ testdata:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: $errors:CreateLocBlankName:errorMessage$
-  Admin_UpdateLocationData_zinvalid_with_duplicate_name:
+  Admin_UpdateLocationData_zzinvalid_with_duplicate_name:
     input.search-request:
-      Rcode: TestLoc_code_2
-      Rname: 'Test_Loc_1_A_T'
+      Rcode: TestLoc_code_1
+      Rname: 'Test_Loc_B_2'
       RparentLocCode: TestLoc_code_1
       RhierarchyName: Province
       RhierarchyLevel: 2
@@ -137,7 +137,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: KER-MSD-385
-      messageerrors0: Location Test_Loc_1_A_T already exist under the hierarchy      
+      messageerrors0: Location Test_Loc_B_2 already exist under the hierarchy      
        
   Admin_UpdateLocationData_Invalid_with_HierarchyLevel_LongInt:
     input.search-request:
