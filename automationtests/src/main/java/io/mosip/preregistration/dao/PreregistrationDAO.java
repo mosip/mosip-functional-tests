@@ -116,6 +116,19 @@ public class PreregistrationDAO
 		
 		return status;
 	}
+	public String getProcessedConsumedStatus(String PreID)
+	{  String status = null;
+		String queryString = "SELECT c.status_code FROM prereg.processed_prereg_list c where c.prereg_id='" + PreID+ "'";
+		List<String> preId_status = dbAccess.getConsumedStatus(queryString, "prereg");
+		try {
+			 status = preId_status.get(0).toString();
+			 
+		} catch (IndexOutOfBoundsException e) {
+			Assert.assertTrue(false, "PreRegistartion id is not present in demographic_Consumed table");
+		}
+		
+		return status;
+	}
 	public String getRegCenterIdOfConsumedApplication(String PreID) {
 		String queryString = "SELECT c.regcntr_id FROM prereg.reg_appointment_consumed c where c.prereg_id='" + PreID + "'";
 		List<String> preId_status = dbAccess.getConsumedStatus(queryString, "prereg");

@@ -70,7 +70,6 @@ public class BaseTestCase {
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
-	public static String consumedPreRegId = null;
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
