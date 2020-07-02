@@ -1,0 +1,11 @@
+{
+  "id": "mosip.partnermanagement.misp.license.update",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "mispStatus": "string",
+      "mispLicenseKey": "r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfr",
+      "mispLicenseKeyStatus": "Active"
+  }
+}
