@@ -23,20 +23,7 @@ testdata:
       output.1.res.status: ACTIVATED
       output.1.res.version: $version$
       output.1.res.timestamp: $IGNORE$
-      output.1.res.id: mosip.id.update  
-
-  IdRepository_UpdateIdentity_withAge:
-    input.update-identity-request:
-      registrationId: 278476573600025+$YYYYMMddHHmmss$
-      UIN: LONG:+$UIN$    
-      age: LONG:22
-      timestamp: $TIMESTAMPZ$
-      version: $version$
-    output.output-1-expected-y-res:
-      output.1.res.status: ACTIVATED
-      output.1.res.version: $version$
-      output.1.res.timestamp: $IGNORE$
-      output.1.res.id: mosip.id.update  
+      output.1.res.id: mosip.id.update   
      
   IdRepository_UpdateIdentity_withDateOfBirth:
     input.update-identity-request:
@@ -309,19 +296,6 @@ testdata:
       output.1.res.n.timestamp: $IGNORE$
       output.1.res.n.errorCode: $errors:InvalidRequestTime:errorCode$
       output.1.res.n.errorMessage: $errors:InvalidRequestTime:errorMessage$
-      
-  IdRepository_UpdateIdentity_with Invalid refIdntityNo:
-    input.update-identity-request:
-      registrationId: 278476573600025+$YYYYMMddHHmmss$
-      UIN: LONG:+$UIN$    
-      CNIENumber: $TestData:CNIENumber_Invalid$
-      timestamp: $TIMESTAMPZ$
-      version: $version$
-    output.output-1-expected-n-res:
-      output.1.res.n.version: $version$
-      output.1.res.n.timestamp: $IGNORE$
-      output.1.res.n.errorCode: $errors:InvalidCNIENumber:errorCode$
-      output.1.res.n.errorMessage: $errors:InvalidCNIENumber:errorMessage$
    
   IdRepository_UpdateIdentity_with Missing registrationId:
     input.update-identity-request:
