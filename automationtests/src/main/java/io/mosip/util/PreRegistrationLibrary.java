@@ -92,7 +92,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	// private static CommonLibrary commonLibrary = new CommonLibrary();
 	io.mosip.kernel.util.CommonLibrary cLib = new io.mosip.kernel.util.CommonLibrary();
 	RegProcApiRequests regproc=new RegProcApiRequests();
-
+	Map<String, String> props = cLib.readProperty("IDRepo");
 	private static String preReg_CreateApplnURI;
 	PreregistrationDAO dao = new PreregistrationDAO();
 	private static String preReg_DataSyncnURI;
@@ -157,7 +157,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
 
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
 				batchJobToken = batchToken();
 			}
@@ -173,15 +173,17 @@ public class PreRegistrationLibrary extends BaseTestCase {
 			regCenterId.put(preID, expectedRegCenterId);
 			BookAppointment(documentUploadResponse, fetchCentreResponse, preID, batchJobToken);
 			preRegistrationIds.add(preID);
+			preID = preRegistrationIds.get(0);
+			dao.setDate(preID);
 		}
-		expiredPreId = preRegistrationIds.get(0);
-		dao.setDate(expiredPreId);
+		
 		reverseDataSync(preRegistrationIds);
+		
 		return preRegistrationIds;
 	}
 
 	public List<String> createExpiredApplication() {
-		List expiredPreId = new ArrayList<>();
+		List<String> expiredPreIds = new ArrayList<>();
 		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
 				batchJobToken = batchToken();
@@ -194,10 +196,12 @@ public class PreRegistrationLibrary extends BaseTestCase {
 			Response avilibityResponse = FetchCentre(batchJobToken);
 			BookAppointment(documentResponse, avilibityResponse, preID, batchJobToken);
 			dao.changeStatusWithPrId(preID, "Expired");
-			expiredPreId.add(preID);
+			dao.setDate(expiredPreId);
+			expiredPreIds.add(preID);
+			expiredPreId = preID;
 		}
 
-		return expiredPreId;
+		return expiredPreIds;
 	}
 
 
@@ -406,6 +410,17 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	public String getConsumedStatus(String PreID) {
 		return dao.getConsumedStatus(PreID);
 	}
+	
+	/**
+	 * Fetching status of processes_preregids
+	 * 
+	 * @param PreID-PRID
+	 *            of the consumed application
+	 * @return
+	 */
+	public String getProcessedConsumedStatus(String PreID) {
+		return dao.getProcessedConsumedStatus(PreID);
+	}
 
 	/**
 	 * Get Document Id for Consumed Application
@@ -557,7 +572,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	public HashMap<String, String> readConfigProperty(String url, String configParameter) {
 		List<String> reqParams = new ArrayList<>();
 		Map<String, String> configParamMap = new HashMap<>();
-		uiConfigParams = cLib.readProperty("IDRepo").get(configParameter);
+		uiConfigParams = props.get(configParameter);
 		String[] uiParams = uiConfigParams.split(",");
 		for (int i = 0; i < uiParams.length; i++) {
 			reqParams.add(uiParams[i]);
@@ -820,7 +835,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		logger.info("File Name:" + file);
 		request = getRequest(testSuite);
 		request.put("requesttime", getCurrentDate());
-		String Document_request = cLib.readProperty("IDRepo").get("req.Documentrequest");
+		String Document_request = props.get("req.Documentrequest");
 		// preReg_DocumentUploadURI=preReg_DocumentUploadURI+PreRegistrationId;
 		preReg_DocumentUploadURI = preReg_DocUploadURI + getPreId(responseCreate);
 		HashMap<String, String> map = new HashMap<>();
@@ -844,7 +859,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		logger.info("File Name:" + file);
 		request = getRequest(testSuite);
 		request.put("requesttime", getCurrentDate());
-		String Document_request = cLib.readProperty("IDRepo").get("req.Documentrequest");
+		String Document_request = props.get("req.Documentrequest");
 		// preReg_DocumentUploadURI=preReg_DocumentUploadURI+PreRegistrationId;
 		preReg_DocumentUploadURI = preReg_DocUploadURI + PreRegistrationId;
 		HashMap<String, String> map = new HashMap<>();
@@ -911,7 +926,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		logger.info("File Name:" + file);
 		request = getRequest(testSuite);
 		request.put("requesttime", getCurrentDate());
-		String Document_request = cLib.readProperty("IDRepo").get("req.Documentrequest");
+		String Document_request = props.get("req.Documentrequest");
 		preReg_DocumentUploadURI = preReg_DocUploadURI + PreRegistrationId;
 		HashMap<String, String> map = new HashMap<>();
 		map.put(Document_request, request.toJSONString());
@@ -1104,7 +1119,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		request.put("registrationCenterId", regCenterID);
 		try {
 
-			String preReg_FetchCenterIDURI = cLib.readProperty("IDRepo").get("preReg_FetchCenterIDuri");
+			String preReg_FetchCenterIDURI = props.get("preReg_FetchCenterIDuri");
 			response = appLib.getWithPathParam(preReg_FetchCenterIDURI, request, cookie);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1342,18 +1357,18 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	}
 
 	/**
-	 * Its a batch job service which changed the status of consumed application into
+	 * Its a batch job service which updates the status of consumed application into
 	 * Consumed
 	 * 
 	 * @author Ashish
 	 * @return
 	 */
-	/*public Response consumedStatus() {
+	/*public void consumedStatus() {
 		if (!isValidToken(preRegAdminToken)) {
 			preRegAdminToken = preRegAdminToken();
 		}
+		logger.info("Staring batch job to ");
 		response = appLib.putWithoutData(preReg_ConsumedURI, preRegAdminToken);
-		return response;
 	}*/
 
 	/*
@@ -1957,43 +1972,43 @@ public class PreRegistrationLibrary extends BaseTestCase {
 
 	@BeforeClass
 	public void PreRegistrationResourceIntialize() {
-		preReg_CreateApplnURI = cLib.readProperty("IDRepo").get("preReg_CreateApplnURI");
-		preReg_DocumentUploadURI = cLib.readProperty("IDRepo").get("preReg_DocumentUploadURI");
-		preReg_BookingAppointmentURI = cLib.readProperty("IDRepo").get("preReg_BookingAppointmentURI");
-		preReg_DataSyncnURI = cLib.readProperty("IDRepo").get("preReg_DataSyncnURI");
-		preReg_FetchRegistrationDataURI = cLib.readProperty("IDRepo").get("preReg_FetchRegistrationDataURI");
-		preReg_FecthAppointmentDetailsURI = cLib.readProperty("IDRepo").get("preReg_FecthAppointmentDetailsURI");
-		preReg_FetchAllDocumentURI = cLib.readProperty("IDRepo").get("preReg_FetchAllDocumentURI");
-		prereg_DeleteDocumentByDocIdURI = cLib.readProperty("IDRepo").get("prereg_DeleteDocumentByDocIdURI");
-		preReg_DeleteAllDocumentByPreIdURI = cLib.readProperty("IDRepo").get("preReg_DeleteAllDocumentByPreIdURI");
-		preReg_CopyDocumentsURI = cLib.readProperty("IDRepo").get("preReg_CopyDocumentsURI");
-		preReg_FetchBookedPreIdByRegIdURI = cLib.readProperty("IDRepo").get("preReg_FetchBookedPreIdByRegIdURI");
-		preReg_FetchStatusOfApplicationURI = cLib.readProperty("IDRepo").get("preReg_FetchStatusOfApplicationURI");
-		preReg_DiscardApplnURI = cLib.readProperty("IDRepo").get("preReg_DiscardApplnURI");
-		preReg_UpdateStatusAppURI = cLib.readProperty("IDRepo").get("preReg_UpdateStatusAppURI");
-		preReg_CancelAppointmentURI = cLib.readProperty("IDRepo").get("preReg_CancelAppointmentURI");
-		preReg_ExpiredURI = cLib.readProperty("IDRepo").get("preReg_ExpiredURI");
-		preReg_ConsumedURI = cLib.readProperty("IDRepo").get("preReg_ConsumedURI");
-		preReg_ReverseDataSyncURI = cLib.readProperty("IDRepo").get("preReg_ReverseDataSyncURI");
-		preReg_FetchAllApplicationCreatedByUserURI = cLib.readProperty("IDRepo")
+		preReg_CreateApplnURI = props.get("preReg_CreateApplnURI");
+		preReg_DocumentUploadURI = props.get("preReg_DocumentUploadURI");
+		preReg_BookingAppointmentURI = props.get("preReg_BookingAppointmentURI");
+		preReg_DataSyncnURI = props.get("preReg_DataSyncnURI");
+		preReg_FetchRegistrationDataURI = props.get("preReg_FetchRegistrationDataURI");
+		preReg_FecthAppointmentDetailsURI = props.get("preReg_FecthAppointmentDetailsURI");
+		preReg_FetchAllDocumentURI = props.get("preReg_FetchAllDocumentURI");
+		prereg_DeleteDocumentByDocIdURI = props.get("prereg_DeleteDocumentByDocIdURI");
+		preReg_DeleteAllDocumentByPreIdURI = props.get("preReg_DeleteAllDocumentByPreIdURI");
+		preReg_CopyDocumentsURI = props.get("preReg_CopyDocumentsURI");
+		preReg_FetchBookedPreIdByRegIdURI = props.get("preReg_FetchBookedPreIdByRegIdURI");
+		preReg_FetchStatusOfApplicationURI = props.get("preReg_FetchStatusOfApplicationURI");
+		preReg_DiscardApplnURI = props.get("preReg_DiscardApplnURI");
+		preReg_UpdateStatusAppURI = props.get("preReg_UpdateStatusAppURI");
+		preReg_CancelAppointmentURI = props.get("preReg_CancelAppointmentURI");
+		preReg_ExpiredURI = props.get("preReg_ExpiredURI");
+		preReg_ConsumedURI = props.get("preReg_ConsumedURI");
+		preReg_ReverseDataSyncURI = props.get("preReg_ReverseDataSyncURI");
+		preReg_FetchAllApplicationCreatedByUserURI = props
 				.get("preReg_FetchAllApplicationCreatedByUserURI");
-		preReg_DiscardBookingURI = cLib.readProperty("IDRepo").get("preReg_DiscardBookingURI");
+		preReg_DiscardBookingURI = props.get("preReg_DiscardBookingURI");
 
-		langCodeKey = cLib.readProperty("IDRepo").get("langCode.key");
-		otpSend_URI = cLib.readProperty("IDRepo").get("otpSend_URI");
-		validateOTP_URI = cLib.readProperty("IDRepo").get("validateOTP_URI");
-		preReg_AdminTokenURI = cLib.readProperty("IDRepo").get("preReg_AdminTokenURI");
-		preReg_translitrationRequestURI = cLib.readProperty("IDRepo").get("preReg_translitrationRequestURI");
-		invalidateToken_URI = cLib.readProperty("IDRepo").get("invalidateToken_URI");
-		preReg_GetDocByDocId = cLib.readProperty("IDRepo").get("preReg_GetDocByDocId");
-		preReg_CancelAppointmenturi = cLib.readProperty("IDRepo").get("preReg_CancelAppointmenturi");
-		preReg_GetPreRegistrationConfigData = cLib.readProperty("IDRepo").get("preReg_GetPreRegistrationConfigData");
-		preReg_BookingAppointmenturi = cLib.readProperty("IDRepo").get("preReg_BookingAppointmenturi");
-		preReg_syncAvailability = cLib.readProperty("IDRepo").get("preReg_syncAvailability");
-		preReg_FecthAppointmentDetailsuri = cLib.readProperty("IDRepo").get("preReg_FecthAppointmentDetailsuri");
-		preReg_GetDocByPreId = cLib.readProperty("IDRepo").get("preReg_GetDocByPreId");
-		qrCode_URI = cLib.readProperty("IDRepo").get("qrCode_URI");
-		preReg_DocUploadURI = cLib.readProperty("IDRepo").get("preReg_DocUploadURI");
+		langCodeKey = props.get("langCode.key");
+		otpSend_URI = props.get("otpSend_URI");
+		validateOTP_URI = props.get("validateOTP_URI");
+		preReg_AdminTokenURI = props.get("preReg_AdminTokenURI");
+		preReg_translitrationRequestURI = props.get("preReg_translitrationRequestURI");
+		invalidateToken_URI = props.get("invalidateToken_URI");
+		preReg_GetDocByDocId = props.get("preReg_GetDocByDocId");
+		preReg_CancelAppointmenturi = props.get("preReg_CancelAppointmenturi");
+		preReg_GetPreRegistrationConfigData = props.get("preReg_GetPreRegistrationConfigData");
+		preReg_BookingAppointmenturi = props.get("preReg_BookingAppointmenturi");
+		preReg_syncAvailability = props.get("preReg_syncAvailability");
+		preReg_FecthAppointmentDetailsuri = props.get("preReg_FecthAppointmentDetailsuri");
+		preReg_GetDocByPreId = props.get("preReg_GetDocByPreId");
+		qrCode_URI = props.get("qrCode_URI");
+		preReg_DocUploadURI = props.get("preReg_DocUploadURI");
 		preReg_RetriveBookedPreIdsByRegId = preRegUtil.fetchPreregProp().get("preReg_RetriveBookedPreIdsByRegId");
 		QRCodeFilePath = preRegUtil.fetchPreregProp().get("QRCodeFilePath");
 		preReg_NotifyURI = preRegUtil.fetchPreregProp().get("preReg_NotifyURI");

@@ -70,7 +70,6 @@ public class BaseTestCase {
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
-	public static String consumedPreRegId = null;
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
@@ -154,8 +153,8 @@ public class BaseTestCase {
 		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
 		logger.info("Inserting device management data");
-		//AdminTestUtil.deleteDeviceManagementData();
-		//AdminTestUtil.createDeviceManagementData();
+		AdminTestUtil.deleteDeviceManagementData();
+		AdminTestUtil.createDeviceManagementData();
 		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
