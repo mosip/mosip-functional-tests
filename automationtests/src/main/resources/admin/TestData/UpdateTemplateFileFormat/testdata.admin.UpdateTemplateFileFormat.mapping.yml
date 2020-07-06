@@ -36,12 +36,12 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: Should not be blank or size must be between 1 and 256'
          
    Admin_UpdateTemplateFileFormat_InputParameter_Description_Missing:
       input.update-templateFile-format-request:
          Rcode: PDF
-         description: PDF Test Update
+         description: $REMOVE$
          RlangCode: eng
          isActive: true
       output.output-1-expected-error-response:
@@ -54,7 +54,7 @@ testdata:
    Admin_UpdateTemplateFileFormat_InputParameter_Description_Empty:
       input.update-templateFile-format-request:
          Rcode: PDF
-         description: PDF Test Update
+         description: ''
          RlangCode: eng
          isActive: true
       output.output-1-expected-error-response:
@@ -62,7 +62,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: must not be blank'        
+         messageerrors0: 'request.description: Should not be blank or size must be between 1 and 256'        
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_Missing:
       input.update-templateFile-format-request:
@@ -74,7 +74,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_Empty:
       input.update-templateFile-format-request:
@@ -113,7 +113,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_Empty:
       input.update-templateFile-format-request:

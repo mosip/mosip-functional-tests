@@ -44,13 +44,13 @@ testdata:
          description: test 1.0.8
          isActive: true
          RlangCode: ara
-         name: $REMOVE$
+         name: finger print scanner device update
       output.output-1-expected-error-response:
          id: $IGNORE$
          responsetime: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateDeviceType_InputParameter_Code_Empty:
       input.update-device-type-request:
@@ -134,7 +134,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 128'
+         messageerrors0: 'request.description: size must be between 0 and 128'
          
    Admin_UpdateDeviceType_InputParameter_LangCode_Missing:
       input.update-device-type-request:
@@ -148,7 +148,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateDeviceType_InputParameter_LangCode_Empty:
       input.update-device-type-request:

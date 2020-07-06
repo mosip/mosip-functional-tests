@@ -36,7 +36,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
    
    Admin_UpdateGender_Invalid_InputParameter_Code_Empty:
       input.update-gender-request:
@@ -114,7 +114,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null' 
+         messageerrors0: 'Language Code is Invalid' 
 
          
    Admin_UpdateGender_Invalid_InputParameter_LangCode_Empty:
@@ -180,5 +180,5 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be blank'                  
+         messageerrors0: 'request.isActive: must not be null'                  
          

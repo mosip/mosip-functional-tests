@@ -267,8 +267,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-714
-         messageerrors0: 'Invalid dtype_code received'
+         errorCodeerrors0: KER-MSD-722
+         messageerrors0: 'Invalid mtype_code received'
          
    Admin_UpdateMachineSpecification_InputParameter_MinDriverversion_Missing:
       input.update-machine-specification-request:
@@ -340,7 +340,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
          
    Admin_UpdateMachineSpecification_InputParameter_LangCode_Missing:
       input.update-machine-specification-request:
@@ -358,7 +358,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_UpdateMachineSpecification_InputParameter_LangCode_Empty:
       input.update-machine-specification-request:

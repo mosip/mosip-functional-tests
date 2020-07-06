@@ -38,7 +38,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateTitle_Invalid_InputParameter_Code_Empty:
       input.update-title-request:
@@ -122,7 +122,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleDescription: size must be between 1 and 128'
+         messageerrors0: 'request.titleDescription: size must be between 0 and 128'
          
    Admin_UpdateTitle_Invalid_InputParameter_isActive_Missing:
       input.update-title-request:
@@ -164,7 +164,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_UpdateTitle_Invalid_InputParameter_LangCode_Empty:
       input.update-title-request:

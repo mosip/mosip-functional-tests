@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateRegCenterType_All_Valid_Smoke:
       input.create-regCenter-type-request:
-         Rcode: ALT-3
+         Rcode: ALT-03
          RlangCode: eng
          name: alternate
          descr: alternate center
@@ -38,8 +38,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: KER-MSD-995
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'         
          
    Admin_CreateRegCenterType_InputParameter_Name_Missing:
       input.create-regCenter-type-request:
@@ -83,9 +83,9 @@ testdata:
          errorCodeerrors0: KER-MSD-999
          messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          
-   Admin_CreateRegCenterType_InputParameter_Description_AboveMaxLen256:
+   Admin_CreateRegCenterType_InputParameter_Description_AboveMaxLen129:
       input.create-regCenter-type-request:
-         descr: $TestData:Description257$ 
+         descr: $TestData:wordLength129$ 
          Rcode: ALT-3
          RlangCode: eng
          name: alternate
@@ -95,7 +95,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.descr: size must be between 0 and 128'
          
    Admin_CreateRegCenterType_InputParameter_LangCode_Missing:
       input.create-regCenter-type-request:
@@ -109,7 +109,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateRegCenterType_InputParameter_LangCode_Empty:
       input.create-regCenter-type-request:

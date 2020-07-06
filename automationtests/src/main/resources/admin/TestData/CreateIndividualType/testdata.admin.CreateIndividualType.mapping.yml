@@ -30,8 +30,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'
+         errorCodeerrors0: KER-MSD-995
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'
          
    Admin_CreateIndividualType_valid_secondarylang_SameDataAsVldScnrio:
       input.create-individual-type-request:
@@ -104,7 +104,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateIndividualType_InputParameter_LangCode_Empty:
       input.create-individual-type-request:

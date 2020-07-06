@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          name: testDevicedummy
          deviceSpecId: 327
-         rid: $REMOVE$
+         rid: D001
          macAddress: D4-3D-7E-C0-8C-4A
          serialNum: ceec5f62-77b7-46f3-816b-3e734305a9c8
          langCode: eng
@@ -25,7 +25,7 @@ testdata:
       input.search-request:
          name: testDevicedummy1
          deviceSpecId: 327
-         rid: $REMOVE$
+         rid: D02
          macAddress: D4-3D-7E-C0-8C-4A
          serialNum: ceec5f62-77b7-46f3-816b-3e734305a9c8
          langCode: eng
@@ -205,7 +205,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.zoneCode: Should not be blank or size must be between 1 and 36'     
+         messageerrors0: 'request.zoneCode: Should not be blank or size must be between 0 and 36'     
    
    Admin_CreateDevice_Invalid_MAC_Address_Blank:
       input.search-request:

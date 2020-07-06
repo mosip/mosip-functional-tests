@@ -2,10 +2,10 @@ testdata:
    Admin_UpdateMachineType_All_Valid_Smoke:
       input.update-machine-type-request:
          Rcode: Laptop
-         description: Laptop
+         description: Laptop updated
          isActive: true
          RlangCode: eng
-         name: Laptop test updated
+         name: Laptop test
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          code: $input.update-machine-type-request:Rcode$
@@ -38,7 +38,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateMachineType_Invalid_InputParameter_Code_Empty:
       input.update-machine-type-request:
@@ -51,7 +51,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank' 
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36' 
          
    Admin_UpdateMachineType_Invalid_InputParameter_Name_Missing:
       input.update-machine-type-request:
@@ -116,7 +116,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_UpdateMachineType_Invalid_InputParameter_LangCode_Empty:
       input.update-machine-type-request:
@@ -156,7 +156,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 128'
+         messageerrors0: 'request.description: size must be between 0 and 128'
          
    Admin_UpdateMachineType_Invalid_InputParameter_isActive_Missing:
       input.update-machine-type-request:
