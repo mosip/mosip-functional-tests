@@ -36,8 +36,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'
+         errorCodeerrors0: KER-MSD-995
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'
          
    Admin_CreateMachineType_Invalid_InputParameter_Code_Missing:
       input.create-machine-type-request:
@@ -50,7 +50,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_CreateMachineType_Invalid_InputParameter_Code_Empty:
       input.create-machine-type-request:
@@ -63,7 +63,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank' 
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36' 
          
    Admin_CreateMachineType_Invalid_InputParameter_Name_Missing:
       input.create-machine-type-request:
@@ -128,7 +128,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_CreateMachineType_Invalid_InputParameter_LangCode_Empty:
       input.create-machine-type-request:
@@ -168,7 +168,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 128'
+         messageerrors0: 'request.description: size must be between 0 and 128'
          
    Admin_CreateMachineType_Invalid_InputParameter_isActive_Missing:
       input.create-machine-type-request:

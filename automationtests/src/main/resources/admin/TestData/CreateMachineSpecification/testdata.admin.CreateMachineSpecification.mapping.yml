@@ -46,8 +46,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: KER-MSD-995
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'         
          
    Admin_CreateMachineSpecification_InputParameter_Name_Missing:
       input.create-machine-specification-request:
@@ -267,8 +267,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-714
-         messageerrors0: 'Invalid dtype_code received'
+         errorCodeerrors0: KER-MSD-722
+         messageerrors0: 'Invalid mtype_code received'
          
    Admin_CreateMachineSpecification_InputParameter_MinDriverversion_Missing:
       input.create-machine-specification-request:
@@ -337,7 +337,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
          
    Admin_CreateMachineSpecification_InputParameter_LangCode_Missing:
       input.create-machine-specification-request:
@@ -354,7 +354,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateMachineSpecification_InputParameter_LangCode_Empty:
       input.create-machine-specification-request:

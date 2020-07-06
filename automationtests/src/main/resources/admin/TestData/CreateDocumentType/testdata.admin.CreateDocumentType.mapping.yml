@@ -4,7 +4,7 @@ testdata:
          rname: positive1
          risActive: true
          rdescription: $TestData:valid_DocumentType_Desc$
-         rcode: $REMOVE$
+         rcode: DOC01
          rrequesttime: $REMOVE$
          rlangCode: eng
       output.output-1-expected-pos-response:
@@ -14,7 +14,7 @@ testdata:
          Rname: positive1
          Rdescription: $TestData:valid_DocumentType_Desc$
          RisActive: false
-         RcreatedBy: 110006
+         RcreatedBy: $IGNORE$
          RcreatedBy: $IGNORE$
          RcreatedDateTime: $IGNORE$
          
@@ -23,7 +23,7 @@ testdata:
          rname: $TestData:valid_DocumentType_name$
          risActive: true
          rdescription: $REMOVE$
-         rcode: $REMOVE$
+         rcode: DOC002
          rrequesttime: $REMOVE$
          rlangCode: eng
       output.output-1-expected-pos-response:
@@ -48,7 +48,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: KER-MSD-999
          responsetime: $IGNORE$
-         messageerrors0: 'request.code: size must be between 0 and 36'
+         messageerrors0: 'request.code: Should not be blank or size must be between 0 and 36'
          
    Admin_CreateDocumentType_Invalid_Name_Char65:
       input.search-request:
@@ -62,7 +62,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: KER-MSD-999
          responsetime: $IGNORE$
-         messageerrors0: 'request.name: size must be between 1 and 64'
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateDocumentType_Invalid_Descr_Char129:
       input.search-request:
@@ -145,7 +145,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: Invalid id passed for Secondary language
+         messageerrors0: 'request.code: Should not be blank or size must be between 0 and 36'
          
    Admin_CreateDocumentType_Invalid_NonDefaultLang:
       input.search-request:
@@ -157,9 +157,9 @@ testdata:
          rlangCode: ara
       output.output-1-expected-error-response:
          response: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: KER-MSD-995
          responsetime: $IGNORE$
-         messageerrors0: Invalid id passed for Secondary language
+         messageerrors0: Cannot create data in secondary language as data does not exist in primary language
          
    Admin_CreateDocumentType_Valid_IsActive_Check:
       input.search-request:

@@ -4,7 +4,7 @@ testdata:
          brand: Technoforte
          description: Test DeviceSpec
          deviceTypeCode: CMR
-         id: 743
+         Rid: 743
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -12,7 +12,7 @@ testdata:
          name: Cam
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $input.create-device-specification-request:id$
+         oid: $input.create-device-specification-request:Rid$
          langCode: $input.create-device-specification-request:RlangCode$
          version: $IGNORE$
          
@@ -20,7 +20,7 @@ testdata:
       input.create-device-specification-request:
          brand: Technoforte
          deviceTypeCode: CMR
-         id: 744
+         Rid: 7444
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -28,7 +28,7 @@ testdata:
          name: Cam
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $input.create-device-specification-request:id$
+         oid: $input.create-device-specification-request:Rid$
          langCode: $input.create-device-specification-request:RlangCode$
          version: $IGNORE$
          
@@ -36,7 +36,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: true
          RlangCode: ara
          minDriverversion: 1.0
@@ -46,14 +46,14 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: KER-MSD-995
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'         
          
    Admin_CreateDeviceSpecification_InputParameter_Name_Missing:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -70,7 +70,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -87,7 +87,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -104,7 +104,7 @@ testdata:
       input.create-device-specification-request:
          brand: $REMOVE$
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -121,7 +121,7 @@ testdata:
       input.create-device-specification-request:
          brand: ''
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -138,7 +138,7 @@ testdata:
       input.create-device-specification-request:
          brand: $TestData:validLocationCode37$
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -155,7 +155,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -172,7 +172,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -180,6 +180,7 @@ testdata:
          name: Techno-Cam
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
+         id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
          messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'        
@@ -188,7 +189,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: FP1
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -205,7 +206,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: $REMOVE$
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -222,7 +223,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: ''
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -239,7 +240,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: $TestData:validLocationCode37$
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -257,7 +258,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: DMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -274,7 +275,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR 
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: $REMOVE$
@@ -291,7 +292,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: ''
@@ -308,7 +309,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: $TestData:validStringLen17$
@@ -326,7 +327,7 @@ testdata:
          brand: Techno
          description: $TestData:Description257$ 
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: eng
          minDriverversion: 1.0
@@ -337,13 +338,13 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
          
    Admin_CreateDeviceSpecification_InputParameter_LangCode_Missing:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR 
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: $REMOVE$
          minDriverversion: 1.0
@@ -354,13 +355,13 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateDeviceSpecification_InputParameter_LangCode_Empty:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: ''
          minDriverversion: 1.0
@@ -377,7 +378,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: engr
          minDriverversion: 1.0
@@ -394,7 +395,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR
-         id: 745
+         Rid: 745
          isActive: false
          RlangCode: GST
          minDriverversion: 1.0
@@ -411,7 +412,7 @@ testdata:
       input.create-device-specification-request:
          brand: Techno
          deviceTypeCode: CMR 
-         id: 745
+         Rid: 745
          isActive: $REMOVE$
          RlangCode: eng
          minDriverversion: 1.0

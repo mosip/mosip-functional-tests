@@ -12,7 +12,7 @@
 	</listeners>
 	<test name="Admin Tests">
 		<classes>
- 			 <class name="io.mosip.admin.tests.CreateDevice" />
+			<!--  <class name="io.mosip.admin.tests.CreateDevice" />
 			<class name="io.mosip.admin.tests.CreateDocumentType" />
 			<class name="io.mosip.admin.tests.CreateMachine" />
 			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
@@ -118,8 +118,10 @@
 			<class name="io.mosip.admin.tests.CreateDeviceType" />
 			<class name="io.mosip.admin.tests.UpdateDeviceType" />
 			<class name="io.mosip.admin.tests.CreateIndividualType" />
-			<class name="io.mosip.admin.tests.UpdateIndividualType" />
+			<class name="io.mosip.admin.tests.UpdateIndividualType" /> -->
 			
+			
+			<class name="io.mosip.admin.tests.DeviceRegister" />
 			
 		</classes>
 

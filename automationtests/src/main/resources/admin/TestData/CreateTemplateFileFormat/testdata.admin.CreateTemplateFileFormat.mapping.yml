@@ -38,7 +38,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
          
    Admin_CreateTemplateFileFormat_InputParameter_Description_Missing:
       input.create-templateFile-format-request:
@@ -77,7 +77,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_CreateTemplateFileFormat_InputParameter_Code_Empty:
       input.create-templateFile-format-request:
@@ -90,7 +90,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'        
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
          
    Admin_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
       input.create-templateFile-format-request:
@@ -116,7 +116,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
          
    Admin_CreateTemplateFileFormat_InputParameter_LangCode_Empty:
       input.create-templateFile-format-request:

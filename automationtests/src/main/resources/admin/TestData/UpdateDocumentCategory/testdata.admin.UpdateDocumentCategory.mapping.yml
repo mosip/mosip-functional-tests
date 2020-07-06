@@ -28,9 +28,9 @@ testdata:
          
    Admin_UpdateDocumentCategory_valid_sec_lang_SameDataAsVldScnrio:
       input.update-document-category-request:
-         Rcode: DocCat004
-         description: Testing positive004
-         name: DocCat004
+         Rcode: DocCat006
+         description: Testing positive006
+         name: DocCat006
          isActive: true
          RlangCode: ara
       output.output-1-expected-pos-response:
@@ -66,7 +66,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
          
    Admin_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty:
       input.update-document-category-request:
@@ -164,7 +164,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'Language Code is Invalid'
 
    Admin_UpdateDocumentCategory_Invalid_InputParameter_LangCode_Empty:
       input.update-document-category-request:
