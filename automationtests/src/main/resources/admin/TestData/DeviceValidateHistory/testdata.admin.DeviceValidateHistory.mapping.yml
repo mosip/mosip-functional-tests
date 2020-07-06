@@ -75,15 +75,15 @@ testdata:
          dpId: $TestData:Invalid_ValueString$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorMessage$
+         errorCodeerrors0: ADM-DPM-003
+         messageerrors0: Device Provider does not exist
    Admin_DeviceValidateHidtory_inValid_deviceProviderId_of_inActiveProvider:
       input.search-request:
          dpId: $TestData:Invalid_ValueString$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorMessage$
+         errorCodeerrors0: ADM-DPM-003
+         messageerrors0: Device Provider does not exist
 
    Admin_DeviceValidateHistory_inValid_deviceProvider_blank:
       input.search-request:

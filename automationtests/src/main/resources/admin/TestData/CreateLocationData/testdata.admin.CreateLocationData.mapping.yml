@@ -81,8 +81,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'hierarchy_level, hierarchy_level_name, lang_code is not present in hierarchy level'
+      errorCodeerrors0: KER-MSD-391
+      messageerrors0: 'Location hierarchy is invalid'
 
   Admin_CreateLocationData_Invalid_code_for_SecondaryLang:
     input.search-request:
@@ -161,8 +161,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'hierarchyLevel, hierarchyLevelName, langCode is not present in hierarchy level'
+      errorCodeerrors0: KER-MSD-391
+      messageerrors0: 'Location hierarchy is invalid'
           
   Admin_CreateLocationData_inValid_HierarchyName65:
     input.search-request:

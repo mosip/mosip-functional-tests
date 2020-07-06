@@ -52,15 +52,15 @@ testdata:
          deviceServiceVersion: $TestData:Invalid_ValueString$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_MDS:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_MDS:errorMessage$
+         errorCodeerrors0: ADM-DPM-006
+         messageerrors0: MDS in inactive state
    Admin_DeviceValidate_inValid_deviceServiceVer_of_inActive_MDS:
       input.search-request:
          deviceServiceVersion: $TestData:inActive_swVersion$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_MDS:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_MDS:errorMessage$
+         errorCodeerrors0: ADM-DPM-006
+         messageerrors0: MDS in inactive state
          
    Admin_DeviceValidate_inValid_deviceProviderId_blank:
       input.search-request:
