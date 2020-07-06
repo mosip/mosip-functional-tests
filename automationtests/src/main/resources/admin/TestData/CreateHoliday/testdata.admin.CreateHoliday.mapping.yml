@@ -2,11 +2,8 @@ testdata:
    Admin_CreateHoliday_All_Valid_Smoke:
       input.create-holiday-request:
          RholidayDate: '2020-08-15'
-         holidayDay: 1
          holidayDesc: AutoTest user Holiday
-         holidayMonth: May
          RholidayName: AutoTest user
-         holidayYear: '2020'
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
@@ -29,7 +26,6 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010193'
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          version: $IGNORE$
@@ -48,13 +44,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.holidayDate: must not be null'
+         messageerrors0: One or more input parameter(s) is missing
          
    Admin_CreateHoliday_Invalid_InputParameter_HolidayDate_Empty:
       input.create-holiday-request:
@@ -65,7 +60,6 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
@@ -82,7 +76,6 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
@@ -99,13 +92,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.holidayName: Should not be blank or size must be between 1 and 64'
+         messageerrors0: One or more input parameter(s) is missing
          
    Admin_CreateHoliday_Invalid_InputParameter_HolidayName_AboveMaxLen64:
       input.create-holiday-request:
@@ -116,13 +108,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.holidayName: Should not be blank or size must be between 1 and 64' 
+         messageerrors0: holiday_name size must be between 1 and 64 
          
    Admin_CreateHoliday_Invalid_InputParameter_LocationCode_Missing:
       input.create-holiday-request:
@@ -133,13 +124,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: $REMOVE$
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.locationCode: must not be blank'  
+         messageerrors0: 'One or more input parameter(s) is missing'  
          
    Admin_CreateHoliday_Invalid_InputParameter_LocationCode_NotInDB:
       input.create-holiday-request:
@@ -150,13 +140,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: GST
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-065
-         messageerrors0: 'Admin not authorized to create this Holiday for this LocationCode'
+         errorCodeerrors0: KER-MSD-730
+         messageerrors0: Invalid 'location_code' received
          
    Admin_CreateHoliday_Invalid_InputParameter_LocationCode_AboveMaxLen128:
       input.create-holiday-request:
@@ -167,13 +156,12 @@ testdata:
          isActive: false
          RlangCode: eng
          RlocationCode: $TestData:wordLength129$
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.locationCode: size must be between 1 and 36' 
+         messageerrors0: 'location_code size must be between 1 and 128' 
          
    Admin_CreateHoliday_Invalid_InputParameter_LangCode_Missing:
       input.create-holiday-request:
@@ -184,13 +172,12 @@ testdata:
          isActive: false
          RlangCode: $REMOVE$
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         messageerrors0: 'One or more input parameter(s) is missing'
          
    Admin_CreateHoliday_Invalid_InputParameter_LangCode:
       input.create-holiday-request:
@@ -201,13 +188,12 @@ testdata:
          isActive: false
          RlangCode: xyz
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         messageerrors0: 'language code is invalid'
          
    Admin_CreateHoliday_Invalid_InputParameter_LangCode_Empty:
       input.create-holiday-request:
@@ -218,13 +204,12 @@ testdata:
          isActive: false
          RlangCode: ''
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         messageerrors0: 'One or more input parameter(s) is missing'
          
    Admin_CreateHoliday_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.create-holiday-request:
@@ -235,13 +220,12 @@ testdata:
          isActive: false
          RlangCode: engr
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         messageerrors0: 'lang_code size must be between 1 and 3'
          
    Admin_CreateHoliday_Invalid_InputParameter_isActive_Missing:
       input.create-holiday-request:
@@ -252,12 +236,9 @@ testdata:
          isActive: $REMOVE$
          RlangCode: eng
          RlocationCode: KTA
-         Rid: '20010194'
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: size must be between 1 and 3'                                                                             
-         
-         
+         messageerrors0: 'One or more input parameter(s) is missing'

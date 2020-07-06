@@ -30,7 +30,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
    Admin_UpdateBlackListedWords_Valid_DescriptionLength256_DB:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
@@ -63,7 +63,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         messageerrors0: 'request.description: size must be between 0 and 256'
    Admin_UpdateBlackListedWords_InvalidLangCode:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
@@ -148,4 +148,4 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: 'request.word: size must be between 1 and 128'
+         messageerrors0: 'request.word: size must be between 0 and 128'

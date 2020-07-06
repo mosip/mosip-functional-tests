@@ -4,13 +4,12 @@ testdata:
       RholidayDate: '2020-07-15'
       RholidayName: Labour Day
       holidayDesc: Automation labour Holiday
-      newHolidayDate: '2020-08-15'
       RlocationCode: KTA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       locationCode: $input.update-holiday-request:RlocationCode$
-      holidayDate: $input.update-holiday-request:newHolidayDate$
-      holidayName: Labour Day Updated
+      holidayDate: $input.update-holiday-request:RholidayDate$
+      holidayName: $input.update-holiday-request:RholidayName$
       responsetime: $IGNORE$
   Admin_UpdateHoliday_Valid_Mandatory_Fields:
     input.update-holiday-request:
@@ -18,15 +17,12 @@ testdata:
       RholidayName: Labour Day Updated
       holidayDesc: Automation labour Holiday
       RlangCode: eng
-      newHolidayDate: '2020-09-15'
-      newHolidayName : Labour Day Updated-1
-      newHolidayDesc : Automation labour Holiday Updated-1
       RlocationCode: KTA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-pos-response:
       locationCode: $input.update-holiday-request:RlocationCode$
-      holidayDate: $input.update-holiday-request:newHolidayDate$
-      holidayName: $input.update-holiday-request:newHolidayName$
+      holidayDate: $input.update-holiday-request:RholidayDate$
+      holidayName: $input.update-holiday-request:RholidayName$
       langCode: $input.update-holiday-request:RlangCode$
       responsetime: $IGNORE$
    
@@ -35,16 +31,13 @@ testdata:
       RholidayDate: '2020-09-15'
       RholidayName: Labour Day Updated-1
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: ABC
       isActive: false           
       RlocationCode: KTA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response.json:
       errorCodeerrors0: KER-MSD-999
-      messageerrors0: 'Language Code is Invalid'
+      messageerrors0: 'language code is invalid'
       responsetime: $IGNORE$            
 
   Admin_UpdateHoliday_Invalid_holiday_date_format:
@@ -52,9 +45,6 @@ testdata:
       RholidayDate: '09-15-2020'
       RholidayName: Labour Day Updated-1
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: KTA
@@ -69,9 +59,6 @@ testdata:
       RholidayDate: ''
       RholidayName: Labour Day Updated-1
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: KTA
@@ -86,16 +73,13 @@ testdata:
       RholidayDate: '2020-09-15'
       RholidayName: Labour Day Updated-1
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: CSA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response.json:
-      errorCodeerrors0: KER-MSD-020
-      messageerrors0: 'Holiday not found'
+      errorCodeerrors0: KER-MSD-732
+      messageerrors0: Invalid 'location_code' received
       responsetime: $IGNORE$      
       
   Admin_UpdateHoliday_Invalid_locationCode_Blank:
@@ -103,16 +87,13 @@ testdata:
       RholidayDate: '2020-09-15'
       RholidayName: Labour Day Updated-1
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: ''
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response.json:
       errorCodeerrors0: KER-MSD-999
-      messageerrors0: 'request.locationCode: Should not be blank or size must be between 1 and 128'
+      messageerrors0: 'One or more input parameter(s) is missing'
       responsetime: $IGNORE$
       
   Admin_UpdateHoliday_Invalid_holidayName_Blank:
@@ -120,16 +101,13 @@ testdata:
       RholidayDate: '2020-09-15'
       RholidayName: ''
       holidayDesc: Automation labour Holiday Updated-1
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: KTA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response.json:
       errorCodeerrors0: KER-MSD-999
-      messageerrors0: 'request.holidayName: Should not be blank or size must be between 1 and 64'
+      messageerrors0: 'One or more input parameter(s) is missing'
       responsetime: $IGNORE$
       
   Admin_UpdateHoliday_Invalid_holidayDesc_Blank:
@@ -137,15 +115,12 @@ testdata:
       RholidayDate: '2020-09-15'
       RholidayName: Labour Day-11
       holidayDesc: ''
-      newHolidayDate: '2020-10-15'
-      newHolidayName : Labour Day Updated-2
-      newHolidayDesc : Automation labour Holiday Updated-2
       RlangCode: eng
       isActive: false           
       RlocationCode: KTA
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response.json:
       errorCodeerrors0: KER-MSD-999
-      messageerrors0: 'request.holidayDesc: must not be blank'
+      messageerrors0: 'holiday_desc size must be between 1 and 128'
       responsetime: $IGNORE$                  
             
