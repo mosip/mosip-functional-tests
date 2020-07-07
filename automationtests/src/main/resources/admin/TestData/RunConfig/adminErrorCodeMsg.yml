@@ -223,8 +223,8 @@ errors:
    CreateLocHierNameLengthgrtrThanMax:
       errorMessage: "request.hierarchyName: size must be between 0 and 64"
    CreateLocWithoutPrimaryLang:
-      errorCode: KER-MSD-999
-      errorMessage: "Invalid id passed for Secondary language"
+      errorCode: KER-MSD-995
+      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"

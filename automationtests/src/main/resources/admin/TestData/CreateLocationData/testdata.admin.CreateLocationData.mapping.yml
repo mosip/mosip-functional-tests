@@ -1,6 +1,7 @@
 testdata:
   Admin_CreateLocationData_Valid_Smoke:
     input.search-request:
+      Rcode: 'LOC_Auto_Test'
       Rname: $TestData:validLocationName$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -31,6 +32,7 @@ testdata:
       
   Admin_CreateLocationData_Valid_isActive_true_primLang:
     input.search-request:
+      Rcode: 'LOC_Auto_Test5'
       Rname: Test_Loc_A_5
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -46,6 +48,7 @@ testdata:
            
   Admin_CreateLocationData_Valid_OnlyMandatoryFields:
     input.search-request:
+      Rcode: 'LOC_Auto_Test6'
       Rname: RandomLoc
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -61,6 +64,7 @@ testdata:
     
   Admin_CreateLocationData_Valid_NameLength128:
     input.search-request:
+      Rcode: 'LOC_Auto_Test7'
       Rname: $TestData:wordLength128$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -74,6 +78,7 @@ testdata:
      
   Admin_CreateLocationData_inValid_hierName_locHierCombo:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg'
       Rname: $TestData:validLocationName3$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: anyStr
@@ -97,6 +102,7 @@ testdata:
 
   Admin_CreateLocationDataz_Invalid_name_dupliCate:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg3'
       Rname: $TestData:validLocNameCreatedByquery$
       RparentLocCode: KNT
       RhierarchyName: city
@@ -157,6 +163,7 @@ testdata:
        
   Admin_CreateLocationData_inValid_hierLevel_locHierCombo:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg1'
       RhierarchyLevel: 11
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
@@ -184,6 +191,7 @@ testdata:
           
   Admin_CreateLocationData_inValid_parentLocCode_nonExisting_inDB:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg2'
       RparentLocCode: $TestData:Invalid_ValueString$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
@@ -225,3 +233,27 @@ testdata:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: $errors:InvalidRequestTime:errorMessage$
+  Admin_CreateLocationData_with_blank_code:
+    input.search-request:
+      Rcode: ''
+      Rname: $TestData:validLocationName$
+      RhierarchyLevel: $TestData:validLocationhierarchyLevel$
+      RhierarchyName: City
+      RlangCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: KER-MSD-997
+      messageerrors0: Invalid id passed for Primary language 
+  Admin_CreateLocationData_with_missing_code:
+    input.search-request:
+      Rcode: $REMOVE$
+      Rname: $TestData:validLocationName$
+      RhierarchyLevel: $TestData:validLocationhierarchyLevel$
+      RhierarchyName: City
+      RlangCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: KER-MSD-997
+      messageerrors0: Invalid id passed for Primary language          
