@@ -114,7 +114,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_genderApi_missing$ 
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$ 
          
    Admin_CreateGender_Invalid_InputParameter_LangCode_Empty:
       input.create-gender-request:

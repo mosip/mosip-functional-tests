@@ -202,7 +202,7 @@ errors:
       errorMessage1: "request.isActive: invalid value"
       errorMessage2: "request.isActive: must not be null"
    CreateLocBlankHierarchyName:
-      errorMessage: "request.hierarchyName: must not be blank"
+      errorMessage: "request.hierarchyName: Should not be blank or size must be between 1 and 64"
    CreateLocBlankHierarchyLevel:
       errorMessage: "request.hierarchyLevel: must not be blank"
    CreateLocBlankName:

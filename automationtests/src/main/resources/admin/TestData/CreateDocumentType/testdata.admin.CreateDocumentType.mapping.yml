@@ -23,7 +23,7 @@ testdata:
          rname: $TestData:valid_DocumentType_name$
          risActive: true
          rdescription: $REMOVE$
-         rcode: DOC002
+         rcode: DOC0002
          rrequesttime: $REMOVE$
          rlangCode: eng
       output.output-1-expected-pos-response:
@@ -48,7 +48,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          responsetime: $IGNORE$
-         messageerrors0: 'request.code: Should not be blank or size must be between 0 and 36'
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
          
    Admin_CreateDocumentType_Invalid_Name_Char65:
       input.search-request:
@@ -90,7 +90,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          responsetime: $IGNORE$
-         messageerrors0: Language Code is Invalid
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDocumentType_Invalid_IsActive_Blank:
       input.search-request:
@@ -118,7 +118,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          responsetime: $IGNORE$
-         messageerrors0: Language Code is Invalid      
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$      
          
    Admin_CreateDocumentType_Invalid_Name_Blank:
       input.search-request:
@@ -132,7 +132,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          responsetime: $IGNORE$
-         messageerrors0: 'request.name: must not be blank'
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateDocumentType_Invalid_Code_Blank:
       input.search-request:
@@ -145,7 +145,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.code: Should not be blank or size must be between 0 and 36'
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
          
    Admin_CreateDocumentType_Invalid_NonDefaultLang:
       input.search-request:
@@ -159,7 +159,7 @@ testdata:
          response: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
          responsetime: $IGNORE$
-         messageerrors0: Cannot create data in secondary language as data does not exist in primary language
+         messageerrors0: $errors:CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:errorMessage_NoPrimaryLang$
          
    Admin_CreateDocumentType_Valid_IsActive_Check:
       input.search-request:

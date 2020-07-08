@@ -51,7 +51,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.titleName: must not be null'
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_missing$
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_Empty:
       input.create-title-request:
@@ -65,7 +65,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'         
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_incorrect$         
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       input.create-title-request:
@@ -79,7 +79,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_incorrect$
          
    Admin_CreateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       input.create-title-request:
@@ -93,7 +93,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.titleDescription: size must be between 0 and 128'
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_TitleDesc_128$
          
    Admin_CreateTitle_Invalid_InputParameter_isActive_Missing:
       input.create-title-request:

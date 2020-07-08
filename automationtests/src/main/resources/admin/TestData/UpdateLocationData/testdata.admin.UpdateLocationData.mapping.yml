@@ -207,7 +207,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'Invalid Format in field : isActive'
+      messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
        
   Admin_UpdateLocationData_Invalid_requestTime_format:
     input.search-request:     

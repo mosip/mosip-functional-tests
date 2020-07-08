@@ -324,7 +324,7 @@ testdata:
          rvalidityDateTime: $REMOVE$ 
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Device_NonExistence:
       input.search-request:
