@@ -4,85 +4,6 @@ errors:
    CommonMSDErrorCode:
      errorCode: KER-MSD-999
      dbFkeyErrorCode: KER-MSD-060
-     # Sec_Data_Present_but_No_Data_Prim_lang
-     noPrimaryLangErrorCode: KER-MSD-995
-     
-   CommonMSDErrorMssg_Id:
-     errorMessage_Missing: "request.id: must not be null"
-     errorMessage_Empty: "request.id: Should not be blank or size must be between 1 and 36"
-     
-   CommonMSDErrorMssg_InvalidName:
-     errorMessage__Missing: "request.name: must not be null"
-     errorMessage__Empty: "request.name: Should not be blank or size must be between 1 and 128"
-    #Gender Api has common error code for all the invalid values[e.g Empty/AboveMaxLen64]
-     errorMessage__genderApi_missing: "request.genderName: must not be null"
-     errorMessage__genderApi_incorrect: "request.genderName: Should not be blank or size must be between 1 and 64"
-
-   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen32]
-   CommonMSDErrorMssg_Brand:
-     errorMessage__Missing: "request.brand: must not be null"
-     errorMessage__incorrect: "request.brand: Should not be blank or size must be between 1 and 32"
- 
-   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen16]
-   CommonMSDErrorMssg_Model:
-     errorMessage__Missing: "request.model: must not be null"
-     errorMessage__incorrect: "request.model: Should not be blank or size must be between 1 and 16"
-   
-   # Langcode has common error for all the invalid values[e.g Missing/Empty/AboveMaxLen3/invalidVal]
-   CommonMSDErrorMssg_InvalidLanguageCode:
-     errorMessage_incorrect: "Language Code is Invalid"
-     errorMessage_genderApi_missing: "request.langCode: must not be blank"
-  
-   CommonMSDErrorMssg_IsActive:
-     errorMessage_Missing: "request.isActive: must not be null"
-
-   CommonMSDErrorMssg_Description:
-     errorMessage_AboveMaxLen: "request.description: size must be between 0 and 128"
-     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
-     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
-     errorMessage_DescMandatory_256: "request.description: Should not be blank or size must be between 1 and 256"
-
-   # DeviceTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
-   CommonMSDErrorMssg__DeviceTypeCode:
-     errorMessage_Missing: "request.deviceTypeCode: must not be null"
-     errorMessage_incorrect: "request.deviceTypeCode: Should not be blank or size must be between 1 and 36"
-     errorMessage_invalidVal: "Invalid dtype_code received"
-
-   # MachineTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
-   CommonMSDErrorMssg__MachineTypeCode:
-     errorMessage_Missing: "request.machineTypeCode: must not be null"
-     errorMessage_incorrect: "request.machineTypeCode: Should not be blank or size must be between 1 and 36"
-     errorMessage_invalidVal: "Invalid mtype_code received"
-
-   # MinDriverversion has common error for all the invalid values[e.g Empty/AboveMaxLen16]
-   CommonMSDErrorMssg__MinDriverversion:
-     errorMessage_Missing: "request.minDriverversion: must not be null"
-     errorMessage_incorrect: "request.minDriverversion: Should not be blank or size must be between 1 and 16"
-
-   CommonMSDErrorMssg_Code:
-     errorMessage_Missing: "request.code: must not be null"
-     errorMessage_Empty: "request.code: Should not be blank or size must be between 1 and 36"
-     errorMessage_Gender_Empty: "request.code: Should not be blank or size must be between 1 and 16"
-     
-   # Name has common error for all the invalid values[e.g Empty/AboveMaxLen64]
-   CommonMSDErrorMssg_Name:
-     errorMessage_AboveMaxLen: "request.name: Should not be blank or size must be between 1 and 64"
-
-   CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:
-     errorMessage_NoPrimaryLang: "Cannot create data in secondary language as data does not exist in primary language"
-  
-   #FileFormatCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
-   InvalidFileFormatCode:
-     errorMessage_Missing: "request.fileFormatCode: must not be null"
-     errorMessage_invalid: "request.fileFormatCode: Should not be blank or size must be between 1 and 36"
-  
-   #TemplateTypeCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
-   InvalidTemplateTypeCode:
-     errorMessage_Missing: "request.templateTypeCode: must not be null"
-     errorMessage_invalid: "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
-   InvalidModuleName:
-     errorMessage_AboveMaxLen: "request.moduleName: size must be between 0 and 128"
-             
    EmptySearchColumnName:
       errorCode: KER-MSD-311
       errorMessage: Column is missing in request
@@ -302,8 +223,8 @@ errors:
    CreateLocHierNameLengthgrtrThanMax:
       errorMessage: "request.hierarchyName: size must be between 0 and 64"
    CreateLocWithoutPrimaryLang:
-      errorCode: KER-MSD-995
-      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
+      errorCode: KER-MSD-999
+      errorMessage: "Invalid id passed for Secondary language"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"
