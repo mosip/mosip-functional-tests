@@ -97,8 +97,8 @@ testdata:
          rlangCode: eng
          rname: demo string
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
          responsetime: $IGNORE$
          
    Admin_UpdateDocumentType_Invalid_Name_Blank:
@@ -109,8 +109,8 @@ testdata:
          rlangCode: eng
          rname: ''
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          responsetime: $IGNORE$
          
    Admin_UpdateDocumentType_Invalid_Name_null:
@@ -121,8 +121,8 @@ testdata:
          rlangCode: eng
          rname: $REMOVE$
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          responsetime: $IGNORE$         
          
    Admin_UpdateDocumentType_Invalid_LangCode_Blank:
@@ -133,7 +133,7 @@ testdata:
          rlangCode: $REMOVE$
          rname: Demo String
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid
          responsetime: $IGNORE$
          
@@ -145,8 +145,8 @@ testdata:
          rlangCode: eng
          rname: Demo String
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                        
          responsetime: $IGNORE$
          
    Admin_UpdateDocumentType_Invalid_isActiveFormat_Wrong:
@@ -157,7 +157,7 @@ testdata:
          rlangCode: eng
          rname: Demo String
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'Invalid Format in field : isActive'
          responsetime: $IGNORE$
          
@@ -181,8 +181,8 @@ testdata:
          rlangCode: eng
          rname: $TestData:validStringLength65$
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          responsetime: $IGNORE$
          
    Admin_UpdateDocumentType_Invalid_Descr_129Char:
@@ -193,8 +193,8 @@ testdata:
          rlangCode: eng
          rname: demostring
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 0 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_AboveMaxLen$
          responsetime: $IGNORE$
          
    Admin_UpdateDocumentType_Invalid_LangCode_3Char:
@@ -205,7 +205,7 @@ testdata:
          rlangCode: engde
          rname: demostring
       output.output-1-expected-error-response:  
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid
          responsetime: $IGNORE$
          

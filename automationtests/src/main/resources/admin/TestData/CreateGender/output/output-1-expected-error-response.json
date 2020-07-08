@@ -6,8 +6,8 @@
     "response": null,
     "errors": [
         {
-            "errorCode": "KER-MSD-999",
-            "message": "request.code: Should not be blank or size must be between 1 and 36"
-        }
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: must not be blank"
+    }
     ]
 }

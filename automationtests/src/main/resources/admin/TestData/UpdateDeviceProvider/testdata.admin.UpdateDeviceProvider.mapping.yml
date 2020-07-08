@@ -59,7 +59,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Empty$
          responsetime: $IGNORE$
    Admin_UpdateDeviceProvider_inValid_id_aboveMaxLen36:
       input.input-request:
@@ -67,7 +67,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Empty$
          responsetime: $IGNORE$
          
    Admin_UpdateDeviceProvider_inValid_address_blank:
