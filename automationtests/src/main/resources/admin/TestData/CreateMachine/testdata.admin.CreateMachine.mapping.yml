@@ -2,7 +2,7 @@ testdata:
    Admin_CreateMachine_All_Valid_Smoke:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -21,8 +21,8 @@ testdata:
    Admin_CreateMachine_All_Valid_Mandatory_Fields:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
-         macAddress: 61-D3-FD-12-C9-ED
+         rid: TestMach
+         macAddress: $REMOVE$
          serialNum: ''
          langCode: eng
          machineSpecId: 1001
@@ -37,6 +37,7 @@ testdata:
          RserialNum: ''
          RvalidityDateTime: $IGNORE$
          RcreatedDateTime: $IGNORE$
+         RmacAddress: $IGNORE$
      
    Admin_CreateMachine_Valid_Deact_Prim_Lang_MC_WithSecon_Language:
       input.search-request:
@@ -83,7 +84,7 @@ testdata:
    Admin_CreateMachine_inValid_removing_publicKey:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -100,7 +101,7 @@ testdata:
    Admin_CreateMachine_Invalid_publicKey_As_blank:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -117,7 +118,7 @@ testdata:
    Admin_CreateMachine_Invalid_publicKey_above_maxlength_1024:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -134,7 +135,7 @@ testdata:
    Admin_CreateMachine_Invalid_publicKey:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -151,7 +152,7 @@ testdata:
    Admin_CreateMachine_Invalid_validitydate_Format:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -168,7 +169,7 @@ testdata:
    Admin_CreateMachine_Invalid_Machine_Zone:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -196,12 +197,12 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid id passed for Secondary language'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
+         messageerrors0: 'Cannot create data in secondary language as data does not exist in primary language'
    Admin_CreateMachine_Invalid_InputParameter_Missing:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          langCode: $REMOVE$
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
@@ -218,7 +219,7 @@ testdata:
    Admin_CreateMachine_Invalid_Language_Code:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: fra
@@ -235,7 +236,7 @@ testdata:
    Admin_CreateMachine_Invalid_Language_Code_Blank:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: ''
@@ -252,7 +253,7 @@ testdata:
    Admin_CreateMachine_Invalid_Machine_Name_Blank:
       input.search-request:
          name: ''
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -269,7 +270,7 @@ testdata:
    Admin_CreateMachine_Invalid_Zone_Code_Blank:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -286,7 +287,7 @@ testdata:
    Admin_CreateMachine_Invalid_Zone_nonExisting:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -303,7 +304,7 @@ testdata:
    Admin_CreateMachine_Invalid_Zone_nonAccessable:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -317,26 +318,10 @@ testdata:
          errorCodeerrors0: KER-MSD-436
          messageerrors0: 'Admin not authorized to access this Machine for this Zone'                   
    
-   Admin_CreateMachine_Invalid_MAC_Address_Blank:
-      input.search-request:
-         name: Dummy MachineTest
-         rid: $REMOVE$
-         macAddress: ''
-         serialNum: FB5962911687
-         langCode: eng
-         machineSpecId: 1001
-         ipAddress: 192.168.0.424
-         zoneCode: CST
-         requesttime: $TIMESTAMPZ$
-         isActive: true
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'              
    Admin_CreateMachine_inValid_MachineName_AboveMaxLen64:
       input.search-request:
          name: $TestData:validStringLength65$
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -353,7 +338,7 @@ testdata:
    Admin_CreateMachine_inValid_MacAddress_AboveMaxLen64:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: $TestData:validStringLength65$
          serialNum: FB5962911687
          langCode: eng
@@ -365,12 +350,12 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'
+         messageerrors0: 'request.macAddress: Should not be blank or size must be between 0 and 64'
          
    Admin_CreateMachine_inValid_SerialNumber_AboveMaxLen64:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: $TestData:validStringLength65$
          langCode: eng
@@ -382,12 +367,12 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.serialNum: size must be between 0 and 64' 
+         messageerrors0: 'request.serialNum: Should not be blank or size must be between 0 and 64' 
          
    Admin_CreateMachine_inValid_IPAddress_AboveMaxLen17:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -404,7 +389,7 @@ testdata:
    Admin_CreateMachine_inValid_MSpecID_AboveMaxLen36:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: eng
@@ -421,7 +406,7 @@ testdata:
    Admin_CreateMachine_inValid_LangCode_AboveMaxLen3:
       input.search-request:
          name: Dummy MachineTest
-         rid: $REMOVE$
+         rid: TestMach
          macAddress: 61-D3-FD-12-C9-ED
          serialNum: FB5962911687
          langCode: engr

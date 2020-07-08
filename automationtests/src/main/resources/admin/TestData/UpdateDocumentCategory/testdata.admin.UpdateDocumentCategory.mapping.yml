@@ -66,7 +66,7 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty:
       input.update-document-category-request:

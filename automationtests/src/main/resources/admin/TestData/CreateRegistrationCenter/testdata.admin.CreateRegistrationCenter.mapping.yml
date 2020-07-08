@@ -351,7 +351,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
    Admin_CreateRegCenter_Invalid_missing_mandatory_field:
       input.createRegCenter-request:
          name: $REMOVE$
