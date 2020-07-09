@@ -4,93 +4,6 @@ errors:
    CommonMSDErrorCode:
      errorCode: KER-MSD-999
      dbFkeyErrorCode: KER-MSD-060
-     # Sec_Data_Present_but_No_Data_Prim_lang
-     noPrimaryLangErrorCode: KER-MSD-995
-     
-   CommonMSDErrorMssg_Id:
-     errorMessage_Missing: "request.id: must not be null"
-     errorMessage_Empty: "request.id: Should not be blank or size must be between 1 and 36"
-     
-   CommonMSDErrorMssg_InvalidName:
-     errorMessage__Missing: "request.name: must not be null"
-     errorMessage__Empty: "request.name: Should not be blank or size must be between 1 and 128"
-    #Gender Api has common error code for all the invalid values[e.g Empty/AboveMaxLen64]
-     errorMessage__genderApi_missing: "request.genderName: must not be null"
-     errorMessage__genderApi_incorrect: "request.genderName: Should not be blank or size must be between 1 and 64"
-     errorMessage__titleApi_missing: "request.titleName: must not be null"
-     errorMessage__titleApi_incorrect: "request.titleName: Should not be blank or size must be between 1 and 64"
-
-   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen32]
-   CommonMSDErrorMssg_Brand:
-     errorMessage__Missing: "request.brand: must not be null"
-     errorMessage__incorrect: "request.brand: Should not be blank or size must be between 1 and 32"
- 
-   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen16]
-   CommonMSDErrorMssg_Model:
-     errorMessage__Missing: "request.model: must not be null"
-     errorMessage__incorrect: "request.model: Should not be blank or size must be between 1 and 16"
-   
-   # Langcode has common error for all the invalid values[e.g Missing/Empty/AboveMaxLen3/invalidVal]
-   CommonMSDErrorMssg_InvalidLanguageCode:
-     errorMessage_incorrect: "Language Code is Invalid"
-     errorMessage_genderApi_missing: "request.langCode: must not be blank"
-  
-   CommonMSDErrorMssg_IsActive:
-     errorMessage_Missing: "request.isActive: must not be null"
-     errorMessage_invalidVal: "Invalid Format in field : isActive"
-
-   CommonMSDErrorMssg_Description:
-     errorMessage_AboveMaxLen: "request.description: size must be between 0 and 128"
-     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
-     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
-     errorMessage_DescMandatory_256: "request.description: Should not be blank or size must be between 1 and 256"
-     errorMessage_TitleDesc_128: "request.titleDescription: size must be between 0 and 128"
-
-   # DeviceTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
-   CommonMSDErrorMssg__DeviceTypeCode:
-     errorMessage_Missing: "request.deviceTypeCode: must not be null"
-     errorMessage_incorrect: "request.deviceTypeCode: Should not be blank or size must be between 1 and 36"
-     errorMessage_invalidVal: "Invalid dtype_code received"
-
-   # MachineTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
-   CommonMSDErrorMssg__MachineTypeCode:
-     errorMessage_Missing: "request.machineTypeCode: must not be null"
-     errorMessage_incorrect: "request.machineTypeCode: Should not be blank or size must be between 1 and 36"
-     errorMessage_invalidVal: "Invalid mtype_code received"
-
-   # MinDriverversion has common error for all the invalid values[e.g Empty/AboveMaxLen16]
-   CommonMSDErrorMssg__MinDriverversion:
-     errorMessage_Missing: "request.minDriverversion: must not be null"
-     errorMessage_incorrect: "request.minDriverversion: Should not be blank or size must be between 1 and 16"
-
-   CommonMSDErrorMssg_Code:
-     errorMessage_Missing: "request.code: must not be null"
-     errorMessage_Empty: "request.code: Should not be blank or size must be between 1 and 36"
-     errorMessage_Gender_Empty: "request.code: Should not be blank or size must be between 1 and 16"
-     errorMessage_Title_Empty: "request.code: Should not be blank or size must be between 1 and 16"
-     
-   # Name has common error for all the invalid values[e.g Empty/AboveMaxLen64]
-   CommonMSDErrorMssg_Name:
-     errorMessage_AboveMaxLen: "request.name: Should not be blank or size must be between 1 and 64"
-
-   CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:
-     errorMessage_NoPrimaryLang: "Cannot create data in secondary language as data does not exist in primary language"
-  
-   #FileFormatCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
-   InvalidFileFormatCode:
-     errorMessage_Missing: "request.fileFormatCode: must not be null"
-     errorMessage_invalid: "request.fileFormatCode: Should not be blank or size must be between 1 and 36"
-  
-   #TemplateTypeCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
-   InvalidTemplateTypeCode:
-     errorMessage_Missing: "request.templateTypeCode: must not be null"
-     errorMessage_invalid: "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
-   InvalidModuleName:
-     errorMessage_AboveMaxLen: "request.moduleName: size must be between 0 and 128"
- 
-   DocTypeNonExistence:
-     errorMessage_DocCodeNE: "Document Type not found"
-             
    EmptySearchColumnName:
       errorCode: KER-MSD-311
       errorMessage: Column is missing in request
@@ -173,18 +86,18 @@ errors:
       errorCode: KER-MSD-310
       errorMessage: Invalid column received:<value>
    BlankAddressLine:
-      errorMessage: 'request.addressLine1: Should not be blank or size must be between 1 and 256'
+      errorMessage: 'request.addressLine1: must not be blank'
    InvalidAddressLine:
-      errorMessage1: 'request.addressLine1: Should not be blank or size must be between 1 and 256'
-      errorMessage2: 'request.addressLine2: Should not be blank or size must be between 1 and 256'
-      errorMessage3: 'request.addressLine3: Should not be blank or size must be between 1 and 256'
+      errorMessage1: 'request.addressLine1: size must be between 0 and 256'
+      errorMessage2: 'request.addressLine2: size must be between 0 and 256'
+      errorMessage3: 'request.addressLine3: size must be between 0 and 256'
    InvalidCenterTypeCodeLength:
-      errorMessage: 'request.centerTypeCode: Should not be blank or size must be between 1 and 36'
+      errorMessage: 'request.centerTypeCode: size must be between 0 and 36'
    InvalidCenterTypeCode:
       errorCode: KER-MSD-060
       errorMessage: 'Invalid centerTypeCode'
    BlankCenterTypCode:
-      errorMessage: 'request.centerTypeCode: Should not be blank or size must be between 1 and 36'
+      errorMessage: 'request.centerTypeCode: must not be blank'
    InvalidTimeHHMMSS:
       errorMessage: 'invalid format'
    InvalidContactPerson:
@@ -195,7 +108,7 @@ errors:
       errorCode: KER-MSD-440
       errorMessage: 'HolidayLocationCode Not Found'
    BlankHolidayLocationCode:
-      errorMessage: 'request.holidayLocationCode: Should not be blank or size must be between 1 and 36'
+      errorMessage: 'request.holidayLocationCode: must not be blank'
    InValidRequestId:
       errorMessage: invalid request id
       errorMessage1: request id must not be blank
@@ -207,7 +120,7 @@ errors:
       errorMessage1: 'request[0].id: size must be between 0 and 10'
    InValidZoneCode:
       errorCode: KER-MSD-346
-      errorMessage: 'request.zoneCode: Should not be blank or size must be between 1 and 36'
+      errorMessage: Received Zone Code does not belong to the User
       errorMessage1: 'request.zoneCode: must not be blank'
    NoPrimaryLangCenterPresent:
       errorCode: KER-MSD-999
@@ -216,29 +129,29 @@ errors:
       errorCode: KER-MSD-382
       errorMessage: Received language code fra is not a configured language
    InvalidLatitude:
-      errorMessage0: 'request.latitude: Should not be blank or size must be between 1 and 32'
-      errorMessage1: 'request.latitude: Should not be blank or size must be between 1 and 32'
+      errorMessage0: 'request.latitude: size must be between 0 and 32'
+      errorMessage1: 'request.latitude: must not be blank'
       errorCode: KER-MSD-307
       errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
    InvalidLocationCode:
       errorCode: KER-MSD-060
       errorMessage: Invalid Location Code
       errorMessage0: 'request.locationCode: size must be between 0 and 36'
-      errorMessage1: 'request.locationCode: Should not be blank or size must be between 1 and 36'
+      errorMessage1: 'request.locationCode: must not be blank'
       errorMessage2: 'request.locationCode: invalid value'
    InvalidLongitude:
-      errorMessage0: 'request.longitude: Should not be blank or size must be between 1 and 32'
-      errorMessage1: 'request.longitude: Should not be blank or size must be between 1 and 32'
+      errorMessage0: 'request.longitude: size must be between 0 and 32'
+      errorMessage1: 'request.longitude: must not be blank'
       errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
       errorCode0: KER-MSD-307
    InvalidName:
-      errorMessage0: 'request.name: Should not be blank or size must be between 1 and 128'
-      errorMessage1: 'request.name: Should not be blank or size must be between 1 and 128'
+      errorMessage0: 'request.name: must not be blank'
+      errorMessage1: 'request.name: size must be between 0 and 128'
    InvalidTimezone:
       errorMessage: 'request.timeZone: size must be between 0 and 64'
    InvalidWorkingHours:
       errorMessage0: 'request.workingHours: size must be between 0 and 32'
-      errorMessage1: 'request.workingHours: Should not be blank or size must be between 1 and 32'
+      errorMessage1: 'request.workingHours: must not be blank'
    InvalidFilterTypeInFilterAPI:
       errorCode: KER-MSD-324
       errorMessage: Received Filter Type not supported
@@ -289,11 +202,11 @@ errors:
       errorMessage1: "request.isActive: invalid value"
       errorMessage2: "request.isActive: must not be null"
    CreateLocBlankHierarchyName:
-      errorMessage: "request.hierarchyName: Should not be blank or size must be between 0 and 64"
+      errorMessage: "request.hierarchyName: Should not be blank or size must be between 1 and 64"
    CreateLocBlankHierarchyLevel:
       errorMessage: "request.hierarchyLevel: must not be blank"
    CreateLocBlankName:
-      errorMessage: "request.name: Should not be blank or size must be between 0 and 128"
+      errorMessage: "request.name: must not be blank"
    CreateLocDuplicateName:
       errorCode: KER-MSD-385
       errorMessage: "Location already exist under the hierarchy"
@@ -306,12 +219,12 @@ errors:
       errorMessage1: "eng.name:size must be between 0 and 128"
       errorMessage2: "eng.hierarchyName:size must be between 0 and 64"
    CreateLocNameLengthgrtrThanMax:
-      errorMessage: "request.name: Should not be blank or size must be between 0 and 128"
+      errorMessage: "request.name: size must be between 0 and 128"
    CreateLocHierNameLengthgrtrThanMax:
-      errorMessage: "request.hierarchyName: Should not be blank or size must be between 0 and 64"
+      errorMessage: "request.hierarchyName: size must be between 0 and 64"
    CreateLocWithoutPrimaryLang:
-      errorCode: KER-MSD-995
-      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
+      errorCode: KER-MSD-999
+      errorMessage: "Invalid id passed for Secondary language"
    CreateLocationInvalidLangCode:
       errorCode: KER-MSD-386
       errorMessage: "Invalid Language Code :  <Language Code>"
