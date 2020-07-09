@@ -168,10 +168,8 @@ public class FetchHolidays extends BaseTestCase implements ITest {
 				HashMap<String, String> passedAttributesToFetch = new HashMap<String, String>();
 				if (objectData != null) {
 					if (objectData.containsKey("langcode")) {
-						passedAttributesToFetch.put("id", objectData.get("holidayid").toString());
 						passedAttributesToFetch.put("langCode", objectData.get("langcode").toString());
 					}
-					passedAttributesToFetch.put("id", objectData.get("holidayid").toString());
 				}
 
 				status = AssertKernel.validator(responseArrayFromGet, attributesToValidateExistance,
