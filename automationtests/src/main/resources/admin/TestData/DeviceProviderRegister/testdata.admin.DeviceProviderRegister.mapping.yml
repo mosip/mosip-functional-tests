@@ -35,14 +35,6 @@ testdata:
          messageerrors0: 'request.address: size must be between 0 and 512'
          responsetime: $IGNORE$         
      
-   Admin_DeviceProviderRegister_inValid_certificateAlias_blank:
-      input.input-request:
-         certificateAlias: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.certificateAlias: Should not be blank or size must be between 1 and 36'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_certificateAlias_aboveMaxLen36:
       input.input-request:
          certificateAlias: $TestData:validLocationCode37$
@@ -52,14 +44,6 @@ testdata:
          messageerrors0: 'request.certificateAlias: size must be between 0 and 36'
          responsetime: $IGNORE$
 
-   Admin_DeviceProviderRegister_inValid_contactNumber_blank:
-      input.input-request:
-         contactNumber: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.contactNumber: Should not be blank or size must be between 1 and 16'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_contactNumber_aboveMaxLen16:
       input.input-request:
          contactNumber: $TestData:validStringLen17$
@@ -69,14 +53,6 @@ testdata:
          messageerrors0: 'request.contactNumber: size must be between 0 and 16'
          responsetime: $IGNORE$
 
-   Admin_DeviceProviderRegister_inValid_email_blank:
-      input.input-request:
-         email: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.email: Should not be blank or size must be between 1 and 256'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_email_aboveMaxLen16:
       input.input-request:
          email: $TestData:Description257$
@@ -92,7 +68,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.vendorName: size must be between 0 and 128'
+         messageerrors0: 'request.vendorName: Should not be blank or size must be between 1 and 128'
          responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_vendorName_aboveMaxLen16:
       input.input-request:

@@ -12,7 +12,7 @@ testdata:
          reid: anyString
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:noPrimaryLangErrorCode$
+         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode$
          messageerrors0: $errors:NoPrimaryLangCenterPresent:errorMessage$
    Admin_CreateRegCenter_Invalid_with_scndry_Lang_with_blankId:
       input.createRegCenter-request:
