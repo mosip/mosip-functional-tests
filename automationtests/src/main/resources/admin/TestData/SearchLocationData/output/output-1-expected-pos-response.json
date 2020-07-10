@@ -15,7 +15,7 @@
         "name": "childloctest",
         "region": "childloctest",
         "hierarchyLevel": 1,
-        "hierarchyName": "Region",
+        "hierarchyName": "Child",
         "parentLocCode": "TLOC"
       }
     ]
