@@ -24,7 +24,7 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_CreateTemplateType_InputParameter_Code_Empty:
       input.create-template-type-request:
