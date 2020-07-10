@@ -99,7 +99,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidLongitude:errorMessage0$
+         messageerrors0: $errors:InvalidLongitude:errorMessage1$
    Admin_CreateRegCenter_Invalid_locationCode_blank:
       input.createRegCenter-request:
          locationCode: ''
@@ -238,7 +238,7 @@ testdata:
          name: ''
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         messageerrors0: $errors:InvalidName:errorMessage0$
+         messageerrors0: $errors:InvalidName:errorMessage1$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
    Admin_CreateRegCenter_Invalid_Name_GrtThanMaxValue:
       input.createRegCenter-request:
@@ -316,13 +316,13 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: Received Zone Code does not belong to the User
    Admin_CreateRegCenter_Invalid_zoneCode_blank:
       input.createRegCenter-request:
          zoneCode: ''
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode1$
          messageerrors0: $errors:InValidZoneCode:errorMessage$
    Admin_CreateRegCenter_Invalid_zoneCode_nonLeaf_Under_loggedAdminUser:
       input.createRegCenter-request:

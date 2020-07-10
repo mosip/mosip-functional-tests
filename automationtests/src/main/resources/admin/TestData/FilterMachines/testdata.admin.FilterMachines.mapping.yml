@@ -191,21 +191,3 @@ testdata:
       responsetime: $IGNORE$
       fieldIDfilters0: $input.search-request:columnNamefilters0$
       fieldValuefilters0: $input.search-request:textfilters0$
-  Admin_FilterMachines_Valid_Column_MapStatus_eng:
-    input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$
-  Admin_FilterMachines_Valid_Column_MapStatus_ara:
-    input.search-request:
-      columnNamefilters0: $TestData:valid_Search_ColumnNameAsMapStatus$
-      typefilters0: $TestData:valid_FilterTypeAll$
-      textfilters0: ''
-      languageCode: $TestData:valid_LanguageCodeArabic$
-      requesttime: $TIMESTAMPZ$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$        

@@ -138,7 +138,7 @@ testdata:
          RcreatedDateTime: $IGNORE$
          RupdatedBy: 110005
          RisActive: false   
-         RipAddress: '' 
+         RipAddress: 192.168.0.150 
          RserialNum: ''
          RmacAddress: 61-D3-FD-12-C9-ED 
          Rname: Test123         
@@ -211,22 +211,6 @@ testdata:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.zoneCode: Should not be blank or size must be between 1 and 36'     
    
-   Admin_UpdateMachine_Invalid_MAC_Address_Blank:
-      input.updateMachine-request:
-         name: Test123
-         rid: TestSpecNe
-         macAddress: ''
-         serialNum: FB5962911610
-         langCode: eng
-         machineSpecId: 1001
-         ipAddress: 192.168.0.150
-         zoneCode: CST
-         requesttime: $TIMESTAMPZ$
-         isActive: true
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'    
          
    Admin_UpdateMachine_Invalid_MachineName_AboveMaxLen64:
       input.updateMachine-request:
@@ -260,7 +244,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'
+         messageerrors0: 'request.macAddress: Should not be blank or size must be between 0 and 64'
          
    Admin_UpdateMachine_Invalid_SerialNumber_AboveMaxLen64:
       input.updateMachine-request:

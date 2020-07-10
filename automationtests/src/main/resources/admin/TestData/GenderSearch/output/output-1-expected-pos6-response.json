@@ -1,38 +1,42 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-07-10T07:41:08.647Z",
   "response": {
     "fromRecord": 1,
-    "toRecord": 2,
-    "totalRecord": 2,
+    "toRecord": 3,
+    "totalRecord": 3,
     "data": [
       {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-10-21T06:50:25.067Z",
+        "updatedBy": "110006",
+        "updatedDateTime": "2020-06-12T12:52:59.982Z",
         "code": "FLE",
         "genderName": "Female",
-        "langCode": "eng",
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "langCode": "eng"
       },
       {
-        "code": "MLE",
-        "genderName": "Male",
-        "langCode": "eng",
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "createdDateTime": "2019-10-21T06:50:25.067Z",
+        "updatedBy": "110006",
+        "updatedDateTime": "2020-05-04T12:46:26.129Z",
+        "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2019-10-21T06:50:25.067Z",
+        "updatedBy": "110006",
+        "updatedDateTime": "2020-04-27T00:44:24.602Z",
+        "code": "OTH",
+        "genderName": "Others",
+        "langCode": "eng"
       }
     ]
-  },
-  "errors": null
+  }
 }
