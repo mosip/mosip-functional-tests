@@ -5,9 +5,80 @@ testdata:
          contactNumber: 8651119791
          emailId: updated@gmail.com
          organizationName: FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          partnerId: PMP-PART-ID-01
          status: Active
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartner_inValid_partnerId:
+      input.update-partner-request:
+         address: HSR
+         contactNumber: 8651119791
+         emailId: updated@gmail.com
+         organizationName: FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: PMS_PRT_005
+         message: Partner does not exist
+         id: $IGNORE$
+         version: $IGNORE$
+
+   Partner_UpdatePartner_with_uniqueName:
+      input.update-partner-request:
+         address: HSR
+         contactNumber: 8651119791
+         emailId: updated@gmail.com
+         organizationName: NEW-FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         partnerId: PMP-PART-ID-01
+         status: Active
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartner_with_duplicateName:
+      input.update-partner-request:
+         address: HSR
+         contactNumber: 8651119791
+         emailId: updated@gmail.com
+         organizationName: FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         partnerId: PMP-PART-ID-01
+         status: Active
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartner_with_valid_contactNumber:
+      input.update-partner-request:
+         address: HSR
+         contactNumber: 8651119781
+         emailId: updated@gmail.com
+         organizationName: FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         partnerId: PMP-PART-ID-01
+         status: Active
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartner_with_InValid_contactNumber:
+      input.update-partner-request:
+         address: HSR
+         contactNumber: 8651119781123456
+         emailId: updated@gmail.com
+         organizationName: FUN-TEST-O1
+         RpartnerId: PMP-PART-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: MOSIP-8031
+         message: length of mobile number should be between x and y
          id: $IGNORE$
          version: $IGNORE$

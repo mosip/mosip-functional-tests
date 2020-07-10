@@ -26,5 +26,47 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Partner_RegisterPartner_Already_Registered_With_SameName:
+      input.register-partner-request:
+         address: Add-2
+         contactNumber: 8651119791
+         emailId: hsr@gmail.com
+         organizationName: FUN-TEST-O2
+         policyGroup: MOSIP POLICY
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: PMS_PRT_001
+         message: A Partner is already registered with the same Name
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_RegisterPartner_Mobile_Number_More_Than_Ten_Digits:
+      input.register-partner-request:
+         address: BTM
+         contactNumber: 8651119791123456
+         emailId: hsr@gmail.com
+         organizationName: FUN-TEST-O2
+         policyGroup: MOSIP POLICY
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: MOSIP-8028
+         message: length of mobile number should be between x and y
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_RegisterPartner_Invalid_email:
+      input.register-partner-request:
+         address: BTM
+         contactNumber: 8651119791
+         emailId: hsrgmail.com
+         organizationName: FUN-TEST-O2
+         policyGroup: MOSIP POLICY
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: MOSIP-8031
+         message: Invalid email (missing @)
+         id: $IGNORE$
+         version: $IGNORE$
+         
          
          

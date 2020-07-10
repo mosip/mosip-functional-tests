@@ -172,7 +172,7 @@ public class ActivatePartner extends PartnerTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getActivatePartnerPath();
 		logger.info("******Patch request Json to EndPointUrl: " + url+
 				 " *******");
-		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchRequestWithBodyAndParameteForActiveAndDeactivePartner(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),

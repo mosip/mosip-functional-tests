@@ -1536,6 +1536,28 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
+	protected String putRequestWithParameter(JSONObject objectData, String url,String cookieName, String cookieValue) {
+		try {
+			return RestClient
+					.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	
+	
+	protected Response patchRequestWithParameter(JSONObject objectData, String url,String cookieName,String cookieValue) {
+		try {
+			return RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName, cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
+	
 } 
 
 

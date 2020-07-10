@@ -10,7 +10,27 @@ testdata:
       message: APIKeyReqID status is In-progress
       version: $IGNORE$
       
+  Partner_ApiKeyReqStatus_with_Invalid_partnerId:
+    input.status-partner-request:
+      partnerID: PMP-PART-ID-001
+      RapiKeyReqID: SUB-PMP-REQ-ID-01
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      errorCode: PMS_PRT_005
+      message: Partner does not exist
+      version: $IGNORE$
       
+  Partner_ApiKeyReqStatus_with_Invalid_apiKeyReqId:
+    input.status-partner-request:
+      partnerID: PMP-PART-ID-01
+      RapiKeyReqID: SUB-PMP-REQ-ID-001
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      id: $IGNORE$
+      errorCode: PMS_PRT_005
+      message: Partner api key req does not exist
+      version: $IGNORE$
       
       
          
