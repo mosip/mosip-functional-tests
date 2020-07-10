@@ -36,7 +36,7 @@
         "code": "OTH",
         "genderName": "Others",
         "langCode": "eng",
-        "isActive": false,
+        "isActive": true,
         "createdBy": "superadmin",
         "createdDateTime": "$IGNORE$",
         "updatedBy": null,

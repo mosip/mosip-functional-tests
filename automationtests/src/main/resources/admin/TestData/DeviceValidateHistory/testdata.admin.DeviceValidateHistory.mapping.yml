@@ -69,7 +69,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.dpId: must not be blank'
+         messageerrors0: 'request.digitalId.dpId: Should not be blank or size must be between 1 and 36'
    Admin_DeviceValidateHistory_inValid_deviceProviderId_nonExisting_inDB:
       input.search-request:
          dpId: $TestData:Invalid_ValueString$
@@ -91,7 +91,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.dp: must not be blank'         
+         messageerrors0: 'request.digitalId.dp: Should not be blank or size must be between 1 and 128'         
    Admin_DeviceValidateHistory_inValid_deviceProvider:
       input.search-request:
          dp: $TestData:Invalid_ValueString$
@@ -106,7 +106,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.make: must not be blank'         
+         messageerrors0: 'request.digitalId.make: Should not be blank or size must be between 1 and 36'         
    Admin_DeviceValidateHistory_inValid_make:
       input.search-request:
          make: $TestData:Invalid_ValueString$
@@ -121,7 +121,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.model: must not be blank'
+         messageerrors0: 'request.digitalId.model: Should not be blank or size must be between 1 and 36'
    Admin_DeviceValidateHistory_inValid_model:
       input.search-request:
          model: $TestData:Invalid_ValueString$
@@ -136,7 +136,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.serialNo: must not be blank'
+         messageerrors0: 'request.digitalId.serialNo: Should not be blank or size must be between 1 and 64'
    Admin_DeviceValidateHistory_inValid_serialNo:
       input.search-request:
          serialNo: $TestData:Invalid_ValueString$

@@ -1,31 +1,16 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
+  "responsetime": "2020-07-10T10:03:15.228Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 5,
-    "totalRecord": 10,
+    "totalRecord": 9,
     "data": [
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "id": "1150",
-        "name": "auth otp email service subject",
-        "description": "auth otp email service subject",
-        "fileFormatCode": "txt",
-        "model": "velocity",
-        "fileText": "Please find the otp $otp",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "auth-otp-email-content-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
+        "createdDateTime": "2020-01-02T11:59:38.900Z",
         "id": "1149",
         "name": "auth otp email service subject",
         "description": "auth otp email service subject",
@@ -40,7 +25,22 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
+        "createdDateTime": "2020-01-02T11:59:38.900Z",
+        "id": "1150",
+        "name": "auth otp email service subject",
+        "description": "auth otp email service subject",
+        "fileFormatCode": "txt",
+        "model": "velocity",
+        "fileText": "Please find the otp $otp",
+        "moduleId": "10004",
+        "moduleName": "ID Authentication",
+        "templateTypeCode": "auth-otp-email-content-template",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2020-01-02T11:59:38.900Z",
         "id": "1148",
         "name": "auth otp service",
         "description": "auth otp service for sending otp",
@@ -55,7 +55,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
+        "createdDateTime": "2020-01-02T11:59:38.900Z",
         "id": "registrationclient",
         "name": "otp service",
         "description": "OTP Send Service",
@@ -70,7 +70,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
+        "createdDateTime": "2020-01-02T11:59:38.900Z",
         "id": "1101",
         "name": "Template for authorization content",
         "description": "Template for authorization content",
