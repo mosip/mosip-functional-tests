@@ -103,8 +103,8 @@ public class GetDocTypeDocCatByLangCode extends BaseTestCase implements ITest{
 		JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(res.asString())).get("response");
 		
 		if (responseJson!= null && responseJson.containsKey("documentcategories")) {
-
-			String query = "select count(DISTINCT doccat_code) from master.valid_document where is_active = true";
+			
+			String query = "select count(*) from master.doc_category where is_active = true and lang_code = '"+actualRequest.get("languagecode")+"'";
 
 			long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query,"masterdata");
 

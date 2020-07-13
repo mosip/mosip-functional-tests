@@ -193,7 +193,7 @@ public class OTP extends BaseTestCase implements ITest {
 				response = applicationLibrary.getWithQueryParam(OTPValidation, reqJson,regAdminCookie);
 				//This method is for checking the authentication is pass or fail in rest services
 				new CommonLibrary().responseAuthValidation(response);
-				logger.info("Obtained Response: " + response);
+				logger.info("Obtained Response: " + response.asString());
 				logger.info("Expected Response:" + responseObject.toJSONString());
 				status = assertions.assertKernel( response, responseObject, listOfElementToRemove);
 
@@ -214,7 +214,7 @@ public class OTP extends BaseTestCase implements ITest {
 				response = applicationLibrary.postWithJson(OTPGeneration, objectData.toJSONString(),regAdminCookie);
 			}
 			listOfElementToRemove.add("otp");
-			logger.info("Obtained Response: " + response);
+			logger.info("Obtained Response: " + response.asString());
 			logger.info("Expected Response:" + responseObject.toJSONString());
 			status = assertions.assertKernel(response, responseObject, listOfElementToRemove);
 
