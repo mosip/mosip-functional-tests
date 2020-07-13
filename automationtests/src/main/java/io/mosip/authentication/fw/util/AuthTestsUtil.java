@@ -47,6 +47,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -955,6 +956,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static void initiateAuthTest() {
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
+		ResidentTestUtil.initiateResidentTest();
 	}
 
 	/**

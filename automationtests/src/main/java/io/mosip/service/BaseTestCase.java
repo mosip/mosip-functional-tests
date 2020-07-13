@@ -174,7 +174,6 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			ResidentTestUtil.initiateResidentTest();
 		}
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
 			PartnerTestUtil.initiatePartnerTest();

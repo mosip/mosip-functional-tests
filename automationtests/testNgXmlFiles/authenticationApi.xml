@@ -46,17 +46,7 @@
 				name="io.mosip.authentication.tests.InternalAuthTransaction" />
 			<class
 				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
-				
-			<!-- these are the resident scripts, which runs with ida because ida generated UINs is being used in resident -->
 			<class name="io.mosip.authentication.tests.UnlockUIN" />
-			<class name="io.mosip.resident.tests.UpdateUIN" />
-			<class name="io.mosip.resident.tests.GenerateVID" />
-			<class name="io.mosip.resident.tests.CheckStatus" />
-			<class name="io.mosip.resident.tests.EnableEUin" />
-			<class name="io.mosip.resident.tests.AuthUnlock" />
-			<class name="io.mosip.resident.tests.AuthLock" />
-			<class name="io.mosip.resident.tests.AuthHistory" />
-			<class name="io.mosip.resident.tests.RevokeVID" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
