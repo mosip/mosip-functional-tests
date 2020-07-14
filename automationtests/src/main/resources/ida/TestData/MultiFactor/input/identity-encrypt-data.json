@@ -33,7 +33,7 @@
 					},
 					"bioType": "FACE",
 					"bioSubType": "UNKNOWN",
-					"purpose": "Auth",
+					"purpose": "AUTH",
 					"env": "Staging",
 					"bioValue": "$bioValue$",
 					"transactionId": "1234567890",
