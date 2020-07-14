@@ -48,8 +48,8 @@ errors:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - id 
   InvalidBioType:
-    errorCode: IDA-MLC-009
-    errorMessage: $REGEXP:Invalid Input Parameter - bioType.*$ 
+    errorCode: IDA-DPM-004
+    errorMessage: Device Type and Biometric Type do not match 
   InvalidindividualIdType:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - individualIdType 
@@ -168,11 +168,11 @@ errors:
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingIrisBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data Iris not available in database$
+    errorMessage: $REGEXP:Biometric data IRIS not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   MisssingFingerBioInMosipDB:
     errorCode: IDA-BIA-006
-    errorMessage: $REGEXP:Biometric data Finger not available in database$
+    errorMessage: $REGEXP:Biometric data FINGER not available in database$
     actionMessage: Your Biometric data is not available in MOSIP
   InvalidBioSubtype:
     errorCode: IDA-MLC-009
@@ -356,8 +356,8 @@ errors:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/dateTime
   InvalidDeviceServiceVersion:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/deviceServiceVersion
+    errorCode: IDA-DPM-002
+    errorMessage: MDS is not registered with MOSIP
   InvalidDeviceSerialNo:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/serialNo
@@ -368,11 +368,11 @@ errors:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/model
   InvalidDeviceType:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/type
+    errorCode: IDA-DPM-004
+    errorMessage: Device Type and Biometric Type do not match
   InvalidDeviceSubType:
     errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/subType
+    errorMessage: Invalid Input Parameter - request/biometrics/0/digitalId/deviceSubType
   MissingDeviceProviderID:
     errorCode: IDA-MLC-006
     errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/deviceProviderId
@@ -399,10 +399,10 @@ errors:
     errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/model
   MissingDeviceType:
     errorCode: IDA-MLC-006
-    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/type
+    errorMessage: Missing Input Parameter - request/biometrics/0/data/digitalId/type
   MissingDeviceSubType:
     errorCode: IDA-MLC-006
-    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/subType
+    errorMessage: Missing Input Parameter - request/biometrics/0/digitalId/deviceSubType
   InvalidSignature:
     errorCode: IDA-MPA-002
     errorMessage: Invalid certificate in digital signature
@@ -410,4 +410,5 @@ errors:
     errorCode: IDA-BIA-017
     errorMessage: Unable to Perform Biometric Match due to a Technical Issue
     actionMessage: Unable to Perform Biometric Match due to a Technical Issue
+          
     

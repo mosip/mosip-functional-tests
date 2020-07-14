@@ -987,8 +987,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingBioValue:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingBioValue:errorMessage$
+      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
       
   Authentication_EKYC_Biometric_Without_consentObtained_Neg:
     endpoint.url:
