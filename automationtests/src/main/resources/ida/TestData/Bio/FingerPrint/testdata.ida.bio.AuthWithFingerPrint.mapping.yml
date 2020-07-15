@@ -1367,7 +1367,7 @@ testdata:
       
   Authentication_Biometric_Finger_With_requestedAuth_set_bio_true_when_bio_Authentication_Biometric_Finger_not_selected_in_ploicy_Neg:
     endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK_Without_Bio$
     input.bio-auth-request:
       AuthReq.individualId: $UIN$
       AuthReq.requestTime: $TIMESTAMP$

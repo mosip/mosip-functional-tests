@@ -213,9 +213,6 @@ errors:
   ConsentNotSet:
     errorCode: IDA-MLC-012
     errorMessage: Individual's Consent is not available
-  InvalidBioType:
-    errorCode: IDA-MLC-009
-    errorMessage: Invalid Input Parameter - bioType
   InvalidBioValue:
     errorCode: IDA-MLC-009
     errorMessage: Invalid Input Parameter - bioValue

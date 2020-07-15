@@ -514,6 +514,7 @@ testdata:
       identityReq.bioSubType1: $TestData:bio_iris_rightOnly_subType$
       identityReq.bioSubType2: $TestData:bio_iris_unknownOnly_subType$
       identityReq.bioType1: $TestData:bio_iris_type$
+      identityReq.bioType2: $TestData:bio_iris_type$
       identityReq.data.timestamp1: $TIMESTAMP$
       identityReq.transactionID1: $input.bio-auth-request:AuthReq.transactionID$
       identityReq.bioValue1: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Iris'][Subtype='Left']//following::BDB$
@@ -739,7 +740,7 @@ testdata:
       
   Authentication_Biometric_Iris_With_requestedAuth_set_bio_true_when_bio_Authentication_Biometric_Iris_not_selected_in_ploicy_Neg:
     endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK_Without_Bio$
     input.bio-auth-request:
       AuthReq.individualId: $UIN$
       AuthReq.requestTime: $TIMESTAMP$

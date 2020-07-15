@@ -78,7 +78,7 @@
 					},
 					"bioType": "FACE",
 					"bioSubType": "UNKNOWN",
-					"mosipProcess": "AUTH",
+					"purpose": "AUTH",
 					"env": "Staging",
 					"bioValue": "$bioValue$",
 					"transactionId": "1234567890",
