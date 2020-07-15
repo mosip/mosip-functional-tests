@@ -4,11 +4,11 @@
   "requesttime": "2019-07-31T09:28:52.838Z",
   "request": {
     "centerId": "10002",
-    "machineId": "11121",
+    "machineId": "10021",
     "reason": "Id Type and Card Type is UIN",
     "registrationType": "RES_REPRINT",
-    "id": "7187957356",
+    "id": "9405197413",
     "idType": "UIN",
-    "cardType": "VID"
+    "cardType": "UIN"
   }
 } 

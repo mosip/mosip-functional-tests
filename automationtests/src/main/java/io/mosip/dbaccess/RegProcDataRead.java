@@ -198,7 +198,7 @@ public class RegProcDataRead {
 			TestData = (Object[]) obj;
 			syncregistrationDBDto.setRegistrationId((String)TestData[1]);
 			
-			String dateInString  = TestData[7].toString();
+			String dateInString  = TestData[14].toString();
 			dateInString = dateInString.substring(0,10)+"T"+dateInString.substring(11,23);
 			String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);

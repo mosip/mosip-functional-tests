@@ -61,7 +61,7 @@ import io.restassured.response.Response;
  */
 
 public class PrintingStage extends BaseTestCase implements ITest {
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	protected static String testCaseName = "";
 	private static Logger logger = Logger.getLogger(PrintingStage.class);
 	boolean status = false;
@@ -215,7 +215,7 @@ public class PrintingStage extends BaseTestCase implements ITest {
 						requestToEncrypt=encryptData.encryptData(registrationPacketSyncDto);
 
 						String center_machine_refID=regId.substring(0,5)+"_"+regId.substring(5, 10);
-						String encrypterURL = "/v1/cryptomanager/encrypt";
+						String encrypterURL = "/v1/keymanager/encrypt";
 						Response resp=apiRequests.postRequestToDecrypt(encrypterURL ,requestToEncrypt,MediaType.APPLICATION_JSON,
 								MediaType.APPLICATION_JSON,validToken);
 						String encryptedData = resp.jsonPath().get("response.data").toString();

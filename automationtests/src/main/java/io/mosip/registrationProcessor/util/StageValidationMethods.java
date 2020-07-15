@@ -45,7 +45,7 @@ public class StageValidationMethods extends BaseTestCase {
 		String token=generateToken.getToken(tokenEntity);
 		return token;
 		}
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	@SuppressWarnings("unchecked")
 	public String syncPacket(File packet) {
 		validToken=getToken("syncTokenGenerationFilePath");

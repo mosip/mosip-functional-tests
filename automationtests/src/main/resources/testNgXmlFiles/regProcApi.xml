@@ -14,9 +14,9 @@
 	<test name="RegistrationProcessor Tests">
 		<classes>
 
-
-			<class
-				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
+<class
+				name="io.mosip.registrationProcessor.tests.SecurityTests" />
+			
 		<!--	<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
 			<class

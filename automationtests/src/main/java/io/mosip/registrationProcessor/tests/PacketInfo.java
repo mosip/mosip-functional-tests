@@ -166,6 +166,9 @@ public class PacketInfo extends BaseTestCase implements ITest {
 
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
+		if(object.get("testCaseName").toString().contains("regIdNot")){
+			System.out.println(object);
+		}
 		
 		try {
 			actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
@@ -193,13 +196,13 @@ public class PacketInfo extends BaseTestCase implements ITest {
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("packetInfoApi"),
 					actualRequest,MediaType.APPLICATION_JSON,validToken);
-
+			//String file=actualResponse.jsonPath().get("response.file").toString();
 			// outer and inner keys which are dynamic in the actual response
+			
 			outerKeys.add("requesttime");
 			outerKeys.add("responsetime");
-			innerKeys.add("createdDateTime");
-			innerKeys.add("updatedDateTime");
-			innerKeys.add("qualityScore");
+			innerKeys.add("file");
+			
 			boolean noRecord = false;
 			
 			if(object.get("testCaseName").toString().contains("RequestUTC")) {

@@ -1,7 +1,7 @@
 {
     "response": [
         {
-            "registrationId": "10002100324002620190703101737",
+            "registrationId": "10008100650000220200709073816",
             "statusCode": "PROCESSED"
         }
     ],
@@ -10,5 +10,5 @@
     ],
     "id": "mosip.registration.status",
     "version": "1.0",
-    "responsetime": "2019-12-04T06:13:48.605Z"
+    "responsetime": "2020-05-08T07:57:14.166Z"
 }

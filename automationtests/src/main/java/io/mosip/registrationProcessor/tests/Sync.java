@@ -59,7 +59,7 @@ import io.restassured.response.Response;
  */
 
 public class Sync extends BaseTestCase implements ITest {
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	protected static String testCaseName = "";
 	private static Logger logger = Logger.getLogger(Sync.class);
 	boolean status = false;
