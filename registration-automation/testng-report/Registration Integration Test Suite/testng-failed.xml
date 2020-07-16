@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Registration Integration Test Suite]">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+  </listeners>
+  <test name="Registration Integration Test(failed)">
+    <classes>
+      <class name="io.mosip.registration.test.PacketHandlerServiceWithPreRegIDTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="setResultTestName"/>
+          <include name="dataSetUp"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- io.mosip.registration.test.PacketHandlerServiceWithPreRegIDTest -->
+      <class name="io.mosip.registration.test.PacketSyncServiceTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="setUp"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="setResultTestName"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- io.mosip.registration.test.PacketSyncServiceTest -->
+      <class name="io.mosip.registration.test.PacketHandlerServiceUpdateUINTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="setUp"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.registration.test.PacketHandlerServiceUpdateUINTest -->
+      <class name="io.mosip.registration.test.PacketHandlerServiceTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="setUp"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="setResultTestName"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="validatePacketCreation" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- io.mosip.registration.test.PacketHandlerServiceTest -->
+      <class name="io.mosip.registration.test.PacketUploadServiceTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="setResultTestName"/>
+          <include name="setTestCaseName"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- io.mosip.registration.test.PacketUploadServiceTest -->
+    </classes>
+  </test> <!-- Registration Integration Test(failed) -->
+</suite> <!-- Failed suite [Registration Integration Test Suite] -->

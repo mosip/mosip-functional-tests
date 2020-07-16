@@ -187,7 +187,7 @@ public class PacketGeneratorReactivate extends  BaseTestCase implements ITest {
 	 	 	 boolean idRepoStatus=false;
 	 	  if(message.equals("Packet created and uploaded")) {
 	 		  			
-	 		  			String idRepoToken=getToken("syncTokenGenerationFilePath");
+	 		  			String idRepoToken=getToken("idRepoTokenPath");
 	 		  	
 	 	 				idRepoStatus=apiRequests.getUinStatusFromIDRepo(actualRequest, idRepoToken, "ACTIVATED");
 	 			

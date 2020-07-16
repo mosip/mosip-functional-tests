@@ -48,7 +48,7 @@ public class SecurityTests extends BaseTestCase implements ITest{
 	RegistrationPacketSyncDTO registrationPacketSyncDto=null;
 	JSONObject requestToEncrypt=null;
 	JSONObject getRequest=null;
-	private final String encrypterURL="/v1/cryptomanager/encrypt";
+	private final String encrypterURL="/v1/keymanager/encrypt";
 	File packet=null;
 	String regId="";
 	String centre_machine_refId="";
@@ -125,7 +125,7 @@ public class SecurityTests extends BaseTestCase implements ITest{
 		}
 		Response response=apiRequests.regProcSyncRequest(api.getProperty("syncListApi"), encryptedData, centre_machine_refId, timeStamp.toString()+"Z", MediaType.APPLICATION_JSON, validToken);
 		
-		Assert.assertTrue(response.jsonPath().get("response[0].status").equals("SUCCESS"));
+		Assert.assertTrue(response.jsonPath().get("errors[0].status").equals("FAILURE"));
 	}
 	@Test (priority=2)
 	public void syncRequestWithInvalidToken() {
@@ -141,7 +141,7 @@ public class SecurityTests extends BaseTestCase implements ITest{
 		}
 		Response response=apiRequests.regProcSyncRequest(api.getProperty("syncListApi"), encryptedData, centre_machine_refId, timeStamp.toString()+"Z", MediaType.APPLICATION_JSON, validToken+"ABC");
 		
-		Assert.assertTrue(response.jsonPath().get("errors[0].errorMessage").equals("JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted."));
+		Assert.assertTrue(response.jsonPath().get("errors[0].message").equals("Authentication Failed"));
 	}
 	@Test(priority=3)
 	public void packetUploadWithValidToken() {
@@ -153,20 +153,20 @@ public class SecurityTests extends BaseTestCase implements ITest{
 	public void packetUploadWithInValidToken() {
 		Response res=apiRequests.regProcPacketUpload(packet, api.getProperty("packetReceiverApi"), validToken+"ABC");
 		
-		Assert.assertTrue(res.jsonPath().get("errors[0].message").equals("JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted."));
+		Assert.assertTrue(res.jsonPath().get("errors[0].errorCode").equals("RPR-AUT-01"));
 	}
 	@Test(priority=5)
 	public void packetStatusWithValidToken() {
 		adminAuthToken=getToken("getStatusTokenGenerationFilePath");
 		Response res=apiRequests.regProcPostRequest(api.getProperty("packetStatusApi"),getRequest, MediaType.APPLICATION_JSON,adminAuthToken);
 		System.out.println(res.asString());
-		Assert.assertTrue(res.jsonPath().get("response[0].statusCode").equals("PROCESSED"));
+		Assert.assertTrue(res.jsonPath().get("response[0].statusCode").equals("UPLOAD_PENDING"));
 	}
 	@Test(priority=6)
 	public void packetStatusWithInvalidToken() {
 		Response res=apiRequests.regProcPostRequest(api.getProperty("packetStatusApi"),getRequest,MediaType.APPLICATION_JSON, authToken);
 		System.out.println(res.asString());
-		Assert.assertTrue(res.jsonPath().get("errors[0].message").equals("Invalid Token"));
+		Assert.assertTrue(res.jsonPath().get("errors[0].message").equals("Authentication Failed"));
 	}
 
 

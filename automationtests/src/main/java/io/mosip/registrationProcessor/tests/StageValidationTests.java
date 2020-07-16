@@ -91,7 +91,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		File file=new File(invalidPacketFolderPath);
 		File[] listOfFiles=file.listFiles();
 		
-		//e.packetValidatorPropertyFileReader("packetValidator.properties", validPacketPath, invalidPacketFolderPath);
+		e.packetValidatorPropertyFileReader("packetValidator.properties", validPacketPath, invalidPacketFolderPath);
 
 		e.osiValidatorPropertyFileReader("packetProperties.properties", validPacketPath, invalidPacketFolderPath);
 
@@ -107,7 +107,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		}
 	}
  
-/*	@DataProvider(name = "packetValidatorStage")
+	@DataProvider(name = "packetValidatorStage")
 	public File[] getInvalidPacketValidatorPackets() {
 		Object[][] reutr = null;
 		File file = new File(invalidPacketPath + "/PacketValidator");
@@ -124,7 +124,7 @@ public class StageValidationTests extends BaseTestCase implements ITest {
 		 } 
 		return objArray;
 		
-	}*/
+	}
 	@DataProvider(name="osiValidatorStage")
 	public File[] getInvalidOsiValidatorPackets() {
 		

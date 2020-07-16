@@ -1,12 +1,12 @@
 {
-	"response": null,
+    "response": null,
     "errors": [
         {
-            "errorCode": "KER-FSA-002",
-            "message": "Requested file not found"
+            "errorCode": "RPR-PIS-004",
+            "message": "Unable to Find File in Packet Store"
         }
     ],
     "id": "mosip.manual.verification.packetinfo",
     "version": "1.0",
-    "responsetime": "2019-05-28T13:34:33.711Z"
+    "responsetime": "2020-07-14T09:57:46.905Z"
 }

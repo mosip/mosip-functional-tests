@@ -1,0 +1,2490 @@
+<html>
+<head>
+<title>TestNG:  Registration Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Registration Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>147/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jun 26 12:04:08 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>766 seconds (766062 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke()'><b>regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke, {}</td>
+<td><div><pre>java.lang.AssertionError: Lists differ at element [0]: RAB != RBT expected [RAB] but found [RBT]
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCode(MasterSyncLocationByHierarchyCode.java:174)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1059249119", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1059249119'><pre>java.lang.AssertionError: Lists differ at element [0]: RAB != RBT expected [RAB] but found [RBT]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:549)
+	at org.testng.Assert.assertEquals(Assert.java:514)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCode(MasterSyncLocationByHierarchyCode.java:174)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke()'><b>regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_validateLocationByHierarchyCode_smoke, {}</td>
+<td><div><pre>java.lang.AssertionError: null: lists don&apos;t have the same size expected [0] but found [1]
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyLevel(MasterSyncLocationByHierarchyCode.java:117)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1636808247", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1636808247'><pre>java.lang.AssertionError: null: lists don&apos;t have the same size expected [0] but found [1]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:370)
+	at org.testng.Assert.assertEquals(Assert.java:537)
+	at org.testng.Assert.assertEquals(Assert.java:514)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyLevel(MasterSyncLocationByHierarchyCode.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.registration.test.AuditServiceTest.regClient_AuditService_delete_AuditLogs_configuredAs_3days()'><b>regClient_AuditService_delete_AuditLogs_configuredAs_3days</b><br>Test class: io.mosip.registration.test.AuditServiceTest (regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL)<br>Parameters: regClient_AuditService_delete_AuditLogs_configuredAs_3days, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.AuditServiceTest@1b266842</td></tr>
+<tr>
+<td title='io.mosip.registration.test.AuditServiceTest.regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL()'><b>regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL</b><br>Test class: io.mosip.registration.test.AuditServiceTest (regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL)<br>Parameters: regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.AuditServiceTest@1b266842</td></tr>
+<tr>
+<td title='io.mosip.registration.test.AuditServiceTest.regClient_AuditService_delete_AuditLogs_configuredDaysAs_NoLogs()'><b>regClient_AuditService_delete_AuditLogs_configuredDaysAs_NoLogs</b><br>Test class: io.mosip.registration.test.AuditServiceTest (regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL)<br>Parameters: regClient_AuditService_delete_AuditLogs_configuredDaysAs_NoLogs, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.AuditServiceTest@1b266842</td></tr>
+<tr>
+<td title='io.mosip.registration.test.AuditServiceTest.regClient_AuditService_delete_AuditLogs_configuredDaysAs_currentDate()'><b>regClient_AuditService_delete_AuditLogs_configuredDaysAs_currentDate</b><br>Test class: io.mosip.registration.test.AuditServiceTest (regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL)<br>Parameters: regClient_AuditService_delete_AuditLogs_configuredDaysAs_currentDate, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.AuditServiceTest@1b266842</td></tr>
+<tr>
+<td title='io.mosip.registration.test.AuditServiceTest.regClient_AuditService_delete_AuditLogs_configuredDaysAs_futureDays()'><b>regClient_AuditService_delete_AuditLogs_configuredDaysAs_futureDays</b><br>Test class: io.mosip.registration.test.AuditServiceTest (regClient_AuditService_delete_AuditLogs_configuredDaysAs_NULL)<br>Parameters: regClient_AuditService_delete_AuditLogs_configuredDaysAs_futureDays, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.AuditServiceTest@1b266842</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncBlackListedWord.regClient_BlackListedWordService_invalid_langCode_empty()'><b>regClient_BlackListedWordService_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncBlackListedWord (regClient_BlackListedWordService_invalid_langcode_notHavingValue)<br>Parameters: regClient_BlackListedWordService_invalid_langCode_empty, {}<br/>
+<a href="#Output-956416222" onClick='toggleBox("Output-956416222", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-956416222" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-956416222">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-002 --> master sync service language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.getAllBlackListedWords(MasterSyncServiceImpl.java:335)
+	at io.mosip.registration.test.MasterSyncBlackListedWord.verifyBlackListedWords(MasterSyncBlackListedWord.java:93)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncBlackListedWord@4dd6fd0a</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncBlackListedWord.regClient_BlackListedWordService_invalid_langcode_notHavingValue()'><b>regClient_BlackListedWordService_invalid_langcode_notHavingValue</b><br>Test class: io.mosip.registration.test.MasterSyncBlackListedWord (regClient_BlackListedWordService_invalid_langcode_notHavingValue)<br>Parameters: regClient_BlackListedWordService_invalid_langcode_notHavingValue, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncBlackListedWord@4dd6fd0a</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncBlackListedWord.regClient_BlackListedWordService_validateBlackListedWord_smoke()'><b>regClient_BlackListedWordService_validateBlackListedWord_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncBlackListedWord (regClient_BlackListedWordService_invalid_langcode_notHavingValue)<br>Parameters: regClient_BlackListedWordService_validateBlackListedWord_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncBlackListedWord@4dd6fd0a</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncDocumentCategory.regClient_DocumentCategory_invalid_documentCode_notHavingValue()'><b>regClient_DocumentCategory_invalid_documentCode_notHavingValue</b><br>Test class: io.mosip.registration.test.MasterSyncDocumentCategory (regClient_DocumentCategory_invalid_langCode_notHavingValue)<br>Parameters: regClient_DocumentCategory_invalid_documentCode_notHavingValue, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncDocumentCategory@6b6776cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncDocumentCategory.regClient_DocumentCategory_invalid_langCode_notHavingValue()'><b>regClient_DocumentCategory_invalid_langCode_notHavingValue</b><br>Test class: io.mosip.registration.test.MasterSyncDocumentCategory (regClient_DocumentCategory_invalid_langCode_notHavingValue)<br>Parameters: regClient_DocumentCategory_invalid_langCode_notHavingValue, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncDocumentCategory@6b6776cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncDocumentCategory.regClient_DocumentCategory_validateDocumentCategory_smoke()'><b>regClient_DocumentCategory_validateDocumentCategory_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncDocumentCategory (regClient_DocumentCategory_invalid_langCode_notHavingValue)<br>Parameters: regClient_DocumentCategory_validateDocumentCategory_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncDocumentCategory@6b6776cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getImageBytesFromBufferedImage()'><b>regClient_DocumentScannerService_getImageBytesFromBufferedImage</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getImageBytesFromBufferedImageTestNull()'><b>regClient_DocumentScannerService_getImageBytesFromBufferedImageTestNull</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getSingleImageAlternateFlow()'><b>regClient_DocumentScannerService_getSingleImageAlternateFlow</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getSingleImageFromList()'><b>regClient_DocumentScannerService_getSingleImageFromList</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getSingleImageFromListTestNull()'><b>regClient_DocumentScannerService_getSingleImageFromListTestNull</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_getSinglePDFInBytes()'><b>regClient_DocumentScannerService_getSinglePDFInBytes</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_isScannerConnected()'><b>regClient_DocumentScannerService_isScannerConnected</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_pdfToImages()'><b>regClient_DocumentScannerService_pdfToImages</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_pdfToImagesTestNull()'><b>regClient_DocumentScannerService_pdfToImagesTestNull</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.DocumentScannerServiceTest.regClient_DocumentScannerService_scanDocument()'><b>regClient_DocumentScannerService_scanDocument</b><br>Test class: io.mosip.registration.test.DocumentScannerServiceTest (regClient_DocumentScannerService_scanDocument)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.DocumentScannerServiceTest@42a15bdc</td></tr>
+<tr>
+<td title='io.mosip.registration.test.EmailNotificationServiceTest.regClient_EmailNotificationService_invalid_EmailID()'><b>regClient_EmailNotificationService_invalid_EmailID</b><br>Test class: io.mosip.registration.test.EmailNotificationServiceTest (regClient_EmailNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_EmailNotificationService_invalid_EmailID, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.EmailNotificationServiceTest@28b46423</td></tr>
+<tr>
+<td title='io.mosip.registration.test.EmailNotificationServiceTest.regClient_EmailNotificationService_invalid_EmailID_empty()'><b>regClient_EmailNotificationService_invalid_EmailID_empty</b><br>Test class: io.mosip.registration.test.EmailNotificationServiceTest (regClient_EmailNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_EmailNotificationService_invalid_EmailID_empty, {}<br/>
+<a href="#Output-708586838" onClick='toggleBox("Output-708586838", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-708586838" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-708586838">
+Exception : PCC-NSI-002 --> Message and Email can not be null<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.EmailNotificationServiceTest@28b46423</td></tr>
+<tr>
+<td title='io.mosip.registration.test.EmailNotificationServiceTest.regClient_EmailNotificationService_invalid_message_empty()'><b>regClient_EmailNotificationService_invalid_message_empty</b><br>Test class: io.mosip.registration.test.EmailNotificationServiceTest (regClient_EmailNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_EmailNotificationService_invalid_message_empty, {}<br/>
+<a href="#Output-1292938929" onClick='toggleBox("Output-1292938929", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1292938929" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1292938929">
+Exception : PCC-NSI-002 --> Message and Email can not be null<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.EmailNotificationServiceTest@28b46423</td></tr>
+<tr>
+<td title='io.mosip.registration.test.EmailNotificationServiceTest.regClient_EmailNotificationService_invalid_registrationId_empty()'><b>regClient_EmailNotificationService_invalid_registrationId_empty</b><br>Test class: io.mosip.registration.test.EmailNotificationServiceTest (regClient_EmailNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_EmailNotificationService_invalid_registrationId_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.EmailNotificationServiceTest@28b46423</td></tr>
+<tr>
+<td title='io.mosip.registration.test.EmailNotificationServiceTest.regClient_EmailNotificationService_validateSendSMSTest_smoke()'><b>regClient_EmailNotificationService_validateSendSMSTest_smoke</b><br>Test class: io.mosip.registration.test.EmailNotificationServiceTest (regClient_EmailNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_EmailNotificationService_validateSendSMSTest_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.EmailNotificationServiceTest@28b46423</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_invalid_langCode_empty()'><b>regClient_GenderDetail_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_invalid_langCode_empty, {}<br/>
+<a href="#Output-1791132868" onClick='toggleBox("Output-1791132868", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1791132868" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1791132868">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-002 --> master sync service language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.getGenderDtls(MasterSyncServiceImpl.java:364)
+	at io.mosip.registration.test.MasterSyncGenderDetail.verifyGenderDetailByCode(MasterSyncGenderDetail.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_invalid_langCode_empty()'><b>regClient_GenderDetail_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_invalid_langCode_empty, {}<br/>
+<a href="#Output-399247771" onClick='toggleBox("Output-399247771", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-399247771" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-399247771">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-002 --> master sync service language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.getGenderDtls(MasterSyncServiceImpl.java:364)
+	at io.mosip.registration.test.MasterSyncGenderDetail.verifyGenderDetailByName(MasterSyncGenderDetail.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_invalid_langcode_notHavingValue()'><b>regClient_GenderDetail_invalid_langcode_notHavingValue</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_invalid_langcode_notHavingValue, {}</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_invalid_langcode_notHavingValue()'><b>regClient_GenderDetail_invalid_langcode_notHavingValue</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_invalid_langcode_notHavingValue, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_validateBlackListedWord_smoke()'><b>regClient_GenderDetail_validateBlackListedWord_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_validateBlackListedWord_smoke, {}</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncGenderDetail.regClient_GenderDetail_validateBlackListedWord_smoke()'><b>regClient_GenderDetail_validateBlackListedWord_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncGenderDetail (regClient_GenderDetail_invalid_langcode_notHavingValue)<br>Parameters: regClient_GenderDetail_validateBlackListedWord_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncGenderDetail@7f8a9499</td></tr>
+<tr>
+<td title='io.mosip.registration.test.GlobalParamServiceTest.regClient_GlobalParamService_getGlobalParamsValues()'><b>regClient_GlobalParamService_getGlobalParamsValues</b><br>Test class: io.mosip.registration.test.GlobalParamServiceTest (regClient_GlobalParamService_synchConfigData)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.GlobalParamServiceTest@4a3631f8</td></tr>
+<tr>
+<td title='io.mosip.registration.test.GlobalParamServiceTest.regClient_GlobalParamService_synchConfigData()'><b>regClient_GlobalParamService_synchConfigData</b><br>Test class: io.mosip.registration.test.GlobalParamServiceTest (regClient_GlobalParamService_synchConfigData)</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.registration.test.GlobalParamServiceTest@4a3631f8</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncIndividualType.regClient_IndividualType_invalid_Code_empty()'><b>regClient_IndividualType_invalid_Code_empty</b><br>Test class: io.mosip.registration.test.MasterSyncIndividualType (regClient_IndividualType_invalid_langCode_notPresentInDB)<br>Parameters: regClient_IndividualType_invalid_Code_empty, {}<br/>
+<a href="#Output-846479584" onClick='toggleBox("Output-846479584", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-846479584" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-846479584">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.getIndividualType(MasterSyncServiceImpl.java:439)
+	at io.mosip.registration.test.MasterSyncIndividualType.verifyIndividualTypeByName(MasterSyncIndividualType.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncIndividualType@5f0fd5a0</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncIndividualType.regClient_IndividualType_invalid_Code_notPresentInDB()'><b>regClient_IndividualType_invalid_Code_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncIndividualType (regClient_IndividualType_invalid_langCode_notPresentInDB)<br>Parameters: regClient_IndividualType_invalid_Code_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncIndividualType@5f0fd5a0</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncIndividualType.regClient_IndividualType_invalid_LangCode_empty()'><b>regClient_IndividualType_invalid_LangCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncIndividualType (regClient_IndividualType_invalid_langCode_notPresentInDB)<br>Parameters: regClient_IndividualType_invalid_LangCode_empty, {}<br/>
+<a href="#Output-21866806" onClick='toggleBox("Output-21866806", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-21866806" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-21866806">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.getIndividualType(MasterSyncServiceImpl.java:439)
+	at io.mosip.registration.test.MasterSyncIndividualType.verifyIndividualTypeByName(MasterSyncIndividualType.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncIndividualType@5f0fd5a0</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncIndividualType.regClient_IndividualType_invalid_langCode_notPresentInDB()'><b>regClient_IndividualType_invalid_langCode_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncIndividualType (regClient_IndividualType_invalid_langCode_notPresentInDB)<br>Parameters: regClient_IndividualType_invalid_langCode_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncIndividualType@5f0fd5a0</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncIndividualType.regClient_IndividualType_validateIndividualType_smoke()'><b>regClient_IndividualType_validateIndividualType_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncIndividualType (regClient_IndividualType_invalid_langCode_notPresentInDB)<br>Parameters: regClient_IndividualType_validateIndividualType_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncIndividualType@5f0fd5a0</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_getCurrentRunningJobDetails()'><b>regClient_JobConfigurationService_getCurrentRunningJobDetails</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_getLastCompletedSyncJobs()'><b>regClient_JobConfigurationService_getLastCompletedSyncJobs</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)</td>
+<td></td>
+<td>10</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_getSyncJobsTransaction()'><b>regClient_JobConfigurationService_getSyncJobsTransaction</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)</td>
+<td></td>
+<td>9</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_initiateJobs()'><b>regClient_JobConfigurationService_initiateJobs</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_startScheduler()'><b>regClient_JobConfigurationService_startScheduler</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)<br/>
+<a href="#Output-1569546455" onClick='toggleBox("Output-1569546455", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1569546455" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1569546455">
+java.lang.NullPointerException
+	at io.mosip.registration.test.JobConfigurationTest.startSchedulerTest(JobConfigurationTest.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.JobConfigurationTest.regClient_JobConfigurationService_stopScheduler()'><b>regClient_JobConfigurationService_stopScheduler</b><br>Test class: io.mosip.registration.test.JobConfigurationTest (regClient_JobConfigurationService_getSyncJobsTransaction)<br/>
+<a href="#Output-315649499" onClick='toggleBox("Output-315649499", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-315649499" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-315649499">
+java.lang.NullPointerException
+	at io.mosip.registration.test.JobConfigurationTest.stopSchedulerTest(JobConfigurationTest.java:162)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.JobConfigurationTest@748741cb</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_hierarchyName_empty()'><b>regClient_LocationByHierarchyCode_invalid_hierarchyName_empty</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_hierarchyName_empty, {}<br/>
+<a href="#Output-587080842" onClick='toggleBox("Output-587080842", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-587080842" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-587080842">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCode(MasterSyncLocationByHierarchyCode.java:153)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_hierarchyName_empty()'><b>regClient_LocationByHierarchyCode_invalid_hierarchyName_empty</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_hierarchyName_empty, {}<br/>
+<a href="#Output-435186452" onClick='toggleBox("Output-435186452", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-435186452" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-435186452">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyLevel(MasterSyncLocationByHierarchyCode.java:99)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB()'><b>regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB()'><b>regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_hierarchyName_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_langCode_empty()'><b>regClient_LocationByHierarchyCode_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_langCode_empty, {}<br/>
+<a href="#Output-262926380" onClick='toggleBox("Output-262926380", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-262926380" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-262926380">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCode(MasterSyncLocationByHierarchyCode.java:153)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_langCode_empty()'><b>regClient_LocationByHierarchyCode_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_langCode_empty, {}<br/>
+<a href="#Output-1260544486" onClick='toggleBox("Output-1260544486", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1260544486" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1260544486">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncLocationByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyLevel(MasterSyncLocationByHierarchyCode.java:99)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB()'><b>regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncLocationByHierarchyCode.regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB()'><b>regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncLocationByHierarchyCode (regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB)<br>Parameters: regClient_LocationByHierarchyCode_invalid_langCode_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncLocationByHierarchyCode@1cd629b3</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceUserDetailsTest.regClient_LoginService_UserDetail_invalidUserId()'><b>regClient_LoginService_UserDetail_invalidUserId</b><br>Test class: io.mosip.registration.test.LoginServiceUserDetailsTest (regClient_LoginService_UserDetail_invalidUserId)<br>Parameters: regClient_LoginService_UserDetail_invalidUserId, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceUserDetailsTest@4e928fbf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceLoginModesTest.regClient_LoginService_invalidAuthType()'><b>regClient_LoginService_invalidAuthType</b><br>Test class: io.mosip.registration.test.LoginServiceLoginModesTest (regClient_LoginService_invalidRoleList_empty)<br>Parameters: regClient_LoginService_invalidAuthType, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceLoginModesTest@27508c5d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceLoginModesTest.regClient_LoginService_invalidAuthTypeRoleList()'><b>regClient_LoginService_invalidAuthTypeRoleList</b><br>Test class: io.mosip.registration.test.LoginServiceLoginModesTest (regClient_LoginService_invalidRoleList_empty)<br>Parameters: regClient_LoginService_invalidAuthTypeRoleList, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceLoginModesTest@27508c5d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceLoginModesTest.regClient_LoginService_invalidAuthType_empty()'><b>regClient_LoginService_invalidAuthType_empty</b><br>Test class: io.mosip.registration.test.LoginServiceLoginModesTest (regClient_LoginService_invalidRoleList_empty)<br>Parameters: regClient_LoginService_invalidAuthType_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceLoginModesTest@27508c5d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidLangCode()'><b>regClient_LoginService_invalidLangCode</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidLangCode, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidLangCodeEmpty()'><b>regClient_LoginService_invalidLangCodeEmpty</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidLangCodeEmpty, {}<br/>
+<a href="#Output-371046917" onClick='toggleBox("Output-371046917", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-371046917" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-371046917">
+java.lang.NullPointerException
+	at io.mosip.registration.test.LoginServiceRegCenterDetailTest.testGetRegistrationCenterDetails(LoginServiceRegCenterDetailTest.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidLangCodeRegCenter()'><b>regClient_LoginService_invalidLangCodeRegCenter</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidLangCodeRegCenter, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidLangCodeRegCenter_empty()'><b>regClient_LoginService_invalidLangCodeRegCenter_empty</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidLangCodeRegCenter_empty, {}<br/>
+<a href="#Output-2105634636" onClick='toggleBox("Output-2105634636", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2105634636" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2105634636">
+java.lang.NullPointerException
+	at io.mosip.registration.test.LoginServiceRegCenterDetailTest.testGetRegistrationCenterDetails(LoginServiceRegCenterDetailTest.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidRegCenter()'><b>regClient_LoginService_invalidRegCenter</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidRegCenter, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_invalidRegCenterEmpty()'><b>regClient_LoginService_invalidRegCenterEmpty</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_invalidRegCenterEmpty, {}<br/>
+<a href="#Output-514820977" onClick='toggleBox("Output-514820977", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-514820977" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-514820977">
+java.lang.NullPointerException
+	at io.mosip.registration.test.LoginServiceRegCenterDetailTest.testGetRegistrationCenterDetails(LoginServiceRegCenterDetailTest.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceScreenAuthorizationTest.regClient_LoginService_invalidRole()'><b>regClient_LoginService_invalidRole</b><br>Test class: io.mosip.registration.test.LoginServiceScreenAuthorizationTest (regClient_LoginService_invalidRole)<br>Parameters: regClient_LoginService_invalidRole, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceScreenAuthorizationTest@52e7a6b2</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceLoginModesTest.regClient_LoginService_invalidRoleList_empty()'><b>regClient_LoginService_invalidRoleList_empty</b><br>Test class: io.mosip.registration.test.LoginServiceLoginModesTest (regClient_LoginService_invalidRoleList_empty)<br>Parameters: regClient_LoginService_invalidRoleList_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceLoginModesTest@27508c5d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceUpdateLoginParamTest.regClient_LoginService_invalidUserId()'><b>regClient_LoginService_invalidUserId</b><br>Test class: io.mosip.registration.test.LoginServiceUpdateLoginParamTest (regClient_LoginService_invalidUserId)<br>Parameters: regClient_LoginService_invalidUserId, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceUpdateLoginParamTest@1e81f160</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceRegCenterDetailTest.regClient_LoginService_vaidateRegCenterDetail_smoke()'><b>regClient_LoginService_vaidateRegCenterDetail_smoke</b><br>Test class: io.mosip.registration.test.LoginServiceRegCenterDetailTest (regClient_LoginService_invalidRegCenterEmpty)<br>Parameters: regClient_LoginService_vaidateRegCenterDetail_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceRegCenterDetailTest@3fce8fd9</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceUpdateLoginParamTest.regClient_LoginService_validateLoginParam_smoke()'><b>regClient_LoginService_validateLoginParam_smoke</b><br>Test class: io.mosip.registration.test.LoginServiceUpdateLoginParamTest (regClient_LoginService_invalidUserId)<br>Parameters: regClient_LoginService_validateLoginParam_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceUpdateLoginParamTest@1e81f160</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceLoginModesTest.regClient_LoginService_validateModesOfLogin_smoke()'><b>regClient_LoginService_validateModesOfLogin_smoke</b><br>Test class: io.mosip.registration.test.LoginServiceLoginModesTest (regClient_LoginService_invalidRoleList_empty)<br>Parameters: regClient_LoginService_validateModesOfLogin_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceLoginModesTest@27508c5d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceScreenAuthorizationTest.regClient_LoginService_validateScreenAuthorization_smoke()'><b>regClient_LoginService_validateScreenAuthorization_smoke</b><br>Test class: io.mosip.registration.test.LoginServiceScreenAuthorizationTest (regClient_LoginService_invalidRole)<br>Parameters: regClient_LoginService_validateScreenAuthorization_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceScreenAuthorizationTest@52e7a6b2</td></tr>
+<tr>
+<td title='io.mosip.registration.test.LoginServiceUserDetailsTest.regClient_LoginService_validateUserDetails_smoke()'><b>regClient_LoginService_validateUserDetails_smoke</b><br>Test class: io.mosip.registration.test.LoginServiceUserDetailsTest (regClient_LoginService_UserDetail_invalidUserId)<br>Parameters: regClient_LoginService_validateUserDetails_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.LoginServiceUserDetailsTest@4e928fbf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PolicySyncServiceTest.regClient_PolicySyncService_verifyingCode()'><b>regClient_PolicySyncService_verifyingCode</b><br>Test class: io.mosip.registration.test.PolicySyncServiceTest (regClient_PolicySyncService_verifyingMessage)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PolicySyncServiceTest@55c53a33</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PolicySyncServiceTest.regClient_PolicySyncService_verifyingMessage()'><b>regClient_PolicySyncService_verifyingMessage</b><br>Test class: io.mosip.registration.test.PolicySyncServiceTest (regClient_PolicySyncService_verifyingMessage)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PolicySyncServiceTest@55c53a33</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_fetchAndDeleteRecordsTest()'><b>regClient_PreRegistrationDataSyncService_fetchAndDeleteRecordsTest</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_langCode()'><b>regClient_PreRegistrationDataSyncService_invalid_langCode</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_langCode, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_packetAge()'><b>regClient_PreRegistrationDataSyncService_invalid_packetAge</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_packetAge, {}<br/>
+<a href="#Output-141733735" onClick='toggleBox("Output-141733735", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-141733735" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-141733735">
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at io.mosip.registration.test.PreRegistrationDataSyncServiceTest.testDeletePreRegRecords(PreRegistrationDataSyncServiceTest.java:363)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId_empty()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId_empty</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId_empty, {}<br/>
+<a href="#Output-388142000" onClick='toggleBox("Output-388142000", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-388142000" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-388142000">
+java.lang.NullPointerException
+	at io.mosip.registration.service.sync.impl.PreRegistrationDataSyncServiceImpl.prepareDataSyncRequestDTO(PreRegistrationDataSyncServiceImpl.java:542)
+	at io.mosip.registration.service.sync.impl.PreRegistrationDataSyncServiceImpl.getPreRegistrationIds(PreRegistrationDataSyncServiceImpl.java:116)
+	at io.mosip.registration.test.PreRegistrationDataSyncServiceTest.getPreRegistrationIdsTest(PreRegistrationDataSyncServiceTest.java:252)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId_null()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId_null</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId_null, {}<br/>
+<a href="#Output-270122170" onClick='toggleBox("Output-270122170", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-270122170" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-270122170">
+java.lang.NullPointerException
+	at io.mosip.registration.service.sync.impl.PreRegistrationDataSyncServiceImpl.prepareDataSyncRequestDTO(PreRegistrationDataSyncServiceImpl.java:542)
+	at io.mosip.registration.service.sync.impl.PreRegistrationDataSyncServiceImpl.getPreRegistrationIds(PreRegistrationDataSyncServiceImpl.java:116)
+	at io.mosip.registration.test.PreRegistrationDataSyncServiceTest.getPreRegistrationIdsTest(PreRegistrationDataSyncServiceTest.java:252)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId_space()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId_space</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId_space, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_empty()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_empty</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_space()'><b>regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_space</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_regCenterId_syncJobId_space, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_syncJobId()'><b>regClient_PreRegistrationDataSyncService_invalid_syncJobId</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_syncJobId, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_syncJobId_empty()'><b>regClient_PreRegistrationDataSyncService_invalid_syncJobId_empty</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_syncJobId_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_syncJobId_null()'><b>regClient_PreRegistrationDataSyncService_invalid_syncJobId_null</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_syncJobId_null, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_syncJobId_regCenterId()'><b>regClient_PreRegistrationDataSyncService_invalid_syncJobId_regCenterId</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_syncJobId_regCenterId, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_invalid_syncJobId_space()'><b>regClient_PreRegistrationDataSyncService_invalid_syncJobId_space</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_invalid_syncJobId_space, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_validate_deletePreRegRecords_smoke()'><b>regClient_PreRegistrationDataSyncService_validate_deletePreRegRecords_smoke</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_validate_deletePreRegRecords_smoke, {}<br/>
+<a href="#Output-349503327" onClick='toggleBox("Output-349503327", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-349503327" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-349503327">
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at io.mosip.registration.test.PreRegistrationDataSyncServiceTest.testDeletePreRegRecords(PreRegistrationDataSyncServiceTest.java:363)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSyncService_validate_getPreRegIds_smoke()'><b>regClient_PreRegistrationDataSyncService_validate_getPreRegIds_smoke</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)<br>Parameters: regClient_PreRegistrationDataSyncService_validate_getPreRegIds_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.PreRegistrationDataSyncServiceTest.regClient_PreRegistrationDataSync_RecordForDeletion()'><b>regClient_PreRegistrationDataSync_RecordForDeletion</b><br>Test class: io.mosip.registration.test.PreRegistrationDataSyncServiceTest (regClient_PreRegistrationDataSync_RecordForDeletion)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.PreRegistrationDataSyncServiceTest@62833051</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB()'><b>regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB()'><b>regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_hierarchyName_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_langCode_empty()'><b>regClient_ProvinceByHierarchyCode_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_langCode_empty, {}<br/>
+<a href="#Output-1549275938" onClick='toggleBox("Output-1549275938", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1549275938" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1549275938">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyCode(MasterSyncProvianceByHierarchyCode.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_langCode_empty()'><b>regClient_ProvinceByHierarchyCode_invalid_langCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_langCode_empty, {}<br/>
+<a href="#Output-1347566867" onClick='toggleBox("Output-1347566867", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1347566867" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1347566867">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyName(MasterSyncProvianceByHierarchyCode.java:138)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB()'><b>regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB()'><b>regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_langCode_notPresentInDB, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty()'><b>regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty, {}<br/>
+<a href="#Output-1150629871" onClick='toggleBox("Output-1150629871", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1150629871" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1150629871">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyCode(MasterSyncProvianceByHierarchyCode.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty()'><b>regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty, {}<br/>
+<a href="#Output-1976795033" onClick='toggleBox("Output-1976795033", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1976795033" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1976795033">
+io.mosip.registration.exception.RegBaseCheckedException: REG-MSS-003 --> master sync service code and language code mandatory fields is missing.
+	at io.mosip.registration.service.sync.impl.MasterSyncServiceImpl.findProvianceByHierarchyCode(MasterSyncServiceImpl.java:259)
+	at io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.verifyLocationByHierarchyCodeByHierarchyName(MasterSyncProvianceByHierarchyCode.java:138)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke()'><b>regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.MasterSyncProvianceByHierarchyCode.regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke()'><b>regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke</b><br>Test class: io.mosip.registration.test.MasterSyncProvianceByHierarchyCode (regClient_ProvinceByHierarchyCode_invalid_parentLocationCode_empty)<br>Parameters: regClient_ProvinceByHierarchyCode_validateLocationByparentLocationCode_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.MasterSyncProvianceByHierarchyCode@4a00d9cf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegistrationApprovalServiceTest.regClient_RegistrationApprovalService_getEnrolment_invalidStatus()'><b>regClient_RegistrationApprovalService_getEnrolment_invalidStatus</b><br>Test class: io.mosip.registration.test.RegistrationApprovalServiceTest (regClient_RegistrationApprovalService_validateUpdateRegistration_smoke)<br>Parameters: regClient_RegistrationApprovalService_getEnrolment_invalidStatus, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.RegistrationApprovalServiceTest@6ea2bc93</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegistrationApprovalServiceTest.regClient_RegistrationApprovalService_getEnrolment_invalidStatus_empty()'><b>regClient_RegistrationApprovalService_getEnrolment_invalidStatus_empty</b><br>Test class: io.mosip.registration.test.RegistrationApprovalServiceTest (regClient_RegistrationApprovalService_validateUpdateRegistration_smoke)<br>Parameters: regClient_RegistrationApprovalService_getEnrolment_invalidStatus_empty, {}<br/>
+<a href="#Output-712302944" onClick='toggleBox("Output-712302944", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-712302944" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-712302944">
+Exception : REG-SER-PRS - 233 --> Status is empty or null<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.RegistrationApprovalServiceTest@6ea2bc93</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegistrationApprovalServiceTest.regClient_RegistrationApprovalService_getEnrolment_invalidStatus_space()'><b>regClient_RegistrationApprovalService_getEnrolment_invalidStatus_space</b><br>Test class: io.mosip.registration.test.RegistrationApprovalServiceTest (regClient_RegistrationApprovalService_validateUpdateRegistration_smoke)<br>Parameters: regClient_RegistrationApprovalService_getEnrolment_invalidStatus_space, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.RegistrationApprovalServiceTest@6ea2bc93</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegistrationApprovalServiceTest.regClient_RegistrationApprovalService_getEnrolment_validateEnrolment_smoke()'><b>regClient_RegistrationApprovalService_getEnrolment_validateEnrolment_smoke</b><br>Test class: io.mosip.registration.test.RegistrationApprovalServiceTest (regClient_RegistrationApprovalService_validateUpdateRegistration_smoke)<br>Parameters: regClient_RegistrationApprovalService_getEnrolment_validateEnrolment_smoke, {}</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.registration.test.RegistrationApprovalServiceTest@6ea2bc93</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegistrationApprovalServiceTest.regClient_RegistrationApprovalService_validateUpdateRegistration_smoke()'><b>regClient_RegistrationApprovalService_validateUpdateRegistration_smoke</b><br>Test class: io.mosip.registration.test.RegistrationApprovalServiceTest (regClient_RegistrationApprovalService_validateUpdateRegistration_smoke)<br>Parameters: regClient_RegistrationApprovalService_validateUpdateRegistration_smoke, {}</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.registration.test.RegistrationApprovalServiceTest@6ea2bc93</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest.regClient_RegpacketStatusService_Delete_RegistrationPackets_created_10days_back()'><b>regClient_RegpacketStatusService_Delete_RegistrationPackets_created_10days_back</b><br>Test class: io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest (regClient_RegpacketStatusService_Delete_RegistrationPackets_created_10days_back)<br>Parameters: regClient_RegpacketStatusService_Delete_RegistrationPackets_created_10days_back, {}</td>
+<td></td>
+<td>7</td>
+<td>io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest@4bf48f6</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest.regClient_RegpacketStatusService_Delete_currently_created_RegistrationPackets()'><b>regClient_RegpacketStatusService_Delete_currently_created_RegistrationPackets</b><br>Test class: io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest (regClient_RegpacketStatusService_Delete_RegistrationPackets_created_10days_back)<br>Parameters: regClient_RegpacketStatusService_Delete_currently_created_RegistrationPackets, {}</td>
+<td></td>
+<td>7</td>
+<td>io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest@4bf48f6</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest.regClient_RegpacketStatusService_Invalid_Sync_packet_RegID_with_lessthan_29chars()'><b>regClient_RegpacketStatusService_Invalid_Sync_packet_RegID_with_lessthan_29chars</b><br>Test class: io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest (regClient_RegpacketStatusService_Invalid_Sync_packet_RegID_with_lessthan_29chars)<br>Parameters: regClient_RegpacketStatusService_Invalid_Sync_packet_RegID_with_lessthan_29chars, {}<br/>
+<a href="#Output-1866657429" onClick='toggleBox("Output-1866657429", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1866657429" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1866657429">
+io.mosip.registration.exception.RegBaseUncheckedException: PCC-RDA-001 --> Exception while saving the registration details to DB; 
+nested exception is io.mosip.kernel.core.dataaccess.exception.DataAccessLayerException: KER-DAH-001 --> org.hibernate.exception.ConstraintViolationException: could not execute statement; 
+nested exception is javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at io.mosip.registration.dao.impl.RegistrationDAOImpl.save(RegistrationDAOImpl.java:103)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy184.save(Unknown Source)
+	at io.mosip.registration.service.packet.impl.PacketHandlerServiceImpl.handle(PacketHandlerServiceImpl.java:159)
+	at io.mosip.registration.util.CommonUtil.packetCreation(CommonUtil.java:509)
+	at io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest.validatePacketCreation(RegPacketStatusServicePacketSyncStatusTest.java:155)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+Caused by: io.mosip.kernel.core.dataaccess.exception.DataAccessLayerException: KER-DAH-001 --> org.hibernate.exception.ConstraintViolationException: could not execute statement; 
+nested exception is javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at io.mosip.kernel.dataaccess.hibernate.repository.impl.HibernateRepositoryImpl.create(HibernateRepositoryImpl.java:71)
+	at sun.reflect.GeneratedMethodAccessor279.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:377)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:200)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:629)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:593)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:578)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:59)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy183.create(Unknown Source)
+	at io.mosip.registration.dao.impl.RegistrationDAOImpl.save(RegistrationDAOImpl.java:97)
+	... 44 more
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:149)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:164)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1443)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1423)
+	at sun.reflect.GeneratedMethodAccessor234.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:304)
+	at com.sun.proxy.$Proxy125.flush(Unknown Source)
+	at io.mosip.kernel.dataaccess.hibernate.repository.impl.HibernateRepositoryImpl.create(HibernateRepositoryImpl.java:65)
+	... 70 more
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:59)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:178)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3032)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3547)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:89)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:600)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:474)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1437)
+	... 77 more
+Caused by: org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException: The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'PK_REG_ID' defined on 'REGISTRATION'.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.TransactionResourceImpl.wrapInSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.TransactionResourceImpl.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.ConnectionChild.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedStatement.executeStatement(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedPreparedStatement.executeStatement(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedPreparedStatement.executeLargeUpdate(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedPreparedStatement.executeUpdate(Unknown Source)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:175)
+	... 85 more
+Caused by: ERROR 23505: The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'PK_REG_ID' defined on 'REGISTRATION'.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.sql.execute.IndexChanger.insertAndCheckDups(Unknown Source)
+	at org.apache.derby.impl.sql.execute.IndexChanger.doInsert(Unknown Source)
+	at org.apache.derby.impl.sql.execute.IndexChanger.insert(Unknown Source)
+	at org.apache.derby.impl.sql.execute.IndexSetChanger.insert(Unknown Source)
+	at org.apache.derby.impl.sql.execute.RowChangerImpl.insertRow(Unknown Source)
+	at org.apache.derby.impl.sql.execute.InsertResultSet.normalInsertCore(Unknown Source)
+	at org.apache.derby.impl.sql.execute.InsertResultSet.open(Unknown Source)
+	at org.apache.derby.impl.sql.GenericPreparedStatement.executeStmt(Unknown Source)
+	at org.apache.derby.impl.sql.GenericPreparedStatement.execute(Unknown Source)
+	... 90 more
+<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest@50313382</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest.regClient_RegpacketStatusService_SyncPackets_with_ClientStatusCode_PUSHED_smoke()'><b>regClient_RegpacketStatusService_SyncPackets_with_ClientStatusCode_PUSHED_smoke</b><br>Test class: io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest (regClient_RegpacketStatusService_Invalid_Sync_packet_RegID_with_lessthan_29chars)<br>Parameters: regClient_RegpacketStatusService_SyncPackets_with_ClientStatusCode_PUSHED_smoke, {}</td>
+<td></td>
+<td>12</td>
+<td>io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest@50313382</td></tr>
+<tr>
+<td title='io.mosip.registration.test.RegPacketStatusServiceSyncPacketsTest.regClient_RegpacketStatusService_sync_packets_to_server()'><b>regClient_RegpacketStatusService_sync_packets_to_server</b><br>Test class: io.mosip.registration.test.RegPacketStatusServiceSyncPacketsTest (regClient_RegpacketStatusService_sync_packets_to_server)<br>Parameters: regClient_RegpacketStatusService_sync_packets_to_server, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.RegPacketStatusServiceSyncPacketsTest@329dbdbf</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ReRegistrationServiceTest.regClient_ReregistrationService_validate_getAllReRegistrationPackets()'><b>regClient_ReregistrationService_validate_getAllReRegistrationPackets</b><br>Test class: io.mosip.registration.test.ReRegistrationServiceTest (regClient_ReregistrationService_validate_updateReRegistrationStatusApprovedpacket)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ReRegistrationServiceTest@4d518b32</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ReRegistrationServiceTest.regClient_ReregistrationService_validate_updateReRegistrationStatusApprovedpacket()'><b>regClient_ReregistrationService_validate_updateReRegistrationStatusApprovedpacket</b><br>Test class: io.mosip.registration.test.ReRegistrationServiceTest (regClient_ReregistrationService_validate_updateReRegistrationStatusApprovedpacket)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ReRegistrationServiceTest@4d518b32</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SMSNotificationServiceTest.regClient_SMSNotificationService_invalid_message_empty()'><b>regClient_SMSNotificationService_invalid_message_empty</b><br>Test class: io.mosip.registration.test.SMSNotificationServiceTest (regClient_SMSNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_SMSNotificationService_invalid_message_empty, {}<br/>
+<a href="#Output-1392649201" onClick='toggleBox("Output-1392649201", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1392649201" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1392649201">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-NSI-001 --> Message and Number can not be null
+	at io.mosip.registration.service.template.impl.NotificationServiceImpl.sendSMS(NotificationServiceImpl.java:95)
+	at io.mosip.registration.test.SMSNotificationServiceTest.validateSendSMSTest(SMSNotificationServiceTest.java:91)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SMSNotificationServiceTest@11d8ae8b</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SMSNotificationServiceTest.regClient_SMSNotificationService_invalid_mobileNumber()'><b>regClient_SMSNotificationService_invalid_mobileNumber</b><br>Test class: io.mosip.registration.test.SMSNotificationServiceTest (regClient_SMSNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_SMSNotificationService_invalid_mobileNumber, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SMSNotificationServiceTest@11d8ae8b</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SMSNotificationServiceTest.regClient_SMSNotificationService_invalid_mobileNumber_empty()'><b>regClient_SMSNotificationService_invalid_mobileNumber_empty</b><br>Test class: io.mosip.registration.test.SMSNotificationServiceTest (regClient_SMSNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_SMSNotificationService_invalid_mobileNumber_empty, {}<br/>
+<a href="#Output-1646430837" onClick='toggleBox("Output-1646430837", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1646430837" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1646430837">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-NSI-001 --> Message and Number can not be null
+	at io.mosip.registration.service.template.impl.NotificationServiceImpl.sendSMS(NotificationServiceImpl.java:95)
+	at io.mosip.registration.test.SMSNotificationServiceTest.validateSendSMSTest(SMSNotificationServiceTest.java:91)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SMSNotificationServiceTest@11d8ae8b</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SMSNotificationServiceTest.regClient_SMSNotificationService_invalid_registrationId_empty()'><b>regClient_SMSNotificationService_invalid_registrationId_empty</b><br>Test class: io.mosip.registration.test.SMSNotificationServiceTest (regClient_SMSNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_SMSNotificationService_invalid_registrationId_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SMSNotificationServiceTest@11d8ae8b</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SMSNotificationServiceTest.regClient_SMSNotificationService_validateSendSMSTest_smoke()'><b>regClient_SMSNotificationService_validateSendSMSTest_smoke</b><br>Test class: io.mosip.registration.test.SMSNotificationServiceTest (regClient_SMSNotificationService_invalid_registrationId_empty)<br>Parameters: regClient_SMSNotificationService_validateSendSMSTest_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SMSNotificationServiceTest@11d8ae8b</td></tr>
+<tr>
+<td title='io.mosip.registration.test.StorageServiceTest.regClient_StorageService_NewFolderToStore_Packet()'><b>regClient_StorageService_NewFolderToStore_Packet</b><br>Test class: io.mosip.registration.test.StorageServiceTest (regClient_StorageService_NoFolderToStore_Packet)<br>Parameters: regClient_StorageService_NewFolderToStore_Packet, {}<br/>
+<a href="#Output-230050118" onClick='toggleBox("Output-230050118", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-230050118" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-230050118">
+java.lang.NullPointerException
+	at io.mosip.registration.util.CommonUtil.verifyIfFileExist(CommonUtil.java:261)
+	at io.mosip.registration.test.StorageServiceTest.validateStoreToDisk(StorageServiceTest.java:133)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.StorageServiceTest@37fb0bed</td></tr>
+<tr>
+<td title='io.mosip.registration.test.StorageServiceTest.regClient_StorageService_NoFolderToStore_Packet()'><b>regClient_StorageService_NoFolderToStore_Packet</b><br>Test class: io.mosip.registration.test.StorageServiceTest (regClient_StorageService_NoFolderToStore_Packet)<br>Parameters: regClient_StorageService_NoFolderToStore_Packet, {}<br/>
+<a href="#Output-314090057" onClick='toggleBox("Output-314090057", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-314090057" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-314090057">
+java.lang.NullPointerException
+	at io.mosip.registration.util.CommonUtil.verifyIfFileExist(CommonUtil.java:261)
+	at io.mosip.registration.test.StorageServiceTest.validateStoreToDisk(StorageServiceTest.java:133)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.StorageServiceTest@37fb0bed</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SyncStatusValidatorServiceTest.regClient_SyncStatusValidatorService_validate_validatingErrorResponse()'><b>regClient_SyncStatusValidatorService_validate_validatingErrorResponse</b><br>Test class: io.mosip.registration.test.SyncStatusValidatorServiceTest (regClient_SyncStatusValidatorService_validate_validatingSucessResponse)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SyncStatusValidatorServiceTest@1130520d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.SyncStatusValidatorServiceTest.regClient_SyncStatusValidatorService_validate_validatingSucessResponse()'><b>regClient_SyncStatusValidatorService_validate_validatingSucessResponse</b><br>Test class: io.mosip.registration.test.SyncStatusValidatorServiceTest (regClient_SyncStatusValidatorService_validate_validatingSucessResponse)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.SyncStatusValidatorServiceTest@1130520d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_invalidLangCode()'><b>regClient_TemplateService__HtmlTemplate_invalidLangCode</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_invalidLangCode, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_invalidLangCode_empty()'><b>regClient_TemplateService__HtmlTemplate_invalidLangCode_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_invalidLangCode_empty, {}<br/>
+<a href="#Output-403111542" onClick='toggleBox("Output-403111542", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-403111542" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-403111542">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-TSI-001 --> Template Type Code / Language Code cannot be null
+	at io.mosip.registration.service.template.impl.TemplateServiceImpl.getHtmlTemplate(TemplateServiceImpl.java:106)
+	at io.mosip.registration.test.TemplateServiceTest.getHtmlTemplateTest(TemplateServiceTest.java:202)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_invalidTemplateType()'><b>regClient_TemplateService__HtmlTemplate_invalidTemplateType</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_invalidTemplateType, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_invalidTemplateTypeLangCode_empty()'><b>regClient_TemplateService__HtmlTemplate_invalidTemplateTypeLangCode_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_invalidTemplateTypeLangCode_empty, {}<br/>
+<a href="#Output-2018455635" onClick='toggleBox("Output-2018455635", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2018455635" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2018455635">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-TSI-001 --> Template Type Code / Language Code cannot be null
+	at io.mosip.registration.service.template.impl.TemplateServiceImpl.getHtmlTemplate(TemplateServiceImpl.java:106)
+	at io.mosip.registration.test.TemplateServiceTest.getHtmlTemplateTest(TemplateServiceTest.java:202)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_invalidTemplateType_empty()'><b>regClient_TemplateService__HtmlTemplate_invalidTemplateType_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_invalidTemplateType_empty, {}<br/>
+<a href="#Output-1757643993" onClick='toggleBox("Output-1757643993", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1757643993" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1757643993">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-TSI-001 --> Template Type Code / Language Code cannot be null
+	at io.mosip.registration.service.template.impl.TemplateServiceImpl.getHtmlTemplate(TemplateServiceImpl.java:106)
+	at io.mosip.registration.test.TemplateServiceTest.getHtmlTemplateTest(TemplateServiceTest.java:202)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService__HtmlTemplate_validateTemplateType_smoke()'><b>regClient_TemplateService__HtmlTemplate_validateTemplateType_smoke</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService__HtmlTemplate_validateTemplateType_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_invalidLangCode()'><b>regClient_TemplateService_invalidLangCode</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_invalidLangCode, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_invalidLangCode_empty()'><b>regClient_TemplateService_invalidLangCode_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_invalidLangCode_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_invalidTemplateType()'><b>regClient_TemplateService_invalidTemplateType</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_invalidTemplateType, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_invalidTemplateTypeLangCode_empty()'><b>regClient_TemplateService_invalidTemplateTypeLangCode_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_invalidTemplateTypeLangCode_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_invalidTemplateType_empty()'><b>regClient_TemplateService_invalidTemplateType_empty</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_invalidTemplateType_empty, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.TemplateServiceTest.regClient_TemplateService_validateTemplateType_smoke()'><b>regClient_TemplateService_validateTemplateType_smoke</b><br>Test class: io.mosip.registration.test.TemplateServiceTest (regClient_TemplateService_invalidTemplateType_empty)<br>Parameters: regClient_TemplateService_validateTemplateType_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.TemplateServiceTest@51c693d</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_MachineCenterDetails_smoke()'><b>regClient_UserOnboardService_Valid_MachineCenterDetails_smoke</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_AllMarkedException()'><b>regClient_UserOnboardService_Valid_UserOnboard_AllMarkedException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_AllMarkedException, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_All_Biometric_smoke()'><b>regClient_UserOnboardService_Valid_UserOnboard_All_Biometric_smoke</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_All_Biometric_smoke, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_FaceException()'><b>regClient_UserOnboardService_Valid_UserOnboard_FaceException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_FaceException, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_LeftSlap_FingerPrintException()'><b>regClient_UserOnboardService_Valid_UserOnboard_LeftSlap_FingerPrintException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_LeftSlap_FingerPrintException, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_Left_IrisException()'><b>regClient_UserOnboardService_Valid_UserOnboard_Left_IrisException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_Left_IrisException, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_RightSlap_FingerPrintException()'><b>regClient_UserOnboardService_Valid_UserOnboard_RightSlap_FingerPrintException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_RightSlap_FingerPrintException, {}</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_Right_IrisException()'><b>regClient_UserOnboardService_Valid_UserOnboard_Right_IrisException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_Right_IrisException, {}<br/>
+<a href="#Output-217976673" onClick='toggleBox("Output-217976673", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-217976673" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-217976673">
+com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `byte[]` from String ",": Failed to decode VALUE_STRING as base64 (MIME-NO-LINEFEEDS): Illegal character '"' (code 0x22) in base64 content
+ at [Source: (StringReader); line: 1, column: 419210] (through reference chain: io.mosip.registration.dto.biometric.BiometricDTO["applicantBiometricDTO"]->io.mosip.registration.dto.biometric.BiometricInfoDTO["fingerprintDetailsDTO"]->java.util.ArrayList[0]->io.mosip.registration.dto.biometric.FingerprintDetailsDTO["fingerPrintISOImage"])
+	at com.fasterxml.jackson.databind.exc.InvalidFormatException.from(InvalidFormatException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.weirdStringException(DeserializationContext.java:1676)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleWeirdStringValue(DeserializationContext.java:932)
+	at com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser.deserialize(PrimitiveArrayDeserializers.java:484)
+	at com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$ByteDeser.deserialize(PrimitiveArrayDeserializers.java:446)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:288)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:286)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:245)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:27)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:288)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:288)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4202)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3205)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3173)
+	at io.mosip.registration.util.CommonUtil.getBiotestData(CommonUtil.java:930)
+	at io.mosip.registration.test.UserOnboardValidateTest.validateUserOnboard(UserOnboardValidateTest.java:107)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.UserOnboardValidateTest.regClient_UserOnboardService_Valid_UserOnboard_Thumb_FingerPrintException()'><b>regClient_UserOnboardService_Valid_UserOnboard_Thumb_FingerPrintException</b><br>Test class: io.mosip.registration.test.UserOnboardValidateTest (regClient_UserOnboardService_Valid_MachineCenterDetails_smoke)<br>Parameters: regClient_UserOnboardService_Valid_UserOnboard_Thumb_FingerPrintException, {}<br/>
+<a href="#Output-762016587" onClick='toggleBox("Output-762016587", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-762016587" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-762016587">
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "fingerPrintISOImage" (class io.mosip.registration.dto.biometric.IrisDetailsDTO), not marked as ignorable (9 known properties: "irises", "irisIso", "iris", "numOfIrisRetry", "forceCaptured", "irisType", "captured", "irisImageName", "qualityScore"])
+ at [Source: (StringReader); line: 1, column: 38046] (through reference chain: io.mosip.registration.dto.biometric.BiometricDTO["applicantBiometricDTO"]->io.mosip.registration.dto.biometric.BiometricInfoDTO["irisDetailsDTO"]->java.util.ArrayList[0]->io.mosip.registration.dto.biometric.IrisDetailsDTO["fingerPrintISOImage"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:840)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1192)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1592)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1570)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:294)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:286)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:245)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:27)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:288)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:288)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4202)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3205)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3173)
+	at io.mosip.registration.util.CommonUtil.getBiotestData(CommonUtil.java:930)
+	at io.mosip.registration.test.UserOnboardValidateTest.validateUserOnboard(UserOnboardValidateTest.java:107)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.UserOnboardValidateTest@5d99c6b5</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ZipCreationServiceTest.regClient_ZipCreationService_createPacketCheckedExceptionTest()'><b>regClient_ZipCreationService_createPacketCheckedExceptionTest</b><br>Test class: io.mosip.registration.test.ZipCreationServiceTest (regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest)</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ZipCreationServiceTest@3ddc6915</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ZipCreationServiceTest.regClient_ZipCreationService_createPacketcheckedExceptionEmptyFileInputTest()'><b>regClient_ZipCreationService_createPacketcheckedExceptionEmptyFileInputTest</b><br>Test class: io.mosip.registration.test.ZipCreationServiceTest (regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest)<br/>
+<a href="#Output-186730367" onClick='toggleBox("Output-186730367", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-186730367" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-186730367">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-ZCS-004 --> Map containing the generated files cannot be null or empty
+	at io.mosip.registration.service.BaseService.throwRegBaseCheckedException(BaseService.java:361)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.validateInputData(ZipCreationServiceImpl.java:93)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.createPacket(ZipCreationServiceImpl.java:58)
+	at io.mosip.registration.test.ZipCreationServiceTest.createPacketcheckedExceptionEmptyFileInputTest(ZipCreationServiceTest.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ZipCreationServiceTest@3ddc6915</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ZipCreationServiceTest.regClient_ZipCreationService_createPacketcheckedExceptionEmptyInputsTest()'><b>regClient_ZipCreationService_createPacketcheckedExceptionEmptyInputsTest</b><br>Test class: io.mosip.registration.test.ZipCreationServiceTest (regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest)<br/>
+<a href="#Output-1447161992" onClick='toggleBox("Output-1447161992", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1447161992" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1447161992">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-ZCS-004 --> Map containing the generated files cannot be null or empty
+	at io.mosip.registration.service.BaseService.throwRegBaseCheckedException(BaseService.java:361)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.validateInputData(ZipCreationServiceImpl.java:93)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.createPacket(ZipCreationServiceImpl.java:58)
+	at io.mosip.registration.test.ZipCreationServiceTest.createPacketcheckedExceptionEmptyInputsTest(ZipCreationServiceTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ZipCreationServiceTest@3ddc6915</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ZipCreationServiceTest.regClient_ZipCreationService_createPacketcheckedExceptionIncompleteInputTest()'><b>regClient_ZipCreationService_createPacketcheckedExceptionIncompleteInputTest</b><br>Test class: io.mosip.registration.test.ZipCreationServiceTest (regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest)<br/>
+<a href="#Output-2636254" onClick='toggleBox("Output-2636254", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2636254" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2636254">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-ZCS-004 --> Map containing the generated files cannot be null or empty
+	at io.mosip.registration.service.BaseService.throwRegBaseCheckedException(BaseService.java:361)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.validateInputData(ZipCreationServiceImpl.java:93)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.createPacket(ZipCreationServiceImpl.java:58)
+	at io.mosip.registration.test.ZipCreationServiceTest.createPacketcheckedExceptionIncompleteInputTest(ZipCreationServiceTest.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ZipCreationServiceTest@3ddc6915</td></tr>
+<tr>
+<td title='io.mosip.registration.test.ZipCreationServiceTest.regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest()'><b>regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest</b><br>Test class: io.mosip.registration.test.ZipCreationServiceTest (regClient_ZipCreationService_createPacketcheckedExceptionNullInputTest)<br/>
+<a href="#Output-71928515" onClick='toggleBox("Output-71928515", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-71928515" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-71928515">
+io.mosip.registration.exception.RegBaseCheckedException: PCC-ZCS-004 --> Map containing the generated files cannot be null or empty
+	at io.mosip.registration.service.BaseService.throwRegBaseCheckedException(BaseService.java:361)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.validateInputData(ZipCreationServiceImpl.java:89)
+	at io.mosip.registration.service.external.impl.ZipCreationServiceImpl.createPacket(ZipCreationServiceImpl.java:58)
+	at io.mosip.registration.test.ZipCreationServiceTest.createPacketcheckedExceptionNullInputTest(ZipCreationServiceTest.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:182)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at sun.reflect.GeneratedMethodAccessor225.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:194)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:47)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:33)
+<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.registration.test.ZipCreationServiceTest@3ddc6915</td></tr>
+</table><p>
+</body>
+</html>

@@ -191,10 +191,11 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 *                          packet structure itself
 	 * @throws ApiNotAccessibleException 
 	 * @throws PacketDecryptionFailureException 
+	 * @throws ZipException 
 	 */
 	public void generateInvalidPacketForPacketValidator(String fileName, String validPacketPath,
-			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException {
-
+			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException, ZipException {
+		File[] zippedPacket=null;
 		File decryptedPacket = null;
 		JSONObject metaInfo = null;
 		String configPath = validPacketPath;
@@ -205,16 +206,17 @@ public class TweakRegProcPackets extends BaseTestCase {
 		
 		for (File f : listOfFiles) {
 			if (f.getName().contains(".zip")) {
-				centerId = f.getName().substring(0, 5);
-				machineId = f.getName().substring(5, 10);
-				String regId = generateRegIdForUpdatePacket(centerId, machineId, f.getName().substring(0, f.getName().lastIndexOf(".")));
+				zippedPacket=decryptPacket.unzipPacket(f);
+				for(File decrypt:zippedPacket) {
+					if(decrypt.getName().contains("_id")) {
+				centerId = decrypt.getName().substring(0, 5);
+				machineId = decrypt.getName().substring(5, 10);
+				String regId = generateRegIdForUpdatePacket(centerId, machineId, decrypt.getName().substring(0, decrypt.getName().lastIndexOf("_")));
 				//String regId = generateRegId(centerId, machineId);
-				JSONObject requestBody = encryptDecrypt.generateCryptographicData(f);
+				JSONObject requestBody = encryptDecrypt.generateCryptographicData(decrypt);
 				try {
-					//encryptDecrypt.decryptPacket(f,regId);
+					
 					decryptedPacket = encryptDecrypt.decryptFile(requestBody, configPath, f.getName());
-					// decryptedPacket=
-					// encryptDecrypt.extractFromDecryptedPacket(configPath,f.getName());
 					for (File info : decryptedPacket.listFiles()) {
 						if (info.getName().toLowerCase().equals("packet_meta_info.json")) {
 							try {
@@ -285,6 +287,8 @@ public class TweakRegProcPackets extends BaseTestCase {
 				} catch (IOException | ZipException | ParseException e) {
 					logger.error("Error while generating the packets", e);
 				}
+				}
+			}
 			}
 		}
 
@@ -752,10 +756,11 @@ public class TweakRegProcPackets extends BaseTestCase {
 	 *                          be updated packet validator stage
 	 * @throws ApiNotAccessibleException 
 	 * @throws PacketDecryptionFailureException 
+	 * @throws ZipException 
 	 */
 
 	public void packetValidatorPropertyFileReader(String propertyFile, String validPacketPath,
-			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException {
+			String invalidPacketPath) throws PacketDecryptionFailureException, ApiNotAccessibleException, ZipException {
 		Properties prop = new Properties();
 		TweakRegProcPackets e = new TweakRegProcPackets();
 		String propertyFilePath = apiRequests.getResourcePath() +"config/" + propertyFile;

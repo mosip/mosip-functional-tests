@@ -367,9 +367,9 @@
 				name="io.mosip.registrationProcessor.tests.PacketGenerator" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketGeneratorReactivate" />
-			<class
-				name="io.mosip.registrationProcessor.tests.StageValidationTests" />
-			<class name="io.mosip.registrationProcessor.tests.UpdatePacket" />
+			<!-- <class
+				name="io.mosip.registrationProcessor.tests.StageValidationTests" /> -->
+		<!-- 	<class name="io.mosip.registrationProcessor.tests.UpdatePacket" /> -->
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
 			<class
 				name="io.mosip.registrationProcessor.tests.SecurityTests" />
@@ -378,15 +378,13 @@
 				name="io.mosip.registrationProcessor.tests.PacketReceiver" />
 			<class name="io.mosip.registrationProcessor.tests.Assignment" />
 			<class name="io.mosip.registrationProcessor.tests.Decision" />
-			<class
-				name="io.mosip.registrationProcessor.tests.IntegrationScenarios" />
+			<!-- <class
+				name="io.mosip.registrationProcessor.tests.IntegrationScenarios" /> -->
 			<class
 				name="io.mosip.registrationProcessor.tests.ApplicantDemographic" />
 			<class
 				name="io.mosip.registrationProcessor.tests.ApplicantBiometric" />
 			<class name="io.mosip.registrationProcessor.tests.PacketInfo" />
-			<class
-				name="io.mosip.registrationProcessor.tests.AbisMiddlewareTests" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PrintingStage" />
 			<class name="io.mosip.registrationProcessor.tests.Reprinting" />
