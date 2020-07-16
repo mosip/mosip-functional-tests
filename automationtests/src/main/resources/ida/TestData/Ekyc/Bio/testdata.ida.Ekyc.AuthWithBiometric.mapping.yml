@@ -781,7 +781,7 @@ testdata:
       
   Authentication_EKYC_Biometric_With_requestedAuth_set_bio_true_when_bio_Authentication_EKYC_Biometric_not_selected_in_ploicy_Neg:
     endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK_Without_Bio$
     input.ekyc-request:
       AuthReq.individualId: $UIN$
       AuthReq.requestTime: $TIMESTAMP$
