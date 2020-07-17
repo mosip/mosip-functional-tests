@@ -151,15 +151,6 @@ public class CreateMachineSpecification  extends AdminTestUtil implements ITest 
 					logger.info("No MachineSpecification created  for secondary language");
 				}
 			}
-			
-			if (testCaseName.contains("All_Valid_Smoke")) {
-				if (masterDB.validateDBCount(queries.get("createMachineSpecIsActive").toString(), "masterdata") == 1)
-					logger.info("Record inserted in primary language with Status: FALSE");
-				else {
-					logger.info("Record inserted in primary language with Status: TRUE");
-					throw new AdminTestException("Record inserted in one language with Status: TRUE");
-				}
-			}
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
@@ -194,6 +185,15 @@ public class CreateMachineSpecification  extends AdminTestUtil implements ITest 
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
+		
+		if (this.testCaseName.contains("All_Valid_Smoke")) {
+			if (masterDB.validateDBCount(queries.get("createMachineSpecIsActive").toString(), "masterdata") == 1)
+				logger.info("Record inserted in primary language with Status: FALSE");
+			else {
+				logger.info("Record inserted in primary language with Status: TRUE");
+				throw new AdminTestException("Record inserted in one language with Status: TRUE");
+			}
+		}
 }
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing
