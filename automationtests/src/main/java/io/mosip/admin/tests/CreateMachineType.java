@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateMachineType  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(CreateMachineType.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -142,13 +142,24 @@ public class CreateMachineType  extends AdminTestUtil implements ITest {
 			f.setAccessible(true);
 			f.set(baseTestMethod, testCaseName);
 			//check whether secondary data inserted in DB without existing primary language
-			if(testCaseName.contains("No_Data_Prim_lang")) {
-				if (masterDB.validateDBCount(queries.get("checkPrimDataAgainstSecData_MachineType").toString(), "masterdata")==1) {
-				logger.info("Data stored successfully for secondory language but no data present for Primary language");
-				throw new AdminTestException("Cannot create data in secondary language as data does not exist in primary language");
-				
-				}else {
+			if (testCaseName.contains("No_Data_Prim_lang")) {
+				if (masterDB.validateDBCount(queries.get("checkPrimDataAgainstSecData_MachineType").toString(),
+						"masterdata") == 1) {
+					logger.info(
+							"Data stored successfully for secondory language but no data present for Primary language");
+					throw new AdminTestException(
+							"Cannot create data in secondary language as data does not exist in primary language");
+
+				} else {
 					logger.info("MachineType Not created for secondary language");
+				}
+			}
+			if (testCaseName.contains("All_Valid_Smoke")) {
+				if (masterDB.validateDBCount(queries.get("createMachineTypeIsActive").toString(), "masterdata") == 1)
+					logger.info("Record inserted in primary language with Status: FALSE");
+				else {
+					logger.info("Record inserted in primary language with Status: TRUE");
+					throw new AdminTestException("Record inserted in one language with Status: TRUE");
 				}
 			}
 		} catch (Exception e) {

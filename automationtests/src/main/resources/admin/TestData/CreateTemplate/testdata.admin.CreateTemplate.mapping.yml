@@ -4,7 +4,7 @@ testdata:
          description: test template
          fileFormatCode: html
          fileText: abc
-         Rid: test-03
+         Rid: crTempTest-03
          isActive: true
          RlangCode: eng
          model: model-1

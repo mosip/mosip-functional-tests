@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateRegCenterType_All_Valid_Smoke:
       input.create-regCenter-type-request:
-         Rcode: ALT-03
+         Rcode: RegALT-03
          RlangCode: eng
          name: alternate
          descr: alternate center

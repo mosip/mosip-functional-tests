@@ -54,7 +54,7 @@ testdata:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Title_Empty$
          
-   Admin_UpdateTitle_Invalid_InputParameter_Code_AboveMaxLen36:
+   Admin_UpdateTitle_Invalid_InputParameter_Code_AboveMaxLen16:
       input.update-title-request:
          Rcode: $TestData:validLocationCode37$
          titleDescription: MASTER-auto description

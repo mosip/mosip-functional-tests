@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateTemplateType_All_Valid_Smoke:
       input.create-template-type-request:
-         Rcode: Test-info-Template
+         Rcode: crTest-info-Template
          description: Test-info-Template desc
          isActive: true
          RlangCode: eng

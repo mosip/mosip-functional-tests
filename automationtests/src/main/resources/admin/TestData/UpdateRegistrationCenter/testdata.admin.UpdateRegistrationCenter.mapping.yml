@@ -350,7 +350,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: Received Zone Code does not belong to the User
    Admin_UpdateRegCenter_Invalid_zoneCode_anyNonLeaf:
       input.updateRegCenter-request:
          zoneCode: $TestData:valid_nonLeafZone$

@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateTemplateFileFormat_All_Valid_Smoke:
       input.create-templateFile-format-request:
-         Rcode: Doc
+         Rcode: Docx
          description: Doc Test
          RlangCode: eng
          isActive: true

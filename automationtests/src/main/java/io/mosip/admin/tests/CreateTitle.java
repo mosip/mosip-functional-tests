@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateTitle  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(CreateTitle.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -149,6 +149,15 @@ public class CreateTitle  extends AdminTestUtil implements ITest {
 				
 				}else {
 					logger.info("Title created successfully for secondary language");
+				}
+			}
+			
+			if (testCaseName.contains("All_Valid_Smoke")) {
+				if (masterDB.validateDBCount(queries.get("createTitleIsActive").toString(), "masterdata") == 1)
+					logger.info("Record inserted in primary language with Status: FALSE");
+				else {
+					logger.info("Record inserted in primary language with Status: TRUE");
+					throw new AdminTestException("Record inserted in one language with Status: TRUE");
 				}
 			}
 		} catch (Exception e) {
