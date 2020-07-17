@@ -135,6 +135,16 @@ public class CreateBlackListedWords extends AdminTestUtil implements ITest {
 			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
 			f.setAccessible(true);
 			f.set(baseTestMethod, testCaseName);
+			KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
+			if (testCaseName.contains("Valid_Smoke")) {
+				if (masterDB.validateDBCount(queries.get("createBlackLstWordIsActive").toString(), "masterdata") == 1)
+					logger.info("Record inserted in primary language with Status: FALSE");
+				else {
+					logger.info("Record inserted in primary language with Status: TRUE");
+					throw new AdminTestException("Record inserted in one language with Status: TRUE");
+				}
+			}
+			
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}

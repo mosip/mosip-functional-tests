@@ -3,7 +3,7 @@ testdata:
       input.create-machine-type-request:
          Rcode: Laptop-2
          description: Laptop-2 info
-         isActive: false
+         isActive: true
          RlangCode: eng
          name: Laptop-2 test
       output.output-1-expected-pos-response:

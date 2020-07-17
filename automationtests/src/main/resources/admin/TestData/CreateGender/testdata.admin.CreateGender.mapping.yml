@@ -1,9 +1,9 @@
 testdata:
    Admin_CreateGender_All_Valid_Smoke:
       input.create-gender-request:
-         Rcode: Genderdummy
+         Rcode: Genderdummy-0
          genderName: TestGenderName
-         isActive: false
+         isActive: true
          RlangCode: eng
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$

@@ -1,9 +1,9 @@
 testdata:
    Admin_CreateDeviceType_All_Valid_Smoke:
       input.create-device-type-request:
-         Rcode: GST3
+         Rcode: GST31607
          description: test 1.0.8
-         isActive: false
+         isActive: true
          RlangCode: eng
          name: GST
       output.output-1-expected-pos-response:
@@ -27,7 +27,7 @@ testdata:
          
    Admin_CreateDeviceType_valid_secondarylang_SameDataAsVldScnrio:
       input.create-device-type-request:
-         Rcode: GST3
+         Rcode: GST31607
          description: test 1.0.8
          isActive: true
          RlangCode: ara

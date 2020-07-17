@@ -1,10 +1,10 @@
 testdata:
    Admin_CreateTitle_All_Valid_Smoke:
       input.create-title-request:
-         Rcode: TEST0011
+         Rcode: crTEST0011
          titleDescription: TEST0011
          titleName: TEST0011
-         isActive: false
+         isActive: true
          RlangCode: eng
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
@@ -25,6 +25,48 @@ testdata:
          langCode: $input.create-title-request:RlangCode$
          id: $IGNORE$
          version: $IGNORE$
+         
+   Admin_CreateTitle_Invalid_InputParameter_Code_Missing:
+      input.create-title-request:
+         Rcode: $REMOVE$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
+         
+   Admin_CreateTitle_Invalid_InputParameter_Code_Empty:
+      input.create-title-request:
+         Rcode: ''
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Title_Empty$
+         
+   Admin_CreateTitle_Invalid_InputParameter_Code_AboveMaxLen16:
+      input.create-title-request:
+         Rcode: $TestData:validLocationCode37$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Title_Empty$         
          
    Admin_CreateTitle_Sec_Data_Present_but_No_Data_Prim_lang:
       input.create-title-request:

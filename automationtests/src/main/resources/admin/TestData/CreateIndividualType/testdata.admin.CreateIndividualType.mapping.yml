@@ -3,11 +3,11 @@ testdata:
       input.create-individual-type-request:
          Rcode: TST-1
          Rname: TestInd
-         RisActive: false
+         RisActive: true
          RlangCode: eng
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         isActive: $input.create-individual-type-request:RisActive$
+         isActive: false
          code: $input.create-individual-type-request:Rcode$
          langCode: $input.create-individual-type-request:RlangCode$
          name: $input.create-individual-type-request:Rname$         
@@ -19,6 +19,45 @@ testdata:
          deletedDateTime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
+         
+   Admin_CreateIndividualType_InputParameter_Code_Missing:
+      input.create-individual-type-request:
+         Rcode: $REMOVE$
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
+         
+   Admin_CreateIndividualType_InputParameter_Code_Empty:
+      input.create-individual-type-request:
+         Rcode: ''
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$        
+         
+   Admin_CreateIndividualType_InputParameter_Code_AboveMaxLen36:
+      input.create-individual-type-request:
+         Rcode: $TestData:validLocationCode37$
+         Rname: TST2         
+         RisActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$         
          
    Admin_CreateIndividualType_Sec_Data_Present_but_No_Data_Prim_lang:
       input.create-individual-type-request:

@@ -12,7 +12,7 @@ testdata:
          reid: anyString
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode$
+         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode1$
          messageerrors0: $errors:NoPrimaryLangCenterPresent:errorMessage$
    Admin_CreateRegCenter_Invalid_with_scndry_Lang_with_blankId:
       input.createRegCenter-request:
@@ -330,14 +330,14 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: $errors:InValidZoneCode:errorMessage2$
    Admin_CreateRegCenter_Invalid_zoneCode_anyNonLeaf:
       input.createRegCenter-request:
          zoneCode: $TestData:valid_nonLeafZone$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: $errors:InValidZoneCode:errorMessage2$
    Admin_CreateRegCenter_Invalid_isActive_blank:
       input.createRegCenter-request:
          isActive: ''

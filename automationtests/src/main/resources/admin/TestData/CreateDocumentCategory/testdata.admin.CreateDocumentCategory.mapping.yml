@@ -25,6 +25,18 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Admin_CreateDocumentCategory_Valid_create_only_primary_lang:
+      input.create-document-category-request:
+         Rcode: DocTestCode11
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         langCode: $input.create-document-category-request:RlangCode$
+         code: $input.create-document-category-request:Rcode$
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$         
+         
    Admin_CreateDocumentCategory_valid_sec_lang_SameDataAsVldScnrio:
       input.create-document-category-request:
          Rcode: DocCat00

@@ -5,7 +5,7 @@ testdata:
          description: Test DeviceSpec
          deviceTypeCode: CMR
          Rid: 743
-         isActive: false
+         isActive: true
          RlangCode: eng
          minDriverversion: 1.0
          model: 2020

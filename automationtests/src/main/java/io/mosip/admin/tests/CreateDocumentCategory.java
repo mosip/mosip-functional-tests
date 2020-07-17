@@ -37,7 +37,7 @@ import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateDocumentCategory extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(CreateDocumentType.class);
+	private static final Logger logger = Logger.getLogger(CreateDocumentCategory.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -156,6 +156,14 @@ public class CreateDocumentCategory extends AdminTestUtil implements ITest {
 				else {
 					logger.info("Not able to activate primary language through secondary language");
 					throw new AdminTestException("Failed at activate  primary language through secondary language");
+				}
+			}
+			if(testCaseName.contains("only_primary_lang")){
+				if (masterDB.validateDBCount(queries.get("isActiveStatusFalse").toString(), "masterdata")==1)
+					logger.info("Record inserted in primary language with Status: FALSE");
+				else {
+					logger.info("Record inserted in primary language with Status: TRUE");
+					throw new AdminTestException("Record inserted in one language with Status: TRUE");
 				}
 			}
 			

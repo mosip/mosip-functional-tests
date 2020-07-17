@@ -211,8 +211,10 @@ errors:
       errorCode1: KER-MSD-999
       errorMessage: 'request.zoneCode: Should not be blank or size must be between 1 and 36'
       errorMessage1: 'request.zoneCode: must not be blank'
+      errorMessage2: Received Zone Code does not belong to the User
    NoPrimaryLangCenterPresent:
       errorCode: KER-MSD-999
+      errorCode1: KER-MSD-995
       errorMessage: Cannot create data in secondary language as data does not exist in primary language
    CreateCenterWithOtherThanConfigLang:
       errorCode: KER-MSD-382

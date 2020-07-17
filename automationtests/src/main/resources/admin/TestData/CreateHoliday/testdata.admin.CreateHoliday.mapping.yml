@@ -3,8 +3,8 @@ testdata:
       input.create-holiday-request:
          RholidayDate: '2020-08-15'
          holidayDesc: AutoTest user Holiday
-         RholidayName: AutoTest user
-         isActive: false
+         RholidayName: AutoTest user 16july
+         isActive: true
          RlangCode: eng
          RlocationCode: KTA
          requesttime: $TIMESTAMPZ$
@@ -129,7 +129,23 @@ testdata:
          version: $IGNORE$
          id: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'One or more input parameter(s) is missing'  
+         messageerrors0: 'One or more input parameter(s) is missing'
+         
+   Admin_CreateHoliday_Invalid_InputParameter_LocationCode_Empty:
+      input.create-holiday-request:
+         RholidayDate: '2020-08-16'
+         RholidayName: AutoTest user
+         holidayDesc: AutoTest user Holiday
+         requesttime: $TIMESTAMPZ$
+         isActive: false
+         RlangCode: eng
+         RlocationCode: ''
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'One or more input parameter(s) is missing'           
          
    Admin_CreateHoliday_Invalid_InputParameter_LocationCode_NotInDB:
       input.create-holiday-request:

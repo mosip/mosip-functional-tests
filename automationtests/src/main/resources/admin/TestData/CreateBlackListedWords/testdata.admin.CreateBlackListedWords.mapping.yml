@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
          description: Creating data for testing purpose
-         wordreq: Asshole
+         wordreq: asshole
          langCodereq: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
@@ -32,12 +32,35 @@ testdata:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
          description: ''
-         wordreq: Asshole
+         wordreq: asshole1
          langCodereq: $TestData:valid_LanguageCodeEng$
-      output.output-1-expected-error-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:InvalidLanguageCode:errorCode$
-         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_AboveMaxLen256$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+         
+   Admin_UpdateBlackListedWords_inValid_description_missing:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: $IGNORE$
+         wordreq: asshole2
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$
+         
+   Admin_UpdateBlackListedWords_inValid_description_with_space:
+      input.search-request:
+         isActive: $TestData:valid_isActive_true$
+         description: '  '
+         wordreq: asshole3
+         langCodereq: $TestData:valid_LanguageCodeEng$
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         wordRes: $input.search-request:wordreq$
+         langCodeRes: $input.search-request:langCodereq$         
+                  
    Admin_CreateBlackListedWords_Valid_WordLength127:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
