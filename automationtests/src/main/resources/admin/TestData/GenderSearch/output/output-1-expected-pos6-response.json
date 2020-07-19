@@ -1,7 +1,7 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2020-07-10T07:41:08.647Z",
+  "responsetime": "2020-07-17T12:32:47.963Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 3,
@@ -10,9 +10,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-10-21T06:50:25.067Z",
-        "updatedBy": "110006",
-        "updatedDateTime": "2020-06-12T12:52:59.982Z",
+        "createdDateTime": "2020-07-06T14:56:43.879Z",
         "code": "FLE",
         "genderName": "Female",
         "langCode": "eng"
@@ -20,9 +18,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-10-21T06:50:25.067Z",
-        "updatedBy": "110006",
-        "updatedDateTime": "2020-05-04T12:46:26.129Z",
+        "createdDateTime": "2020-07-06T14:56:43.879Z",
         "code": "MLE",
         "genderName": "Male",
         "langCode": "eng"
@@ -30,9 +26,7 @@
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "2019-10-21T06:50:25.067Z",
-        "updatedBy": "110006",
-        "updatedDateTime": "2020-04-27T00:44:24.602Z",
+        "createdDateTime": "2020-07-06T14:56:43.879Z",
         "code": "OTH",
         "genderName": "Others",
         "langCode": "eng"

@@ -3,7 +3,7 @@ testdata:
       input.update-machine-type-request:
          Rcode: Laptop
          description: Laptop updated
-         isActive: true`
+         isActive: true
          RlangCode: eng
          name: Laptop test
       output.output-1-expected-pos-response:

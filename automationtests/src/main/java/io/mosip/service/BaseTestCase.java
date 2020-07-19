@@ -153,8 +153,8 @@ public class BaseTestCase {
 		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
 		logger.info("Inserting device management data");
-		AdminTestUtil.deleteDeviceManagementData();
-		AdminTestUtil.createDeviceManagementData();
+		//AdminTestUtil.deleteDeviceManagementData();
+		//AdminTestUtil.createDeviceManagementData();
 		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
@@ -234,16 +234,15 @@ public class BaseTestCase {
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
 		String testModule = ctx.getName();
-		if(testModule.equalsIgnoreCase("Admin Tests"))
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
-			new PMPDataManager(false);
-		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
-		{
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			new PMPDataManager(false);
-		}
-		RestAssured.reset();
+		/*
+		 * if(testModule.equalsIgnoreCase("Admin Tests"))
+		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); else
+		 * if(testModule.equalsIgnoreCase("AuthenticationTest")) new
+		 * PMPDataManager(false); else if(ctx.getCurrentXmlTest().getSuite().getName().
+		 * equalsIgnoreCase("Mosip API Suite")) {
+		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); new
+		 * PMPDataManager(false); }
+		 */		RestAssured.reset();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");

@@ -162,21 +162,17 @@ public class GetZoneHierarchy  extends AdminTestUtil implements ITest {
 		logger.info("******Post request Json to EndPointUrl: " + url+" *******");
 		if(testcaseName.contains("smoke"))
 		{
-			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),"https://"+
-					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),RunConfigUtil.objRunConfig.getAdminEndPointUrl()+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		else if (testcaseName.toLowerCase().contains("northuser")) {
-			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),"https://"+
-					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),RunConfigUtil.objRunConfig.getAdminEndPointUrl()+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		else if (testcaseName.toLowerCase().contains("nozonemap")) {
-			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("noZoneMap"),"https://"+
-					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("noZoneMap"),RunConfigUtil.objRunConfig.getAdminEndPointUrl()+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		else
 		{
-			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),"https://"+
-					System.getProperty("env.user")+".mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			cookieValue = getAuthorizationCookie(getCookieRequestFilePath("northZonalAdmin"),RunConfigUtil.objRunConfig.getAdminEndPointUrl()+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,
 				  cookieValue); 		
