@@ -27,7 +27,7 @@ testdata:
          
    Admin_CreateGender_valid_secondarylang_SameDataAsVldScnrio:
       input.create-gender-request:
-         Rcode: Genderdummy
+         Rcode: Genderdummy-0
          genderName: TestGenderName
          isActive: true
          RlangCode: ara
