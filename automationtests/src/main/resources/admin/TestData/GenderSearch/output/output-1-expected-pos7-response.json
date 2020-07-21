@@ -1,12 +1,20 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "2020-07-21T10:54:27.184Z",
+  "responsetime": "2020-07-21T10:56:00.111Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 3,
     "totalRecord": 3,
     "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2020-07-20T02:20:36.741Z",
+        "code": "FLE",
+        "genderName": "أنثى",
+        "langCode": "ara"
+      },
       {
         "isActive": true,
         "createdBy": "superadmin",
@@ -21,14 +29,6 @@
         "createdDateTime": "2020-07-20T02:20:36.741Z",
         "code": "OTH",
         "genderName": "الآخرين",
-        "langCode": "ara"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "2020-07-20T02:20:36.741Z",
-        "code": "FLE",
-        "genderName": "أنثى",
         "langCode": "ara"
       }
     ]
