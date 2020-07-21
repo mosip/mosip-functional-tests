@@ -206,7 +206,7 @@ testdata:
          typefilters0: $TestData:valid_SearchTypeEquals$
          languageCode: $TestData:valid_LanguageCodeEng$
          columnNamefilters0: $TestData:valid_ColumnName_moduleName$
-      output.output-1-expected-pos-6-response:
+      output.output-1-expected-pos-4-response:
          langCodedata0: $input.search-request:languageCode$
          updatedBydata0: $IGNORE$
          isDeleteddata0: $IGNORE$
@@ -221,7 +221,7 @@ testdata:
          typefilters0: $TestData:valid_SearchTypeContains$
          languageCode: $TestData:valid_LanguageCodeEng$
          columnNamefilters0: $TestData:valid_ColumnName_moduleName$
-      output.output-1-expected-pos-6-response:
+      output.output-1-expected-pos-4-response:
          langCodedata0: $input.search-request:languageCode$
          updatedBydata0: $IGNORE$
          isDeleteddata0: $IGNORE$
@@ -236,7 +236,7 @@ testdata:
          typefilters0: $TestData:valid_SearchTypeStartsWith$
          languageCode: $TestData:valid_LanguageCodeEng$
          columnNamefilters0: $TestData:valid_ColumnName_moduleName$
-      output.output-1-expected-pos-6-response:
+      output.output-1-expected-pos-4-response:
          langCodedata0: $input.search-request:languageCode$
          updatedBydata0: $IGNORE$
          isDeleteddata0: $IGNORE$
