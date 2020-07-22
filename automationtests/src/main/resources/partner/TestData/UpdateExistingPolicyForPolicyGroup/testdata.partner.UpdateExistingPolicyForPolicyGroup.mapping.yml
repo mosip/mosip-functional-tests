@@ -3,6 +3,7 @@ testdata:
       input.update-partner-request:
          name: MOSIP POLICY UPDATE
          desc: DESCR MOSIP POLICY UPDATE
+         policyID: MOSIP-POLICY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          id: $IGNORE$
@@ -15,4 +16,29 @@ testdata:
          upd_dtimes: $IGNORE$
          up_by: $IGNORE$
          cr_by: $IGNORE$
+         
+   Partner_UpdateExistingPolicyForPolicyGroup_With_Invalid_policyID:
+      input.update-partner-request:
+         name: MOSIP POLICY UPDATE
+         desc: DESCR MOSIP POLICY UPDATE
+         policyID: MOSIP-POLICY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_POL_004
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateExistingPolicyForPolicyGroup_With_Missing_Input_Parameter:
+      input.update-partner-request2:
+         desc: DESCR MOSIP POLICY UPDATE
+         policyID: MOSIP-POLICY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_003
+         messageerrors0: Could not process the request
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
          

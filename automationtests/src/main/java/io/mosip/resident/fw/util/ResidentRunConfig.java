@@ -1780,6 +1780,12 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 
 

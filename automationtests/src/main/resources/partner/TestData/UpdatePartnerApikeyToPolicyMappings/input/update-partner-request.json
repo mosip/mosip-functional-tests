@@ -1,5 +1,7 @@
 {
   "id": "string",
+  "partnerId": "string",
+  "partnerApiKey": "string",
   "metadata": {},
   "request": {
     "newPolicyID": "string",
