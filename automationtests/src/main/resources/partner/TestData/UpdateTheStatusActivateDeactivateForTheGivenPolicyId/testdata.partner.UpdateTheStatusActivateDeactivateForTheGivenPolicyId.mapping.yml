@@ -2,6 +2,7 @@ testdata:
    Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_Active_Valid_Smoke:
       input.activate-partner-request:
          status: Active
+         policyID: MOSIP-POLICY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: status updated successfully
@@ -10,13 +11,61 @@ testdata:
          errors: $IGNORE$
          version: $IGNORE$
 
-   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_De_Active:
+   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_De_Active_Valid_Smoke:
       input.activate-partner-request:
          status: De-Active
+         policyID: MOSIP-POLICY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: status updated successfully
          id: $IGNORE$
          metadata: $IGNORE$
          errors: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_Active_with_Invalid_policyID:
+      input.activate-partner-request:
+         status: Active
+         policyID: MOSIP-POLICY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_POL_008
+         messageerrors0: Policy ID does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_DeActive_with_Invalid_policyID:
+      input.activate-partner-request:
+         status: De-Active
+         policyID: MOSIP-POLICY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_POL_008
+         messageerrors0: Policy ID does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_Active_with_Invalid_Input_Parameter:
+      input.activate-partner-request:
+         status: invalid
+         policyID: MOSIP-POLICY-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: status updated successfully
+         id: $IGNORE$
+         metadata: $IGNORE$
+         errors: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateTheStatusActivateDeactivateForTheGivenPolicyId_Active_with_Missing_Input_Parameter:
+      input.activate-partner-request2:
+         policyID: MOSIP-POLICY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_003
+         messageerrors0: Could not process the request
+         id: $IGNORE$
+         metadata: $IGNORE$
          version: $IGNORE$

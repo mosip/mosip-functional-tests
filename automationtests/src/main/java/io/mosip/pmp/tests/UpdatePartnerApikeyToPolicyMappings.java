@@ -63,9 +63,9 @@ public class UpdatePartnerApikeyToPolicyMappings extends PartnerTestUtil impleme
 				&& masterDB.executeQuery(createTFAuthQuery, "pmp")
 				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
 				&& masterDB.executeQuery(createPartApiKey, "pmp"))
-			logger.info("update partner with id as Test successfully using query from partnerQueries.properties");
+			logger.info("UpdatePartnerApikeyToPolicyMappings with id as Test successfully using query from partnerQueries.properties");
 		else
-			logger.info("not able to update partner using query from partnerQueries.properties");
+			logger.info("not able to UpdatePartnerApikeyToPolicyMappings using query from partnerQueries.properties");
 	}
 
 	/**
@@ -180,7 +180,8 @@ public class UpdatePartnerApikeyToPolicyMappings extends PartnerTestUtil impleme
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdatePartnerApikeyToPolicyMappingsPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		//putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		putRequestWithBodyAndParameterForUpdatePartnerApikeyToPolicyMappings(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -202,9 +203,9 @@ public class UpdatePartnerApikeyToPolicyMappings extends PartnerTestUtil impleme
 				&& masterDB.executeQuery(partnerQueries.get("deleteTFpolicy").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("deleted all update Partner data successfully");
+			logger.info("deleted all UpdatePartnerApikeyToPolicyMappings data successfully");
 		else {
-			logger.info("not able to delete update Partner data using query from query.properties");
+			logger.info("not able to delete UpdatePartnerApikeyToPolicyMappings data using query from query.properties");
 		}
 		logger.info("END");
 		}

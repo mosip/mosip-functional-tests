@@ -212,7 +212,7 @@ public class RetrievePartnerPolicyDetailsForGivenPartnerAPIKey extends PartnerTe
 				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("retrievePartner all Register Partner data successfully");
+			logger.info("delete all RetrievePartnerPolicyDetailsForGivenPartnerAPIKey data successfully");
 		else {
 			logger.info(
 					"not able to delete RetrievePartnerPolicyDetailsForGivenPartnerAPIKey data using query from query.properties");

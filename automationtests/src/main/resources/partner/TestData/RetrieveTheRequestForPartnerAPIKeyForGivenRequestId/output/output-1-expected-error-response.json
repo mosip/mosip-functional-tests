@@ -1,0 +1,13 @@
+{
+    "id": "mosip.partnermanagement.partners.retrieve",
+    "version": "1.0",
+    "responsetime": "2020-07-14T10:21:13.265Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_PMP_015",
+            "message": "No Partner api key requests for the Policy Group"
+        }
+    ]
+}
