@@ -407,16 +407,6 @@ public class PrintingStage extends BaseTestCase{
 		PrintingStage ps = new PrintingStage();
 		ps.validatePrintingStage("10002100320000220190417100557");
 	}*/
-	@Test
-	public void testRun(){
-		PrintingStage ps = new PrintingStage();
-		try {
-			ps.validatePrintingStage("10006100360000220190702093517");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		test=extent.createTest("testRun");
-	}
+
 
 }

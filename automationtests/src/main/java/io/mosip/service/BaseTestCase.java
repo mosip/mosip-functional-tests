@@ -16,10 +16,6 @@ import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
@@ -27,8 +23,6 @@ import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
-import io.mosip.resident.fw.util.ResidentTestUtil;
-import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
@@ -44,9 +38,7 @@ public class BaseTestCase {
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 
 	public static List<String> preIds = new ArrayList<String>();
-	public ExtentHtmlReporter htmlReporter;
-	public ExtentReports extent;
-	public ExtentTest test;
+
 	protected static String individualToken;
 	public String preRegAdminToken;
 	protected static String regClientToken;
@@ -104,7 +96,7 @@ public class BaseTestCase {
 	}
 
 	public static void initialize() {
-		copyDbInTarget();
+		//copyDbInTarget();
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
 		kernelCmnLib = new CommonLibrary();
@@ -262,17 +254,6 @@ public class BaseTestCase {
 		return logProp;
 	}
 
-	private static void copyDbInTarget() {
-		File db = new File(MosipTestRunner.getGlobalResourcePath().substring(0,
-				MosipTestRunner.getGlobalResourcePath().lastIndexOf("target")) + "/db");
-		File targetDb = new File(db.getPath().replace("/db", "/target/db"));
-		try {
-			FileUtils.copyDirectory(db, targetDb);
-			logger.info("Copied :: " + targetDb.getPath() + ":: to target");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 
 }
