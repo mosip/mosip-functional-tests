@@ -42,7 +42,7 @@ testdata:
    Admin_UpdateBlackListedWords_inValid_description_missing:
       input.search-request:
          isActive: $TestData:valid_isActive_true$
-         description: $IGNORE$
+         description: $REMOVE$
          wordreq: asshole2
          langCodereq: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-pos-response:
