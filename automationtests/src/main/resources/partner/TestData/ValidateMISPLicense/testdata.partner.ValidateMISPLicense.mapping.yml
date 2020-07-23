@@ -52,8 +52,8 @@ testdata:
          mispId: MISP-FUN-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: PMS_MSP_006
-         messageerrors0: MISP License Key does not exists string
+         errorCodeerrors0: PMS_COR_003
+         messageerrors0: Could not process the request
          id: $IGNORE$
          version: $IGNORE$
          response: $IGNORE$
