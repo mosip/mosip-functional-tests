@@ -28,7 +28,7 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dspring.cloud.config.label=QA_IDA",
 							"-Dspring.profiles.active=test" + RunConfigUtil.getRunEvironment(),
-							"-Dspring.cloud.config.uri=http://104.211.212.28:51000", "-jar", getDemoAppJarPath() });
+							"-Dspring.cloud.config.uri=https://qa.mosip.net/config", "-jar", getDemoAppJarPath() });
 			Runnable startDemoAppTask = () -> {
 				try (InputStream inputStream = authPartherProcessor.getInputStream();
 						BufferedReader bis = new BufferedReader(new InputStreamReader(inputStream));) {
