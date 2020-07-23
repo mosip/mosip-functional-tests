@@ -3,6 +3,7 @@
 errors:
    CommonMSDErrorCode:
      errorCode: KER-MSD-999
+     errorCode1: KER-MSD-039
      dbFkeyErrorCode: KER-MSD-060
      # Sec_Data_Present_but_No_Data_Prim_lang
      noPrimaryLangErrorCode: KER-MSD-995
@@ -156,6 +157,9 @@ errors:
       errorMessage: Page index must not be less than zero!
    InvalidRequestTime:
       errorMessage: 'Invalid Format in field : requesttime'
+   InvalidRequestTimeStamp:
+      errorMessage: 'Invalid Format in field : timeStamp'      
+      errorMessage1: "Text '2018/12/10T06:12:52.994Z' could not be parsed at index 4 format should be yyyy-mm-ddThh:mm:ss format"      
    InvalidSortField:
       errorCode: KER-MSD-357
       errorMessage: Invalid Sort Field <Sort field name>
