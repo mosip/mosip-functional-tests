@@ -153,8 +153,8 @@ public class BaseTestCase {
 		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
 		logger.info("Inserting device management data");
-		//AdminTestUtil.deleteDeviceManagementData();
-		//AdminTestUtil.createDeviceManagementData();
+		AdminTestUtil.deleteDeviceManagementData();
+		AdminTestUtil.createDeviceManagementData();
 		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
