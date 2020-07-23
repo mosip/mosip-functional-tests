@@ -23,7 +23,7 @@ testdata:
          langCode: $TestData:valid_LanguageCodeEng$
       output.output-1-expected-error-response:
          errorCodeerrors0: KER-MSD-339
-         messageerrors0: No zone found for the logged-in user 110102
+         messageerrors0: No zone found for the logged-in user 110087
          responsetime: $IGNORE$
    Admin_GetZoneHierarchy_with_invalid_langCode:
       input.search-request:
