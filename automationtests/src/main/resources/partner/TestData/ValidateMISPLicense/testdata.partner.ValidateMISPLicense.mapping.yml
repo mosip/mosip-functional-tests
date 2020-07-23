@@ -2,7 +2,8 @@ testdata:
    Partner_ValidateMISPLicense_All_Valid_Smoke:
       input.validate-misp-license-request:
          mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
-         metadata: $REMOVE$ 
+         metadata: $REMOVE$
+         mispId: MISP-FUN-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          licenseKey: $input.validate-misp-license-request:mispLicenseKey$
@@ -21,10 +22,38 @@ testdata:
    Partner_ValidateMISPLicense_InvalidParameter_MISPLicenseKey:
       input.validate-misp-license-request:
          mispLicenseKey: 4g7rMcn6xxmmV2MOB8FCuzeLgSQU0PX1rNwHLbTkKiIO6vEJEK111
+         mispId: MISP-FUN-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: PMS_MSP_006
-         messageerrors0: 'MISP License Key does not exists 4g7rMcn6xxmmV2MOB8FCuzeLgSQU0PX1rNwHLbTkKiIO6vEJEK111'
+         messageerrors0: MISP License Key does not exists 4g7rMcn6xxmmV2MOB8FCuzeLgSQU0PX1rNwHLbTkKiIO6vEJEK111
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_ValidateMISPLicense_with_Invalid_mispId:
+      input.validate-misp-license-request:
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         metadata: $REMOVE$
+         mispId: MISP-FUN-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_007
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_ValidateMISPLicense_with_Missing_Input_Parameter:
+      input.validate-misp-license-request2:
+         metadata: $REMOVE$
+         mispId: MISP-FUN-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_006
+         messageerrors0: MISP License Key does not exists string
          id: $IGNORE$
          version: $IGNORE$
          response: $IGNORE$

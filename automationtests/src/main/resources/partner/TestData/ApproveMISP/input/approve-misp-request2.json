@@ -1,0 +1,9 @@
+{
+  "id": "mosip.partnermanagement.misp.status.update",
+  "version": "1.0",
+  "mispId": "string", 
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+  }
+}

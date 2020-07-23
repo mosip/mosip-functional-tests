@@ -1722,4 +1722,9 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

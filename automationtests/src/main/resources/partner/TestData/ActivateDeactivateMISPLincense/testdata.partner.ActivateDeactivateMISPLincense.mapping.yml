@@ -11,6 +11,79 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Partner_ActivateDeactivateMISPLincense_DeActive:
+      input.activate-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: De-Active
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         RmispLicenseKeyStatus: De-Active
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         mispLicenseKeyStatus: $input.activate-misp-request:RmispLicenseKeyStatus$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_ActivateDeactivateMISPLincense_Active_with_Invalid_mispId:
+      input.activate-misp-request:
+         mispId: MISP-FUN-ID-001
+         mispStatus: Active
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         RmispLicenseKeyStatus: Active
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_007
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_ActivateDeactivateMISPLincense_DeActive_with_Invalid_mispId:
+      input.activate-misp-request:
+         mispId: MISP-FUN-ID-001
+         mispStatus: De-Active
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         RmispLicenseKeyStatus: De-Active
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_007
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+     
+   Partner_ActivateDeactivateMISPLincense_AA_Invalid_Parameter:
+      input.activate-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: Actiivesss
+         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         RmispLicenseKeyStatus: Actiivesss
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_007
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_ActivateDeactivateMISPLincense_AB_Missing_Input_Parameter:
+      input.activate-misp-request2:
+         mispId: MISP-FUN-ID-01
+         RmispLicenseKeyStatus: Active
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_006
+         messageerrors0: MISP License Key does not exists r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfr
+         id: $IGNORE$
+         version: $IGNORE$
+         response: $IGNORE$
+         metadata: $IGNORE$
+         
+         
+         
+         
          
          
          
