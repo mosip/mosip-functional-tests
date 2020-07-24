@@ -3,9 +3,68 @@ testdata:
       input.update-partner-request:
          newPolicyID: TF-POLICY-ID-01
          oldPolicyID: MOSIP-POLICY-ID-01
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner api key to Policy Mappings updated successfully
          id: $IGNORE$
          version: $IGNORE$
+         
+   Partner_UpdatePartnerApikeyToPolicyMappings_Invalid_partnerId:
+      input.update-partner-request:
+         newPolicyID: TF-POLICY-ID-01
+         oldPolicyID: MOSIP-POLICY-ID-01
+         partnerId: PMP-PART-ID-001
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_013
+         messageerrors0: Partner does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartnerApikeyToPolicyMappings_Invalid_partnerApiKey:
+      input.update-partner-request:
+         newPolicyID: TF-POLICY-ID-01
+         oldPolicyID: MOSIP-POLICY-ID-01
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_011
+         messageerrors0: Partner api key does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartnerApikeyToPolicyMappings_Missing_Input_Parameter:
+      input.update-partner-request2:
+         oldPolicyID: MOSIP-POLICY-ID-01
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdatePartnerApikeyToPolicyMappings_Invalid_Policy:
+      input.update-partner-request:
+         newPolicyID: TF-POLICY-ID-001
+         oldPolicyID: MOSIP-POLICY-ID-01
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_014
+         messageerrors0: Policy does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+         
                  

@@ -624,4 +624,380 @@ public class PartnerTestUtil extends AuthTestsUtil{
 			return false;
 		}
 	}
+	
+	
+	protected boolean patchRequestWithBodyAndParameterForApproveRejectPartnerAPIKeyReq(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response;
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String apiKeyReqId = "";
+					if (objectData.containsKey("apiKeyReqId")) {
+						apiKeyReqId = objectData.get("apiKeyReqId").toString();
+						objectData.remove("apiKeyReqId");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + apiKeyReqId;
+					
+					
+					if (code == 0)
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected boolean putRequestWithBodyAndParameterForUpdatePartnerApikeyToPolicyMappings(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					String response=null;
+					String responseJson = "";
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String partnerId = "";
+					String partnerApiKey = "";
+					
+					if (objectData.containsKey("partnerId") && objectData.containsKey("partnerApiKey")) {
+						partnerId = objectData.get("partnerId").toString();
+						partnerApiKey = objectData.get("partnerApiKey").toString();
+						objectData.remove("partnerId");
+						objectData.remove("partnerApiKey");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[3];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + partnerId + "/" + partnerApiKey;
+					
+					if (code == 0)
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJson=response;
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected boolean putUpdateExistingPolicyForPolicyGroup(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					String response=null;
+					String responseJson = "";
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String policyID = "";
+					
+					if (objectData.containsKey("policyID")) {
+						policyID = objectData.get("policyID").toString();
+						objectData.remove("policyID");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + policyID;
+					
+					if (code == 0)
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJson=response;
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected boolean patchUpdateTheStatusActivateDeactivateForTheGivenPolicyId(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response;
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String policyID = "";
+					if (objectData.containsKey("policyID")) {
+						policyID = objectData.get("policyID").toString();
+						objectData.remove("policyID");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + policyID;
+					
+					
+					if (code == 0)
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	
+	protected boolean putUpdateMISP(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					String response=null;
+					String responseJson = "";
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String mispId = "";
+					
+					if (objectData.containsKey("mispId")) {
+						mispId = objectData.get("mispId").toString();
+						objectData.remove("mispId");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + mispId;
+					
+					if (code == 0)
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJson=response;
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	
+	protected boolean patchApproveMISPRequestWithBodyAndParameter(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code, String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response;
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String mispId = "";
+					if (objectData.containsKey("mispId")) {
+						mispId = objectData.get("mispId").toString();
+						objectData.remove("mispId");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String subUrlPath = token[1];
+					StringTokenizer st1 = new StringTokenizer(subUrlPath,"}");
+					String[] token1 = new String[2];
+					for (int i = 0; i <token1.length; ) {
+						while (st1.hasMoreTokens()) {
+							String test1=st1.nextToken();
+							token1[i]=test1;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + mispId + token1[1];
+
+					if (code == 0)
+						response = patchRequestWithParameter(objectData, newUrlPath, cookieName,
+								cookieValue);
+					else
+						response = patchRequestWithParameter(objectData, newUrlPath, cookieName,
+								cookieValue);
+					responseJsonToVerifyDigtalSignature = response.asString();
+					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
+	protected boolean putActivateDeactivateMISPLincense(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					String response=null;
+					String responseJson = "";
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String mispId = "";
+					if (objectData.containsKey("mispId")) {
+						mispId = objectData.get("mispId").toString();
+						objectData.remove("mispId");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String subUrlPath = token[1];
+					StringTokenizer st1 = new StringTokenizer(subUrlPath,"}");
+					String[] token1 = new String[2];
+					for (int i = 0; i <token1.length; ) {
+						while (st1.hasMoreTokens()) {
+							String test1=st1.nextToken();
+							token1[i]=test1;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + mispId + token1[1];
+					
+					if (code == 0)
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = putRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJson=response;
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
+	
 }

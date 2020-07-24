@@ -170,9 +170,10 @@ public class UpdateExistingPolicyForPolicyGroup extends PartnerTestUtil implemen
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getUpdateExistingPolicyForPolicyGroupPath();
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		putRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
-				0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 
+		putUpdateExistingPolicyForPolicyGroup(testCaseName.listFiles(), url, "request", "output-1-actual-response",
+				0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());

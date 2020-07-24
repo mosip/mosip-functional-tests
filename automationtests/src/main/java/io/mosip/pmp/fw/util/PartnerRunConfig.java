@@ -118,14 +118,26 @@ public class PartnerRunConfig extends RunConfig {
     private String retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath;
     private String updateExistingPolicyForPolicyGroupPath;
     private String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
+    private String retrievePartnerAPIkeyToPolicyMappingsPath;
     
-    private String createMISPPath;
+   
+
+	private String createMISPPath;
     private String updateMISPPath;
     private String validateMISPLicensePath;
     private String approveMISPPath;
     private String rejectMISPPath;
     private String activateMISPLicense;
     private String retrieveMISPByMispIDPath;
+    
+    
+    public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		return retrievePartnerAPIkeyToPolicyMappingsPath;
+	}
+
+	public void setRetrievePartnerAPIkeyToPolicyMappingsPath(String retrievePartnerAPIkeyToPolicyMappingsPath) {
+		this.retrievePartnerAPIkeyToPolicyMappingsPath = retrievePartnerAPIkeyToPolicyMappingsPath;
+	}
     
     public String getRetrieveMISPByMispIDPath() {
 		return retrieveMISPByMispIDPath;
@@ -420,7 +432,7 @@ public class PartnerRunConfig extends RunConfig {
 		setApproveRejectPartnerAPIKeyReqPath(PartnerTestUtil.getPropertyValue("approveRejectPartnerAPIKeyReqPath"));
 		setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(PartnerTestUtil.getPropertyValue("retrieveParticularPartnerDetailsForGivenPartnerIdPath"));
 		setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(PartnerTestUtil.getPropertyValue("retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath"));
-		
+		setRetrievePartnerAPIkeyToPolicyMappingsPath(PartnerTestUtil.getPropertyValue("retrievePartnerAPIkeyToPolicyMappingsPath"));
 		
 		setCreatePolicyGroupPath(PartnerTestUtil.getPropertyValue("createPolicyGroupPath"));
 		setGetPolicyBasedOnPolicyIdPath(PartnerTestUtil.getPropertyValue("getPolicyBasedOnPolicyIdPath"));

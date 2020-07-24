@@ -7,7 +7,7 @@
     "errors": [
         {
             "errorCode": "PMS_MSP_003",
-            "message": "MISP already registred with name :  MISP_Test02"
+            "message": "MISP already registred with name :  MISP_Test0002"
         }
     ]
 }
