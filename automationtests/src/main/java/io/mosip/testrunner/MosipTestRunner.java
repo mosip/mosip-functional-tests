@@ -116,14 +116,21 @@ public class MosipTestRunner {
 		String seperator="";
 		if(System.getProperty("os.name").toLowerCase().contains("windows")) {
 			seperator="\\";
+			File target=new File(System.getProperty("user.dir"));
+			File db=new File(target.getParent()+seperator+"db");
+			System.out.println("Target is :: "+target.getAbsolutePath());
+			System.out.println(db.getAbsolutePath());
+			FileUtils.copyDirectoryToDirectory(db, target);
 		} else {
 			seperator="/";
+			File target=new File(System.getProperty("user.dir")+seperator+"target");
+			File db=new File(System.getProperty("user.dir")+seperator+"db");
+			System.out.println("Target is :: "+target.getAbsolutePath());
+			System.out.println(db.getAbsolutePath());
+			FileUtils.copyDirectoryToDirectory(db, target);
+			
 		}
-		File target=new File(System.getProperty("user.dir"));
-		File db=new File(target.getParent()+seperator+"db");
-		System.out.println("Target is :: "+target.getAbsolutePath());
-		System.out.println(db.getAbsolutePath());
-		FileUtils.copyDirectoryToDirectory(db, target);
+
 		
 	}
 	
