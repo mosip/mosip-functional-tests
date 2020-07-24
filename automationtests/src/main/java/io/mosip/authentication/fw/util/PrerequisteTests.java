@@ -13,7 +13,7 @@ public class PrerequisteTests extends AuthTestsUtil{
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo application...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public class PrerequisteTests extends AuthTestsUtil{
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 
 }
