@@ -26,7 +26,7 @@ stage ('---------- mvn-clean-test-authPartnerDemo ---------------') {
 	  dir(branch+"/"+authPartnerDemo)
   {
   	def port = ${params.Port}
-	def comnd = "sudo kill -9 $(sudo lsof -t -i:"+${params.Port}+") || true"
+	def comnd = 'sudo kill -9 $(sudo lsof -t -i:'+${params.Port}+") || true"
 	sh comnd
 	sh "java -Dmosip.base.url=https://${params.BaseUrl} -Dserver.port=${params.Port} -jar ./target/authentication-partnerdemo-service-1.0.8-SNAPSHOT.jar"
   }
