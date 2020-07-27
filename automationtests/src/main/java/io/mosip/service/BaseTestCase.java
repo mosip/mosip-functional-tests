@@ -115,7 +115,7 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
-		initializePartnerDemoServicePort();
+		partnerDemoServicePort=(String) kernelCmnLib.readProperty("partnerDemoService").get(System.getProperty("env.user")+".encryptionPort");
 		/**
 		 * Make sure test-output is there
 		 */
@@ -277,25 +277,6 @@ public class BaseTestCase {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * this method is to get the port from ida envRunconfig property file for running the partner-demo-service
-	 */
-	private static void initializePartnerDemoServicePort()
-	{
-		Properties prop = new Properties();
-		InputStream input = null;
-		try {
-			input = new FileInputStream(new File(RunConfigUtil.getResourcePath()+"/ida/TestData/RunConfig/envRunConfig.properties").getAbsolutePath());
-			prop.load(input);
-			input.close();
-			partnerDemoServicePort=(String) prop.get(System.getProperty("env.user")+".encryptionPort");
-			
-		} catch (Exception e) {
-			logger.error("Exception: " + e.getMessage());
-			logger.info("Not able to get partner-demo-service port number to start on");
 		}
 	}
 
