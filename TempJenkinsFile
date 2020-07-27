@@ -22,13 +22,6 @@ stage ('---------- mvn-clean-test-authPartnerDemo ---------------') {
 	sh '/usr/local/maven/bin/mvn clean install'  	  
   }
   }
-  stage ('---------- running auth partner demo services ---------------') {
-	  dir(branch+"/"+authPartnerDemo)
-  {
-	sh 'sudo kill -9 $(sudo lsof -t -i:7656) || true'
-	sh "java -Dmosip.base.url=https://${params.BaseUrl} -Dserver.port=${params.Port} -jar ./target/authentication-partnerdemo-service-1.0.8-SNAPSHOT.jar"
-  }
-  }
 
 stage ('---------- mvn-clean-test ---------------') {
 	  dir(branch+"/"+projectToBuild)
