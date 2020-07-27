@@ -30,7 +30,7 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 		try {
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dmosip.base.url="+ApplnURI,
-							"-Dserver.port="+"7656", "-jar", getDemoAppJarPath() });
+							"-Dserver.port="+partnerDemoServicePort, "-jar", getDemoAppJarPath() });
 			Runnable startDemoAppTask = () -> {
 				try (InputStream inputStream = authPartherProcessor.getInputStream();
 						BufferedReader bis = new BufferedReader(new InputStreamReader(inputStream));) {
