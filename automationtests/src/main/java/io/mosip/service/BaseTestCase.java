@@ -1,7 +1,9 @@
 package io.mosip.service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,6 +25,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
+import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
@@ -76,6 +79,7 @@ public class BaseTestCase {
 	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map residentQueries;
 	public static Map partnerQueries;
+	public static String partnerDemoServicePort = null;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -111,6 +115,7 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
+		initializePartnerDemoServicePort();
 		/**
 		 * Make sure test-output is there
 		 */
@@ -272,6 +277,25 @@ public class BaseTestCase {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * this method is to get the port from ida envRunconfig property file for running the partner-demo-service
+	 */
+	private static void initializePartnerDemoServicePort()
+	{
+		Properties prop = new Properties();
+		InputStream input = null;
+		try {
+			input = new FileInputStream(new File(RunConfigUtil.getResourcePath()+"/ida/TestData/RunConfig/envRunConfig.properties").getAbsolutePath());
+			prop.load(input);
+			input.close();
+			partnerDemoServicePort=(String) prop.get(System.getProperty("env.user")+".encryptionPort");
+			
+		} catch (Exception e) {
+			logger.error("Exception: " + e.getMessage());
+			logger.info("Not able to get partner-demo-service port number to start on");
 		}
 	}
 

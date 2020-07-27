@@ -1,9 +1,12 @@
 package io.mosip.authentication.fw.util;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
@@ -25,8 +28,6 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 	 */
 	public static void startProcess() {
 		try {
-			String partnerDemoServicePort = AuthTestsUtil.getPropertyValue(System.getProperty("env.user")+".encryptionPort");
-			
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dmosip.base.url="+ApplnURI,
 							"-Dserver.port="+partnerDemoServicePort, "-jar", getDemoAppJarPath() });
