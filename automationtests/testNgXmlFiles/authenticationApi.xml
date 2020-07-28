@@ -22,6 +22,8 @@
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
 			<class name="io.mosip.authentication.tests.LockUIN" />
 			<class name="io.mosip.authentication.tests.UnlockUIN" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 			<!-- <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
