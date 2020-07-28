@@ -48,6 +48,14 @@ public class CreateDeviceSpecification  extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		// try block snippet added just to delete the existing data before inserting any new record DB
+		try {
+			if (masterDB.executeQuery(queries.get("deleteCreatedDeviceSpecification").toString(), "masterdata"))
+				logger.info("deleted all created Device Specification details successfully");
+		} catch (Exception e) {
+
+		}
+		// Insert record in DB
 		String query = queries.get("createDeviceSpecification").toString();
 		if (masterDB.executeQuery(query, "masterdata"))
 			logger.info("Device Specification created with new code as Test successfully using query from query.properties");
