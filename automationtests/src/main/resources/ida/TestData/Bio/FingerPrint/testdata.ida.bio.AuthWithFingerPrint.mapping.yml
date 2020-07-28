@@ -2842,7 +2842,7 @@ testdata:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $UIN.bio.Finger.true$
+      AuthReq.individualId: $UIN.bio.FIR.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
@@ -2875,7 +2875,7 @@ testdata:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $VID.bio.Finger.true$
+      AuthReq.individualId: $VID.bio.FIR.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
       AuthReq.individualIdType: $TestData:indvId_Vid_valid$
