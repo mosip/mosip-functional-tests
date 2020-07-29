@@ -80,6 +80,7 @@ public class BaseTestCase {
 	public static Map residentQueries;
 	public static Map partnerQueries;
 	public static String partnerDemoServicePort = null;
+	public static boolean insertDevicedata = false;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -157,10 +158,6 @@ public class BaseTestCase {
 		initialize();
 		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
-		logger.info("Inserting device management data");
-		AdminTestUtil.deleteDeviceManagementData();
-		AdminTestUtil.createDeviceManagementData();
-		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
 		AuthTestsUtil.removeOldMosipTempTestResource();
@@ -168,14 +165,17 @@ public class BaseTestCase {
 			AuthTestsUtil.initiateAuthTest();
 			new PMPDataManager(false);
 			new PMPDataManager(true);
+			insertDevicedata = true;
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
+			insertDevicedata = true;
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
+			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -202,6 +202,13 @@ public class BaseTestCase {
 				e.printStackTrace();
 
 			}
+		}
+		
+		//inserting device management data
+		if(insertDevicedata) {
+			AdminTestUtil.deleteDeviceManagementData();
+			logger.info("Inserting device management data");
+			AdminTestUtil.createDeviceManagementData();
 		}
 
 	} // End suiteSetup

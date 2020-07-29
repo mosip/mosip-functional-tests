@@ -140,7 +140,7 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 					
 					if (objectData.containsKey("hierarchyname"))
 					{
-					  queryToExecute = "select count(*) from master.location where hierarchy_level_name = '"+objectData.get("hierarchyname")+"'";
+					  queryToExecute = "select count(*) from master.location where is_active=true and hierarchy_level_name = '"+objectData.get("hierarchyname")+"'";
 					  
 						attributesToValidateExistance.add("code");
 						attributesToValidateExistance.add("name");
@@ -153,7 +153,7 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 					}
 					else
 					{
-					  queryToExecute = "select count(*) from master.loc_hierarchy_list where lang_code = '"+objectData.get("langcode")+"'";
+					  queryToExecute = "select count(*) from master.loc_hierarchy_list where is_active=true and lang_code = '"+objectData.get("langcode")+"'";
 					  
 					// list to validate existance of attributes in response objects
 					  	attributesToValidateExistance = new ArrayList<String>();
@@ -191,7 +191,7 @@ public class FetchLocationHierarchy extends BaseTestCase implements ITest {
 				
 		
 		if (!status) {
-			logger.debug(response);
+			logger.info("Response from the Request == "+response.asString());
 		}
 		Verify.verify(status);
 		softAssert.assertAll();

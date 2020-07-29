@@ -2869,7 +2869,7 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$    
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFinger$    
       
   Authentication_Biometric_With_LockVID_Finger_LeftIndex_Neg:
     endpoint.url:
@@ -2903,7 +2903,7 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$ 
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFinger$ 
       
       
   Authentication_Biometric_Finger_With_multiple_FingerRecord_In_Identity_Pos:

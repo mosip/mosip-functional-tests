@@ -24,6 +24,8 @@
 			<class
 				name="io.mosip.authentication.tests.BiometricAuthentication" />
 			<class
+				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
+			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 			<!-- <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
