@@ -1,0 +1,11 @@
+{
+    "id": "mosip.resident.printuin",
+    "version": "v1",
+    "responsetime": "2020-07-24T11:18:30.862Z",
+    "metadata": null,
+    "response": {
+        "registrationId": "10001100010000820200724111831",
+        "message": "Notification has been sent to the provided contact detail(s)"
+    },
+    "errors": null
+}
