@@ -48,6 +48,13 @@ public class UpdateDeviceSpecification  extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		// try block snippet added just to delete the existing data before inserting any new record DB
+		try {
+			if (masterDB.executeQuery(queries.get("deleteUpdatedDeviceSpecification").toString(), "masterdata"))
+				logger.info("deleted all updated Device Specification details successfully");
+		} catch (Exception e) {
+		}
+		// Insert record in DB
 		String query = queries.get("updateDeviceSpecification").toString();
 		if (masterDB.executeQuery(query, "masterdata"))
 			logger.info("Device Specification updated with new code as Test successfully using query from query.properties");

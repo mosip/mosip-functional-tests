@@ -1000,4 +1000,52 @@ public class PartnerTestUtil extends AuthTestsUtil{
 		}
 	}
 	
+	protected boolean patchUpdateMispStatusByMispId(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response;
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String mispId = "";
+					if (objectData.containsKey("mispId")) {
+						mispId = objectData.get("mispId").toString();
+						objectData.remove("mispId");
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + mispId;
+					
+					
+					if (code == 0)
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = patchRequestWithParameter(objectData, newUrlPath,cookieName,cookieValue);
+					responseJsonToVerifyDigtalSignature=response.asString();
+					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					fos.write(response.asString().getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
 }

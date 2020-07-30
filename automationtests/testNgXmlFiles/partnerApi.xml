@@ -40,7 +40,10 @@
 			<class name="io.mosip.pmp.tests.RejectMISP" />
 			<class name="io.mosip.pmp.tests.RetrieveMISPByMispID" />
 			<class name="io.mosip.pmp.tests.ValidateMISPLicense" />
-			<class name="io.mosip.pmp.tests.ActivateDeactivateMISPLincense" />
+			<class name="io.mosip.pmp.tests.ActivateDeactivateMISPLincense" /> 
+			<class name="io.mosip.pmp.tests.RetrieveMISPsDetailsByGivenName" />
+			<class name="io.mosip.pmp.tests.UpdateMispStatusByMispId" />
+			<class name="io.mosip.pmp.tests.DownloadMispLicenseKey" />
 			
 			
 		</classes>
