@@ -175,7 +175,6 @@ public class OtpGeneration extends PrerequisteTests implements ITest {
 		logger.info("************* Otp generation request ******************");
 		Reporter.log("<b><u>Otp generation request</u></b>");
 		displayContentInFile(testCaseName.listFiles(), "request");
-		displayContentInFile(testCaseName.listFiles(), "request");
 		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getOtpPath()
 				+ extUrl + " *******");
 		if (!getTestCaseName().contains("OTP_Flooding")) {

@@ -1,0 +1,12 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "address": "string",
+    "contactNumber": "string",
+    "emailId": "string",
+    "policyGroup": "string"
+  },
+  "requesttime": "2020-05-20T09:48:43.394Z",
+  "version": "1.0"
+}

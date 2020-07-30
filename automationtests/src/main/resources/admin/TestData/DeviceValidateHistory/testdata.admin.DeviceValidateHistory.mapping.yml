@@ -166,7 +166,15 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidRequestTime:errorMessage$         
+         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+         
+   Admin_DeviceValidateHistory_inValid_TimeStampFormat:
+      input.search-request:
+         timestamp: '2018/12/10T06:12:52.994Z'
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode1$
+         messageerrors0: $errors:InvalidRequestTimeStamp:errorMessage1$                  
          
    Admin_DeviceValidateHistory_inValid_MDS_dtyp_diffThan_passedDev_dtyp:
       input.search-request:

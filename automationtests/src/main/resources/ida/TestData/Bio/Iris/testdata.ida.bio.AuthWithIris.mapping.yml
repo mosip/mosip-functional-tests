@@ -2232,7 +2232,7 @@ testdata:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $UIN.bio.IIR.true$
+      AuthReq.individualId: $UIN.bio.Iris.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
@@ -2259,13 +2259,13 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageIris$
       
   Authentication_Biometric_With_LockedVID_Iris_With_Left_Neg:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $VID.bio.IIR.true$
+      AuthReq.individualId: $VID.bio.Iris.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
       AuthReq.individualIdType: $TestData:indvId_Vid_valid$
@@ -2293,5 +2293,5 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageIris$
       

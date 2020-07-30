@@ -91,7 +91,7 @@ public class AssertResponses {
 		Map<String, Object> secondMap = g.fromJson(obj2.toJSONString(), mapType);
 		logger.info(com.google.common.collect.Maps.difference(firstMap, secondMap));
 		if (obj1.hashCode() == obj2.hashCode()) {
-			softAssert.assertTrue(obj1.equals(obj2), null);
+			softAssert.assertTrue(obj1.equals(obj2));
 			softAssert.assertAll();
 			return true;
 
@@ -163,7 +163,7 @@ public class AssertResponses {
 		logger.info(com.google.common.collect.Maps.difference(firstMap, secondMap));
 		if (obj1.hashCode() == obj2.hashCode()) {
 			logger.info("both object are equal");
-			softAssert.assertTrue(obj1.equals(obj2), null);
+			softAssert.assertTrue(obj1.equals(obj2));
 			logger.info("both object are equal");
 			softAssert.assertAll();
 			return true;

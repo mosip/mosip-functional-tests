@@ -24,7 +24,6 @@ import io.mosip.registration.constants.RegistrationConstants;
 import io.mosip.registration.context.ApplicationContext;
 import io.mosip.registration.context.SessionContext;
 import io.mosip.registration.dao.PolicySyncDAO;
-import io.mosip.registration.dto.AuthTokenDTO;
 import io.mosip.registration.dto.AuthenticationValidatorDTO;
 import io.mosip.registration.dto.ErrorResponseDTO;
 import io.mosip.registration.dto.LoginUserDTO;
@@ -110,7 +109,6 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 	static {
 		ApplicationContext applicationContext = ApplicationContext.getInstance();
 		applicationContext.loadResourceBundle();
-		
 	}
 
 	public void baseSetUp() { 
@@ -118,8 +116,6 @@ public class BaseConfiguration extends AbstractTestNGSpringContextTests {
 
 			// Fetching the Global param values from the database
 			ApplicationContext.setApplicationMap(globalParamService.getGlobalParams());
-			ApplicationContext.map().put("mosip.registration.client.id", "mosip-reg-client");
-			ApplicationContext.map().put("mosip.registration.secret.Key", "abc123");
 			// Set spring Application Context to SessionContext
 			SessionContext.setApplicationContext(applicationContext);
 			

@@ -337,6 +337,8 @@ errors:
     errorCode: IDA-MLC-019
     errorMessage: bio Auth Type is Locked for the UIN
     errorMessageFace: bio-FACE Auth Type is Locked for the UIN
+    errorMessageFinger: bio-Finger Auth Type is Locked for the UIN
+    errorMessageIris: bio-Iris Auth Type is Locked for the UIN
   IdentityMismatch:
     errorCode: IDA-OTA-010
     errorMessage: Input Identity Type does not match Identity Type of OTP Request

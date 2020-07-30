@@ -68,5 +68,19 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Partner_RegisterPartner_Missing_Input_Parameter_organizationName:
+      input.register-partner-request2:
+         address: BTM
+         contactNumber: 8651119791
+         emailId: hsrgmail.com
+         policyGroup: MOSIP POLICY
+      output.output-1-expected-error-response2:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter
+         id: $IGNORE$
+         version: $IGNORE$
+         timestamp: $IGNORE$
+         
          
          

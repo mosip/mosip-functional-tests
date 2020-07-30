@@ -392,40 +392,5 @@
 				name="io.mosip.registrationProcessor.tests.AdminRequirement" />
 		</classes>
 	</test>
-	
-	<test name="Registration Services Test">
-		<classes>
-		
- 		 	 <class name="io.mosip.registration.test.DocumentScannerServiceTest" />
- 			<class name="io.mosip.registration.test.AuditServiceTest"/>
-			<class name="io.mosip.registration.test.GlobalParamServiceTest" />
-			<class name="io.mosip.registration.test.JobConfigurationTest" />
-			<class name="io.mosip.registration.test.EmailNotificationServiceTest" />
-			<class name="io.mosip.registration.test.LoginServiceLoginModesTest" />
-			<class name="io.mosip.registration.test.LoginServiceRegCenterDetailTest" />
-			<class name="io.mosip.registration.test.LoginServiceScreenAuthorizationTest" />
-			<class name="io.mosip.registration.test.LoginServiceUpdateLoginParamTest" />
-			<class name="io.mosip.registration.test.LoginServiceUserDetailsTest" />
-			<class name="io.mosip.registration.test.MasterSyncBlackListedWord" />
-			<class name="io.mosip.registration.test.MasterSyncDocumentCategory" />
-			<class name="io.mosip.registration.test.MasterSyncGenderDetail" />
-			<class name="io.mosip.registration.test.MasterSyncIndividualType" />
-			<class name="io.mosip.registration.test.MasterSyncLocationByHierarchyCode" />
-			<class name="io.mosip.registration.test.MasterSyncProvianceByHierarchyCode" />  
-			<class name="io.mosip.registration.test.PolicySyncServiceTest" />
-			<class name="io.mosip.registration.test.PreRegistrationDataSyncServiceTest" />
-			<class name="io.mosip.registration.test.RegistrationApprovalServiceTest" />
-			<class name="io.mosip.registration.test.RegPacketStatusServiceDeleteRegistrationTest" />
-			<class name="io.mosip.registration.test.RegPacketStatusServicePacketSyncStatusTest" />
-			<class name="io.mosip.registration.test.RegPacketStatusServiceSyncPacketsTest" />  
-			<class name="io.mosip.registration.test.ReRegistrationServiceTest" />
-			<class name="io.mosip.registration.test.SMSNotificationServiceTest" /> 
-			<class name="io.mosip.registration.test.StorageServiceTest" /> 
-			<class name="io.mosip.registration.test.SyncStatusValidatorServiceTest" /> 
-			<class name="io.mosip.registration.test.TemplateServiceTest" /> 
-			<class name="io.mosip.registration.test.UserOnboardValidateTest" /> 
-			<class name="io.mosip.registration.test.ZipCreationServiceTest" />  
-		</classes>
-	</test>
 
 </suite>

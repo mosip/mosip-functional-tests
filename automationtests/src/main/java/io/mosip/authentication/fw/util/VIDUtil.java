@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
-
+import com.aventstack.extentreports.utils.StringUtil;
 
 import io.mosip.authentication.fw.dto.UinDto;
 import io.mosip.authentication.fw.dto.VidDto;
