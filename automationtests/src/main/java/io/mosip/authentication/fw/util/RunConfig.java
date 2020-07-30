@@ -564,5 +564,9 @@ public abstract class RunConfig {
 		public abstract String getRejectMISPPath();
 		public abstract String getActivateMISPLicense();
 		public abstract String getRetrieveMISPByMispIDPath();
+		public abstract String getRetrieveMISPsDetailsByGivenNamePath();
+		public abstract void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath);
+		public abstract String getUpdateMispStatusByMispIdPath();
+		public abstract String getDownloadMispLicenseKeyPath();
 		
 }

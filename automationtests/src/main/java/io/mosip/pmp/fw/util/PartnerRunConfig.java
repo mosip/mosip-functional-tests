@@ -129,9 +129,36 @@ public class PartnerRunConfig extends RunConfig {
     private String rejectMISPPath;
     private String activateMISPLicense;
     private String retrieveMISPByMispIDPath;
+    private String retrieveMISPsDetailsByGivenNamePath;
+    private String updateMispStatusByMispIdPath;
+    private String downloadMispLicenseKeyPath;
     
     
-    public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+    public String getDownloadMispLicenseKeyPath() {
+		return downloadMispLicenseKeyPath;
+	}
+
+	public void setDownloadMispLicenseKeyPath(String downloadMispLicenseKeyPath) {
+		this.downloadMispLicenseKeyPath = downloadMispLicenseKeyPath;
+	}
+
+	public String getUpdateMispStatusByMispIdPath() {
+		return updateMispStatusByMispIdPath;
+	}
+
+	public void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath) {
+		this.updateMispStatusByMispIdPath = updateMispStatusByMispIdPath;
+	}
+
+	public String getRetrieveMISPsDetailsByGivenNamePath() {
+		return retrieveMISPsDetailsByGivenNamePath;
+	}
+
+	public void setRetrieveMISPsDetailsByGivenNamePath(String retrieveMISPsDetailsByGivenNamePath) {
+		this.retrieveMISPsDetailsByGivenNamePath = retrieveMISPsDetailsByGivenNamePath;
+	}
+
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
 		return retrievePartnerAPIkeyToPolicyMappingsPath;
 	}
 
@@ -447,6 +474,9 @@ public class PartnerRunConfig extends RunConfig {
 		setRejectMISPPath(PartnerTestUtil.getPropertyValue("rejectMISPPath"));
 		setActivateMISPLicense(PartnerTestUtil.getPropertyValue("activateMISPLicense"));
 		setRetrieveMISPByMispIDPath(PartnerTestUtil.getPropertyValue("retrieveMISPByMispIDPath"));
+		setRetrieveMISPsDetailsByGivenNamePath(PartnerTestUtil.getPropertyValue("retrieveMISPsDetailsByGivenNamePath"));
+		setUpdateMispStatusByMispIdPath(PartnerTestUtil.getPropertyValue("updateMispStatusByMispIdPath"));
+		setDownloadMispLicenseKeyPath(PartnerTestUtil.getPropertyValue("downloadMispLicenseKeyPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
