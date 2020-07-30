@@ -5,7 +5,7 @@
 4.  Procedure to build and run it.
 
 ### How to build
-Follow the steps in https://github.com/mosip/mosip-functional-tests/blob/master/automationtests/README.md
+Follow the steps in https://github.com/mosip/mosip-functional-tests/blob/1.1.1/automationtests/README.md
 
 ### Reources
 [Tester Documentation](https://github.com/mosip/mosip-docs/wiki/Tester-Documentation) contains complete information regarding the test rig code and design.  
