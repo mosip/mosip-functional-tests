@@ -23,6 +23,8 @@ Update the following configuration files under the automationtests/src/main/reso
    * regproc_{env}.cfg.xml
    * ida_{env}.cfg.xml
    
+{env} -> environment in which you will run the test.    
+   
 Update all the .properties file in resources/config/ folder with the valid user and it's credentials.
 
 Before running the automation suite please build the auth-partner-demo in the system as the automation suite needs this jar to set up.
