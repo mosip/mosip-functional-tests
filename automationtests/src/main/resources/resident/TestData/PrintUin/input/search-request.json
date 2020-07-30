@@ -1,0 +1,12 @@
+{
+	"id": "mosip.resident.printuin",
+	"version": "v1",
+	"requesttime": "string",
+	"request": {
+		"transactionID": "string",
+		"individualId": "string",
+		"individualIdType": "string",
+		"cardType": "string",
+		"otp": "string"
+	}
+}
