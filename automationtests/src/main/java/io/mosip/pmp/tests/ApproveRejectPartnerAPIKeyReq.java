@@ -174,7 +174,7 @@ public class ApproveRejectPartnerAPIKeyReq extends PartnerTestUtil implements IT
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getApproveRejectPartnerAPIKeyReqPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchRequestWithBodyAndParameterForApproveRejectPartnerAPIKeyReq(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),

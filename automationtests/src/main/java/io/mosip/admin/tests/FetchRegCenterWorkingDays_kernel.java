@@ -171,13 +171,13 @@ public class FetchRegCenterWorkingDays_kernel  extends AdminTestUtil implements 
 		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getFetchRegCenterWorkingDays_kernelPath();
 		logger.info("******Get request Json to EndPointUrl: " + url+" *******");		
 		
-		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForUinGenerator(),"https://qa.mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+		String cookieValue =kernelAuthLib.getAuthForAdmin();
 		if (testcaseName.contains("withoutToken")) {
 			cookieValue="";
 			getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,cookieValue);
 		}
 		else if (testcaseName.contains("UnAuthorisedRole")) {
-			 cookieValue = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),"https://qa.mosip.io/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			 cookieValue = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),RunConfigUtil.objRunConfig.getAdminEndPointUrl()+"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 			 getRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url,"request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME,cookieValue);
 		}
 		else {

@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateTemplateFileFormat_All_Valid_Smoke:
       input.create-templateFile-format-request:
-         Rcode: Doc
+         Rcode: Docx
          description: Doc Test
          RlangCode: eng
          isActive: true
@@ -28,43 +28,16 @@ testdata:
          
    Admin_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256:
       input.create-templateFile-format-request:
-         descr: $TestData:Description257$ 
+         description: $TestData:Description257$ 
          Rcode: ALT-3
          RlangCode: eng
-         name: alternate
          isActive: true 
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
-         
-   Admin_CreateTemplateFileFormat_InputParameter_Description_Missing:
-      input.create-templateFile-format-request:
-         Rcode: CSV
-         description: $REMOVE$
-         RlangCode: eng
-         isActive: true
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: must not be null'
-         
-   Admin_CreateTemplateFileFormat_InputParameter_Description_Empty:
-      input.create-templateFile-format-request:
-         Rcode: CSV
-         description: ''
-         RlangCode: eng
-         isActive: true
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: must not be blank'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_DescMandatory_256$
          
    Admin_CreateTemplateFileFormat_InputParameter_Code_Missing:
       input.create-templateFile-format-request:
@@ -76,8 +49,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_CreateTemplateFileFormat_InputParameter_Code_Empty:
       input.create-templateFile-format-request:
@@ -89,21 +62,21 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$        
          
    Admin_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
       input.create-templateFile-format-request:
          Rcode: $TestData:validLocationCode37$
          description: CSV Test
-         RlangCode: engr
+         RlangCode: eng
          isActive: true 
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: size must be between 1 and 36'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$         
          
    Admin_CreateTemplateFileFormat_InputParameter_LangCode_Missing:
       input.create-templateFile-format-request:
@@ -115,8 +88,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateFileFormat_InputParameter_LangCode_Empty:
       input.create-templateFile-format-request:
@@ -128,8 +101,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
       input.create-templateFile-format-request:
@@ -141,8 +114,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateFileFormat_InputParameter_Invalid_LangCode:
       input.create-templateFile-format-request:
@@ -154,21 +127,21 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateFileFormat_InputParameter_isActive_Missing:
       input.create-templateFile-format-request:
          Rcode: CSV
          description: CSV Test
-         RlangCode: GST
+         RlangCode: eng
          isActive: $REMOVE$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                                    
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                                    
          
                                     
 

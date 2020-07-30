@@ -30,4 +30,16 @@ testdata:
       license_key: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
       validFromDatemisp_licenses0: $IGNORE$
       validToDatemisp_licenses0: $IGNORE$
+      
+  Partner_RetrieveMISPByMispID_with_Invalid_mispId:
+    input.retrieve-misp-by-id-request:
+      mispId: MISP-FUN-ID-001
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: PMS_MSP_005
+      messageerrors0: MISP ID does not exist  MISP-FUN-ID-001
+      id: $IGNORE$
+      version: $IGNORE$
+      response: $IGNORE$
+      metadata: $IGNORE$
          

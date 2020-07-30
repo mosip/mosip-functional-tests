@@ -1,57 +1,126 @@
 {
-  "id":null,
-  "version":null,
-  "responsetime":"2019-12-23T07:03:47.244Z",
-  "metadata":null,
-  "response":{
-    "lastSyncTime":"2019-12-23T07:03:46.961Z",
-    "userDetails":[
+  "id": null,
+  "version": null,
+  "responsetime": "2020-07-24T07:55:26.988Z",
+  "metadata": null,
+  "response": {
+    "lastSyncTime": "2020-07-24T07:55:26.967Z",
+    "userDetails": [
       {
-        "isDeleted":null,
-        "langCode":null,
-        "isActive":null,
-        "userName":"110001",
-        "mail":"110001@mosip.com",
-        "mobile":"7891110001",
-        "userPassword":"E746B5D4EE780B5823DF2DDE1B0578289E88FCAE38A149E3DF674E94C7DD02E8",
-        "name":"110001 110001",
-        "roles":[
-          "REGISTRATION_OFFICER",
+        "isDeleted": null,
+        "langCode": null,
+        "isActive": null,
+        "userName": "110087",
+        "mail": "110087@mosip.io",
+        "mobile": null,
+        "userPassword": "B961CB3A0F85C281866B469DDEC3C1A0E68CD8A05B1C354CABFE55652752A60C",
+        "name": "110087 110087",
+        "roles": [
+          "REGISTRATION_PROCESSOR",
+          "ID_AUTHENTICATION",
+          "offline_access",
           "ZONAL_ADMIN",
-          "REGISTRATION_ADMIN",
-          "REGISTRATION_SUPERVISOR"],
-        "rid":null
+          "uma_authorization"
+        ],
+        "rid": null
       },
       {
-        "isDeleted":null,
-        "langCode":null,
-        "isActive":null,
-        "userName":"110030",
-        "mail":"110030@mosip.com",
-        "mobile":"7891110030",
-        "userPassword":"D3363E791E2B43595775EA6F2A2BC16FA7610F4EA0B1929818212E0F4178EAA2",
-        "name":"110030 110030",
-        "roles":[
+        "isDeleted": null,
+        "langCode": null,
+        "isActive": null,
+        "userName": "110118",
+        "mail": "110118@xyz.com",
+        "mobile": null,
+        "userPassword": "F5598A34CC8D23A88E54647617F518E75704CA06311675BC3B5CF397977C86A0",
+        "name": "Jane Test",
+        "roles": [
+          "CENTRAL_APPROVER",
+          "REGISTRATION_PROCESSOR",
+          "RESIDENT",
+          "REGISTRATION_SUPERVISOR",
+          "ZONAL_ADMIN",
+          "uma_authorization",
           "REGISTRATION_OFFICER",
+          "GLOBAL_ADMIN",
+          "MISP",
           "REGISTRATION_ADMIN",
-          "REGISTRATION_SUPERVISOR"],
-        "rid":null
+          "offline_access",
+          "CENTRAL_ADMIN",
+          "POLICYMANAGER",
+          "PARTNERMANAGER",
+          "PARTNER"
+        ],
+        "rid": null
       },
       {
-        "isDeleted":null,
-        "langCode":null,
-        "isActive":null,
-        "userName":"110031",
-        "mail":"110031@mosip.com",
-        "mobile":"7891110031",
-        "userPassword":"C91EE221C3802B338935D0ECA27F6DAB991319A023C0F00D342F567AA22BFAE6",
-        "name":"110031 110031",
-        "roles":[
+        "isDeleted": null,
+        "langCode": null,
+        "isActive": null,
+        "userName": "110122",
+        "mail": "110122@xyz.com",
+        "mobile": null,
+        "userPassword": "F5598A34CC8D23A88E54647617F518E75704CA06311675BC3B5CF397977C86A0",
+        "name": "Niyati Test",
+        "roles": [
+          "CENTRAL_APPROVER",
+          "ID_AUTHENTICATION",
+          "DEVICE_PROVIDER",
+          "REGISTRATION_PROCESSOR",
+          "RESIDENT",
+          "REGISTRATION_SUPERVISOR",
+          "PRE_REGISTRATION",
+          "PRE_REGISTRATION_ADMIN",
+          "SUPERADMIN",
+          "ZONAL_ADMIN",
+          "uma_authorization",
+          "REGISTRATION_OPERATOR",
           "REGISTRATION_OFFICER",
+          "GLOBAL_ADMIN",
+          "MISP",
+          "PREREG",
           "REGISTRATION_ADMIN",
-          "REGISTRATION_SUPERVISOR"],
-        "rid":null
-      }]
+          "offline_access",
+          "CENTRAL_ADMIN",
+          "ZONAL_APPROVER"
+        ],
+        "rid": null
+      },
+      {
+        "isDeleted": null,
+        "langCode": null,
+        "isActive": null,
+        "userName": "110124",
+        "mail": "110124@xyz.com",
+        "mobile": null,
+        "userPassword": "F5598A34CC8D23A88E54647617F518E75704CA06311675BC3B5CF397977C86A0",
+        "name": "Sanjeev Test",
+        "roles": [
+          "MISP",
+          "offline_access",
+          "POLICYMANAGER",
+          "PARTNERMANAGER",
+          "uma_authorization",
+          "PARTNER"
+        ],
+        "rid": null
+      },
+      {
+        "isDeleted": null,
+        "langCode": null,
+        "isActive": null,
+        "userName": "110125",
+        "mail": "110125@xyz.com",
+        "mobile": null,
+        "userPassword": "F5598A34CC8D23A88E54647617F518E75704CA06311675BC3B5CF397977C86A0",
+        "name": "Alok Test",
+        "roles": [
+          "offline_access",
+          "uma_authorization",
+          "REGISTRATION_OFFICER"
+        ],
+        "rid": null
+      }
+    ]
   },
-  "errors":null
+  "errors": null
 }

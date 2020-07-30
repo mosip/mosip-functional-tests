@@ -168,7 +168,8 @@ public class UpdateTheStatusActivateDeactivateForTheGivenPolicyId extends Partne
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
 		logger.info("******Patch request Json to EndPointUrl: " + url+
 				 " *******");
-		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		//patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchUpdateTheStatusActivateDeactivateForTheGivenPolicyId(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
@@ -180,7 +181,7 @@ public class UpdateTheStatusActivateDeactivateForTheGivenPolicyId extends Partne
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing
 	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
+	 * @throws AdminTestExceptionn/  
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {

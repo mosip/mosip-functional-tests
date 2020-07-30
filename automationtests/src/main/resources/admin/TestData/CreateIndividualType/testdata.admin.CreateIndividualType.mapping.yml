@@ -3,11 +3,11 @@ testdata:
       input.create-individual-type-request:
          Rcode: TST-1
          Rname: TestInd
-         RisActive: false
+         RisActive: true
          RlangCode: eng
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         isActive: $input.create-individual-type-request:RisActive$
+         isActive: false
          code: $input.create-individual-type-request:Rcode$
          langCode: $input.create-individual-type-request:RlangCode$
          name: $input.create-individual-type-request:Rname$         
@@ -20,6 +20,45 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Admin_CreateIndividualType_InputParameter_Code_Missing:
+      input.create-individual-type-request:
+         Rcode: $REMOVE$
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         id: $IGNORE$
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
+         
+   Admin_CreateIndividualType_InputParameter_Code_Empty:
+      input.create-individual-type-request:
+         Rcode: ''
+         Rname: TST-1
+         RisActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$        
+         
+   Admin_CreateIndividualType_InputParameter_Code_AboveMaxLen36:
+      input.create-individual-type-request:
+         Rcode: $TestData:validLocationCode37$
+         Rname: TST2         
+         RisActive: true
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$         
+         
    Admin_CreateIndividualType_Sec_Data_Present_but_No_Data_Prim_lang:
       input.create-individual-type-request:
          Rcode: TST2
@@ -30,8 +69,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:errorMessage_NoPrimaryLang$
          
    Admin_CreateIndividualType_valid_secondarylang_SameDataAsVldScnrio:
       input.create-individual-type-request:
@@ -64,8 +103,8 @@ testdata:
          id: $IGNORE$
          responsetime: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateIndividualType_InputParameter_Name_Empty:
       input.create-individual-type-request:
@@ -77,8 +116,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$        
          
    Admin_CreateIndividualType_InputParameter_Name_AboveMaxLen64:
       input.create-individual-type-request:
@@ -90,8 +129,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          
    Admin_CreateIndividualType_InputParameter_LangCode_Missing:
       input.create-individual-type-request:
@@ -103,8 +142,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateIndividualType_InputParameter_LangCode_Empty:
       input.create-individual-type-request:
@@ -116,8 +155,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateIndividualType_InputParameter_LangCode_AboveMaxLen3:
       input.create-individual-type-request:
@@ -129,8 +168,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateIndividualType_InputParameter_LangCode:
       input.create-individual-type-request:
@@ -142,21 +181,21 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateIndividualType_InputParameter_isActive_Missing:
       input.create-individual-type-request:
          Rcode: TST-1
          Rname: TestInd
          RisActive: $REMOVE$
-         RlangCode: GER
+         RlangCode: eng
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                  
          
                                     
          

@@ -49,6 +49,14 @@ public class UpdateDeviceProvider extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
+		// try block snippet added just to delete the existing data before inserting any new record DB
+		try {
+			String histDelQuery = queries.get("deleteDevProCreatedByAPI").toString().replace("master.device_provider", "master.device_provider_h");
+			if (masterDB.executeQuery(queries.get("deleteDevProCreatedByAPI").toString(), "masterdata")
+					&& masterDB.executeQuery(histDelQuery, "masterdata"))
+				logger.info("deleted created deviceProviders and history successfully");
+		}catch(Exception e) {}
+		// insert the record in DB
 		if (masterDB.executeQuery(queries.get("createDevProviderUpdate").toString(), "masterdata"))
 			logger.info("created device providers successfully using query from query.properties");
 		else

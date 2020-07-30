@@ -54,8 +54,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.id: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Missing$
          
    Admin_UpdateTemplate_InputParameter_Id_Empty:
       input.update-template-request:
@@ -74,8 +74,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Empty$        
          
    Admin_UpdateTemplate_InputParameter_Id_AboveMaxLen36:
       input.update-template-request:
@@ -94,8 +94,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Empty$
          
    Admin_UpdateTemplate_InputParameter_Name_Missing:
       input.update-template-request:
@@ -114,8 +114,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_UpdateTemplate_InputParameter_Name_Empty:
       input.update-template-request:
@@ -134,8 +134,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Empty$        
          
    Admin_UpdateTemplate_InputParameter_Name_AboveMaxLen128:
       input.update-template-request:
@@ -154,8 +154,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Empty$
          
    Admin_UpdateTemplate_InputParameter_FileFormatCode_Missing:
       input.update-template-request:
@@ -174,8 +174,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_Missing$
          
    Admin_UpdateTemplate_InputParameter_FileFormatCode_Empty:
       input.update-template-request:
@@ -194,8 +194,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_invalid$        
          
    Admin_UpdateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
       input.update-template-request:
@@ -214,48 +214,9 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_invalid$
          
-   Admin_UpdateTemplate_InputParameter_ModuleId_Missing:
-      input.update-template-request:
-         description: test template
-         fileFormatCode: html
-         fileText: abc
-         Rid: test-01
-         isActive: true
-         RlangCode: eng
-         model: model-1
-         moduleId: $REMOVE$
-         moduleName: Pre-Registration
-         name: Test-template
-         templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleId: must not be null'
-         
-   Admin_UpdateTemplate_InputParameter_ModuleName_Missing:
-      input.update-template-request:
-         description: test template
-         fileFormatCode: html
-         fileText: abc
-         Rid: test-01
-         isActive: true
-         RlangCode: eng
-         model: model-1
-         moduleId: 10001
-         moduleName: $REMOVE$
-         name: Test-template
-         templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: must not be null'
          
    Admin_UpdateTemplate_InputParameter_TemplateTypeCode_Missing:
       input.update-template-request:
@@ -274,8 +235,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_Missing$
          
    Admin_UpdateTemplate_InputParameter_TemplateTypeCode_Empty:
       input.update-template-request:
@@ -294,8 +255,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_invalid$        
          
    Admin_UpdateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
       input.update-template-request:
@@ -314,28 +275,9 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_invalid$
          
-   Admin_UpdateTemplate_InputParameter_ModuleName_Missing:
-      input.update-template-request:
-         description: test template
-         fileFormatCode: html
-         fileText: abc
-         Rid: test-01
-         isActive: true
-         RlangCode: eng
-         model: model-1
-         moduleId: 10001
-         moduleName: $REMOVE$
-         name: Test-template
-         templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: must not be null'
          
    Admin_UpdateTemplate_InputParameter_LangCode_Missing:
       input.update-template-request:
@@ -354,8 +296,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_UpdateTemplate_InputParameter_LangCode_Empty:
       input.update-template-request:
@@ -374,8 +316,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_UpdateTemplate_InputParameter_LangCode_AboveMaxLen3:
       input.update-template-request:
@@ -394,8 +336,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_UpdateTemplate_InputParameter_Invalid_LangCode:
       input.update-template-request:
@@ -414,28 +356,9 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
-   Admin_UpdateTemplate_InputParameter_FileText_Missing:
-      input.update-template-request:
-         description: test template
-         fileFormatCode: html
-         fileText: $REMOVE$
-         Rid: test-01
-         isActive: true
-         RlangCode: eng
-         model: model-1
-         moduleId: 10001
-         moduleName: Pre-Registration
-         name: Test-template
-         templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileText: must not be null'
          
    Admin_UpdateTemplate_InputParameter_isActive_Missing:
       input.update-template-request:
@@ -454,8 +377,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$         
          
                   
          

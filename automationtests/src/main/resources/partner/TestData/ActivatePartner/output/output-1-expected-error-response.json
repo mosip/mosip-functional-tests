@@ -1,0 +1,13 @@
+{
+    "id": "mosip.partnermanagement.partners.retrieve",
+    "version": "1.0",
+    "responsetime": "2020-07-07T10:45:59.337Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_PMP_005",
+            "message": "Partner ID does not exist"
+        }
+    ]
+}

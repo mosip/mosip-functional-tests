@@ -14,7 +14,6 @@ import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IOUtils;
-import org.codehaus.plexus.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -78,8 +77,7 @@ public class HDFSAdapterImpl implements FileSystemAdapter {
 	@Override
 	public boolean copyFile(String sourcePacket, String sourceFilePath, String destinationPacket,
 			String destinationFilePath) {
-		LOGGER.info("Copying file from packet {} with path {} to packet {} with path {}", sourcePacket, sourceFilePath,
-				destinationPacket, destinationFilePath);
+		LOGGER.info("Copying file from packet {} with path {} to packet {} with path {}", sourcePacket, sourceFilePath);
 		return storeFile(destinationPacket, destinationFilePath, getFile(sourcePacket, sourceFilePath));
 	}
 

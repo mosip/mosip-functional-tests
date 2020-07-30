@@ -1,9 +1,9 @@
 testdata:
    Admin_CreateDeviceType_All_Valid_Smoke:
       input.create-device-type-request:
-         Rcode: GST3
+         Rcode: GST31607
          description: test 1.0.8
-         isActive: false
+         isActive: true
          RlangCode: eng
          name: GST
       output.output-1-expected-pos-response:
@@ -27,7 +27,7 @@ testdata:
          
    Admin_CreateDeviceType_valid_secondarylang_SameDataAsVldScnrio:
       input.create-device-type-request:
-         Rcode: GST3
+         Rcode: GST31607
          description: test 1.0.8
          isActive: true
          RlangCode: ara
@@ -49,8 +49,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:errorMessage_NoPrimaryLang$         
          
    Admin_CreateDeviceType_InputParameter_Name_Missing:
       input.create-device-type-request:
@@ -63,8 +63,8 @@ testdata:
          id: $IGNORE$
          responsetime: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateDeviceType_InputParameter_Name_Empty:
       input.create-device-type-request:
@@ -77,8 +77,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$        
          
    Admin_CreateDeviceType_InputParameter_Name_AboveMaxLen64:
       input.create-device-type-request:
@@ -91,8 +91,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          
    Admin_CreateDeviceType_InputParameter_Description_AboveMaxLen128:
       input.create-device-type-request:
@@ -105,8 +105,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_AboveMaxLen$
          
    Admin_CreateDeviceType_InputParameter_LangCode_Missing:
       input.create-device-type-request:
@@ -119,8 +119,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDeviceType_InputParameter_LangCode_Empty:
       input.create-device-type-request:
@@ -133,8 +133,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateDeviceType_InputParameter_LangCode_AboveMaxLen3:
       input.create-device-type-request:
@@ -147,8 +147,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDeviceType_InputParameter_LangCode:
       input.create-device-type-request:
@@ -161,8 +161,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDeviceType_InputParameter_isActive_Missing:
       input.create-device-type-request:
@@ -175,7 +175,7 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                                    
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                                    
 
          

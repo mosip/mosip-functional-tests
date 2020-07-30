@@ -1,0 +1,22 @@
+[
+    {
+        "misp": {
+            "ID": "MISP-FUN-ID-01",
+            "name": "MISP_Test0002",
+            "address": "Bangalore",
+            "contactNumber": "9840587080",
+            "emailId": "misp@telecom.com",
+            "userID": "pm_testuser",
+            "status_code": "Active",
+            "isActive": true,
+            "createdBy": "pm_testuser",
+            "createdDateTime": "2020-06-17T05:10:51.169",
+            "updatedBy": null,
+            "updatedDateTime": null,
+            "isDeleted": null,
+            "deletedDateTime": null,
+            "id": "MISP-FUN-ID-01"
+        },
+        "misp_licenses": []
+    }
+]

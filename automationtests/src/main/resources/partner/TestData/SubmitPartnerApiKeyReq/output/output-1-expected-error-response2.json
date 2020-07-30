@@ -1,0 +1,10 @@
+{
+    "timestamp": "string",
+    "status": 400,
+    "errors": [
+        {
+            "errorCode": "string",
+            "message": "string"
+        }
+    ]
+}

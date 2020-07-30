@@ -1,0 +1,11 @@
+{
+    "id": "mosip.partnermanagement.partners.retrieve",
+    "version": "1.0",
+    "responsetime": "2020-07-14T11:43:54.473Z",
+    "metadata": null,
+    "response": {
+        "partnerID": "476756",
+        "policyId": "377029"
+    },
+    "errors": null
+}

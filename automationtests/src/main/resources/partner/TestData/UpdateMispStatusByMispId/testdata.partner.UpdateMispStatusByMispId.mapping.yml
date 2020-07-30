@@ -1,0 +1,78 @@
+testdata:
+   Partner_UpdateMispStatusByMispId_All_Valid_Active_Smoke:
+      input.update-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: Active
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: MISP actived successfully 
+         id: $IGNORE$
+         version: $IGNORE$
+         metadata: $IGNORE$
+ 
+   Partner_UpdateMispStatusByMispId_Active_with_Invalid_mispId:
+      input.update-misp-request:
+         mispId: MISP-FUN-ID-001
+         mispStatus: Active
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_005
+         messageerrors0: MISP ID does not exist  MISP-FUN-ID-001
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateMispStatusByMispId_with_Invalid_Input_Parameter_mispStatus:
+      input.update-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: Aproved
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_016
+         messageerrors0: mispStatus either Active or De-active.
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+
+   Partner_UpdateMispStatusByMispId_with_Missing_Input_Parameter_mispStatus:
+      input.update-misp-request2:
+         mispId: MISP-FUN-ID-01
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_003
+         messageerrors0: Could not process the request
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_UpdateMispStatusByMispId_All_Valid_DeActive_Smoke:
+      input.update-misp-request:
+         mispId: MISP-FUN-ID-01
+         mispStatus: De-active
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         message: MISP de-actived successfully 
+         id: $IGNORE$
+         version: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_UpdateMispStatusByMispId_DeActive_with_Invalid_mispId:
+      input.update-misp-request:
+         mispId: MISP-FUN-ID-001
+         mispStatus: De-active
+         RmispId: MISP-FUN-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_005
+         messageerrors0: MISP ID does not exist  MISP-FUN-ID-001
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+         
+         

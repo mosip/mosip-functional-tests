@@ -59,6 +59,7 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 	private final String syncConf = props.get("syncConf");
 	private KernelAuthentication auth=new KernelAuthentication();
 	private String build;
+	private AssertKernel assertions = new AssertKernel();
 
 	// Getting test case names and also auth cookie based on roles
 	@BeforeMethod(alwaysRun=true)
@@ -89,51 +90,24 @@ public class SyncConfigurations extends BaseTestCase implements ITest {
 	@Test(dataProvider="SyncConfigurations")
 	public void syncConfigurations(String testcaseName) throws FileNotFoundException, IOException, ParseException
     {
-		// Getting configurations from the server
-		Response expectedobject=applicationLibrary.getConfigProperties("http://104.211.212.28:51000/registration/"+environment+"/"+build+"/");
-		//Getting the registrationConfiguration
-		JSONObject regConfig=(JSONObject) ((JSONObject)((JSONArray)((JSONObject) new JSONParser().parse(expectedobject.asString())).get("propertySources")).get(0)).get("source");
-		//Getting the globalConfig
-		JSONObject globalConfig=(JSONObject) ((JSONObject)((JSONArray)((JSONObject) new JSONParser().parse(expectedobject.asString())).get("propertySources")).get(1)).get("source");
-		for(Iterator<String>  iterator = globalConfig.keySet().iterator(); iterator.hasNext();) {
-			String key = (String) iterator.next();
-			String value=(String) globalConfig.get(key);
-			if(value.contains("${mosip.base.url}")) {
-				String unwantedString = value.substring(0, 16);
-				String wantedString=value.substring(17);
-				unwantedString=unwantedString.replace(unwantedString, ApplnURI);
-				value=unwantedString+wantedString;
-				globalConfig.put(key, value);
-				logger.info("value---"+value);
-			}
-		}
+		
+		JSONObject objectDataArray[] = new TestCaseReader().readRequestResponseJson(moduleName, apiName, testcaseName);
+
+		JSONObject responseObject = objectDataArray[1];
 		
 		// Calling the get method 
-		Response res=applicationLibrary.getWithoutParams(syncConf,adminCookie);
+		Response response=applicationLibrary.getWithoutParams(syncConf,adminCookie);
 		
 		//This method is for checking the authentication is pass or fail in rest services
-		new CommonLibrary().responseAuthValidation(res);
-		//Getting only configDetails from actual response
-		JSONObject actualresponse = (JSONObject) ((JSONObject)((JSONObject) new JSONParser().parse(res.asString())).get("response")).get("configDetail");
-		String consent_ara=((JSONObject)actualresponse.get("registrationConfiguration")).get("mosip.registration.consent_ara").toString();
-		String consent_fra=((JSONObject)actualresponse.get("registrationConfiguration")).get("mosip.registration.consent_fra").toString();
-		String pwd = ((JSONObject)actualresponse.get("globalConfiguration")).get("mosip.kernel.pdf_owner_password").toString();
-		//adding the unstable elements from actual response to expected response
-		regConfig.put("mosip.registration.consent_ara", consent_ara);
-		regConfig.put("mosip.registration.consent_fra", consent_fra);
-		globalConfig.put("mosip.kernel.pdf_owner_password", pwd);
-		//Creating a JSONObject and adding both registrationConfiguration and globalConfig
-				JSONObject configDetail= new JSONObject();
-				configDetail.put("registrationConfiguration", regConfig);
-				configDetail.put("globalConfiguration", globalConfig);
-		// Removing of unstable attributes from response
-		ArrayList<String> listOfElementToRemove=new ArrayList<String>();
+		new CommonLibrary().responseAuthValidation(response);
+		// add parameters to remove in response before comparison like time stamp
+		ArrayList<String> listOfElementToRemove = new ArrayList<String>();
 		listOfElementToRemove.add("responsetime");
-		// Comparing expected and actual response
-		status = assertKernel.assertKernelWithJsonObject(actualresponse, configDetail,listOfElementToRemove);
+		listOfElementToRemove.add("lastSyncTime");
+		status = assertions.assertKernel(response, responseObject, listOfElementToRemove);
  
       if (!status) {
-			logger.debug(res);
+			logger.debug(response);
 		}
 		
 		Verify.verify(status);

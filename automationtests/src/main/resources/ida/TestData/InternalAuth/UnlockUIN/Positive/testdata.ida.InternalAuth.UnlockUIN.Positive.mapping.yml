@@ -49,7 +49,7 @@ testdata:
       
   InternalAuthentication_unlockUIN_for_bio_Finger_Pos:
     input.request:
-      individualId: $UIN.bio.FIR.true$
+      individualId: $UIN.bio.Finger.true$
       individualIdType: $TestData:indvId_Uin_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_finger_type$
@@ -61,7 +61,7 @@ testdata:
       
   InternalAuthentication_UnlockVID_for_bio_finger_Pos:
     input.request:
-      individualId: $VID.bio.FIR.true$
+      individualId: $VID.bio.Finger.true$
       individualIdType: $TestData:indvId_Vid_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_finger_type$
@@ -73,7 +73,7 @@ testdata:
       
   InternalAuthentication_unlockUIN_for_bio_Iris_Pos:
     input.request:
-      individualId: $UIN.bio.IIR.true$
+      individualId: $UIN.bio.Iris.true$
       individualIdType: $TestData:indvId_Uin_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_iris_type$
@@ -85,7 +85,7 @@ testdata:
       
   InternalAuthentication_UnlockVID_for_bio_Iris_Pos:
     input.request:
-      individualId: $VID.bio.IIR.true$
+      individualId: $VID.bio.Iris.true$
       individualIdType: $TestData:indvId_Vid_valid$
       authTyperequest: bio
       authSubTyperequest: $TestData:bio_iris_type$

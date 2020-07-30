@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class UpdateTitle  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(UpdateTitle.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

@@ -37,7 +37,7 @@ testdata:
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
+         messageerrors0: $errors:CommonMSDErrorMssg_Id:errorMessage_Empty$
          responsetime: $IGNORE$
          
    Admin_UpdateFTP_inValid_address_blank:
@@ -130,7 +130,7 @@ testdata:
          isActive: 'str'
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
          responsetime: $IGNORE$
          
    Admin_UpdateFTP_inValid_requestTime_format:

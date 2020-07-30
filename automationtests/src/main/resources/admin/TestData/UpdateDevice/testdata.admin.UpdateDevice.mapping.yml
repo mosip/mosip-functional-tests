@@ -195,8 +195,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.id: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.id: must not be null'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_name_Blank:
       input.search-request:
@@ -213,8 +213,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.name: must not be null'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Mac_Address_Blank:
       input.search-request:
@@ -231,8 +231,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.macAddress: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.macAddress: must not be null'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Serial_Number_Blank:
       input.search-request:
@@ -249,8 +249,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.serialNum: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.serialNum: must not be null'
          responsetime: $IGNORE$
 
    Admin_UpdateDevice_Invalid_DeviceSpec_Blank:
@@ -269,8 +269,8 @@ testdata:
          rvalidityDateTime: $REMOVE$
          responsetime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.deviceSpecId: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.deviceSpecId: must not be null'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Language_Code_Blank:
       input.search-request:
@@ -287,7 +287,7 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_isActive_Blank:
@@ -305,8 +305,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$  
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_isActive_Format:
       input.search-request:
@@ -323,8 +323,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$ 
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Invalid Format in field : isActive'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Device_NonExistence:
       input.search-request:
@@ -377,8 +377,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.id: size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.id: Should not be blank or size must be between 1 and 36'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_Name_Char65:
       input.search-request:
@@ -395,8 +395,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_MACAddress_Char65:
       input.search-request:
@@ -413,8 +413,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.macAddress: size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_SerialNumber_Char65:
       input.search-request:
@@ -431,8 +431,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.serialNum: size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.serialNum: Should not be blank or size must be between 1 and 64'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_IPAddress_Char18:
       input.search-request:
@@ -449,7 +449,7 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.ipAddress: size must be between 0 and 17'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_DSpecID_Char37:
@@ -467,8 +467,8 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.deviceSpecId: size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.deviceSpecId: Should not be blank or size must be between 1 and 36'
          responsetime: $IGNORE$
    Admin_UpdateDevice_Invalid_LangCode_Char4:
       input.search-request:
@@ -485,7 +485,7 @@ testdata:
          rversion: $REMOVE$
          rvalidityDateTime: $REMOVE$
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid                  
          responsetime: $IGNORE$  
   

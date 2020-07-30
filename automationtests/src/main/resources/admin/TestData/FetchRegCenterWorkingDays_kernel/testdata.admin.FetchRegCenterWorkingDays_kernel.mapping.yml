@@ -96,9 +96,9 @@ testdata:
          langCode: try
          registrationCenterID: 59395
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          responsetime: $IGNORE$
-         messageerrors0: 'Language Code is Invalid'
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_FetchRegCenterWorkingDays_Kernel_RegCntrID_NotFound:
       input.search-request:

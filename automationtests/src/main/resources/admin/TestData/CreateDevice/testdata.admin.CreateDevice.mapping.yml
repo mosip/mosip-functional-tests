@@ -3,7 +3,7 @@ testdata:
       input.search-request:
          name: testDevicedummy
          deviceSpecId: 327
-         rid: $REMOVE$
+         rid: D001
          macAddress: D4-3D-7E-C0-8C-4A
          serialNum: ceec5f62-77b7-46f3-816b-3e734305a9c8
          langCode: eng
@@ -25,7 +25,7 @@ testdata:
       input.search-request:
          name: testDevicedummy1
          deviceSpecId: 327
-         rid: $REMOVE$
+         rid: D02
          macAddress: D4-3D-7E-C0-8C-4A
          serialNum: ceec5f62-77b7-46f3-816b-3e734305a9c8
          langCode: eng
@@ -100,7 +100,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'Invalid Format in field : validityDateTime'
    
    Admin_CreateDevice_Invalid_Device_Zone_notPresentInDB:
@@ -136,8 +136,8 @@ testdata:
          langCode: $REMOVE$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDevice_Invalid_Language_Code:
       input.search-request:
@@ -170,7 +170,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid             
     
    Admin_CreateDevice_Invalid_Machine_Name_Blank:
@@ -187,8 +187,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$  
     
    Admin_CreateDevice_Invalid_Zone_Code_Blank:
       input.search-request:
@@ -204,8 +204,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.zoneCode: Should not be blank or size must be between 1 and 36'     
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.zoneCode: Should not be blank or size must be between 0 and 36'     
    
    Admin_CreateDevice_Invalid_MAC_Address_Blank:
       input.search-request:
@@ -221,7 +221,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'    
          
    Admin_CreateDevice_Invalid_Serial_Number_Blank:
@@ -238,7 +238,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.serialNum: Should not be blank or size must be between 1 and 64' 
          
    Admin_CreateDevice_Invalid_DeviceName_AboveMaxLen64:
@@ -255,8 +255,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'   
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$   
          
    Admin_CreateDevice_Invalid_MacAddress_AboveMaxLen64:
       input.search-request:
@@ -272,7 +272,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'
          
    Admin_CreateDevice_Invalid_SerialNumber_AboveMaxLen64:
@@ -289,7 +289,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.serialNum: Should not be blank or size must be between 1 and 64' 
          
    Admin_CreateDevice_Invalid_IPAddress_AboveMaxLen17:
@@ -306,8 +306,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.ipAddress: Should not be blank or size must be between 1 and 17'  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.ipAddress: size must be between 0 and 17'  
          
    Admin_CreateDevice_Invalid_DSpecID_AboveMaxLen36:
       input.search-request:
@@ -323,7 +323,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.deviceSpecId: Should not be blank or size must be between 1 and 36'
          
    Admin_CreateDevice_Invalid_LangCode_AboveMaxLen3:
@@ -340,6 +340,6 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          

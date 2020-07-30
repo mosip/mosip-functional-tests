@@ -7,11 +7,7 @@
   "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request[0].machineId: size must be between 1 and 10"
-    },
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request[0].machineId: must not be blank"
+      "message": "request[0].machineId: Should not be blank or size must be between 1 and 10"
     }
   ]
 }

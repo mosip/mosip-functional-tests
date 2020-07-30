@@ -2,6 +2,8 @@ testdata:
    Partner_ActivateDeactivatePartnerAPIKey_Active_Valid_Smoke:
       input.activate-partner-request:
          status: Active
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner API Key status updated successfully
@@ -13,6 +15,8 @@ testdata:
    Partner_ActivateDeactivatePartnerAPIKey_De_Active_Valid_Smoke:
       input.activate-partner-request:
          status: De-Active
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner API Key status updated successfully
@@ -20,3 +24,84 @@ testdata:
          metadata: $IGNORE$
          errors: $IGNORE$
          version: $IGNORE$
+         
+   Partner_ActivateDeactivatePartnerAPIKey_Active_with_InValid_PartnerId:
+      input.activate-partner-request:
+         status: Active
+         partnerId: PMP-PART-ID-001
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_005
+         messageerrors0: Partner ID does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+         
+   Partner_ActivateDeactivatePartnerAPIKey_Active_with_InValid_partnerApiKey:
+      input.activate-partner-request:
+         status: Active
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_011
+         messageerrors0: Partner api key does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_ActivateDeactivatePartnerAPIKey_DeActive_with_InValid_PartnerId:
+      input.activate-partner-request:
+         status: De-Active
+         partnerId: PMP-PART-ID-001
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_005
+         messageerrors0: Partner ID does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+         
+   Partner_ActivateDeactivatePartnerAPIKey_DeActive_with_InValid_partnerApiKey:
+      input.activate-partner-request:
+         status: De-Active
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_011
+         messageerrors0: Partner api key does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+
+   Partner_ActivateDeactivatePartnerAPIKey_Active_with_InValid_Input_parameter:
+      input.activate-partner-request:
+         status: Activesss
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_002
+         messageerrors0: Invalid Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+         
+   Partner_ActivateDeactivatePartnerAPIKey_Active_with_Missing_Input_parameter:
+      input.activate-partner-request2:
+         partnerId: PMP-PART-ID-01
+         partnerApiKey: PAT-API-KEY-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+               

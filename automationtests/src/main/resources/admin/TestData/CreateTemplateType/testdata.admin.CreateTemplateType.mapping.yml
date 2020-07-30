@@ -1,7 +1,7 @@
 testdata:
    Admin_CreateTemplateType_All_Valid_Smoke:
       input.create-template-type-request:
-         Rcode: Test-info-Template
+         Rcode: crTest-info-Template
          description: Test-info-Template desc
          isActive: true
          RlangCode: eng
@@ -23,8 +23,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_CreateTemplateType_InputParameter_Code_Empty:
       input.create-template-type-request:
@@ -36,8 +36,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$        
          
    Admin_CreateTemplateType_InputParameter_Code_AboveMaxLen36:
       input.create-template-type-request:
@@ -49,8 +49,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
          
          
    Admin_CreateTemplateType_InputParameter_LangCode_Missing:
@@ -63,8 +63,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateType_InputParameter_LangCode_Empty:
       input.create-template-type-request:
@@ -76,8 +76,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateTemplateType_InputParameter_LangCode_AboveMaxLen3:
       input.create-template-type-request:
@@ -89,8 +89,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateType_InputParameter_Invalid_LangCode:
       input.create-template-type-request:
@@ -102,8 +102,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplateType_InputParameter_isActive_Missing:
       input.create-template-type-request:
@@ -115,6 +115,6 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$
          

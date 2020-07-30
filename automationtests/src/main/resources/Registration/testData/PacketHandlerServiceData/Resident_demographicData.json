@@ -12,8 +12,7 @@
 		}
 	],
 
-	"dateOfBirth": "1992/01/01",
-	"age": 27,
+	"dateOfBirth": "2000/01/01",
 	"gender": 
 	[
 		{
@@ -64,7 +63,15 @@
 			"language": "ara",
 			"value": "14391 كابور شارع"
 		}
-	],
+	],"addressLine3":[{
+			"language": "eng",
+			"value": "14391 CABOURG Street"
+		},
+
+		{
+			"language": "ara",
+			"value": "14391 كابور شارع"
+		}],
 
 	"region": 
 	[
@@ -121,34 +128,8 @@
 		}
 	],
 
-	"proofOfAddress": 
-	{
-		"value": "POA_Certificate of residence",
-		"type": "Certificate of residence",
-		"format": "jpg"
-	},
-
-	"proofOfIdentity": 
-	{
-		"value": "POI_PAN card",
-		"type": "PAN card",
-		"format": "jpg"
-	},
-
-	"proofOfRelationship": 
-	{
-		"value": "POR_Canteen card of the Army",
-		"type": "Canteen card of the Army",
-		"format": "jpg"
-	},
-
-	"individualBiometrics": 
-	{
-		"format": "cbeff",
-		"version": 1.0,
-		"value": "applicant_bio_CBEFF"
-	},
-
-	"IDSchemaVersion": 1.0,
-	"referenceIdentityNumber": "4545343123"
+	"parentOrGuardianUIN": null,
+	"parentOrGuardianName": null,
+	"referenceIdentityNumber": "4545343123",
+	"parentOrGuardianRID":null
 }

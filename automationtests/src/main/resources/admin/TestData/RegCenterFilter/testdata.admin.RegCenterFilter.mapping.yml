@@ -113,7 +113,7 @@ testdata:
          columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
          typefilters1: $TestData:valid_FilterTypeUnique$
          textfilters1: ''
-         languageCode: $TestData:valid_LanguageCodeEng$
+         languageCode: $TestData:valid_LanguageCodeArabic$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos3-response:
          responsetime: $IGNORE$ 

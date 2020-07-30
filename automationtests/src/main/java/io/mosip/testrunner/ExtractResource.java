@@ -33,7 +33,7 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
 		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
-		getListOfFilesFromJarAndCopyToExternalResource("reg/");
+		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
@@ -47,8 +47,8 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("db");
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
+		getListOfFilesFromJarAndCopyToExternalResource("UserOnboardDetail/");
 	}
 	
 	/**

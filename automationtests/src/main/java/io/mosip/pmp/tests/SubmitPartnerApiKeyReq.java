@@ -52,11 +52,12 @@ public class SubmitPartnerApiKeyReq extends PartnerTestUtil implements ITest {
 		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
 		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
 		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
-		String submitPartnerQuery = partnerQueries.get("submitPartnerApiKeyReq").toString();
+		//String submitPartnerQuery = partnerQueries.get("submitPartnerApiKeyReq").toString();
 		if (masterDB.executeQuery(createPolicyQuery, "pmp")
 				&& masterDB.executeQuery(createAuthQuery, "pmp")
 				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
-				&& masterDB.executeQuery(submitPartnerQuery, "pmp"))
+				//&& masterDB.executeQuery(submitPartnerQuery, "pmp")
+				)
 			logger.info("submitPartnerApiKeyRequest Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to submitPartnerApiKeyRequest using query from partnerQueries.properties");
@@ -174,7 +175,7 @@ public class SubmitPartnerApiKeyReq extends PartnerTestUtil implements ITest {
 		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getSubmitPartnerApiKeyReqPath();
 		logger.info("******Post request Json to EndPointUrl: " + url+
 				 " *******");
-		patchRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+		patchRequestWithBodyAndParameter(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),

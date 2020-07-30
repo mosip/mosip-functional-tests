@@ -6,7 +6,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:BlankHolidayLocationCode:errorMessage$
+         messageerrors0: $errors:BlankHolidayLocationCode:errorMessage1$
    Admin_UpdateRegCenter_Invalid_with_scndry_Lang_without_regCentWithPrmryLang:
       input.updateRegCenter-request:
          langCode: $TestData:valid_langCode_ara$
@@ -86,7 +86,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidLongitude:errorMessage1$
+         messageerrors0: $errors:InvalidLongitude:errorMessage3$
    Admin_UpdateRegCenter_Invalid_longitude:
       input.updateRegCenter-request:
          longitude: $TestData:Invalid_ValueString$
@@ -214,7 +214,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidWorkingHours:errorMessage1$
+         messageerrors0: $errors:InvalidWorkingHours:errorMessage2$
    Admin_UpdateRegCenter_Invalid_TimeZone_GreaterThan_MaxLengthValue:
       input.updateRegCenter-request:
          timeZone: $TestData:invalid_timeZoneGrtThanMaxLength$
@@ -245,7 +245,7 @@ testdata:
          reid: $TestData:RegCenterCretedByQuery1$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         messageerrors0: $errors:InvalidName:errorMessage0$
+         messageerrors0: $errors:InvalidName:errorMessage1$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
    Admin_UpdateRegCenter_Invalid_Name_GrtThanMaxValue:
       input.updateRegCenter-request:
@@ -334,7 +334,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: Received Zone Code does not belong to the User
    Admin_UpdateRegCenter_Invalid_zoneCode_blank:
       input.updateRegCenter-request:
          zoneCode: ''
@@ -350,7 +350,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: Received Zone Code does not belong to the User
    Admin_UpdateRegCenter_Invalid_zoneCode_anyNonLeaf:
       input.updateRegCenter-request:
          zoneCode: $TestData:valid_nonLeafZone$
@@ -374,7 +374,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
    Admin_UpdateRegCenter_Invalid_missing_mandatory_field:
       input.updateRegCenter-request:
          name: $REMOVE$
@@ -411,7 +411,7 @@ testdata:
          sun: nonBoolean
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'Invalid Format in field : workingNonWorkingDays,sat'
          version: $IGNORE$
          id: $IGNORE$         

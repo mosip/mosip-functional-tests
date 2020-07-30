@@ -4,13 +4,74 @@ testdata:
          organizationName: Telecom
          contactNumber: 9840587089
          emailId: misp@telecom.com
-         name: MISP_Test03
+         name: MISP_Test0002
          address: India
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          mispStatus: Active
          id: $IGNORE$
          mispID: $IGNORE$
+         
+         
+   Partner_CreateMISP_duplicate_misip_name:
+      input.create-misp-request:
+         organizationName: Telecom
+         contactNumber: 9840587089
+         emailId: misp@telecom.com
+         name: MISP_Test0002
+         address: India
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_003
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_CreateMISP_Invalid_Mobile_Number:
+      input.create-misp-request:
+         organizationName: Telecom
+         contactNumber: 984058708911223344
+         emailId: misp@telecom.com
+         name: MISP_Test0002
+         address: India
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter - request.contactNumber
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_CreateMISP_Invalid_emailId:
+      input.create-misp-request:
+         organizationName: Telecom
+         contactNumber: 9840587089
+         emailId: misptelecom.com
+         name: MISP_Test0002
+         address: India
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_MSP_003
+         messageerrors0: $IGNORE$
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
+   Partner_CreateMISP_Missing_Input_Parameter_Misp_Name:
+      input.create-misp-request2:
+         organizationName: Telecom
+         contactNumber: 9840587089
+         emailId: misp@telecom.com
+         address: India
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter - request.name
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+         
          
          
          

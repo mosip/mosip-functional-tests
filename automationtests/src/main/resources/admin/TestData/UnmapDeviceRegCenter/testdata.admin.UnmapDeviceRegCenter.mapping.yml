@@ -13,8 +13,8 @@ testdata:
          regcenterid: $TestData:valid_regcenterid2$
       output.output-1-expected-error-response:  
          responsetime: $IGNORE$ 
-         errorCodeerrors0: KER-MSD-435
-         messageerrors0: Device not found  
+         errorCodeerrors0: KER-MSD-417
+         messageerrors0: Device not Found  
          
    Admin_UnmapDeviceRegCenter_inValid_regCenterID:
       input.search-request:
@@ -22,7 +22,7 @@ testdata:
          regcenterid: demostring
       output.output-1-expected-error-response:  
          responsetime: $IGNORE$ 
-         errorCodeerrors0: KER-MSD-435
+         errorCodeerrors0: KER-MSD-409
          messageerrors0: Registration Center not found       
          
    Admin_UnmapDeviceRegCenter_regcent_zone_outside_adminZone:

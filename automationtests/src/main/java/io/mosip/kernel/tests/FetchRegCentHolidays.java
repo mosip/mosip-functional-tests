@@ -140,7 +140,7 @@ public class FetchRegCentHolidays extends BaseTestCase implements ITest {
 
 				// list to validate existance of attributes in response objects
 				List<String> attributesToValidateExistance = new ArrayList<String>();
-				attributesToValidateExistance.add("id");
+				attributesToValidateExistance.add("locationCode");
 				attributesToValidateExistance.add("holidayName");
 				attributesToValidateExistance.add("holidayDate");
 				attributesToValidateExistance.add("isActive");

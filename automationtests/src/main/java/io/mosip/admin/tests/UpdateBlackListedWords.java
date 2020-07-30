@@ -179,9 +179,10 @@ public class UpdateBlackListedWords extends AdminTestUtil implements ITest {
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
 		KernelDataBaseAccess db = new KernelDataBaseAccess();
-		String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
-		String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
-		if(!db.executeQuery(queryString, "masterdata"))
-			throw new AdminTestException("Not able to delete the created data");
+		if(db.executeQuery(queries.get("deleteBlackListedWord").toString(), "masterdata")) {
+			logger.info("deleted blackListedWord succesfully");
+		}else {
+			throw new AdminTestException("Not able to delete blackListedWord");
+		}
 	}
 }

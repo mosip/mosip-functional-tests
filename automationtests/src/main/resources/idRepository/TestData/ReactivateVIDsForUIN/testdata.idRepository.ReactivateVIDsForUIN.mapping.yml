@@ -38,8 +38,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
       UIN: ''
     output.output-1-expected-n-res:
-      output.errorCode: $errors:VidMissingUIN:errorCode$
-      output.errorMessage: $errors:VidMissingUIN:errorMessage$
+      output.errorCode: $errors:VidInvalidUIN:errorCode$
+      output.errorMessage: $errors:VidInvalidUIN:errorMessage$
       
   IdRepository_ReactivateVIDs_Missing_UIN_Neg:
     input.vid-request:

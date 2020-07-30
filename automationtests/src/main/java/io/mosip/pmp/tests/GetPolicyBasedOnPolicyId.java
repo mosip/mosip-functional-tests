@@ -204,7 +204,7 @@ public class GetPolicyBasedOnPolicyId extends PartnerTestUtil implements ITest {
 	public void cleanup() throws AdminTestException {
 		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
 				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
-			logger.info("GetPolicyBasedOnPolicyId all Register Partner data successfully");
+			logger.info("delete GetPolicyBasedOnPolicyId all Register Partner data successfully");
 		else {
 			logger.info("not able to delete GetPolicyBasedOnPolicyId data using query from query.properties");
 		}

@@ -6,8 +6,8 @@
     "response": null,
     "errors": [
         {
-            "errorCode": "KER-MSD-999",
-            "message": "request.code: must not be blank"
-        }
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: must not be blank"
+    }
     ]
 }

@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateMachineSpecification  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(CreateMachineSpecification.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -145,7 +145,7 @@ public class CreateMachineSpecification  extends AdminTestUtil implements ITest 
 			if(testCaseName.contains("No_Data_Prim_lang")) {
 				if (masterDB.validateDBCount(queries.get("validatePrimDataForMachineSpec").toString(), "masterdata")==1) {
 				logger.info("Data stored successfully for secondory language but no data present for Primary language");
-				throw new AdminTestException("Recived data dones not contain data for Primary Langauge");
+				throw new AdminTestException("Cannot create data in secondary language as data does not exist in primary language");
 				
 				}else {
 					logger.info("No MachineSpecification created  for secondary language");
@@ -185,6 +185,15 @@ public class CreateMachineSpecification  extends AdminTestUtil implements ITest 
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
+		
+		if (this.testCaseName.contains("All_Valid_Smoke")) {
+			if (masterDB.validateDBCount(queries.get("createMachineSpecIsActive").toString(), "masterdata") == 1)
+				logger.info("Record inserted in primary language with Status: FALSE");
+			else {
+				logger.info("Record inserted in primary language with Status: TRUE");
+				throw new AdminTestException("Record inserted in one language with Status: TRUE");
+			}
+		}
 }
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing

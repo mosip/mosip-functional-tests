@@ -35,34 +35,34 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.description: Should not be blank or size must be between 1 and 256'
          
    Admin_UpdateTemplateFileFormat_InputParameter_Description_Missing:
       input.update-templateFile-format-request:
          Rcode: PDF
-         description: PDF Test Update
+         description: $REMOVE$
          RlangCode: eng
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.description: must not be null'
          
    Admin_UpdateTemplateFileFormat_InputParameter_Description_Empty:
       input.update-templateFile-format-request:
          Rcode: PDF
-         description: PDF Test Update
+         description: ''
          RlangCode: eng
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: must not be blank'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.description: Should not be blank or size must be between 1 and 256'        
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_Missing:
       input.update-templateFile-format-request:
@@ -73,8 +73,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_Empty:
       input.update-templateFile-format-request:
@@ -86,8 +86,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$        
          
    Admin_UpdateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
       input.update-templateFile-format-request:
@@ -99,8 +99,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: Should not be blank or size must be between 1 and 36'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$         
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_Missing:
       input.update-templateFile-format-request:
@@ -112,8 +112,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_Empty:
       input.update-templateFile-format-request:
@@ -125,8 +125,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_UpdateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
       input.update-templateFile-format-request:
@@ -138,8 +138,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_UpdateTemplateFileFormat_InputParameter_Invalid_LangCode:
       input.update-templateFile-format-request:
@@ -151,8 +151,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_UpdateTemplateFileFormat_InputParameter_isActive_Missing:
       input.update-templateFile-format-request:
@@ -164,8 +164,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                                    
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                                    
          
                                     
 

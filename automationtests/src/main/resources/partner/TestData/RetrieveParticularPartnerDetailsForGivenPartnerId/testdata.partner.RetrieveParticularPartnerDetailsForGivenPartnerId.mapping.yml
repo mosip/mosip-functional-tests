@@ -11,3 +11,16 @@ testdata:
       contactNumber: 8651119791
       address: HSR
       emailId: $IGNORE$
+      
+  Partner_RetrieveParticularPartnerDetailsForGivenPartnerId_with_InValid_partnerId:
+    input.retrieve-partner-request:
+      RpartnerID: PMP-PART-ID-001
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: PMS_PMP_013
+      messageerrors0: Partner does not exist
+      id: $IGNORE$
+      metadata: $IGNORE$
+      version: $IGNORE$
+
+      

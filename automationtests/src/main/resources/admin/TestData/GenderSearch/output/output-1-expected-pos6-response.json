@@ -1,38 +1,28 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
+  "responsetime": "2020-07-21T09:10:39.763Z",
   "response": {
     "fromRecord": 1,
     "toRecord": 2,
     "totalRecord": 2,
     "data": [
       {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2020-07-20T02:20:36.741Z",
         "code": "FLE",
         "genderName": "Female",
-        "langCode": "eng",
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "langCode": "eng"
       },
       {
-        "code": "MLE",
-        "genderName": "Male",
-        "langCode": "eng",
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": null,
-        "updatedDateTime": null,
-        "isDeleted": null,
-        "deletedDateTime": null
+        "createdDateTime": "2020-07-20T02:20:36.741Z",
+        "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng"
       }
     ]
-  },
-  "errors": null
+  }
 }

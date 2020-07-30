@@ -40,7 +40,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	private String testType;
 	private int invocationCount = 0;
 	KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	
+
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -103,7 +103,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 			}
 		}
 		testCaseName = String.format(testCase);
-		if(!kernelCmnLib.isValidToken(partnerCookie))
+		if (!kernelCmnLib.isValidToken(partnerCookie))
 			partnerCookie = kernelAuthLib.getAuthForPartner();
 	}
 
@@ -156,11 +156,12 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException 
-	 * @throws AdminTestException 
+	 * @throws AuthenticationTestException
+	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void createMISP(TestParameters objTestParameters, String testScenario, String testcaseName) throws AuthenticationTestException, AdminTestException {
+	public void createMISP(TestParameters objTestParameters, String testScenario, String testcaseName)
+			throws AuthenticationTestException, AdminTestException {
 		File testCaseName = objTestParameters.getTestCaseFile();
 		int testCaseNumber = Integer.parseInt(objTestParameters.getTestId());
 		displayLog(testCaseName, testCaseNumber);
@@ -168,22 +169,24 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 		setTestCaseId(testCaseNumber);
 		setTestCaseName(testCaseName.getName());
 		displayContentInFile(testCaseName.listFiles(), "request");
-		String url=RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateMISPPath();
-		logger.info("******Post request Json to EndPointUrl: " + url+
-				 " *******");
-		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, partnerCookie);
-		
+		String url = RunConfigUtil.objRunConfig.getAdminEndPointUrl() + RunConfigUtil.objRunConfig.getCreateMISPPath();
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		postRequestAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response",
+				0, AUTHORIZATHION_COOKIENAME, partnerCookie);
+
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		if(!OutputValidationUtil.publishOutputResult(ouputValid))
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-}
+	}
+
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing
 	 * (managing class level data not test case level data)
-	 * @throws AdminTestException 
+	 * 
+	 * @throws AdminTestException
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
@@ -193,5 +196,5 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 			logger.info("not able to delete created misp data using query from query.properties");
 		}
 		logger.info("END");
-		}
+	}
 }

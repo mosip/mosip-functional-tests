@@ -1,7 +1,7 @@
 testdata:
   Admin_FilterLocationData_Valid_Region_eng_Smoke:
     input.search-request:
-      columnNamefilters0: Region
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_FilterTypeUnique$
       textfilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -12,7 +12,7 @@ testdata:
       fieldValuefilters0: $input.search-request:textfilters0$    
   Admin_FilterLocationData_Valid_Region_eng_TypeAll:
     input.search-request:
-      columnNamefilters0: Region
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -24,7 +24,7 @@ testdata:
 
   Admin_FilterLocationData_Valid_col_Region_all_Ara:
     input.search-request:
-      columnNamefilters0: 'منطقة'
+      columnNamefilters0: 'طفل'
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: 'شاذ'
       languageCode: $TestData:valid_LanguageCodeArabic$
@@ -163,7 +163,7 @@ testdata:
   
   Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus_eng:
     input.search-request-twoFilterValues:
-      columnNamefilters0: Region
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -178,7 +178,7 @@ testdata:
       
   Admin_FilterLocationData_Valid_TwoFilters_RegionNStatus_ara:
     input.search-request-twoFilterValues:
-      columnNamefilters0: 'منطقة'
+      columnNamefilters0: 'طفل'
       typefilters0: $TestData:valid_FilterTypeAll$
       textfilters0: 'شاذ'
       languageCode: $TestData:valid_LanguageCodeArabic$

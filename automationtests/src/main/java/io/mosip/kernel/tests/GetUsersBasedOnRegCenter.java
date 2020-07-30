@@ -101,52 +101,13 @@ public class GetUsersBasedOnRegCenter extends BaseTestCase implements ITest {
 		
 		//This method is for checking the authentication is pass or fail in rest services
 				new CommonLibrary().responseAuthValidation(response);
-				if (testcaseName.toLowerCase().contains("smoke")) {
-
-					// fetching json object from response
-					JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(response.asString()))
-							.get("response");
-					if (responseJson == null || !responseJson.containsKey("userDetails"))
-						Assert.assertTrue(false, "Response does not contain userDetails");
-					String query = "select count(*) FROM master.reg_center_user where regcntr_id ='" + actualRequest.get("regid") + "' and is_active = true";
-					long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query, "masterdata");
-
-					// fetching json array of objects from response
-					JSONArray userDetailsFromGet = (JSONArray) responseJson.get("userDetails");
-					logger.info("===Dbcount===" + obtainedObjectsCount + "===Get-count===" + userDetailsFromGet.size());
-
-					// validating number of objects obtained form db and from get request
-					if (userDetailsFromGet.size() == obtainedObjectsCount) {
-
-						// list to validate existance of attributes in response objects
-						List<String> attributesToValidateExistance = new ArrayList<String>();
-						attributesToValidateExistance.add("userName");
-						attributesToValidateExistance.add("mail");
-						attributesToValidateExistance.add("userPassword");
-						attributesToValidateExistance.add("name");
-						attributesToValidateExistance.add("roles");
-
-						// key value of the attributes passed to fetch the data (should be same in all
-						// obtained objects)
-						HashMap<String, String> passedAttributesToFetch = new HashMap<String, String>();
-						
-
-						status = AssertKernel.validator(userDetailsFromGet, attributesToValidateExistance,
-								passedAttributesToFetch);
-					} else
-						{
-						status = false;
-						logger.info("Response from the request: "+response.asString());
-						}
-
-				}
-
-				else {
+				
 					// add parameters to remove in response before comparison like time stamp
 					ArrayList<String> listOfElementToRemove = new ArrayList<String>();
 					listOfElementToRemove.add("responsetime");
+					listOfElementToRemove.add("lastSyncTime");
 					status = assertions.assertKernel(response, expectedresponse, listOfElementToRemove);
-				}
+				
 
 		if (!status) {
 			logger.info(response.asString());

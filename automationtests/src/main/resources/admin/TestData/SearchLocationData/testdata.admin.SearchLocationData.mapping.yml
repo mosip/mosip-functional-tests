@@ -1,12 +1,12 @@
 testdata:
   Admin_SearchLocationData_Valid_Smoke_eng:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -14,12 +14,12 @@ testdata:
       responsetime: $IGNORE$  
   Admin_SearchLocationData_Valid_ara:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: طفل
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: 'شاذ'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -28,12 +28,12 @@ testdata:
             
   Admin_SearchLocationData_Valid_FltrTypCntns_eng:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeContains$
       valuefilters0: 'child'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -42,12 +42,12 @@ testdata:
       totalRecord: $IGNORE$ 
   Admin_SearchLocationData_Valid_FltrTypCntns_ara:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: طفل
       typefilters0: $TestData:valid_SearchTypeContains$
       valuefilters0: 'شاذ'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -57,12 +57,12 @@ testdata:
                
   Admin_SearchLocationData_Valid_FltrTypStrtWth_eng:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeStartsWith$
       valuefilters0: 'child'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -71,12 +71,12 @@ testdata:
       totalRecord: $IGNORE$
   Admin_SearchLocationData_Valid_FltrTypStrtWth_ara:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: طفل
       typefilters0: $TestData:valid_SearchTypeStartsWith$
       valuefilters0: 'شاذ'
       languageCode: $TestData:valid_LanguageCodeArabic$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -84,128 +84,31 @@ testdata:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$      
  
-  Admin_SearchLocationData_Valid_ColumnProvinceNTypeEquals:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnProvince$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:validColumnProvinceValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
-      responsetime: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnProvinceNTypeContains:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnProvince$
-      typefilters0: $TestData:TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:validColumnProvinceValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
-      responsetime: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnProvinceNTypeStartsWith:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnProvince$
-      typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:validColumnProvinceValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-2-response:
-      responsetime: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnCityNTypeEquals:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnCity$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:validColumnCityValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-1-response:
-      responsetime: $IGNORE$
-  Admin_SearchLocationData_Valid_Two_searchColumns_cityNisActive:
+  Admin_SearchLocationData_Valid_Two_searchColumns_eng_equals:
     input.search-twoSearchValues-request:
-      columnNamefilters0: $TestData:validColumnCity$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:validColumnCityValue$
+      valuefilters0: 'childloctest'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
       columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
       typefilters1: $TestData:valid_SearchTypeEquals$
       valuefilters1: true
-    output.output-1-expected-pos-1-response:
-      responsetime: $IGNORE$      
-  Admin_SearchLocationData_Valid_ColumnCityNTypeContains:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnCity$
-      typefilters0: $TestData:TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:validColumnCityValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-1-response:
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
-      totalRecord: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnCityNTypeStartsWith:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnCity$
-      typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:validColumnCityValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-1-response:
-      responsetime: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnZoneNTypeEquals:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnZone$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: $TestData:validColumnZoneValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$
-      totalRecord: $IGNORE$
-  Admin_SearchLocationData_Valid_Two_searchColumns_RegionNisActive:
+      totalRecord: $IGNORE$      
+  Admin_SearchLocationData_Valid_Two_searchColumns_eng_contains:
     input.search-twoSearchValues-request:
-      columnNamefilters0: $TestData:validColumnRegion$
-      typefilters0: $TestData:valid_SearchTypeEquals$
-      valuefilters0: 'childloctest'
+      columnNamefilters0: Child
+      typefilters0: $TestData:valid_SearchTypeContains$
+      valuefilters0: 'dloct'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -215,36 +118,106 @@ testdata:
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnZoneNTypeContains:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnZone$
-      typefilters0: $TestData:TestData:valid_SearchTypeContains$
-      valuefilters0: $TestData:validColumnZoneValue$
-      languageCode: $TestData:valid_LanguageCodeEng$
-      requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
-      sortTypesort0: $TestData:valid_SortTypeAscending$
-      pageStart: $TestData:valid_PageStart$
-      pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-3-response:
-      responsetime: $IGNORE$
-      totalRecord: $IGNORE$
-      
-  Admin_SearchLocationData_Valid_ColumnZoneNTypeStartsWith:
-    input.search-request:
-      columnNamefilters0: $TestData:validColumnZone$
+  Admin_SearchLocationData_Valid_Two_searchColumns_eng_startsWith:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeStartsWith$
-      valuefilters0: $TestData:validColumnZoneValue$
+      valuefilters0: 'childloc'
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
-    output.output-1-expected-pos-3-response:
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
+    output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       totalRecord: $IGNORE$
+            
+  Admin_SearchLocationData_Valid_Two_searchColumns_ara_equals:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: طفل
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: 'شاذ'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$ 
+  Admin_SearchLocationData_Valid_Two_searchColumns_ara_contains:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: طفل
+      typefilters0: $TestData:valid_SearchTypeContains$
+      valuefilters0: 'اذ'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$                
+  Admin_SearchLocationData_Valid_Two_searchColumns_ara_startsWith:
+    input.search-twoSearchValues-request:
+      columnNamefilters0: طفل
+      typefilters0: $TestData:valid_SearchTypeStartsWith$
+      valuefilters0: 'شا'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+      columnNamefilters1: $TestData:valid_Search_ColumnNameAsIsActive$
+      typefilters1: $TestData:valid_SearchTypeEquals$
+      valuefilters1: true
+    output.output-1-expected-pos-1-response:
+      responsetime: $IGNORE$
+      totalRecord: $IGNORE$
+
+  Admin_SearchLocationData_Invalid_langAra_colNameIn_eng:
+    input.search-request:
+      columnNamefilters0: Child
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: 'child'
+      languageCode: $TestData:valid_LanguageCodeArabic$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:EmptySearchColumnName:errorCode$
+      messageerrors0: $errors:EmptySearchColumnName:errorMessage$
+  Admin_SearchLocationData__langEng_colNameIn_ara:
+    input.search-request:
+      columnNamefilters0: طفل
+      typefilters0: $TestData:valid_SearchTypeEquals$
+      valuefilters0: 'طفل'
+      languageCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
+      sortTypesort0: $TestData:valid_SortTypeAscending$
+      pageStart: $TestData:valid_PageStart$
+      pageFetch: $TestData:valid_PageFetch$
+    output.output-1-expected-neg-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: $errors:EmptySearchColumnName:errorCode$
+      messageerrors0: $errors:EmptySearchColumnName:errorMessage$      
       
   Admin_SearchLocationData_Invalid_EmptyColumnName:
     input.search-request:
@@ -253,7 +226,7 @@ testdata:
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -269,7 +242,7 @@ testdata:
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -281,12 +254,12 @@ testdata:
             
   Admin_SearchLocationData_Invalid_EmptyFilterType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: ''
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -297,12 +270,12 @@ testdata:
       
   Admin_SearchLocationData_InvalidFilterType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:invalid_SearchTypeEquals$
       valuefilters0: $TestData:valid_isActive_false$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -313,12 +286,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_EmptyValue:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: ''
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -327,12 +300,12 @@ testdata:
       
   Admin_SearchLocationData_InvalidValue:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:Invalid_ValueString$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -341,7 +314,7 @@ testdata:
       
   Admin_SearchLocationData_Invalid_EmpytSortField:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -357,7 +330,7 @@ testdata:
       
   Admin_SearchLocationData_InvalidSortField:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
@@ -373,12 +346,12 @@ testdata:
       
   Admin_SearchLocationData_InvalidSortType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:Invalid_ValueString$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -389,12 +362,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_EmptySortType:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: ''
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -405,12 +378,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_LangCode:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:Invalid_ValueString$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -421,12 +394,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_PageFetch:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: $TestData:invalid_PageFetch$
@@ -437,12 +410,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_EmptyPageFetch:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:valid_PageStart$
       pageFetch: ''
@@ -453,12 +426,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_PageStart:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: $TestData:invalid_PageStart$
       pageFetch: $TestData:valid_PageFetch$
@@ -469,12 +442,12 @@ testdata:
       
   Admin_SearchLocationData_Invalid_EmptyPageStart:
     input.search-request:
-      columnNamefilters0: $TestData:validColumnRegion$
+      columnNamefilters0: Child
       typefilters0: $TestData:valid_SearchTypeEquals$
       valuefilters0: $TestData:validColumnRegionValue$
       languageCode: $TestData:valid_LanguageCodeEng$
       requesttime: $TIMESTAMPZ$
-      sortFieldsort0: $TestData:validColumnRegion$
+      sortFieldsort0: $TestData:valid_Search_ColumnNameAsCode$
       sortTypesort0: $TestData:valid_SortTypeAscending$
       pageStart: ''
       pageFetch: $TestData:invalid_PageFetch$

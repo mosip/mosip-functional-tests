@@ -1,9 +1,13 @@
 {
-  "id": "mosip.partnermanagement",
-  "version": "1.0",
-  "responsetime": "2020-06-08T09:49:20.136Z",
-  "errors": {
-    "errorCode": "PMS_PRT_005",
-    "message": "Partner does not exist"
-  }
+    "id": null,
+    "version": null,
+    "responsetime": "2020-07-15T14:26:18.420Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_POL_004",
+            "message": "Policy Name already exists in the policy Group.Name :  Banking Policy"
+        }
+    ]
 }

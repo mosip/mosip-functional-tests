@@ -2,6 +2,7 @@ testdata:
    Partner_ApproveRejectPartnerAPIKeyReq_Approved_Valid_Smoke:
       input.register-partner-request:
          status: Approved
+         apiKeyReqId: SUB-PMP-REQ-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: PartnerAPIKey Updated successfully
@@ -10,5 +11,49 @@ testdata:
          errors: $IGNORE$
          version: $IGNORE$
          
+   Partner_ApproveRejectPartnerAPIKeyReq_Invalid_apiKeyReqId:
+      input.register-partner-request:
+         status: Approved
+         apiKeyReqId: SUB-PMP-REQ-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_PMP_007
+         messageerrors0: Partner api key does not exist
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
          
+   Partner_ApproveRejectPartnerAPIKeyReq_Invalid_Input_Parameter:
+      input.register-partner-request:
+         status: invalied
+         apiKeyReqId: SUB-PMP-REQ-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_002
+         messageerrors0: Invalid Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
          
+   Partner_ApproveRejectPartnerAPIKeyReq_Missing_Input_Parameter:
+      input.register-partner-request2:
+         apiKeyReqId: SUB-PMP-REQ-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$
+
+   Partner_ApproveRejectPartnerAPIKeyReq_Reject_Valid_Smoke:
+      input.register-partner-request:
+         status: Reject
+         apiKeyReqId: SUB-PMP-REQ-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: PMS_COR_002
+         messageerrors0: Invalid Input Parameter
+         id: $IGNORE$
+         metadata: $IGNORE$
+         version: $IGNORE$

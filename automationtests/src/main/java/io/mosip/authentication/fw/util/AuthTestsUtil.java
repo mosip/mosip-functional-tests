@@ -47,6 +47,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -955,6 +956,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static void initiateAuthTest() {
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
+		ResidentTestUtil.initiateResidentTest();
 	}
 
 	/**
@@ -1533,6 +1535,28 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return e.toString();
+		}
+	}
+	
+	protected String putRequestWithParameter(JSONObject objectData, String url,String cookieName, String cookieValue) {
+		try {
+			return RestClient
+					.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	
+	
+	protected Response patchRequestWithParameter(JSONObject objectData, String url,String cookieName,String cookieValue) {
+		try {
+			return RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName, cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
 		}
 	}
 	

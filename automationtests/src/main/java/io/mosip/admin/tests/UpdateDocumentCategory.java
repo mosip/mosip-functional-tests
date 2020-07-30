@@ -37,7 +37,7 @@ import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class UpdateDocumentCategory extends AdminTestUtil implements ITest {
 
-	private static final Logger logger = Logger.getLogger(CreateDocumentType.class);
+	private static final Logger logger = Logger.getLogger(UpdateDocumentCategory.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;

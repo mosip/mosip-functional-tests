@@ -126,7 +126,7 @@ testdata:
          textfilters0: $TestData:valid_DeviceSpecId_Equals$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-pos-response:
-         fieldIDfilters0: $TestData:valid_Search_ColumnNameAsDeviceSpecId$
+         fieldIDfilters0: $IGNORE$
          fieldValuefilters0: $TestData:valid_DeviceSpecId_Equals$
          responsetime: $IGNORE$
    Admin_DeviceFilter_isActive_Unique_eng:

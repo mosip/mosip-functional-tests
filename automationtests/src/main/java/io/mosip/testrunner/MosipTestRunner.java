@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
@@ -30,6 +31,12 @@ public class MosipTestRunner {
 	 */
 	public static void main(String arg[]) {
 		if (checkRunType().equalsIgnoreCase("JAR")) {
+			try {
+				copyDbToTarget();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			ExtractResource.removeOldMosipTestTestResource();
 			ExtractResource.extractResourceFromJar();
 		}
@@ -104,5 +111,29 @@ public class MosipTestRunner {
 		else
 			return "IDE";
 	}
+	
+	public static void copyDbToTarget() throws IOException {
+		String seperator="";
+		if(System.getProperty("os.name").toLowerCase().contains("windows")) {
+			seperator="\\";
+			File target=new File(System.getProperty("user.dir"));
+			File db=new File(target.getParent()+seperator+"db");
+			System.out.println("Target is :: "+target.getAbsolutePath());
+			System.out.println(db.getAbsolutePath());
+			FileUtils.copyDirectoryToDirectory(db, target);
+		} else {
+			seperator="/";
+			File target=new File(System.getProperty("user.dir")+seperator+"target");
+			File db=new File(System.getProperty("user.dir")+seperator+"db");
+			System.out.println("Target is :: "+target.getAbsolutePath());
+			System.out.println(db.getAbsolutePath());
+			FileUtils.copyDirectoryToDirectory(db, target);
+			
+		}
+
+		
+	}
+	
+	
 	
 }

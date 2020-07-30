@@ -124,6 +124,6 @@ testdata:
          langCode: rrr
          registrationCenterID: 59395
       output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          responsetime: $IGNORE$

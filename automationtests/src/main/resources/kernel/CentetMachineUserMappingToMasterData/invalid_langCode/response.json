@@ -6,12 +6,8 @@
   "response": null,
   "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "request[0].langCode: Language code not supported"
-    },
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request[0].langCode: size must be between 1 and 3"
-    }
+            "errorCode": "KER-MSD-999",
+            "message": "Language Code is Invalid"
+        }
   ]
 }
