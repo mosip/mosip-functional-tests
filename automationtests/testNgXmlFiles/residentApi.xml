@@ -12,8 +12,19 @@
 	</listeners>
 		<test name="Resident Tests">
 		<classes>
-		<!-- For generating the uins we need to add here idrepo uin generation scripts -->
+		
 			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class name="io.mosip.authentication.tests.LockUIN" />	
+		  	<class name="io.mosip.resident.tests.AuthLock" />
+		<!-- For generating the uins we need to add here idrepo uin generation scripts -->
+			<!-- <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
@@ -32,7 +43,7 @@
 			<class name="io.mosip.resident.tests.AuthHistory" />
 			<class name="io.mosip.resident.tests.RevokeVID" />
 			<class
-				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" /> -->
 		</classes>
 	</test>
 </suite>

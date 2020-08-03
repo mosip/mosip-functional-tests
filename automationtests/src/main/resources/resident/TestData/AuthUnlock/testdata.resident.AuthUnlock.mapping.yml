@@ -24,6 +24,32 @@ testdata:
       output.1.y.response.ver: $version$
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
+         
+  Resident_AuthUnlock_with_valid_vid_smoke_Pos:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:vid_idType$
+      otpRequest.individualId: $VID.demo.true$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.auth-unlock-request:
+      authUnlock.requestTime: $TIMESTAMP$
+      authUnlock.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      authUnlock.individualIdType: $RTestData:vid_idType$
+      authUnlock.individualId: $input.otp-generate-request:otpRequest.individualId$
+      authUnlock.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+      authUnlock.authType0: $RTestData:authType_face$
+      authUnlock.authType1: $RTestData:authType_iris$
+      authUnlock.authType2: $RTestData:authType_finger$
+      authUnlock.authType3: $RTestData:authType_demo$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-y-res:
+      output.2.responsetime: $TIMESTAMP$      
       
   Resident_AuthUnlock_InValid_AuthType_Neg:
     input.otp-generate-request:
@@ -74,32 +100,6 @@ testdata:
     output.output-2-expected-n-res:
       output.2.errorCode: $errors:InvalidUIN:errorCode$
       output.2.errorMessage: $errors:InvalidUIN:errorMessage$
-    
-  Resident_AuthUnlock_with_valid_vid_smoke_Pos:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID.demo.true$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.auth-unlock-request:
-      authUnlock.requestTime: $TIMESTAMP$
-      authUnlock.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      authUnlock.individualIdType: $RTestData:vid_idType$
-      authUnlock.individualId: $input.otp-generate-request:otpRequest.individualId$
-      authUnlock.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-      authUnlock.authType0: $RTestData:authType_face$
-      authUnlock.authType1: $RTestData:authType_iris$
-      authUnlock.authType2: $RTestData:authType_finger$
-      authUnlock.authType3: $RTestData:authType_demo$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-y-res:
-      output.2.responsetime: $TIMESTAMP$
         
   Resident_AuthUnlock_InValid_individualIdType_Neg:
     input.otp-generate-request:

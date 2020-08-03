@@ -235,6 +235,15 @@ public class LockUIN extends AuthTestsUtil implements ITest{
 		generateMappingDic(RunConfigUtil.getAuthTypeStatusPath(), AuthTypeStatusDto.getAuthTypeStatus());
 		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "idRepository/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath(), AuthTypeStatusDto.getAuthTypeStatus());
+		String uinForResidentAuthLock = storeUinVidLockStatusData.get("UIN.otp.true");
+		storeUinVidLockStatusData.remove("UIN.otp.true");
+		storeUinVidLockStatusData.put("UIN.all.true", uinForResidentAuthLock);
+		String vidForResidentAuthLock = storeUinVidLockStatusData.get("VID.otp.true");
+		storeUinVidLockStatusData.remove("VID.otp.true");
+		storeUinVidLockStatusData.put("VID.all.true", vidForResidentAuthLock);
+		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath(), AuthTypeStatusDto.getAuthTypeStatus());
+		
 	}
 
 }

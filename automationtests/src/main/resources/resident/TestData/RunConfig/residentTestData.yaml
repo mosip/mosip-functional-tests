@@ -34,11 +34,11 @@ page_negativeValue:
   - -5
   - -6
 authType_face:
-  - bio-FACE
+  - bio-FID
 authType_iris:
   - bio-IIR
 authType_finger:
-  - bio-FIR
+  - bio-FMR
 authType_demo:
   - demo
 authType_invalid:
