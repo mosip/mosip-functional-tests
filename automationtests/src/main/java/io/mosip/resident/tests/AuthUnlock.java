@@ -55,11 +55,6 @@ public class AuthUnlock extends ResidentTestUtil implements ITest{
 	private static String cookieValue;
 	private static String residentCookieValue;
 	private Map<String, String> storeUinVidLockStatusData = new HashMap<String, String>();
-	private String authStatusBio="bio";
-	private String authStatusDemo="demo";
-	private String authStatusFinger="Finger";
-	private String authStatusIris="Iris";
-	private String authStatusFace="FACE";
 	private String authStatusTrue="true";
 	
 	/**
@@ -230,15 +225,13 @@ public class AuthUnlock extends ResidentTestUtil implements ITest{
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid2));
 		if (OutputValidationUtil.publishOutputResult(ouputValid2)
 				&& testcaseName.toLowerCase().endsWith("_Pos".toLowerCase())) {
-			String content = getContentFromFile(testCaseName.listFiles(), "auth-unlock-request");
 			String inputFilePath = FileUtil.getFileFromList(testCaseName.listFiles(), "auth-unlock-request")
 					.getAbsolutePath();
 			String uin = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualId");
 			String type = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualIdType");
-			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusBio, authStatusFinger, authStatusTrue);
-			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusBio, authStatusFace, authStatusTrue);
-			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusBio, authStatusIris, authStatusTrue);
-			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusDemo, authStatusTrue);
+			String authType = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "authLock.authType0");
+			
+			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authType, authStatusTrue);
 		}
 		if(OutputValidationUtil.publishOutputResult(ouputValid2)
 				&& testcaseName.toLowerCase().endsWith("_All".toLowerCase())) {
@@ -250,15 +243,6 @@ public class AuthUnlock extends ResidentTestUtil implements ITest{
 			}
 		if (!OutputValidationUtil.publishOutputResult(ouputValid2))
 			throw new AuthenticationTestException("Output validation failed at response");
-	}
-	
-	private void verifyAuthStatusTypeAndStoreItForTesting(String uin, String type, String authType, String authSubtype,
-			String status) throws AuthenticationTestException {
-		if (!verifyAuthStatusTypeInDB(uin, type, authType + "-" + authSubtype,"false"))
-			throw new AuthenticationTestException("True value is not updated in status code in DB for uin/vid: " + uin
-					+ " and type" + authType + "-" + authSubtype);
-		else
-			storeUinVidLockStatusData.put(type + "." + authType + "." + authSubtype + "." + status, uin);
 	}
 
 	private void verifyAuthStatusTypeAndStoreItForTesting(String uin, String type, String authType, String status)

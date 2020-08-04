@@ -1511,8 +1511,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		String query = "select * from ida.uin_auth_lock where uin = '" + uin + "' and auth_type_code = '" + authType
 				+ "' order by cr_dtimes desc limit 1";
 		Map<String, String> actualRecord = DbConnection.getDataForQuery(query, "IDA");
-		if (!actualRecord.get("status_code").equals(status))
+		if (actualRecord==null || !actualRecord.get("status_code").equals(status)) {
+			IDASCRIPT_LOGGER.error("No Data Found in DB with query: "+query);
+			IDASCRIPT_LOGGER.error("Result of the query: "+actualRecord);
 			return false;
+		}
 		return true;
 	}
 	
