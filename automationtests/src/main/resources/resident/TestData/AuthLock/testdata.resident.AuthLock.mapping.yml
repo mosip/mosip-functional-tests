@@ -51,7 +51,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$ 
       
-  Resident_AuthLock_Valid_UIN_smoke_FIR_Pos:
+  Resident_AuthLock_Valid_UIN_Finger_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
       otpRequest.individualId: $UIN.bio.Finger.true$
@@ -77,7 +77,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
     
-  Resident_AuthLock_with_valid_vid_smoke_FIR_Pos:
+  Resident_AuthLock_with_valid_vid_Finger_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
       otpRequest.individualId: $VID.bio.Finger.true$
@@ -103,7 +103,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
 
-  Resident_AuthLock_Valid_UIN_smoke_IIR_Pos:
+  Resident_AuthLock_Valid_UIN_Iris_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
       otpRequest.individualId: $UIN.bio.Iris.true$
@@ -129,7 +129,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
     
-  Resident_AuthLock_with_valid_vid_smoke_IIR_Pos:
+  Resident_AuthLock_with_valid_vid_Iris_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
       otpRequest.individualId: $VID.bio.Iris.true$
@@ -155,7 +155,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
 
-  Resident_AuthLock_Valid_UIN_smoke_demo_Pos:
+  Resident_AuthLock_Valid_UIN_demo_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
       otpRequest.individualId: $UIN.demo.true$
@@ -181,7 +181,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
     
-  Resident_AuthLock_with_valid_vid_smoke_demo_Pos:
+  Resident_AuthLock_with_valid_vid_demo_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
       otpRequest.individualId: $VID.demo.true$
@@ -207,7 +207,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$ 
       
-  Resident_AuthLock_Valid_UIN_smoke_All_Pos:
+  Resident_AuthLock_Valid_UIN_All:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
       otpRequest.individualId: $UIN.all.true$
@@ -233,7 +233,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
     
-  Resident_AuthLock_with_valid_vid_smoke_All_Pos:
+  Resident_AuthLock_with_valid_vid_All:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
       otpRequest.individualId: $VID.all.true$

@@ -23,6 +23,7 @@
 				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
 			<class name="io.mosip.authentication.tests.LockUIN" />	
 		  	<class name="io.mosip.resident.tests.AuthLock" />
+		  	<class name="io.mosip.resident.tests.AuthUnlock" />
 		<!-- For generating the uins we need to add here idrepo uin generation scripts -->
 			<!-- <class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />

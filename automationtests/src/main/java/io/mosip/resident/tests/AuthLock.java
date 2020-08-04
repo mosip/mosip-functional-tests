@@ -57,9 +57,8 @@ public class AuthLock extends ResidentTestUtil implements ITest{
 	private Map<String, String> storeUinVidLockStatusData = new HashMap<String, String>();
 	private String authStatusBio="bio";
 	private String authStatusDemo="demo";
-	private String authStatusOtp="otp";
-	private String authStatusFinger="FIR";
-	private String authStatusIris="IIR";
+	private String authStatusFinger="Finger";
+	private String authStatusIris="Iris";
 	private String authStatusFace="FACE";
 	private String authStatusTrue="true";
 	
@@ -241,6 +240,15 @@ public class AuthLock extends ResidentTestUtil implements ITest{
 			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusBio, authStatusIris, authStatusTrue);
 			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authStatusDemo, authStatusTrue);
 		}
+		if(OutputValidationUtil.publishOutputResult(ouputValid2)
+				&& testcaseName.toLowerCase().endsWith("_All".toLowerCase())) {
+			
+			String inputFilePath = FileUtil.getFileFromList(testCaseName.listFiles(), "auth-lock-request")
+					.getAbsolutePath();
+			String uin = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualId");
+			String type = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualIdType");
+			storeUinVidLockStatusData.put(type + ".all.true", uin);
+			}
 		if (!OutputValidationUtil.publishOutputResult(ouputValid2))
 			throw new AuthenticationTestException("Output validation failed at response");
 	}

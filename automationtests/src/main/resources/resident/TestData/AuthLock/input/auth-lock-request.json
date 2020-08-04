@@ -7,6 +7,6 @@
 		"individualId": "9830872690593682",
 		"individualIdType": "UIN",
 		"otp": "123456",
-		"authType": ["bio-FMR","bio-FID","bio-IIR","demo"]
+		"authType": ["demo","bio-FACE","bio-Finger","bio-Iris"]
 	}
 }
