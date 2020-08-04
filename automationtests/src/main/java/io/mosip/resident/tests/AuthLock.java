@@ -225,7 +225,6 @@ public class AuthLock extends ResidentTestUtil implements ITest{
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid2));
 		if (OutputValidationUtil.publishOutputResult(ouputValid2)
 				&& testcaseName.toLowerCase().endsWith("_Pos".toLowerCase())) {
-			String content = getContentFromFile(testCaseName.listFiles(), "auth-lock-request");
 			String inputFilePath = FileUtil.getFileFromList(testCaseName.listFiles(), "auth-lock-request")
 					.getAbsolutePath();
 			String uin = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualId");
