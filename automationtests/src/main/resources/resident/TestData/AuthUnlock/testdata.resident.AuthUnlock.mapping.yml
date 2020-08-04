@@ -155,7 +155,7 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$      
 
-    Resident_AuthUnlock_Valid_UIN_demo_Pos:
+  Resident_AuthUnlock_Valid_UIN_demo_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
       otpRequest.individualId: $UIN.demo.true$
