@@ -1,8 +1,8 @@
 testdata:
-  Resident_AuthUnlock_Valid_UIN_smoke_Face_Pos:
+  Resident_AuthUnlock_Valid_UIN_Face_smoke_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN.bio.FACE.true$
+      otpRequest.individualId: $UIN.bio-FACE.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -25,10 +25,10 @@ testdata:
     output.output-2-expected-y-res:
       output.2.responsetime: $TIMESTAMP$
          
-  Resident_AuthUnlock_with_valid_vid_smoke_Face_Pos:
+  Resident_AuthUnlock_with_valid_vid_Face_smoke_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID.bio.FACE.true$
+      otpRequest.individualId: $VID.bio-FACE.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -38,7 +38,7 @@ testdata:
       authUnlock.individualIdType: $RTestData:vid_idType$
       authUnlock.individualId: $input.otp-generate-request:otpRequest.individualId$
       authUnlock.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-      authUnlock.authType0: $RTestData:authType_face$
+      authUnlock.authType0: $RTestData:authType_demo$
       authUnlock.authType1: $REMOVE$
       authUnlock.authType2: $REMOVE$
       authUnlock.authType3: $REMOVE$
@@ -54,7 +54,7 @@ testdata:
   Resident_AuthUnlock_Valid_UIN_Finger_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN.bio.Finger.true$
+      otpRequest.individualId: $UIN.bio-Finger.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -80,7 +80,7 @@ testdata:
   Resident_AuthUnlock_with_valid_vid_Finger_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID.bio.Finger.true$
+      otpRequest.individualId: $VID.bio-Finger.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -106,7 +106,7 @@ testdata:
   Resident_AuthUnlock_Valid_UIN_Iris_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN.bio.Iris.true$
+      otpRequest.individualId: $UIN.bio-Iris.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -132,7 +132,7 @@ testdata:
   Resident_AuthUnlock_with_valid_vid_Iris_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID.bio.Iris.true$
+      otpRequest.individualId: $VID.bio-Iris.true$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$

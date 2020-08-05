@@ -260,7 +260,7 @@ public class AuthLock extends ResidentTestUtil implements ITest{
 	 */
 	@AfterClass
 	public void storeAuthTypeStatusData() {
-		logger.info("updating the authstatusType property file with "+storeUinVidLockStatusData);
+		logger.info("updating the authstatusType property file  "+storeUinVidLockStatusData);
 		AuthTypeStatusDto.setAuthTypeStatus(storeUinVidLockStatusData);
 		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath(), AuthTypeStatusDto.getAuthTypeStatus());
