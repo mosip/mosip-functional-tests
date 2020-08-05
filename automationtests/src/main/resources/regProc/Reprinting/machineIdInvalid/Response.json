@@ -1,12 +1,12 @@
-
 {
-    "id": "mosip.uincard.reprint",
+    "id": "1.0",
     "version": "1.0",
-    "responsetime": "2019-12-06T07:02:38.476Z",
-    "response": {
-        "registrationId": "10002100210000120200714101345",
-        "status": "Packet has reached Packet Receiver",
-        "message": "Packet created and uploaded"
-    },
-    "errors": null
+    "responsetime": "2020-05-08T05:38:57.163Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "RPR-RHM-FAILED-001",
+            "message": "Invalid Request Value - machineId should not be empty"
+        }
+    ]
 }
