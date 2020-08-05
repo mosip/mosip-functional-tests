@@ -229,7 +229,7 @@ public class AuthUnlock extends ResidentTestUtil implements ITest{
 					.getAbsolutePath();
 			String uin = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualId");
 			String type = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "individualIdType");
-			String authType = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "authLock.authType0");
+			String authType = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "authUnlock.authType0");
 			
 			verifyAuthStatusTypeAndStoreItForTesting(uin, type, authType, authStatusTrue);
 		}
@@ -259,6 +259,7 @@ public class AuthUnlock extends ResidentTestUtil implements ITest{
 	 */
 	@AfterClass
 	public void storeAuthTypeStatusData() {
+		logger.info("updating the authstatusType property file "+storeUinVidLockStatusData);
 		AuthTypeStatusDto.setAuthTypeStatus(storeUinVidLockStatusData);
 		generateMappingDic(new File(RunConfigUtil.getResourcePath() + "resident/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath(), AuthTypeStatusDto.getAuthTypeStatus());
