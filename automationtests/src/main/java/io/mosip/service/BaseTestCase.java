@@ -1,9 +1,7 @@
 package io.mosip.service;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,7 +23,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
-import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
@@ -79,8 +76,6 @@ public class BaseTestCase {
 	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map residentQueries;
 	public static Map partnerQueries;
-	public static String partnerDemoServicePort = null;
-	public static boolean insertDevicedata = false;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -116,7 +111,6 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
-		partnerDemoServicePort=(String) kernelCmnLib.readProperty("partnerDemoService").get(System.getProperty("env.user")+".encryptionPort");
 		/**
 		 * Make sure test-output is there
 		 */
@@ -158,6 +152,10 @@ public class BaseTestCase {
 		initialize();
 		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
 
+		logger.info("Inserting device management data");
+		AdminTestUtil.deleteDeviceManagementData();
+		AdminTestUtil.createDeviceManagementData();
+		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
 		AuthTestsUtil.removeOldMosipTempTestResource();
@@ -165,17 +163,14 @@ public class BaseTestCase {
 			AuthTestsUtil.initiateAuthTest();
 			new PMPDataManager(false);
 			new PMPDataManager(true);
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -202,13 +197,6 @@ public class BaseTestCase {
 				e.printStackTrace();
 
 			}
-		}
-		
-		//inserting device management data
-		if(insertDevicedata) {
-			AdminTestUtil.deleteDeviceManagementData();
-			logger.info("Inserting device management data");
-			AdminTestUtil.createDeviceManagementData();
 		}
 
 	} // End suiteSetup

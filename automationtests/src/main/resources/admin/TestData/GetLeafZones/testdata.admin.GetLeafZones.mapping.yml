@@ -18,9 +18,7 @@ testdata:
    Admin_GetLeafZones_forNoZoneMap:
       input.search-request:
          langCode: $TestData:valid_LanguageCodeEng$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: KER-MSD-339
-         messageerrors0: No zone found for the logged-in User 110087
+      output.output-1-expected-pos-5-response:
          responsetime: $IGNORE$
    Admin_GetLeafZones_with invalid langCode:
       input.search-request:
