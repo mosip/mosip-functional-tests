@@ -37,6 +37,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.CommonLibrary;
@@ -73,9 +74,10 @@ public class Pagination extends BaseTestCase implements ITest {
 	 *  Script for pagination service
 	 *  Here we need to pass page index it will return number of application are there in that page
 	 *  page index is start from 0.
+	 * @throws PreregistrationEception 
 	 */
 	@Test
-	public void pagination_Smoke() {
+	public void pagination_Smoke() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,cookie);
@@ -106,7 +108,7 @@ public class Pagination extends BaseTestCase implements ITest {
 		lib.compareValues(errorMessage, "Invalid page index value");
 	}
 	@Test
-	public void pagination_withoutPageIndexValue()
+	public void pagination_withoutPageIndexValue() throws PreregistrationEception
 	{
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -138,7 +140,7 @@ public class Pagination extends BaseTestCase implements ITest {
 		lib.compareValues(errorMessage, "Invalid page index value");
 	}
 	@Test
-	public void pagination_noRecordPresentForThatPageRange()
+	public void pagination_noRecordPresentForThatPageRange() throws PreregistrationEception
 	{
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);

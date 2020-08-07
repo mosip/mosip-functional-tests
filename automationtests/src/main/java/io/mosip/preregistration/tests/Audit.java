@@ -38,6 +38,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.AssertResponses;
@@ -85,7 +86,7 @@ public class Audit extends BaseTestCase implements ITest {
 
 
 	@Test
-	public void getAuditDataForDemographicDiscard() {
+	public void getAuditDataForDemographicDiscard() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);
@@ -101,7 +102,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForDemographicUpdate() {
+	public void getAuditDataForDemographicUpdate() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createRequest = lib.createRequest(testSuite);
 		Response createRequestResponse = lib.CreatePreReg(createRequest, individualToken);
@@ -170,7 +171,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForCancelBooking() {
+	public void getAuditDataForCancelBooking() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		String regCenterId = null;
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -195,7 +196,7 @@ public class Audit extends BaseTestCase implements ITest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void getAuditDataForReBooking() {
+	public void getAuditDataForReBooking() throws PreregistrationEception {
 		String regCenterId = null;
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -221,7 +222,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForDocumentUpload() {
+	public void getAuditDataForDocumentUpload() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);
@@ -236,7 +237,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForDocumentDeleteByDocId() {
+	public void getAuditDataForDocumentDeleteByDocId() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);
@@ -253,7 +254,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForRetriveDocumentByDocId() {
+	public void getAuditDataForRetriveDocumentByDocId() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);
@@ -270,7 +271,7 @@ public class Audit extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void getAuditDataForCopyDocument() {
+	public void getAuditDataForCopyDocument() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest, individualToken);

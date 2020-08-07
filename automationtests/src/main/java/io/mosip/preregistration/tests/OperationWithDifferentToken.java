@@ -37,6 +37,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.CommonLibrary;
@@ -62,7 +63,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 	public PreregistrationDAO dao=new PreregistrationDAO();
 
 	@Test
-	public void getUserADemographicDataUsingUserBToken() {
+	public void getUserADemographicDataUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -76,7 +77,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 	}
 	
 	@Test
-	public void discardUserADataUsingUserBToken() {
+	public void discardUserADataUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -89,7 +90,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void bookMultipleAppointmentUsingUserBToken() {
+	public void bookMultipleAppointmentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse1 = lib.CreatePreReg(createPregRequest, individualToken);
@@ -124,7 +125,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void uploadUserADocumentUsingUserBToken() {
+	public void uploadUserADocumentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -137,7 +138,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void copyUserADocumentToUserB() {
+	public void copyUserADocumentToUserB() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -153,7 +154,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void deleteDocumentUsingUserBToken() {
+	public void deleteDocumentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -167,7 +168,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void getPreRegistrationStatusUsingUserBToken() {
+	public void getPreRegistrationStatusUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -180,7 +181,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void getUserADocumentUsingUserBToken() {
+	public void getUserADocumentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -194,7 +195,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void getDocumentByDocIdUsingUserBToken() {
+	public void getDocumentByDocIdUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -209,7 +210,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void deleteAllDocumentByDocIdUsingUserBToken() {
+	public void deleteAllDocumentByDocIdUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -224,7 +225,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void bookAppointmentUsingUserBToken() {
+	public void bookAppointmentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -239,7 +240,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void cancelAppointmentUsingUserBToken() {
+	public void cancelAppointmentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -255,7 +256,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void rebookAppointmentUsingUserBToken() {
+	public void rebookAppointmentUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -272,7 +273,7 @@ public class OperationWithDifferentToken extends BaseTestCase implements ITest {
 		lib.compareValues(errorCode, "PRG_PAM_APP_017");
 	}
 	@Test
-	public void fetchAppointmentDetailsOfUserAUsingUserBToken() {
+	public void fetchAppointmentDetailsOfUserAUsingUserBToken() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
