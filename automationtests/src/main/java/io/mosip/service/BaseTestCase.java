@@ -254,11 +254,15 @@ public class BaseTestCase {
 		if(testModule.equalsIgnoreCase("Admin Tests"))
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
-			new PMPDataManager(false);
+			{
+				new PMPDataManager(false);
+				AdminTestUtil.deleteDeviceManagementData();
+			}
 		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
 		{
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			new PMPDataManager(false);
+			AdminTestUtil.deleteDeviceManagementData();
 		}
 		RestAssured.reset();
 		logger.info("\n\n");
