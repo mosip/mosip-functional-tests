@@ -63,6 +63,7 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String autoTstUsrCkie = null;
+	public static List<String> listOfModules = null;
 
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
@@ -157,7 +158,7 @@ public class BaseTestCase {
 		AdminTestUtil.createDeviceManagementData();
 		
 		String[] modulesSpecified = System.getProperty("modules").split(",");
-		List<String> listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
+		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -183,8 +184,13 @@ public class BaseTestCase {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
-			expiredPreRegIds = lib.createExpiredApplication();
-			consumedPreRegIds = lib.createConsumedPreId();
+			try {
+				expiredPreRegIds = lib.createExpiredApplication();
+				consumedPreRegIds = lib.createConsumedPreId();
+			} catch (Exception e) {
+				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
+				listOfModules.remove("prereg");
+			}
 
 			/**
 			 * here we are assuming batch job will run in every 5 min thats why we are
@@ -236,11 +242,15 @@ public class BaseTestCase {
 		if(testModule.equalsIgnoreCase("Admin Tests"))
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
-			new PMPDataManager(false);
+			{
+				new PMPDataManager(false);
+				AdminTestUtil.deleteDeviceManagementData();
+			}
 		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
 		{
 			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			new PMPDataManager(false);
+			AdminTestUtil.deleteDeviceManagementData();
 		}
 		RestAssured.reset();
 		logger.info("\n\n");

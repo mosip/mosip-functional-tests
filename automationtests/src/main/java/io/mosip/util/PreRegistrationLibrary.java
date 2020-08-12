@@ -58,6 +58,7 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.preregistration.util.PreRegistrationUtil;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
@@ -153,7 +154,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		createPregResponse = appLib.postWithJson(preReg_CreateApplnURI, request, cookie);
 		return createPregResponse;
 	}
-	public List<String> createConsumedPreId() {
+	public List<String> createConsumedPreId() throws PreregistrationEception {
 		List<String> preRegistrationIds = new ArrayList<String>();
 		String PreID = null;
 
@@ -182,7 +183,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		return preRegistrationIds;
 	}
 
-	public List<String> createExpiredApplication() {
+	public List<String> createExpiredApplication() throws PreregistrationEception {
 		List<String> expiredPreIds = new ArrayList<>();
 		for (int i = 0; i < 1; i++) {
 			if (!isValidToken(batchJobToken)) {
@@ -827,7 +828,7 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 * 
 	 */
 	@SuppressWarnings("unchecked")
-	public Response documentUpload(Response responseCreate, String cookie) {
+	public Response documentUpload(Response responseCreate, String cookie) throws PreregistrationEception {
 		testSuite = "DocumentUpload/DocumentUpload_smoke";
 		String configPath = cLib.getResourcePath() + folder + "/" + testSuite;
 		File file = null;
@@ -874,13 +875,14 @@ public class PreRegistrationLibrary extends BaseTestCase {
 	 * 
 	 * @param createResponse
 	 * @return
+	 * @throws PreregistrationEception 
 	 */
-	public String getPreId(Response createResponse) {
+	public String getPreId(Response createResponse) throws PreregistrationEception {
 		String preId = null;
 		try {
 			preId = createResponse.jsonPath().get("response.preRegistrationId").toString();
 		} catch (NullPointerException e) {
-			Assert.assertTrue(false, "Exception occured while creating application  " + e.getMessage());
+			throw new PreregistrationEception( "Exception occured while creating application  " + e.getMessage());
 		}
 		return preId;
 	}

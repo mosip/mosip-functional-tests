@@ -32,6 +32,7 @@ import org.testng.internal.BaseTestMethod;
 import com.jayway.jsonpath.JsonPath;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
@@ -98,7 +99,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUpdateDemoGetData() {
+	public void createAppUpdateDemoGetData() throws PreregistrationEception {
 
 		// Create PreReg
 		try {
@@ -129,7 +130,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUploadDocDeleteDocByDocId() {
+	public void createAppUploadDocDeleteDocByDocId() throws PreregistrationEception {
 		String actualMessage=null;
 		// Create PreReg
 		response = lib.CreatePreReg(individualToken);
@@ -157,7 +158,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	}
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUploadDocDeleteDocByPreRegId() {
+	public void createAppUploadDocDeleteDocByPreRegId() throws PreregistrationEception {
 		String actualMessage=null;
 		// Create PreReg
 
@@ -194,7 +195,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppDiscardUploadDoc() {
+	public void createAppDiscardUploadDoc() throws PreregistrationEception {
 
 		// Create PreReg
 
@@ -216,7 +217,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUpdateDiscard() {
+	public void createAppUpdateDiscard() throws PreregistrationEception {
 		// Create PreReg
 
 		response = lib.CreatePreReg(individualToken);
@@ -229,7 +230,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void cancelAppointmentFetchCenterDetails() {
+	public void cancelAppointmentFetchCenterDetails() throws PreregistrationEception {
 		// Create PreReg
 
 		response = lib.CreatePreReg(individualToken);
@@ -255,7 +256,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUploadBookUpdate() {
+	public void createAppUploadBookUpdate() throws PreregistrationEception {
 
 		// Create PreReg
 		response = lib.CreatePreReg(individualToken);
@@ -307,7 +308,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	}
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void createAppUploadFetchBookAppFetchApp() {
+	public void createAppUploadFetchBookAppFetchApp() throws PreregistrationEception {
 		String regCenterId = null;
 		String appDate = null;
 		String timeSlotFrom = null;
@@ -423,10 +424,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	
 	/**
 	 * @author Ashish Fetch booked appointment created by user(done)
+	 * @throws PreregistrationEception 
 	 * 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void fetchBookedAppointmentCreatedByUser() {
+	public void fetchBookedAppointmentCreatedByUser() throws PreregistrationEception {
 		String cookie = lib.getToken();
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -449,10 +451,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Scenario Fetch canceled appointment created by user(done)
+	 * @throws PreregistrationEception 
 	 * 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void fetchCanceledAppointmentCreatedByUser() {
+	public void fetchCanceledAppointmentCreatedByUser() throws PreregistrationEception {
 		String cookie = lib.getToken();
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
@@ -609,10 +612,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	/**
 	 * @author Ashish Fetch appointment details for discarded Booked
 	 *         Appointment(done)
+	 * @throws PreregistrationEception 
 	 * 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void discardBookedAppointment() {
+	public void discardBookedAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -638,11 +642,12 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author M9010713 update demographic data after booking an appointment
+	 * @throws PreregistrationEception 
 	 */
 
 	@Test(groups = { "IntegrationScenarios" })
 	public void updateDemographicDataAfterBookingAppointMent()
-			throws FileNotFoundException, IOException, ParseException {
+			throws FileNotFoundException, IOException, ParseException, PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -657,10 +662,11 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Fetch get Pre Registration data for Booked Appointment
+	 * @throws PreregistrationEception 
 	 * 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void getPreRegistrationDataForBookedAppointment() {
+	public void getPreRegistrationDataForBookedAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -746,9 +752,10 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish get Status Of Booked Appointment Appointment
+	 * @throws PreregistrationEception 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void getStatusOfBookedAppointment() {
+	public void getStatusOfBookedAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -763,9 +770,10 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish get Status Of Canceled Appointment Appointment
+	 * @throws PreregistrationEception 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void getStatusOfCanceledAppointment() {
+	public void getStatusOfCanceledAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -784,9 +792,10 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish retrivePreRegistrationDataAfterBookingAppointment
+	 * @throws PreregistrationEception 
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void retrivePreRegistrationDataAfterBookingAppointment() {
+	public void retrivePreRegistrationDataAfterBookingAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -804,6 +813,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Retrive Pre Registration of discarded application
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
@@ -811,7 +821,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 */
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void retrivePreRegistrationDataOfDiscardedApplication() {
+	public void retrivePreRegistrationDataOfDiscardedApplication() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -828,6 +838,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Retrive Pre Registration cancel appointment
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
@@ -835,7 +846,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 */
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void retrivePreRegistrationDataForCancelAppointment() {
+	public void retrivePreRegistrationDataForCancelAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -898,13 +909,14 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Book Appointment for discarded application
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void bookAppointmentForDiscardedApplication() {
+	public void bookAppointmentForDiscardedApplication() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -922,13 +934,14 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Book multiple appointment for same PRID
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void bookMultipleAppointmentForSamePRID() {
+	public void bookMultipleAppointmentForSamePRID() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -972,13 +985,14 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * Create,Discard,upload document
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
 	@Test(groups = { "IntegrationScenarios" })
-	public void uploadDocumentForDiscardedApplication() {
+	public void uploadDocumentForDiscardedApplication() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -994,6 +1008,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 
 	/**
 	 * @author Ashish Retrive Pre Registration After uploading document
+	 * @throws PreregistrationEception 
 	 * 
 	 * @throws ParseException
 	 * @throws IOException
@@ -1001,7 +1016,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	 */
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void retrivePreRegistrationDataAfterUploadingDocument() {
+	public void retrivePreRegistrationDataAfterUploadingDocument() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		JSONObject createPregRequest = lib.createRequest(testSuite);
 		Response createResponse = lib.CreatePreReg(createPregRequest,individualToken);
@@ -1448,7 +1463,7 @@ public class IntegrationScenarios extends BaseTestCase implements ITest {
 	// document id
 
 	@Test(groups = { "IntegrationScenarios" })
-	public void delDocByDocIdForDiscardedApplication() {
+	public void delDocByDocIdForDiscardedApplication() throws PreregistrationEception {
 		PreRegistrationLibrary lib = new PreRegistrationLibrary();
 
 		// Create PreReg

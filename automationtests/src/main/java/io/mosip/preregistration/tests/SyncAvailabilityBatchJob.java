@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.PreRegistrationLibrary;
@@ -38,7 +39,7 @@ public class SyncAvailabilityBatchJob extends BaseTestCase implements ITest {
 
 	@Transactional(rollbackOn = Exception.class)
 	@Test
-	public void cancelAppointmentUsingUserBToken() {
+	public void cancelAppointmentUsingUserBToken() throws PreregistrationEception {
 		String syncAvailability = null;
 		dao.makeregistartionCenterActive("10001");
 		lib.syncAvailability();
