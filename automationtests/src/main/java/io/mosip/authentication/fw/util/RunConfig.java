@@ -500,6 +500,8 @@ public abstract class RunConfig {
 			public abstract String getUpdateDeviceTypePath();
 			public abstract String getCreateIndividualTypePath();
 			public abstract String getUpdateIndividualTypePath();
+			public abstract String getCreateDynamicFieldPath();
+			public abstract String getAllDynamicFieldPath();
 			
 		
 		//Resident
