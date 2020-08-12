@@ -36,9 +36,9 @@ page_negativeValue:
 authType_face:
   - bio-FACE
 authType_iris:
-  - bio-IIR
+  - bio-Iris
 authType_finger:
-  - bio-FIR
+  - bio-Finger
 authType_demo:
   - demo
 authType_invalid:

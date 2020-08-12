@@ -19,7 +19,7 @@
     ],
     "pagination": {
       "pageStart": 0,
-      "pageFetch": 5
+      "pageFetch": 1
     },
     "languageCode": "eng"
   },

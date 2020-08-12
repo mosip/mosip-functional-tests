@@ -1,31 +1,16 @@
 {
   "id": "string",
   "version": "string",
-  "responsetime": "$IGNORE$",
+  "responsetime": "2020-07-21T10:45:08.994Z",
   "response": {
     "fromRecord": 1,
-    "toRecord": 5,
+    "toRecord": 1,
     "totalRecord": 10,
     "data": [
       {
         "isActive": true,
         "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "id": "1150",
-        "name": "auth otp email service subject",
-        "description": "auth otp email service subject",
-        "fileFormatCode": "txt",
-        "model": "velocity",
-        "fileText": "Please find the otp $otp",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "auth-otp-email-content-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
+        "createdDateTime": "2020-07-20T02:20:39.404Z",
         "id": "1149",
         "name": "auth otp email service subject",
         "description": "auth otp email service subject",
@@ -35,50 +20,6 @@
         "moduleId": "10004",
         "moduleName": "ID Authentication",
         "templateTypeCode": "auth-otp-email-subject-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "id": "1148",
-        "name": "auth otp service",
-        "description": "auth otp service for sending otp",
-        "fileFormatCode": "txt",
-        "model": "velocity",
-        "fileText": "Please find the otp $otp",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "auth-otp-sms-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "id": "registrationclient",
-        "name": "otp service",
-        "description": "OTP Send Service",
-        "fileFormatCode": "txt",
-        "model": "string",
-        "fileText": "Please find the OTP $otp",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "otp-sms-template",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "createdDateTime": "$IGNORE$",
-        "id": "1101",
-        "name": "Template for authorization content",
-        "description": "Template for authorization content",
-        "fileFormatCode": "txt",
-        "fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
-        "moduleId": "10004",
-        "moduleName": "ID Authentication",
-        "templateTypeCode": "auth-email-content",
         "langCode": "eng"
       }
     ]

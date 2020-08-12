@@ -46,8 +46,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:errorMessage_NoPrimaryLang$         
          
    Admin_CreateMachineSpecification_InputParameter_Name_Missing:
       input.create-machine-specification-request:
@@ -63,8 +63,8 @@ testdata:
          id: $IGNORE$
          responsetime: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateMachineSpecification_InputParameter_Name_Empty:
       input.create-machine-specification-request:
@@ -80,8 +80,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$        
          
    Admin_CreateMachineSpecification_InputParameter_Name_AboveMaxLen64:
       input.create-machine-specification-request:
@@ -97,8 +97,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          
    Admin_CreateMachineSpecification_InputParameter_Brand_Missing:
       input.create-machine-specification-request:
@@ -114,8 +114,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Brand:errorMessage__Missing$
          
    Admin_CreateMachineSpecification_InputParameter_Brand_Empty:
       input.create-machine-specification-request:
@@ -131,8 +131,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Brand:errorMessage__incorrect$        
          
    Admin_CreateMachineSpecification_InputParameter_Brand_AboveMaxLen32:
       input.create-machine-specification-request:
@@ -148,8 +148,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.brand: Should not be blank or size must be between 1 and 32'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Brand:errorMessage__incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_Model_Missing:
       input.create-machine-specification-request:
@@ -165,8 +165,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Model:errorMessage__Missing$
          
    Admin_CreateMachineSpecification_InputParameter_Model_Empty:
       input.create-machine-specification-request:
@@ -181,8 +181,8 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Model:errorMessage__incorrect$        
          
    Admin_CreateMachineSpecification_InputParameter_Model_AboveMaxLen16:
       input.create-machine-specification-request:
@@ -198,8 +198,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.model: Should not be blank or size must be between 1 and 16'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Model:errorMessage__incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_machineTypeCode_Missing:
       input.create-machine-specification-request:
@@ -215,8 +215,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.machineTypeCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MachineTypeCode:errorMessage_Missing$
          
    Admin_CreateMachineSpecification_InputParameter_machineTypeCode_Empty:
       input.create-machine-specification-request:
@@ -232,8 +232,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.machineTypeCode: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MachineTypeCode:errorMessage_incorrect$        
          
    Admin_CreateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36:
       input.create-machine-specification-request:
@@ -249,8 +249,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.machineTypeCode: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MachineTypeCode:errorMessage_incorrect$
          
          
    Admin_CreateMachineSpecification_InputParameter_machineTypeCode:
@@ -267,8 +267,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-714
-         messageerrors0: 'Invalid dtype_code received'
+         errorCodeerrors0: KER-MSD-722
+         messageerrors0: $errors:CommonMSDErrorMssg__MachineTypeCode:errorMessage_invalidVal$
          
    Admin_CreateMachineSpecification_InputParameter_MinDriverversion_Missing:
       input.create-machine-specification-request:
@@ -284,8 +284,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MinDriverversion:errorMessage_Missing$
          
    Admin_CreateMachineSpecification_InputParameter_MinDriverversion_Empty:
       input.create-machine-specification-request:
@@ -301,8 +301,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MinDriverversion:errorMessage_incorrect$        
          
    Admin_CreateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       input.create-machine-specification-request:
@@ -318,8 +318,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.minDriverversion: Should not be blank or size must be between 1 and 16'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg__MinDriverversion:errorMessage_incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_Description_AboveMaxLen256:
       input.create-machine-specification-request:
@@ -336,8 +336,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 1 and 256'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_AboveMaxLen256$
          
    Admin_CreateMachineSpecification_InputParameter_LangCode_Missing:
       input.create-machine-specification-request:
@@ -353,8 +353,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_LangCode_Empty:
       input.create-machine-specification-request:
@@ -370,8 +370,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateMachineSpecification_InputParameter_LangCode_AboveMaxLen3:
       input.create-machine-specification-request:
@@ -387,8 +387,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_LangCode:
       input.create-machine-specification-request:
@@ -404,8 +404,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateMachineSpecification_InputParameter_isActive_Missing:
       input.create-machine-specification-request:
@@ -421,7 +421,7 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'                                    
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$                                    
 
          

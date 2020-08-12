@@ -69,21 +69,21 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.dpId: must not be blank'
+         messageerrors0: 'request.digitalId.dpId: Should not be blank or size must be between 1 and 36'
    Admin_DeviceValidateHistory_inValid_deviceProviderId_nonExisting_inDB:
       input.search-request:
          dpId: $TestData:Invalid_ValueString$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorMessage$
+         errorCodeerrors0: ADM-DPM-003
+         messageerrors0: Device Provider does not exist
    Admin_DeviceValidateHidtory_inValid_deviceProviderId_of_inActiveProvider:
       input.search-request:
          dpId: $TestData:Invalid_ValueString$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorCode$
-         messageerrors0: $errors:DeviceValidate_NonExisting_DeviceProvider:errorMessage$
+         errorCodeerrors0: ADM-DPM-003
+         messageerrors0: Device Provider does not exist
 
    Admin_DeviceValidateHistory_inValid_deviceProvider_blank:
       input.search-request:
@@ -91,7 +91,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.dp: must not be blank'         
+         messageerrors0: 'request.digitalId.dp: Should not be blank or size must be between 1 and 128'         
    Admin_DeviceValidateHistory_inValid_deviceProvider:
       input.search-request:
          dp: $TestData:Invalid_ValueString$
@@ -106,7 +106,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.make: must not be blank'         
+         messageerrors0: 'request.digitalId.make: Should not be blank or size must be between 1 and 36'         
    Admin_DeviceValidateHistory_inValid_make:
       input.search-request:
          make: $TestData:Invalid_ValueString$
@@ -121,7 +121,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.model: must not be blank'
+         messageerrors0: 'request.digitalId.model: Should not be blank or size must be between 1 and 36'
    Admin_DeviceValidateHistory_inValid_model:
       input.search-request:
          model: $TestData:Invalid_ValueString$
@@ -136,7 +136,7 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.digitalId.serialNo: must not be blank'
+         messageerrors0: 'request.digitalId.serialNo: Should not be blank or size must be between 1 and 64'
    Admin_DeviceValidateHistory_inValid_serialNo:
       input.search-request:
          serialNo: $TestData:Invalid_ValueString$
@@ -166,7 +166,15 @@ testdata:
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidRequestTime:errorMessage$         
+         messageerrors0: $errors:InvalidRequestTime:errorMessage$
+         
+   Admin_DeviceValidateHistory_inValid_TimeStampFormat:
+      input.search-request:
+         timestamp: '2018/12/10T06:12:52.994Z'
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode1$
+         messageerrors0: $errors:InvalidRequestTimeStamp:errorMessage1$                  
          
    Admin_DeviceValidateHistory_inValid_MDS_dtyp_diffThan_passedDev_dtyp:
       input.search-request:

@@ -47,6 +47,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -955,6 +956,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static void initiateAuthTest() {
 		copyAuthTestResource();
 		IdRepoTestsUtil.copyIdrepoTestResource();
+		ResidentTestUtil.initiateResidentTest();
 	}
 
 	/**
@@ -1509,8 +1511,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		String query = "select * from ida.uin_auth_lock where uin = '" + uin + "' and auth_type_code = '" + authType
 				+ "' order by cr_dtimes desc limit 1";
 		Map<String, String> actualRecord = DbConnection.getDataForQuery(query, "IDA");
-		if (!actualRecord.get("status_code").equals(status))
+		if (actualRecord==null || !actualRecord.get("status_code").equals(status)) {
+			IDASCRIPT_LOGGER.error("No Data Found in DB with query: "+query);
+			IDASCRIPT_LOGGER.error("Result of the query: "+actualRecord);
 			return false;
+		}
 		return true;
 	}
 	
@@ -1533,6 +1538,28 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return e.toString();
+		}
+	}
+	
+	protected String putRequestWithParameter(JSONObject objectData, String url,String cookieName, String cookieValue) {
+		try {
+			return RestClient
+					.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue)
+					.asString();
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return e.toString();
+		}
+	}
+	
+	
+	protected Response patchRequestWithParameter(JSONObject objectData, String url,String cookieName,String cookieValue) {
+		try {
+			return RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName, cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
 		}
 	}
 	

@@ -39,6 +39,7 @@ public class CreateBlackListedWords extends AdminTestUtil implements ITest {
 	private String TESTDATA_FILENAME;
 	private String testType;
 	private int invocationCount = 0;
+	KernelDataBaseAccess db = new KernelDataBaseAccess();
 	/**
 	 * Set Test Type - Smoke, Regression or Integration
 	 * 
@@ -169,24 +170,30 @@ public class CreateBlackListedWords extends AdminTestUtil implements ITest {
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		if(testcaseName.toLowerCase().contains("db")) {
-			KernelDataBaseAccess db = new KernelDataBaseAccess();
 			String queryString="Delete from master.blacklisted_words b where b.word='datatesting'";
 			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 		}
 		if(testcaseName.toLowerCase().contains("wordlength127")) {
-			KernelDataBaseAccess db = new KernelDataBaseAccess();
 			String key127="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw";
 			String queryString="Delete from master.blacklisted_words b where b.word='"+key127+"'";
 			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 	}
 		if(testcaseName.toLowerCase().contains("wordlength128")) {
-			KernelDataBaseAccess db = new KernelDataBaseAccess();
 			String key128="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx";
 			String queryString="Delete from master.blacklisted_words b where b.word='"+key128+"'";
 			if(!db.executeQuery(queryString, "masterdata"))
 				throw new AdminTestException("Not able to delete the created data");
 	}
+		/*
+		 * if (this.testCaseName.contains("Valid_Smoke")) { if
+		 * (db.validateDBCount(queries.get("createBlackLstWordIsActive").toString(),
+		 * "masterdata") == 1)
+		 * logger.info("Record inserted in primary language with Status: FALSE"); else {
+		 * logger.info("Record inserted in primary language with Status: TRUE"); throw
+		 * new AdminTestException("Record inserted in one language with Status: TRUE");
+		 * } }
+		 */
 	}
 }

@@ -4,7 +4,7 @@ testdata:
          description: test template
          fileFormatCode: html
          fileText: abc
-         Rid: test-03
+         Rid: crTempTest-03
          isActive: true
          RlangCode: eng
          model: model-1
@@ -54,8 +54,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateTemplate_InputParameter_Name_Empty:
       input.create-template-request:
@@ -74,8 +74,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Empty$        
          
    Admin_CreateTemplate_InputParameter_Name_AboveMaxLen128:
       input.create-template-request:
@@ -94,8 +94,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Empty$
          
    Admin_CreateTemplate_InputParameter_FileFormatCode_Missing:
       input.create-template-request:
@@ -114,8 +114,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_Missing$
          
    Admin_CreateTemplate_InputParameter_FileFormatCode_Empty:
       input.create-template-request:
@@ -134,8 +134,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_invalid$        
          
    Admin_CreateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
       input.create-template-request:
@@ -154,15 +154,15 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileFormatCode: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidFileFormatCode:errorMessage_invalid$
          
    Admin_CreateTemplate_InputParameter_ModuleId_Missing:
       input.create-template-request:
          description: test template
          fileFormatCode: html
          fileText: abc
-         Rid: test-04
+         Rid: test-045
          isActive: true
          RlangCode: eng
          model: model-6
@@ -170,19 +170,19 @@ testdata:
          moduleName: Pre-Registration
          name: Test-template
          templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $IGNORE$
+         oid: $input.create-template-request:Rid$
+         langCode: $input.create-template-request:RlangCode$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleId: must not be null'
+         id: $IGNORE$
          
    Admin_CreateTemplate_InputParameter_ModuleName_Missing:
       input.create-template-request:
          description: test template
          fileFormatCode: html
          fileText: abc
-         Rid: test-04
+         Rid: test-048
          isActive: true
          RlangCode: eng
          model: model-7
@@ -190,19 +190,19 @@ testdata:
          moduleName: $REMOVE$
          name: Test-template
          templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $IGNORE$
+         oid: $input.create-template-request:Rid$
+         langCode: $input.create-template-request:RlangCode$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: must not be null'
+         id: $IGNORE$
          
    Admin_CreateTemplate_InputParameter_ModuleName_Empty:
       input.create-template-request:
          description: test template
          fileFormatCode: html
          fileText: abc
-         Rid: test-04
+         Rid: test-047
          isActive: true
          RlangCode: eng
          model: model-7
@@ -210,12 +210,12 @@ testdata:
          moduleName: ''
          name: Test-template
          templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $IGNORE$
+         oid: $input.create-template-request:Rid$
+         langCode: $input.create-template-request:RlangCode$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: Should not be blank or size must be between 1 and 128'        
+         id: $IGNORE$        
          
    Admin_CreateTemplate_InputParameter_ModuleName_AboveMaxLen128:
       input.create-template-request:
@@ -234,8 +234,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.moduleName: Should not be blank or size must be between 1 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidModuleName:errorMessage_AboveMaxLen$
          
    Admin_CreateTemplate_InputParameter_TemplateTypeCode_Missing:
       input.create-template-request:
@@ -254,8 +254,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_Missing$
          
    Admin_CreateTemplate_InputParameter_TemplateTypeCode_Empty:
       input.create-template-request:
@@ -274,8 +274,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_invalid$        
          
    Admin_CreateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
       input.create-template-request:
@@ -294,8 +294,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.templateTypeCode: Should not be blank or size must be between 1 and 36'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:InvalidTemplateTypeCode:errorMessage_invalid$
          
    Admin_CreateTemplate_InputParameter_LangCode_Missing:
       input.create-template-request:
@@ -314,8 +314,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplate_InputParameter_LangCode_Empty:
       input.create-template-request:
@@ -334,8 +334,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'        
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$        
          
    Admin_CreateTemplate_InputParameter_LangCode_AboveMaxLen3:
       input.create-template-request:
@@ -354,8 +354,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplate_InputParameter_Invalid_LangCode:
       input.create-template-request:
@@ -374,8 +374,8 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTemplate_InputParameter_isActive_Missing:
       input.create-template-request:
@@ -394,15 +394,15 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$
          
    Admin_CreateTemplate_InputParameter_FileText_Missing:
       input.create-template-request:
          description: test template
          fileFormatCode: html
          fileText: $REMOVE$
-         Rid: test-04
+         Rid: test-044
          isActive: true
          RlangCode: eng
          model: model-7
@@ -410,12 +410,12 @@ testdata:
          moduleName: Pre-Registration
          name: Test-template
          templateTypeCode: Acknowledgement-email-subject
-      output.output-1-expected-error-response:
+      output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         id: $IGNORE$
+         oid: $input.create-template-request:Rid$
+         langCode: $input.create-template-request:RlangCode$
          version: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.fileText: must not be null'         
+         id: $IGNORE$         
          
                                              
          

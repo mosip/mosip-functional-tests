@@ -1,10 +1,10 @@
 testdata:
    Admin_CreateTitle_All_Valid_Smoke:
       input.create-title-request:
-         Rcode: TEST0011
+         Rcode: crTEST0011
          titleDescription: TEST0011
          titleName: TEST0011
-         isActive: false
+         isActive: true
          RlangCode: eng
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
@@ -26,6 +26,48 @@ testdata:
          id: $IGNORE$
          version: $IGNORE$
          
+   Admin_CreateTitle_Invalid_InputParameter_Code_Missing:
+      input.create-title-request:
+         Rcode: $REMOVE$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
+         
+   Admin_CreateTitle_Invalid_InputParameter_Code_Empty:
+      input.create-title-request:
+         Rcode: ''
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Title_Empty$
+         
+   Admin_CreateTitle_Invalid_InputParameter_Code_AboveMaxLen16:
+      input.create-title-request:
+         Rcode: $TestData:validLocationCode37$
+         titleDescription: MASTER-auto description
+         titleName: Mr-Master-auto
+         isActive: false
+         RlangCode: eng
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         version: $IGNORE$
+         id: $IGNORE$
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Title_Empty$         
+         
    Admin_CreateTitle_Sec_Data_Present_but_No_Data_Prim_lang:
       input.create-title-request:
          Rcode: TEST5
@@ -36,8 +78,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-383
-         messageerrors0: 'Recived data dones not contain data for Primary Langauge'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:noPrimaryLangErrorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:errorMessage_NoPrimaryLang$         
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_Missing:
       input.create-title-request:
@@ -50,8 +92,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_missing$
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_Empty:
       input.create-title-request:
@@ -64,8 +106,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'         
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_incorrect$         
          
    Admin_CreateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       input.create-title-request:
@@ -78,8 +120,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleName: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__titleApi_incorrect$
          
    Admin_CreateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       input.create-title-request:
@@ -92,8 +134,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.titleDescription: Should not be blank or size must be between 1 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_TitleDesc_128$
          
    Admin_CreateTitle_Invalid_InputParameter_isActive_Missing:
       input.create-title-request:
@@ -106,8 +148,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$
          
    Admin_CreateTitle_Invalid_InputParameter_LangCode:
       input.create-title-request:
@@ -120,8 +162,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateTitle_Invalid_InputParameter_LangCode_Missing:
       input.create-title-request:
@@ -134,8 +176,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
 
    Admin_CreateTitle_Invalid_InputParameter_LangCode_Empty:
       input.create-title-request:
@@ -148,8 +190,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
 
    Admin_CreateTitle_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.create-title-request:
@@ -162,8 +204,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'                  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$                  
          
          
                   

@@ -1,0 +1,27 @@
+{
+    "id": "string",
+    "version": "string",
+    "responsetime": "2020-08-06T08:50:17.482Z",
+    "metadata": null,
+    "response": {
+        "id": "d51dd0d0-8cc7-4a66-9e03-e88a687d374a",
+        "name": "TechMaster",
+        "langCode": "eng",
+        "dataType": "string",
+        "description": "Technology Known",
+        "fieldVal": [
+            {
+                "code": "JAVA",
+                "value": "java",
+                "langCode": "eng",
+                "active": true
+            }
+        ],
+        "createdBy": "110005",
+        "updatedBy": null,
+        "createdOn": "2020-08-06T08:50:17.487Z",
+        "updatedOn": null,
+        "active": true
+    },
+    "errors": null
+}

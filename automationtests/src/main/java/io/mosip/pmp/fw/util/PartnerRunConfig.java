@@ -118,14 +118,53 @@ public class PartnerRunConfig extends RunConfig {
     private String retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath;
     private String updateExistingPolicyForPolicyGroupPath;
     private String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
+    private String retrievePartnerAPIkeyToPolicyMappingsPath;
     
-    private String createMISPPath;
+   
+
+	private String createMISPPath;
     private String updateMISPPath;
     private String validateMISPLicensePath;
     private String approveMISPPath;
     private String rejectMISPPath;
     private String activateMISPLicense;
     private String retrieveMISPByMispIDPath;
+    private String retrieveMISPsDetailsByGivenNamePath;
+    private String updateMispStatusByMispIdPath;
+    private String downloadMispLicenseKeyPath;
+    
+    
+    public String getDownloadMispLicenseKeyPath() {
+		return downloadMispLicenseKeyPath;
+	}
+
+	public void setDownloadMispLicenseKeyPath(String downloadMispLicenseKeyPath) {
+		this.downloadMispLicenseKeyPath = downloadMispLicenseKeyPath;
+	}
+
+	public String getUpdateMispStatusByMispIdPath() {
+		return updateMispStatusByMispIdPath;
+	}
+
+	public void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath) {
+		this.updateMispStatusByMispIdPath = updateMispStatusByMispIdPath;
+	}
+
+	public String getRetrieveMISPsDetailsByGivenNamePath() {
+		return retrieveMISPsDetailsByGivenNamePath;
+	}
+
+	public void setRetrieveMISPsDetailsByGivenNamePath(String retrieveMISPsDetailsByGivenNamePath) {
+		this.retrieveMISPsDetailsByGivenNamePath = retrieveMISPsDetailsByGivenNamePath;
+	}
+
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		return retrievePartnerAPIkeyToPolicyMappingsPath;
+	}
+
+	public void setRetrievePartnerAPIkeyToPolicyMappingsPath(String retrievePartnerAPIkeyToPolicyMappingsPath) {
+		this.retrievePartnerAPIkeyToPolicyMappingsPath = retrievePartnerAPIkeyToPolicyMappingsPath;
+	}
     
     public String getRetrieveMISPByMispIDPath() {
 		return retrieveMISPByMispIDPath;
@@ -420,7 +459,7 @@ public class PartnerRunConfig extends RunConfig {
 		setApproveRejectPartnerAPIKeyReqPath(PartnerTestUtil.getPropertyValue("approveRejectPartnerAPIKeyReqPath"));
 		setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(PartnerTestUtil.getPropertyValue("retrieveParticularPartnerDetailsForGivenPartnerIdPath"));
 		setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(PartnerTestUtil.getPropertyValue("retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath"));
-		
+		setRetrievePartnerAPIkeyToPolicyMappingsPath(PartnerTestUtil.getPropertyValue("retrievePartnerAPIkeyToPolicyMappingsPath"));
 		
 		setCreatePolicyGroupPath(PartnerTestUtil.getPropertyValue("createPolicyGroupPath"));
 		setGetPolicyBasedOnPolicyIdPath(PartnerTestUtil.getPropertyValue("getPolicyBasedOnPolicyIdPath"));
@@ -435,6 +474,9 @@ public class PartnerRunConfig extends RunConfig {
 		setRejectMISPPath(PartnerTestUtil.getPropertyValue("rejectMISPPath"));
 		setActivateMISPLicense(PartnerTestUtil.getPropertyValue("activateMISPLicense"));
 		setRetrieveMISPByMispIDPath(PartnerTestUtil.getPropertyValue("retrieveMISPByMispIDPath"));
+		setRetrieveMISPsDetailsByGivenNamePath(PartnerTestUtil.getPropertyValue("retrieveMISPsDetailsByGivenNamePath"));
+		setUpdateMispStatusByMispIdPath(PartnerTestUtil.getPropertyValue("updateMispStatusByMispIdPath"));
+		setDownloadMispLicenseKeyPath(PartnerTestUtil.getPropertyValue("downloadMispLicenseKeyPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -2067,5 +2109,18 @@ public class PartnerRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getCreateDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

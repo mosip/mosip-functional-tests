@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateTemplateType  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(CreateTemplateType.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -175,6 +175,15 @@ public class CreateTemplateType  extends AdminTestUtil implements ITest {
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		if(!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
+		
+		if (this.testCaseName.contains("All_Valid_Smoke")) {
+			if (masterDB.validateDBCount(queries.get("createTemplateTypeIsActive").toString(), "masterdata") == 1)
+				logger.info("Record inserted in primary language with Status: FALSE");
+			else {
+				logger.info("Record inserted in primary language with Status: TRUE");
+				throw new AdminTestException("Record inserted in one language with Status: TRUE");
+			}
+		}
 }
 	/**
 	 * this method is for deleting or updating the inserted data in db for testing

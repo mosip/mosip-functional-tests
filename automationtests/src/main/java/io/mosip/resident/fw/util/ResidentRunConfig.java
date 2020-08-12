@@ -1780,6 +1780,49 @@ public class ResidentRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getRetrieveMISPsDetailsByGivenNamePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdateMispStatusByMispIdPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDownloadMispLicenseKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCreateDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
 
 

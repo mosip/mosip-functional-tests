@@ -25,6 +25,7 @@ import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 
 import io.mosip.preregistration.dao.PreregistrationDAO;
+import io.mosip.preregistration.util.PreregistrationEception;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.util.CommonLibrary;
@@ -69,7 +70,7 @@ public class UpdateDemographicDetails extends BaseTestCase implements ITest {
 	}
 
 	@Test
-	public void updateDemographicDetailsOfBookedAppointment() {
+	public void updateDemographicDetailsOfBookedAppointment() throws PreregistrationEception {
 		testSuite = "Create_PreRegistration/createPreRegistration_smoke";
 		String phone = "8240273209";
 		JSONObject createRequest = lib.createRequest(testSuite);

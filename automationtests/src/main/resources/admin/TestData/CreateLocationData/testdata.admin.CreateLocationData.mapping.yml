@@ -1,6 +1,7 @@
 testdata:
   Admin_CreateLocationData_Valid_Smoke:
     input.search-request:
+      Rcode: 'LOC_Auto_Test'
       Rname: $TestData:validLocationName$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -31,6 +32,7 @@ testdata:
       
   Admin_CreateLocationData_Valid_isActive_true_primLang:
     input.search-request:
+      Rcode: 'LOC_Auto_Test5'
       Rname: Test_Loc_A_5
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -46,6 +48,7 @@ testdata:
            
   Admin_CreateLocationData_Valid_OnlyMandatoryFields:
     input.search-request:
+      Rcode: 'LOC_Auto_Test6'
       Rname: RandomLoc
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -61,6 +64,7 @@ testdata:
     
   Admin_CreateLocationData_Valid_NameLength128:
     input.search-request:
+      Rcode: 'LOC_Auto_Test7'
       Rname: $TestData:wordLength128$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: City
@@ -74,6 +78,7 @@ testdata:
      
   Admin_CreateLocationData_inValid_hierName_locHierCombo:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg'
       Rname: $TestData:validLocationName3$
       RhierarchyLevel: $TestData:validLocationhierarchyLevel$
       RhierarchyName: anyStr
@@ -81,8 +86,8 @@ testdata:
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'hierarchy_level, hierarchy_level_name, lang_code is not present in hierarchy level'
+      errorCodeerrors0: KER-MSD-391
+      messageerrors0: 'Location hierarchy is invalid'
 
   Admin_CreateLocationData_Invalid_code_for_SecondaryLang:
     input.search-request:
@@ -97,15 +102,17 @@ testdata:
 
   Admin_CreateLocationDataz_Invalid_name_dupliCate:
     input.search-request:
-      Rname: $TestData:validLocNameCreatedByquery$
-      RparentLocCode: KNT
-      RhierarchyName: city
+      Rcode: 'KNZ'
+      Rname: $TestData:validLocNameDuplicate$
+      RparentLocCode: KTA
+      RhierarchyName: City
       RhierarchyLevel: 3
+      RisActive: true
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CreateLocDuplicateName:errorCode$
-      messageerrors0: 'Location Test_Loc_B_1 already exist under the hierarchy'
+      messageerrors0: 'Location Kenitra already exist under the hierarchy'
 
   Admin_CreateLocationData_Invalid_Code_SecondaryLang_without_primary:
     input.search-request:
@@ -157,12 +164,13 @@ testdata:
        
   Admin_CreateLocationData_inValid_hierLevel_locHierCombo:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg1'
       RhierarchyLevel: 11
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'hierarchyLevel, hierarchyLevelName, langCode is not present in hierarchy level'
+      errorCodeerrors0: KER-MSD-391
+      messageerrors0: 'Location hierarchy is invalid'
           
   Admin_CreateLocationData_inValid_HierarchyName65:
     input.search-request:
@@ -184,6 +192,7 @@ testdata:
           
   Admin_CreateLocationData_inValid_parentLocCode_nonExisting_inDB:
     input.search-request:
+      Rcode: 'LOC_Auto_TestNeg2'
       RparentLocCode: $TestData:Invalid_ValueString$
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
@@ -216,7 +225,7 @@ testdata:
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-      messageerrors0: 'Invalid Format in field : isActive'
+      messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
        
   Admin_CreateLocationData_Invalid_requestTime_format:
     input.search-request:     
@@ -225,3 +234,27 @@ testdata:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
       messageerrors0: $errors:InvalidRequestTime:errorMessage$
+  Admin_CreateLocationData_with_blank_code:
+    input.search-request:
+      Rcode: ''
+      Rname: $TestData:validLocationName$
+      RhierarchyLevel: $TestData:validLocationhierarchyLevel$
+      RhierarchyName: City
+      RlangCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: KER-MSD-997
+      messageerrors0: Invalid id passed for Primary language 
+  Admin_CreateLocationData_with_missing_code:
+    input.search-request:
+      Rcode: $REMOVE$
+      Rname: $TestData:validLocationName$
+      RhierarchyLevel: $TestData:validLocationhierarchyLevel$
+      RhierarchyName: City
+      RlangCode: $TestData:valid_LanguageCodeEng$
+      requesttime: $TIMESTAMPZ$
+    output.output-1-expected-error-response:
+      responsetime: $IGNORE$
+      errorCodeerrors0: KER-MSD-997
+      messageerrors0: Invalid id passed for Primary language          

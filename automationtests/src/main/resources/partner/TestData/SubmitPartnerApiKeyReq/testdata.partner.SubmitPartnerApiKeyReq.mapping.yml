@@ -1,16 +1,51 @@
 testdata:
-   Partner_SubmitPartnerApiKeyReq_All_Valid_Smoke:
+   Partner_SubmitPartnerApiKeyReq_A_with_InValid_PolicyGroup:
+      input.register-partner-request:
+         policyName: WOSIP
+         useCaseDescription: Need to submit the payment
+         partnerId: PMP-PART-ID-01
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: PMS_PRT_002
+         Emessage: Policy Group does not exist
+         id: $IGNORE$
+         version: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_SubmitPartnerApiKeyReq_B_with_InValid_partnerId:
       input.register-partner-request:
          policyName: MOSIP POLICY
          useCaseDescription: Need to submit the payment
+         partnerId: PMP-PART-ID-001
+      output.output-1-expected-error-response:
+         responsetime: $IGNORE$
+         errorCode: PMS_PRT_005
+         Emessage: Partner does not exist
+         id: $IGNORE$
+         version: $IGNORE$
+         metadata: $IGNORE$
+         
+   Partner_SubmitPartnerApiKeyReq_C_Valid_Smoke:
+      input.register-partner-request:
+         policyName: MOSIP POLICY
+         useCaseDescription: Need to submit the payment
+         partnerId: PMP-PART-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         apiRequestId: SUB-PMP-REQ-ID-01
-         message: partnerAPIKeyRequest successfully created
+         apiRequestId: $IGNORE$
+         message: PartnerAPIKeyRequest successfully created
          id: $IGNORE$
          metadata: $IGNORE$
          errors: $IGNORE$
          version: $IGNORE$
          
-         
+   Partner_SubmitPartnerApiKeyReq_Missing_Input_Parameter_policyName:
+      input.register-partner-request2:
+         useCaseDescription: Need to submit the payment
+         partnerId: PMP-PART-ID-01
+      output.output-1-expected-error-response2:
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter
+         timestamp: $IGNORE$
+         status: $IGNORE$
          

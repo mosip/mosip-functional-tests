@@ -26,72 +26,40 @@ testdata:
          messageerrors0: TestVend1 Device Provider already exist
          responsetime: $IGNORE$                 
          
-   Admin_DeviceProviderRegister_inValid_address_blank:
-      input.input-request:
-         address: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.address: Should not be blank or size must be between 1 and 512'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_address_aboveMaxLen512:
       input.input-request:
          address: $TestData:StringLength513$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.address: Should not be blank or size must be between 1 and 512'
+         messageerrors0: 'request.address: size must be between 0 and 512'
          responsetime: $IGNORE$         
      
-   Admin_DeviceProviderRegister_inValid_certificateAlias_blank:
-      input.input-request:
-         certificateAlias: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.certificateAlias: Should not be blank or size must be between 1 and 36'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_certificateAlias_aboveMaxLen36:
       input.input-request:
          certificateAlias: $TestData:validLocationCode37$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.certificateAlias: Should not be blank or size must be between 1 and 36'
+         messageerrors0: 'request.certificateAlias: size must be between 0 and 36'
          responsetime: $IGNORE$
 
-   Admin_DeviceProviderRegister_inValid_contactNumber_blank:
-      input.input-request:
-         contactNumber: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.contactNumber: Should not be blank or size must be between 1 and 16'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_contactNumber_aboveMaxLen16:
       input.input-request:
          contactNumber: $TestData:validStringLen17$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.contactNumber: Should not be blank or size must be between 1 and 16'
+         messageerrors0: 'request.contactNumber: size must be between 0 and 16'
          responsetime: $IGNORE$
 
-   Admin_DeviceProviderRegister_inValid_email_blank:
-      input.input-request:
-         email: ''
-         requesttime: $TIMESTAMPZ$
-      output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.email: Should not be blank or size must be between 1 and 256'
-         responsetime: $IGNORE$
    Admin_DeviceProviderRegister_inValid_email_aboveMaxLen16:
       input.input-request:
          email: $TestData:Description257$
          requesttime: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'request.email: Should not be blank or size must be between 1 and 256'
+         messageerrors0: 'request.email: size must be between 0 and 256'
          responsetime: $IGNORE$
 
    Admin_DeviceProviderRegister_inValid_vendorName_blank:
@@ -116,7 +84,7 @@ testdata:
          isActive: 'str'
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
          responsetime: $IGNORE$
          
    Admin_DeviceProviderRegister_inValid_requestTime_format:

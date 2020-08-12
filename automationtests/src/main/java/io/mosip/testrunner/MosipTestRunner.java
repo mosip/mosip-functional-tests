@@ -8,8 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
-import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.PMPDataManager;
+
 import io.mosip.service.BaseTestCase;
 
 /**
@@ -48,10 +47,10 @@ public class MosipTestRunner {
 		TestNG runner = new TestNG();
 		List<String> suitefiles = new ArrayList<String>();
 		
-		String specifiedModules = System.getProperty("modules");
-		String[] modulesToRun = specifiedModules.split(",");
+		//String specifiedModules = System.getProperty("modules");
+		List<String> modulesToRun = BaseTestCase.listOfModules;
 		String os=System.getProperty("os.name");
-		System.out.println(os);
+		LOGGER.info(os);
 		//suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
 		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) {
 			 homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");

@@ -781,7 +781,7 @@ testdata:
       
   Authentication_EKYC_Biometric_With_requestedAuth_set_bio_true_when_bio_Authentication_EKYC_Biometric_not_selected_in_ploicy_Neg:
     endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK_Without_Bio$
     input.ekyc-request:
       AuthReq.individualId: $UIN$
       AuthReq.requestTime: $TIMESTAMP$
@@ -987,8 +987,8 @@ testdata:
       output.1.response.status: $TestData:auth_Fail_status$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
-      output.1.response.error.errorCode: $errors:MissingBioValue:errorCode$
-      output.1.response.error.errorMessage: $errors:MissingBioValue:errorMessage$
+      output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
+      output.1.response.error.errorMessage: $errors:BiometricFingerMismatch:errorMessage$
       
   Authentication_EKYC_Biometric_Without_consentObtained_Neg:
     endpoint.url:

@@ -3,8 +3,8 @@
 	"digitalId": {
 		"dateTime": "2020-01-13T07:20:42.195Z",
 		"model": "SMIDCL",
-		"subType": "Single",
-		"type": "Fingerprint",
+		"deviceSubType": "Single",
+		"type": "Finger",
 		"make": "MC01A",
 		"serialNo": "1801160992",
 		"deviceProvider": "SYNCBYTE",

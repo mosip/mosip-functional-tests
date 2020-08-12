@@ -138,7 +138,7 @@ testdata:
          RcreatedDateTime: $IGNORE$
          RupdatedBy: 110005
          RisActive: false   
-         RipAddress: '' 
+         RipAddress: 192.168.0.150 
          RserialNum: ''
          RmacAddress: 61-D3-FD-12-C9-ED 
          Rname: Test123         
@@ -157,7 +157,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid
 
    Admin_UpdateMachine_Invalid_Language_Code_Blank:
@@ -174,7 +174,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid             
     
    Admin_UpdateMachine_Invalid_Machine_Name_Blank:
@@ -191,8 +191,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$  
     
    Admin_UpdateMachine_Invalid_Zone_Code_Blank:
       input.updateMachine-request:
@@ -208,25 +208,9 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.zoneCode: Should not be blank or size must be between 1 and 36'     
    
-   Admin_UpdateMachine_Invalid_MAC_Address_Blank:
-      input.updateMachine-request:
-         name: Test123
-         rid: TestSpecNe
-         macAddress: ''
-         serialNum: FB5962911610
-         langCode: eng
-         machineSpecId: 1001
-         ipAddress: 192.168.0.150
-         zoneCode: CST
-         requesttime: $TIMESTAMPZ$
-         isActive: true
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'    
          
    Admin_UpdateMachine_Invalid_MachineName_AboveMaxLen64:
       input.updateMachine-request:
@@ -242,8 +226,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'   
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$   
          
    Admin_UpdateMachine_Invalid_MacAddress_AboveMaxLen64:
       input.updateMachine-request:
@@ -259,8 +243,8 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.macAddress: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: 'request.macAddress: Should not be blank or size must be between 0 and 64'
          
    Admin_UpdateMachine_Invalid_SerialNumber_AboveMaxLen64:
       input.updateMachine-request:
@@ -276,7 +260,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.serialNum: size must be between 0 and 64' 
          
    Admin_UpdateMachine_Invalid_IPAddress_AboveMaxLen17:
@@ -293,7 +277,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.ipAddress: size must be between 0 and 17'  
          
    Admin_UpdateMachine_Invalid_MSpecID_AboveMaxLen36:
@@ -310,7 +294,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.machineSpecId: Should not be blank or size must be between 1 and 36'  
          
    Admin_UpdateMachine_Invalid_MSpecID_Blank:
@@ -327,7 +311,7 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'request.machineSpecId: Should not be blank or size must be between 1 and 36'  
          
    Admin_UpdateMachine_Invalid_IsActive_null:
@@ -344,8 +328,8 @@ testdata:
          isActive: $REMOVE$
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'  
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$  
          
    Admin_UpdateMachine_Invalid_Outside_MachineZone:
       input.updateMachine-request:
@@ -396,7 +380,7 @@ testdata:
          validityDateTime: 2018-12-24T05
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'Invalid Format in field : validityDateTime' 
          
    Admin_UpdateMachine_Invalid_InputParameter_Missing:
@@ -413,6 +397,6 @@ testdata:
          isActive: true
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: Language Code is Invalid        
                 

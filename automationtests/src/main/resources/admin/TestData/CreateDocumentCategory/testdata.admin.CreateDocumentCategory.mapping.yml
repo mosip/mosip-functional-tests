@@ -1,14 +1,14 @@
 testdata:
    Admin_CreateDocumentCategory_Valid_Smoke:
       input.create-document-category-request:
-         Rcode: $REMOVE$
+         Rcode: DocTestCode011
          description: $TestData:valid_DocumentType_Desc$
          name: DocCat
          isActive: false
          RlangCode: eng
       output.output-1-expected-pos-response:
          langCode: $input.create-document-category-request:RlangCode$
-         code: $IGNORE$
+         code: $input.create-document-category-request:Rcode$
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
@@ -24,6 +24,18 @@ testdata:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
+         
+   Admin_CreateDocumentCategory_Valid_create_only_primary_lang:
+      input.create-document-category-request:
+         Rcode: DocTestCode11
+         isActive: true
+         RlangCode: eng
+      output.output-1-expected-pos-response:
+         langCode: $input.create-document-category-request:RlangCode$
+         code: $input.create-document-category-request:Rcode$
+         responsetime: $IGNORE$
+         id: $IGNORE$
+         version: $IGNORE$         
          
    Admin_CreateDocumentCategory_valid_sec_lang_SameDataAsVldScnrio:
       input.create-document-category-request:
@@ -50,8 +62,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Missing$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Code_Empty:
       input.create-document-category-request:
@@ -64,8 +76,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36:
       input.create-document-category-request:
@@ -78,8 +90,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.code: size must be between 1 and 36' 
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Code:errorMessage_Empty$ 
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128:
       input.create-document-category-request:
@@ -92,8 +104,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.description: size must be between 0 and 128'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Description:errorMessage_AboveMaxLen$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Name_Missing:
       input.create-document-category-request:
@@ -106,8 +118,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidName:errorMessage__Missing$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Name_Empty:
       input.create-document-category-request:
@@ -120,13 +132,13 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64:
       input.create-document-category-request:
          Rcode: $TestData:valid_DocCatCode$
-         description: $TestData:wordLength129$
+         description: $TestData:valid_DocumentType_Desc$
          name: $TestData:validStringLength65$ 
          isActive: false
          RlangCode: eng
@@ -134,8 +146,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.name: Should not be blank or size must be between 1 and 64'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_Name:errorMessage_AboveMaxLen$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_Missing:
       input.create-document-category-request:
@@ -148,8 +160,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.langCode: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
 
    Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_Empty:
       input.create-document-category-request:
@@ -162,8 +174,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
 
    Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode_AboveMaxLen3:
       input.create-document-category-request:
@@ -176,8 +188,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_LangCode:
       input.create-document-category-request:
@@ -190,8 +202,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'Language Code is Invalid'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_InvalidLanguageCode:errorMessage_incorrect$
          
    Admin_CreateDocumentCategory_Invalid_InputParameter_isActive_Missing:
       input.create-document-category-request:
@@ -204,8 +216,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be null'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$
          
 
    Admin_CreateDocumentCategory_Invalid_InputParameter_isActive_Empty:
@@ -219,8 +231,8 @@ testdata:
          responsetime: $IGNORE$
          version: $IGNORE$
          id: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
-         messageerrors0: 'request.isActive: must not be blank'
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_Missing$
          
          
                   

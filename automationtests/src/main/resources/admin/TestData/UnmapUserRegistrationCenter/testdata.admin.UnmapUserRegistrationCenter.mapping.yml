@@ -58,8 +58,8 @@ testdata:
          regcenterid: $TestData:valid_RegCenter_id1$
          userid: $TestData:valid_zoneUser_id1$
       output.output-1-expected-error-response:
-         errorCodeerrors0: $errors:NoAccessForService:errorCode$
-         messageerrors0: $errors:NoAccessForService:errorMessage$
+         errorCodeerrors0: $errors:UnAuthorizedRole:errorCode$
+         messageerrors0: $errors:UnAuthorizedRole:errorMessage$
          responsetime: $IGNORE$
          
    Admin_UnMapZoneUserToRegCenter_withoutToken:

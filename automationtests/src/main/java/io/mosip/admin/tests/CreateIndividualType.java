@@ -33,7 +33,7 @@ import io.mosip.authentication.testdata.TestDataProcessor;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 
 public class CreateIndividualType  extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(CreateDevice.class);
+	private static final Logger logger = Logger.getLogger(CreateIndividualType.class);
 	protected String testCaseName = "";
 	private String TESTDATA_PATH;
 	private String TESTDATA_FILENAME;
@@ -140,7 +140,7 @@ public class CreateIndividualType  extends AdminTestUtil implements ITest {
 			if(testCaseName.contains("No_Data_Prim_lang")) {
 				if (masterDB.validateDBCount(queries.get("validatePrimDataForIndividualType").toString(), "masterdata")==1) {
 				logger.info("Data stored successfully for secondory language but no data present for Primary language");
-				throw new AdminTestException("Recived data dones not contain data for Primary Langauge");
+				throw new AdminTestException("Cannot create data in secondary language as data does not exist in primary language");
 				
 				}else {
 					logger.info("No IndividualType created  for secondary language");

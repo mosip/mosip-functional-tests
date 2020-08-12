@@ -12,7 +12,7 @@ testdata:
          reid: anyString
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode$
+         errorCodeerrors0: $errors:NoPrimaryLangCenterPresent:errorCode1$
          messageerrors0: $errors:NoPrimaryLangCenterPresent:errorMessage$
    Admin_CreateRegCenter_Invalid_with_scndry_Lang_with_blankId:
       input.createRegCenter-request:
@@ -99,7 +99,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: $errors:InvalidLongitude:errorMessage0$
+         messageerrors0: $errors:InvalidLongitude:errorMessage1$
    Admin_CreateRegCenter_Invalid_locationCode_blank:
       input.createRegCenter-request:
          locationCode: ''
@@ -238,7 +238,7 @@ testdata:
          name: ''
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         messageerrors0: $errors:InvalidName:errorMessage0$
+         messageerrors0: $errors:InvalidName:errorMessage1$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
    Admin_CreateRegCenter_Invalid_Name_GrtThanMaxValue:
       input.createRegCenter-request:
@@ -316,13 +316,13 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: Received Zone Code does not belong to the User
    Admin_CreateRegCenter_Invalid_zoneCode_blank:
       input.createRegCenter-request:
          zoneCode: ''
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: $errors:InValidZoneCode:errorCode$
+         errorCodeerrors0: $errors:InValidZoneCode:errorCode1$
          messageerrors0: $errors:InValidZoneCode:errorMessage$
    Admin_CreateRegCenter_Invalid_zoneCode_nonLeaf_Under_loggedAdminUser:
       input.createRegCenter-request:
@@ -330,14 +330,14 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: $errors:InValidZoneCode:errorMessage2$
    Admin_CreateRegCenter_Invalid_zoneCode_anyNonLeaf:
       input.createRegCenter-request:
          zoneCode: $TestData:valid_nonLeafZone$
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:InValidZoneCode:errorCode$
-         messageerrors0: $errors:InValidZoneCode:errorMessage$
+         messageerrors0: $errors:InValidZoneCode:errorMessage2$
    Admin_CreateRegCenter_Invalid_isActive_blank:
       input.createRegCenter-request:
          isActive: ''
@@ -351,7 +351,7 @@ testdata:
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'Invalid Format in field : isActive'
+         messageerrors0: $errors:CommonMSDErrorMssg_IsActive:errorMessage_invalidVal$
    Admin_CreateRegCenter_Invalid_missing_mandatory_field:
       input.createRegCenter-request:
          name: $REMOVE$
@@ -386,7 +386,7 @@ testdata:
          sun: nonBoolean
       output.output-1-expected-neg-response:
          Rresponsetime: $IGNORE$
-         errorCodeerrors0: KER-MSD-999
+         errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
          messageerrors0: 'Invalid Format in field : workingNonWorkingDays,sat'
          version: $IGNORE$
          id: $IGNORE$         

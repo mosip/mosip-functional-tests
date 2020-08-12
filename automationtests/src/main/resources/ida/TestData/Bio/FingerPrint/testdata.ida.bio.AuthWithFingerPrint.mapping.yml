@@ -1367,7 +1367,7 @@ testdata:
       
   Authentication_Biometric_Finger_With_requestedAuth_set_bio_true_when_bio_Authentication_Biometric_Finger_not_selected_in_ploicy_Neg:
     endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:NOFACEPIDMLK$
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK_Without_Bio$
     input.bio-auth-request:
       AuthReq.individualId: $UIN$
       AuthReq.requestTime: $TIMESTAMP$
@@ -2842,7 +2842,7 @@ testdata:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $UIN.bio.FIR.true$
+      AuthReq.individualId: $UIN.bio.Finger.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:
@@ -2869,13 +2869,13 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$    
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFinger$    
       
   Authentication_Biometric_With_LockVID_Finger_LeftIndex_Neg:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $VID.bio.FIR.true$
+      AuthReq.individualId: $VID.bio.Finger.true$
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
       AuthReq.individualIdType: $TestData:indvId_Vid_valid$
@@ -2903,7 +2903,7 @@ testdata:
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BioAuthenticationLocked:errorCode$
-      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessage$ 
+      output.1.response.error.errorMessage: $errors:BioAuthenticationLocked:errorMessageFinger$ 
       
       
   Authentication_Biometric_Finger_With_multiple_FingerRecord_In_Identity_Pos:
@@ -2999,6 +2999,7 @@ testdata:
       identityReq.bioType: $TestData:bio_finger_type$
       identityReq.timestamp: $TIMESTAMP$
       identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       identityReq.bioValue: $BIO~fir~leftIndex~60Percentage$
       #Device
       identityReq.deviceCode: $Device:finger:code$
@@ -3012,6 +3013,7 @@ testdata:
       identityReq.digitalId.dateTime: $TIMESTAMP$
       identityReq.digitalId.type: $Device:finger:dtype_code$
       identityReq.digitalId.subType: $Device:finger:dstype_code$
+      #2
       identityReq.bioSubType1: $TestData:bio_face_subType$
       identityReq.bioType1: $TestData:bio_face_type$
       identityReq.timestamp1: $TIMESTAMP$
@@ -3027,10 +3029,11 @@ testdata:
       identityReq.digitalId.deviceProviderId1: $Device:face:provider_id$
       identityReq.digitalId.dateTime1: $TIMESTAMP$
       identityReq.digitalId.type1: $Device:face:dtype_code$
-      identityReq.digitalId.subType1: $Device:face:dstype_code$
-      identityReq.bioSubType1: $TestData:bio_iris_left_subType$
-      identityReq.bioType1: $TestData:bio_iris_type$
-      identityReq.timestamp1: $TIMESTAMP$
+      identityReq.digitalId.subType1: $Device:face:dstype_code$	
+      #3
+      identityReq.bioSubType2: $TestData:bio_iris_left_subType$
+      identityReq.bioType2: $TestData:bio_iris_type$
+      identityReq.timestamp2: $TIMESTAMP$
       identityReq.bioValue2: $BIO~iir~left~80Percentage$
       #Device
       identityReq.deviceCode2: $Device:iris:code$
@@ -3063,6 +3066,7 @@ testdata:
       identityReq.bioType: $TestData:bio_finger_type$
       identityReq.timestamp: $TIMESTAMP$
       identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
       identityReq.bioValue: $BIO~fir~leftIndex~60Percentage$
       #Device
       identityReq.deviceCode: $Device:finger:code$
@@ -3076,6 +3080,7 @@ testdata:
       identityReq.digitalId.dateTime: $TIMESTAMP$
       identityReq.digitalId.type: $Device:finger:dtype_code$
       identityReq.digitalId.subType: $Device:finger:dstype_code$
+      #2
       identityReq.bioSubType1: $TestData:bio_face_subType$
       identityReq.bioType1: $TestData:bio_face_type$
       identityReq.timestamp1: $TIMESTAMP$
@@ -3091,10 +3096,11 @@ testdata:
       identityReq.digitalId.deviceProviderId1: $Device:face:provider_id$
       identityReq.digitalId.dateTime1: $TIMESTAMP$
       identityReq.digitalId.type1: $Device:face:dtype_code$
-      identityReq.digitalId.subType1: $Device:face:dstype_code$
-      identityReq.bioSubType1: $TestData:bio_iris_left_subType$
-      identityReq.bioType1: $TestData:bio_iris_type$
-      identityReq.timestamp1: $TIMESTAMP$
+      identityReq.digitalId.subType1: $Device:face:dstype_code$	
+      #3
+      identityReq.bioSubType2: $TestData:bio_iris_left_subType$
+      identityReq.bioType2: $TestData:bio_iris_type$
+      identityReq.timestamp2: $TIMESTAMP$
       identityReq.bioValue2: $BIO~iir~left~80Percentage$
       #Device
       identityReq.deviceCode2: $Device:iris:code$

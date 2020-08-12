@@ -15,7 +15,7 @@
         "name": "شاذ",
         "region": "شاذ",
         "hierarchyLevel": 1,
-        "hierarchyName": "منطقة",
+        "hierarchyName": "طفل",
         "parentLocCode": "TLOC"
       }
     ]

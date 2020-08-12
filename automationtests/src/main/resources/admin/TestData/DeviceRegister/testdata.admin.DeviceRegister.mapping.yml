@@ -108,14 +108,14 @@ testdata:
          timeStamp: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'subType Should not be blank or size must be between 1 and 36'
+         messageerrors0: 'deviceSubType Should not be blank or size must be between 1 and 36'
    Admin_DeviceRegister_inValid_deviceSubTypeCode_above_maxLen36:
       input.input-request:
          subType: $TestData:validLocationCode37$
          timeStamp: $TIMESTAMPZ$
       output.output-1-expected-error-response:
          errorCodeerrors0: $errors:CommonMSDErrorCode:errorCode$
-         messageerrors0: 'subType Should not be blank or size must be between 1 and 36'         
+         messageerrors0: 'deviceSubType Should not be blank or size must be between 1 and 36'         
          
    Admin_DeviceRegister_inValid_deviceTypeCode:
       input.input-request:

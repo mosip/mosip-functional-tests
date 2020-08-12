@@ -12,7 +12,7 @@
 			"model": "SMIDCL",
 			"dateTime": "2020-01-13T07:20:42.195Z",
 			"type": "Finger",
-			"subType": "Single"
+			"deviceSubType": "Single"
 		},
 		"firmware": "firmware",
 		"deviceExpiry": "2020-01-13T12:50:42.196Z",

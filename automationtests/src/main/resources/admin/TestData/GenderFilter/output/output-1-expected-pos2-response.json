@@ -1,25 +1,21 @@
 {
-    "id": "string",
-    "version": "string",
-    "responsetime": "2019-08-12T05:12:16.822Z",
-    "metadata": null,
-    "response": {
-        "filters": [
-            {
-                "fieldID": "genderName",
-                "fieldValue": "الآخرين"
-            },
-            {
-                "fieldID": "genderName",
-                "fieldValue": "الذكر"
-            },
-            {
-                "fieldID": "genderName",
-                "fieldValue": "أنثى"
-            }
-        ]
-    },
-    "errors": [
-        
+  "id": "string",
+  "version": "string",
+  "responsetime": "2020-07-21T11:29:27.170Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "genderName",
+        "fieldValue": "أنثى"
+      },
+      {
+        "fieldID": "genderName",
+        "fieldValue": "الآخرين"
+      },
+      {
+        "fieldID": "genderName",
+        "fieldValue": "الذكر"
+      }
     ]
+  }
 }

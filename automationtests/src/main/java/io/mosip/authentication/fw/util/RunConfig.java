@@ -500,6 +500,8 @@ public abstract class RunConfig {
 			public abstract String getUpdateDeviceTypePath();
 			public abstract String getCreateIndividualTypePath();
 			public abstract String getUpdateIndividualTypePath();
+			public abstract String getCreateDynamicFieldPath();
+			public abstract String getAllDynamicFieldPath();
 			
 		
 		//Resident
@@ -544,6 +546,7 @@ public abstract class RunConfig {
 		public abstract String getApproveRejectPartnerAPIKeyReqPath();
 		public abstract String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath();
 		public abstract String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath();
+		public abstract String getRetrievePartnerAPIkeyToPolicyMappingsPath();
 		
 		public abstract String getCreatePolicyGroupPath();
 		public abstract void setCreatePolicyGroupPath(String createPolicyGroupPath);
@@ -563,5 +566,9 @@ public abstract class RunConfig {
 		public abstract String getRejectMISPPath();
 		public abstract String getActivateMISPLicense();
 		public abstract String getRetrieveMISPByMispIDPath();
+		public abstract String getRetrieveMISPsDetailsByGivenNamePath();
+		public abstract void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath);
+		public abstract String getUpdateMispStatusByMispIdPath();
+		public abstract String getDownloadMispLicenseKeyPath();
 		
 }

@@ -33,6 +33,7 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
 		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
+		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		getListOfFilesFromJarAndCopyToExternalResource("reg/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
