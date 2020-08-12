@@ -159,8 +159,6 @@ public class FetchMachine extends BaseTestCase implements ITest {
 				attributesToValidateExistance.add("id");
 				attributesToValidateExistance.add("name");
 				attributesToValidateExistance.add("macAddress");
-				attributesToValidateExistance.add("ipAddress");
-				attributesToValidateExistance.add("serialNum");
 				attributesToValidateExistance.add("machineSpecId");
 				attributesToValidateExistance.add("isActive");
 
@@ -192,7 +190,7 @@ public class FetchMachine extends BaseTestCase implements ITest {
 		}
 
 		if (!status) {
-			logger.debug(response);
+			logger.info("Response from the service : "+response.asString());
 		}
 		Verify.verify(status);
 		softAssert.assertAll();
