@@ -110,7 +110,6 @@ public class BaseTestCase {
 	}
 
 	public static void initialize() {
-		copyDbInTarget();
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
 		kernelCmnLib = new CommonLibrary();
