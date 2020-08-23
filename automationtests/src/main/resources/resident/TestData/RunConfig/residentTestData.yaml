@@ -36,9 +36,9 @@ page_negativeValue:
 authType_face:
   - bio-FACE
 authType_iris:
-  - bio-IIR
+  - bio-Iris
 authType_finger:
-  - bio-FIR
+  - bio-Finger
 authType_demo:
   - demo
 authType_invalid:
@@ -65,4 +65,7 @@ identityJson:
 id:
   - mosip.resident.updateuin  
 uinForOtp:
-  - 4692607639 
+  - 4023918359
+  
+vidForOtp:
+  - 4027169461475386

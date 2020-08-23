@@ -1,0 +1,13 @@
+{
+    "id": "mosip.resident.updateuin",
+    "version": "v1",
+    "responsetime": "2020-08-12T11:03:05.669Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "RES-SER-009",
+            "message": "Invalid Input Parameter- individualId"
+        }
+    ]
+}
