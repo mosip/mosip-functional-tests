@@ -1,0 +1,8 @@
+{
+	"id": "string",
+	"request": {
+		"individualIdType": "string"
+	},
+	"requesttime": "string",
+	"version": "string"
+}

@@ -91,6 +91,7 @@ public class BaseTestCase {
 	public static String adminRegProcAuthToken;
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
+	public static String partnerDemoServicePort = "";
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
