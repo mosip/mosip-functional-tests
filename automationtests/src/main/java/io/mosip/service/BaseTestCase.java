@@ -91,7 +91,7 @@ public class BaseTestCase {
 	public static String adminRegProcAuthToken;
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
-	public static String partnerDemoServicePort = "";
+	public static String partnerDemoServicePort = null;
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -112,6 +112,8 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
+		partnerDemoServicePort=(String) kernelCmnLib.readProperty("partnerDemoService").get(System.getProperty("env.user")+".encryptionPort");
+		
 		/**
 		 * Make sure test-output is there
 		 */
