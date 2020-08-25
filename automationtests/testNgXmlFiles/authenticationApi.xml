@@ -61,6 +61,7 @@
 			<class name="io.mosip.resident.tests.AuthLock" />
 			<class name="io.mosip.resident.tests.AuthUnlock" />
 			<class name="io.mosip.resident.tests.AuthHistory" />
+			<class name="io.mosip.resident.tests.PrintUin" />
 			<class name="io.mosip.resident.tests.RevokeVID" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
