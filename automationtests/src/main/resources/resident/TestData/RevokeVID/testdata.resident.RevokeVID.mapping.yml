@@ -7,7 +7,7 @@ testdata:
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
     input.revoke-vid-request:
-      revokevid.requestTime: '2020-04-06T21:51Z'
+      revokevid.requestTime: $TIMESTAMP$
       revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
       revokevid.individualIdType: $RTestData:vid_idType$
       revokevid.vidStatus: $RTestData:vidStatus_revoke$
@@ -80,7 +80,7 @@ testdata:
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
     input.revoke-vid-request:
-      revokevid.requestTime: '2020-04-06T21:51Z'
+      revokevid.requestTime: $TIMESTAMP$
       revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
       revokevid.individualIdType: $RTestData:vid_idType$
       revokevid.vidStatus: $RTestData:vidStatus_revoke$
