@@ -125,8 +125,7 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 						.get("response");
 				JSONArray syncDataArray	= (JSONArray) responseJson.get("dataToSync");
 				logger.info("Number of masterData entities :" + syncDataArray.size());
-				status = syncDataArray.size()==51; 
-				if (!status) logger.info("Response from API: "+response.asString());
+				status = syncDataArray.size()==53; 
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -139,7 +138,7 @@ public class SyncMDataWithKeyIndexRegCentId extends BaseTestCase implements ITes
 			status = assertions.assertKernel(response, responseObject, listOfElementToRemove);
 		}
 			if (!status) {
-				logger.debug(response);
+				//logger.info("Response from API: "+response.asString());
 			}
 			Verify.verify(status);
 			softAssert.assertAll();

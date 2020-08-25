@@ -113,11 +113,11 @@ public class GetDocTypeDocCatByAppID extends BaseTestCase implements ITest {
 		//This method is for checking the authentication is pass or fail in rest services
 		new CommonLibrary().responseAuthValidation(res);
 		
-JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(res.asString())).get("response");
+		JSONObject responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(res.asString())).get("response");
 		
 		if (responseJson!= null && responseJson.containsKey("documentCategories")) {
 
-			String query = "select count(DISTINCT doccat_code) from master.applicant_valid_document where is_active = true and apptyp_code = '" + actualRequest.get("applicantId") + "'";
+			String query = "select count(DISTINCT doccat_code) from master.applicant_valid_document where is_active = true and apptyp_code = '" + actualRequest.get("applicantId") + "' and doccat_code IN (select DISTINCT code from master.doc_category where is_active = true)";
 
 			long obtainedObjectsCount = new KernelDataBaseAccess().validateDBCount(query,"masterdata");
 
