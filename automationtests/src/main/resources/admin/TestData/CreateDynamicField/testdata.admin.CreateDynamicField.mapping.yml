@@ -1,0 +1,56 @@
+testdata:
+   Admin_CreateDynamicField_All_Valid_Smoke:
+      input.create-dynamic-field-request:
+         active: true
+         dataType: string
+         description: Technology
+         activefieldVal0: true
+         codefieldVal0: JAVA
+         langCodefieldVal0: eng
+         valuefieldVal0: java-11
+         langCode: eng
+         name: TechnologyExpert
+      output.output-1-expected-pos-response:
+         responsetime: $IGNORE$
+         Rid: $IGNORE$
+         Rname: $input.create-dynamic-field-request:name$
+         RlangCode: $input.create-dynamic-field-request:langCode$
+         RdataType: $input.create-dynamic-field-request:dataType$
+         Rdescription: $input.create-dynamic-field-request:description$
+         RcodefieldVal0: $input.create-dynamic-field-request:codefieldVal0$
+         RvaluefieldVal0: $input.create-dynamic-field-request:valuefieldVal0$
+         RlangCodefieldVal0: $input.create-dynamic-field-request:langCodefieldVal0$
+         RactivefieldVal0: $input.create-dynamic-field-request:activefieldVal0$
+         createdBy: $IGNORE$
+         updatedBy: $IGNORE$
+         createdOn: $IGNORE$
+         Ractive: $input.create-dynamic-field-request:active$
+         id: $IGNORE$
+         version: $IGNORE$
+         
+   Admin_CreateDynamicField_invalid_inputParameter_Name_empty:
+      input.create-dynamic-field-request:
+         active: true
+         dataType: string
+         description: Technology
+         activefieldVal0: true
+         codefieldVal0: JAVA
+         langCodefieldVal0: eng
+         valuefieldVal0: java-11
+         langCode: eng
+         name: ''
+      output.output-1-expected-error2-response:
+         responsetime: $IGNORE$
+         errorCodeerrors0: KER-MSD-999
+         messageerrors0: 'request.name: size must be between 2 and 20'
+         errorCodeerrors1: KER-MSD-999
+         messageerrors1: 'request.name: must match "^[a-zA-Z]+$"'
+         errorCodeerrors2: KER-MSD-999
+         messageerrors2: 'request.name: must not be blank'
+         id: $IGNORE$
+         version: $IGNORE$         
+         
+                  
+         
+                                                     
+                  

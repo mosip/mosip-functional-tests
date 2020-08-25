@@ -1,0 +1,21 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "active": true,
+    "dataType": "string",
+    "description": "Technology Known",
+    "fieldVal": [
+      {
+        "active": true,
+        "code": "JAVA",
+        "langCode": "eng",
+        "value": "java"
+      }
+    ],
+    "langCode": "eng",
+    "name": "TechMaster"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}

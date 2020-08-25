@@ -102,16 +102,17 @@ testdata:
 
   Admin_CreateLocationDataz_Invalid_name_dupliCate:
     input.search-request:
-      Rcode: 'LOC_Auto_TestNeg3'
-      Rname: $TestData:validLocNameCreatedByquery$
-      RparentLocCode: KNT
-      RhierarchyName: city
+      Rcode: 'KNZ'
+      Rname: $TestData:validLocNameDuplicate$
+      RparentLocCode: KTA
+      RhierarchyName: City
       RhierarchyLevel: 3
+      RisActive: true
       requesttime: $TIMESTAMPZ$
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: $errors:CreateLocDuplicateName:errorCode$
-      messageerrors0: 'Location Test_Loc_B_1 already exist under the hierarchy'
+      messageerrors0: 'Location Kenitra already exist under the hierarchy'
 
   Admin_CreateLocationData_Invalid_Code_SecondaryLang_without_primary:
     input.search-request:

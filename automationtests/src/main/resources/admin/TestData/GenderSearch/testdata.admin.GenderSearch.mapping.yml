@@ -10,6 +10,9 @@ testdata:
          sortTypesort0: $TestData:valid_SortTypeDescending$
       output.output-1-expected-pos3-response:
          responsetime: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         createdDateTimedata1: $IGNORE$
+         createdDateTimedata2: $IGNORE$
    Admin_GenderSearch_ValidLangCodeAsFra:
       input.genderSearch-request:
          languageCode: $TestData:valid_LanguageCodeFrench$
@@ -35,12 +38,18 @@ testdata:
       output.output-1-expected-pos1-response:
          responsetime: $IGNORE$
          genderNamedata1: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         createdDateTimedata1: $IGNORE$
+         createdDateTimedata2: $IGNORE$         
    Admin_GenderSearch_Valid_langCodeAsAra_sortBy_code:
       input.genderSearch-request:
          languageCode: ara
          sortFieldsort0: code
       output.output-1-expected-pos7-response:
          responsetime: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         createdDateTimedata1: $IGNORE$
+         createdDateTimedata2: $IGNORE$         
    Admin_GenderSearch_InvalidLangCodeAsEmpty:
       input.genderSearch-request:
          languageCode: ''
@@ -122,3 +131,5 @@ testdata:
          columnNamefilters0: isActive
       output.output-1-expected-pos6-response:
          responsetime: $IGNORE$
+         createdDateTimedata0: $IGNORE$
+         createdDateTimedata1: $IGNORE$

@@ -1,0 +1,7 @@
+{
+ 	"langCode" :"string",
+ 	"orderBy" :"string",
+ 	"pageNumber" :"string",
+ 	"pageSize" :"string",
+ 	"sortBy" :"string"
+}
