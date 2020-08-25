@@ -262,7 +262,7 @@ testdata:
   Resident_AuthLock_InValid_AuthType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -289,7 +289,7 @@ testdata:
   Resident_AuthLock_InValid_UIN_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -312,7 +312,7 @@ testdata:
   Resident_AuthLock_InValid_individualIdType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -335,7 +335,7 @@ testdata:
   Resident_AuthLock_InValid_OTP_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -358,7 +358,7 @@ testdata:
   Resident_AuthLock_TransactionMismatch_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -381,7 +381,7 @@ testdata:
   Resident_AuthLock_Invalid_Id_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -405,7 +405,7 @@ testdata:
   Resident_AuthLock_InValid_version_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -429,7 +429,7 @@ testdata:
   Resident_AuthLock_InvalidTimestamp_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -452,7 +452,7 @@ testdata:
   Resident_AuthLock_Blank_UIN_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -475,7 +475,7 @@ testdata:
   Resident_AuthLock_Blank_individualIdType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -498,7 +498,7 @@ testdata:
   Resident_AuthLock_Blank_OTP_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -521,7 +521,7 @@ testdata:
   Resident_AuthLock_Blank_Id_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -545,7 +545,7 @@ testdata:
   Resident_AuthLock_Blank_version_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -569,7 +569,7 @@ testdata:
   Resident_AuthLock_Blank_Timestamp_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -592,7 +592,7 @@ testdata:
   Resident_AuthLock_without_UIN_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -615,7 +615,7 @@ testdata:
   Resident_AuthLock_without_individualIdType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -638,7 +638,7 @@ testdata:
   Resident_AuthLock_without_OTP_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -661,7 +661,7 @@ testdata:
   Resident_AuthLock_without_Id_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -685,7 +685,7 @@ testdata:
   Resident_AuthLock_without_version_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -709,7 +709,7 @@ testdata:
   Resident_AuthLock_without_Timestamp_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: 7304520834
+      otpRequest.individualId: $UIN:WITH:LOCK$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
