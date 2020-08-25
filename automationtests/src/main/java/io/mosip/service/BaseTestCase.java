@@ -211,9 +211,12 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
+			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
+			if(deviceCount!=6) {
 			AdminTestUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
 			AdminTestUtil.createDeviceManagementData();
+			}
 		}
 
 	} // End suiteSetup
