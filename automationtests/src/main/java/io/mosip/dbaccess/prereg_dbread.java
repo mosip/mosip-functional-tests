@@ -1,10 +1,16 @@
 package io.mosip.dbaccess;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 import javax.persistence.EntityTransaction;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
 import org.hibernate.Session;
@@ -17,6 +23,7 @@ import io.mosip.dbentity.OtpEntity;
 import io.mosip.preregistration.entity.DemographicEntity;
 import io.mosip.preregistration.util.PreRegistartionDataBaseAccess;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.MosipTestRunner;
 
 
 
@@ -28,21 +35,50 @@ public class prereg_dbread {
 	
 	public PreRegistartionDataBaseAccess dbAccess=new PreRegistartionDataBaseAccess();
 	
+	public static String env = System.getProperty("env.user");
+
+	public static Session getDataBaseConnection(String dbName) {
+		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
+		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
+		
+		try {
+			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			Properties dbProps = new Properties();
+			dbProps.load(iStream);
+			Configuration config = new Configuration();
+			//config.setProperties(dbProps);
+			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
+			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName+"_url"));
+			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName+"_username"));
+			config.setProperty("hibernate.connection.password", dbProps.getProperty(dbName+"_password"));
+			config.setProperty("hibernate.default_schema", dbProps.getProperty(dbName+"_default_schema"));
+			config.setProperty("hibernate.connection.pool_size", dbProps.getProperty("pool_size"));
+			config.setProperty("hibernate.dialect", dbProps.getProperty("dialect"));
+			config.setProperty("hibernate.show_sql", dbProps.getProperty("show_sql"));
+			config.setProperty("hibernate.current_session_context_class", dbProps.getProperty("current_session_context_class"));
+			config.addFile(new File(dbConfigXml));
+		factory = config.buildSessionFactory();
+		session = factory.getCurrentSession();
+		} 
+		catch (HibernateException | IOException e) {
+			logger.info("Exception in Database Connection with following message: ");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			Assert.assertTrue(false, "Exception in creating the sessionFactory");
+		}catch (NullPointerException e) {
+			Assert.assertTrue(false, "Exception in getting the session");
+		}
+		session.beginTransaction();
+		logger.info("==========session  begins=============");
+		return session;
+	}
+
+	
 	@SuppressWarnings("deprecation")
 	public static boolean prereg_dbconnectivityCheck()
 	{
 		boolean flag=false;
-		try {	
-			if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-				factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
-			.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-					else
-					{
-						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
-						.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-					}
-		session = factory.getCurrentSession();
+		session = getDataBaseConnection("prereg");
 		session.beginTransaction();
 		logger.info("Session value is :" +session);
 		
@@ -58,11 +94,7 @@ public class prereg_dbread {
 				
 			else
 			return flag;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-		logger.info("Connection exception Received");
-		return flag;
-		}
+		
 	}
 		
 		
@@ -71,16 +103,7 @@ public class prereg_dbread {
 		{
 			boolean flag=false;
 		
-			if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-				factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
-			.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-					else
-					{
-						if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-							factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
-						.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-					}
-			session = factory.getCurrentSession();
+			session = getDataBaseConnection("prereg");
 			session.beginTransaction();
 			
 			flag=validatePreIdinDB(session, preId);
@@ -164,18 +187,6 @@ public class prereg_dbread {
     {
 		
 		boolean flag=false;
-		//String preId;
-		
-		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
-		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
-					.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-				}	
-
 			
 
 		
@@ -183,7 +194,10 @@ public class prereg_dbread {
 		for(String preId : preIds)
 		
 		{
-			session = factory.getCurrentSession();
+			if(factory!=null)
+				session = factory.getCurrentSession();
+				else session = getDataBaseConnection("prereg");
+
 			session.beginTransaction();
 	
 		  /*
@@ -231,16 +245,7 @@ public class prereg_dbread {
 		boolean flag=false;
 		//String preId;
 		
-		if(BaseTestCase.environment.equalsIgnoreCase("dev"))
-			factory = new Configuration().configure("/dbFiles/preregdev.cfg.xml")
-		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("/dbFiles/preregqa.cfg.xml")
-					.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-				}
-			session = factory.getCurrentSession();
+		session = getDataBaseConnection("prereg");
 			session.beginTransaction();
 	
 		  /*
@@ -305,42 +310,11 @@ public class prereg_dbread {
 	public static List<Object> fetchOTPFromDB(String queryStr, Class dtoClass)
 	{
 		List<Object> objs =null;
-		if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-			factory = new Configuration().configure("/dbFiles/kerneldev.cfg.xml")
-		.addAnnotatedClass(OtpEntity.class).buildSessionFactory();	
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure("/dbFiles/kernelqa.cfg.xml")
-					.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				}
-		session = factory.getCurrentSession();
+		session = getDataBaseConnection("kernel");
 		session.beginTransaction();
 		objs=fetchingOTPData(session, queryStr);
 		
 		return objs;
-		
-
-	}
-	@SuppressWarnings("deprecation")
-	public static List<Object> getConsumedStatus(String queryStr, Class dtoClass,String devdbConfig,String qadbConfig )
-	{
-		List<Object> objs =null;
-		if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-			factory = new Configuration().configure(devdbConfig)
-		.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure(qadbConfig)
-					.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				}
-		session = factory.getCurrentSession();
-		session.beginTransaction();
-		objs=fetchingOTPData(session, queryStr);
-		
-		return objs;
-		
 
 	}
 	
@@ -373,10 +347,7 @@ public class prereg_dbread {
 	{
 		List<?> flag;
 		
-		//factory = new Configuration().configure("preregqa.cfg.xml")
-		factory = new Configuration().configure("/dbFiles/preregint.cfg.xml")
-	.addAnnotatedClass(DemographicEntity.class).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getDataBaseConnection("prereg");
 		session.beginTransaction();
 		flag=validateDBdata(session, queryStr);
 		logger.info("flag is : " +flag);
@@ -388,38 +359,13 @@ public class prereg_dbread {
 	{
 		int flag;
 		
-		//factory = new Configuration().configure("preregqa.cfg.xml")
-		factory = new Configuration().configure("/dbFiles/preregint.cfg.xml")
-	.addAnnotatedClass(DemographicEntity.class).buildSessionFactory();	
-		/*factory = new Configuration().configure("prereg.cfg.xml")
-				.addAnnotatedClass(DemographicRequestDTO.class).buildSessionFactory();*/
-		session = factory.getCurrentSession();
+		session = getDataBaseConnection("prereg");
 		session.beginTransaction();
 		flag=validateDBdataUpdate(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
 		
 
-	}
-	@SuppressWarnings("deprecation")
-	public static List<Object> dbConnection(String queryStr, Class dtoClass,String devdbConfig,String qadbConfig )
-	{
-		List<Object> objs =null;
-		if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-			factory = new Configuration().configure(devdbConfig)
-					.addAnnotatedClass(dtoClass).buildSessionFactory();	
-			
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure(qadbConfig)
-					.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				}
-		session = factory.getCurrentSession();
-		session.beginTransaction();
-		objs=getData(session, queryStr);
-		
-		return objs;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -445,24 +391,7 @@ public class prereg_dbread {
 		
 	
 	}
-	@SuppressWarnings("deprecation")
-	public static void  dbConnectionUpdate(String queryStr, Class dtoClass,String devdbConfig,String qadbConfig )
-	{
-		List<Object> objs =null;
-		if(BaseTestCase.environment.equalsIgnoreCase("dev-int"))
-			factory = new Configuration().configure(devdbConfig)
-		.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				else
-				{
-					if(BaseTestCase.environment.equalsIgnoreCase("qa"))
-						factory = new Configuration().configure(qadbConfig)
-					.addAnnotatedClass(dtoClass).buildSessionFactory();	
-				}
-		
-		session = factory.getCurrentSession();
-		session.beginTransaction();
-		UpdateData(session, queryStr);
-	}
+
 	private static void UpdateData(Session session, String queryStr)
 	{
 		int size;		

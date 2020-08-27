@@ -1,6 +1,9 @@
 package io.mosip.dbaccess;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -8,13 +11,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
 import io.mosip.dbdto.AuditRequestDto;
@@ -26,6 +32,7 @@ import io.mosip.dbentity.SyncRegistrationEntity;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.registrationProcessor.tests.Sync;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
+import io.mosip.testrunner.MosipTestRunner;
 
 
 /**
@@ -39,18 +46,44 @@ public class RegProcDataRead {
 	Session session;
 	private static Logger logger = Logger.getLogger(RegProcDataRead.class);
 	RegProcApiRequests apiRequests =  new RegProcApiRequests(); 
-	String auditLogConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/auditinteg.cfg.xml";
-	String dbFileName="regproc_"+System.getProperty("env.user")+".cfg.xml";
-	String registrationListConfigFilePath=apiRequests.getResourcePath()+"/dbFiles/"+dbFileName; 
-//	File auditLogConfigFile=new File(auditLogConfigFilePath);
-	File dbFile=new File(registrationListConfigFilePath);
+	public String env = System.getProperty("env.user");
+	
+	String dbName="regproc";
 	
 	public Session getCurrentSession() {
-		SessionFactory factory;
-		Session session;
-		factory=new Configuration().configure(dbFile).buildSessionFactory();
-	 session = factory.getCurrentSession();
-	 return session;
+		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
+		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
+		
+		try {
+			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			Properties dbProps = new Properties();
+			dbProps.load(iStream);
+			Configuration config = new Configuration();
+			//config.setProperties(dbProps);
+			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
+			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName+"_url"));
+			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName+"_username"));
+			config.setProperty("hibernate.connection.password", dbProps.getProperty(dbName+"_password"));
+			config.setProperty("hibernate.default_schema", dbProps.getProperty(dbName+"_default_schema"));
+			config.setProperty("hibernate.connection.pool_size", dbProps.getProperty("pool_size"));
+			config.setProperty("hibernate.dialect", dbProps.getProperty("dialect"));
+			config.setProperty("hibernate.show_sql", dbProps.getProperty("show_sql"));
+			config.setProperty("hibernate.current_session_context_class", dbProps.getProperty("current_session_context_class"));
+			config.addFile(new File(dbConfigXml));
+		factory = config.buildSessionFactory();
+		session = factory.getCurrentSession();
+		} 
+		catch (HibernateException | IOException e) {
+			logger.info("Exception in Database Connection with following message: ");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			Assert.assertTrue(false, "Exception in creating the sessionFactory");
+		}catch (NullPointerException e) {
+			Assert.assertTrue(false, "Exception in getting the session");
+		}
+		session.beginTransaction();
+		logger.info("==========session  begins=============");
+		return session;
 	}
 
 	//String dbFile=apiRequests.getResourcePath()+"regproc_qa.cfg.xml";
@@ -94,8 +127,7 @@ public class RegProcDataRead {
 
 	public RegistrationStatusEntity validateRegIdinRegistration(String regID){
 		
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 		
 		logger.info("Reg id inside validateRegIdinRegistration method :"+regID);
@@ -170,8 +202,7 @@ public class RegProcDataRead {
 	}
 
 	public SyncRegistrationEntity validateRegIdinRegistrationList(String regID){
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 		
 		logger.info("REg id inside db query :"+regID);
@@ -227,8 +258,7 @@ public class RegProcDataRead {
 	}
 
 	public List<Object> countRegIdInRegistrationList(String regId) {
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 		
 		String queryString= "Select regprc.registration_list.reg_id, count(1)"+
@@ -246,8 +276,7 @@ public class RegProcDataRead {
 	}
 	
 	public List<Object> countRegIdInRegistration(String regIds) {
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 		
 		String queryString= "Select regprc.registration.id, count(1)"+
@@ -336,8 +365,7 @@ public class RegProcDataRead {
 
 	public int deleteRegIdinRegistration(String regId) {
 		
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 		
 		
@@ -453,8 +481,7 @@ public class RegProcDataRead {
 		String status_code = null;
 		ManualVerificationDTO manualVerificationDto = new ManualVerificationDTO();
 		
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 
 
@@ -505,8 +532,7 @@ public class RegProcDataRead {
 
 	public boolean updateStatusInManualVerification(String userId, String statusCode) {
 		
-		factory = new Configuration().configure(dbFile).buildSessionFactory();	
-		session = factory.getCurrentSession();
+		session = getCurrentSession();
 		session.beginTransaction();
 
 		
@@ -535,8 +561,7 @@ public class RegProcDataRead {
 		 Transaction t=session.beginTransaction();*/
 		 
 		 
-		 factory = new Configuration().configure(dbFile).buildSessionFactory();	
-			session = factory.getCurrentSession();
+		session = getCurrentSession();
 			session.beginTransaction();
 			
 		 

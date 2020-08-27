@@ -59,7 +59,6 @@ public class MosipTestRunner {
 			File dir=new File(System.getProperty("user.dir"));
 		homeDir = new File(dir.getParent() + "/testNgXmlFiles");
 		} 
-		System.out.println(homeDir.getAbsolutePath());
 		for (File file : homeDir.listFiles()) {
 			for (String fileName : modulesToRun) {
 				if (file.getName().toLowerCase().contains(fileName)) {
@@ -69,7 +68,6 @@ public class MosipTestRunner {
 				}
 			}
 		}
-		
 		runner.setTestSuites(suitefiles);
 		runner.setOutputDirectory("testng-report");
 		runner.run();
