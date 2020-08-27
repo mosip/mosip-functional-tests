@@ -28,6 +28,7 @@ import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.resident.fw.util.ResidentTestUtil;
@@ -212,9 +213,12 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
+			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
+			if(deviceCount!=6) {
 			AdminTestUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
 			AdminTestUtil.createDeviceManagementData();
+			}
 		}
 
 	} // End suiteSetup
