@@ -82,7 +82,7 @@ public class LoginServiceUserDetailsTest extends BaseConfiguration implements IT
 	@DataProvider(name = "userDetailsDataProvider")
 	public Object[][] userDetailDataSource() {
 		// String testParam = context.getCurrentXmlTest().getParameter("testType");
-		String testType = "regression";
+		String testType = "smoke";
 		if (testType.equalsIgnoreCase("smoke"))
 			return testCaseReader.readTestCases(serviceName + "/" + subServiceName, "smoke");
 		else
