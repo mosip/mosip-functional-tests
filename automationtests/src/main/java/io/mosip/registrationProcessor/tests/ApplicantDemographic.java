@@ -169,9 +169,25 @@ public class ApplicantDemographic extends BaseTestCase implements ITest {
 				actualRequest.put("requesttime","20180924");
 			}
 			
+			if (object.get("testCaseName").toString().contains("smoke")) {
+				System.out.println(object.get("testCaseName").toString());
+				System.out.println(prop.getProperty("applicantDemograhicApi"));
+				System.out.println(actualRequest.toString());
+
+			}
+			
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("applicantDemograhicApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
 			// outer and inner keys which are dynamic in the actual response
+			
+			if (object.get("testCaseName").toString().contains("smoke")) {
+				System.out.println(object.get("testCaseName").toString());
+				System.out.println(prop.getProperty("applicantDemograhicApi"));
+				System.out.println(actualRequest.toString());
+				System.out.println(actualResponse.asString());
+
+			}
+			
 			outerKeys.add("requesttime");
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");
