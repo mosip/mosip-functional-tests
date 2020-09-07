@@ -1,0 +1,21 @@
+{
+    "id": "string",
+    "version": "string",
+    "responsetime": "2020-08-06T08:58:06.567Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-MSD-999",
+            "message": "request.name: must not be blank"
+        },
+        {
+            "errorCode": "KER-MSD-999",
+            "message": "request.name: must match \"^[a-zA-Z]+$\""
+        },
+        {
+            "errorCode": "KER-MSD-999",
+            "message": "request.name: size must be between 2 and 20"
+        }
+    ]
+}

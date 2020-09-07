@@ -1,0 +1,36 @@
+testdata:
+
+  Admin_GetDynamicField_Valid_langcode_eng_Smoke:
+    input.get-dynamic-field-request:
+      pageSize: '10'
+      pageNumber: '0'
+      orderBy: 'asc'
+      sortBy: 'cr_dtimes'
+      langCode: 'eng'
+    output.output-1-expected-pos-response:
+      responsetime: $IGNORE$
+      totalItems: $IGNORE$
+      descriptiondata0: Technology Known
+      version: $IGNORE$
+      createdOndata0: $IGNORE$
+      iddata0: DF-001
+      updatedBydata0: $IGNORE$
+      langCodefieldVal0: eng
+      activedata0: true
+      activefieldVal0: $IGNORE$
+      dataTypedata0: $IGNORE$
+      id: $IGNORE$
+      updatedOndata0: $IGNORE$
+      valuefieldVal0: $IGNORE$
+      codefieldVal0: $IGNORE$
+      createdBydata0: $IGNORE$
+      langCodedata0: $IGNORE$
+      namedata0: $IGNORE$
+      totalPages: $IGNORE$
+      pageNo: $IGNORE$
+      
+      
+      
+             
+                   
+                           

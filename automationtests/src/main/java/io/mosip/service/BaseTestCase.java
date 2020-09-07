@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -211,9 +211,12 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
+			//long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
+			//if(deviceCount!=6) {
 			AdminTestUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
 			AdminTestUtil.createDeviceManagementData();
+			//}
 		}
 
 	} // End suiteSetup

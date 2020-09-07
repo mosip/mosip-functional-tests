@@ -1,8 +1,228 @@
 testdata:
+  Resident_GenerateVID_without_version_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.version: $REMOVE$
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidVersion:errorCode$
+      output.2.errorMessage: $errors:InvalidVersion:errorMessage$  
+       
+  Resident_GenerateVID_without_individualIdType_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $REMOVE$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidIndividualIdType:errorCode$
+      output.2.errorMessage: $errors:InvalidIndividualIdType:errorMessage$
+        
+  Resident_GenerateVID_without_UIN_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $REMOVE$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidUIN:errorCode$
+      output.2.errorMessage: $errors:InvalidUIN:errorMessage$
+  
+  Resident_GenerateVID_without_Timestamp_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.requestTime: $REMOVE$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
+      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$
+  
+  Resident_GenerateVID_without_OTP_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: $REMOVE$
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:FailOTPAuth:errorCode$
+      output.2.errorMessage: $errors:FailOTPAuth:errorMessage$
+  
+  Resident_GenerateVID_without_Id_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.id: $REMOVE$
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidId:errorCode$
+      output.2.errorMessage: $errors:InvalidId:errorMessage$
+  
+  Resident_GenerateVID_InvalidTimestamp_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.requestTime: '2020-04-06T21:51Z'
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
+      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$
+  
+  Resident_GenerateVID_InValid_version_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.version: $RTestData:id_version_invalid$
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidVersion:errorCode$
+      output.2.errorMessage: $errors:InvalidVersion:errorMessage$
+  
+  Resident_GenerateVID_Blank_version_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:uin_idType$
+      otprequest.individualId: $UIN$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.generate-vid-request:
+      generatevid.version: ''
+      generatevid.requestTime: $TIMESTAMP$
+      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      generatevid.individualIdType: $RTestData:uin_idType$
+      generatevid.vidType: $RTestData:vidType_perpetual$
+      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidVersion:errorCode$
+      output.2.errorMessage: $errors:InvalidVersion:errorMessage$
+ 
   Resident_GenerateVID_Valid_Perpetual_smoke_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN:WITH:NOVID$
+      otprequest.individualId: $UIN:WITH:NOVID$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -25,7 +245,7 @@ testdata:
   Resident_GenerateVID_Valid_Temporary_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -48,7 +268,7 @@ testdata:
   Resident_GenerateVID_InValid_UIN_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -72,7 +292,7 @@ testdata:
   Resident_GenerateVID_InValid_individualIdType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -96,7 +316,7 @@ testdata:
   Resident_GenerateVID_InValid_OTP_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -120,7 +340,7 @@ testdata:
   Resident_GenerateVID_TransactionMismatch_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -144,7 +364,7 @@ testdata:
   Resident_GenerateVID_Invalid_Id_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -164,61 +384,12 @@ testdata:
       output.1.y.response.ver: $version$
     output.output-2-expected-n-res:
       output.2.errorCode: $errors:InvalidId:errorCode$
-      output.2.errorMessage: $errors:InvalidId:errorMessage$
-      
-  Resident_GenerateVID_InValid_version_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.version: $RTestData:id_version_invalid$
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidVersion:errorCode$
-      output.2.errorMessage: $errors:InvalidVersion:errorMessage$   
-      
-  Resident_GenerateVID_InvalidTimestamp_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.requestTime: '2020-04-06T21:51Z'
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
-      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$ 
+      output.2.errorMessage: $errors:InvalidId:errorMessage$        
       
   Resident_GenerateVID_Blank_UIN_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -242,7 +413,7 @@ testdata:
   Resident_GenerateVID_Blank_individualIdType_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -266,7 +437,7 @@ testdata:
   Resident_GenerateVID_Blank_OTP_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -290,7 +461,7 @@ testdata:
   Resident_GenerateVID_Blank_Id_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -312,35 +483,10 @@ testdata:
       output.2.errorCode: $errors:InvalidId:errorCode$
       output.2.errorMessage: $errors:InvalidId:errorMessage$
       
-  Resident_GenerateVID_Blank_version_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.version: ''
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidVersion:errorCode$
-      output.2.errorMessage: $errors:InvalidVersion:errorMessage$  
-      
   Resident_GenerateVID_Blank_Timestamp_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
+      otprequest.individualId: $UIN$
       otpRequest.transactionID: $RANDOM:N:10$
       otpRequest.requestTime: $TIMESTAMP$
       otpRequest.version: $version$
@@ -360,149 +506,3 @@ testdata:
     output.output-2-expected-n-res:
       output.2.errorCode: $errors:InvalidTimestamp:errorCode$
       output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$ 
-      
-  Resident_GenerateVID_without_UIN_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $REMOVE$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidUIN:errorCode$
-      output.2.errorMessage: $errors:InvalidUIN:errorMessage$
-      
-  Resident_GenerateVID_without_individualIdType_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $REMOVE$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidIndividualIdType:errorCode$
-      output.2.errorMessage: $errors:InvalidIndividualIdType:errorMessage$
-      
-  Resident_GenerateVID_without_OTP_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: $REMOVE$
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:FailOTPAuth:errorCode$
-      output.2.errorMessage: $errors:FailOTPAuth:errorMessage$
-      
-  Resident_GenerateVID_without_Id_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.id: $REMOVE$
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidId:errorCode$
-      output.2.errorMessage: $errors:InvalidId:errorMessage$
-      
-  Resident_GenerateVID_without_version_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.version: $REMOVE$
-      generatevid.requestTime: $TIMESTAMP$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidVersion:errorCode$
-      output.2.errorMessage: $errors:InvalidVersion:errorMessage$  
-      
-  Resident_GenerateVID_without_Timestamp_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:uin_idType$
-      otpRequest.individualId: $UIN$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.generate-vid-request:
-      generatevid.requestTime: $REMOVE$
-      generatevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      generatevid.individualIdType: $RTestData:uin_idType$
-      generatevid.vidType: $RTestData:vidType_perpetual$
-      generatevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      generatevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
-      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$

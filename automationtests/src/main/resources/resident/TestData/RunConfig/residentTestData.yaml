@@ -65,4 +65,7 @@ identityJson:
 id:
   - mosip.resident.updateuin  
 uinForOtp:
-  - 4692607639 
+  - 4023918359
+  
+vidForOtp:
+  - 4027169461475386
