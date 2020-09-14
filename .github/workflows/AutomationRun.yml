@@ -44,6 +44,7 @@ jobs:
       run: |
         cd automationtests
         mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
+        ls -lrt
     - name: Trigger automation run
       run: |
         ls -lrt
