@@ -81,7 +81,8 @@ testdata:
       output.1.otp.response.version: $version$
     output.output-2-expected-n-res:
       output.2.n.response.errorMessageerrors0: 'request.transactionID: transactionID should not be empty'
-      output.2.n.response.errorCodeerrors0: 'RES-SER-020'    
+      output.2.n.response.errorCodeerrors0: 'RES-SER-020'
+          
   Resident_UpdateUIN_Invalid_IndividualID_Empty_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -104,11 +105,14 @@ testdata:
       output.1.otp.response.transactionID: $input.otp-generate-request:otprequest.transactionID$
       output.1.otp.response.id: $IGNORE$
       output.1.otp.response.version: $version$
-    output.output-2-expected-n-res:
-      output.2.n.response.errorMessageerrors0: 'request.individualId: individualId should not be null'
-      output.2.n.response.errorCodeerrors0: 'RES-SER-020'   
-      output.2.n.response.errorCodeerrors1: 'RES-SER-020'
-      output.2.n.response.errorMessageerrors1: 'request.individualId: individualId should not be empty'
+    output.output-2-expected-y-res2:
+      output.3.n.response.errorMessageerrors0: 'Invalid Input Parameter- individualId'
+      output.2.n.response.errorCodeerrors0: 'RES-SER-009'
+      output.3.n.response.responsetime: $IGNORE$
+      output.3.n.response.metadata: $IGNORE$
+      output.3.n.response.response: $IGNORE$
+      
+      
   Resident_UpdateUIN_Invalid_IndividualIDType_Empty_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -263,6 +267,7 @@ testdata:
     output.output-2-expected-n-res:
       output.2.n.response.errorMessageerrors0: 'sss'
       output.2.n.response.errorCodeerrors0: 'RES-SER-020'
+      
   Resident_UpdateUIN_Invalid_IndividualID_Wrong_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -285,11 +290,13 @@ testdata:
       output.1.otp.response.transactionID: $input.otp-generate-request:otprequest.transactionID$
       output.1.otp.response.id: $IGNORE$
       output.1.otp.response.version: $version$
-    output.output-2-expected-n-res:
-      output.2.n.response.errorMessageerrors0: 'request.transactionID: transactionID should not be null'
-      output.2.n.response.errorCodeerrors0: 'RES-SER-020' 
-      output.2.n.response.errorMessageerrors1: 'request.transactionID: transactionID should not be empty'
-      output.2.n.response.errorCodeerrors1: RES-SER-020
+    output.output-2-expected-y-res2:
+      output.3.n.response.errorMessageerrors0: 'Invalid Input Parameter- individualId'
+      output.2.n.response.errorCodeerrors0: 'RES-SER-009'
+      output.3.n.response.responsetime: $IGNORE$
+      output.3.n.response.metadata: $IGNORE$
+      output.3.n.response.response: $IGNORE$
+      
   Resident_UpdateUIN_Invalid_IndividualIDType_Wrong_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -341,6 +348,7 @@ testdata:
     output.output-2-expected-n-res:
       output.2.n.response.errorMessageerrors0: 'Invalid Input Parameter- version'
       output.2.n.response.errorCodeerrors0: 'RES-SER-009' 
+      
   Resident_UpdateUIN_Invalid_OTPField_Absent_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -364,11 +372,13 @@ testdata:
       output.1.otp.response.transactionID: $input.otp-generate-request:otprequest.transactionID$
       output.1.otp.response.id: $IGNORE$
       output.1.otp.response.version: $version$
-    output.output-2-expected-n-res:
-      output.2.n.response.errorMessageerrors0: 'request.otp: otp should not be empty'
-      output.2.n.response.errorCodeerrors0: 'RES-SER-020'   
-      output.2.n.response.errorCodeerrors1: 'RES-SER-020' 
-      output.2.n.response.errorMessageerrors1: 'request.otp: otp should not be null'     
+    output.output-2-expected-y-res2:
+      output.3.n.response.errorMessageerrors0: 'Invalid Input Parameter- version'
+      output.2.n.response.errorCodeerrors0: 'RES-SER-009'
+      output.3.n.response.responsetime: $IGNORE$
+      output.3.n.response.metadata: $IGNORE$
+      output.3.n.response.response: $IGNORE$  
+      
   Resident_UpdateUIN_Invalid_TransactionCode_Absent_Neg:
     input.otp-generate-request:
       otprequest.individualIdType: $RTestData:uin_idType$
@@ -392,9 +402,9 @@ testdata:
       output.1.otp.response.transactionID: $IGNORE$
       output.1.otp.response.id: $IGNORE$
       output.1.otp.response.version: $version$
-    output.output-2-expected-n-res:
-      output.2.n.response.errorMessageerrors0: 'request.transactionID: transactionID should not be null'
-      output.2.n.response.errorCodeerrors0: 'RES-SER-020'   
-      output.2.n.response.errorMessageerrors1: 'request.transactionID: transactionID should not be empty'
-      output.2.n.response.errorCodeerrors1: RES-SER-020                
-  
+    output.output-2-expected-y-res2:
+      output.3.n.response.errorMessageerrors0: 'Invalid Input Parameter- version'
+      output.2.n.response.errorCodeerrors0: 'RES-SER-009'
+      output.3.n.response.responsetime: $IGNORE$
+      output.3.n.response.metadata: $IGNORE$
+      output.3.n.response.response: $IGNORE$                 

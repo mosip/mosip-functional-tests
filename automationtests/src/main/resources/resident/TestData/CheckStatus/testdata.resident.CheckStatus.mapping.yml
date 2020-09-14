@@ -2,7 +2,7 @@ testdata:
    Resident_CheckStatus_Valid_smoke_Pos:
       input.generate-check-status-request:
          rindividualIdType: RID
-         rindividualId: 10003100030001620200504122633
+         rindividualId: 10001100770000220200817071434
          rrequestTime: $TIMESTAMP$
          rid: 'mosip.resident.checkstatus'
          rversion: v1
@@ -10,8 +10,8 @@ testdata:
          Rversion: v1
          Rerrors: $IGNORE$
          Rid: mosip.resident.checkstatus
-         RridStatus: 'UNDER PROCESSING - PLEASE CHECK BACK AGAIN LATER.' 
-         responseTime: $IGNORE$        
+         RridStatus: 'PROCESSED'
+         responseTime: $IGNORE$
          
    Resident_CheckStatus_Invalid_RIDLength_Neg:
       input.generate-check-status-request:
@@ -63,4 +63,16 @@ testdata:
          version: v1
          errorMessageerrors0: 'Invalid Input Parameter- individualIdType'
          errorCodeerrors0: RES-SER-009
-         responseTime: $IGNORE$                                                                            
+         responseTime: $IGNORE$
+         
+   Resident_CheckStatus_without_mandatory_Field_Neg:
+      input.generate-check-status-request2:
+         rindividualIdType: RID
+         rrequestTime: $TIMESTAMP$
+         rid: 'mosip.resident.checkstatus'
+         rversion: v1
+      output.output-1-expected-n-res:
+         version: v1
+         errorMessageerrors0: 'Invalid Input Parameter- individualId'
+         errorCodeerrors0: RES-SER-009
+         responseTime: $IGNORE$

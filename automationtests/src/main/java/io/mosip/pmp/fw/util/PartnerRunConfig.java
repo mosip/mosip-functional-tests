@@ -2110,4 +2110,17 @@ public class PartnerRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getCreateDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

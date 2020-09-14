@@ -79,7 +79,7 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 			return testCaseReader.readTestCases(serviceName + "/" + genderDetailServiceName, "regression");
 	}
 
-	@Test(dataProvider = "LocationByHierarchyCode", alwaysRun = true)
+	@Test(dataProvider = "LocationByHierarchyCode", enabled=false)
 	public void verifyLocationByHierarchyCodeByHierarchyLevel(String testCaseName, JSONObject object) {
 		try {
 		logger.info(this.getClass().getName(), ConstantValues.MODULE_ID, ConstantValues.MODULE_NAME,
@@ -146,9 +146,10 @@ public class MasterSyncLocationByHierarchyCode extends BaseConfiguration impleme
 				"hierarchyCode:" + hierarchylevelName);
 		if(testCaseName.contains("smoke")) {
 			locationHierarchyService = masterSyncService.findProvianceByHierarchyCode("RBT",
-					langCode);
-			 locationHierarchyDB = locationRepository
-					.findByIsActiveTrueAndHierarchyNameAndLangCode("Province", langCode);
+					langCode); // RBT is a province, this API returns a location which is child to RBT
+			// locationHierarchyDB = locationRepository
+			//		.findByIsActiveTrueAndHierarchyNameAndLangCode("Province", langCode);
+			 locationHierarchyDB = locationRepository.findByIsActiveTrueAndParentLocCodeAndLangCode("RBT", langCode);
 		} else {
 		locationHierarchyService = masterSyncService.findProvianceByHierarchyCode(hierarchylevelName,
 				langCode);

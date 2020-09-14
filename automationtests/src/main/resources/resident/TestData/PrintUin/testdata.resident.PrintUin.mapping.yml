@@ -34,6 +34,76 @@ testdata:
       output.2.n.response.id: $IGNORE$
       output.2.y.response.metadata: $IGNORE$
       
+  Resident_PrintUin_For_TempMaskedVID_Valid_Smoke: 
+    input.otp-generate-request: 
+      otpRequest.id: 'mosip.identity.otp.internal'
+      otpRequest.individualId: '$RTestData:vidForOtp$'
+      otpRequest.individualIdType: '$RTestData:vid_idType$'
+      otpRequest.otpChannel.email: EMAIL
+      otpRequest.otpChannel.phone: PHONE
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.transactionID: '$RANDOM:N:10$'
+      otpRequest.version: $version$
+    input.search-request: 
+      searchRequest.id: mosip.resident.printuin
+      searchRequest.cardType: MASKED_UIN
+      searchRequest.individualId: '$input.otp-generate-request:otpRequest.individualId$'
+      searchRequest.individualIdType: '$RTestData:vid_idType$'
+      searchRequest.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      searchRequest.requestTime: $TIMESTAMP$
+      searchRequest.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+      searchRequest.version: v1
+    output.output-1-expected-otp-gen-res: 
+      output.1.y.response.id: $input.otp-generate-request:otpRequest.id$
+      output.1.y.response.maskedEmail: '$REGEXP:XX.*XX.*$'
+      output.1.y.response.maskedMobile: '$REGEXP:XX.*XX.*$'
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-y-res: 
+      output.2.y.response.registrationId: $IGNORE$
+      output.2.y.response.versionmessage: 'Notification has been sent to the provided contact detail(s)'
+      output.2.y.response.versionresponseTime: $IGNORE$
+      output.2.y.response.versionerrors: $IGNORE$
+      output.2.y.response.versionversion: $IGNORE$
+      output.2.n.response.id: $IGNORE$
+      output.2.y.response.metadata: $IGNORE$
+      
+  Resident_PrintUin_For_TempVID_Valid_Smoke: 
+    input.otp-generate-request: 
+      otpRequest.id: 'mosip.identity.otp.internal'
+      otpRequest.individualId: '$RTestData:vidForOtp$'
+      otpRequest.individualIdType: '$RTestData:vid_idType$'
+      otpRequest.otpChannel.email: EMAIL
+      otpRequest.otpChannel.phone: PHONE
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.transactionID: '$RANDOM:N:10$'
+      otpRequest.version: $version$
+    input.search-request: 
+      searchRequest.id: mosip.resident.printuin
+      searchRequest.cardType: UIN
+      searchRequest.individualId: '$input.otp-generate-request:otpRequest.individualId$'
+      searchRequest.individualIdType: '$RTestData:vid_idType$'
+      searchRequest.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      searchRequest.requestTime: $TIMESTAMP$
+      searchRequest.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+      searchRequest.version: v1
+    output.output-1-expected-otp-gen-res: 
+      output.1.y.response.id: $input.otp-generate-request:otpRequest.id$
+      output.1.y.response.maskedEmail: '$REGEXP:XX.*XX.*$'
+      output.1.y.response.maskedMobile: '$REGEXP:XX.*XX.*$'
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-y-res: 
+      output.2.y.response.registrationId: $IGNORE$
+      output.2.y.response.versionmessage: 'Notification has been sent to the provided contact detail(s)'
+      output.2.y.response.versionresponseTime: $IGNORE$
+      output.2.y.response.versionerrors: $IGNORE$
+      output.2.y.response.versionversion: $IGNORE$
+      output.2.n.response.id: $IGNORE$
+      output.2.y.response.metadata: $IGNORE$
+      
   Resident_PrintUin_For_MaskedUIN_Valid: 
     input.otp-generate-request: 
       otpRequest.id: 'mosip.identity.otp.internal'
@@ -804,9 +874,3 @@ testdata:
       output.2.n.response.errorMessageerrors0: 'Invalid Input Parameter- individualId'
       output.2.n.response.responseTime: $IGNORE$
       output.2.n.response.errorIgnore: $IGNORE$
-      
-
-    
-
-      
-    

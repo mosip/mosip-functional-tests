@@ -1,5 +1,9 @@
 package io.mosip.authentication.fw.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
@@ -20,6 +25,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
+
+import io.mosip.testrunner.MosipTestRunner;
  
 
 /**
@@ -32,6 +39,7 @@ public class DbConnection {
 	private static final Logger DBCONNECTION_LOGGER = Logger.getLogger(DbConnection.class);
 	private static Map<String, Object> records;
 	private static List<Map<String, Object>> allRecords;
+	public static String env = System.getProperty("env.user");
 	
 	public static void main(String[] arg)
 	{
@@ -179,13 +187,30 @@ public class DbConnection {
 	}
 	
 	private static Session getDataBaseConnection(String dbName) {
-		String dbConfigXml = "/dbFiles/"+dbName + RunConfigUtil.getRunEvironment().toLowerCase() + ".cfg.xml";
 		SessionFactory factory = null;
 		Session session = null;
+		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
+		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
+		
 		try {
-			factory = new Configuration().configure(dbConfigXml).buildSessionFactory();
-			session = factory.getCurrentSession();
-		} catch (HibernateException e) {
+			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			Properties dbProps = new Properties();
+			dbProps.load(iStream);
+			Configuration config = new Configuration();
+			//config.setProperties(dbProps);
+			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
+			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName+"_url"));
+			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName+"_username"));
+			config.setProperty("hibernate.connection.password", dbProps.getProperty(dbName+"_password"));
+			config.setProperty("hibernate.default_schema", dbProps.getProperty(dbName+"_default_schema"));
+			config.setProperty("hibernate.connection.pool_size", dbProps.getProperty("pool_size"));
+			config.setProperty("hibernate.dialect", dbProps.getProperty("dialect"));
+			config.setProperty("hibernate.show_sql", dbProps.getProperty("show_sql"));
+			config.setProperty("hibernate.current_session_context_class", dbProps.getProperty("current_session_context_class"));
+			config.addFile(new File(dbConfigXml));
+		factory = config.buildSessionFactory();
+		session = factory.getCurrentSession();
+		} catch (HibernateException | IOException e) {
 			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: ");
 			DBCONNECTION_LOGGER.info(e.getMessage());
 		} catch (NullPointerException e) {

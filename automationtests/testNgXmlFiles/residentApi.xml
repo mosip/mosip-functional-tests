@@ -12,16 +12,20 @@
 	</listeners>
 		<test name="Resident Tests">
 		<classes>	
+		
 			<class name="io.mosip.resident.tests.UpdateUIN" />
 			<class name="io.mosip.resident.tests.GenerateVID" />
 			<class name="io.mosip.resident.tests.CheckStatus" />
 			<class name="io.mosip.resident.tests.EnableEUin" />
 			<class name="io.mosip.resident.tests.AuthLock" />
 			<class name="io.mosip.resident.tests.AuthUnlock" />
-			<class name="io.mosip.resident.tests.AuthHistory" />
+			<class name="io.mosip.resident.tests.AuthHistory"/>
 			<class name="io.mosip.resident.tests.RevokeVID" />
+			<class name="io.mosip.resident.tests.PrintUin" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+				
+				
 		</classes>
 	</test>
 </suite>

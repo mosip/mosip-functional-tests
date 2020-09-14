@@ -128,6 +128,8 @@ public class AdminRunConfig extends RunConfig {
     private String updateDeviceTypePath;
     private String createIndividualTypePath;
     private String updateIndividualTypePath;
+    private String createDynamicFieldPath;
+    private String allDynamicFieldPath;
 
     
 
@@ -244,6 +246,8 @@ public class AdminRunConfig extends RunConfig {
 		setUpdateDeviceTypePath(AdminTestUtil.getPropertyValue("updateDeviceTypePath"));
 		setCreateIndividualTypePath(AdminTestUtil.getPropertyValue("createIndividualTypePath"));
 		setUpdateIndividualTypePath(AdminTestUtil.getPropertyValue("updateIndividualTypePath"));
+		setCreateDynamicFieldPath(AdminTestUtil.getPropertyValue("createDynamicFieldPath"));
+		setAllDynamicFieldPath(AdminTestUtil.getPropertyValue("allDynamicFieldPath"));
 	}
 
 	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
@@ -2174,5 +2178,22 @@ public class AdminRunConfig extends RunConfig {
 	public String getDownloadMispLicenseKeyPath() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getCreateDynamicFieldPath() {
+		return createDynamicFieldPath;
+	}
+
+	public void setCreateDynamicFieldPath(String createDynamicFieldPath) {
+		this.createDynamicFieldPath = createDynamicFieldPath;
+	}
+
+	public String getAllDynamicFieldPath() {
+		return allDynamicFieldPath;
+	}
+
+	public void setAllDynamicFieldPath(String allDynamicFieldPath) {
+		this.allDynamicFieldPath = allDynamicFieldPath;
 	}
 }

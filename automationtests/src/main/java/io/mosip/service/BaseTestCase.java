@@ -1,9 +1,7 @@
 package io.mosip.service;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -28,6 +26,7 @@ import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.resident.fw.util.ResidentTestUtil;
@@ -211,9 +210,12 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
+			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
+			if(deviceCount!=6) {
 			AdminTestUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
 			AdminTestUtil.createDeviceManagementData();
+			}
 		}
 
 	} // End suiteSetup
@@ -264,9 +266,11 @@ public class BaseTestCase {
 			AdminTestUtil.deleteDeviceManagementData();
 		}
 		RestAssured.reset();
+		copyReportAndLog();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
+		
 		// extent.flush();
 	} // end testTearDown
 
@@ -295,5 +299,34 @@ public class BaseTestCase {
 			e.printStackTrace();
 		}
 	}
-
+	
+	private void copyReportAndLog()
+	{
+		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
+		String dirToReport = System.getProperty("user.home")+"/"+folderForReport;
+		File dest = new File(dirToReport);
+		if(!dest.exists())
+			dest.mkdir();
+		
+		String os=System.getProperty("os.name");
+		String projDirPath = null;
+		 if(MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) 
+			 projDirPath = System.getProperty("user.dir");
+		else 
+			projDirPath=new File(System.getProperty("user.dir")).getParent();
+		 
+		File reportFolder = new File(projDirPath+"/testng-report");
+		File logFolder = new File(projDirPath+"/src/logs");
+		
+		try {
+			if(dest.listFiles().length!=0)
+			FileUtils.cleanDirectory(dest);
+			FileUtils.copyDirectoryToDirectory(reportFolder, dest);
+			FileUtils.copyDirectoryToDirectory(logFolder, dest);
+		} catch (Exception e) {
+			logger.info("Not able to store the log and report at the specified path: "+dirToReport);
+			logger.error(e.getMessage());
+		}
+		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
+	}
 }

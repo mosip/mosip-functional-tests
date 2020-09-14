@@ -79,7 +79,8 @@ public class MasterSyncProvianceByHierarchyCode extends BaseConfiguration implem
 			return testCaseReader.readTestCases(serviceName + "/" + provinceSubServiceName, "regression");
 	}
 
-	@Test(dataProvider = "ProvianceByHierarchyCode", alwaysRun = true)
+	//@Test(dataProvider = "ProvianceByHierarchyCode", alwaysRun = true)
+	@Test(dataProvider = "ProvianceByHierarchyCode", enabled = false)
 	public void verifyLocationByHierarchyCodeByHierarchyCode(String testCaseName, JSONObject object) {
 		try {
 		logger.info(this.getClass().getName(),ConstantValues.MODULE_ID,ConstantValues.MODULE_NAME,"test case Name:" + testCaseName);
