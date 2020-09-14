@@ -45,8 +45,6 @@ jobs:
         cd automationtests
         mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
         ls -lrt
-    - name: Trigger automation run
-      run: |
-        ls -lrt
         java -Dmaven.test.failure.ignore=true -Dmaven.test.failure.ignore=true -Denv.user=${{github.event.inputs.env}} -Denv.endpoint=https://${{github.event.inputs.baseUrl}} -Denv.testLevel=${{github.event.inputs.testLevel}} -DuserID=110022 -Dmodules=${{github.event.inputs.modules}} -jar ./target/automationtests-1.0.10-jar-with-dependencies.jar
+        
         
