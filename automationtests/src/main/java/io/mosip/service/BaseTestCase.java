@@ -325,7 +325,7 @@ public class BaseTestCase {
 			FileUtils.cleanDirectory(dest);
 			FileUtils.copyDirectoryToDirectory(reportFolder, dest);
 			FileUtils.copyDirectoryToDirectory(logFolder, dest);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			logger.info("Not able to store the log and report at the specified path: "+dirToReport);
 			logger.error(e.getMessage());
 		}
