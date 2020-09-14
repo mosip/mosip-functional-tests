@@ -14,13 +14,13 @@ roleList_invalid:
  - REG_SUPERVISOR
 
 userId_valid:
- - 110022
+ - 110010
  
 userId_invalid:
  - 000000
  
 regCenter_valid:
- - 10003
+ - 10010
  
 regCenter_invalid:
  - 00000

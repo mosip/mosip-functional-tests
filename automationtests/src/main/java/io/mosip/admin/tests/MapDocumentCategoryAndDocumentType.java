@@ -194,7 +194,7 @@ public class MapDocumentCategoryAndDocumentType extends AdminTestUtil implements
 			adminCookie="";
 		}
 		else if (testcaseName.contains("UnAuthorisedRole")) {
-			adminCookie = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
+			adminCookie = getAuthorizationCookie(getCookieRequestFilePathForRegClient(),RunConfigUtil.objRunConfig.getAdminEndPointUrl() +"/v1/authmanager/authenticate/useridPwd",AUTHORIZATHION_COOKIENAME);
 		}
 		putRequestWithParmAndGenerateOuputFileWithCookie(testCaseName.listFiles(), url, "request", "output-1-actual-response", 0, AUTHORIZATHION_COOKIENAME, adminCookie);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doOutputValidation(

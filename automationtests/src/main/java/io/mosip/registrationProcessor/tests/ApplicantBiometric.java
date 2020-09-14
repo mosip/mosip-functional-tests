@@ -77,16 +77,15 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 	static String apiName = "ApplicantBiometricApi";
 	static String moduleName = "RegProc";
 	CommonLibrary common = new CommonLibrary();
-	
-	RegProcApiRequests apiRequests=new RegProcApiRequests();
-	TokenGeneration generateToken=new TokenGeneration();
-	TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
-	StageValidationMethods apiRequest=new StageValidationMethods();
-	String validToken="";
-	
+
+	RegProcApiRequests apiRequests = new RegProcApiRequests();
+	TokenGeneration generateToken = new TokenGeneration();
+	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	StageValidationMethods apiRequest = new StageValidationMethods();
+	String validToken = "";
+
 	boolean utcCheck = false;
-	
-	
+
 	/**
 	 * This method is used for creating token
 	 * 
@@ -94,12 +93,11 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 	 * @return token
 	 */
 	public String getToken(String tokenType) {
-		String tokenGenerationProperties=generateToken.readPropertyFile(tokenType);
-		tokenEntity=generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-		String token=generateToken.getToken(tokenEntity);
+		String tokenGenerationProperties = generateToken.readPropertyFile(tokenType);
+		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
+		String token = generateToken.getToken(tokenEntity);
 		return token;
-		}
-	
+	}
 
 	/**
 	 * This method is used for reading the test data based on the test case name
@@ -111,11 +109,11 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 	@DataProvider(name = "applicantBiometric")
 	public Object[][] readData(ITestContext context) {
 		Object[][] readFolder = null;
-		String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
+		String propertyFilePath = apiRequests.getResourcePath() + "config/registrationProcessorAPI.properties";
 
 		try {
 			prop.load(new FileReader(new File(propertyFilePath)));
-			testLevel=System.getProperty("env.testLevel");
+			testLevel = System.getProperty("env.testLevel");
 			switch (testLevel) {
 			case "smoke":
 				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smoke");
@@ -127,7 +125,8 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smokeAndRegression");
 			}
 		} catch (IOException | ParseException e) {
-			Assert.assertTrue(false, "not able to read the folder in ApplicantBiometric class in readData method: "+ e.getCause());
+			Assert.assertTrue(false,
+					"not able to read the folder in ApplicantBiometric class in readData method: " + e.getCause());
 		}
 		return readFolder;
 	}
@@ -150,29 +149,43 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
 			// Expected response generation
 			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
-			
+
 			actualRequest.put("requesttime", apiRequests.getUTCTime());
-		
-			if(object.get("testCaseName").toString().contains("invalidRequestUTC")) {
-				actualRequest.put("requesttime",apiRequests.getCurrentTime() );
-			}else if(object.get("testCaseName").toString().contains("requesttimeEmpty")) {
-				actualRequest.put("requesttime","");
-			}else if(object.get("testCaseName").toString().contains("requesttimeInvalid")) {
-				actualRequest.put("requesttime","20140506");
+
+			if (object.get("testCaseName").toString().contains("invalidRequestUTC")) {
+				actualRequest.put("requesttime", apiRequests.getCurrentTime());
+			} else if (object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+				actualRequest.put("requesttime", "");
+			} else if (object.get("testCaseName").toString().contains("requesttimeInvalid")) {
+				actualRequest.put("requesttime", "20140506");
 			}
-			
-			validToken=getToken("getStatusTokenGenerationFilePath");
-			boolean tokenStatus=apiRequests.validateToken(validToken);
-			while(!tokenStatus) {
+
+			validToken = getToken("getStatusTokenGenerationFilePath");
+			boolean tokenStatus = apiRequests.validateToken(validToken);
+			while (!tokenStatus) {
 				validToken = getToken("getStatusTokenGenerationFilePath");
-				tokenStatus=apiRequests.validateToken(validToken);
+				tokenStatus = apiRequests.validateToken(validToken);
 			}
-			
+
+			if (object.get("testCaseName").toString().contains("smoke")) {
+				System.out.println(object.get("testCaseName").toString());
+
+			}
 
 			// Actual response generation
-			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("applicantBiometricApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
+			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("applicantBiometricApi"), actualRequest,
+					MediaType.APPLICATION_JSON, validToken);
 
 			// outer and inner keys which are dynamic in the actual response
+
+			if (object.get("testCaseName").toString().contains("smoke")) {
+				System.out.println(object.get("testCaseName").toString());
+				System.out.println(prop.getProperty("applicantBiometricApi"));
+				System.out.println(actualRequest.toString());
+				System.out.println(actualResponse.asString());
+
+			}
+
 			outerKeys.add("requesttime");
 			outerKeys.add("responsetime");
 
@@ -180,124 +193,122 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
 
-			if(object.get("testCaseName").toString().contains("RequestUTC")) {
+			if (object.get("testCaseName").toString().contains("RequestUTC")) {
 				utcCheck = apiRequests.checkResponseTime(actualResponse);
 			}
-			
+
 			// Assertion of actual and expected response
 			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
 			Assert.assertTrue(status, "object are not equal");
 			logger.info("Status after assertion : " + status);
-			if(object.get("testCaseName").toString().toLowerCase().contains("smoke") || object.get("testCaseName").toString().toLowerCase().contains("valid") ) {
-				if(actualResponse.jsonPath().get("response.file")!=null) {
-					status=true;
+			if (object.get("testCaseName").toString().toLowerCase().contains("smoke")
+					|| object.get("testCaseName").toString().toLowerCase().contains("valid")) {
+				if (actualResponse.jsonPath().get("response.file") != null) {
+					status = true;
 				}
 			}
-			 
+
 			if (!utcCheck && status) {
 
 				boolean isError = false;
-				List<Map<String,String>> errorResponse =  actualResponse.jsonPath().get("errors");
-				if(errorResponse!=null && !errorResponse.isEmpty()) {
-					isError=true;
+				List<Map<String, String>> errorResponse = actualResponse.jsonPath().get("errors");
+				if (errorResponse != null && !errorResponse.isEmpty()) {
+					isError = true;
 				}
-				
-				logger.info("isError ========= : "+isError);
 
+				logger.info("isError ========= : " + isError);
 
-				if(!isError){
-					String file = actualResponse.jsonPath().get("response.file"); 
-					logger.info("file : "+file );
-					if(file!=null) {
+				if (!isError) {
+					String file = actualResponse.jsonPath().get("response.file");
+					logger.info("file : " + file);
+					if (file != null) {
 						finalStatus = "Pass";
 						softAssert.assertTrue(true);
 					}
 
+				} else {
+					JSONArray expectedError = (JSONArray) expectedResponse.get("errors");
+					String expectedErrorCode = null;
+					List<Map<String, String>> error = actualResponse.jsonPath().get("errors");
+					logger.info("error : " + error);
+					for (Map<String, String> err : error) {
+						String errorCode = err.get("errorCode").toString();
+						logger.info("errorCode : " + errorCode);
+						Iterator<Object> iterator1 = expectedError.iterator();
 
-					}else{
-						JSONArray expectedError = (JSONArray) expectedResponse.get("errors");
-						String expectedErrorCode = null;
-						List<Map<String,String>> error = actualResponse.jsonPath().get("errors"); 
-						logger.info("error : "+error );
-						for(Map<String,String> err : error){
-							String errorCode = err.get("errorCode").toString();
-							logger.info("errorCode : "+errorCode);
-							Iterator<Object> iterator1 = expectedError.iterator();
-
-							while(iterator1.hasNext()){
-								JSONObject jsonObject = (JSONObject) iterator1.next();
-								expectedErrorCode = jsonObject.get("errorCode").toString().trim();
-								logger.info("expectedErrorCode: "+expectedErrorCode);
-							}
-							if(expectedErrorCode.matches(errorCode)){
-								finalStatus = "Pass";
-								softAssert.assertAll();
-								object.put("status", finalStatus);
-								arr.add(object);
-							}
+						while (iterator1.hasNext()) {
+							JSONObject jsonObject = (JSONObject) iterator1.next();
+							expectedErrorCode = jsonObject.get("errorCode").toString().trim();
+							logger.info("expectedErrorCode: " + expectedErrorCode);
+						}
+						if (expectedErrorCode.matches(errorCode)) {
+							finalStatus = "Pass";
+							softAssert.assertAll();
+							object.put("status", finalStatus);
+							arr.add(object);
 						}
 					}
-
-				}else if(utcCheck){
-					finalStatus = "Pass";
-				}
-				else {
-					finalStatus="Fail";
 				}
 
-				boolean setFinalStatus = false;
-				if (finalStatus.equals("Fail"))
-					setFinalStatus = false;
-				else if (finalStatus.equals("Pass"))
-					setFinalStatus = true;
-				Verify.verify(setFinalStatus);
-				softAssert.assertAll();
-
-			} catch (IOException | ParseException e) {
-				Assert.assertTrue(false, "not able to execute applicantBiometric method : "+ e.getCause());
+			} else if (utcCheck) {
+				finalStatus = "Pass";
+			} else {
+				finalStatus = "Fail";
 			}
+
+			boolean setFinalStatus = false;
+			if (finalStatus.equals("Fail"))
+				setFinalStatus = false;
+			else if (finalStatus.equals("Pass"))
+				setFinalStatus = true;
+			Verify.verify(setFinalStatus);
+			softAssert.assertAll();
+
+		} catch (IOException | ParseException e) {
+			Assert.assertTrue(false, "not able to execute applicantBiometric method : " + e.getCause());
 		}
+	}
 
-		/**
-		 * This method is used for fetching test case name
-		 * 
-		 * @param method
-		 * @param testdata
-		 * @param ctx
-		 */
-		@BeforeMethod(alwaysRun = true)
-		public  void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) {
-			JSONObject object = (JSONObject) testdata[2];
-			testCaseName = moduleName + "_" + apiName + "_" + object.get("testCaseName").toString();
-
-		}
-
-		/**
-		 * This method is used for generating report
-		 * 
-		 * @param result
-		 */
-		@AfterMethod(alwaysRun = true)
-		public void setResultTestName(ITestResult result) {
-
-			Field method;
-			try {
-				method = TestResult.class.getDeclaredField("m_method");
-				method.setAccessible(true);
-				method.set(result, result.getMethod().clone());
-				BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
-				Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
-				f.setAccessible(true);
-				f.set(baseTestMethod, ApplicantBiometric.testCaseName);
-			} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-				logger.error("Exception occurred in ApplicantBiometric class in setResultTestName method " + e);
-				Reporter.log("Exception : " + e.getMessage());
-			}
-		}
-
-		@Override
-		public String getTestName() {
-			return this.testCaseName;
-		}
+	/**
+	 * This method is used for fetching test case name
+	 * 
+	 * @param method
+	 * @param testdata
+	 * @param ctx
+	 */
+	@BeforeMethod(alwaysRun = true)
+	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) {
+		JSONObject object = (JSONObject) testdata[2];
+		testCaseName = moduleName + "_" + apiName + "_" + object.get("testCaseName").toString();
 
 	}
+
+	/**
+	 * This method is used for generating report
+	 * 
+	 * @param result
+	 */
+	@AfterMethod(alwaysRun = true)
+	public void setResultTestName(ITestResult result) {
+
+		Field method;
+		try {
+			method = TestResult.class.getDeclaredField("m_method");
+			method.setAccessible(true);
+			method.set(result, result.getMethod().clone());
+			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
+			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
+			f.setAccessible(true);
+			f.set(baseTestMethod, ApplicantBiometric.testCaseName);
+		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+			logger.error("Exception occurred in ApplicantBiometric class in setResultTestName method " + e);
+			Reporter.log("Exception : " + e.getMessage());
+		}
+	}
+
+	@Override
+	public String getTestName() {
+		return this.testCaseName;
+	}
+
+}

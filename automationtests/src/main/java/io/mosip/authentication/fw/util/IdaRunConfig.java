@@ -1747,4 +1747,13 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getCreateDynamicFieldPath() {
+		return null;
+	}
+	@Override
+	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -614,7 +614,9 @@ validLocationName2:
 validLocationName3:
     - Test_Loc_A_4
 validLocNameCreatedByquery:
-    - Test_Loc_B_1 
+    - Test_Loc_B_1
+validLocNameDuplicate:
+    - Kenitra    
 validLocNameCreatedByquery1:
     - Test_Loc_B_2
 validLocationhierarchyLevel:

@@ -30,7 +30,7 @@
 			<class name="io.mosip.admin.tests.DeviceTypeFilter" />
 			<class name="io.mosip.admin.tests.DocCatTypMapSearch" />
 			<class name="io.mosip.admin.tests.DeviceValidate" />
-			<class name="io.mosip.admin.tests.DeviceValidateHistory" />
+			<!-- <class name="io.mosip.admin.tests.DeviceValidateHistory" /> -->
 			<class name="io.mosip.admin.tests.FetchPacketStatus" />
 			<class
 				name="io.mosip.admin.tests.FetchRegCenterWorkingDays_kernel" />

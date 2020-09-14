@@ -203,10 +203,25 @@ public class Assignment extends BaseTestCase implements ITest {
 				logger.info("inside if block");
 				actualRequest.put("requesttime",apiRequests.getUTCTime());
 			}
+			
+			if(object.get("testCaseName").toString().contains("validRequestUTC1")) {
+			
+				System.out.println(object.get("testCaseName").toString());
+				System.out.println(""+actualRequest.toString());
+				System.out.println(prop.getProperty("assignmentApi"));
+			}
 
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("assignmentApi"),actualRequest,MediaType.APPLICATION_JSON,validToken);
-
+			
+			if(object.get("testCaseName").toString().contains("validRequestUTC1")) {
+				
+				System.out.println(object.get("testCaseName").toString());
+				System.out.println(""+actualRequest.toString());
+				System.out.println(prop.getProperty("assignmentApi"));
+				System.out.println(actualResponse.asString());
+			}
+			
 			String message = null;
 			boolean noRecord = false;
 			if(actualResponse.asString().contains("errors") && actualResponse.jsonPath().get("errors")!=null) {

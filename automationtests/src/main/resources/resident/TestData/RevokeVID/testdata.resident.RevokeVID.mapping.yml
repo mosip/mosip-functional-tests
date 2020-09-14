@@ -1,4 +1,101 @@
 testdata:
+  Resident_RevokeVID_without_mandatory_Field_individualId_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:vid_idType$
+      otpRequest.individualId: $VID$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.revoke-vid-request:
+      revokevid.requestTime: $TIMESTAMP$
+      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      revokevid.individualIdType: $RTestData:vid_idType$
+      revokevid.vidStatus: $RTestData:vidStatus_revoke$
+      revokevid.individualId: $REMOVE$
+      revokevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: RES-SER-009
+      output.2.errorMessage: Invalid Input Parameter- individualId
+      
+  Resident_RevokeVID_TransactionMismatch_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:vid_idType$
+      otpRequest.individualId: $VID$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.revoke-vid-request:
+      revokevid.requestTime: $TIMESTAMP$
+      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      revokevid.individualIdType: $RTestData:vid_idType$
+      revokevid.vidStatus: $RTestData:vidStatus_revoke$
+      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      revokevid.transactionID: $RANDOM:N:10$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:OTPTransactionMatch:errorCode$
+      output.2.errorMessage: $errors:OTPTransactionMatch:errorMessage$
+      
+  Resident_RevokeVID_Invalid_Id_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:vid_idType$
+      otpRequest.individualId: $VID$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.revoke-vid-request:
+      revokevid.id: $RTestData:id_invalid$
+      revokevid.requestTime: $TIMESTAMP$
+      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      revokevid.individualIdType: $RTestData:vid_idType$
+      revokevid.vidStatus: $RTestData:vidStatus_revoke$
+      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      revokevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidId:errorCode$
+      output.2.errorMessage: $errors:InvalidId:errorMessage$
+
+  Resident_RevokeVID_InvalidTimestamp_Neg:
+    input.otp-generate-request:
+      otpRequest.individualIdType: $RTestData:vid_idType$
+      otpRequest.individualId: $VID$
+      otpRequest.transactionID: $RANDOM:N:10$
+      otpRequest.requestTime: $TIMESTAMP$
+      otpRequest.version: $version$
+    input.revoke-vid-request:
+      revokevid.requestTime: $TIMESTAMP$
+      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
+      revokevid.individualIdType: $RTestData:vid_idType$
+      revokevid.vidStatus: $RTestData:vidStatus_revoke$
+      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
+      revokevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
+    output.output-1-expected-otp-gen-res:
+      output.1.y.response.resTime: $TIMESTAMP$
+      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
+      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
+      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
+      output.1.y.response.ver: $version$
+    output.output-2-expected-n-res:
+      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
+      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$ 
+      
   Resident_RevokeVID_Valid_VID_smoke_Pos:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
@@ -20,7 +117,8 @@ testdata:
       output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
       output.1.y.response.ver: $version$
     output.output-2-expected-y-res:
-      output.2.responsetime: $TIMESTAMP$
+      output.2.responsetime: $IGNORE$
+      output.2.message: Notification has been sent to the provided contact detail(s)
       
   Resident_RevokeVID_InValid_VIDStatus_Neg:
     input.otp-generate-request:
@@ -118,55 +216,6 @@ testdata:
       output.2.errorCode: $errors:FailOTPAuth:errorCode$
       output.2.errorMessage: $errors:FailOTPAuth:errorMessage$
       
-  Resident_RevokeVID_TransactionMismatch_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.revoke-vid-request:
-      revokevid.requestTime: $TIMESTAMP$
-      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      revokevid.individualIdType: $RTestData:vid_idType$
-      revokevid.vidStatus: $RTestData:vidStatus_revoke$
-      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      revokevid.transactionID: $RANDOM:N:10$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:OTPTransactionMatch:errorCode$
-      output.2.errorMessage: $errors:OTPTransactionMatch:errorMessage$
-      
-  Resident_RevokeVID_Invalid_Id_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.revoke-vid-request:
-      revokevid.id: $RTestData:id_invalid$
-      revokevid.requestTime: $TIMESTAMP$
-      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      revokevid.individualIdType: $RTestData:vid_idType$
-      revokevid.vidStatus: $RTestData:vidStatus_revoke$
-      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      revokevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidId:errorCode$
-      output.2.errorMessage: $errors:InvalidId:errorMessage$
-      
   Resident_RevokeVID_InValid_version_Neg:
     input.otp-generate-request:
       otpRequest.individualIdType: $RTestData:vid_idType$
@@ -190,29 +239,4 @@ testdata:
       output.1.y.response.ver: $version$
     output.output-2-expected-n-res:
       output.2.errorCode: $errors:InvalidVersion:errorCode$
-      output.2.errorMessage: $errors:InvalidVersion:errorMessage$     
-      
-  Resident_RevokeVID_InvalidTimestamp_Neg:
-    input.otp-generate-request:
-      otpRequest.individualIdType: $RTestData:vid_idType$
-      otpRequest.individualId: $VID$
-      otpRequest.transactionID: $RANDOM:N:10$
-      otpRequest.requestTime: $TIMESTAMP$
-      otpRequest.version: $version$
-    input.revoke-vid-request:
-      revokevid.requestTime: '2020-04-06T21:51Z'
-      revokevid.otp: '%$input.otp-generate-request:otpRequest.individualId$%_5'
-      revokevid.individualIdType: $RTestData:vid_idType$
-      revokevid.vidStatus: $RTestData:vidStatus_revoke$
-      revokevid.individualId: $input.otp-generate-request:otpRequest.individualId$
-      revokevid.transactionID: $input.otp-generate-request:otpRequest.transactionID$
-    output.output-1-expected-otp-gen-res:
-      output.1.y.response.resTime: $TIMESTAMP$
-      output.1.y.response.txnID: $input.otp-generate-request:otpRequest.transactionID$
-      output.1.y.response.maskedEmail: $REGEXP:XX.*XX.*$
-      output.1.y.response.maskedMobile: $REGEXP:XX.*XX.*$
-      output.1.y.response.ver: $version$
-    output.output-2-expected-n-res:
-      output.2.errorCode: $errors:InvalidTimestamp:errorCode$
-      output.2.errorMessage: $errors:InvalidTimestamp:errorMessage$ 
-      
+      output.2.errorMessage: $errors:InvalidVersion:errorMessage$
