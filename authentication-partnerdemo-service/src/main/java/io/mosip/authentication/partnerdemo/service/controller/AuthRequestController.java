@@ -39,6 +39,7 @@ import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -72,6 +73,16 @@ import io.swagger.annotations.Api;
 @RestController
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
+
+	private static final String SPEC_VERSION = "specVersion";
+
+	private static final String MOSIP_BASE_URL = "mosip.base.url";
+
+	private static final String ENV = "env";
+
+	private static final String DOMAIN_URI = "domainUri";
+
+	private static final String TRANSACTION_ID = "transactionId";
 
 	private static final String DIGITAL_ID = "digitalId";
 
@@ -178,12 +189,12 @@ public class AuthRequestController {
 	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/createAuthRequest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String createAuthRequest(@RequestParam(name = ID, required = true) @Nullable String id,
+	public ResponseEntity<String> createAuthRequest(@RequestParam(name = ID, required = true) @Nullable String id,
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
 			@RequestParam(name = "isKyc", required = false) @Nullable boolean isKyc,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
-			@RequestParam(name = "transactionId", required = false) @Nullable String transactionId,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestBody Map<String, Object> request)
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
@@ -205,12 +216,13 @@ public class AuthRequestController {
 		idValuesMap(id, idType, isKyc, isInternal, reqValues, transactionId, requestTime);
 		getAuthTypeMap(reqAuth, reqValues, request);
 		applyRecursively(request, TIMESTAMP, requestTime);
+		applyRecursively(request, TRANSACTION_ID, transactionId);
 
 		if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
 			Object bioObj = request.get(BIOMETRICS);
 			if (bioObj instanceof List) {
 				List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal,
-						requestTime, (List<Map<String, Object>>) bioObj);
+						requestTime, transactionId, (List<Map<String, Object>>) bioObj);
 				request.put(BIOMETRICS, encipheredBiometrics);
 			}
 		}
@@ -228,9 +240,9 @@ public class AuthRequestController {
 				if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
 					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
-					return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
-				return res;
+				return ResponseEntity.ok(res);
 			} else {
 				throw new IdAuthenticationBusinessException(
 						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
@@ -248,6 +260,7 @@ public class AuthRequestController {
 	public List<Map<String, Object>> encipherBiometrics(
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = "timestamp", required = false) @Nullable String timestampArg,
+			@RequestParam(name = "transactionId", required = false) @Nullable String transactionIdArg,
 			@RequestBody List<Map<String, Object>> biometrics)
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
@@ -272,8 +285,18 @@ public class AuthRequestController {
 				}
 
 				dataMap.put(TIMESTAMP, timestamp);
+				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
+				dataMap.put(ENV, environment.getProperty(MOSIP_BASE_URL));
+				dataMap.put(SPEC_VERSION, "1.0");
+				
+				Object txnIdObj = dataMap.get(TRANSACTION_ID);
+				if(txnIdObj == null) {
+					dataMap.put(TRANSACTION_ID, transactionIdArg == null ? "1234567890" : transactionIdArg);
+				}
+				String transactionId = String.valueOf(TRANSACTION_ID);
 
-				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp, isInternal);
+
+				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp, transactionId, isInternal);
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
 
@@ -422,8 +445,9 @@ public class AuthRequestController {
 	private void applyRecursively(Object obj, String key, String value) {
 		if (obj instanceof Map) {
 			Map<String, Object> map = (Map<String, Object>) obj;
-			if (map.containsKey(key)) {
-				map.put(key, value);
+			Optional<String> matchingKey = map.keySet().stream().filter(k -> k.equalsIgnoreCase(key)).findFirst();
+			if (matchingKey.isPresent()) {
+				map.put(matchingKey.get(), value);
 			}
 
 			for (Object val : map.values()) {
@@ -459,6 +483,8 @@ public class AuthRequestController {
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
+		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
+		reqValues.put(ENV, environment.getProperty(MOSIP_BASE_URL));
 	}
 
 }

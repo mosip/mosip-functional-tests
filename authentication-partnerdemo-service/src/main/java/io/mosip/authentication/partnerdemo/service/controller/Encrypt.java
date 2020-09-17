@@ -62,6 +62,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.authentication.core.logger.IdaLogger;
+import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.partnerdemo.service.dto.CryptomanagerRequestDto;
 import io.mosip.authentication.partnerdemo.service.dto.EncryptionRequestDto;
 import io.mosip.authentication.partnerdemo.service.dto.EncryptionResponseDto;
@@ -174,7 +175,7 @@ public class Encrypt {
 		String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
-		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(), secretKey);
+		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
 		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));	
 		String publicKeyStr = getPublicKey(identityBlock, refId);
 		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
@@ -182,7 +183,7 @@ public class Encrypt {
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
 		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
 		byte[] byteArr = cryptoUtil.symmetricEncrypt(
-				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes())).getBytes(), secretKey);
+				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
 	}
@@ -190,6 +191,7 @@ public class Encrypt {
 	@PostMapping(path = "/encryptBiometricValue")
 	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue, 
 			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
+			@RequestParam(name="transactionId",required=false) @Nullable String transactionId, 
 			@RequestParam(name="timestamp",required=false) @Nullable boolean isInternal)
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
@@ -212,9 +214,10 @@ public class Encrypt {
 		restTemplate.setInterceptors(Collections.singletonList(interceptor));
 		
 		
-		byte[] saltLastBytes = getLastBytes(timestamp, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
+		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
+		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
 		String salt = CryptoUtil.encodeBase64(saltLastBytes);
-		byte[] aadLastBytes = getLastBytes(timestamp, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
+		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
@@ -236,6 +239,13 @@ public class Encrypt {
 		return null ;
 	}
 	
+	/**
+	 * Gets the last bytes.
+	 *
+	 * @param timestamp the timestamp
+	 * @param lastBytesNum the last bytes num
+	 * @return the last bytes
+	 */
 	private byte[] getLastBytes(String timestamp, int lastBytesNum) {
 		assert(timestamp.length() >= lastBytesNum);
 		return timestamp.substring(timestamp.length() - lastBytesNum).getBytes();
