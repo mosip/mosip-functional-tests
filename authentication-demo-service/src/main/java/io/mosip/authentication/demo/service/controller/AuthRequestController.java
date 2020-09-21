@@ -293,7 +293,7 @@ public class AuthRequestController {
 				if(txnIdObj == null) {
 					dataMap.put(TRANSACTION_ID, transactionIdArg == null ? "1234567890" : transactionIdArg);
 				}
-				String transactionId = String.valueOf(TRANSACTION_ID);
+				String transactionId = String.valueOf(dataMap.get(TRANSACTION_ID));
 
 
 				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp, transactionId, isInternal);
