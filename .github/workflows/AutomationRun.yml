@@ -46,17 +46,4 @@ jobs:
         mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
         ls -lrt
         java -Dmaven.test.failure.ignore=true -Dmaven.test.failure.ignore=true -Denv.user=${{github.event.inputs.env}} -Denv.endpoint=https://${{github.event.inputs.baseUrl}} -Denv.testLevel=${{github.event.inputs.testLevel}} -DuserID=110022 -Dmodules=${{github.event.inputs.modules}} -jar ./target/automationtests-1.0.10-jar-with-dependencies.jar
-    - name: ✨ Send email, you star
-      uses: singhkshitij/announcerr@v2.0
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: mosipidentity
-        password: mosip2020
-        subject: Test mail
-        body: body with attachment
-        to: ravi.kant2@mindtree.com
-        from: mosipidentity@gmail.com
-        content_type: text/plain
-        attachments: /testng-report/MOSIP_ModuleLevelAutoRun_TestNGReport.html    
-        
+    
