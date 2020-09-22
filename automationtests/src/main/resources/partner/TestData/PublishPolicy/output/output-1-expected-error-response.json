@@ -1,0 +1,13 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-09-16T17:08:18.645Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_POL_020",
+            "message": "Can not publish the published policy"
+        }
+    ]
+}

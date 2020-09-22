@@ -4,7 +4,7 @@ testdata:
          mispId: MISP-FUN-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
-         licenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
+         licenseKey: $IGNORE$
          licenseKeyExpiry: $IGNORE$
          licenseKeyStatus: Active 
          id: $IGNORE$

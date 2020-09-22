@@ -1,16 +1,4 @@
 testdata:
-   Partner_ActivateDeactivateMISPLincense_All_Valid_Smoke:
-      input.activate-misp-request:
-         mispId: MISP-FUN-ID-01
-         mispStatus: Active
-         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
-         RmispLicenseKeyStatus: Active
-      output.output-1-expected-pos-response:
-         responsetime: $IGNORE$
-         mispLicenseKeyStatus: $input.activate-misp-request:RmispLicenseKeyStatus$
-         id: $IGNORE$
-         version: $IGNORE$
-         
    Partner_ActivateDeactivateMISPLincense_DeActive:
       input.activate-misp-request:
          mispId: MISP-FUN-ID-01
@@ -44,21 +32,6 @@ testdata:
          mispStatus: De-Active
          mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
          RmispLicenseKeyStatus: De-Active
-      output.output-1-expected-error-response:
-         responsetime: $IGNORE$
-         errorCodeerrors0: PMS_MSP_007
-         messageerrors0: $IGNORE$
-         id: $IGNORE$
-         version: $IGNORE$
-         response: $IGNORE$
-         metadata: $IGNORE$
-     
-   Partner_ActivateDeactivateMISPLincense_AA_Invalid_Parameter:
-      input.activate-misp-request:
-         mispId: MISP-FUN-ID-01
-         mispStatus: Actiivesss
-         mispLicenseKey: r9YUOi2BvC9QVdZP5snsCeonXqdEZ9rQ0TroekqHMhX3c8mPfrtestfun
-         RmispLicenseKeyStatus: Actiivesss
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: PMS_MSP_007

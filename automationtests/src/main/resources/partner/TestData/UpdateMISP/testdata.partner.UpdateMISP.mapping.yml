@@ -76,7 +76,6 @@ testdata:
       input.update-misp-request3:
          mispId: MISP-FUN-ID-01
          organizationName: Telecom
-         RcontactNumber: 9840587080
          RemailId: misp@telecom.com
          RmispID: MISP-FUN-ID-01
          Raddress: HSR Bangalore
@@ -100,14 +99,12 @@ testdata:
          Rname: MISP_Test0002
          Raddress: HSR Bangalore
          status_code: Active
-      output.output-1-expected-pos-response:
+      output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         name: $input.update-misp-request:Rname$
-         contactNumber: $input.update-misp-request:RcontactNumber$
-         emailId: $IGNORE$
-         address: $input.update-misp-request:Raddress$
-         mispID: $input.update-misp-request:RmispID$
+         errorCodeerrors0: PMS_MSP_004
+         messageerrors0: Invalid email id.
          id: $IGNORE$
+         metadata: $IGNORE$
          version: $IGNORE$
 
          

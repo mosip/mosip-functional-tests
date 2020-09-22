@@ -1563,6 +1563,16 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
+	
+	protected Response postRequestWithCookieforPublishPolicy(JSONObject objectData, String url,String cookieName, String cookieValue) {
+		try {
+			return RestClient
+					.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}
 } 
 
 

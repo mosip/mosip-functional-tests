@@ -49,10 +49,10 @@ public class GetPolicyBasedOnPolicyId extends PartnerTestUtil implements ITest {
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp"))
+		String createPolicyGroupQuery = partnerQueries.get("createPolicyGroup").toString();
+		String createAuthPolicyQuery = partnerQueries.get("createAuthPolicy").toString();
+		if (masterDB.executeQuery(createPolicyGroupQuery, "pms")
+				&& masterDB.executeQuery(createAuthPolicyQuery, "pms"))
 			logger.info("GetPolicyBasedOnPolicyId with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to GetPolicyBasedOnPolicyId using query from partnerQueries.properties");
@@ -202,8 +202,8 @@ public class GetPolicyBasedOnPolicyId extends PartnerTestUtil implements ITest {
 	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteAuthPolicy").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePolicyGroup").toString(), "pms"))
 			logger.info("delete GetPolicyBasedOnPolicyId all Register Partner data successfully");
 		else {
 			logger.info("not able to delete GetPolicyBasedOnPolicyId data using query from query.properties");

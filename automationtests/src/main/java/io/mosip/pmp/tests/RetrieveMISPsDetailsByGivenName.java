@@ -50,7 +50,7 @@ public class RetrieveMISPsDetailsByGivenName extends PartnerTestUtil implements 
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createQuery = partnerQueries.get("createMISP").toString();
-		if (masterDB.executeQuery(createQuery, "pmp"))
+		if (masterDB.executeQuery(createQuery, "pms"))
 			logger.info("RetrieveMISPsDetailsByGivenName with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to RetrieveMISPsDetailsByGivenName using query from partnerQueries.properties");
@@ -200,7 +200,7 @@ public class RetrieveMISPsDetailsByGivenName extends PartnerTestUtil implements 
 	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("delete RetrieveMISPsDetailsByGivenName all data successfully");
 		else {
 			logger.info("not able to delete RetrieveMISPsDetailsByGivenName data using query from query.properties");
