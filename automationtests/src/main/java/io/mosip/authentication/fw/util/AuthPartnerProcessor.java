@@ -56,15 +56,15 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 	private static String getDemoAppJarPath() {
 		if (getOSType().toString().equals("WINDOWS")) {
 			return "C:/Users/" + System.getProperty("user.name")
-					+ "/.m2/repository/io/mosip/authentication/authentication-partnerdemo-service/"
-					+ getDemoAppVersion()+ "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar";
+					+ "/.m2/repository/io/mosip/authentication/authentication-demo-service/"
+					+ getDemoAppVersion()+ "/authentication-demo-service-" + getDemoAppVersion() + ".jar";
 		} else {
 			DEMOAPP_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
 			String mavenPath = RunConfigUtil.getLinuxMavenPath();
 			String settingXmlPath = mavenPath + "/conf/settings.xml";
 			String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
-			return repoPath + "/io/mosip/authentication/authentication-partnerdemo-service/" + getDemoAppVersion()
-					+ "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar";
+			return repoPath + "/io/mosip/authentication/authentication-demo-service/" + getDemoAppVersion()
+					+ "/authentication-demo-service-" + getDemoAppVersion() + ".jar";
 		}
 	}
 	
