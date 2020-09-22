@@ -1,0 +1,46 @@
+testdata: 
+  Partner_UpdatePolicyStatus_All_Valid_Smoke: 
+    input.update-partner-request: 
+      status: "PUBLISHED"
+      policyID: POLICY-AUTH-ID-01
+      policyGroupId: POLICY-GROUP-ID-01
+    output.output-1-expected-pos-response: 
+      message: "status updated successfully"
+      id: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_UpdatePolicyStatus_With_Invalid_policyGroupId: 
+    input.update-partner-request: 
+      status: "PUBLISHED"
+      policyID: POLICY-AUTH-ID-01
+      policyGroupId: POLICY-GROUP-ID-00001
+    output.output-1-expected-error-response: 
+      errorCodeerrors0: PMS_POL_016
+      id: $IGNORE$
+      messageerrors0: "Policy Group ID does not exist"
+      metadata: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_UpdatePolicyStatus_With_Invalid_policyID: 
+    input.update-partner-request: 
+      status: "PUBLISHED"
+      policyID: POLICY-AUTH-ID-00001
+      policyGroupId: POLICY-GROUP-ID-01
+    output.output-1-expected-error-response: 
+      errorCodeerrors0: PMS_POL_008
+      id: $IGNORE$
+      messageerrors0: "Policy ID does not exist"
+      metadata: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_UpdatePolicyStatus_With_Missing_Input_Parameter_status: 
+    input.update-partner-request2: 
+      policyID: POLICY-AUTH-ID-01
+      policyGroupId: POLICY-GROUP-ID-01
+    output.output-1-expected-error-response: 
+      errorCodeerrors0: PMS_COR_003
+      id: $IGNORE$
+      messageerrors0: Could not process the request
+      metadata: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$

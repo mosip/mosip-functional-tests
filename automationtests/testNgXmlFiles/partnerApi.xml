@@ -13,7 +13,7 @@
 	<test name="Partner Tests">
 		<classes>
 		
-			<class name="io.mosip.pmp.tests.RegisterPartner" />
+			<!-- <class name="io.mosip.pmp.tests.RegisterPartner" />
 			<class name="io.mosip.pmp.tests.RetrievePartner" />
 			<class name="io.mosip.pmp.tests.UpdatePartner" />
 			<class name="io.mosip.pmp.tests.SubmitPartnerApiKeyReq" />
@@ -25,25 +25,34 @@
 			<class name="io.mosip.pmp.tests.RetrieveParticularPartnerDetailsForGivenPartnerId" /> 
 			<class name="io.mosip.pmp.tests.RetrieveTheRequestForPartnerAPIKeyForGivenRequestId" />
 			<class name="io.mosip.pmp.tests.RetrievePartnerAPIkeyToPolicyMappings" /> 
-			<class name="io.mosip.pmp.tests.UpdatePartnerApikeyToPolicyMappings" />
+			<class name="io.mosip.pmp.tests.UpdatePartnerApikeyToPolicyMappings" /> -->
 			
 			
 			<class name="io.mosip.pmp.tests.CreatePolicyGroup" />
-			<class name="io.mosip.pmp.tests.GetPolicyBasedOnPolicyId" />
-			<class name="io.mosip.pmp.tests.RetrievePartnerPolicyDetailsForGivenPartnerAPIKey" />
 			<class name="io.mosip.pmp.tests.UpdateExistingPolicyForPolicyGroup" />
-			<class name="io.mosip.pmp.tests.UpdateTheStatusActivateDeactivateForTheGivenPolicyId" />
+			<class name="io.mosip.pmp.tests.DefinePolicy" />
+			<class name="io.mosip.pmp.tests.UpdatePolicyDetails" />
+			<class name="io.mosip.pmp.tests.UpdatePolicyStatus" /> 
+			<class name="io.mosip.pmp.tests.PublishPolicy" />
+			<class name="io.mosip.pmp.tests.GetPolicyBasedOnPolicyId" />
+			<class name="io.mosip.pmp.tests.GetPolicyGroup" />
+			<class name="io.mosip.pmp.tests.GetPolicyAgainstApiKey" />
+			<class name="io.mosip.pmp.tests.GetPartnersPolicy" />
+		
+			
 			
 			<class name="io.mosip.pmp.tests.CreateMISP" />
-			<class name="io.mosip.pmp.tests.UpdateMISP" />
+			<class name="io.mosip.pmp.tests.UpdateMISP" /> 
 			<class name="io.mosip.pmp.tests.ApproveMISP" />
 			<class name="io.mosip.pmp.tests.RejectMISP" />
 			<class name="io.mosip.pmp.tests.RetrieveMISPByMispID" />
-			<class name="io.mosip.pmp.tests.ValidateMISPLicense" />
-			<class name="io.mosip.pmp.tests.ActivateDeactivateMISPLincense" /> 
 			<class name="io.mosip.pmp.tests.RetrieveMISPsDetailsByGivenName" />
 			<class name="io.mosip.pmp.tests.UpdateMispStatusByMispId" />
 			<class name="io.mosip.pmp.tests.DownloadMispLicenseKey" />
+			<class name="io.mosip.pmp.tests.ValidateMISPLicense" />
+			<class name="io.mosip.pmp.tests.ActivateDeactivateMISPLincense" />
+			
+			
 			
 			
 		</classes>

@@ -51,7 +51,7 @@ public class RejectMISP extends PartnerTestUtil implements ITest {
 
 		this.testType = RunConfigUtil.getTestLevel();
 		String createMISIPQuery = partnerQueries.get("createMISP").toString();
-		if (masterDB.executeQuery(createMISIPQuery, "pmp"))
+		if (masterDB.executeQuery(createMISIPQuery, "pms"))
 
 			logger.info("RejectMISP Test successfully using query from partnerQueries.properties");
 		else
@@ -192,7 +192,7 @@ public class RejectMISP extends PartnerTestUtil implements ITest {
 
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("deleted all RejectMISP data successfully");
 		else {
 			logger.info("not able to delete RejectMISP data using query from query.properties");

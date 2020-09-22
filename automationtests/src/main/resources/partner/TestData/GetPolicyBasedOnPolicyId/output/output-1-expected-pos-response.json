@@ -1,108 +1,53 @@
 {
     "id": null,
     "version": null,
-    "responsetime": "2020-06-20T12:38:23.264Z",
+    "responsetime": "2020-09-17T09:09:18.678Z",
     "response": {
-        "policy": {
-            "id": "MOSIP-POLICY-ID-01",
-            "crBy": "pm_testuser",
-            "crDtimes": "2020-05-14T09:48:43.394",
-            "delDtimes": null,
-            "descr": "DESCR MOSIP POLICY",
-            "isActive": true,
-            "isDeleted": false,
-            "name": "MOSIP POLICY",
-            "updBy": null,
-            "updDtimes": null,
-            "userId": "pm_testuser"
-        },
+        "policyGroupId": "POLICY-GROUP-ID-01",
+        "policyGroupName": "MOSIP POLICY GROUP",
+        "policyGroupDesc": "DESCR MOSIP POLICY GROUP",
+        "policyGroupStatus": true,
+        "policyGroup_cr_by": "pm_testuser",
+        "policyGroup_cr_dtimes": "2020-05-14T09:48:43.394",
+        "policyGroup_up_by": null,
+        "policyGroup_upd_dtimes": null,
+        "policyId": "POLICY-AUTH-ID-01",
+        "policyName": "MOSIP AUTH POLICY",
+        "policyDesc": "DESC MOSIP AUTH POLICY",
+        "policyType": "Auth",
+        "publishDate": "2020-09-16T02:50:33.344",
+        "validTill": "2020-10-16T02:50:33.344",
+        "status": "DRAFTED",
+        "version": "1.0",
+        "schema": null,
+        "is_Active": false,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-09-16T02:50:33.344",
+        "up_by": null,
+        "upd_dtimes": null,
         "policies": {
-            "authPolicies": [
-                {
-                    "authType": "otp",
-                    "authSubType": null,
-                    "mandatory": true
-                },
-                {
-                    "authType": "demo",
-                    "authSubType": null,
-                    "mandatory": false
-                },
+            "allowedAuthTypes": [
                 {
                     "authType": "bio",
                     "authSubType": "FINGER",
-                    "mandatory": false
-                },
-                {
-                    "authType": "bio",
-                    "authSubType": "IRIS",
-                    "mandatory": false
-                },
-                {
-                    "authType": "bio",
-                    "authSubType": "FACE",
-                    "mandatory": false
-                },
-                {
-                    "authType": "kyc",
-                    "authSubType": null,
-                    "mandatory": false
+                    "mandatory": true
                 }
             ],
-            "allowedKycAttributes": [
+            "shareableAttributes": [
                 {
-                    "attributeName": "fullName",
-                    "required": true
-                },
-                {
-                    "attributeName": "dateOfBirth",
-                    "required": true
-                },
-                {
-                    "attributeName": "gender",
-                    "required": true
-                },
-                {
-                    "attributeName": "phone",
-                    "required": true
-                },
-                {
-                    "attributeName": "email",
-                    "required": true
-                },
-                {
-                    "attributeName": "addressLine1",
-                    "required": false
-                },
-                {
-                    "attributeName": "addressLine2",
-                    "required": false
-                },
-                {
-                    "attributeName": "addressLine3",
-                    "required": false
-                },
-                {
-                    "attributeName": "location1",
-                    "required": false
-                },
-                {
-                    "attributeName": "location2",
-                    "required": false
-                },
-                {
-                    "attributeName": "location3",
-                    "required": false
-                },
-                {
-                    "attributeName": "postalCode",
-                    "required": false
-                },
-                {
-                    "attributeName": "photo",
-                    "required": false
+                    "encrypted": true,
+                    "format": "string",
+                    "attributeName": "string"
                 }
-            ]
+            ],
+            "dataSharePolicies": {
+                "validForInMinutes": "string",
+                "transactionsAllowed": "string",
+                "encryptionType": "string",
+                "shareDomain": "string",
+                "typeOfShare": "string"
+            },
+            "authTokenType": "partner"
         }
     },
     "errors": []

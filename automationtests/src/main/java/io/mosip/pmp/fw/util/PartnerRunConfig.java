@@ -119,8 +119,71 @@ public class PartnerRunConfig extends RunConfig {
     private String updateExistingPolicyForPolicyGroupPath;
     private String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath;
     private String retrievePartnerAPIkeyToPolicyMappingsPath;
+    private String definePolicyPath;
+    private String updatePolicyDetailsPath;
+    private String updatePolicyStatusPath;
+    private String publishPolicyPath;
+    private String getPolicyGroupPath;
+    private String getPolicyAgainstApiKeyPath;
+    private String getPartnersPolicyPath;
     
    
+
+	public String getGetPartnersPolicyPath() {
+		return getPartnersPolicyPath;
+	}
+
+	public void setGetPartnersPolicyPath(String getPartnersPolicyPath) {
+		this.getPartnersPolicyPath = getPartnersPolicyPath;
+	}
+
+	public String getGetPolicyAgainstApiKeyPath() {
+		return getPolicyAgainstApiKeyPath;
+	}
+
+	public void setGetPolicyAgainstApiKeyPath(String getPolicyAgainstApiKeyPath) {
+		this.getPolicyAgainstApiKeyPath = getPolicyAgainstApiKeyPath;
+	}
+
+	public String getGetPolicyGroupPath() {
+		return getPolicyGroupPath;
+	}
+
+	public void setGetPolicyGroupPath(String getPolicyGroupPath) {
+		this.getPolicyGroupPath = getPolicyGroupPath;
+	}
+
+	public String getPublishPolicyPath() {
+		return publishPolicyPath;
+	}
+
+	public void setPublishPolicyPath(String publishPolicyPath) {
+		this.publishPolicyPath = publishPolicyPath;
+	}
+
+	public String getUpdatePolicyStatusPath() {
+		return updatePolicyStatusPath;
+	}
+
+	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
+		this.updatePolicyStatusPath = updatePolicyStatusPath;
+	}
+
+	public String getUpdatePolicyDetailsPath() {
+		return updatePolicyDetailsPath;
+	}
+
+	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
+		this.updatePolicyDetailsPath = updatePolicyDetailsPath;
+	}
+
+	public String getDefinePolicyPath() {
+		return definePolicyPath;
+	}
+
+	public void setDefinePolicyPath(String definePolicyPath) {
+		this.definePolicyPath = definePolicyPath;
+	}
 
 	private String createMISPPath;
     private String updateMISPPath;
@@ -466,6 +529,18 @@ public class PartnerRunConfig extends RunConfig {
 		setRetrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath(PartnerTestUtil.getPropertyValue("retrievePartnerPolicyDetailsForGivenPartnerAPIKeyPath"));
 		setUpdateExistingPolicyForPolicyGroupPath(PartnerTestUtil.getPropertyValue("updateExistingPolicyForPolicyGroupPath"));
 		setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(PartnerTestUtil.getPropertyValue("updateTheStatusActivateDeactivateForTheGivenPolicyIdPath"));
+		setDefinePolicyPath(PartnerTestUtil.getPropertyValue("definePolicyPath"));
+		setUpdatePolicyDetailsPath(PartnerTestUtil.getPropertyValue("updatePolicyDetailsPath"));
+		setUpdatePolicyStatusPath(PartnerTestUtil.getPropertyValue("updatePolicyStatusPath"));
+		setPublishPolicyPath(PartnerTestUtil.getPropertyValue("publishPolicyPath"));
+		setGetPolicyGroupPath(PartnerTestUtil.getPropertyValue("getPolicyGroupPath"));
+		setGetPolicyAgainstApiKeyPath(PartnerTestUtil.getPropertyValue("getPolicyAgainstApiKeyPath"));
+		setGetPartnersPolicyPath(PartnerTestUtil.getPropertyValue("getPartnersPolicyPath"));
+		
+		
+		
+		
+		
 		
 		setCreateMISPPath(PartnerTestUtil.getPropertyValue("createMISPPath"));
 		setUpdateMISPPath(PartnerTestUtil.getPropertyValue("updateMISPPath"));
