@@ -1,0 +1,22 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-09-17T11:23:28.226Z",
+    "response": {
+        "policyGroup": {
+            "id": "POLICY-GROUP-ID-01",
+            "crBy": "pm_testuser",
+            "crDtimes": "2020-05-14T09:48:43.394",
+            "delDtimes": null,
+            "descr": "DESCR MOSIP POLICY GROUP",
+            "isActive": true,
+            "isDeleted": false,
+            "name": "MOSIP POLICY GROUP",
+            "updBy": null,
+            "updDtimes": null,
+            "userId": "pm_testuser"
+        },
+        "policies": []
+    },
+    "errors": []
+}

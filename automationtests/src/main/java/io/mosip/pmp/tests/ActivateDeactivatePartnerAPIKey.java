@@ -53,10 +53,10 @@ public class ActivateDeactivatePartnerAPIKey extends PartnerTestUtil implements 
 		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
 		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
 		String createPartApiKey = partnerQueries.get("createPartnerAPIKey").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp")
-				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
-				&& masterDB.executeQuery(createPartApiKey, "pmp"))
+		if (masterDB.executeQuery(createPolicyQuery, "pms")
+				&& masterDB.executeQuery(createAuthQuery, "pms")
+				&& masterDB.executeQuery(registerPartnerQuery, "pms")
+				&& masterDB.executeQuery(createPartApiKey, "pms"))
 			logger.info("ActivateDeactivatePartnerAPIKey Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to ActivateDeactivatePartnerAPIKey using query from partnerQueries.properties");
@@ -190,10 +190,10 @@ public class ActivateDeactivatePartnerAPIKey extends PartnerTestUtil implements 
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pms"))
 			logger.info("deleted all activatePartner data successfully");
 		else {
 			logger.info("not able to delete activatePartner data using query from query.properties");

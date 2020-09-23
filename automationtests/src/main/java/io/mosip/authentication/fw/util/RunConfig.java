@@ -557,6 +557,20 @@ public abstract class RunConfig {
 		public abstract void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath);
 		public abstract String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
 		
+		public abstract String getDefinePolicyPath();
+		public abstract void setDefinePolicyPath(String definePolicyPath);
+		public abstract void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath);
+		public abstract String getUpdatePolicyDetailsPath();
+		public abstract void setUpdatePolicyStatusPath(String updatePolicyStatusPath);
+		public abstract String getUpdatePolicyStatusPath();
+		public abstract String getPublishPolicyPath();
+		public abstract void setPublishPolicyPath(String publishPolicyPath);
+		public abstract String getGetPolicyGroupPath();
+		public abstract String getGetPolicyAgainstApiKeyPath();
+		public abstract String getGetPartnersPolicyPath();
+		
+		
+		
 		
 		public abstract String getCreateMISPPath();
 		public abstract void setUpdateMISPPath(String updateMISPPath);

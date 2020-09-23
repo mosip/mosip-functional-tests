@@ -52,9 +52,9 @@ public class ActivatePartner extends PartnerTestUtil implements ITest {
 		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
 		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
 		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp")
-				&& masterDB.executeQuery(registerPartnerQuery, "pmp"))
+		if (masterDB.executeQuery(createPolicyQuery, "pms")
+				&& masterDB.executeQuery(createAuthQuery, "pms")
+				&& masterDB.executeQuery(registerPartnerQuery, "pms"))
 			logger.info("ActivatePartner Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to ActivatePartner using query from partnerQueries.properties");
@@ -188,9 +188,9 @@ public class ActivatePartner extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pms"))
 			logger.info("deleted all activatePartner data successfully");
 		else {
 			logger.info("not able to delete activatePartner data using query from query.properties");

@@ -183,9 +183,11 @@ public class CreatePolicyGroup extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAuthH").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (
+				//masterDB.executeQuery(partnerQueries.get("deletePartnerAuthH").toString(), "pms")
+				//&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pms")
+				//&& 
+				masterDB.executeQuery(partnerQueries.get("deletePolicyGroup").toString(), "pms"))
 			logger.info("deleted all CreatePolicyGroup data successfully");
 		else {
 			logger.info("not able to delete CreatePolicyGroup data using query from query.properties");
