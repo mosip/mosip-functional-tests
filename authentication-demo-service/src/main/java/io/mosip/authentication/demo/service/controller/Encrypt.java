@@ -192,7 +192,7 @@ public class Encrypt {
 	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue, 
 			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
 			@RequestParam(name="transactionId",required=false) @Nullable String transactionId, 
-			@RequestParam(name="timestamp",required=false) @Nullable boolean isInternal)
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal)
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			InvalidKeySpecException {
