@@ -161,8 +161,6 @@ male_gender_arabic_valid:
       - الذكر
 female_gender_arabic_valid:
       - أنثى
-other_gender_arabic_valid:
-      - الآخرين
 female_gender_eng_valid:
       - Female
 other_gender_eng_valid:
