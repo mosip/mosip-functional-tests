@@ -172,8 +172,8 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
+			//AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
+			//AdminTestUtil.createMasterDataForAdminFilterSearchApis();
 			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
@@ -209,15 +209,14 @@ public class BaseTestCase {
 		}
 		
 		//inserting device management data
-		if(insertDevicedata) {
-			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
-			if(deviceCount!=6) {
-			AdminTestUtil.deleteDeviceManagementData();
-			logger.info("Inserting device management data");
-			AdminTestUtil.createDeviceManagementData();
-			}
-		}
-
+		/*
+		 * if(insertDevicedata) { long deviceCount = new
+		 * KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").
+		 * toString(), "masterdata"); if(deviceCount!=6) {
+		 * AdminTestUtil.deleteDeviceManagementData();
+		 * logger.info("Inserting device management data");
+		 * AdminTestUtil.createDeviceManagementData(); } }
+		 */
 	} // End suiteSetup
 
 		

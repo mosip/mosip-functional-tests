@@ -1,0 +1,23 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2020-09-22T12:25:03.768Z",
+  "metadata": null,
+  "response": {
+    "genderType": [
+      {
+        "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "FLE",
+        "genderName": "Female",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  },
+  "errors": null
+}

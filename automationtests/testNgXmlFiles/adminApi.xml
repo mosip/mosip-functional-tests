@@ -12,7 +12,9 @@
 	</listeners>
 	<test name="Admin Tests">
 		<classes>
- 			 <class name="io.mosip.admin.tests.CreateDevice" />
+			<class name="io.mosip.admin.tests.GenderSearch" />
+			
+<!--  			 <class name="io.mosip.admin.tests.CreateDevice" />
 			<class name="io.mosip.admin.tests.CreateDocumentType" />
 			<class name="io.mosip.admin.tests.CreateMachine" />
 			<class name="io.mosip.admin.tests.CreateRegistrationCenter" />
@@ -30,7 +32,7 @@
 			<class name="io.mosip.admin.tests.DeviceTypeFilter" />
 			<class name="io.mosip.admin.tests.DocCatTypMapSearch" />
 			<class name="io.mosip.admin.tests.DeviceValidate" />
-			<!-- <class name="io.mosip.admin.tests.DeviceValidateHistory" /> -->
+			<class name="io.mosip.admin.tests.DeviceValidateHistory" />
 			<class name="io.mosip.admin.tests.FetchPacketStatus" />
 			<class
 				name="io.mosip.admin.tests.FetchRegCenterWorkingDays_kernel" />
@@ -121,7 +123,7 @@
 			<class name="io.mosip.admin.tests.UpdateIndividualType" />
 			
 			
-		</classes>
+ -->		</classes>
 
 	</test>
 
