@@ -1,11 +1,11 @@
 {
-    "id": "mosip.partnermanagement.partners.create",
-    "version": "1.0",
-    "responsetime": "2020-05-25T16:34:09.330Z",
+    "id": "string",
+    "version": "string",
+    "responsetime": "2020-09-24T02:14:56.796Z",
     "metadata": null,
     "response": null,
     "errors": {
-        "errorCode": "PMS_PRT_001",
-        "message": "A Partner is already registered with the same Name"
+        "errorCode": "PMS_PRT_002",
+        "message": "Policy Group does not exist"
     }
 }

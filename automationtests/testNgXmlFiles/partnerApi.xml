@@ -13,13 +13,15 @@
 	<test name="Partner Tests">
 		<classes>
 		
-			<!-- <class name="io.mosip.pmp.tests.RegisterPartner" />
-			<class name="io.mosip.pmp.tests.RetrievePartner" />
+			<class name="io.mosip.pmp.tests.RegisterPartner" />
+			<class name="io.mosip.pmp.tests.UpdatePartner" />
+			
+			<!-- <class name="io.mosip.pmp.tests.RetrievePartner" />
 			<class name="io.mosip.pmp.tests.UpdatePartner" />
 			<class name="io.mosip.pmp.tests.SubmitPartnerApiKeyReq" />
-			<class name="io.mosip.pmp.tests.ApiKeyReqStatus" />
+			<class name="io.mosip.pmp.tests.ApiKeyReqStatus" /> -->
 			
-			<class name="io.mosip.pmp.tests.ActivatePartner" />
+			<!-- <class name="io.mosip.pmp.tests.ActivatePartner" />
 			<class name="io.mosip.pmp.tests.ActivateDeactivatePartnerAPIKey" />
 			<class name="io.mosip.pmp.tests.ApproveRejectPartnerAPIKeyReq" />
 			<class name="io.mosip.pmp.tests.RetrieveParticularPartnerDetailsForGivenPartnerId" /> 
