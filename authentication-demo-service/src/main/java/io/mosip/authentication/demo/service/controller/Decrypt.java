@@ -1,7 +1,12 @@
 package io.mosip.authentication.demo.service.controller;
 
+import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_AAD_LAST_BYTES_NUM;
+import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_SALT_LAST_BYTES_NUM;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -9,6 +14,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -36,6 +46,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.authentication.core.logger.IdaLogger;
+import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.CryptomanagerRequestDto;
 import io.mosip.kernel.core.http.RequestWrapper;
@@ -117,6 +128,56 @@ public class Decrypt {
 			refId = getRefId(isInternal, isBiometrics);
 		}
 		return kernelDecrypt(data, refId, salt, aad);
+	}
+	
+	@PostMapping(path = "/decryptBiometricValue")
+	public String decryptBiometrics(@RequestBody String encryptedBioValue, 
+			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
+			@RequestParam(name="transactionId",required=false) @Nullable String transactionId, 
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal)
+			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
+			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
+			InvalidKeySpecException {
+		Encrypt.turnOffSslChecking();
+		RestTemplate restTemplate = new RestTemplate();
+		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
+
+			@Override
+			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+					throws IOException {
+				String authToken = generateAuthToken();
+				if(authToken != null && !authToken.isEmpty()) {
+					request.getHeaders().set("Cookie", "Authorization=" + authToken);
+				}
+				return execution.execute(request, body);
+			}
+		};
+
+		restTemplate.setInterceptors(Collections.singletonList(interceptor));
+		
+		
+		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
+		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
+		String salt = CryptoUtil.encodeBase64(saltLastBytes);
+		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
+		String aad = CryptoUtil.encodeBase64(aadLastBytes);
+
+		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
+		request.setApplicationId(appID);
+		request.setSalt(salt);
+		request.setAad(aad);
+		request.setReferenceId(getRefId(isInternal, true));
+		request.setData(encryptedBioValue);
+		request.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
+		
+		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(request));
+		ResponseEntity<Map> response = restTemplate.exchange(decryptURL, HttpMethod.POST, httpEntity, Map.class);
+		
+		if(response.getStatusCode() == HttpStatus.OK) {
+			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
+			return responseData;
+		}
+		return null ;
 	}
 	
 	private String getRefId(boolean isInternal, boolean isBiometrics) {
