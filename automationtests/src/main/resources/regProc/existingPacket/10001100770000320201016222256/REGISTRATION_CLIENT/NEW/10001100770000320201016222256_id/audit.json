@@ -1,0 +1,20 @@
+[ {
+  "actionTimeStamp" : "2020-07-23T06:47:28.845Z",
+  "applicationId" : "REGISTRATION1",
+  "applicationName" : "REGISTRATION",
+  "createdAt" : "2020-07-23T06:47:28.845Z",
+  "createdBy" : "REGISTRATION",
+  "description" : "REGISTRATION",
+  "eventId" : "REGISTRATION",
+  "eventName" : "REGISTRATION",
+  "eventType" : "REGISTRATION",
+  "hostIp" : "REGISTRATION",
+  "hostName" : "REGISTRATION",
+  "id" : "REGISTRATION",
+  "idType" : "REGISTRATION",
+  "moduleId" : "string",
+  "moduleName" : "string",
+  "sessionUserId" : "string",
+  "sessionUserName" : "string",
+  "uuid" : "string"
+} ]
