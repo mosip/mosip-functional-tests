@@ -1,35 +1,9 @@
 {
-  "id": "mosip.partnermanagement.policy.create",
-  "version": "1.0",
-  "requesttime": "2019-05-20T09:48:43.394Z",
+  "id": "string",
   "metadata": {},
   "request": {
-       "desc": "string",
-       "policies": {
-            "authPolicies": [     
-                {"authType": "otp","mandatory": false},
-                {"authType":"otp-request","authSubType":null,"mandatory":false},
-                {"authType": "demo","mandatory": false},
-                {"authType": "bio","authSubType": "FINGER","mandatory": false},
-                {"authType": "bio","authSubType": "IRIS","mandatory": false},
-                {"authType": "bio","authSubType": "FACE","mandatory": false},
-                {"authType": "kyc","mandatory": false}
-            ],
-            "allowedKycAttributes": [  
-                {"attributeName": "fullName","required": true},
-                {"attributeName": "dateOfBirth","required": false},
-                {"attributeName": "gender","required": false},
-                {"attributeName": "phone","required": false},
-                {"attributeName": "email","required": false},
-                {"attributeName": "addressLine1","required": false},
-                {"attributeName": "addressLine2","required": false},
-                {"attributeName": "addressLine3","required": false},
-                {"attributeName": "location1","required": false},
-                {"attributeName": "location2","required": false},
-                {"attributeName": "location3","required": false},
-                {"attributeName": "postalCode","required": false},
-                {"attributeName": "photo","required": false}
-            ]
-        }
-    }
+    "desc": "DESCR MOSIP POLICY GROUP"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
 }

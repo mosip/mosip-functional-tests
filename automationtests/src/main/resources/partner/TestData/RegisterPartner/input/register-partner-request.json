@@ -6,8 +6,9 @@
     "contactNumber": "string",
     "emailId": "string",
     "organizationName": "string",
+    "partnerType": "string",
     "policyGroup": "string"
   },
-  "requesttime": "2020-05-20T09:48:43.394Z",
-  "version": "1.0"
+  "requesttime": "2020-09-18T05:00:52.275Z",
+  "version": "string"
 }

@@ -1,0 +1,17 @@
+{
+    "id": "mosip.partnermanagement.policy.create",
+    "version": "1.0",
+    "responsetime": "2020-09-15T10:36:36.390Z",
+    "response": {
+        "id": "867634",
+        "policyGroupName": "MOSIP POLICY GROUP",
+        "name": "MOSIP AUTH POLICY",
+        "desc": "DESC MOSIP AUTH POLICY",
+        "is_Active": false,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-09-15T10:36:36.395864",
+        "up_by": null,
+        "upd_dtimes": null
+    },
+    "errors": []
+}

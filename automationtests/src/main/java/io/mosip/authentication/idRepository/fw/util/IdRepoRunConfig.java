@@ -1955,4 +1955,70 @@ public class IdRepoRunConfig extends RunConfig{
 		return null;
 	}
 
+	@Override
+	public String getDefinePolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDefinePolicyPath(String definePolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPublishPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPublishPolicyPath(String publishPolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getGetPolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPolicyAgainstApiKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPartnersPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

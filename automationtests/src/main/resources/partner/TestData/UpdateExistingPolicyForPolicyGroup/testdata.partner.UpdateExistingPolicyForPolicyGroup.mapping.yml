@@ -1,43 +1,43 @@
 testdata:
    Partner_UpdateExistingPolicyForPolicyGroup_All_Valid_Smoke:
       input.update-partner-request:
-         name: MOSIP POLICY UPDATE
-         desc: DESCR MOSIP POLICY UPDATE
-         policyID: MOSIP-POLICY-ID-01
+         name: MOSIP POLICY GROUP
+         desc: DESCR MOSIP POLICY GROUP UPDATE
+         policyGroupId: POLICY-GROUP-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          id: $IGNORE$
          version: $IGNORE$
-         Rname: MOSIP POLICY UPDATE
-         Rid: MOSIP-POLICY-ID-01
-         _Active: true
-         Rdesc: DESCR MOSIP POLICY UPDATE
+         Rname: MOSIP POLICY GROUP
+         Rid: POLICY-GROUP-ID-01
+         is_Active: true
+         Rdesc: DESCR MOSIP POLICY GROUP UPDATE
          cr_dtimes: $IGNORE$
          upd_dtimes: $IGNORE$
          up_by: $IGNORE$
          cr_by: $IGNORE$
          
-   Partner_UpdateExistingPolicyForPolicyGroup_With_Invalid_policyID:
+   Partner_UpdateExistingPolicyForPolicyGroup_With_Invalid_policyGroupId:
       input.update-partner-request:
-         name: MOSIP POLICY UPDATE
-         desc: DESCR MOSIP POLICY UPDATE
-         policyID: MOSIP-POLICY-ID-001
+         name: MOSIP POLICY GROUP
+         desc: DESCR MOSIP POLICY GROUP UPDATE
+         policyGroupId: POLICY-GROUP-ID-0001
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: PMS_POL_004
-         messageerrors0: $IGNORE$
+         errorCodeerrors0: PMS_POL_008
+         messageerrors0: Policy ID does not exist
          id: $IGNORE$
          metadata: $IGNORE$
          version: $IGNORE$
          
    Partner_UpdateExistingPolicyForPolicyGroup_With_Missing_Input_Parameter:
       input.update-partner-request2:
-         desc: DESCR MOSIP POLICY UPDATE
-         policyID: MOSIP-POLICY-ID-01
+         desc: DESCR MOSIP POLICY GROUP UPDATE
+         policyGroupId: POLICY-GROUP-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: PMS_COR_003
-         messageerrors0: Could not process the request
+         errorCodeerrors0: PMS_COR_001
+         messageerrors0: Missing Input Parameter - request.name
          id: $IGNORE$
          metadata: $IGNORE$
          version: $IGNORE$

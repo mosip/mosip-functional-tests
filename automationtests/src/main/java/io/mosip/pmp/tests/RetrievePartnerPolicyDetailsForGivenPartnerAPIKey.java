@@ -53,9 +53,9 @@ public class RetrievePartnerPolicyDetailsForGivenPartnerAPIKey extends PartnerTe
 		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
 		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
 		String crearePartnerAPIKeyQuery = partnerQueries.get("createPartnerAPIKey").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp") && masterDB.executeQuery(createAuthQuery, "pmp")
-				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
-				&& masterDB.executeQuery(crearePartnerAPIKeyQuery, "pmp"))
+		if (masterDB.executeQuery(createPolicyQuery, "pms") && masterDB.executeQuery(createAuthQuery, "pms")
+				&& masterDB.executeQuery(registerPartnerQuery, "pms")
+				&& masterDB.executeQuery(crearePartnerAPIKeyQuery, "pms"))
 			logger.info(
 					"RetrievePartnerPolicyDetailsForGivenPartnerAPIKey with id as Test successfully using query from partnerQueries.properties");
 		else
@@ -208,10 +208,10 @@ public class RetrievePartnerPolicyDetailsForGivenPartnerAPIKey extends PartnerTe
 
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pms"))
 			logger.info("delete all RetrievePartnerPolicyDetailsForGivenPartnerAPIKey data successfully");
 		else {
 			logger.info(

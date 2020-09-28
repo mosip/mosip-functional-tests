@@ -49,9 +49,9 @@ public class UpdateExistingPolicyForPolicyGroup extends PartnerTestUtil implemen
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp") && masterDB.executeQuery(createAuthQuery, "pmp"))
+		String createPolicyQuery = partnerQueries.get("createPolicyGroup").toString();
+		//String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
+		if (masterDB.executeQuery(createPolicyQuery, "pms"))
 			logger.info("UpdateExistingPolicyForPolicyGroup with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to UpdateExistingPolicyForPolicyGroup using query from partnerQueries.properties");
@@ -190,9 +190,11 @@ public class UpdateExistingPolicyForPolicyGroup extends PartnerTestUtil implemen
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteUpdatePartnerAuthH").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteUpdatePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteUpdatePartnerpolicy").toString(), "pmp"))
+		if (
+				//masterDB.executeQuery(partnerQueries.get("deleteUpdatePartnerAuthH").toString(), "pmp")
+				//&& masterDB.executeQuery(partnerQueries.get("deleteUpdatePartnerAuth").toString(), "pmp")
+				//&& 
+				masterDB.executeQuery(partnerQueries.get("deletePolicyGroup").toString(), "pms"))
 			logger.info("deleted all UpdateExistingPolicyForPolicyGroup data successfully");
 		else {
 			logger.info("not able to delete UpdateExistingPolicyForPolicyGroup data using query from query.properties");
