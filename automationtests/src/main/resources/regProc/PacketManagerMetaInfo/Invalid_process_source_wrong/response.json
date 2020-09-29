@@ -1,0 +1,13 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2020-09-29T07:21:16.517Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-PUT-006",
+      "message": "KER-PUT-006 --> No available provider for given source and process"
+    }
+  ]
+}
