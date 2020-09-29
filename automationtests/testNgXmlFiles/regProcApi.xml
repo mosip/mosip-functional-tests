@@ -13,7 +13,6 @@
 
 	<test name="RegistrationProcessor Tests">
 		<classes>
-
 			<class
 				name="io.mosip.registrationProcessor.tests.SecurityTests" />
 			<class name="io.mosip.registrationProcessor.tests.Sync" />
@@ -24,7 +23,20 @@
 				name="io.mosip.registrationProcessor.tests.AdminRequirement" />
 			<class
 				name="io.mosip.registrationProcessor.tests.PrintingStage" />
-
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerAudits" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerBiometrics" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerDocument" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerSearchField" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerSearchFields" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerMetaInfo" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerValidatePacket" />
 		</classes>
 	</test>
 </suite>

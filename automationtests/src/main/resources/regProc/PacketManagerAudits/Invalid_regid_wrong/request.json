@@ -1,0 +1,12 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "bypassCache": true,
+   "id": "12345678909876543212345678",
+    "process": "NEW",
+    "source": "REGISTRATION_CLIENT"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
