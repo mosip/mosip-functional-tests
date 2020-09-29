@@ -163,6 +163,11 @@
 		<zt.zip.version>1.13</zt.zip.version>
 	</properties>
 	<dependencies>
+	<dependency>
+    <groupId>com.github.jknack</groupId>
+    <artifactId>handlebars</artifactId>
+    <version>4.1.2</version>
+</dependency>
 		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 		<dependency>
 			<groupId>org.javassist</groupId>

@@ -7,7 +7,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.TokenIdDto;
 import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
 import io.mosip.pmp.fw.util.PartnerRunConfig;
@@ -133,8 +132,6 @@ public class RunConfigUtil {
 			objRunConfig = new IdaRunConfig();
 		else if (module.equals("idrepo"))
 			objRunConfig = new IdRepoRunConfig();
-		else if (module.equals("admin"))
-			objRunConfig = new AdminRunConfig();
 		else if (module.equals("resident"))
 			objRunConfig = new ResidentRunConfig();
 		else if (module.equals("partner"))

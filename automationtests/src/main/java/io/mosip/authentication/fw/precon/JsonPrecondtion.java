@@ -593,5 +593,34 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			return mappingAndItsValue;
 		}
 	}
-	
+	@Override
+	public Map<String, String> retrieveMappingAndItsValueToPerformJsonOutputValidation(String json) {
+		Map<String, String> mappingAndItsValue = null;
+		try {
+			JsonPrecondtion objJsonPrecondtion = new JsonPrecondtion(json);
+			mappingAndItsValue = JsonPrecondtion.getJsonFieldsValue(json, objJsonPrecondtion.getPathList(""));
+			return mappingAndItsValue;
+		} catch (Exception e) {
+			JSONPRECONDATION_LOGGER.error(
+					"Exception Occured in retrieve Mapping And Its Value To Perform OutputValidation" + e.getMessage());
+			return mappingAndItsValue;
+		}
+	}
+	public static Map<String, String> getJsonFieldsValue(String json, Map<String, String> map) {
+		Map<String, String> returnMap = null;
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			returnMap = new HashMap<String, String>();
+			Object jsonObj = mapper.readValue(json,Object.class);
+			for (Entry<String, String> entry : map.entrySet()) {
+				if (PropertyUtils.getProperty(jsonObj, entry.getValue()) != null)
+					returnMap.put(entry.getValue(), PropertyUtils.getProperty(jsonObj, entry.getValue()).toString());
+				else
+					returnMap.put(entry.getValue(), "null");
+			}
+		} catch (Exception exp) {
+			JSONPRECONDATION_LOGGER.error("Exception occured in getting the value from json: " + exp.toString());
+		}
+		return returnMap;
+	}
 }

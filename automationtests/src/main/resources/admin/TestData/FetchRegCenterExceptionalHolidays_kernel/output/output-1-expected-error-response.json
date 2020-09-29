@@ -1,9 +1,0 @@
-{
-  "responsetime": "$IGNORE$",
-  "errors": [
-    {
-      "errorCode": "KER-MSD-353",
-      "message": "Center ID specified for decommission has invalid length"
-    }
-  ]
-}

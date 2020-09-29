@@ -62,7 +62,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-		try {
+		try {			
 			// Get content data in TestNG report template file.
 			customReportTemplateStr = this.readEmailabelReportTemplate();
 			// Create custom report title.
@@ -138,24 +138,23 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 			for (ISuite tempSuite : suites) {
 				retBuf.append("<tr><td colspan=11><center><b>" + tempSuite.getName() + "</b></center></td></tr>");
-
 				Map<String, ISuiteResult> testResults = tempSuite.getResults();
-
+				ITestContext testObj = null;
 				for (ISuiteResult result : testResults.values()) {
 
 					retBuf.append("<tr>");
 
-					ITestContext testObj = result.getTestContext();
+					testObj = result.getTestContext();
 
-					totalTestPassed = testObj.getPassedTests().getAllMethods().size();
-					totalTestSkipped = testObj.getSkippedTests().getAllMethods().size();
-					totalTestFailed = testObj.getFailedTests().getAllMethods().size();
+					totalTestPassed = totalTestPassed+testObj.getPassedTests().getAllMethods().size();
+					totalTestSkipped = totalTestSkipped+testObj.getSkippedTests().getAllMethods().size();
+					totalTestFailed = totalTestFailed+testObj.getFailedTests().getAllMethods().size();
 
-					totalTestCount = totalTestPassed + totalTestSkipped + totalTestFailed;
-
+				}
+				totalTestCount = totalTestPassed + totalTestSkipped + totalTestFailed;
 					/* Module Name. */
 					retBuf.append("<td>");
-					retBuf.append(testObj.getName());
+					retBuf.append(tempSuite.getName().split(" ")[0]);
 					retBuf.append("</td>");
 
 					/* Total test case count. */
@@ -194,7 +193,9 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					 */
 
 					/* Start Date */
-					Date startDate = testObj.getStartDate();
+					Map.Entry<String,ISuiteResult> entry = testResults.entrySet().iterator().next();
+					ISuiteResult firstTest = entry.getValue();
+					Date startDate = firstTest.getTestContext().getStartDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getTimeInStringFormat1(startDate));
 					retBuf.append("</td>");
@@ -229,7 +230,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					 */
 
 					retBuf.append("</tr>");
-				}
+				
 				/* Additing of total testcaseCount */
 /*				retBuf.append("<tr>");
 

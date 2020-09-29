@@ -434,5 +434,17 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		}
 		return true;
 	}
+	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+			String expOutputJson) {
+		try {
+			JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
+			Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
+			Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
+			return compareActuExpValue(actual, exp, "expected vs actual");
+		} catch (Exception e) {
+			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
+			return null;
+		}
+	}
 	
 }

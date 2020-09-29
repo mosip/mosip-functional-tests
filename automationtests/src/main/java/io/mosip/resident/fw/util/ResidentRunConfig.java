@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
-import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.ErrorsDto;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfig;

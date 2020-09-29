@@ -1,0 +1,81 @@
+GenderSearch:
+   Admin_GenderSearch_Valid_Smoke:
+      endPoint: /v1/masterdata/gendertypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/search
+      outputTemplate: admin/searchResult
+      input: '{
+
+	"filters": [],
+	"sort": [{
+		"sortField": "genderName",
+		"sortType": "ASC"
+	}],
+
+	"pageStart": 0,
+	"pageFetch": 10,
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "code": "FLE",
+        "genderName": "Female",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng"
+      },
+      {
+        "isActive": false,
+        "createdBy": "superadmin",
+        "code": "OTH",
+        "genderName": "Others",
+        "langCode": "eng"
+      }
+    ]
+}'
+   Admin_GenderSearch_valid_lang:
+      endPoint: /v1/masterdata/gendertypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/search
+      outputTemplate: admin/searchResult
+      input: '{
+    "filters": [{
+        "columnName": "code",
+        "type": "equals",
+        "value": "FLE"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "genderName",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 10,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "code": "FLE",
+        "genderName": "Female",
+        "langCode": "eng"
+      }
+    ]
+}'

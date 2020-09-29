@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.testng.Reporter;
 
-import io.mosip.admin.fw.util.AdminKeywordUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
@@ -139,8 +138,6 @@ public class Precondtion {
 			objKeywordUtil = new IdaKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("idrepo"))
 			objKeywordUtil = new IdRepoKeywordUtil();
-		else if (moduleName.equalsIgnoreCase("admin"))
-			objKeywordUtil = new AdminKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("resident"))
 			objKeywordUtil = new ResidentKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("partner"))

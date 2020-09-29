@@ -2,372 +2,54 @@ package io.mosip.admin.fw.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.stream.Collectors;
+
+import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.testng.Reporter;
+import org.yaml.snakeyaml.Yaml;
 
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.jknack.handlebars.Context;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelDataBaseAccess;
+import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
-public class AdminTestUtil extends AuthTestsUtil{
+
+/**
+ * @author Ravi Kant
+ *
+ */
+public class AdminTestUtil extends BaseTestCase{
 	
-	private static final Logger adminLogger = Logger.getLogger(AdminTestUtil.class);
-	CommonLibrary lib = new CommonLibrary();
-	
-	/**
-	 * The method returns run config path
-	 */
-	public static String getAdminRunConfigFile() {
-		return RunConfigUtil.getResourcePath()+"admin/TestData/RunConfig/runConfiguration.properties";
-	}
-	
-	/**
-	 * The method return test data path from config file
-	 * 
-	 * @param className
-	 * @param index
-	 * @return string
-	 */
-	public String getTestDataPath(String className, int index) {
-		return getPropertyAsMap(new File(getAdminRunConfigFile()).getAbsolutePath().toString())
-				.get(className + ".testDataPath[" + index + "]");
-	}
-	
-	/**
-	 * The method get property value for the key
-	 * 
-	 * @param key
-	 * @return string
-	 */
-	public static String getPropertyValue(String key) {
-		return getRunConfigData().getProperty(key);
-	}
-	
-	
-	
-	/**
-	 * The method get env config details
-	 * 
-	 * @return properties
-	 */
-	private static Properties getRunConfigData() {
-		Properties prop = new Properties();
-		InputStream input = null;
-		try {
-			RunConfigUtil.objRunConfig.setUserDirectory();
-			input = new FileInputStream(new File(RunConfigUtil.getResourcePath()+"admin/TestData/RunConfig/envRunConfig.properties").getAbsolutePath());
-			prop.load(input);
-			input.close();
-			return prop;
-		} catch (Exception e) {
-			adminLogger.error("Exception: " + e.getMessage());
-			return prop;
-		}
-	}
+	private static final Logger logger = Logger.getLogger(AdminTestUtil.class);
+	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
+	String token = null;
 	
 	public static String getGlobalResourcePath() {
 		return MosipTestRunner.getGlobalResourcePath();
-	}
-
-	public JSONObject getReqRespJson(File testCaseFoldername, String fileKeyword)
-	{
-		File listOfFiles[] = testCaseFoldername.listFiles();
-		for (int j = 0; j < listOfFiles.length; j++) {
-			if (listOfFiles[j].getName().contains(fileKeyword)) {
-				return lib.readJsonData(testCaseFoldername.getAbsolutePath()+"/"+listOfFiles[j].getName(), false);
-			}
-		}
-		return null;
-	}
-	
-	/**
-	 * The method will return test data file name from config file
-	 * 
-	 * @param className
-	 * @param index
-	 * @return string
-	 */
-	public String getTestDataFileName(String className, int index) {
-		return getPropertyAsMap(new File(getAdminRunConfigFile()).getAbsolutePath().toString())
-				.get(className + ".testDataFileName[" + index + "]");
-	}
-	
-	/**
-	 * The method will post request and generate output file
-	 * 
-	 * @param listOfFiles
-	 * @param urlPath
-	 * @param keywordToFind
-	 * @param generateOutputFileKeyword
-	 * @param code
-	 * @return true or false
-	 */
-	protected boolean postRequestAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					Response response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,code,cookieName,cookieValue);
-					responseJson=response.asString();
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-	/**
-	 * The method will post request and generate output file
-	 * 
-	 * @param listOfFiles
-	 * @param urlPath
-	 * @param keywordToFind
-	 * @param generateOutputFileKeyword
-	 * @param code
-	 * @return true or false
-	 */
-	protected boolean getRequestAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					Response response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = getRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = getRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response.asString();
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-	
-	protected boolean getRequestWithQueryAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					Response response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = getRequestWithQueryParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = getRequestWithQueryParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response.asString();
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-	
-	protected boolean deleteRequestWithPathAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					Response response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = deleteRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = deleteRequestWithPathParm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response.asString();
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}	
-	
-	/**
-	 * The method will post request and generate output file
-	 * 
-	 * @param listOfFiles
-	 * @param urlPath
-	 * @param keywordToFind
-	 * @param generateOutputFileKeyword
-	 * @param code
-	 * @return true or false
-	 */
-	protected boolean putRequestWithParmAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = putRequestWithparm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = putRequestWithparm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response;
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-
-	/**
-	 * The method will post request and generate output file
-	 * 
-	 * @param listOfFiles
-	 * @param urlPath
-	 * @param keywordToFind
-	 * @param generateOutputFileKeyword
-	 * @param code
-	 * @return true or false
-	 */
-	protected boolean putRequestWithQueryParmAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = putRequestWithQueryparm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = putRequestWithQueryparm(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response;
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-	
-	/**
-	 * The method will put request and generate output file
-	 * 
-	 * @param listOfFiles
-	 * @param urlPath
-	 * @param keywordToFind
-	 * @param generateOutputFileKeyword
-	 * @param code
-	 * @return true or false
-	 */
-	protected boolean putRequestAndGenerateOuputFileWithCookie(File[] listOfFiles, String urlPath, String keywordToFind,
-			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
-					String response=null;
-					String responseJson = "";
-					if (code == 0)
-						response = putRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					else
-						response = putRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
-					responseJson=response;
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			adminLogger.error("Exception " + e);
-			return false;
-		}
-	}
-	
-	public static String getCookieRequestFilePathForUinGenerator() {
-		return RunConfigUtil.getResourcePath()
-				+ "admin/TestData/Security/GetCookie/getCookieRequest.json".toString();
-	}
-	public static String getCookieRequestFilePathForRegClient() {
-		return RunConfigUtil.getResourcePath()
-				+ "admin/TestData/Security/GetCookie/getRegClientCookieRequest.json".toString();
-	}
-	public static String getCookieRequestFilePath(String fileName) {
-		return RunConfigUtil.getResourcePath()
-				+ "admin/TestData/Security/GetCookie/"+fileName+".json".toString();
 	}
 	
 	public static void initiateAdminTest() {
@@ -379,13 +61,11 @@ public class AdminTestUtil extends AuthTestsUtil{
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/admin");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
-			adminLogger.info("Copied the admin test resource successfully");
+			logger.info("Copied the admin test resource successfully");
 		} catch (Exception e) {
-			adminLogger.error("Exception occured while copying the file: "+e.getMessage());
+			logger.error("Exception occured while copying the file: "+e.getMessage());
 		}
 	}
-	
-	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	
 	/**
 	 * method for creating test data in master DB for admin search and filter apis
@@ -439,4 +119,163 @@ public class AdminTestUtil extends AuthTestsUtil{
 		else
 			logger.info("not able to delete device management data");
 		}
+	
+	public Object[] getYmlTestData(String ymlPath){
+		String testType = testLevel;
+		final ObjectMapper mapper = new ObjectMapper();
+		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
+		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
+		for (String key : scriptsMap.keySet()) {
+			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
+			if(testType.equalsIgnoreCase("smoke")){
+				testCases = testCases.entrySet().stream().filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke")).collect(Collectors.toMap(mapElement -> mapElement.getKey(), mapElement -> mapElement.getValue()));
+			}
+			for (String testCase : testCases.keySet()) {
+				TestCaseDTO testCaseDTO = mapper.convertValue(testCases.get(testCase), TestCaseDTO.class);
+						testCaseDTO.setTestCaseName(testCase);
+						testCaseDTOList.add(testCaseDTO);
+			}
+		}
+		return testCaseDTOList.toArray();
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected Map<String,Map<String, Map<String, String>>> loadyaml(String path) {
+		Map<String,Map<String, Map<String, String>>> scriptsMap = null;
+		try {
+			Yaml yaml = new Yaml();
+			InputStream inputStream = new FileInputStream(
+					new File(RunConfigUtil.getResourcePath() + path).getAbsoluteFile());
+		scriptsMap = (Map<String,Map<String, Map<String, String>>>) yaml.load(inputStream);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return null;
+		}
+		return scriptsMap;
+	}	
+	
+	/**
+	 * This method will hit post request and return the response
+	 * @param url
+	 * @param jsonInput
+	 * @param cookieName
+	 * @param role
+	 * @return Response
+	 */
+	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput);
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	/**
+	 * This method will hit put request and return the response
+	 * @param url
+	 * @param jsonInput
+	 * @param cookieName
+	 * @param role
+	 * @return Response
+	 */
+	protected Response putWithBodyAndCookie(String url, String jsonInput, String cookieName, String role) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput);
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	/**
+	 * This method will hit get request and return the response
+	 * @param url
+	 * @param jsonInput
+	 * @param cookieName
+	 * @param role
+	 * @return Response
+	 */
+	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role) {
+		Response response=null;
+		JSONObject inputJson=null;
+		try {
+			inputJson = (JSONObject) new JSONParser().parse(jsonInput);
+		} catch (ParseException e) {
+			logger.error("Error while parsing json request: "+jsonInput+"\n with message: "+e.getMessage());
+		}
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******get request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson.toJSONString()) + "</pre>");
+		try {
+			  response = RestClient.getRequestWithCookieAndPathParm(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected String getJsonFromTemplate(String input, String template)
+	{
+		String resultJson = null;
+		
+		try {
+			Handlebars handlebars = new Handlebars();
+			Gson gson = new Gson();
+			Type type = new TypeToken<Map<String, Object>>(){}.getType();
+			Map<String, Object> map = gson.fromJson(input, type);   
+			Template compiledTemplate = handlebars.compile(template);
+			Context context = Context.newBuilder(map).build();
+			resultJson = compiledTemplate.apply(context);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultJson;
+	}
+
+	String inputJsonKeyWordHandeler(String jsonString)
+	{
+		if(jsonString==null)
+		{
+			logger.info(" Request Json String is :"+jsonString);
+			return jsonString;
+		}
+		if(jsonString.contains("$TIMESTAMP$"))
+			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
+		else if(jsonString.contains("$TIMESTAMPL$"))
+			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
+		return jsonString;
+	}
+	
+	private String generateCurrentUTCTimeStamp() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return dateFormat.format(date);
+	}
+	private String generateCurrentLocalTimeStamp()
+	{
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		return dateFormat.format(date);
+	}
 }

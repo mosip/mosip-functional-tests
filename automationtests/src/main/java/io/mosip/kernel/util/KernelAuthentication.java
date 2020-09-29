@@ -60,6 +60,44 @@ public class KernelAuthentication extends BaseTestCase{
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
 
+	
+	
+	public String getTokenByRole(String role)
+	{
+		String insensitiveRole = role.toLowerCase();
+		switch(insensitiveRole) {
+		
+		case "individual":
+			if(!kernelCmnLib.isValidToken(individualCookie))
+				individualCookie = kernelAuthLib.getAuthForIndividual();
+			return individualCookie;
+		case "ida":
+			if(!kernelCmnLib.isValidToken(idaCookie))
+				idaCookie = kernelAuthLib.getAuthForIDA();
+			return idaCookie;
+		case "regproc":
+			if(!kernelCmnLib.isValidToken(regProcCookie))
+				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
+			return regProcCookie;
+		case "admin":
+			if(!kernelCmnLib.isValidToken(adminCookie))
+				adminCookie = kernelAuthLib.getAuthForAdmin();
+			return adminCookie;
+		case "partner":
+			if(!kernelCmnLib.isValidToken(partnerCookie))
+				partnerCookie = kernelAuthLib.getAuthForPartner();
+			return partnerCookie;
+		case "invalid":
+			return "anyRandomString";
+		default:
+			if(!kernelCmnLib.isValidToken(adminCookie))
+				adminCookie = kernelAuthLib.getAuthForAdmin();
+			return adminCookie;			
+		}
+		 
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
 		JSONObject actualrequest = getRequestJson(testsuite);

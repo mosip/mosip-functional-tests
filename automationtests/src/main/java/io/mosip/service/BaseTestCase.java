@@ -54,6 +54,7 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 
+	public final String COOKIENAME = "Authorization";
 	public String individualCookie = null;
 	public String idaCookie = null;
 	public String regProcCookie = null;
@@ -172,8 +173,8 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
+			//AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
+			//AdminTestUtil.createMasterDataForAdminFilterSearchApis();
 			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
@@ -209,15 +210,14 @@ public class BaseTestCase {
 		}
 		
 		//inserting device management data
-		if(insertDevicedata) {
-			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
-			if(deviceCount!=6) {
-			AdminTestUtil.deleteDeviceManagementData();
-			logger.info("Inserting device management data");
-			AdminTestUtil.createDeviceManagementData();
-			}
-		}
-
+		/*
+		 * if(insertDevicedata) { long deviceCount = new
+		 * KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").
+		 * toString(), "masterdata"); if(deviceCount!=6) {
+		 * AdminTestUtil.deleteDeviceManagementData();
+		 * logger.info("Inserting device management data");
+		 * AdminTestUtil.createDeviceManagementData(); } }
+		 */
 	} // End suiteSetup
 
 		
@@ -252,19 +252,16 @@ public class BaseTestCase {
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
 		String testModule = ctx.getName();
-		if(testModule.equalsIgnoreCase("Admin Tests"))
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
-			{
-				new PMPDataManager(false);
-				AdminTestUtil.deleteDeviceManagementData();
-			}
-		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
-		{
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			new PMPDataManager(false);
-			AdminTestUtil.deleteDeviceManagementData();
-		}
+		/*
+		 * if(testModule.equalsIgnoreCase("Admin Tests"))
+		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); else
+		 * if(testModule.equalsIgnoreCase("AuthenticationTest")) { new
+		 * PMPDataManager(false); AdminTestUtil.deleteDeviceManagementData(); } else
+		 * if(ctx.getCurrentXmlTest().getSuite().getName().
+		 * equalsIgnoreCase("Mosip API Suite")) {
+		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); new
+		 * PMPDataManager(false); AdminTestUtil.deleteDeviceManagementData(); }
+		 */
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");
