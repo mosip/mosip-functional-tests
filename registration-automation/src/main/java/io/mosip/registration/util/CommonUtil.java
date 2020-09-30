@@ -42,8 +42,6 @@ import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.idgenerator.spi.RidGenerator;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.DateUtils;
-import io.mosip.kernel.packetmanager.dto.BiometricsDto;
-import io.mosip.kernel.packetmanager.dto.DocumentDto;
 import io.mosip.registration.config.AppConfig;
 import io.mosip.registration.constants.RegistrationClientStatusCode;
 import io.mosip.registration.constants.RegistrationConstants;
@@ -73,6 +71,8 @@ import io.mosip.registration.dto.demographic.DocumentDetailsDTO;
 import io.mosip.registration.dto.demographic.Identity;
 import io.mosip.registration.dto.demographic.IndividualIdentity;
 import io.mosip.registration.dto.mastersync.GenericDto;
+import io.mosip.registration.dto.packetmanager.BiometricsDto;
+import io.mosip.registration.dto.packetmanager.DocumentDto;
 import io.mosip.registration.entity.IndividualType;
 import io.mosip.registration.entity.Registration;
 import io.mosip.registration.exception.RegBaseCheckedException;
@@ -93,7 +93,6 @@ import io.mosip.registration.service.sync.PacketSynchService;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.common.OTPManager;
 import io.mosip.testrunner.MosipTestRunner;
-
 
 /**
  * @author Arjun chandramohan
@@ -158,7 +157,7 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to assert response DTO
+	 *                    this method to assert response DTO
 	 */
 	public void verifyAssertionResponse(String expectedMsg, ResponseDTO response) {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Assert ResponseDTO");
@@ -182,7 +181,7 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to assert response DTO
+	 *                    this method to assert response DTO
 	 */
 	public void verifyAssertNotNull(ResponseDTO response) {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Assert ResponseDTO");
@@ -205,7 +204,7 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to assert String
+	 *                    this method to assert String
 	 */
 
 	public void verifyAssertionResponse(String expectedMsg, String response) {
@@ -226,7 +225,7 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to assert String
+	 *                    this method to assert String
 	 */
 
 	public boolean verifyAssertionResponseMessage(String expectedMsg, String response) {
@@ -251,7 +250,7 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to verify file exist in given path
+	 *                    this method to verify file exist in given path
 	 */
 
 	public boolean verifyIfFileExist(String filePath) {
@@ -269,8 +268,7 @@ public class CommonUtil {
 	}
 
 	/**
-	 * @param pageName
-	 *            accept the name of the config properties file
+	 * @param pageName accept the name of the config properties file
 	 * @return return config file object to read config file
 	 */
 	public Properties readPropertyFile(String apiname, String testCaseName, String propertyFileName) {
@@ -287,12 +285,14 @@ public class CommonUtil {
 		 * String path = this.getClass().getClassLoader() .getResource("./" +
 		 * "Registration" +"/" + apiName).getPath();
 		 */
-	/*	String propertiesFilePath = this.getClass().getClassLoader().getResource(
-				"./" + "Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties")
-				.getPath();*/
-		String propertiesFilePath=MosipTestRunner.getGlobalResourcePath()+"/"+"Registration" + "/" + apiname + "/" + testCaseName + "/" + propertyFileName + ".properties";
-		
-		
+		/*
+		 * String propertiesFilePath = this.getClass().getClassLoader().getResource(
+		 * "./" + "Registration" + "/" + apiname + "/" + testCaseName + "/" +
+		 * propertyFileName + ".properties") .getPath();
+		 */
+		String propertiesFilePath = MosipTestRunner.getGlobalResourcePath() + "/" + "Registration" + "/" + apiname + "/"
+				+ testCaseName + "/" + propertyFileName + ".properties";
+
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Property File Path - " + propertiesFilePath);
 		try {
 			input = new FileInputStream(propertiesFilePath);
@@ -322,8 +322,8 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to create test data for PacketSyncService
-	 *            "syncPacketsToServer"
+	 *                    this method to create test data for PacketSyncService
+	 *                    "syncPacketsToServer"
 	 */
 
 	public RegistrationPacketSyncDTO syncdatatoserver_validDataProvider(String langcode, String synStatus,
@@ -377,8 +377,8 @@ public class CommonUtil {
 	 * @param expectedMsg
 	 * @param response
 	 * 
-	 *            this method to create invalid test data for PacketSyncService
-	 *            "syncPacketsToServer"
+	 *                    this method to create invalid test data for
+	 *                    PacketSyncService "syncPacketsToServer"
 	 */
 	public RegistrationPacketSyncDTO syncPacketsToServer_InvalidDataProvider(String langcode, String statusComment,
 			String registrationID, String synStatus, String syncType) {
@@ -407,7 +407,7 @@ public class CommonUtil {
 	 * @param identityJsonFile
 	 * @param POAPOBPORPOIJpg
 	 * @return HashMap with reg ID and success message and failure message
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws JsonParseException
 	 * @throws JsonMappingException
 	 * @throws IOException
@@ -415,127 +415,141 @@ public class CommonUtil {
 	public HashMap<String, String> packetCreation(String statusCode, String userJsonFile, String identityJsonFile,
 			String POAPOBPORPOIJpg, String userID, String centerID, String stationID, String createPacket,
 			String invalidRegID) throws ParseException {
-	
+
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "packetCreation");
-		String packetType="";
-		if(userJsonFile.contains("Child")) 
-			packetType="Child";
-		else 
-			packetType="Adult";
-		 Map<String, BiometricsDto> biometrics = new HashMap<>();
+		String packetType = "";
+		if (userJsonFile.contains("Child"))
+			packetType = "Child";
+		else
+			packetType = "Adult";
+		Map<String, BiometricsDto> biometrics = new HashMap<>();
 		HashMap<String, String> returnValues = new HashMap<>();
 		try {
-			
 
 			RegistrationDTO registrationDTO = new RegistrationDTO();
-			File bioPath =new File(CommonUtil.getResourcePath()+userJsonFile);
-			
-			JSONObject biometricDto=(JSONObject) new JSONParser().parse(new FileReader(bioPath.getPath()));
+			File bioPath = new File(CommonUtil.getResourcePath() + userJsonFile);
+
+			JSONObject biometricDto = (JSONObject) new JSONParser().parse(new FileReader(bioPath.getPath()));
 			biometricDto.get("biometricDetails");
-			File demoPath=new File(CommonUtil.getResourcePath()+identityJsonFile);
+			File demoPath = new File(CommonUtil.getResourcePath() + identityJsonFile);
 			switch (packetType) {
 			case "Adult":
-				JSONArray biometricArray=(JSONArray) biometricDto.get("biometricDetails");
-				
-			
-				for(Object bioObject:biometricArray) {
-					JSONObject biometricsObject=(JSONObject) bioObject;
+				JSONArray biometricArray = (JSONArray) biometricDto.get("biometricDetails");
+
+				for (Object bioObject : biometricArray) {
+					JSONObject biometricsObject = (JSONObject) bioObject;
 					@SuppressWarnings("unchecked")
-					Set<String> keySet=biometricsObject.keySet();
-					
-					for(String key:keySet) {
-					
-					JSONObject biometricObject=(JSONObject) biometricsObject.get(key);
-					double qualityScore=Double.parseDouble(biometricObject.get("qualityScore").toString()); ;
-					BiometricsDto biometricsDto=new BiometricsDto(biometricObject.get("ImageName").toString(),biometricObject.get("ISO").toString().getBytes(), qualityScore);
-					biometricsDto.setModalityName(biometricObject.get("type").toString());
-					biometricsDto.setCaptured(false);
-					biometricsDto.setForceCaptured(false);
-					biometricsDto.setSubType("applicant");
-					biometricsDto.setNumOfRetries(1);
-					biometrics.put(biometricObject.get("keyName").toString(), biometricsDto);
+					Set<String> keySet = biometricsObject.keySet();
+
+					for (String key : keySet) {
+
+						JSONObject biometricObject = (JSONObject) biometricsObject.get(key);
+						double qualityScore = Double.parseDouble(biometricObject.get("qualityScore").toString());
+						;
+						BiometricsDto biometricsDto = new BiometricsDto(biometricObject.get("ImageName").toString(),
+								biometricObject.get("ISO").toString().getBytes(), qualityScore);
+						biometricsDto.setModalityName(biometricObject.get("type").toString());
+						biometricsDto.setCaptured(false);
+						biometricsDto.setForceCaptured(false);
+						biometricsDto.setSubType("applicant");
+						biometricsDto.setNumOfRetries(1);
+						biometrics.put(biometricObject.get("keyName").toString(), biometricsDto);
 					}
 				}
 				break;
 			case "Child":
-				JSONObject biometricObj=(JSONObject) biometricDto.get("biometricDetails");
-				JSONObject faceObject=(JSONObject) biometricObj.get("face");
-				double qualityScore=Double.parseDouble(faceObject.get("qualityScore").toString()); ;
-				BiometricsDto biometricsDto=new BiometricsDto(faceObject.get("ImageName").toString(),faceObject.get("ISO").toString().getBytes(), qualityScore);
+				JSONObject biometricObj = (JSONObject) biometricDto.get("biometricDetails");
+				JSONObject faceObject = (JSONObject) biometricObj.get("face");
+				double qualityScore = Double.parseDouble(faceObject.get("qualityScore").toString());
+				;
+				BiometricsDto biometricsDto = new BiometricsDto(faceObject.get("ImageName").toString(),
+						faceObject.get("ISO").toString().getBytes(), qualityScore);
 				biometricsDto.setModalityName(faceObject.get("type").toString());
 				biometricsDto.setCaptured(false);
 				biometricsDto.setForceCaptured(false);
 				biometricsDto.setSubType("applicant");
 				biometricsDto.setNumOfRetries(1);
 				biometrics.put("face", biometricsDto);
-				
-				JSONObject introducerObject=(JSONObject) biometricObj.get("introducerBiometricDTO");
-				JSONObject leftIrisObject=(JSONObject)introducerObject.get("LeftIris");
-				 qualityScore=Double.parseDouble(leftIrisObject.get("qualityScore").toString()); ;
-				BiometricsDto leftIrisDto=new BiometricsDto(leftIrisObject.get("ImageName").toString(),leftIrisObject.get("ISO").toString().getBytes(), qualityScore);
+
+				JSONObject introducerObject = (JSONObject) biometricObj.get("introducerBiometricDTO");
+				JSONObject leftIrisObject = (JSONObject) introducerObject.get("LeftIris");
+				qualityScore = Double.parseDouble(leftIrisObject.get("qualityScore").toString());
+				;
+				BiometricsDto leftIrisDto = new BiometricsDto(leftIrisObject.get("ImageName").toString(),
+						leftIrisObject.get("ISO").toString().getBytes(), qualityScore);
 				leftIrisDto.setModalityName(leftIrisObject.get("type").toString());
 				leftIrisDto.setCaptured(false);
 				leftIrisDto.setForceCaptured(false);
 				leftIrisDto.setSubType("introducer");
 				leftIrisDto.setNumOfRetries(1);
 				biometrics.put("introducer_leftEye", leftIrisDto);
-				
-				JSONObject rightIrisObject=(JSONObject)introducerObject.get("RightIris");
-				 qualityScore=Double.parseDouble(rightIrisObject.get("qualityScore").toString()); ;
-				BiometricsDto rightIrisDto=new BiometricsDto(rightIrisObject.get("ImageName").toString(),rightIrisObject.get("ISO").toString().getBytes(), qualityScore);
+
+				JSONObject rightIrisObject = (JSONObject) introducerObject.get("RightIris");
+				qualityScore = Double.parseDouble(rightIrisObject.get("qualityScore").toString());
+				;
+				BiometricsDto rightIrisDto = new BiometricsDto(rightIrisObject.get("ImageName").toString(),
+						rightIrisObject.get("ISO").toString().getBytes(), qualityScore);
 				rightIrisDto.setModalityName(rightIrisObject.get("type").toString());
 				rightIrisDto.setCaptured(false);
 				rightIrisDto.setForceCaptured(false);
 				rightIrisDto.setSubType("introducer");
 				rightIrisDto.setNumOfRetries(1);
 				biometrics.put("introducer_rightEye", rightIrisDto);
-				
+
 				registrationDTO.setDateField("age", "1", "10", "2019");
-					break;
+				break;
 			default:
-				
+
 				break;
 			}
-		
 
 			registrationDTO.setBiometrics(biometrics);
-		/*	IndividualIdentity identity = mapper.readValue(
-					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
-					IndividualIdentity.class);*/
-			JSONObject demographicDtos=(JSONObject) new JSONParser().parse(new FileReader(demoPath.getPath()));
-			HashMap<String, Object> demographics = (HashMap<String, Object>) new ObjectMapper().readValue(demographicDtos.toJSONString(), new TypeReference<Map<String, Object>>(){});
+			/*
+			 * IndividualIdentity identity = mapper.readValue( new
+			 * String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())),
+			 * StandardCharsets.UTF_8), IndividualIdentity.class);
+			 */
+			JSONObject demographicDtos = (JSONObject) new JSONParser().parse(new FileReader(demoPath.getPath()));
+			HashMap<String, Object> demographics = (HashMap<String, Object>) new ObjectMapper()
+					.readValue(demographicDtos.toJSONString(), new TypeReference<Map<String, Object>>() {
+					});
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
-			//Map<String,Object> demographics=new HashMap<String,Object>();
-			
-			//demographics.put("identity", identity);
-			Map<String, DocumentDto> documents = setDocumentDetailsDTO(CommonUtil.getResourcePath()+POAPOBPORPOIJpg,packetType);
+			// Map<String,Object> demographics=new HashMap<String,Object>();
+
+			// demographics.put("identity", identity);
+			Map<String, DocumentDto> documents = setDocumentDetailsDTO(CommonUtil.getResourcePath() + POAPOBPORPOIJpg,
+					packetType);
 			registrationDTO.setDemographics(demographics);
 			registrationDTO.setDocuments(documents);
-			//registrationDTO.setAge(24);
+			// registrationDTO.setAge(24);
 			registrationDTO.setAgeCalculatedByDOB(true);
-			registrationDTO.setIdSchemaVersion(0.1);
-			RegistrationMetaDataDTO registrationMetaDataDTO=new RegistrationMetaDataDTO();
+			registrationDTO.setIdSchemaVersion(0.7);
+			RegistrationMetaDataDTO registrationMetaDataDTO = new RegistrationMetaDataDTO();
 			registrationMetaDataDTO.setConsentOfApplicant("Yes");
 			registrationMetaDataDTO.setRegistrationCategory("New");
-			
-			OSIDataDTO osiDataDTO=new OSIDataDTO();
+
+			OSIDataDTO osiDataDTO = new OSIDataDTO();
 			osiDataDTO.setOperatorID(userID);
 			osiDataDTO.setOperatorAuthenticatedByPassword(true);
 			registrationDTO.setRegistrationMetaDataDTO(registrationMetaDataDTO);
 			registrationDTO.setOsiDataDTO(osiDataDTO);
 			registrationDTO.setRegistrationCategory("New");
-		
-			/*SessionContext.getInstance().getUserContext().setUserId(userID);
-			RegistrationCenterDetailDTO registrationCenter = new RegistrationCenterDetailDTO();
-			registrationCenter.setRegistrationCenterId(centerID);
-			//SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(registrationCenter);
-			registrationDTO.getOsiDataDTO().setOperatorID(userID);
-			registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
-			registrationDTO.getRegistrationMetaDataDTO().setMachineId(userID);*/
+
+			/*
+			 * SessionContext.getInstance().getUserContext().setUserId(userID);
+			 * RegistrationCenterDetailDTO registrationCenter = new
+			 * RegistrationCenterDetailDTO();
+			 * registrationCenter.setRegistrationCenterId(centerID);
+			 * //SessionContext.getInstance().getUserContext().
+			 * setRegistrationCenterDetailDTO(registrationCenter);
+			 * registrationDTO.getOsiDataDTO().setOperatorID(userID);
+			 * registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+			 * registrationDTO.getRegistrationMetaDataDTO().setMachineId(userID);
+			 */
 			String randomId = "";
 			if (invalidRegID.equalsIgnoreCase("YES")) {
 				randomId = "1234567890";
-				 ridGeneratorImpl.generateId(centerID, stationID); 
+				ridGeneratorImpl.generateId(centerID, stationID);
 				LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
 						"Invalid Registration ID generated - " + randomId);
 				returnValues.put("RANDOMID", randomId);
@@ -617,96 +631,104 @@ public class CommonUtil {
 	public HashMap<String, String> packetCreationForUINUpdate(String statusCode, String biometricPath,
 			String demographicPath, String proofOfImagePath, String userID, String centerID, String stationID,
 			String uin) {
-				return null;
-		/*LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "packetCreation");
-		HashMap<String, String> packetCreationMap = new HashMap<>();
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.registerModule(new JSR310Module());
-			mapper.addMixInAnnotations(DemographicInfoDTO.class, DemographicInfoDTOMix.class);
-			RegistrationDTO registrationDTO;
-			File bioPath=new File(CommonUtil.getResourcePath()+biometricPath);
-			//File bioPath = new File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
-			registrationDTO = mapper.readValue(
-					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
-					RegistrationDTO.class);
-			File demoPath=new File(CommonUtil.getResourcePath()+demographicPath);
-			//File demoPath = new File(this.getClass().getClassLoader().getResource(demographicPath).getPath());
-
-			IndividualIdentity identity = mapper.readValue(
-					new String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())), StandardCharsets.UTF_8),
-					IndividualIdentity.class);
-
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Create and set Document DTO to identity");
-
-			Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity, proofOfImagePath);
-			registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
-			registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "Set Identity DTO to Registration DTO");
-			registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(identity);
-
-			registrationDTO.getSelectionListDTO().setUinId(uin);
-			registrationDTO.getOsiDataDTO().setOperatorID(userID);
-			registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
-			registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
-			registrationDTO.getRegistrationMetaDataDTO().setUin(uin);
-
-			SessionContext.getInstance().getUserContext().setUserId(userID);
-			RegistrationCenterDetailDTO registrationCenter = new RegistrationCenterDetailDTO();
-			registrationCenter.setRegistrationCenterId(centerID);
-			SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(registrationCenter);
-			String randomId = "";
-			*//**
+		return null;
+		/*
+		 * LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
+		 * "packetCreation"); HashMap<String, String> packetCreationMap = new
+		 * HashMap<>(); try { ObjectMapper mapper = new ObjectMapper();
+		 * mapper.registerModule(new JSR310Module());
+		 * mapper.addMixInAnnotations(DemographicInfoDTO.class,
+		 * DemographicInfoDTOMix.class); RegistrationDTO registrationDTO; File
+		 * bioPath=new File(CommonUtil.getResourcePath()+biometricPath); //File bioPath
+		 * = new
+		 * File(this.getClass().getClassLoader().getResource(biometricPath).getPath());
+		 * registrationDTO = mapper.readValue( new
+		 * String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())),
+		 * StandardCharsets.UTF_8), RegistrationDTO.class); File demoPath=new
+		 * File(CommonUtil.getResourcePath()+demographicPath); //File demoPath = new
+		 * File(this.getClass().getClassLoader().getResource(demographicPath).getPath())
+		 * ;
+		 * 
+		 * IndividualIdentity identity = mapper.readValue( new
+		 * String(Files.readAllBytes(Paths.get(demoPath.getAbsolutePath())),
+		 * StandardCharsets.UTF_8), IndividualIdentity.class);
+		 * 
+		 * LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
+		 * "Create and set Document DTO to identity");
+		 * 
+		 * Map<String, DocumentDetailsDTO> documents = setDocumentDetailsDTO(identity,
+		 * proofOfImagePath);
+		 * registrationDTO.getDemographicDTO().setApplicantDocumentDTO(
+		 * setApplicantDocumentDTO());
+		 * registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(
+		 * documents); LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
+		 * "Set Identity DTO to Registration DTO");
+		 * registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(
+		 * identity);
+		 * 
+		 * registrationDTO.getSelectionListDTO().setUinId(uin);
+		 * registrationDTO.getOsiDataDTO().setOperatorID(userID);
+		 * registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
+		 * registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
+		 * registrationDTO.getRegistrationMetaDataDTO().setUin(uin);
+		 * 
+		 * SessionContext.getInstance().getUserContext().setUserId(userID);
+		 * RegistrationCenterDetailDTO registrationCenter = new
+		 * RegistrationCenterDetailDTO();
+		 * registrationCenter.setRegistrationCenterId(centerID);
+		 * SessionContext.getInstance().getUserContext().setRegistrationCenterDetailDTO(
+		 * registrationCenter); String randomId = "";
+		 *//**
 			 * getting rid
 			 *//*
-			randomId = ridGeneratorImpl.generateId(centerID, stationID);
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-					"Valid Registration ID generated - " + randomId);
-			packetCreationMap.put("RANDOMID", randomId);
-			registrationDTO.setRegistrationId(randomId);
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-					"Valid Registration ID generated - " + randomId);
-
-			Thread.sleep(2000);
-
-			ResponseDTO response = packetHandlerService.handle(registrationDTO);
-
-			if (!(response.getSuccessResponseDTO().getMessage() == null)) {
-
-				packetCreationMap.put("SUCCESSRESPONSE", response.getSuccessResponseDTO().getMessage());
-				LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-						response.getSuccessResponseDTO().getMessage());
-				LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-						(String) ApplicationContext.map().get(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG));
-				if ((response.getSuccessResponseDTO().getMessage().contains("Success"))
-						&& (((String) ApplicationContext.map().get(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG))
-								.equalsIgnoreCase(RegistrationConstants.DISABLE))) {
-					registrationApprovalService.updateRegistration(randomId, RegistrationConstants.EMPTY,
-							RegistrationClientStatusCode.APPROVED.getCode());
-					LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-							randomId + " Packet has been APPROVED");
-				}
-				packetCreationMap.put("MESSAGE", response.getSuccessResponseDTO().getMessage());
-			} else {
-				packetCreationMap.put("MESSAGE", response.getErrorResponseDTOs().get(0).getMessage());
-			}
-
-		} catch (IOException | RegBaseCheckedException exception) {
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, ExceptionUtils.getStackTrace(exception));
-		} catch (InterruptedException interruptedException) {
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(interruptedException));
-		} catch (NullPointerException nullPointerException) {
-			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
-					ExceptionUtils.getStackTrace(nullPointerException));
-		}
-		return packetCreationMap;*/
+				 * randomId = ridGeneratorImpl.generateId(centerID, stationID);
+				 * LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
+				 * "Valid Registration ID generated - " + randomId);
+				 * packetCreationMap.put("RANDOMID", randomId);
+				 * registrationDTO.setRegistrationId(randomId); LOGGER.info("CommonUtil - ",
+				 * APPLICATION_NAME, APPLICATION_ID, "Valid Registration ID generated - " +
+				 * randomId);
+				 * 
+				 * Thread.sleep(2000);
+				 * 
+				 * ResponseDTO response = packetHandlerService.handle(registrationDTO);
+				 * 
+				 * if (!(response.getSuccessResponseDTO().getMessage() == null)) {
+				 * 
+				 * packetCreationMap.put("SUCCESSRESPONSE",
+				 * response.getSuccessResponseDTO().getMessage()); LOGGER.info("CommonUtil - ",
+				 * APPLICATION_NAME, APPLICATION_ID,
+				 * response.getSuccessResponseDTO().getMessage()); LOGGER.info("CommonUtil - ",
+				 * APPLICATION_NAME, APPLICATION_ID, (String)
+				 * ApplicationContext.map().get(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG));
+				 * if ((response.getSuccessResponseDTO().getMessage().contains("Success")) &&
+				 * (((String)
+				 * ApplicationContext.map().get(RegistrationConstants.EOD_PROCESS_CONFIG_FLAG))
+				 * .equalsIgnoreCase(RegistrationConstants.DISABLE))) {
+				 * registrationApprovalService.updateRegistration(randomId,
+				 * RegistrationConstants.EMPTY,
+				 * RegistrationClientStatusCode.APPROVED.getCode());
+				 * LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, randomId +
+				 * " Packet has been APPROVED"); } packetCreationMap.put("MESSAGE",
+				 * response.getSuccessResponseDTO().getMessage()); } else {
+				 * packetCreationMap.put("MESSAGE",
+				 * response.getErrorResponseDTOs().get(0).getMessage()); }
+				 * 
+				 * } catch (IOException | RegBaseCheckedException exception) {
+				 * LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
+				 * ExceptionUtils.getStackTrace(exception)); } catch (InterruptedException
+				 * interruptedException) { LOGGER.info("CommonUtil - ", APPLICATION_NAME,
+				 * APPLICATION_ID, ExceptionUtils.getStackTrace(interruptedException)); } catch
+				 * (NullPointerException nullPointerException) { LOGGER.info("CommonUtil - ",
+				 * APPLICATION_NAME, APPLICATION_ID,
+				 * ExceptionUtils.getStackTrace(nullPointerException)); } return
+				 * packetCreationMap;
+				 */
 	}
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To fetch the Finger print byte array from json file
+	 * @param Path - To fetch the Finger print byte array from json file
 	 * @return - the list of FingerPrint details
 	 * @throws IOException
 	 * @throws ParseException
@@ -737,20 +759,18 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To create DocumentDetailsDTO from JSON
+	 * @param Path - To create DocumentDetailsDTO from JSON
 	 * @return - the list of FingerPrint details
 	 * @throws IOException
 	 * @throws ParseException
 	 */
 
-	public Map<String, DocumentDto> setDocumentDetailsDTO( String path,String packetType) {
+	public Map<String, DocumentDto> setDocumentDetailsDTO(String path, String packetType) {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "setDocumentDetailsDTO");
 		byte[] data;
 		Map<String, DocumentDto> documents = new HashMap<String, DocumentDto>();
 		try {
-			data = IOUtils.toByteArray(
-					new FileInputStream(new File(path)));
+			data = IOUtils.toByteArray(new FileInputStream(new File(path)));
 			DocumentDto documentDetailsDTOAddress = new DocumentDto();
 			documentDetailsDTOAddress.setDocument(data);
 			documentDetailsDTOAddress.setType("DOC001");
@@ -763,8 +783,8 @@ public class CommonUtil {
 			documentDetailsResidenceDTO.setFormat("jpg");
 			documentDetailsResidenceDTO.setValue("proofOfAddress");
 			documentDetailsResidenceDTO.setOwner("hof");
-			if(packetType.equals("Child")) {
-				DocumentDto proofOfRelationShip=new DocumentDto();
+			if (packetType.equals("Child")) {
+				DocumentDto proofOfRelationShip = new DocumentDto();
 				proofOfRelationShip.setDocument(data);
 				proofOfRelationShip.setType("DOC001");
 				proofOfRelationShip.setFormat("jpg");
@@ -772,48 +792,45 @@ public class CommonUtil {
 				proofOfRelationShip.setOwner("hof");
 				documents.put("proofOfRelationship", proofOfRelationShip);
 			}
-		/*	documentDetailsDTOAddress.setDocument(data);
-			documentDetailsDTOAddress.setType("Passport");
-			documentDetailsDTOAddress.setFormat("jpg");
-			documentDetailsDTOAddress.setValue("ProofOfIdentity");
-			documentDetailsDTOAddress.setOwner("Self");
-			identity.setProofOfIdentity(documentDetailsDTOAddress);
-			documents.put("POI", documentDetailsDTOAddress);
-			DocumentDetailsDTO documentDetailsResidenceDTO = new DocumentDetailsDTO();
-			documentDetailsResidenceDTO.setDocument(data);
-			documentDetailsResidenceDTO.setType("Passport");
-			documentDetailsResidenceDTO.setFormat("jpg");
-			documentDetailsResidenceDTO.setValue("ProofOfAddress");
-			documentDetailsResidenceDTO.setOwner("hof");
-			identity.setProofOfAddress(documentDetailsResidenceDTO);
-			documents.put("POA", documentDetailsResidenceDTO);
-			documentDetailsDTOAddress = new DocumentDetailsDTO();
-			documentDetailsDTOAddress.setDocument(data);
-			documentDetailsDTOAddress.setType("Passport");
-			documentDetailsDTOAddress.setFormat("jpg");
-			documentDetailsDTOAddress.setValue("ProofOfRelationship");
-			documentDetailsDTOAddress.setOwner("Self");
-			identity.setProofOfRelationship(documentDetailsDTOAddress);
-			documents.put("POR", documentDetailsDTOAddress);
-			documentDetailsResidenceDTO = new DocumentDetailsDTO();
-			documentDetailsResidenceDTO.setDocument(data);
-			documentDetailsResidenceDTO.setType("Passport");
-			documentDetailsResidenceDTO.setFormat("jpg");
-			documentDetailsResidenceDTO.setValue("DateOfBirthProof");
-			documentDetailsResidenceDTO.setOwner("hof");
-			identity.setProofOfDateOfBirth(documentDetailsResidenceDTO);
-			documents.put("POB", documentDetailsResidenceDTO);
-			DocumentDetailsDTO documentDetailsDTO = identity.getProofOfIdentity();
-			documentDetailsDTO.setDocument(data);
-			documentDetailsDTO = identity.getProofOfAddress();
-			documentDetailsDTO.setDocument(data);
-			documentDetailsDTO = identity.getProofOfRelationship();
-			documentDetailsDTO.setDocument(data);
-			documentDetailsDTO = identity.getProofOfDateOfBirth();
-			documentDetailsDTO.setDocument(data);*/
+			/*
+			 * documentDetailsDTOAddress.setDocument(data);
+			 * documentDetailsDTOAddress.setType("Passport");
+			 * documentDetailsDTOAddress.setFormat("jpg");
+			 * documentDetailsDTOAddress.setValue("ProofOfIdentity");
+			 * documentDetailsDTOAddress.setOwner("Self");
+			 * identity.setProofOfIdentity(documentDetailsDTOAddress); documents.put("POI",
+			 * documentDetailsDTOAddress); DocumentDetailsDTO documentDetailsResidenceDTO =
+			 * new DocumentDetailsDTO(); documentDetailsResidenceDTO.setDocument(data);
+			 * documentDetailsResidenceDTO.setType("Passport");
+			 * documentDetailsResidenceDTO.setFormat("jpg");
+			 * documentDetailsResidenceDTO.setValue("ProofOfAddress");
+			 * documentDetailsResidenceDTO.setOwner("hof");
+			 * identity.setProofOfAddress(documentDetailsResidenceDTO); documents.put("POA",
+			 * documentDetailsResidenceDTO); documentDetailsDTOAddress = new
+			 * DocumentDetailsDTO(); documentDetailsDTOAddress.setDocument(data);
+			 * documentDetailsDTOAddress.setType("Passport");
+			 * documentDetailsDTOAddress.setFormat("jpg");
+			 * documentDetailsDTOAddress.setValue("ProofOfRelationship");
+			 * documentDetailsDTOAddress.setOwner("Self");
+			 * identity.setProofOfRelationship(documentDetailsDTOAddress);
+			 * documents.put("POR", documentDetailsDTOAddress); documentDetailsResidenceDTO
+			 * = new DocumentDetailsDTO(); documentDetailsResidenceDTO.setDocument(data);
+			 * documentDetailsResidenceDTO.setType("Passport");
+			 * documentDetailsResidenceDTO.setFormat("jpg");
+			 * documentDetailsResidenceDTO.setValue("DateOfBirthProof");
+			 * documentDetailsResidenceDTO.setOwner("hof");
+			 * identity.setProofOfDateOfBirth(documentDetailsResidenceDTO);
+			 * documents.put("POB", documentDetailsResidenceDTO); DocumentDetailsDTO
+			 * documentDetailsDTO = identity.getProofOfIdentity();
+			 * documentDetailsDTO.setDocument(data); documentDetailsDTO =
+			 * identity.getProofOfAddress(); documentDetailsDTO.setDocument(data);
+			 * documentDetailsDTO = identity.getProofOfRelationship();
+			 * documentDetailsDTO.setDocument(data); documentDetailsDTO =
+			 * identity.getProofOfDateOfBirth(); documentDetailsDTO.setDocument(data);
+			 */
 			documents.put("proofOfIdentity", documentDetailsDTOAddress);
-			documents.put("proofOfAddress",documentDetailsResidenceDTO);
-			
+			documents.put("proofOfAddress", documentDetailsResidenceDTO);
+
 		} catch (FileNotFoundException fileNotFoundException) {
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID,
 					ExceptionUtils.getStackTrace(fileNotFoundException));
@@ -825,8 +842,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To create ApplicantdocumentDTO from JSON
+	 * @param Path - To create ApplicantdocumentDTO from JSON
 	 * @return - ApplicantDocumentDTO
 	 * @throws IOException
 	 * @throws ParseException
@@ -836,7 +852,8 @@ public class CommonUtil {
 		ApplicantDocumentDTO applicantDocumentDTO = new ApplicantDocumentDTO();
 		byte[] data;
 		try {
-			data = IOUtils.toByteArray(new FileInputStream(new File(MosipTestRunner.getGlobalResourcePath()+ConstantValues.ACKNOWLEDGEMENT_IMAGE)));
+			data = IOUtils.toByteArray(new FileInputStream(
+					new File(MosipTestRunner.getGlobalResourcePath() + ConstantValues.ACKNOWLEDGEMENT_IMAGE)));
 			applicantDocumentDTO.setAcknowledgeReceipt(data);
 			applicantDocumentDTO.setAcknowledgeReceiptName("RegistrationAcknowledgement.jpg");
 		} catch (Exception exception) {
@@ -847,8 +864,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To getImageDTO
+	 * @param Path - To getImageDTO
 	 * @return - byteArray of image
 	 * @throws IOException
 	 * @throws ParseException
@@ -875,8 +891,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To getImageDTO
+	 * @param Path - To getImageDTO
 	 * @return - byteArray of image
 	 * @throws IOException
 	 * @throws ParseException
@@ -928,8 +943,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param Path
-	 *            - To getImageDTO
+	 * @param Path - To getImageDTO
 	 * @return - byteArray of image
 	 * @throws IOException
 	 * @throws ParseException
@@ -956,8 +970,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param String
-	 *            - Packet Ids
+	 * @param String - Packet Ids
 	 */
 	public void deleteProcessedPackets(String syncResult) {
 
@@ -975,8 +988,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param String
-	 *            - Biometric json file path
+	 * @param String - Biometric json file path
 	 */
 	public BiometricDTO getBiotestData(String Path) throws IOException, ParseException {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "getBiometrictestData");
@@ -1001,8 +1013,7 @@ public class CommonUtil {
 
 	/**
 	 * 
-	 * @param String
-	 *            - Value to Set Flag
+	 * @param String - Value to Set Flag
 	 */
 	public void setFlag(String val) {
 		LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, "setFlag");
@@ -1082,8 +1093,9 @@ public class CommonUtil {
 		/** The application language bundle. */
 		ResourceBundle applicationLanguageBundle;
 		try {
-			File bioPath=new File(CommonUtil.getResourcePath()+userJsonFile);
-			//File bioPath = new File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
+			File bioPath = new File(CommonUtil.getResourcePath() + userJsonFile);
+			// File bioPath = new
+			// File(this.getClass().getClassLoader().getResource(userJsonFile).getPath());
 			registrationDTO = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(bioPath.getAbsolutePath())), StandardCharsets.UTF_8),
 					RegistrationDTO.class);
@@ -1097,16 +1109,18 @@ public class CommonUtil {
 				registrationDTO.setRegistrationId(preRegistrationDTO.getRegistrationId());
 				// Get identity from preRegistrationDTO to RegistrationDTO
 
-				/*identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
-						.getIdentity();*/
+				/*
+				 * identity = (IndividualIdentity)
+				 * preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
+				 * .getIdentity();
+				 */
 
 				HashMap<String, String> genderDetail = new HashMap<String, String>();
 				for (int i = 0; i < identity.getGender().size(); i++) {
 					List<GenericDto> genderDetailService = masterSyncService
 							.getGenderDtls(identity.getGender().get(i).getLanguage());
 					for (int j = 0; j < genderDetailService.size(); j++) {
-						genderDetail.put(genderDetailService.get(j).getCode(),
-								genderDetailService.get(j).getName());
+						genderDetail.put(genderDetailService.get(j).getCode(), genderDetailService.get(j).getName());
 					}
 					String genderValue = genderDetail.get(identity.getGender().get(i).getValue());
 					identity.getGender().get(i).setValue(genderValue);
@@ -1167,10 +1181,15 @@ public class CommonUtil {
 
 				}
 
-			//	documents = setDocumentDetailsDTO(identity, documentFile);
-/*				registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
-				registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
-				registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(identity);*/
+				// documents = setDocumentDetailsDTO(identity, documentFile);
+				/*
+				 * registrationDTO.getDemographicDTO().setApplicantDocumentDTO(
+				 * setApplicantDocumentDTO());
+				 * registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(
+				 * documents);
+				 * registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(
+				 * identity);
+				 */
 
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
@@ -1182,16 +1201,18 @@ public class CommonUtil {
 				// Set Registration ID to RegistrationDTO
 				registrationDTO.setRegistrationId(preRegistrationDTO.getRegistrationId());
 				// Get identity from preRegistrationDTO to RegistrationDTO
-		/*		identity = (IndividualIdentity) preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
-						.getIdentity();*/
+				/*
+				 * identity = (IndividualIdentity)
+				 * preRegistrationDTO.getDemographicDTO().getDemographicInfoDTO()
+				 * .getIdentity();
+				 */
 
 				HashMap<String, String> genderDetail = new HashMap<String, String>();
 				for (int i = 0; i < identity.getGender().size(); i++) {
 					List<GenericDto> genderDetailService = masterSyncService
 							.getGenderDtls(identity.getGender().get(i).getLanguage());
 					for (int j = 0; j < genderDetailService.size(); j++) {
-						genderDetail.put(genderDetailService.get(j).getCode(),
-								genderDetailService.get(j).getName());
+						genderDetail.put(genderDetailService.get(j).getCode(), genderDetailService.get(j).getName());
 					}
 					String genderValue = genderDetail.get(identity.getGender().get(i).getValue());
 					identity.getGender().get(i).setValue(genderValue);
@@ -1265,11 +1286,15 @@ public class CommonUtil {
 					identity.setPostalCode(postalCodeDetails.get(0).getCode());
 
 				}
-				//documents = setDocumentDetailsDTO(identity, documentFile);
-				/*registrationDTO.getDemographicDTO().setApplicantDocumentDTO(setApplicantDocumentDTO());
-				registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(documents);
-				registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(identity);
-*/
+				// documents = setDocumentDetailsDTO(identity, documentFile);
+				/*
+				 * registrationDTO.getDemographicDTO().setApplicantDocumentDTO(
+				 * setApplicantDocumentDTO());
+				 * registrationDTO.getDemographicDTO().getApplicantDocumentDTO().setDocuments(
+				 * documents);
+				 * registrationDTO.getDemographicDTO().getDemographicInfoDTO().setIdentity(
+				 * identity);
+				 */
 				registrationDTO.setRegistrationMetaDataDTO(preRegistrationDTO.getRegistrationMetaDataDTO());
 				registrationDTO.getRegistrationMetaDataDTO().setCenterId(centerID);
 				registrationDTO.getRegistrationMetaDataDTO().setMachineId(stationID);
@@ -1283,7 +1308,7 @@ public class CommonUtil {
 					|| packetType.equalsIgnoreCase("PrIdOfChildValidParentUIN")
 					|| packetType.equalsIgnoreCase("PrIdOfChildValidParentRID")
 					|| packetType.equalsIgnoreCase("PrIdOfChildInvalidRID")) {
-				//registrationDTO.getSelectionListDTO().setUinId(uin);
+				// registrationDTO.getSelectionListDTO().setUinId(uin);
 				registrationDTO.getRegistrationMetaDataDTO().setUin(uin);
 			}
 
@@ -1339,7 +1364,7 @@ public class CommonUtil {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			response = mapper.readValue(
-					new File(MosipTestRunner.getGlobalResourcePath()+"/"+ConstantValues.PRE_REG_PATH),
+					new File(MosipTestRunner.getGlobalResourcePath() + "/" + ConstantValues.PRE_REG_PATH),
 					new TypeReference<Map<String, Object>>() {
 					});
 		} catch (NullPointerException nullPointerException) {
@@ -1357,7 +1382,7 @@ public class CommonUtil {
 		} catch (IOException ioException) {
 			LOGGER.info("CommonUtil - ", APPLICATION_NAME, APPLICATION_ID, ExceptionUtils.getStackTrace(ioException));
 		}
-		
+
 		return response;
 	}
 
@@ -1381,7 +1406,7 @@ public class CommonUtil {
 			ApplicantDocumentDTO applicantDocumentDTO = new ApplicantDocumentDTO();
 			applicantDocumentDTO.setDocuments(new HashMap<>());
 
-			//demographicDTO.setApplicantDocumentDTO(applicantDocumentDTO);
+			// demographicDTO.setApplicantDocumentDTO(applicantDocumentDTO);
 			DemographicInfoDTO demographicInfoDTO = new DemographicInfoDTO();
 			Identity identity = new Identity();
 			demographicInfoDTO.setIdentity(identity);
@@ -1389,7 +1414,7 @@ public class CommonUtil {
 
 			applicantDocumentDTO.setDocuments(new HashMap<>());
 
-		//	registrationDTO.setDemographicDTO(demographicDTO);
+			// registrationDTO.setDemographicDTO(demographicDTO);
 
 			// Create object for OSIData DTO
 			registrationDTO.setOsiDataDTO(new OSIDataDTO());
@@ -1528,7 +1553,7 @@ public class CommonUtil {
 			}
 		}
 	}
-	
+
 	public static String getResourcePath() {
 		return MosipTestRunner.getGlobalResourcePath();
 	}
