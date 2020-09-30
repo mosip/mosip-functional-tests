@@ -126,8 +126,83 @@ public class PartnerRunConfig extends RunConfig {
     private String getPolicyGroupPath;
     private String getPolicyAgainstApiKeyPath;
     private String getPartnersPolicyPath;
+    private String addContactPath;
     
-   
+    
+    
+    private String saveDeviceDetailPath;
+    private String approveRejectDeviceDetailPath;
+    private String updateDeviceDetailPath;
+    private String saveSecureBiometricInterfacePath;
+    private String approveRejectSecureBiometricInterfacePath;
+    private String saveFtpChipDetailPath;
+    private String approveRejectFtpChipDetailPath;
+    
+    
+    
+	public String getApproveRejectFtpChipDetailPath() {
+		return approveRejectFtpChipDetailPath;
+	}
+
+	public void setApproveRejectFtpChipDetailPath(String approveRejectFtpChipDetailPath) {
+		this.approveRejectFtpChipDetailPath = approveRejectFtpChipDetailPath;
+	}
+
+	public String getSaveFtpChipDetailPath() {
+		return saveFtpChipDetailPath;
+	}
+
+	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
+		this.saveFtpChipDetailPath = saveFtpChipDetailPath;
+	}
+
+	public String getApproveRejectSecureBiometricInterfacePath() {
+		return approveRejectSecureBiometricInterfacePath;
+	}
+
+	public void setApproveRejectSecureBiometricInterfacePath(String approveRejectSecureBiometricInterfacePath) {
+		this.approveRejectSecureBiometricInterfacePath = approveRejectSecureBiometricInterfacePath;
+	}
+
+	public String getSaveSecureBiometricInterfacePath() {
+		return saveSecureBiometricInterfacePath;
+	}
+
+	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
+		this.saveSecureBiometricInterfacePath = saveSecureBiometricInterfacePath;
+	}
+
+	public String getUpdateDeviceDetailPath() {
+		return updateDeviceDetailPath;
+	}
+
+	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
+		this.updateDeviceDetailPath = updateDeviceDetailPath;
+	}
+
+	public String getApproveRejectDeviceDetailPath() {
+		return approveRejectDeviceDetailPath;
+	}
+
+	public void setApproveRejectDeviceDetailPath(String approveRejectDeviceDetailPath) {
+		this.approveRejectDeviceDetailPath = approveRejectDeviceDetailPath;
+	}
+
+	public String getSaveDeviceDetailPath() {
+		return saveDeviceDetailPath;
+	}
+
+	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
+		this.saveDeviceDetailPath = saveDeviceDetailPath;
+	}
+
+	public String getAddContactPath() {
+		return addContactPath;
+	}
+
+	public void setAddContactPath(String addContactPath) {
+		this.addContactPath = addContactPath;
+	}
 
 	public String getGetPartnersPolicyPath() {
 		return getPartnersPolicyPath;
@@ -511,6 +586,14 @@ public class PartnerRunConfig extends RunConfig {
 		setUpdateHolidayPath(PartnerTestUtil.getPropertyValue("updateHolidayPath"));
 		
 		
+		setSaveDeviceDetailPath(PartnerTestUtil.getPropertyValue("saveDeviceDetailPath"));
+		setApproveRejectDeviceDetailPath(PartnerTestUtil.getPropertyValue("approveRejectDeviceDetailPath"));
+		setUpdateDeviceDetailPath(PartnerTestUtil.getPropertyValue("updateDeviceDetailPath"));
+		setSaveSecureBiometricInterfacePath(PartnerTestUtil.getPropertyValue("saveSecureBiometricInterfacePath"));
+		setApproveRejectSecureBiometricInterfacePath(PartnerTestUtil.getPropertyValue("approveRejectSecureBiometricInterfacePath"));
+		setSaveFtpChipDetailPath(PartnerTestUtil.getPropertyValue("saveFtpChipDetailPath"));
+		setApproveRejectFtpChipDetailPath(PartnerTestUtil.getPropertyValue("approveRejectFtpChipDetailPath"));
+		
 		setRegisterPartnerPath(PartnerTestUtil.getPropertyValue("registerPartnerPath"));
 		setUpdatePartnerPath(PartnerTestUtil.getPropertyValue("updatePartnerPath"));
 		setSubmitPartnerApiKeyReqPath(PartnerTestUtil.getPropertyValue("submitPartnerApiKeyReqPath"));
@@ -523,6 +606,8 @@ public class PartnerRunConfig extends RunConfig {
 		setRetrieveParticularPartnerDetailsForGivenPartnerIdPath(PartnerTestUtil.getPropertyValue("retrieveParticularPartnerDetailsForGivenPartnerIdPath"));
 		setRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath(PartnerTestUtil.getPropertyValue("retrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath"));
 		setRetrievePartnerAPIkeyToPolicyMappingsPath(PartnerTestUtil.getPropertyValue("retrievePartnerAPIkeyToPolicyMappingsPath"));
+		setAddContactPath(PartnerTestUtil.getPropertyValue("addContactPath"));
+		
 		
 		setCreatePolicyGroupPath(PartnerTestUtil.getPropertyValue("createPolicyGroupPath"));
 		setGetPolicyBasedOnPolicyIdPath(PartnerTestUtil.getPropertyValue("getPolicyBasedOnPolicyIdPath"));
@@ -536,11 +621,6 @@ public class PartnerRunConfig extends RunConfig {
 		setGetPolicyGroupPath(PartnerTestUtil.getPropertyValue("getPolicyGroupPath"));
 		setGetPolicyAgainstApiKeyPath(PartnerTestUtil.getPropertyValue("getPolicyAgainstApiKeyPath"));
 		setGetPartnersPolicyPath(PartnerTestUtil.getPropertyValue("getPartnersPolicyPath"));
-		
-		
-		
-		
-		
 		
 		setCreateMISPPath(PartnerTestUtil.getPropertyValue("createMISPPath"));
 		setUpdateMISPPath(PartnerTestUtil.getPropertyValue("updateMISPPath"));

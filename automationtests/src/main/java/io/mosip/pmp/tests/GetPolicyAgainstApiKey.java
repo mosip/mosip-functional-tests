@@ -51,10 +51,12 @@ public class GetPolicyAgainstApiKey extends PartnerTestUtil implements ITest {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createPolicyGroupQuery = partnerQueries.get("createPolicyGroup").toString();
 		String createAuthPolicyQuery = partnerQueries.get("createAuthPolicy").toString();
+		String createPartnerTypeQuery = partnerQueries.get("createPartnerType").toString();
 		String createPartnerQuery = partnerQueries.get("createPartner").toString();
 		String createPartnerApiKeyQuery = partnerQueries.get("createPartnerApiKey").toString();
 		if (masterDB.executeQuery(createPolicyGroupQuery, "pms") &&
 				masterDB.executeQuery(createAuthPolicyQuery, "pms") &&
+				masterDB.executeQuery(createPartnerTypeQuery, "pms") &&
 				masterDB.executeQuery(createPartnerQuery, "pms") &&
 				masterDB.executeQuery(createPartnerApiKeyQuery, "pms"))
 			logger.info("GetPolicyAgainstApiKey with id as Test successfully");
@@ -207,6 +209,7 @@ public class GetPolicyAgainstApiKey extends PartnerTestUtil implements ITest {
 	public void cleanup() throws AdminTestException {
 		if (masterDB.executeQuery(partnerQueries.get("deletePartnerApiKeyData").toString(), "pms") &&
 				masterDB.executeQuery(partnerQueries.get("deletePartner").toString(), "pms") &&
+				masterDB.executeQuery(partnerQueries.get("deletePartnerType").toString(), "pms") &&
 				masterDB.executeQuery(partnerQueries.get("deleteAuthPolicy").toString(), "pms") &&
 				masterDB.executeQuery(partnerQueries.get("deletePolicyGroup").toString(), "pms"))
 			logger.info("delete all GetPolicyAgainstApiKey data successfully");
