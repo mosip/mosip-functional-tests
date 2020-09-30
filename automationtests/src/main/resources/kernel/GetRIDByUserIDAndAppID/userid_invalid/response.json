@@ -6,7 +6,7 @@
   "response":null,
   "errors":[
     {
-      "errorCode":"KER-ATH-401",
+      "errorCode":"KER-ATH-022",
       "message":"User not found"
     }]
 }
