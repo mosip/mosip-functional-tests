@@ -1,0 +1,11 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "approvalStatus": true,
+    "ftpChipDetailId": "FTP-ID-01",
+    "isItForRegistrationDevice": true
+  },
+  "requesttime": "2020-09-29T13:25:24.450Z",
+  "version": "string"
+}

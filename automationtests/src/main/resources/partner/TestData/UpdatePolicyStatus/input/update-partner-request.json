@@ -4,7 +4,7 @@
     "policyGroupId": "string",
     "metadata": {},
     "request": {
-        "status": "PUBLISHED"
+        "status": "string"
     },
     "requesttime": "2018-12-10T06:12:52.994Z",
     "version": "string"

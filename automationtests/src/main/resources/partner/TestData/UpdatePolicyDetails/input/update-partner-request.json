@@ -15,21 +15,10 @@
                     "mandatory": true
                 }
             ],
-            "authTokenType": "partner",
-            "dataSharePolicies": {
-                "encryptionType": "string",
-                "shareDomain": "string",
-                "transactionsAllowed": "string",
-                "typeOfShare": "string",
-                "validForInMinutes": "string"
-            },
-            "shareableAttributes": [
-                {
-                    "attributeName": "string",
-                    "encrypted": true,
-                    "format": "string"
-                }
-            ]
+            "allowedKYCAttributes": [{
+				"attributeName": "string"
+			}],
+            "authTokenType": "partner"
         },
         "policyGroupName": "MOSIP POLICY GROUP",
         "policyType": "Auth"

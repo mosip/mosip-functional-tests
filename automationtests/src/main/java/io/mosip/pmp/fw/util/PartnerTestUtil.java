@@ -1205,4 +1205,56 @@ public class PartnerTestUtil extends AuthTestsUtil{
 			return false;
 		}
 	}
+	
+	
+	protected boolean postAddContact(File[] listOfFiles, String urlPath, String keywordToFind,
+			String generateOutputFileKeyword, int code,String cookieName, String cookieValue) {
+		try {
+			for (int j = 0; j < listOfFiles.length; j++) {
+				if (listOfFiles[j].getName().contains(keywordToFind)) {
+					FileOutputStream fos = new FileOutputStream(
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+					Response response=null;
+					String responseJson = "";
+					
+					JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(listOfFiles[j].getAbsolutePath()));
+					String partnerId = "";
+					
+					if (objectData.containsKey("partnerId")) {
+						partnerId = objectData.get("partnerId").toString();
+						objectData.remove("partnerId");
+						
+					}
+					
+					StringTokenizer st = new StringTokenizer(urlPath,"{");
+					String[] token = new String[2];
+					for (int i = 0; i <token.length; ) {
+						while (st.hasMoreTokens()) {
+							String test=st.nextToken();
+							token[i]=test;
+							i++;
+						}
+					}
+					
+					String newUrlPath = token[0] + partnerId + "/addcontact";
+					
+					if (code == 0)
+						response = postRequestWithCookieforPublishPolicy(objectData, newUrlPath,cookieName,cookieValue);
+					else
+						response = postRequestWithCookieforPublishPolicy(objectData, newUrlPath,cookieName,cookieValue);
+					responseJson=response.asString();
+					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + newUrlPath + ") <pre>"
+							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
+					fos.write(responseJson.getBytes());
+					fos.flush();
+					fos.close();
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			partnerLogger.error("Exception " + e);
+			return false;
+		}
+	}
 }

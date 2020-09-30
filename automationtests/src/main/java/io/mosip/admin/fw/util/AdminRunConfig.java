@@ -2262,4 +2262,82 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getAddContactPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAddContactPath(String addContactPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSaveFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
