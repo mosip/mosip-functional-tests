@@ -1,9 +1,9 @@
 testdata:
-   Partner_SubmitPartnerApiKeyReq_A_with_InValid_PolicyGroup:
+   Partner_SubmitPartnerApiKeyReq_A_with_InValid_PolicyName:
       input.register-partner-request:
-         policyName: WOSIP
+         policyName: MOSIP AUTH POLICY1234
          useCaseDescription: Need to submit the payment
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCode: PMS_PRT_002
@@ -14,9 +14,9 @@ testdata:
          
    Partner_SubmitPartnerApiKeyReq_B_with_InValid_partnerId:
       input.register-partner-request:
-         policyName: MOSIP POLICY
+         policyName: MOSIP AUTH POLICY
          useCaseDescription: Need to submit the payment
-         partnerId: PMP-PART-ID-001
+         partnerId: PMS-ID-0001
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCode: PMS_PRT_005
@@ -27,9 +27,9 @@ testdata:
          
    Partner_SubmitPartnerApiKeyReq_C_Valid_Smoke:
       input.register-partner-request:
-         policyName: MOSIP POLICY
+         policyName: MOSIP AUTH POLICY
          useCaseDescription: Need to submit the payment
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          apiRequestId: $IGNORE$
@@ -42,7 +42,7 @@ testdata:
    Partner_SubmitPartnerApiKeyReq_Missing_Input_Parameter_policyName:
       input.register-partner-request2:
          useCaseDescription: Need to submit the payment
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-error-response2:
          errorCodeerrors0: PMS_COR_001
          messageerrors0: Missing Input Parameter

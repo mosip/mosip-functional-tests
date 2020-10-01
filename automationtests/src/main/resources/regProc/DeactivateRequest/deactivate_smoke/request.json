@@ -2,10 +2,10 @@
 	"id": "mosip.registration.packetgenerator",
 	"request":{
 		"centerId": "10001",
-		"machineId": "10001",
+		"machineId": "10007",
 		"reason": "something",
 		"registrationType": "DEACTIVATED",
-		"uin": "9965625706"
+		"uin": "6145895472"
 	},
 	"requesttime": "2019-03-15T09:08:38.548Z",
 	"version": "1.0"

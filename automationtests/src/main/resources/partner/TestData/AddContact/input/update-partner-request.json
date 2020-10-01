@@ -1,0 +1,13 @@
+{
+  "id": "string",
+  "partnerId": "string",
+  "metadata": {},
+  "request": {
+    "address": "abcd",
+    "contactNumber": "8553967574",
+    "emailId": "test_org@gmail.com",
+    "is_Active": true
+  },
+  "requesttime": "2020-09-25T02:44:53.751Z",
+  "version": "string"
+}

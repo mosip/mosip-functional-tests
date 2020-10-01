@@ -1955,4 +1955,148 @@ public class IdRepoRunConfig extends RunConfig{
 		return null;
 	}
 
+	@Override
+	public String getDefinePolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDefinePolicyPath(String definePolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPublishPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPublishPolicyPath(String publishPolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getGetPolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPolicyAgainstApiKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPartnersPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAddContactPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAddContactPath(String addContactPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSaveFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

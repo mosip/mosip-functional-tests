@@ -6,9 +6,13 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
@@ -16,9 +20,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.testng.Reporter;
 import org.yaml.snakeyaml.Yaml;
 
@@ -48,111 +51,7 @@ public class AdminTestUtil extends BaseTestCase{
 	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	String token = null;
 	
-	public static String getGlobalResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath();
-	}
 	
-	public static void initiateAdminTest() {
-		copyAdminTestResource();
-	}
-	
-	public static void copyAdminTestResource() {
-		try {
-			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/admin");
-			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
-			FileUtils.copyDirectoryToDirectory(source, destination);
-			logger.info("Copied the admin test resource successfully");
-		} catch (Exception e) {
-			logger.error("Exception occured while copying the file: "+e.getMessage());
-		}
-	}
-	
-	/**
-	 * method for creating test data in master DB for admin search and filter apis
-	 */
-	public static void createMasterDataForAdminFilterSearchApis()
-	{
-		String crtQuerKeys[] = queries.get("allAutoCrt").toString().split(",");
-		List<String> crtQueries = new LinkedList<String>();
-		for(String queryKeys: crtQuerKeys)
-			crtQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(crtQueries, "masterdata"))
-			logger.info("created test data for admin search and filter apis");
-		else
-			logger.info("not able to create test data for admin search and filter apis, Search and Filter APIs will Fail");
-	}
-	
-	/**
-	 * method for deleting created test data in master DB for admin search and filter apis
-	 */
-	public static void deleteMasterDataForAdminFilterSearchApis()
-	{
-		String dltQueryKeys[] = queries.get("allAutoDlt").toString().split(",");
-		List<String> dltQueries = new LinkedList<String>();
-		for(String queryKeys: dltQueryKeys)
-			dltQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(dltQueries, "masterdata"))
-			logger.info("deleted created test data for admin search and filter apis");
-		else
-			logger.info("not able to delete test data of admin search and filter apis");
-	}
-	
-	public static void createDeviceManagementData()
-	{
-		String crtQuerKeys[] = queries.get("crtDeviceMngmntdata").toString().split(",");
-		List<String> crtQueries = new LinkedList<String>();
-		for(String queryKeys: crtQuerKeys)
-			crtQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(crtQueries, "masterdata"))
-			logger.info("created device management data for automation");
-		else
-			logger.info("not able to create device management data, IDA authentications will fail");
-	}
-	public static void deleteDeviceManagementData()
-	{
-		String dltQueryKeys[] = queries.get("dltDeviceMngmntdata").toString().split(",");
-		List<String> dltQueries = new LinkedList<String>();
-		for(String queryKeys: dltQueryKeys)
-			dltQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(dltQueries, "masterdata"))
-			logger.info("deleted created device management data for automation");
-		else
-			logger.info("not able to delete device management data");
-		}
-	
-	public Object[] getYmlTestData(String ymlPath){
-		String testType = testLevel;
-		final ObjectMapper mapper = new ObjectMapper();
-		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
-		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
-		for (String key : scriptsMap.keySet()) {
-			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
-			if(testType.equalsIgnoreCase("smoke")){
-				testCases = testCases.entrySet().stream().filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke")).collect(Collectors.toMap(mapElement -> mapElement.getKey(), mapElement -> mapElement.getValue()));
-			}
-			for (String testCase : testCases.keySet()) {
-				TestCaseDTO testCaseDTO = mapper.convertValue(testCases.get(testCase), TestCaseDTO.class);
-						testCaseDTO.setTestCaseName(testCase);
-						testCaseDTOList.add(testCaseDTO);
-			}
-		}
-		return testCaseDTOList.toArray();
-	}
-	
-	@SuppressWarnings("unchecked")
-	protected Map<String,Map<String, Map<String, String>>> loadyaml(String path) {
-		Map<String,Map<String, Map<String, String>>> scriptsMap = null;
-		try {
-			Yaml yaml = new Yaml();
-			InputStream inputStream = new FileInputStream(
-					new File(RunConfigUtil.getResourcePath() + path).getAbsoluteFile());
-		scriptsMap = (Map<String,Map<String, Map<String, String>>>) yaml.load(inputStream);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			return null;
-		}
-		return scriptsMap;
-	}	
 	
 	/**
 	 * This method will hit post request and return the response
@@ -213,18 +112,20 @@ public class AdminTestUtil extends BaseTestCase{
 	 * @return Response
 	 */
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role) {
-		Response response=null;
-		JSONObject inputJson=null;
-		try {
-			inputJson = (JSONObject) new JSONParser().parse(jsonInput);
-		} catch (ParseException e) {
-			logger.error("Error while parsing json request: "+jsonInput+"\n with message: "+e.getMessage());
-		}
+			Response response=null;
+			jsonInput = inputJsonKeyWordHandeler(jsonInput);
+			HashMap<String, String> map = null;
+			try {
+				map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>(){}.getType());
+			} catch (Exception e) {
+				logger.error("Not able to convert jsonrequet to map: "+jsonInput+" Exception: "+e.getMessage());
+			}
+		
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson.toJSONString()) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
-			  response = RestClient.getRequestWithCookieAndPathParm(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -233,11 +134,86 @@ public class AdminTestUtil extends BaseTestCase{
 			return response;
 		}
 	}
+
+	public static void createDeviceManagementData()
+	{
+		String crtQuerKeys[] = queries.get("crtDeviceMngmntdata").toString().split(",");
+		List<String> crtQueries = new LinkedList<String>();
+		for(String queryKeys: crtQuerKeys)
+			crtQueries.add(queries.get(queryKeys).toString());
+		if (masterDB.executeQueries(crtQueries, "masterdata"))
+			logger.info("created device management data for automation");
+		else
+			logger.info("not able to create device management data, IDA authentications will fail");
+	}
+	public static void deleteDeviceManagementData()
+	{
+		String dltQueryKeys[] = queries.get("dltDeviceMngmntdata").toString().split(",");
+		List<String> dltQueries = new LinkedList<String>();
+		for(String queryKeys: dltQueryKeys)
+			dltQueries.add(queries.get(queryKeys).toString());
+		if (masterDB.executeQueries(dltQueries, "masterdata"))
+			logger.info("deleted created device management data for automation");
+		else
+			logger.info("not able to delete device management data");
+		}
+	
+	public static String getGlobalResourcePath() {
+		return MosipTestRunner.getGlobalResourcePath();
+	}
+	
+	public static void initiateAdminTest() {
+		copyAdminTestResource();
+	}
+	
+	public static void copyAdminTestResource() {
+		try {
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/admin");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			FileUtils.copyDirectoryToDirectory(source, destination);
+			logger.info("Copied the admin test resource successfully");
+		} catch (Exception e) {
+			logger.error("Exception occured while copying the file: "+e.getMessage());
+		}
+	}
+	
+	public Object[] getYmlTestData(String ymlPath){
+		String testType = testLevel;
+		final ObjectMapper mapper = new ObjectMapper();
+		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
+		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
+		for (String key : scriptsMap.keySet()) {
+			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
+			if(testType.equalsIgnoreCase("smoke")){
+				testCases = testCases.entrySet().stream().filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke")).collect(Collectors.toMap(mapElement -> mapElement.getKey(), mapElement -> mapElement.getValue()));
+			}
+			for (String testCase : testCases.keySet()) {
+				TestCaseDTO testCaseDTO = mapper.convertValue(testCases.get(testCase), TestCaseDTO.class);
+						testCaseDTO.setTestCaseName(testCase);
+						testCaseDTOList.add(testCaseDTO);
+			}
+		}
+		return testCaseDTOList.toArray();
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected Map<String,Map<String, Map<String, String>>> loadyaml(String path) {
+		Map<String,Map<String, Map<String, String>>> scriptsMap = null;
+		try {
+			Yaml yaml = new Yaml();
+			InputStream inputStream = new FileInputStream(
+					new File(RunConfigUtil.getResourcePath() + path).getAbsoluteFile());
+		scriptsMap = (Map<String,Map<String, Map<String, String>>>) yaml.load(inputStream);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return null;
+		}
+		return scriptsMap;
+	}	
 	
 	protected String getJsonFromTemplate(String input, String template)
 	{
 		String resultJson = null;
-		
 		try {
 			Handlebars handlebars = new Handlebars();
 			Gson gson = new Gson();
@@ -261,8 +237,11 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		if(jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
-		else if(jsonString.contains("$TIMESTAMPL$"))
+		if(jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
+		if(jsonString.contains("$REMOVE$")) jsonString = removeObject(new
+		  JSONObject(jsonString));
+		 
 		return jsonString;
 	}
 	
@@ -277,5 +256,76 @@ public class AdminTestUtil extends BaseTestCase{
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 		return dateFormat.format(date);
+	}
+	
+	public String removeObject(JSONObject object) {
+		Iterator<String> keysItr = object.keys();
+		while (keysItr.hasNext()) {
+			String key = keysItr.next();
+			Object value = object.get(key);
+			if (value instanceof JSONArray) {
+				JSONArray array = (JSONArray) value;
+				String finalarrayContent = "";
+				if (array.length() != 0) {
+					for (int i = 0; i < array.length(); ++i) {
+						if (!array.toString().contains("{") && !array.toString().contains("}")) {
+							Set<String> arr = new HashSet<String>();
+							for (int k = 0; k < array.length(); k++) {
+								arr.add(array.getString(k));
+							}
+							finalarrayContent = removObjectFromArray(arr);
+						} else {
+							String arrayContent = removeObject(new JSONObject(array.get(i).toString()),finalarrayContent);
+							if (!arrayContent.equals("{}"))
+								finalarrayContent = finalarrayContent + "," + arrayContent;
+						}
+					}
+					finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
+					object.put(key, new JSONArray("[" + finalarrayContent + "]"));
+				} else
+					object.put(key, new JSONArray("[]"));
+
+			} else if (value instanceof JSONObject) {
+				String objectContent = removeObject(new JSONObject(value.toString()));
+				object.put(key, new JSONObject(objectContent));
+			}
+			if (value.toString().equals("$REMOVE$")) {
+				object.remove(key);
+				keysItr = object.keys();
+			}
+		}
+		return object.toString();
+	}
+	private String removeObject(JSONObject object, String tempArrayContent) {
+		Iterator<String> keysItr = object.keys();
+		while (keysItr.hasNext()) {
+			String key = keysItr.next();
+			Object value = object.get(key);
+			if (value instanceof JSONArray) {
+				JSONArray array = (JSONArray) value;
+				for (int i = 0; i < array.length(); ++i) {
+					String arrayContent = removeObject(new JSONObject(array.get(i).toString()));
+					object.put(key, new JSONArray("[" + arrayContent + "]"));
+				}
+			} else if (value instanceof JSONObject) {
+				String objectContent = removeObject(new JSONObject(value.toString()));
+				object.put(key, new JSONObject(objectContent));
+			}
+			if (value.toString().equals("$REMOVE$")) {
+				object.remove(key);
+				keysItr = object.keys();
+			}
+		}
+		return object.toString();
+	}
+	private String removObjectFromArray(Set<String> content) {
+		String array = "[";
+		for (String str : content) {
+			if (!str.contains("$REMOVE$"))
+				array = array + '"' + str + '"' + ",";
+		}
+		array = array.substring(0, array.length() - 1);
+		array = array + "]";
+		return array;
 	}
 }

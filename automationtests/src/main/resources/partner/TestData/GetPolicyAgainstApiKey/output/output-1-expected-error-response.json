@@ -1,0 +1,13 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-09-17T14:07:39.685Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_POL_013",
+            "message": "No policy available for given PartnerAPIKey"
+        }
+    ]
+}

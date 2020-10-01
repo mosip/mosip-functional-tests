@@ -7,7 +7,7 @@ testdata:
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          licenseKey: $input.validate-misp-license-request:mispLicenseKey$
-         valid: true
+         valid: $IGNORE$
          active: true
          id: $IGNORE$
          metadata: $IGNORE$

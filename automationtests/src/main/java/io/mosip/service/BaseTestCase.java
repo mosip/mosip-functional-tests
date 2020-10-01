@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import io.mosip.kernel.util.KernelDataBaseAccess;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -23,13 +23,11 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
-import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
-import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
@@ -70,7 +68,7 @@ public class BaseTestCase {
 
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
-	public static Map queries;
+	public static Map<String, String> queries;
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
@@ -78,8 +76,8 @@ public class BaseTestCase {
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
-	public static Map residentQueries;
-	public static Map partnerQueries;
+	public static Map<String, String> residentQueries;
+	public static Map<String, String> partnerQueries;
 	public static String partnerDemoServicePort = null;
 	public static boolean insertDevicedata = false;
 	/**
@@ -150,7 +148,6 @@ public class BaseTestCase {
 			try {
 				FileUtils.forceDelete(logFile);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				logger.error("Failed to delete old log file");
 			}
 		logger.info("Test Framework for Mosip api Initialized");
@@ -173,9 +170,6 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
-			//AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			//AdminTestUtil.createMasterDataForAdminFilterSearchApis();
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -210,40 +204,18 @@ public class BaseTestCase {
 		}
 		
 		//inserting device management data
-		/*
-		 * if(insertDevicedata) { long deviceCount = new
-		 * KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").
-		 * toString(), "masterdata"); if(deviceCount!=6) {
-		 * AdminTestUtil.deleteDeviceManagementData();
-		 * logger.info("Inserting device management data");
-		 * AdminTestUtil.createDeviceManagementData(); } }
-		 */
-	} // End suiteSetup
-
 		
-			//authToken=pil.getToken();
-			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
-			extent=new ExtentReports();
-			extent.setSystemInfo("Build Number", buildNumber);
-			extent.attachReporter(htmlReporter);*/
-
-			
-			/*htmlReporter.config().setDocumentTitle("MosipAutomationTesting Report");
-			htmlReporter.config().setReportName("Mosip Automation Report");
-			htmlReporter.config().setTheme(Theme.STANDARD);*/
-			/*TokenGeneration generateToken = new TokenGeneration();
-			TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
-			String tokenGenerationProperties = generateToken.readPropertyFile("syncTokenGenerationFilePath");
-			tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-			regProcAuthToken = generateToken.getToken(tokenEntity);
-			TokenGenerationEntity adminTokenEntity = new TokenGenerationEntity();
-			String adminTokenGenerationProperties = generateToken.readPropertyFile("getStatusTokenGenerationFilePath");
-			adminTokenEntity = generateToken.createTokenGeneratorDto(adminTokenGenerationProperties);
-			adminRegProcAuthToken = generateToken.getToken(adminTokenEntity);*/
-			
-
-
-		// End suiteSetup
+		if (insertDevicedata) {
+			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(),
+					"masterdata");
+			if (deviceCount != 6) {
+				AdminTestUtil.deleteDeviceManagementData();
+				logger.info("Inserting device management data");
+				AdminTestUtil.createDeviceManagementData();
+			}
+		}
+		 
+	}
 
 
 	/**
@@ -252,16 +224,12 @@ public class BaseTestCase {
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
 		String testModule = ctx.getName();
-		/*
-		 * if(testModule.equalsIgnoreCase("Admin Tests"))
-		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); else
-		 * if(testModule.equalsIgnoreCase("AuthenticationTest")) { new
-		 * PMPDataManager(false); AdminTestUtil.deleteDeviceManagementData(); } else
-		 * if(ctx.getCurrentXmlTest().getSuite().getName().
-		 * equalsIgnoreCase("Mosip API Suite")) {
-		 * AdminTestUtil.deleteMasterDataForAdminFilterSearchApis(); new
-		 * PMPDataManager(false); AdminTestUtil.deleteDeviceManagementData(); }
-		 */
+		if (testModule.equalsIgnoreCase("AuthenticationTest")) {
+			new PMPDataManager(false);
+		} else if (ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite")) {
+			new PMPDataManager(false);
+		}
+		 
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");
@@ -282,19 +250,6 @@ public class BaseTestCase {
 		logProp.setProperty("log4j.appender.Appender2.layout", "org.apache.log4j.PatternLayout");
 		logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
 		return logProp;
-	}
-
-	private static void copyDbInTarget() {
-		File db = new File(MosipTestRunner.getGlobalResourcePath().substring(0,
-				MosipTestRunner.getGlobalResourcePath().lastIndexOf("target")) + "/db");
-		File targetDb = new File(db.getPath().replace("/db", "/target/db"));
-		try {
-			FileUtils.copyDirectory(db, targetDb);
-			logger.info("Copied :: " + targetDb.getPath() + ":: to target");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	private void copyReportAndLog()
