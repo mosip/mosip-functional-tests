@@ -306,7 +306,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		System.out.println(getResponse.asString());
 	}
 
-	public Response postRequestToEncrypt(String url, Object body, String contentHeader, String acceptHeader,
+	public Response postRequestWithRequestResponseHeaders(String url, Object body, String contentHeader, String acceptHeader,
 			String token) {
 		try {
 			// logger.info("REST:ASSURED:Sending a data packet for encryption to " +
