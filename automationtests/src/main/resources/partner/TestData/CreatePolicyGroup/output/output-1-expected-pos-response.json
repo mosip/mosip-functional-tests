@@ -1,14 +1,14 @@
 {
-    "id": "mosip.partnermanagement.policy.create",
-    "version": "1.0",
-    "responsetime": "2020-06-20T06:44:21.643Z",
+    "id": "string",
+    "version": "string",
+    "responsetime": "2020-09-09T07:32:47.854Z",
     "response": {
-        "id": "871191",
-        "name": "MOSIP POLICY",
-        "desc": "DESCR MOSIP POLICY",
+        "id": "406698",
+        "name": "MOSIP POLICY GROUP",
+        "desc": "DESCR MOSIP POLICY GROUP",
         "is_Active": true,
         "cr_by": "pm_testuser",
-        "cr_dtimes": "2020-06-20T06:44:21.652",
+        "cr_dtimes": "2020-09-09T07:32:47.846367",
         "up_by": null,
         "upd_dtimes": null
     },

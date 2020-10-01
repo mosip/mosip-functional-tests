@@ -52,9 +52,9 @@ public class DownloadMispLicenseKey extends PartnerTestUtil implements ITest {
 		String createMISPQuery = partnerQueries.get("createMISP").toString();
 		String validateMISPQuery = partnerQueries.get("validateMISPLicence").toString();
 		String approveMISPQuery = partnerQueries.get("approveMISP").toString();
-		if (masterDB.executeQuery(createMISPQuery, "pmp")
-				&& masterDB.executeQuery(validateMISPQuery, "pmp")
-				&& masterDB.executeQuery(approveMISPQuery, "pmp"))
+		if (masterDB.executeQuery(createMISPQuery, "pms")
+				&& masterDB.executeQuery(validateMISPQuery, "pms")
+				&& masterDB.executeQuery(approveMISPQuery, "pms"))
 			logger.info("DownloadMispLicenseKey with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to DownloadMispLicenseKey using query from partnerQueries.properties");
@@ -204,8 +204,8 @@ public class DownloadMispLicenseKey extends PartnerTestUtil implements ITest {
 	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("delete all DownloadMispLicenseKey data successfully");
 		else {
 			logger.info("not able to delete DownloadMispLicenseKey data using query from query.properties");

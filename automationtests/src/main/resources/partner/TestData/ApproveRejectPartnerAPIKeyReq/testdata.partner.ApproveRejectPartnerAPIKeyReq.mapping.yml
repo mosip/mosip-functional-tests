@@ -29,8 +29,8 @@ testdata:
          apiKeyReqId: SUB-PMP-REQ-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: PMS_COR_002
-         messageerrors0: Invalid Input Parameter
+         errorCodeerrors0: PMS_PM_034
+         messageerrors0: Policy request already approved.
          id: $IGNORE$
          metadata: $IGNORE$
          version: $IGNORE$
@@ -52,8 +52,8 @@ testdata:
          apiKeyReqId: SUB-PMP-REQ-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
-         errorCodeerrors0: PMS_COR_002
-         messageerrors0: Invalid Input Parameter
+         errorCodeerrors0: PMS_PM_034
+         messageerrors0: Policy request already approved.
          id: $IGNORE$
          metadata: $IGNORE$
          version: $IGNORE$

@@ -190,7 +190,7 @@ public class CreateMISP extends PartnerTestUtil implements ITest {
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("deleted all created misp data successfully");
 		else {
 			logger.info("not able to delete created misp data using query from query.properties");

@@ -1,0 +1,39 @@
+testdata: 
+  Partner_SaveFtpChipDetail_All_Valid_Smoke: 
+    input.register-partner-request: 
+      Rid: FTP-ID-01
+      ftpProviderId: PMS-ID-01
+      isItForRegistrationDevice: true
+      make: MAKE01
+      model: MODEL-01
+    output.output-1-expected-pos-response: 
+      Resid: FTP-ID-01
+      id: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_SaveFtpChipDetail_Invalid_ftpProviderId: 
+    input.register-partner-request: 
+      Rid: FTP-ID-01
+      ftpProviderId: PMS-ID-0001
+      isItForRegistrationDevice: true
+      make: MAKE01
+      model: MODEL-01
+    output.output-1-expected-error-response: 
+      errorCode: $IGNORE$
+      id: $IGNORE$
+      message: "PMP_AUT-030 --> ftp provider not exists."
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_SaveFtpChipDetail_MissingInputParameter_ftpProviderId: 
+    input.register-partner-request2:
+      Rid: FTP-ID-01
+      isItForRegistrationDevice: true
+      make: MAKE01
+      model: MODEL-01
+    output.output-1-expected-error-response2: 
+      errorCodeerrors0: PMS_COR_001
+      id: $IGNORE$
+      messageerrors0: "Missing Input Parameter"
+      responsetime: $IGNORE$
+      timestamp: $IGNORE$
+      version: $IGNORE$

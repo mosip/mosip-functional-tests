@@ -36,7 +36,7 @@ public class PreregDB {
 	public PreRegistartionDataBaseAccess dbAccess=new PreRegistartionDataBaseAccess();
 	public static String env = System.getProperty("env.user");
 	
-	public static Session getDataBaseConnection(String dbName) {
+	public static <E> Session getDataBaseConnection(String dbName,Class<E> entity) {
 		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
 		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
 		
@@ -56,6 +56,8 @@ public class PreregDB {
 			config.setProperty("hibernate.show_sql", dbProps.getProperty("show_sql"));
 			config.setProperty("hibernate.current_session_context_class", dbProps.getProperty("current_session_context_class"));
 			config.addFile(new File(dbConfigXml));
+			if(entity!=null)
+			config.addAnnotatedClass(entity);
 		factory = config.buildSessionFactory();
 		session = factory.getCurrentSession();
 		} 
@@ -77,8 +79,7 @@ public class PreregDB {
 	public static boolean prereg_dbconnectivityCheck()
 	{
 		boolean flag=false;
-		session = getDataBaseConnection("prereg");
-		session.beginTransaction();
+		session = getDataBaseConnection("prereg",null);
 		logger.info("Session value is :" +session);
 		
 			flag=session != null;
@@ -101,8 +102,7 @@ public class PreregDB {
 		{
 			boolean flag=false;
 		
-			session = getDataBaseConnection("prereg");
-			session.beginTransaction();
+			session = getDataBaseConnection("prereg",null);
 			
 			flag=validatePreIdinDB(session, preId);
 			//	Assert.assertTrue(flag);
@@ -154,7 +154,7 @@ public class PreregDB {
 			
 			// commit the transaction
 					session.getTransaction().commit();
-						
+					session.close();	
 						
 
 		//Query q=session.createQuery(" from otp_transaction where ID='917248' ");
@@ -189,8 +189,7 @@ public class PreregDB {
 		for(String preId : preIds)
 		
 		{
-			session = getDataBaseConnection("prereg");
-			session.beginTransaction();
+			session = getDataBaseConnection("prereg",null);
 	
 		  /*
          * Query to Delete PreId data in applicant_demographic table
@@ -237,8 +236,7 @@ public class PreregDB {
 		boolean flag=false;
 		//String preId;
 		
-		session = getDataBaseConnection("prereg");
-			session.beginTransaction();
+		session = getDataBaseConnection("prereg",null);
 	
 		  /*
          * Query to Delete PreId data in applicant_demographic table
@@ -290,7 +288,7 @@ public class PreregDB {
 		
 		// commit the transaction
 		session.getTransaction().commit();
-			
+			session.close();
 			factory.close();
 		
 		
@@ -302,8 +300,7 @@ public class PreregDB {
 	public static List<Object> fetchOTPFromDB(String queryStr, Class dtoClass)
 	{
 		List<Object> objs =null;
-		session = getDataBaseConnection("kernel");
-		session.beginTransaction();
+		session = getDataBaseConnection("kernel",null);
 		objs=fetchingOTPData(session, queryStr);
 		
 		return objs;
@@ -326,7 +323,7 @@ public class PreregDB {
 		
 		// commit the transaction
 		session.getTransaction().commit();
-			
+			session.close();
 			factory.close();
 		
 		
@@ -341,8 +338,7 @@ public class PreregDB {
 	{
 		List<?> flag;
 		
-		session = getDataBaseConnection("prereg");
-		session.beginTransaction();
+		session = getDataBaseConnection("prereg",null);
 		flag=validateDBdata(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
@@ -354,8 +350,7 @@ public class PreregDB {
 	{
 		List<?> flag;
 		
-		session = getDataBaseConnection("prereg");
-		session.beginTransaction();
+		session = getDataBaseConnection("prereg",null);
 		flag=validateDBdata(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
@@ -368,8 +363,7 @@ public class PreregDB {
 		int flag;
 		
 		
-		session = getDataBaseConnection("prereg");
-		session.beginTransaction();
+		session = getDataBaseConnection("prereg",null);
 		flag=validateDBdataUpdate(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
@@ -381,8 +375,7 @@ public class PreregDB {
 	public static int validateDBdata(String queryStr,String dbName)
 	{
 		int flag;
-		session = getDataBaseConnection(dbName);
-		session.beginTransaction();
+		session = getDataBaseConnection(dbName,DemographicEntity.class);
 		flag=validateDBdataUpdate(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
@@ -393,8 +386,7 @@ public class PreregDB {
 	public static List<?> validateDBVal(String queryStr,String dbName)
 	{
 		List<?> flag;
-		session = getDataBaseConnection(dbName);
-		session.beginTransaction();
+		session = getDataBaseConnection(dbName,DemographicEntity.class);
 		flag=validateDBdata(session, queryStr);
 		logger.info("flag is : " +flag);
 		return flag;
@@ -417,7 +409,7 @@ public class PreregDB {
 		
 		// commit the transaction
 		session.getTransaction().commit();
-			
+			session.close();
 			factory.close();
 		
 		
@@ -432,7 +424,8 @@ public class PreregDB {
 		String queryString=queryStr;
 		Query query = session.createSQLQuery(queryString);
 		int res = query.executeUpdate();
-		session.getTransaction().commit();	
+		session.getTransaction().commit();
+		session.close();
 			factory.close();
 	}
 	
@@ -454,7 +447,7 @@ public class PreregDB {
 		
 		// commit the transaction
 		session.getTransaction().commit();
-			
+		//session.close();
 			factory.close();
 		
 		return objs;
@@ -480,7 +473,7 @@ public class PreregDB {
 		
 		// commit the transaction
 		session.getTransaction().commit();
-			
+			session.close();
 			factory.close();
 		
 		return result;

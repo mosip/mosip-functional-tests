@@ -2,9 +2,7 @@
     "id": "string",
     "metadata": {},
     "request": {
-        "address": "string",
-        "emailId": "string",
-        "organizationName": "string"
+        "contactNumber": "string"
     },
     "requesttime": "2019-12-09T06:12:52.994Z",
     "version": "1.0",

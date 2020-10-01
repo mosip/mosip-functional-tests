@@ -1,39 +1,31 @@
-testdata:
-  Partner_ApiKeyReqStatus_All_Valid_Smoke:
-    input.status-partner-request:
-      partnerID: PMP-PART-ID-01
+testdata: 
+  Partner_ApiKeyReqStatus_All_Valid_Smoke: 
+    input.status-partner-request: 
       RapiKeyReqID: SUB-PMP-REQ-ID-01
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      id: $IGNORE$
+      partnerID: PMS-ID-01
+    output.output-1-expected-pos-response: 
       errorCode: PMS_PRT_106
-      message: APIKeyReqID status is In-progress
-      version: $IGNORE$
-      
-  Partner_ApiKeyReqStatus_with_Invalid_partnerId:
-    input.status-partner-request:
-      partnerID: PMP-PART-ID-001
-      RapiKeyReqID: SUB-PMP-REQ-ID-01
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
       id: $IGNORE$
-      errorCode: PMS_PRT_005
-      message: Partner does not exist
+      message: "APIKeyReqID status is In-progress"
+      responsetime: $IGNORE$
       version: $IGNORE$
-      
-  Partner_ApiKeyReqStatus_with_Invalid_apiKeyReqId:
-    input.status-partner-request:
-      partnerID: PMP-PART-ID-01
+  Partner_ApiKeyReqStatus_with_Invalid_apiKeyReqId: 
+    input.status-partner-request: 
       RapiKeyReqID: SUB-PMP-REQ-ID-001
-    output.output-1-expected-pos-response:
-      responsetime: $IGNORE$
-      id: $IGNORE$
+      partnerID: PMS-ID-01
+    output.output-1-expected-error-response: 
       errorCode: PMS_PRT_005
-      message: Partner api key req does not exist
+      id: $IGNORE$
+      message: "Partner api key req does not exist"
+      responsetime: $IGNORE$
       version: $IGNORE$
-      
-      
-         
-         
-         
-         
+  Partner_ApiKeyReqStatus_with_Invalid_partnerId: 
+    input.status-partner-request: 
+      RapiKeyReqID: SUB-PMP-REQ-ID-01
+      partnerID: PMP-PART-ID-001
+    output.output-1-expected-error-response: 
+      errorCode: PMS_PRT_005
+      id: $IGNORE$
+      message: "Partner does not exist"
+      responsetime: $IGNORE$
+      version: $IGNORE$

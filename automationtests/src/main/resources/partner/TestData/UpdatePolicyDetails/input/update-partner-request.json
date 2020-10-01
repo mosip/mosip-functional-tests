@@ -1,0 +1,26 @@
+{
+    "id": "mosip.partnermanagement.policy.update",
+    "version": "1.0",
+    "requesttime": "2019-05-20T09:48:43.394Z",
+    "policyID": "POLICY-AUTH-ID-01",
+    "metadata": {},
+    "request": {
+        "desc": "DESC MOSIP AUTH POLICY UPDATE",
+        "name": "MOSIP AUTH POLICY",
+        "policies": {
+            "allowedAuthTypes": [
+                {
+                    "authSubType": "FINGER",
+                    "authType": "bio",
+                    "mandatory": true
+                }
+            ],
+            "allowedKYCAttributes": [{
+				"attributeName": "string"
+			}],
+            "authTokenType": "partner"
+        },
+        "policyGroupName": "MOSIP POLICY GROUP",
+        "policyType": "Auth"
+    }
+}

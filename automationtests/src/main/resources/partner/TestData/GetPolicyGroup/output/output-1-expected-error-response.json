@@ -1,0 +1,13 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-09-17T11:24:16.050Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PMS_POL_016",
+            "message": "Policy Group ID does not exist"
+        }
+    ]
+}

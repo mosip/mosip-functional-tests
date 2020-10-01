@@ -57,12 +57,12 @@ public class UpdatePartnerApikeyToPolicyMappings extends PartnerTestUtil impleme
 		
 		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
 		String createPartApiKey = partnerQueries.get("createPartnerAPIKey").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp")
-				&& masterDB.executeQuery(createTFPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createTFAuthQuery, "pmp")
-				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
-				&& masterDB.executeQuery(createPartApiKey, "pmp"))
+		if (masterDB.executeQuery(createPolicyQuery, "pms")
+				&& masterDB.executeQuery(createAuthQuery, "pms")
+				&& masterDB.executeQuery(createTFPolicyQuery, "pms")
+				&& masterDB.executeQuery(createTFAuthQuery, "pms")
+				&& masterDB.executeQuery(registerPartnerQuery, "pms")
+				&& masterDB.executeQuery(createPartApiKey, "pms"))
 			logger.info("UpdatePartnerApikeyToPolicyMappings with id as Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to UpdatePartnerApikeyToPolicyMappings using query from partnerQueries.properties");
@@ -197,12 +197,12 @@ public class UpdatePartnerApikeyToPolicyMappings extends PartnerTestUtil impleme
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteTFAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteTFpolicy").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteTFAuth").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteTFpolicy").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pms"))
 			logger.info("deleted all UpdatePartnerApikeyToPolicyMappings data successfully");
 		else {
 			logger.info("not able to delete UpdatePartnerApikeyToPolicyMappings data using query from query.properties");

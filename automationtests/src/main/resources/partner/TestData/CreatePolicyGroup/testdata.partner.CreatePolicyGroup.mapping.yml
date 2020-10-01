@@ -1,36 +1,36 @@
 testdata:
   Partner_CreatePolicyGroup_All_Valid_Smoke:
     input.retrieve-partner-request:
-      name: MOSIP POLICY
-      desc: DESCR MOSIP POLICY
+      name: MOSIP POLICY GROUP
+      desc: DESCR MOSIP POLICY GROUP
     output.output-1-expected-pos-response:
       responsetime: $IGNORE$
       id: $IGNORE$
       version: $IGNORE$
       Rid: $IGNORE$
-      Rdesc: DESCR MOSIP POLICY
-      Rname: MOSIP POLICY
+      Rdesc: DESCR MOSIP POLICY GROUP
+      Rname: MOSIP POLICY GROUP
       cr_dtimes: $IGNORE$
       upd_dtimes: $IGNORE$
       is_Active: true
       up_by: $IGNORE$
       cr_by: $IGNORE$
-      
+
   Partner_CreatePolicyGroup_With_ExistingPolicyName:
     input.retrieve-partner-request:
-      name: MOSIP POLICY
-      desc: DESCR MOSIP POLICY
+      name: MOSIP POLICY GROUP
+      desc: DESCR MOSIP POLICY GROUP
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
-      errorCodeerrors0: PMS_POL_004
+      errorCodeerrors0: PMS_POL_014
       messageerrors0: $IGNORE$
       id: $IGNORE$
       metadata: $IGNORE$
       version: $IGNORE$
       
-  Partner_CreatePolicyGroup_With_Missing_Input_Parameter:
+  Partner_CreatePolicyGroup_With_Missing_Input_Parameter_name:
     input.retrieve-partner-request2:
-      desc: DESCR MOSIP POLICY
+      desc: DESCR MOSIP POLICY GROUP
     output.output-1-expected-error-response:
       responsetime: $IGNORE$
       errorCodeerrors0: PMS_COR_001
@@ -38,3 +38,4 @@ testdata:
       id: $IGNORE$
       metadata: $IGNORE$
       version: $IGNORE$
+      

@@ -49,14 +49,14 @@ public class ApproveRejectPartnerAPIKeyReq extends PartnerTestUtil implements IT
 	@BeforeClass
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
-		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		String createAuthQuery = partnerQueries.get("createPartnerAuth").toString();
-		String registerPartnerQuery = partnerQueries.get("registerPartner").toString();
-		String submitPartnerQuery = partnerQueries.get("submitPartnerApiKeyReq").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp")
-				&& masterDB.executeQuery(createAuthQuery, "pmp")
-				&& masterDB.executeQuery(registerPartnerQuery, "pmp")
-				&& masterDB.executeQuery(submitPartnerQuery, "pmp"))
+		String createPolicyGroupQuery = partnerQueries.get("createPolicyGroup").toString();
+		String createPartnerTypeQuery = partnerQueries.get("createPartnerType").toString();
+		String createPartnerQuery = partnerQueries.get("createPartner").toString();
+		String submitPartnerApiKeyReqQuery = partnerQueries.get("submitPartnerApiKeyReq").toString();
+		if (masterDB.executeQuery(createPolicyGroupQuery, "pms")
+				&& masterDB.executeQuery(createPartnerTypeQuery, "pms")
+				&& masterDB.executeQuery(createPartnerQuery, "pms")
+				&& masterDB.executeQuery(submitPartnerApiKeyReqQuery, "pms"))
 			logger.info("ApproveRejectPartnerAPIKeyReq Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to ApproveRejectPartnerAPIKeyReq using query from partnerQueries.properties");
@@ -190,11 +190,12 @@ public class ApproveRejectPartnerAPIKeyReq extends PartnerTestUtil implements IT
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteSubmitPartnerApiKeyReq").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteRegisterPartner").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerAuth").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (//masterDB.executeQuery(partnerQueries.get("deletePartnerAPIKey").toString(), "pms")
+			//	&& 
+				masterDB.executeQuery(partnerQueries.get("deleteSubmitPartnerApiKeyReq").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartner").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePartnerType").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deletePolicyGroup").toString(), "pms"))
 			logger.info("deleted all ApproveRejectPartnerAPIKeyReq data successfully");
 		else {
 			logger.info("not able to delete ApproveRejectPartnerAPIKeyReq data using query from query.properties");
