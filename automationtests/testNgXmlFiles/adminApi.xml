@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	<test name="TitleSearch">
+	<!-- <test name="TitleSearch">
 		<parameter name="ymlFile" value="admin/TitleSearch.yml"/> 
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />			
@@ -18,6 +18,48 @@
 	
 	<test name="GenderSearch">
 		<parameter name="ymlFile" value="admin/GenderSearch.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	<!-- <test name="CreateDevice">
+		<parameter name="ymlFile" value="admin/CreateDevice.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	<!-- <test name="CreateIndividualType">
+		<parameter name="ymlFile" value="admin/IndividualType/CreateIndividualType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateIndividualType">
+		<parameter name="ymlFile" value="admin/IndividualType/UpdateIndividualType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> -->
+	<!-- <test name="CreateDeviceSpecification">
+		<parameter name="ymlFile" value="admin/CreateDeviceSpecification.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	<!-- <test name="CreateDeviceType">
+		<parameter name="ymlFile" value="admin/DeviceType/CreateDeviceType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceType">
+		<parameter name="ymlFile" value="admin/DeviceType/UpdateDeviceType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> -->
+	<test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile" value="admin/TemplateFileFormat/CreateTemplateFileFormat.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>

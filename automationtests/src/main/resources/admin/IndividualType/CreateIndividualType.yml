@@ -1,0 +1,228 @@
+CreateIndividualType:
+   Admin_CreateIndividualType_All_Valid_Smoke:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/IndividualType/IndividualTypeResult
+      input: '{
+    "code": "TST-129",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "abc",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"isActive": false,
+	"code": "TST-129",
+	"langCode": "eng",
+	"name": "abc"
+}'
+   Admin_CreateIndividualType_Sec_Data_Present_but_No_Data_Prim_lang:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST2",
+	"isActive": true,
+	"langCode": "ara",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Cannot create data in secondary language as data does not exist in primary language"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_valid_secondarylang_SameDataAsVldScnrio:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/IndividualType/IndividualTypeResult
+      input: '{
+    "code": "TST-129",
+	"isActive": true,
+	"langCode": "ara",
+	"name": "abc",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"isActive": true,
+	"code": "TST-129",
+	"langCode": "ara",
+	"name": "abc"
+}'
+   Admin_CreateIndividualType_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_Name_AboveMaxLen64:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_LangCode_Missing:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "$REMOVE$",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: must not be null"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_LangCode_Empty:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_LangCode_AboveMaxLen3:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "engr",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_Invalid_LangCode:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": false,
+	"langCode": "GER",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateIndividualType_InputParameter_isActive_Missing:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: post
+      inputTemplate: admin/IndividualType/IndividualType
+      outputTemplate: admin/error
+      input: '{
+    "code": "TST-1",
+	"isActive": "$REMOVE$",
+	"langCode": "eng",
+	"name": "TestInd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}'

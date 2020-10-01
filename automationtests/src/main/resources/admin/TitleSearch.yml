@@ -1,4 +1,4 @@
-GenderSearch:
+TitleSearch:
    Admin_TitleSearch.yml_Valid_Smoke:
       endPoint: /v1/masterdata/title/search
       role: admin
