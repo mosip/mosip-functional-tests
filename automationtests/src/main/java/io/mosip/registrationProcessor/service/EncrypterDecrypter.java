@@ -186,7 +186,7 @@ public class EncrypterDecrypter {
 			token = getToken("getStatusTokenGenerationFilePath");
 			tokenStatus = apiRequests.validateToken(token);
 		}
-		Response response = apiRequests.postRequestToEncrypt(encrypterURL, encryptedFileBody,
+		Response response = apiRequests.postRequestWithRequestResponseHeaders(encrypterURL, encryptedFileBody,
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, token);
 		InputStream inputstream = null;
 		try {
