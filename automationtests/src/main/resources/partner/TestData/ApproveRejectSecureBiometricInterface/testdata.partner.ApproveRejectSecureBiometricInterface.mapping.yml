@@ -1,0 +1,35 @@
+testdata: 
+  Partner_ApproveRejectSecureBiometricInterface_All_Valid_Smoke: 
+    input.register-partner-request: 
+      Rid: 3c0e8f2e
+      approvalStatus: Activate
+      isItForRegistrationDevice: true
+    output.output-1-expected-pos-response: 
+      response: Secure biometric details approved successfully.
+      id: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+      metadata: $IGNORE$
+      errors: $IGNORE$
+  Partner_ApproveRejectSecureBiometricInterface_approvalStatus: 
+    input.register-partner-request: 
+      Rid: 3c0e8f2e
+      approvalStatus: Activatedd
+      isItForRegistrationDevice: true
+    output.output-1-expected-error-response: 
+      errorCode: $IGNORE$
+      id: $IGNORE$
+      message: "PMS_AUT_026 --> ApprovalStatus should be Activate / De-activate"
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_ApproveRejectSecureBiometricInterface_MissingInputParameter_approvalStatus: 
+    input.register-partner-request2:
+      Rid: 3c0e8f2e
+      isItForRegistrationDevice: true
+    output.output-1-expected-error-response2: 
+      errorCodeerrors0: PMS_COR_001
+      id: $IGNORE$
+      messageerrors0: "Missing Input Parameter"
+      responsetime: $IGNORE$
+      timestamp: $IGNORE$
+      version: $IGNORE$

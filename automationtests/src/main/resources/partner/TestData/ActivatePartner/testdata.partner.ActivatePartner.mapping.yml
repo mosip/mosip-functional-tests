@@ -2,7 +2,7 @@ testdata:
    Partner_ActivatePartner_Active_Valid_Smoke:
       input.activate-partner-request:
          status: Active
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner status updated successfully
@@ -14,7 +14,7 @@ testdata:
    Partner_ActivatePartner_De_Active_Valid_Smoke:
       input.activate-partner-request:
          status: De-Active
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-pos-response:
          responsetime: $IGNORE$
          message: Partner status updated successfully
@@ -50,7 +50,7 @@ testdata:
          
    Partner_ActivatePartner_With_Missing_Input_Parameter:
       input.activate-partner-request-missing-input-parameter:
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: PMS_COR_001
@@ -62,7 +62,7 @@ testdata:
    Partner_ActivatePartner_with_InValid_Input_Parameter:
       input.activate-partner-request:
          status: true
-         partnerId: PMP-PART-ID-01
+         partnerId: PMS-ID-01
       output.output-1-expected-error-response:
          responsetime: $IGNORE$
          errorCodeerrors0: PMS_COR_002

@@ -1,0 +1,16 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSubTypeCode": "string",
+    "deviceTypeCode": "string",
+    "id": "string",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "string",
+    "model": "string",
+    "partnerOrganizationName": "string"
+  },
+  "requesttime": "2020-09-18T05:00:52.275Z",
+  "version": "string"
+}

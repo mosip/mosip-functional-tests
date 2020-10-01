@@ -547,6 +547,10 @@ public abstract class RunConfig {
 		public abstract String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath();
 		public abstract String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath();
 		public abstract String getRetrievePartnerAPIkeyToPolicyMappingsPath();
+		public abstract String getAddContactPath();
+		public abstract void setAddContactPath(String addContactPath);
+		
+		
 		
 		public abstract String getCreatePolicyGroupPath();
 		public abstract void setCreatePolicyGroupPath(String createPolicyGroupPath);
@@ -570,8 +574,6 @@ public abstract class RunConfig {
 		public abstract String getGetPartnersPolicyPath();
 		
 		
-		
-		
 		public abstract String getCreateMISPPath();
 		public abstract void setUpdateMISPPath(String updateMISPPath);
 		public abstract String getUpdateMISPPath();
@@ -584,5 +586,22 @@ public abstract class RunConfig {
 		public abstract void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath);
 		public abstract String getUpdateMispStatusByMispIdPath();
 		public abstract String getDownloadMispLicenseKeyPath();
+		
+		
+		public abstract String getSaveDeviceDetailPath();
+		public abstract void setSaveDeviceDetailPath(String saveDeviceDetailPath);
+		public abstract String getApproveRejectDeviceDetailPath();
+		public abstract String getUpdateDeviceDetailPath();
+		public abstract void setUpdateDeviceDetailPath(String updateDeviceDetailPath);
+		public abstract String getSaveSecureBiometricInterfacePath();
+		public abstract void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath);
+		public abstract String getApproveRejectSecureBiometricInterfacePath();
+		public abstract String getSaveFtpChipDetailPath();
+		public abstract void setSaveFtpChipDetailPath(String saveFtpChipDetailPath);
+		public abstract String getApproveRejectFtpChipDetailPath();
+		
+		
+		
+		
 		
 }
