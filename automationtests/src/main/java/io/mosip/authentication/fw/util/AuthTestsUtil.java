@@ -65,6 +65,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	private static File testFolder;
 	private static File demoAppBatchFilePath;
 	public static final String AUTHORIZATHION_COOKIENAME="Authorization";
+	public static final String authHeaderValue="Some String";
 	protected static String responseJsonToVerifyDigtalSignature;
 	protected static String responseDigitalSignatureValue;
 	protected static String responseDigitalSignatureKey="response-signature";
@@ -144,9 +145,9 @@ public class AuthTestsUtil extends BaseTestCase {
 					Response response=null;
 					String responseJson = "";
 					if (code == 0)
-						response = postRequest(listOfFiles[j].getAbsolutePath(), urlPath);
+						response = postRequestWithAuthHeader(listOfFiles[j].getAbsolutePath(), urlPath, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					else
-						response = postRequest(listOfFiles[j].getAbsolutePath(), urlPath, code);
+						response = postRequestWithAuthHeader(listOfFiles[j].getAbsolutePath(), urlPath, code, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					responseJson=response.asString();
 					responseJsonToVerifyDigtalSignature=responseJson;
 					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
@@ -184,9 +185,9 @@ public class AuthTestsUtil extends BaseTestCase {
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response response;
 					if (code == 0)
-						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue);
+						response = postRequestWithCookieAndHeader(listOfFiles[j].getAbsolutePath(), urlPath,cookieName,cookieValue, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					else
-						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
+						response = postRequestWithCookieAndHeader(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					responseJsonToVerifyDigtalSignature=response.asString();
 					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
@@ -258,6 +259,24 @@ public class AuthTestsUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	protected Response postRequestWithCookieAndHeader(String filename, String url, int expCode,String cookieName,String cookieValue, String authHeaderName, String authHeaderValue) {
+		Response response=null;
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			response = RestClient.postRequestWithCookieAndHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName,cookieValue, authHeaderName, authHeaderValue);
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
+			objList.add(verifyStatusCode(response,expCode));
+			objMap.put("Status Code", objList);
+			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
+			return response;
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return response;
+		}
+	}	
 	
 	/**
 	 * The method will post request and generate output file for UIN generation
@@ -339,18 +358,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	/**
-	 * The method will help to post request
-	 * 
-	 * @param filename
-	 * @param url
-	 * @return String, response for request
-	 */
-	protected Response postRequest(String filename, String url) {
+	protected Response postRequestWithAuthHeader(String filename, String url, String authHeaderName, String authHeaderValue) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			return RestClient
-					.postRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+					.postRequestWithAuthHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, authHeaderName, authHeaderValue);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return null;
@@ -427,20 +439,12 @@ public class AuthTestsUtil extends BaseTestCase {
 		return objOpDto;
 	}
 	
-	/**
-	 * The method will post request and verify status code
-	 * 
-	 * @param filename
-	 * @param url
-	 * @param expCode
-	 * @return String, Response for request
-	 */
-	protected Response postRequest(String filename, String url, int expCode) {
+	protected Response postRequestWithAuthHeader(String filename, String url, int expCode, String authHeaderName, String authHeaderValue) {
 		Response response=null;
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			response = RestClient.postRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON);
+			response = RestClient.postRequestWithAuthHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, authHeaderName, authHeaderValue);
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
@@ -1192,6 +1196,16 @@ public class AuthTestsUtil extends BaseTestCase {
 			return null;
 		}
 	}
+	protected Response postRequestWithCookieAndHeader(String filename, String url,String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
+		try {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			return RestClient
+					.postRequestWithCookieAndHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,cookieName,cookieValue, authHeaderName, authHeaderValue);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception: " + e);
+			return null;
+		}
+	}	
 	protected String postRequestWithCookie(String filename, String url,String cookieName, String cookieValue,int code) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
@@ -1203,6 +1217,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			return e.toString();
 		}
 	}
+
 	protected static String postStrContentRequestWithCookie(String content, String url,String cookieName, String cookieValue) {
 		try {
 			return RestClient
