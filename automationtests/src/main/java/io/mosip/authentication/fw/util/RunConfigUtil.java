@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.TokenIdDto;
 import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
+import io.mosip.kernel.fw.util.KernelRunConfig;
 import io.mosip.pmp.fw.util.PartnerRunConfig;
 import io.mosip.resident.fw.util.ResidentRunConfig;
 import io.mosip.testrunner.MosipTestRunner;
@@ -139,6 +140,8 @@ public class RunConfigUtil {
 			objRunConfig = new ResidentRunConfig();
 		else if (module.equals("partner"))
 			objRunConfig = new PartnerRunConfig();
+		else if (module.equals("kernel"))
+			objRunConfig = new KernelRunConfig();		
 	}
 	
 	/**

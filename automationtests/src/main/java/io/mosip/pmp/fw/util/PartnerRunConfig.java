@@ -2122,5 +2122,17 @@ public class PartnerRunConfig extends RunConfig {
 		return null;
 	}
 
+	@Override
+	public String getKernelEndPointUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFetchGenderTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

@@ -24,6 +24,7 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.kernel.fw.util.KernelTestUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KernelDataBaseAccess;
@@ -169,6 +170,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
 			insertDevicedata = true;
+		}
+		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
+			KernelTestUtil.initiateKernelTest();
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();

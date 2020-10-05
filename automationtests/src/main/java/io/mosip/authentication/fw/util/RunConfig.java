@@ -570,5 +570,7 @@ public abstract class RunConfig {
 		public abstract void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath);
 		public abstract String getUpdateMispStatusByMispIdPath();
 		public abstract String getDownloadMispLicenseKeyPath();
+		public abstract String getKernelEndPointUrl();
+		public abstract String getFetchGenderTypePath();
 		
 }

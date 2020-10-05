@@ -1756,4 +1756,14 @@ public class IdaRunConfig extends RunConfig{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getKernelEndPointUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getFetchGenderTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

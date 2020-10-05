@@ -1,7 +1,0 @@
-testdata:
-   Kernel_FetchGenderType_Valid_Smoke:
-      input.fetch-request:
-		 langCode: eng       
-      output.output-1-expected-pos-response:
-         responsetime: $IGNORE$
-         langCodegenderType0: ara

@@ -1,4 +1,4 @@
-package io.mosip.resident.fw.util;
+package io.mosip.kernel.fw.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,147 +9,63 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
-import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.ErrorsDto;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 
-public class ResidentRunConfig extends RunConfig {
-	
-	private Logger logger = Logger.getLogger(ResidentRunConfig.class);
-	private String residentAuthHistory;
-	private String residentAuthLock;
-	private String residentAuthUnlock;
-	private String residenteUin;
-	private String endpointUrl;
-	private String residentGenerateVID;
-	private String residentRevokeVID;
+public class KernelRunConfig extends RunConfig {
+	private Logger logger = Logger.getLogger(KernelRunConfig.class);
 	private String testDataPath;
+	private String kernelEndPointUrl;
+	private String scenarioPath;
 	private String testType;
 	private String testDataFolderName;
 	private String moduleFolderName;
-	private String scenarioPath;
-	private String idaInternalOtpPath;
-	private String userIdPwd;
-	private  String authVersion;
-	private String clientidsecretkey;
+	private String fetchGenderTypePath;
+
+    
+
 	
-	public String getResidentGenerateVID() {
-		return residentGenerateVID;
-	}
-
-	public String getUserIdPwd() {
-		return userIdPwd;
-	}
-
-	public void setUserIdPwd(String userIdPwd) {
-		this.userIdPwd = userIdPwd;
-	}
-
-	public void setResidentGenerateVID(String residentGenerateVID) {
-		this.residentGenerateVID = residentGenerateVID;
-	}
-
-	public String getResidentRevokeVID() {
-		return residentRevokeVID;
-	}
-
-	public void setResidentRevokeVID(String residentRevokeVID) {
-		this.residentRevokeVID = residentRevokeVID;
-	}
-
-	public String getResidentAuthHistory() {
-		return residentAuthHistory;
-	}
-
-	public void setResidentAuthHistory(String residentAuthHistory) {
-		this.residentAuthHistory = residentAuthHistory;
-	}
-
-	public String getResidentAuthLock() {
-		return residentAuthLock;
-	}
-
-	public void setResidentAuthLock(String residentAuthLock) {
-		this.residentAuthLock = residentAuthLock;
-	}
-
-	public String getResidentAuthUnlock() {
-		return residentAuthUnlock;
-	}
-
-	public void setResidentAuthUnlock(String residentAuthUnlock) {
-		this.residentAuthUnlock = residentAuthUnlock;
-	}
-
-	public String getResidenteUin() {
-		return residenteUin;
-	}
-
-	public void setResidenteUin(String residenteUin) {
-		this.residenteUin = residenteUin;
-	}
-
-	public String getResidentPrintUin() {
-		return residentPrintUin;
-	}
-
-	public void setResidentPrintUin(String residentPrintUin) {
-		this.residentPrintUin = residentPrintUin;
-	}
-
-	public String getResidentUpdateUin() {
-		return residentUpdateUin;
-	}
-
-	public void setResidentUpdateUin(String residentUpdateUin) {
-		this.residentUpdateUin = residentUpdateUin;
-	}
-
-	public String getResidentCheckStatus() {
-		return residentCheckStatus;
-	}
-
-	public void setResidentCheckStatus(String residentCheckStatus) {
-		this.residentCheckStatus = residentCheckStatus;
-	}
-
-	private String residentPrintUin;
-	private String residentUpdateUin;
-	private String residentCheckStatus;
-
 	@Override
 	public void setConfig(String testDataPath, String testDataFileName, String testType) {
-		setEndPointUrl(ResidentTestUtil.getPropertyValue("endPointUrl"));	
-		setResidentAuthHistory(ResidentTestUtil.getPropertyValue("residentAuthHistory"));	
-		setResidentAuthLock(ResidentTestUtil.getPropertyValue("residentAuthLock"));	
-		setResidentAuthUnlock(ResidentTestUtil.getPropertyValue("residentAuthUnlock"));	
-		setResidenteUin(ResidentTestUtil.getPropertyValue("residenteUin"));	
-		setResidentPrintUin(ResidentTestUtil.getPropertyValue("residentPrintUin"));	
-		setResidentUpdateUin(ResidentTestUtil.getPropertyValue("residentUpdateUin"));	
-		setResidentCheckStatus(ResidentTestUtil.getPropertyValue("residentCheckStatus"));
-		setResidentGenerateVID(ResidentTestUtil.getPropertyValue("residentGenerateVID"));
-		setResidentRevokeVID(ResidentTestUtil.getPropertyValue("residentRevokeVID"));
-		setIdaInternalOtpPath(ResidentTestUtil.getPropertyValue("idaInternalOtpPath"));
-		setClientidsecretkey(ResidentTestUtil.getPropertyValue("clientidsecretkey"));
-		setTestDataPath(testDataPath);	
-		setAuthVersion(ResidentTestUtil.getPropertyValue("authVersion"));
-		File testDataFilePath = new File(RunConfigUtil.getResourcePath()
-				+ testDataPath + testDataFileName);
-		setFilePathFromTestdataFileName(testDataFilePath,testDataPath);
+		setKernelEndPointUrl(KernelTestUtil.getPropertyValue("kernelEndPointUrl"));
+		setTestDataPath(testDataPath);
+		File testDataFilePath = new File(RunConfigUtil.getResourcePath() + testDataPath + testDataFileName);
+		setFilePathFromTestdataFileName(testDataFilePath, testDataPath);
 		setTestType(RunConfigUtil.getTestLevel());
+		setFetchGenderTypePath(KernelTestUtil.getPropertyValue("fetchGenderTypePath"));
+	}
+
+	private void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
+		String[] folderList = filePath.getName().split(Pattern.quote("."));
+		String temp = "";
+		for (int i = 1; i < folderList.length - 2; i++) {
+			temp = temp + "/" + folderList[i];
+		}
+		String testDataFolderName = "";
+		String moduleFolderName = "";
+		if (testDataPath.contains("\\")) {
+			String[] list = testDataPath.split(Pattern.quote("\\\\"));
+			testDataFolderName = list[1];
+		} else if (testDataPath.contains("/")) {
+			String[] list = testDataPath.split(Pattern.quote("/"));
+			moduleFolderName = list[0];
+			testDataFolderName = list[1];
+		}
+		setTestDataFolderName(testDataFolderName);
+		setModuleFolderName(moduleFolderName);
+		scenarioPath = temp;
+		setScenarioPath(scenarioPath);
 		loadErrorsData(getErrorsConfigPath());
 	}
-	
+
 	/**
 	 * The method load yml error test data
 	 * 
 	 * @param path
 	 */
 	@SuppressWarnings("unchecked")
-	private  void loadErrorsData(String path) {
+	private void loadErrorsData(String path) {
 		try {
 			Yaml yaml = new Yaml();
 			InputStream inputStream = new FileInputStream(
@@ -159,43 +75,17 @@ public class ResidentRunConfig extends RunConfig {
 			logger.error(e.getMessage());
 		}
 	}
-	
-	/**
-	 * The method set file path from test data file name
-	 * 
-	 * @param filePath
-	 * @param testDataPath
-	 */
-	private  void setFilePathFromTestdataFileName(File filePath, String testDataPath) {
-		String[] folderList = filePath.getName().split(Pattern.quote("."));
-		String temp = "";
-		for (int i = 1; i < folderList.length - 2; i++) {
-			temp = temp + "/" + folderList[i];
-		}
-		String testDataFolderName = "";
-		String moduleFolderName="";
-		if (testDataPath.contains("\\")) {
-			String[] list = testDataPath.split(Pattern.quote("\\\\"));
-			testDataFolderName = list[1];
-		} else if (testDataPath.contains("/")) {
-			String[] list = testDataPath.split(Pattern.quote("/"));
-			moduleFolderName=list[0];
-			testDataFolderName = list[1];
-		}
-		setTestDataFolderName(testDataFolderName);
-		setModuleFolderName(moduleFolderName);
-		scenarioPath = temp;
-		setScenarioPath(scenarioPath);
-	}
 
 	@Override
 	public String getEndPointUrl() {
-		return endpointUrl;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void setEndPointUrl(String endPointUrl) {
-		this.endpointUrl=endPointUrl.replace("$endpoint$", System.getProperty("env.endpoint"));	
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -260,12 +150,14 @@ public class ResidentRunConfig extends RunConfig {
 
 	@Override
 	public String getScenarioPath() {
-		return scenarioPath;
+		// TODO Auto-generated method stub
+		return this.scenarioPath;
 	}
 
 	@Override
 	public void setScenarioPath(String scenarioPath) {
-		this.scenarioPath = scenarioPath;		
+		// TODO Auto-generated method stub
+		this.scenarioPath = scenarioPath;
 	}
 
 	@Override
@@ -315,16 +207,17 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	@Override
 	public String getTestDataPath() {
-		return testDataPath;
+		// TODO Auto-generated method stub
+		return this.testDataPath;
 	}
 
 	@Override
 	public void setTestDataPath(String testDataPath) {
+		// TODO Auto-generated method stub
 		this.testDataPath = testDataPath;
-		
 	}
 
 	@Override
@@ -350,15 +243,17 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public String getTestType() {
-		return testType;
+		// TODO Auto-generated method stub
+		return this.testType;
 	}
 
 	@Override
 	public void setTestType(String testType) {
+		// TODO Auto-generated method stub
 		this.testType = testType;
-		
 	}
 
 	@Override
@@ -447,50 +342,56 @@ public class ResidentRunConfig extends RunConfig {
 
 	@Override
 	public String getTestDataFolderName() {
-		return testDataFolderName;
+		// TODO Auto-generated method stub
+		return this.testDataFolderName;
 	}
 
 	@Override
 	public void setTestDataFolderName(String testDataFolderName) {
+		// TODO Auto-generated method stub
 		this.testDataFolderName = testDataFolderName;
-		
 	}
 
 	@Override
 	public String getAuthVersion() {
-		return authVersion;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void setAuthVersion(String authVersion) {
-		this.authVersion= authVersion;
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String getErrorsConfigPath() {
-		return "resident/TestData/RunConfig/errorCodeMsg.yml";
+		// TODO Auto-generated method stub
+		return "kernel/TestData/RunConfig/kernelErrorCodeMsg.yml";
 	}
 
 	@Override
 	public String getClientidsecretkey() {
-		return clientidsecretkey;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void setClientidsecretkey(String clientidsecretkey) {
-		this.clientidsecretkey = clientidsecretkey;
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String getModuleFolderName() {
-		return moduleFolderName;
+		// TODO Auto-generated method stub
+		return this.moduleFolderName;
 	}
 
 	@Override
 	public void setModuleFolderName(String moduleFolderName) {
-		this.moduleFolderName=moduleFolderName;		
+		// TODO Auto-generated method stub
+		this.moduleFolderName = moduleFolderName;
 	}
 
 	@Override
@@ -498,6 +399,16 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public String getFetchGenderTypePath() {
+		return fetchGenderTypePath;
+	}
+
+	public void setFetchGenderTypePath(String fetchGenderTypePath) {
+		this.fetchGenderTypePath = fetchGenderTypePath;
+	}
+
 
 	@Override
 	public void setGenerateVIDPath(String generateVIDPath) {
@@ -531,7 +442,8 @@ public class ResidentRunConfig extends RunConfig {
 
 	@Override
 	public String getIdRepoVersion() {
-		return "Not supported Keyword.Use version keyword";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -650,11 +562,14 @@ public class ResidentRunConfig extends RunConfig {
 
 	@Override
 	public String getIdaInternalOtpPath() {
-		return this.idaInternalOtpPath;
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 	@Override
 	public void setIdaInternalOtpPath(String internalPath) {
-		this.idaInternalOtpPath=internalPath;
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -1424,7 +1339,7 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public String getUpdateHolidayPath() {
 		// TODO Auto-generated method stub
@@ -1450,13 +1365,13 @@ public class ResidentRunConfig extends RunConfig {
 	}
 
 	@Override
-	public String getCreateDeviceSpecificationPath() {
+	public String getUpdateMachineTypePath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getUpdateMachineTypePath() {
+	public String getCreateDeviceSpecificationPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -1508,7 +1423,6 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public String getUpdateDocumentCategoryPath() {
@@ -1577,9 +1491,135 @@ public class ResidentRunConfig extends RunConfig {
 	}
 
 	@Override
-	public String getRetrievePartnerPath() {
+	public String getCreateDynamicFieldPath() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getResidentGenerateVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUserIdPwd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUserIdPwd(String userIdPwd) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setResidentGenerateVID(String residentGenerateVID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentRevokeVID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentRevokeVID(String residentRevokeVID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthHistory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthHistory(String residentAuthHistory) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthLock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthLock(String residentAuthLock) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentAuthUnlock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentAuthUnlock(String residentAuthUnlock) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidenteUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidenteUin(String residenteUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentPrintUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentPrintUin(String residentPrintUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentUpdateUin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentUpdateUin(String residentUpdateUin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getResidentCheckStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setResidentCheckStatus(String residentCheckStatus) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -1592,6 +1632,12 @@ public class ResidentRunConfig extends RunConfig {
 	public void setRegisterPartnerPath(String registerPartnerPath) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getRetrievePartnerPath() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -1685,6 +1731,12 @@ public class ResidentRunConfig extends RunConfig {
 	}
 
 	@Override
+	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public String getCreatePolicyGroupPath() {
 		// TODO Auto-generated method stub
 		return null;
@@ -1732,6 +1784,7 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
 	public String getCreateMISPPath() {
 		// TODO Auto-generated method stub
@@ -1781,12 +1834,6 @@ public class ResidentRunConfig extends RunConfig {
 	}
 
 	@Override
-	public String getRetrievePartnerAPIkeyToPolicyMappingsPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String getRetrieveMISPsDetailsByGivenNamePath() {
 		// TODO Auto-generated method stub
 		return null;
@@ -1809,33 +1856,14 @@ public class ResidentRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public String getCreateDynamicFieldPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getAllDynamicFieldPath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public String getKernelEndPointUrl() {
-		// TODO Auto-generated method stub
-		return null;
+		return kernelEndPointUrl;
 	}
 
-	@Override
-	public String getFetchGenderTypePath() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setKernelEndPointUrl(String kernelEndPointUrl) {
+		this.kernelEndPointUrl = kernelEndPointUrl;
 	}
-
 
 }
-
-
-

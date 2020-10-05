@@ -1,0 +1,426 @@
+
+# error -> ScenarioName -> errorCode,Message
+errors:
+   CommonMSDErrorCode:
+     errorCode: KER-MSD-999
+     errorCode1: KER-MSD-039
+     dbFkeyErrorCode: KER-MSD-060
+     # Sec_Data_Present_but_No_Data_Prim_lang
+     noPrimaryLangErrorCode: KER-MSD-995
+     
+   CommonMSDErrorMssg_Id:
+     errorMessage_Missing: "request.id: must not be null"
+     errorMessage_Empty: "request.id: Should not be blank or size must be between 1 and 36"
+     
+   CommonMSDErrorMssg_InvalidName:
+     errorMessage__Missing: "request.name: must not be null"
+     errorMessage__Empty: "request.name: Should not be blank or size must be between 1 and 128"
+    #Gender Api has common error code for all the invalid values[e.g Empty/AboveMaxLen64]
+     errorMessage__genderApi_missing: "request.genderName: must not be null"
+     errorMessage__genderApi_incorrect: "request.genderName: Should not be blank or size must be between 1 and 64"
+     errorMessage__titleApi_missing: "request.titleName: must not be null"
+     errorMessage__titleApi_incorrect: "request.titleName: Should not be blank or size must be between 1 and 64"
+
+   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen32]
+   CommonMSDErrorMssg_Brand:
+     errorMessage__Missing: "request.brand: must not be null"
+     errorMessage__incorrect: "request.brand: Should not be blank or size must be between 1 and 32"
+ 
+   # Brand has common error for all the invalid values[e.g Empty/AboveMaxLen16]
+   CommonMSDErrorMssg_Model:
+     errorMessage__Missing: "request.model: must not be null"
+     errorMessage__incorrect: "request.model: Should not be blank or size must be between 1 and 16"
+   
+   # Langcode has common error for all the invalid values[e.g Missing/Empty/AboveMaxLen3/invalidVal]
+   CommonMSDErrorMssg_InvalidLanguageCode:
+     errorMessage_incorrect: "Language Code is Invalid"
+     errorMessage_genderApi_missing: "request.langCode: must not be blank"
+  
+   CommonMSDErrorMssg_IsActive:
+     errorMessage_Missing: "request.isActive: must not be null"
+     errorMessage_invalidVal: "Invalid Format in field : isActive"
+
+   CommonMSDErrorMssg_Description:
+     errorMessage_AboveMaxLen: "request.description: size must be between 0 and 128"
+     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
+     errorMessage_AboveMaxLen256: "request.description: size must be between 0 and 256"
+     errorMessage_DescMandatory_256: "request.description: Should not be blank or size must be between 1 and 256"
+     errorMessage_TitleDesc_128: "request.titleDescription: size must be between 0 and 128"
+
+   # DeviceTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
+   CommonMSDErrorMssg__DeviceTypeCode:
+     errorMessage_Missing: "request.deviceTypeCode: must not be null"
+     errorMessage_incorrect: "request.deviceTypeCode: Should not be blank or size must be between 1 and 36"
+     errorMessage_invalidVal: "Invalid dtype_code received"
+
+   # MachineTypeCode has common error for all the invalid values[e.g Empty/AboveMaxLen36]
+   CommonMSDErrorMssg__MachineTypeCode:
+     errorMessage_Missing: "request.machineTypeCode: must not be null"
+     errorMessage_incorrect: "request.machineTypeCode: Should not be blank or size must be between 1 and 36"
+     errorMessage_invalidVal: "Invalid mtype_code received"
+
+   # MinDriverversion has common error for all the invalid values[e.g Empty/AboveMaxLen16]
+   CommonMSDErrorMssg__MinDriverversion:
+     errorMessage_Missing: "request.minDriverversion: must not be null"
+     errorMessage_incorrect: "request.minDriverversion: Should not be blank or size must be between 1 and 16"
+
+   CommonMSDErrorMssg_Code:
+     errorMessage_Missing: "request.code: must not be null"
+     errorMessage_Empty: "request.code: Should not be blank or size must be between 1 and 36"
+     errorMessage_Gender_Empty: "request.code: Should not be blank or size must be between 1 and 16"
+     errorMessage_Title_Empty: "request.code: Should not be blank or size must be between 1 and 16"
+     
+   # Name has common error for all the invalid values[e.g Empty/AboveMaxLen64]
+   CommonMSDErrorMssg_Name:
+     errorMessage_AboveMaxLen: "request.name: Should not be blank or size must be between 1 and 64"
+
+   CommonMSDErrorMssg_Sec_Data_Present_but_No_Data_Prim_lang:
+     errorMessage_NoPrimaryLang: "Cannot create data in secondary language as data does not exist in primary language"
+  
+   #FileFormatCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
+   InvalidFileFormatCode:
+     errorMessage_Missing: "request.fileFormatCode: must not be null"
+     errorMessage_invalid: "request.fileFormatCode: Should not be blank or size must be between 1 and 36"
+  
+   #TemplateTypeCode has common error for the invalid values[e.g Empty/AboveMaxLen3]
+   InvalidTemplateTypeCode:
+     errorMessage_Missing: "request.templateTypeCode: must not be null"
+     errorMessage_invalid: "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
+   InvalidModuleName:
+     errorMessage_AboveMaxLen: "request.moduleName: size must be between 0 and 128"
+ 
+   DocTypeNonExistence:
+     errorMessage_DocCodeNE: "Document Type not found"
+             
+   EmptySearchColumnName:
+      errorCode: KER-MSD-311
+      errorMessage: Column is missing in request
+   EmptySortFieldType:
+      errorCode: KER-MSD-314
+      errorMessage: Missing sort field or sort type values
+   UnSupportedFilterColumnName:
+      errorCode: KER-MSD-316
+      errorMessage: Column name doesn't support filter
+      errorMessage1: Column name does not support filter
+      errorMessage2: Column lang_code does not support filter
+   EmptyFilterType:
+      errorCode: KER-MSD-312
+      errorMessage: Filter type is missing
+   InvalidFilterType:
+      errorCode: KER-MSD-318
+      errorMessage: Column docCategoryCode doesn't support filter type fbheafg
+      errorMessage1: Column isActive doesn't support filter type contains
+      errorMessage2: Column isActive doesn't support filter type startsWith
+      errorMessage3: Column name doesn't support filter type between
+   InvalidSearchColumnName:
+      errorCode: KER-MSD-317
+      errorMessage: Column fbheafg doesn't exist for the searched entity
+      errorMessage1: Column asdg doesn't exist for the searched entity  
+      errorMessage2: Column asdg doesn't exist for the searched entity
+   InvalidLanguageCode:
+      errorCode: KER-MSD-999
+      errorCode1: KER-MSD-382
+      errorMessage: Language Code is Invalid
+      errorMessage1: "request.languageCode: Language Code is Invalid"
+      errorMessage2: HIN Language Code is Invalid
+      errorMessage3: "request[1].langCode: Language code not supported"
+      errorMessage4: "request[0].langCode: Language code not supported"
+      errorMessage5: "request.languageCode: Language code not supported"
+   InvalidMapStatus:
+      errorCode: KER-MSD-328
+      errorMessage: Invalid Filter value for Mapstatus column
+   InvalidPageFetch:
+      errorCode: KER-MSD-500
+      errorMessage: Page size must not be less than one!
+   InvalidLatAndLogCode:
+      errorCode: KER-MSD-307
+      errorMessage: Latitude or Longitude must have minimum 4 digits after decimal
+   InvalidLunchStartTimeGreaterThanLunchEndTime:
+      errorCode: KER-MSD-308
+      errorMessage: Center Lunch Start Time must be smaller than Center Lunch End Time
+   InvalidCenterStartTimeGreaterThanCenterEndTime:
+      errorCode: KER-MSD-309
+      errorMessage: Center Start Time must be smaller than Center End Time
+   InvalidLunchEndTime_GreaterThan_CenterEndTime:
+      errorCode: KER-MSD-310
+      errorMessage: Lunch end Time cannot be Greater Than Center End Time
+   InvalidLangCodeAsDuplicateValue:
+      errorCode: KER-MSD-303
+      errorMessage: Received data is not present in all Languages supported by MOSIP
+   InvalidworkingHoursAsGrtThanMaxValue:
+      errorCode: KER-MSD-999
+   InvalidLatAndLogLessThan4DigitAfterDecimal:
+      errorCode: KER-MSD-307
+      errorMessage: Latitude or Longitude must have minimum 4 digits after decimal
+   InvalidPageStart:
+      errorCode: KER-MSD-500
+      errorMessage: Page index must not be less than zero!
+   InvalidRequestTime:
+      errorMessage: 'Invalid Format in field : requesttime'
+   InvalidRequestTimeStamp:
+      errorMessage: 'Invalid Format in field : timeStamp'      
+      errorMessage1: "Text '2018/12/10T06:12:52.994Z' could not be parsed at index 4 format should be yyyy-mm-ddThh:mm:ss format"      
+   InvalidSortField:
+      errorCode: KER-MSD-357
+      errorMessage: Invalid Sort Field <Sort field name>
+   InvalidSortType:
+      errorCode: KER-MSD-358
+      errorMessage: Sort Type <Sort Type> is not supported
+   invalid_FromAndToValue:
+      errorCode: KER-MSD-315
+      errorMessage: Invalid from value and to value
+   InvalidpaginationStartPage:
+      errorCode: KER-MSD-313
+      errorMessage: 'Invalid Format in field : pagination,pageStart'
+      errorMessage1: Invalid pagination value received pagestart:0 and pagefetch:0
+   InvalidColumnName:
+      errorCode: KER-MSD-310
+      errorMessage: Invalid column received:<value>
+   BlankAddressLine:
+      errorMessage: 'request.addressLine1: Should not be blank or size must be between 1 and 256'
+   InvalidAddressLine:
+      errorMessage1: 'request.addressLine1: Should not be blank or size must be between 1 and 256'
+      errorMessage2: 'request.addressLine2: size must be between 0 and 256'
+      errorMessage3: 'request.addressLine3: size must be between 0 and 256'
+   InvalidCenterTypeCodeLength:
+      errorMessage: 'request.centerTypeCode: Should not be blank or size must be between 1 and 36'
+   InvalidCenterTypeCode:
+      errorCode: KER-MSD-060
+      errorMessage: 'Invalid centerTypeCode'
+   BlankCenterTypCode:
+      errorMessage: 'request.centerTypeCode: Should not be blank or size must be between 1 and 36'
+   InvalidTimeHHMMSS:
+      errorMessage: 'invalid format'
+   InvalidContactPerson:
+      errorMessage: 'request.contactPerson: size must be between 0 and 128'
+   InvalidContactPhone:
+      errorMessage: 'request.contactPhone: size must be between 0 and 16'
+   InvalidHolidayLocationCode:
+      errorCode: KER-MSD-440
+      errorMessage: 'HolidayLocationCode Not Found'
+   BlankHolidayLocationCode:
+      errorMessage: 'request.holidayLocationCode: Should not be blank or size must be between 1 and 36'
+      errorMessage1: 'request.holidayLocationCode: must not be blank'
+   InValidRequestId:
+      errorMessage: invalid request id
+      errorMessage1: request id must not be blank
+   InValidRequestVersion:
+      errorMessage: invalid request version
+      errorMessage1: request version must not be blank    
+   InvalidId:
+      errorMessage0: 'request[1].id: size must be between 0 and 10'
+      errorMessage1: 'request[0].id: size must be between 0 and 10'
+   InValidZoneCode:
+      errorCode: KER-MSD-346
+      errorCode1: KER-MSD-999
+      errorMessage: 'request.zoneCode: Should not be blank or size must be between 1 and 36'
+      errorMessage1: 'request.zoneCode: must not be blank'
+      errorMessage2: Received Zone Code does not belong to the User
+   NoPrimaryLangCenterPresent:
+      errorCode: KER-MSD-999
+      errorCode1: KER-MSD-995
+      errorMessage: Cannot create data in secondary language as data does not exist in primary language
+   CreateCenterWithOtherThanConfigLang:
+      errorCode: KER-MSD-382
+      errorMessage: Received language code fra is not a configured language
+   InvalidLatitude:
+      errorMessage0: 'request.latitude: Should not be blank or size must be between 1 and 32'
+      errorMessage1: 'request.latitude: Should not be blank or size must be between 1 and 32'
+      errorCode: KER-MSD-307
+      errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
+   InvalidLocationCode:
+      errorCode: KER-MSD-060
+      errorMessage: Invalid Location Code
+      errorMessage0: 'request.locationCode: size must be between 0 and 36'
+      errorMessage1: 'request.locationCode: Should not be blank or size must be between 1 and 36'
+      errorMessage2: 'request.locationCode: invalid value'
+   InvalidLongitude:
+      errorMessage0: 'request.longitude: size must be between 0 and 32'
+      errorMessage1: 'request.longitude: Should not be blank or size must be between 1 and 32'
+      errorMessage2: Latitude or Longitude must have minimum 4 digits after decimal
+      errorMessage3: 'request.longitude: must not be blank'
+      errorCode0: KER-MSD-307
+   InvalidName:
+      errorMessage0: 'request.name: must not be null'
+      errorMessage1: 'request.name: Should not be blank or size must be between 1 and 128'
+   InvalidTimezone:
+      errorMessage: 'request.timeZone: size must be between 0 and 64'
+   InvalidWorkingHours:
+      errorMessage0: 'request.workingHours: size must be between 0 and 32'
+      errorMessage1: 'request.workingHours: Should not be blank or size must be between 1 and 32'
+      errorMessage2: 'request.workingHours: must not be blank'
+   InvalidFilterTypeInFilterAPI:
+      errorCode: KER-MSD-324
+      errorMessage: Received Filter Type not supported
+   EmptyFilterTypeInFilterAPI:
+      errorCode: KER-MSD-322
+      errorMessage: Filter Type cannot be empty or null
+   Invaliddoccategorycode:
+      errorCode: KER-MSD-999
+      errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 1 and 36'
+      
+   InvaliddoctypecodeAnddoccategorycode:
+      errorCode: KER-MSD-999
+      errorMessage: 'mapDocCategoryAndDocType.docCatCode: size must be between 0 and 36, mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
+   Invaliddoctypecode:
+      errorCode: KER-MSD-999
+      errorMessage: 'mapDocCategoryAndDocType.docTypeCode: size must be between 1 and 36'  
+   AlreadyMapDocCategoryCodes:
+      errorCode: KER-MSD-360
+      errorMessage: Document Type is already mapped to the received Document Category
+   invalidToken:
+      errorCode: KER-ATH-401
+      errorMessage: Authentication Failed
+   UnAuthorisedRole:
+      errorCode: KER-ATH-403
+      errorMessage: Forbidden
+   EmptyFilterValue:
+      errorCode: KER-MSD-390
+      errorMessage: Invalid filter value
+   InvalidFilterValue:
+      errorCode: KER-MSD-355
+      errorMessage: No <column> found for the <value1> Receivedd
+   EmptyColumnNameInFilterAPI:
+      errorCode: KER-MSD-319
+      errorMessage: "request.filters[0].columnName: must not be blank"
+      errorMessage1: Column name is Null or Empty
+   InvalidColumnNameInFilterAPI:
+      errorCode: KER-MSD-348
+      errorMessage: Received column does not support filter
+   EmptyFilterTypeInFilterAPI:
+      errorCode: KER-MSD-322
+      errorMessage: Filter Type cannot be empty or null
+   InvalidUserId:
+      errorCode: KER-MSD-391
+      errorMessage: Entity for user ID specified Not Found
+   CreateEmptyIsActive:
+      errorCode: KER-MSD-999
+      errorMessage: "Invalid Format in field : isActive"
+      errorMessage1: "request.isActive: invalid value"
+      errorMessage2: "request.isActive: must not be null"
+   CreateLocBlankHierarchyName:
+      errorMessage: "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+   CreateLocBlankHierarchyLevel:
+      errorMessage: "request.hierarchyLevel: must not be blank"
+   CreateLocBlankName:
+      errorMessage: "request.name: Should not be blank or size must be between 0 and 128"
+   CreateLocDuplicateName:
+      errorCode: KER-MSD-385
+      errorMessage: "Location already exist under the hierarchy"
+   CreateLocInvalidCodeSecondLang:
+      errorCode: KER-MSD-387
+      errorMessage: "Location Code should not be different for a Location in different languages"    
+   CreateLocationDataCode:
+      errorCode: KER-MSD-999
+      errorMessage: "eng.code:size must be between 0 and 36"
+      errorMessage1: "eng.name:size must be between 0 and 128"
+      errorMessage2: "eng.hierarchyName:size must be between 0 and 64"
+   CreateLocNameLengthgrtrThanMax:
+      errorMessage: "request.name: Should not be blank or size must be between 0 and 128"
+   CreateLocHierNameLengthgrtrThanMax:
+      errorMessage: "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+   CreateLocWithoutPrimaryLang:
+      errorCode: KER-MSD-995
+      errorMessage: "Cannot create data in secondary language as data does not exist in primary language"
+   CreateLocationInvalidLangCode:
+      errorCode: KER-MSD-386
+      errorMessage: "Invalid Language Code :  <Language Code>"
+   RegCenterNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Registration center has been already decommissioned or Registration center not found
+   RegCenterDecomissionInvalidLength:
+      errorCode: KER-MSD-353
+      errorMessage: Center ID specified for decommission has invalid length
+   RegCenterDecomissionMapToDevice:
+      errorCode: KER-MSD-350
+      errorMessage: Cannot Decommission the Registration Center, as some devices are mapped to the Registration Center   
+   RegCenterDecomissionMapToMach:
+      errorCode: KER-MSD-351
+      errorMessage: Cannot Decommission the Registration Center, as some machines are mapped to the Registration Center
+   RegCenterDecomissionMapToUser:
+      errorCode: KER-MSD-352
+      errorMessage: Cannot Decommission the Registration Center, as some users are mapped to the Registration Center
+   UnAuthorizedRole:
+      errorCode: KER-ATH-403
+      errorMessage: Forbidden
+   NoAccessForService:
+      errorCode: KER-MSD-500
+      errorMessage: Access is denied
+   EXceptionInDataInsertion:
+      errorCode: KER-MSD-071
+      errorMessage: Exception during inserting data into DB
+   UnMapDocCatTyp_InValidCatTypCode:
+      errorCode: KER-MSD-361
+   DecomissionDeviceMapToCenter:
+      errorCode: KER-MSD-438
+      errorMessage: Device cannot be Decommissioned as it is assigned to a Registration Center
+   DecomissionMachineMapToCenter:
+      errorCode: KER-MSD-352
+      errorMessage: Machine cannot Decommissioned as some Registration centers are mapped  
+   DeviceNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Device ID <id> does not exist
+   MachineNotFoundDecommission:
+      errorCode: KER-MSD-042
+      errorMessage: Machine ID <id> does not exist
+   DeviceValidate_NonExisting_device:
+      errorCode: ADM-DPM-001
+      errorMessage: Device is marked Inactive or not found
+   DeviceValidate_Revoked_device:
+      errorCode: ADM-DPM-002
+      errorMessage: Device is revoked/retired
+   DeviceValidate_NonExisting_DeviceProvider:
+      errorCode: ADM-DPM-004
+      errorMessage: Device Provider is marked Inactive or not found
+   DeviceValidate_NonExisting_MDS:
+      errorCode: ADM-DPM-005
+      errorMessage: MDS is marked Inactive or not found
+   DeviceValidate_SwVer_notMatch_devTyp:
+      errorCode: ADM-DPM-007
+      errorMessage: Software version does not match against the Device Details
+   DeviceValidate_devCode_notMatch_idParm:
+      errorCode: ADM-DPM-008
+      errorMessage: Device Code does not match against the <Attribute Name>
+   DeviceValidate_inValid_detail:
+      errorCode: ADM-DPM-009
+      errorMessage: Error occurred while checking a Device Details      
+   DeCommissionDeviceMapToDiffZone:
+      errorCode: KER-MSD-439
+      errorMessage: Admin not authorized to access this Device for this Zone
+   DeCommissionMachineMapToDiffZone:
+      errorCode: KER-MSD-436
+      errorMessage: Admin not authorized to access this Machine for this Zone
+   DeCommissionCenterMapToDiffZone:
+      errorCode: KER-MSD-441
+      errorMessage: Admin not authorized to access this Registration Center for this Zone
+   CreateLocParentNonExist:
+      errorCode: KER-MSD-389
+      errorMessage: Parent location not found   
+   CreateSecondaryDataWithBlankId:
+      errorMessage: Invalid id passed for Secondary language 
+   RegisterDevice_inValidCertificate:
+      errorMessage: 'Invalid Certification level received'
+   RegisterDevice_missingParam:
+      errorCode: ADM-DPM-025
+      errorMessage: Mandatory input parameter is missing  
+   RegisterDevice_inActiveOrNonexistingDevTyp:
+      errorCode: ADM-DPM-026
+      errorMessage: fbheafg Device Type does not exist 
+   RegisterDevice_inActiveOrNonexistingDevSTyp:
+      errorCode: ADM-DPM-027
+      errorMessage: fbheafg Device Sub-Type does not exist        
+   RegisterDevice_inValidStatus:
+      errorMessage: 'request.statusCode: Invalid Status received'
+   RegisterDevice_inValidDpIdDp:
+      errorCode: ADM-DPM-032
+      errorMessage: Device Provider ID/Name does not exist in the list of Registered Device Providers  
+   RegisterDevice_inValidPurpose:
+      errorMessage: 'Invalid Purpose received'  
+   RegisterDevice_nonExitingDevIDSerialNo:
+      errorCode: ADM-DPM-042
+      errorMessage: Cannot register device as it is not a white-listed device 
+   RegisterDevice_nullEmptyTPDetailForL1:
+      errorMessage: ' If certification level received is L1 then FoundationalTPId OR FoundationalTrustSignature OR FoundationalTrustCertificate should not be null or empty'
+   SystemError:
+      errorCode: KER-MSD-424
+      errorMessage: Error occurred while mapping User to Registration Center                                       

@@ -18,6 +18,7 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.kernel.fw.util.KernelKeywordUtil;
 import io.mosip.pmp.fw.util.PartnerKeywordUtil;
 import io.mosip.resident.fw.util.ResidentKeywordUtil;
 
@@ -145,6 +146,8 @@ public class Precondtion {
 			objKeywordUtil = new ResidentKeywordUtil();
 		else if (moduleName.equalsIgnoreCase("partner"))
 			objKeywordUtil = new PartnerKeywordUtil();
+		else if (moduleName.equalsIgnoreCase("kernel"))
+			objKeywordUtil = new KernelKeywordUtil();
 		return objKeywordUtil;
 	}
 

@@ -2196,4 +2196,16 @@ public class AdminRunConfig extends RunConfig {
 	public void setAllDynamicFieldPath(String allDynamicFieldPath) {
 		this.allDynamicFieldPath = allDynamicFieldPath;
 	}
+
+	@Override
+	public String getKernelEndPointUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFetchGenderTypePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
