@@ -49,7 +49,7 @@ public class PMPDataManager {
                 "DELETE FROM pms.partner_policy WHERE policy_api_key IN ('0983222','99033487029341','99033487029342','928347872931','928347872932');\n" +
                 "DELETE FROM pms.partner_policy_request WHERE id IN ('0983222','99033487029341','99033487029342','928347872931','928347872932');\n" +
                 "DELETE FROM pms.partner WHERE id IN ('1873299273','1873299300','1873299776','1873293764','18248239994');\n" +
-                "delete from pms.partner_type where code='Mosip Auth' and cr_by='Test_User';\n" +
+                "delete from pms.partner_type where code='PMS Auth' and cr_by='Test_User';\n" +
                 "DELETE FROM pms.auth_policy WHERE id IN('0983222','9903348702934','92834787293');\n" +
                 "DELETE FROM pms.policy_group WHERE id IN('0983222','9903348702934','92834787293');";
         
@@ -98,7 +98,7 @@ public class PMPDataManager {
      */
     private String getPartnerInsertionQuery(){
     	return "INSERT INTO pms.partner_type(code, partner_description, is_active, cr_by, cr_dtimes, upd_by, upd_dtimes, is_deleted, del_dtimes, is_policy_required)\n" +
-                "VALUES ('PMS Auth', 'PMS Auth Desc', true, 'Test_User', CURRENT_DATE, null, null, null, null, null);\n" +                
+                "VALUES ('PMS Auth', 'PMS Auth Desc', true, 'Test_User', CURRENT_DATE, null, null, null, null, false);\n" +                
 				"\n" +
 				"INSERT INTO pms.partner(id,policy_group_id,name,address,contact_no,email_id,certificate_alias,user_id,partner_type_code,approval_status,is_active,cr_by,cr_dtimes)\n" +
                 "VALUES('1873299273','92834787293','TP_05','TP_05','1234567890','tp01@gmail.com',null,'Test_001','PMS Auth','Activated',true,'Test_User',CURRENT_DATE),\n" +
