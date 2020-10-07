@@ -177,6 +177,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
 			PartnerTestUtil.initiatePartnerTest();
 		}
+		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
+			AdminTestUtil.initiateKernelTest();
+		}
 
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
