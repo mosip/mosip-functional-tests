@@ -31,7 +31,7 @@
 			<class name="io.mosip.kernel.tests.FetchRegCent" />
 			<class name="io.mosip.kernel.tests.FetchRegCentHistory" />
 			<class name="io.mosip.kernel.tests.FetchRegCentHolidays" />
-			<class name="io.mosip.kernel.tests.FetchRegcentMachUserMaping" />
+			<!-- <class name="io.mosip.kernel.tests.FetchRegcentMachUserMaping" /> -->
 			<class name="io.mosip.kernel.tests.FetchRejectionReason" />
 			<class name="io.mosip.kernel.tests.FetchTemplate" />
 			<class name="io.mosip.kernel.tests.FetchTitle" />
