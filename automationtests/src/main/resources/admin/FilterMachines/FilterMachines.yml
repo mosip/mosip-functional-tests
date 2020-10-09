@@ -1,0 +1,24 @@
+FilterMachines:
+   Admin_FilterMachines_Valid_Smoke:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Vostro"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Vostro"
+      }
+    ]
+  }'
