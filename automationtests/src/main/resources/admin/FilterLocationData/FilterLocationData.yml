@@ -1,0 +1,24 @@
+FilterLocationData:
+   Admin_FilterLocationData_Valid_Smoke:
+      endPoint: /v1/masterdata/locations/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterLocationData/FilterLocationData
+      outputTemplate: admin/FilterLocationData/FilterLocationDataResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "GST"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "GST"
+      }
+    ]
+  }'
