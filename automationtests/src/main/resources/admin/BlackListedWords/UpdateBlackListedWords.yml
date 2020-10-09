@@ -1,0 +1,187 @@
+UpdateBlackListedWords:
+   Admin_UpdateBlackListedWords_All_Valid_Smoke:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/BlackListedWords/blackListedWordsResult
+      input: '{
+    "description": "wrong word updated",
+	"isActive": true,
+	"langCode": "eng",
+	"oldWord": "dumb",	
+	"word": "dumb upd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"word": "dumb upd",
+	"langCode": "eng"
+}'
+   Admin_UpdateBlackListedWords_Valid_OnlyMandatoryFields_DB:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/BlackListedWords/blackListedWordsResult
+      input: '{
+    "description": "adding description for updateBlacklistword",
+	"isActive": true,
+	"langCode": "ara",
+	"oldWord": "dumb",	
+	"word": "dumb upd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"word": "dumb upd",
+	"langCode": "ara"
+}'
+   Admin_UpdateBlackListedWords_Valid_WordLength128:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/BlackListedWords/blackListedWordsResult
+      input: '{
+    "description": "dummy data updated",
+	"isActive": true,
+	"langCode": "eng",
+	"oldWord": "defdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",	
+	"word": "defdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx upd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   Admin_UpdateBlackListedWords_Invalid_BlacklistedWordsLength129:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "dummy data",
+	"isActive": true,
+	"langCode": "eng",
+	"oldWord": "dumb",	
+	"word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   Admin_UpdateBlackListedWords_inValid_descriptionBlank:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "",
+	"isActive": true,
+	"langCode": "eng",
+	"oldWord": "bull word",	
+	"word": "bull word upd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"word": "bull word upd",
+	"langCode": "eng"
+}'
+   Admin_UpdateBlackListedWords_Invalid_DescriptionLength257:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": true,
+	"langCode": "eng",
+	"oldWord": "bull word",	
+	"word": "bull word",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 256"
+    }
+  ]
+}'
+   Admin_UpdateBlackListedWords_InvalidLangCode:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "bad words",
+	"isActive": true,
+	"langCode": "engr",
+	"oldWord": "bull word",	
+	"word": "bull word",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_UpdateBlackListedWords_InvalidLangCode_blank:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "bad words",
+	"isActive": true,
+	"langCode": "",
+	"oldWord": "bull word",	
+	"word": "bull word",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_UpdateBlackListedWords_Invalid_EmptyWord:
+      endPoint: /v1/masterdata/blacklistedwords
+      role: admin
+      restMethod: put
+      inputTemplate: admin/BlackListedWords/updateBlackListedWords
+      outputTemplate: admin/error
+      input: '{
+    "description": "bad words",
+	"isActive": true,
+	"oldWord": "bull word",	
+	"langCode": "eng",
+	"word": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'

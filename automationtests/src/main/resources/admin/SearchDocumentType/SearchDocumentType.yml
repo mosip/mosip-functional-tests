@@ -1,0 +1,670 @@
+SearchDocumentType:
+   Admin_SearchDocumnetType_Valid_Smoke:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "description": "$IGNORE$",
+        "code": "MSD",
+        "langCode": "eng",
+        "name": "MSD Card"
+      }
+    ]
+}'  
+   Admin_SearchDocumnetType_Valid_FilterTypeContains:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "description": "$IGNORE$",
+        "code": "MSD",
+        "langCode": "eng",
+        "name": "MSD Card"
+      }
+    ]
+}'
+   Admin_SearchDocumnetType_Valid_FilterTypeStartsWith:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startsWith",
+        "value": "MSD",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "description": "$IGNORE$",
+        "code": "MSD",
+        "langCode": "eng",
+        "name": "MSD Card"
+      }
+    ]
+}'
+   Admin_SearchDocumentType_inValid_columnName_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "",
+        "type": "equals",
+        "value": "MSD",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_columnName:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "agshshs",
+        "type": "equals",
+        "value": "MSD",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_filter_value:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "agshshs",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": []
+}'
+   Admin_SearchDocumentType_inValid_filter_value_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_langCode:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "engr",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_langCode_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_sortField:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "fbheafg",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field fbheafg"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_sortType:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "fbheafg"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type fbheafg is not supported"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_sortField_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_sortType_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": ""
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_pagesize:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": -1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_filterType_blank:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_filterType:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "kfdjfkd",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_requestTime_format:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "MSD Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "2018-12-10 06:12:52.994Z"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_typeFilter_contains:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "contains",
+        "value": "true",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "isActive",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchDocumentType_inValid_typeFilter_startsWith:
+      endPoint: /v1/masterdata/documentcategories/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchDocumentType/searchDocumentType
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "startsWith",
+        "value": "true",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "isActive",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

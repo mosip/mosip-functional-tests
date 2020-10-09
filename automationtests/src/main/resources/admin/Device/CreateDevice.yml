@@ -1,0 +1,62 @@
+CreateDevice:
+   Admin_CreateDevice_All_Valid_Smoke:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      restMethod: post
+      inputTemplate: admin/Device/createDevice
+      outputTemplate: admin/Device/createDeviceResult
+      input: '{
+    "name": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+    "name": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": false,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+}'
+   Admin_CreateDevice_Valid_Act_Prim_Lang_WithSecon_Language:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      restMethod: post
+      inputTemplate: admin/Device/createDevice
+      outputTemplate: admin/Device/createDeviceResult
+      input: '{
+     "id": "17dfccc2-f761-404c-8a18-184e63617dd9",
+    "name": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "ara",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+    "name": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "ara",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+}'
