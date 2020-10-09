@@ -22,4 +22,4 @@ testdata:
       output.1.res.err.version: $version$
       output.1.res.err.responsetime: $IGNORE$
       output.1.res.err.errormessage: $errors:InvalidRegistrationId:errorMessage$
-      output.1.res.err.errorCode: $errors:InvalidRegistrationId:errorCode$
+      output.1.res.err.errorCode: Invalid Input Parameter - id

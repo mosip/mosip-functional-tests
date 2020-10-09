@@ -298,7 +298,7 @@ testdata:
       output.1.res.n.timestamp: $IGNORE$
       output.1.res.n.version: $version$
       output.1.res.n.errorCode: $errors:InvalidUIN:errorCode$
-      output.1.res.n.errorMessage: $errors:InvalidUIN:errorMessage$
+      output.1.res.n.errorMessage: Invalid Input Parameter - UIN
   
   IdRepository_AddIdentity_withInvalidRegistrationId:
     input.create-request:
