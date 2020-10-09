@@ -200,6 +200,17 @@ public class AdminTestUtil extends BaseTestCase{
 			logger.error("Exception occured while copying the file: "+e.getMessage());
 		}
 	}
+	public static void initiateKernelTest()
+	{
+		try {
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/kernel");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			FileUtils.copyDirectoryToDirectory(source, destination);
+			logger.info("Copied the kernel test resource successfully");
+		} catch (Exception e) {
+			logger.error("Exception occured while copying the file: "+e.getMessage());
+		}
+	}
 	
 	public Object[] getYmlTestData(String ymlPath){
 		String testType = testLevel;

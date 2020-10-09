@@ -14,4 +14,4 @@ testdata:
       output.2.res.n.version: $version$
       output.2.res.n.responsetime: $IGNORE$ 
       output.2.res.n.errorCode: $errors:InvalidUinForRetrieve:errorCode$
-      output.2.res.n.errormessage: $errors:InvalidUinForRetrieve:errorMessage$
+      output.2.res.n.errormessage: Invalid Input Parameter - id
