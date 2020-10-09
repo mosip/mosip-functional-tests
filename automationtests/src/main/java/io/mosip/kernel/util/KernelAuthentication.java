@@ -64,7 +64,11 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	public String getTokenByRole(String role)
 	{
-		String insensitiveRole = role.toLowerCase();
+		String insensitiveRole = null;
+		if(role!=null)
+			insensitiveRole = role.toLowerCase();
+		else return "";
+		
 		switch(insensitiveRole) {
 		
 		case "individual":
@@ -83,6 +87,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
+		case "zonalapprover":
+			if(!kernelCmnLib.isValidToken(zonalApproverCookie))
+				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
+			return zonalApproverCookie;
 		case "partner":
 			if(!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
