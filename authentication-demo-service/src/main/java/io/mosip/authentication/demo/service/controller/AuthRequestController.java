@@ -166,26 +166,7 @@ public class AuthRequestController {
 	 * @param transactionId the transaction id
 	 * @param request       the request
 	 * @return the string
-	 * @throws KeyManagementException             the key management exception
-	 * @throws InvalidKeyException                the invalid key exception
-	 * @throws NoSuchAlgorithmException           the no such algorithm exception
-	 * @throws InvalidKeySpecException            the invalid key spec exception
-	 * @throws NoSuchPaddingException             the no such padding exception
-	 * @throws InvalidAlgorithmParameterException the invalid algorithm parameter
-	 *                                            exception
-	 * @throws IllegalBlockSizeException          the illegal block size exception
-	 * @throws BadPaddingException                the bad padding exception
-	 * @throws IOException                        Signals that an I/O exception has
-	 *                                            occurred.
-	 * @throws JSONException                      the JSON exception
-	 * @throws IdAuthenticationAppException       the id authentication app
-	 *                                            exception
-	 * @throws IdAuthenticationBusinessException  the id authentication business
-	 *                                            exception
-	 * @throws JoseException 
-	 * @throws UnrecoverableEntryException 
-	 * @throws CertificateException 
-	 * @throws KeyStoreException 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/createAuthRequest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -197,9 +178,7 @@ public class AuthRequestController {
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestBody Map<String, Object> request)
-			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
+			throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
 		reqValues.put(OTP, false);
@@ -404,9 +383,7 @@ public class AuthRequestController {
 	}
 
 	private void encryptValuesMap(Map<String, Object> identity, Map<String, Object> reqValues, Boolean isInternal)
-			throws NoSuchAlgorithmException, InvalidKeySpecException, IOException, KeyManagementException,
-			JSONException, InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException,
-			IllegalBlockSizeException, BadPaddingException {
+			throws Exception {
 		EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
 		encodeBioData(identity);
 		encryptionRequestDto.setIdentityRequest(identity);
