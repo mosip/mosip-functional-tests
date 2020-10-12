@@ -244,7 +244,7 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
-		String testsuite = ctx.getCurrentXmlTest().getSuite().getName().toLowerCase();
+		String testsuite = ctx.getCurrentXmlTest().getSuite().getName();
 		if(testsuite.contains("AuthenticationTest"))
 			{
 				new PMPDataManager(false);
