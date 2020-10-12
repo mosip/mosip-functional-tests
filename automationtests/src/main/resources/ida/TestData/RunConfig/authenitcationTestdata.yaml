@@ -419,6 +419,64 @@ boolean_true:
       - BOOLEAN:true
 boolean_false:
       - BOOLEAN:false
+
+Face_code:
+      - 097b9460-d3d3-4e14-8ac9-c95a734d5d81
+Face_provider_id:
+      - 1873299273
+Face_provider_name:
+      - TP_05
+Face_sw_version:
+      - SB.WIN.001
+Face_serial_number:
+      - 097b9460-d3d3-4e14-8ac9-c95a734d5d81
+Face_make:
+      - Logitech
+Face_model:
+      - 6bdd1fc6-810f-11d0-bec7-08002be2092f
+Face_dtype_code:
+      - Face
+Face_dstype_code:
+      - Full face',
+
+Finger_code:
+      - 2a4af583-da31-4800-8cb9-9340643fd1bf
+Finger_provider_id:
+      - 1873299273
+Finger_provider_name:
+      - TP_05
+Finger_sw_version:
+      - SB.WIN.001
+Finger_serial_number:
+      - 78467169
+Finger_make:
+      - Logitech
+Finger_model:
+      - 4d36e96c-e325-11ce-bfc1-08002be10316
+Finger_dtype_code:
+      - Finger
+Finger_dstype_code:
+      - Slab
+
+Iris_code:
+      - 9ac2ea4c-6ce5-4558-873d-575d130dfc29
+Iris_provider_id:
+      - 1873299273
+Iris_provider_name:
+      - TP_05
+Iris_sw_version:
+      - SB.WIN.001
+Iris_serial_number:
+      - 78467170
+Iris_make:
+      - Logitech
+Iris_model:
+      - 4d36e96c-e325-11ce-bfc1-08002be10317
+Iris_dtype_code:
+      - Iris
+Iris_dstype_code:
+      - Single
+
 invalid:
       - ytyw
       - 762k

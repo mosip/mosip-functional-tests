@@ -417,26 +417,5 @@ public class AdminTestUtil extends AuthTestsUtil{
 			logger.info("not able to delete test data of admin search and filter apis");
 	}
 	
-	public static void createDeviceManagementData()
-	{
-		String crtQuerKeys[] = queries.get("crtDeviceMngmntdata").toString().split(",");
-		List<String> crtQueries = new LinkedList<String>();
-		for(String queryKeys: crtQuerKeys)
-			crtQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(crtQueries, "masterdata"))
-			logger.info("created device management data for automation");
-		else
-			logger.info("not able to create device management data, IDA authentications will fail");
-	}
-	public static void deleteDeviceManagementData()
-	{
-		String dltQueryKeys[] = queries.get("dltDeviceMngmntdata").toString().split(",");
-		List<String> dltQueries = new LinkedList<String>();
-		for(String queryKeys: dltQueryKeys)
-			dltQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(dltQueries, "masterdata"))
-			logger.info("deleted created device management data for automation");
-		else
-			logger.info("not able to delete device management data");
-		}
+
 }
