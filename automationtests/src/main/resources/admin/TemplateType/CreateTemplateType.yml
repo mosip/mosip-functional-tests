@@ -16,23 +16,6 @@ CreateTemplateType:
 	"code": "Test-info-Template-auto",
 	"langCode": "eng"
 }'
-   Admin_CreateTemplateType_All_Valid_Fields_ara:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: admin/TemplateType/templateType
-      outputTemplate: admin/TemplateType/templateTypeResult
-      input: '{
-     "code": "Test-info-Template-auto",
-    "description": "Description automatique du test-info-modèle",
-    "isActive":true,
-    "langCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "Test-info-Template-auto",
-	"langCode": "fra"
-}'
    Admin_CreateTemplateType_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/templatetypes
       role: admin

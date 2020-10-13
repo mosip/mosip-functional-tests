@@ -1,10 +1,10 @@
-GetLeafZones:
-   Admin_GetLeafZones_Valid_Smoke:
-      endPoint: /v1/masterdata/zones/leafs/{langCode}
+GetZoneHierarchy:
+   Admin_GetZoneHierarchy_Valid_Smoke:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
       role: admin
       restMethod: get
-      inputTemplate: admin/GetLeafZones/getLeafZones
-      outputTemplate: admin/GetLeafZones/getLeafZonesResult
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/getZoneHierarchyResult
       input: '{
 	"langCode": "eng"
 }'
@@ -17,13 +17,30 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "STT",
+        "code": "CST",
         "langCode": "eng",
-        "name": "Settat",
+        "name": "Casablanca-Settat",
+        "hierarchyLevel": "2",
+        "hierarchyName": "Region",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "eng",
+        "name": "Benslimane",
         "hierarchyLevel": "3",
         "hierarchyName": "Province",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/STT"        
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
                         
     },
     {
@@ -51,23 +68,23 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "BSN",
+        "code": "STT",
         "langCode": "eng",
-        "name": "Benslimane",
+        "name": "Settat",
         "hierarchyLevel": "3",
         "hierarchyName": "Province",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/BSN"        
+        "hierarchyPath": "MOR/NTH/CST/STT"        
                         
     }
     ]
   }'
-   Admin_GetLeafZones_NorthUser_ara:
-      endPoint: /v1/masterdata/zones/leafs/{langCode}
+   Admin_GetZoneHierarchy_NorthUser_ara:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
       role: admin
       restMethod: get
-      inputTemplate: admin/GetLeafZones/getLeafZones
-      outputTemplate: admin/GetLeafZones/getLeafZonesResult
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/getZoneHierarchyResult
       input: '{
 	"langCode": "ara"
 }'
@@ -80,13 +97,30 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "STT",
+        "code": "CST",
         "langCode": "ara",
-        "name": "سطات‎",
+        "name": "الدارالبيضاء-سطات",
+        "hierarchyLevel": "2",
+        "hierarchyName": "منطقة",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "ara",
+        "name": "بنسليمان",
         "hierarchyLevel": "3",
         "hierarchyName": "المحافظة",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/STT"        
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
                         
     },
     {
@@ -114,23 +148,23 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "BSN",
+        "code": "STT",
         "langCode": "ara",
-        "name": "بنسليمان",
+        "name": "سطات‎",
         "hierarchyLevel": "3",
         "hierarchyName": "المحافظة",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/BSN"        
+        "hierarchyPath": "MOR/NTH/CST/STT"        
                         
     }
     ]
   }'
-   Admin_GetLeafZones_NorthUser_fra:
-      endPoint: /v1/masterdata/zones/leafs/{langCode}
+   Admin_GetZoneHierarchy_NorthUser_fra:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
       role: admin
       restMethod: get
-      inputTemplate: admin/GetLeafZones/getLeafZones
-      outputTemplate: admin/GetLeafZones/getLeafZonesResult
+      inputTemplate: admin/GetZoneHierarchy/GetZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/GetZoneHierarchyResult
       input: '{
 	"langCode": "fra"
 }'
@@ -143,13 +177,30 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "STT",
+        "code": "CST",
         "langCode": "fra",
-        "name": "Settat",
+        "name": "Casablanca-Settat",
+        "hierarchyLevel": "2",
+        "hierarchyName": "$IGNORE$",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "fra",
+        "name": "Benslimane",
         "hierarchyLevel": "3",
         "hierarchyName": "Province",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/STT"        
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
                         
     },
     {
@@ -177,23 +228,23 @@ GetLeafZones:
         "updatedDateTime": "$IGNORE$",
         "isDeleted": "$IGNORE$",
         "deletedDateTime": "$IGNORE$",
-        "code": "BSN",
+        "code": "STT",
         "langCode": "fra",
-        "name": "Benslimane",
+        "name": "Settat",
         "hierarchyLevel": "3",
         "hierarchyName": "Province",
         "parentZoneCode": "CST",
-        "hierarchyPath": "MOR/NTH/CST/BSN"        
+        "hierarchyPath": "MOR/NTH/CST/STT"        
                         
     }
     ]
   }'
-   Admin_GetLeafZones_with_Invalid_user:
-      endPoint: /v1/masterdata/zones/leafs/{langCode}
+   Admin_GetZoneHierarchy_with_Invalid_user:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
       role: invalid
       restMethod: get
-      inputTemplate: admin/GetLeafZones/getLeafZones
-      outputTemplate: admin/GetLeafZones/error
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/error
       input: '{
 	"langCode": "eng"
 }'
@@ -205,12 +256,12 @@ GetLeafZones:
     }
   ]
 }'
-   Admin_GetLeafZones_with invalid langCode:
-      endPoint: /v1/masterdata/zones/leafs/{langCode}
+   Admin_GetZoneHierarchy_with invalid langCode:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
       role: admin
       restMethod: get
-      inputTemplate: admin/GetLeafZones/getLeafZones
-      outputTemplate: admin/GetLeafZones/error
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/error
       input: '{
 	"langCode": "engr"
 }'

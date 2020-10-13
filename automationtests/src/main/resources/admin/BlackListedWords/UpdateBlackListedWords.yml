@@ -40,7 +40,7 @@ UpdateBlackListedWords:
       role: admin
       restMethod: put
       inputTemplate: admin/BlackListedWords/updateBlackListedWords
-      outputTemplate: admin/BlackListedWords/blackListedWordsResult
+      outputTemplate: admin/error
       input: '{
     "description": "dummy data updated",
 	"isActive": true,

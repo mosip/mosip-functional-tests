@@ -156,7 +156,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "Dell"
+        "fieldValue": "dell"
       }
     ]
   }'
@@ -258,7 +258,23 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "HP",
+        "fieldCode": "HP04"
+      },
+      {
+        "fieldID": "name",
+        "fieldValue": "inspiron",
+        "fieldCode": "0"
+      },
+      {
+        "fieldID": "name",
+        "fieldValue": "Test",
+        "fieldCode": "123"
+      },
+      {
+        "fieldID": "name",
+        "fieldValue": "Vostro",
+        "fieldCode": "1001"
       }
     ]
   }'  
