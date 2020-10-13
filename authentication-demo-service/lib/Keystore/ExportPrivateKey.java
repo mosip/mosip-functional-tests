@@ -9,7 +9,7 @@ import java.util.Base64;
  * This is used since keytool cannot be used for this purpose.
  * Referenced from https://security.stackexchange.com/a/114776/221987
  * 
- * Command Line: java ExportPrivateKey <path_to_keystore> JCEKS <keystore_password> â€œ<key_alias>â€� <key_password> <output_file_name>
+ * Command Line: java ExportPrivateKey <path_to_keystore> JCEKS <keystore_password> <key_alias> <key_password> <output_file_name>
  * 
  * Example: java ExportPrivateKey keystore.jks PKCS12 somepassword mosip.io somepassword PrivateKey.pem
 
