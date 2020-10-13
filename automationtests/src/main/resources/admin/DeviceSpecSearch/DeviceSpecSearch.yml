@@ -10,7 +10,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -29,12 +29,12 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "Technoforte",
 	"model": "2020",
 	"deviceTypeCode": "CMR",
 	"minDriverversion": "1.0",
-	"description": "Test DeviceSpec",
+	"description": "Test DeviceSpec updated",
 	"langCode": "eng",
 	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
@@ -51,7 +51,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -70,8 +70,8 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
-	"brand": "Technoforte",
+	"name": "Face scanner",
+	"brand": "Technoforte TFUpd",
 	"model": "2020",
 	"deviceTypeCode": "CMR",
 	"minDriverversion": "1.0",
@@ -133,7 +133,7 @@ DeviceSpecSearch:
       {
         "columnName": "brand",
         "type": "equals",
-        "value": "Technoforte",
+        "value": "Technoforte TFUpd",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -153,7 +153,7 @@ DeviceSpecSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"brand": "Technoforte",
+	"brand": "Technoforte TFUpd",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",
 	"minDriverversion": "$IGNORE$",
@@ -316,7 +316,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Camera",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -351,7 +351,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -370,7 +370,7 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "$IGNORE$",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",
@@ -392,7 +392,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -411,7 +411,7 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "$IGNORE$",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",
@@ -643,7 +643,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -662,7 +662,7 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "$IGNORE$",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",
@@ -684,7 +684,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       },
@@ -710,7 +710,7 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "$IGNORE$",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",
@@ -732,7 +732,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "Cam",
+        "value": "Face scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -751,7 +751,7 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Cam",
+	"name": "Face scanner",
 	"brand": "$IGNORE$",
 	"model": "$IGNORE$",
 	"deviceTypeCode": "$IGNORE$",

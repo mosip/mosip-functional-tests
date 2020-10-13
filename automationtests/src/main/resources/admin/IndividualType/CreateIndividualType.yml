@@ -138,7 +138,7 @@ CreateIndividualType:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.langCode: must not be null"
+      "message": "Language Code is Invalid"
     }
   ]
 }'

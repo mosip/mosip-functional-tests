@@ -7,7 +7,7 @@ CreateLocationData:
       outputTemplate: admin/LocationData/locationDataResult
       input: '{
     "code": "TST",
-    "name": "Test_Loc_A_1",
+    "name": "Test_Loc_A_2",
     "hierarchyLevel":"3",
     "hierarchyName":"City",
     "parentLocCode":"KNT",    
@@ -18,7 +18,7 @@ CreateLocationData:
       output: '{
 "isActive": false,
 "code": "TST",
-"name": "Test_Loc_A_1",
+"name": "Test_Loc_A_2",
 "hierarchyLevel":"3",
 "hierarchyName": "City",
 "parentLocCode": "KNT",
@@ -32,7 +32,7 @@ CreateLocationData:
       outputTemplate: admin/LocationData/locationDataResult
       input: '{
     "code": "TST",
-    "name": "Test_Loc_A_1",
+    "name": "Test_Loc_A_2",
     "hierarchyLevel":"3",
     "hierarchyName":"مدينة",
     "parentLocCode":"KNT",    
@@ -43,7 +43,7 @@ CreateLocationData:
       output: '{
 "isActive": true,
 "code": "TST",
-"name": "Test_Loc_A_1",
+"name": "Test_Loc_A_2",
 "hierarchyLevel":"3",
 "hierarchyName": "مدينة",
 "parentLocCode": "KNT",
@@ -156,20 +156,20 @@ CreateLocationData:
       inputTemplate: admin/LocationData/locationData
       outputTemplate: admin/error
       input: '{
-    "code": "anyString",
-    "name": "Test_Loc_B_2",
-    "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
+    "code": "adfdfd",
+    "name": "Test_Loc_A_2",
+    "hierarchyLevel":"3",
+    "hierarchyName":"مدينة",
     "parentLocCode":"KNT",    
     "langCode": "ara",
-    "isActive": false,
+    "isActive": true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "Cannot create data in secondary language as data does not exist in primary language"
+      "errorCode": "KER-MSD-391",
+      "message": "Location hierarchy is invalid"
     }
   ]
 }'
@@ -180,20 +180,20 @@ CreateLocationData:
       inputTemplate: admin/LocationData/locationData
       outputTemplate: admin/error
       input: '{
-    "code": "anyString",
-    "name": "Test_Loc_A_1",
+    "code": "TST",
+    "name": "Test_Loc_A_2",
     "hierarchyLevel":"3",
     "hierarchyName":"City",
     "parentLocCode":"KNT",    
     "langCode": "eng",
-    "isActive": false,
+    "isActive": true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-385",
-      "message": "Location Test_Loc_A_1 already exist under the hierarchy"
+      "errorCode": "KER-MSD-994",
+      "message": "Code already exists"
     }
   ]
 }'

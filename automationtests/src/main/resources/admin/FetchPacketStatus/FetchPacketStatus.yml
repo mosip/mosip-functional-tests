@@ -49,7 +49,7 @@ FetchPacketStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "ADM-PKT-003",
+      "errorCode": "ADM_PKT-003",
       "message": "Center does not exist"
     }
   ]
@@ -67,8 +67,8 @@ FetchPacketStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "authorizeZone.rId: must not be blank"
+      "errorCode": "KER-MSD-500",
+      "message": "$IGNORE$"
     }
   ]
 }'

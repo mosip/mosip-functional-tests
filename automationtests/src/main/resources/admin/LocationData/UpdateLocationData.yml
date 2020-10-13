@@ -7,7 +7,7 @@ UpdateLocationData:
       outputTemplate: admin/LocationData/locationDataResult
       input: '{
     "code": "TST",
-    "name": "Test_Loc_A_1 updated",
+    "name": "Test_Loc_A_2 updated",
     "hierarchyLevel":"3",
     "hierarchyName":"City",
     "parentLocCode":"KNT",    
@@ -18,7 +18,7 @@ UpdateLocationData:
       output: '{
 "isActive": true,
 "code": "TST",
-"name": "Test_Loc_A_1 updated",
+"name": "Test_Loc_A_2 updated",
 "hierarchyLevel":"3",
 "hierarchyName": "City",
 "parentLocCode": "KNT",
@@ -32,7 +32,7 @@ UpdateLocationData:
       outputTemplate: admin/LocationData/locationDataResult
       input: '{
     "code": "TST",
-    "name": "Test_Loc_A_1 updated",
+    "name": "Test_Loc_A_2 updated",
     "hierarchyLevel":"3",
     "hierarchyName":"مدينة",
     "parentLocCode":"KNT",    
@@ -43,7 +43,7 @@ UpdateLocationData:
       output: '{
 "isActive": true,
 "code": "TST",
-"name": "Test_Loc_A_1 updated",
+"name": "Test_Loc_A_2 updated",
 "hierarchyLevel":"3",
 "hierarchyName": "مدينة",
 "parentLocCode": "KNT",
@@ -95,30 +95,6 @@ UpdateLocationData:
     {
       "errorCode": "KER-MSD-391",
       "message": "Location hierarchy is invalid"
-    }
-  ]
-}'
-   Admin_UpdateLocationDataz_Invalid_name_dupliCate:
-      endPoint: /v1/masterdata/locations
-      role: admin
-      restMethod: put
-      inputTemplate: admin/LocationData/locationData
-      outputTemplate: admin/error
-      input: '{
-    "code": "anyString",
-    "name": "Test_Loc_A_1",
-    "hierarchyLevel":"3",
-    "hierarchyName":"City",
-    "parentLocCode":"KNT",    
-    "langCode": "eng",
-    "isActive": false,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-026",
-      "message": "Location not found"
     }
   ]
 }'
