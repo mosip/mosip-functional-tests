@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "id": "string",
   "metadata": {},
@@ -9,16 +8,4 @@
   },
   "requesttime": "2019-04-10T10:00:00.000Z",
   "version": "string"
-=======
-{
-  "id": "string",
-  "metadata": {},
-  "request": {
-    "appId": "prereg",
-    "password": "prereguser",
-    "userName": "prereguser"
-  },
-  "requesttime": "2019-04-10T10:00:00.000Z",
-  "version": "string"
->>>>>>> upstream/cucumberTest
 }

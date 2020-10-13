@@ -405,5 +405,12 @@
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
+	
+	<test name="CreateDevice">
+		<parameter name="ymlFile" value="admin/Device/CreateDevice.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+</test>
 
 </suite>
