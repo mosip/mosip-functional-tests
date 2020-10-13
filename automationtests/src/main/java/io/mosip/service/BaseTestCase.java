@@ -207,6 +207,7 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
+			AuthTestsUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
 			AuthTestsUtil.createDeviceManagementData();
 		}
