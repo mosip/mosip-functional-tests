@@ -22,12 +22,12 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> -->
-	<!-- <test name="CreateDevice">
+	<test name="CreateDevice">
 		<parameter name="ymlFile" value="admin/Device/CreateDevice.yml"/>  
 		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test> -->
+	</test>
 	<!--  <test name="CreateIndividualType">
 		<parameter name="ymlFile" value="admin/IndividualType/CreateIndividualType.yml"/>  
 		<classes>
@@ -365,10 +365,10 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> -->
-	<test name="FetchPacketStatus">
+	<!-- <test name="FetchPacketStatus">
 		<parameter name="ymlFile" value="admin/FetchPacketStatus/FetchPacketStatus.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>
+	</test> -->
 </suite>

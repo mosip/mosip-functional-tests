@@ -1,5 +1,5 @@
 CreateDevice:
-   Admin_CreateDevice_All_Valid_Smoke:
+   Admin_CreateDevice_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devices
       role: admin
       restMethod: post
@@ -36,7 +36,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/Device/createDeviceResult
       input: '{
-     "id": "17dfccc2-f761-404c-8a18-184e63617dd9",
+     "id": "$ID:testDevicedummy$",
     "name": "testDevicedummy",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
