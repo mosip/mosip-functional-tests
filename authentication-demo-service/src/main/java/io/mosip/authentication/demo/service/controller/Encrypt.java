@@ -3,17 +3,20 @@ package io.mosip.authentication.demo.service.controller;
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_AAD_LAST_BYTES_NUM;
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_SALT_LAST_BYTES_NUM;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
-import java.security.KeyFactory;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,6 +34,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -84,11 +88,11 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(tags = { "Encrypt" })
 public class Encrypt {
+	
+	public static final int THUMBPRINT_LENGTH = 20;
 
 	@Autowired
 	private Environment env;
-
-	private static final String ASYMMETRIC_ALGORITHM_NAME = "RSA";
 
 	/** The Constant ASYMMETRIC_ALGORITHM. */
 	private static final String SSL = "SSL";	
@@ -124,17 +128,7 @@ public class Encrypt {
 	 * @param encryptionRequestDto            the encryption request dto
 	 * @param isInternal the is internal
 	 * @return the encryption response dto
-	 * @throws NoSuchAlgorithmException             the no such algorithm exception
-	 * @throws InvalidKeySpecException             the invalid key spec exception
-	 * @throws IOException             Signals that an I/O exception has occurred.
-	 * @throws KeyManagementException             the key management exception
-	 * @throws JSONException             the JSON exception
-	 * @throws InvalidKeyException the invalid key exception
-	 * @throws NoSuchPaddingException the no such padding exception
-	 * @throws InvalidAlgorithmParameterException the invalid algorithm parameter exception
-	 * @throws IllegalBlockSizeException the illegal block size exception
-	 * @throws BadPaddingException the bad padding exception
-	 * @throws RestClientException             the rest client exception
+	 * @throws Exception 
 	 */
 	@PostMapping(path = "/encrypt")
 	@ApiOperation(value = "Encrypt Identity with sessionKey and Encrypt Session Key with Public Key", response = EncryptionResponseDto.class)
@@ -142,8 +136,7 @@ public class Encrypt {
 			@RequestParam(name="refId",required=false) @Nullable String refId,
 			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
 			@RequestParam(name="isInternal",required=false) @Nullable boolean isBiometrics)
-			throws NoSuchAlgorithmException, InvalidKeySpecException, IOException, KeyManagementException,
-			JSONException, InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+			throws Exception {
 		if (refId == null) {
 			refId = getRefId(isInternal, isBiometrics);
 		}
@@ -156,43 +149,48 @@ public class Encrypt {
 	 * @param encryptionRequestDto            the encryption request dto
 	 * @param isInternal the is internal
 	 * @return the encryption response dto
-	 * @throws KeyManagementException             the key management exception
-	 * @throws NoSuchAlgorithmException             the no such algorithm exception
-	 * @throws IOException             Signals that an I/O exception has occurred.
-	 * @throws JSONException             the JSON exception
-	 * @throws InvalidKeyException the invalid key exception
-	 * @throws NoSuchPaddingException the no such padding exception
-	 * @throws InvalidAlgorithmParameterException the invalid algorithm parameter exception
-	 * @throws IllegalBlockSizeException the illegal block size exception
-	 * @throws BadPaddingException the bad padding exception
-	 * @throws InvalidKeySpecException the invalid key spec exception
-	 * @throws RestClientException             the rest client exception
+	 * @throws Exception 
 	 */
 	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, String refId)
-			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			InvalidKeySpecException {
+			throws Exception {
 		String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
 		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));	
-		String publicKeyStr = getPublicKey(identityBlock, refId);
-		PublicKey publicKey = KeyFactory.getInstance(ASYMMETRIC_ALGORITHM_NAME)
-				.generatePublic(new X509EncodedKeySpec(CryptoUtil.decodeBase64(publicKeyStr)));
+		X509Certificate x509Cert = getCertificate(identityBlock, refId);
+		PublicKey publicKey = x509Cert.getPublicKey();	
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
-		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
+		byte[] certThumbprint = getCertificateThumbprint(x509Cert);
+		byte[] concatedData = concatCertThumbprint(certThumbprint, encryptedSessionKeyByte);
+		
+		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(concatedData));
 		byte[] byteArr = cryptoUtil.symmetricEncrypt(
 				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
 	}
 	
+	public byte[] getCertificateThumbprint(Certificate cert) throws Exception {
+		try {
+            return DigestUtils.sha1(cert.getEncoded());
+		} catch (CertificateEncodingException e) {
+            throw new Exception("Error generating certificate thumbprint.");
+		}
+	}
+
+	public byte[] concatCertThumbprint(byte[] certThumbprint, byte[] encryptedKey){
+		byte[] finalData = new byte[THUMBPRINT_LENGTH + encryptedKey.length];
+		System.arraycopy(certThumbprint, 0, finalData, 0, certThumbprint.length);
+		System.arraycopy(encryptedKey, 0, finalData, certThumbprint.length, encryptedKey.length);
+		return finalData;
+	}
+	
 	@PostMapping(path = "/encryptBiometricValue")
 	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue, 
 			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
 			@RequestParam(name="transactionId",required=false) @Nullable String transactionId, 
-			@RequestParam(name="timestamp",required=false) @Nullable boolean isInternal)
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal)
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			InvalidKeySpecException {
@@ -322,10 +320,11 @@ public class Encrypt {
 	 * @throws NoSuchAlgorithmException             the no such algorithm exception
 	 * @throws RestClientException             the rest client exception
 	 * @throws JSONException             the JSON exception
+	 * @throws CertificateException 
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public String getPublicKey(String data, String refId)
-			throws IOException, KeyManagementException, NoSuchAlgorithmException, RestClientException, JSONException {
+	public X509Certificate getCertificate(String data, String refId)
+			throws IOException, KeyManagementException, NoSuchAlgorithmException, RestClientException, JSONException, CertificateException {
 		turnOffSslChecking();
 		RestTemplate restTemplate = new RestTemplate();
 		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
@@ -351,13 +350,17 @@ public class Encrypt {
 		request.setTimeStamp(utcTime);
 		
 		Map<String, String> uriParams = new HashMap<>();
-		uriParams.put("appId", appID);
 		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(publicKeyURL)
-				.queryParam("timeStamp", utcTime)
+				.queryParam("applicationId", appID)
 				.queryParam("referenceId", refId);
 		ResponseEntity<Map> response = restTemplate.exchange(builder.build(uriParams), HttpMethod.GET,
 				null, Map.class);
-		return (String) ((Map<String, Object>) response.getBody().get("response")).get("publicKey");
+		String certificate =  (String) ((Map<String, Object>) response.getBody().get("response")).get("certificate");
+		
+		certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
+		CertificateFactory cf = CertificateFactory.getInstance("X.509");
+		X509Certificate x509cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
+		return x509cert;
 	}
 
 	private String getRefId(boolean isInternal, boolean isBiometrics) {
