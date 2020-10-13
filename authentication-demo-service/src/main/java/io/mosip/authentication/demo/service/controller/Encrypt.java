@@ -161,29 +161,11 @@ public class Encrypt {
 		X509Certificate x509Cert = getCertificate(identityBlock, refId);
 		PublicKey publicKey = x509Cert.getPublicKey();	
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
-		byte[] certThumbprint = getCertificateThumbprint(x509Cert);
-		byte[] concatedData = concatCertThumbprint(certThumbprint, encryptedSessionKeyByte);
-		
-		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(concatedData));
+		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
 		byte[] byteArr = cryptoUtil.symmetricEncrypt(
 				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(), secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
-	}
-	
-	public byte[] getCertificateThumbprint(Certificate cert) throws Exception {
-		try {
-            return DigestUtils.sha1(cert.getEncoded());
-		} catch (CertificateEncodingException e) {
-            throw new Exception("Error generating certificate thumbprint.");
-		}
-	}
-
-	public byte[] concatCertThumbprint(byte[] certThumbprint, byte[] encryptedKey){
-		byte[] finalData = new byte[THUMBPRINT_LENGTH + encryptedKey.length];
-		System.arraycopy(certThumbprint, 0, finalData, 0, certThumbprint.length);
-		System.arraycopy(encryptedKey, 0, finalData, certThumbprint.length, encryptedKey.length);
-		return finalData;
 	}
 	
 	@PostMapping(path = "/encryptBiometricValue")
@@ -236,19 +218,6 @@ public class Encrypt {
 		}
 		return null ;
 	}
-	
-	/**
-	 * Gets the last bytes.
-	 *
-	 * @param timestamp the timestamp
-	 * @param lastBytesNum the last bytes num
-	 * @return the last bytes
-	 */
-	private byte[] getLastBytes(String timestamp, int lastBytesNum) {
-		assert(timestamp.length() >= lastBytesNum);
-		return timestamp.substring(timestamp.length() - lastBytesNum).getBytes();
-	}
-	
 	
 	/**
 	 * Creates the request.
