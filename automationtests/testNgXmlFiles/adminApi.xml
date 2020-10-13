@@ -10,15 +10,7 @@
 	</listeners>
 	
 	 
-
-	<!-- <test name="CreateDevice">
-		<parameter name="ymlFile" value="admin/Device/CreateDevice.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test> -->
-	
-	  <test name="CreateIndividualType">
+	<test name="CreateIndividualType">
 		<parameter name="ymlFile" value="admin/IndividualType/CreateIndividualType.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
@@ -102,8 +94,6 @@
 		<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	
-	
 	 <test name="CreateDocumentCategory">
 		<parameter name="ymlFile" value="admin/DocumentCategory/CreateDocumentCategory.yml"/>  
 		<classes>
@@ -415,4 +405,5 @@
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
+
 </suite>
