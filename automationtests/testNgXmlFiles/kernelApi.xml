@@ -32,7 +32,6 @@
 			<class name="io.mosip.kernel.tests.FetchRegCent" />
 			<class name="io.mosip.kernel.tests.FetchRegCentHistory" />
 			<class name="io.mosip.kernel.tests.FetchRegCentHolidays" />
-			<!-- <class name="io.mosip.kernel.tests.FetchRegcentMachUserMaping" /> -->
 			<class name="io.mosip.kernel.tests.FetchRejectionReason" />
 			<class name="io.mosip.kernel.tests.FetchTemplate" />
 			<class name="io.mosip.kernel.tests.FetchTitle" />
@@ -47,8 +46,6 @@
 			<class name="io.mosip.kernel.tests.GetIndividualType" />
 			<class name="io.mosip.kernel.tests.GetListOfRoles" />
 			<class name="io.mosip.kernel.tests.GetRegCenterByIDTimestamp" />
-			<class
-				name="io.mosip.kernel.tests.GetRegistrationCenterDeviceHistory" />
 			<class name="io.mosip.kernel.tests.GetRIDByUserId" />
 			<class name="io.mosip.kernel.tests.GetUserHistory" />
 			<class name="io.mosip.kernel.tests.GetUsersBasedOnRegCenter" />
