@@ -5,6 +5,6 @@
     "responseTime": "2019-04-09T15:54:54.476+05:30",
     "response": {
         "authStatus": true,
-        "staticToken": "$IGNORE$"
+        "authToken": "$IGNORE$"
     }
 }

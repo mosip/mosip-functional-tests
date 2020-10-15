@@ -9,7 +9,7 @@
 	"version": "$version$",
 	"response": {
 		"kycStatus": false,
-		"staticToken": "$IGNORE$",
+		"authToken": "$IGNORE$",
 		"identity": "$IGNORE$"
 	}
 }
