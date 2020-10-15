@@ -10,7 +10,7 @@
 	</listeners>
 	
 	 
-	<test name="CreateIndividualType">
+	<!-- <test name="CreateIndividualType">
 		<parameter name="ymlFile" value="admin/IndividualType/CreateIndividualType.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
@@ -82,18 +82,7 @@
 		<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	 <test name="CreateTemplateFileFormat">
-		<parameter name="ymlFile" value="admin/TemplateFileFormat/CreateTemplateFileFormat.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateTemplateFileFormat">
-		<parameter name="ymlFile" value="admin/TemplateFileFormat/UpdateTemplateFileFormat.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
+	
 	 <test name="CreateDocumentCategory">
 		<parameter name="ymlFile" value="admin/DocumentCategory/CreateDocumentCategory.yml"/>  
 		<classes>
@@ -260,6 +249,18 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	 <test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile" value="admin/TemplateFileFormat/CreateTemplateFileFormat.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormat">
+		<parameter name="ymlFile" value="admin/TemplateFileFormat/UpdateTemplateFileFormat.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
 	 <test name="CreateTemplate">
 		<parameter name="ymlFile" value="admin/Template/CreateTemplate.yml"/>  
 		<classes>
@@ -272,16 +273,16 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="UpdateTemplate">
-		<parameter name="ymlFile" value="admin/Template/UpdateTemplate.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
 	<test name="FilterTemplateDetails">
 		<parameter name="ymlFile" value="admin/FilterTemplateDetails/FilterTemplateDetails.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTemplate">
+		<parameter name="ymlFile" value="admin/Template/UpdateTemplate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
 	<test name="CreateRegCenterType">
@@ -404,13 +405,34 @@
 		<classes>
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>
-	
+	</test>  -->
 	<test name="CreateDevice">
-		<parameter name="ymlFile" value="admin/Device/CreateDevice.yml"/>  
-		<classes>
+	<parameter name="ymlFile"
+		value="admin/Device/CreateDevice.yml" />
+	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
+	</classes>
 </test>
+	<test name="DeviceSearch">
+		<parameter name="ymlFile"
+			value="admin/DeviceSearch/DeviceSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceFilter">
+		<parameter name="ymlFile"
+			value="admin/DeviceFilter/DeviceFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDevice">
+		<parameter name="ymlFile"
+			value="admin/Device/UpdateDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
 
 </suite>

@@ -1,12 +1,13 @@
-CreateDevice:
-   Admin_CreateDevice_All_Valid_Smoke_sid:
+UpdateDevice:
+   Admin_UpdateDevice_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/Device/createDeviceResult
       input: '{
-    "name": "testDevicedummy",
+     "id": "$ID:testDevicedummy$",
+    "name": "testDevicedummy updated",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
@@ -18,7 +19,7 @@ CreateDevice:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-    "name": "testDevicedummy",
+    "name": "testDevicedummy updated",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
@@ -29,15 +30,15 @@ CreateDevice:
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
 }'
-   Admin_CreateDevice_Valid_Act_Prim_Lang_WithSecon_Language_ara:
+   Admin_UpdateDevice_Valid_ara_Language:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
-      outputTemplate: admin/Device/createDeviceResult
+      outputTemplate: admin/error
       input: '{
-     "id": "$ID:testDevicedummy$",
-    "name": "testDevicedummy",
+    "id": "$ID:testDevicedummy$",
+    "name": "testDevicedummy updated",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
@@ -49,26 +50,22 @@ CreateDevice:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "ara",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
+   "errors": [
+    {
+      "errorCode": "KER-MSD-382",
+      "message": "Received language code ara is not a configured language"
+    }
+  ]
 }'
-   Admin_CreateDevice_Valid_fra_Language:
+   Admin_UpdateDevice_Valid_fra_Language:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
-      outputTemplate: admin/Device/createDeviceResult
+      outputTemplate: admin/error
       input: '{
-     "id": "$ID:testDevicedummy$",
-    "name": "testDevicedummy",
+    "id": "$ID:testDevicedummy$",
+    "name": "testDevicedummy updated",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
@@ -80,21 +77,17 @@ CreateDevice:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "fra",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
+   "errors": [
+    {
+      "errorCode": "KER-MSD-382",
+      "message": "Received language code fra is not a configured language"
+    }
+  ]
 }'
-   Admin_CreateDevice_Invalid_InputParameterInvalid_Format:
+   Admin_UpdateDevice_Invalid_InputParameterInvalid_Format:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -118,10 +111,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Device_Zone_notPresentInDB:
+   Admin_UpdateDevice_Invalid_Device_Zone_notPresentInDB:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -145,10 +138,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_InputParameter_LangCode_Missing:
+   Admin_UpdateDevice_Invalid_InputParameter_LangCode_Missing:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -172,10 +165,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Language_Code_Blank:
+   Admin_UpdateDevice_Invalid_Language_Code_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -199,10 +192,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Language_Code:
+   Admin_UpdateDevice_Invalid_Language_Code:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -226,10 +219,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Machine_Name_Blank:
+   Admin_UpdateDevice_Invalid_Machine_Name_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -253,10 +246,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_DeviceName_AboveMaxLen64:
+   Admin_UpdateDevice_Invalid_DeviceName_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -280,10 +273,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Zone_Code_Blank:
+   Admin_UpdateDevice_Invalid_Zone_Code_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -303,14 +296,14 @@ CreateDevice:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.zoneCode: Should not be blank or size must be between 0 and 36"
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_MAC_Address_Blank:
+   Admin_UpdateDevice_Invalid_MAC_Address_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -334,10 +327,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_MacAddress_AboveMaxLen64:
+   Admin_UpdateDevice_Invalid_MacAddress_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -361,10 +354,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_Serial_Number_Blank:
+   Admin_UpdateDevice_Invalid_Serial_Number_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -388,10 +381,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_SerialNumber_AboveMaxLen64:
+   Admin_UpdateDevice_Invalid_SerialNumber_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -415,10 +408,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_IPAddress_AboveMaxLen17:
+   Admin_UpdateDevice_Invalid_IPAddress_AboveMaxLen17:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
@@ -442,10 +435,10 @@ CreateDevice:
     }
   ]
 }'
-   Admin_CreateDevice_Invalid_DSpecID_AboveMaxLen36:
+   Admin_UpdateDevice_Invalid_DSpecID_AboveMaxLen36:
       endPoint: /v1/masterdata/devices
       role: admin
-      restMethod: post
+      restMethod: put
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
