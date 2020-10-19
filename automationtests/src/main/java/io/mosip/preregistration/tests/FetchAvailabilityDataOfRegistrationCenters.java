@@ -117,7 +117,7 @@ public class FetchAvailabilityDataOfRegistrationCenters extends BaseTestCase imp
 	 */
 	@Test(dataProvider = "fetchRegCenterDetails")
 	public void FetchAvailabilityDataOfRegistrationCenters(String testSuite, Integer i, JSONObject object) throws Exception {
-
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		Expectedresponse = ResponseRequestMapper.mapResponse(testSuite, object);

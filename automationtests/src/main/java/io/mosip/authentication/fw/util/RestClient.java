@@ -37,6 +37,24 @@ public class RestClient {
 	 * @param acceptHeader
 	 * @return response
 	 */
+	public static Response postRequestWithAuthHeader(String url, Object body, String contentHeader, String acceptHeader, String authHeaderName, String authHeaderValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue).body(body).contentType(contentHeader)
+				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
+	
+	/**
+	 * REST ASSURED POST request method
+	 * 
+	 * @param url
+	 * @param body
+	 * @param contentHeader
+	 * @param acceptHeader
+	 * @return response
+	 */
 	public static Response postRequest(String url, Object body, String contentHeader, String acceptHeader) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
@@ -157,6 +175,17 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postRequestWithCookieAndHeader(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue).body(body).contentType(contentHeader)
+				.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}	
 
 	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader, String urls,
 			String cookieName, String cookieValue) {

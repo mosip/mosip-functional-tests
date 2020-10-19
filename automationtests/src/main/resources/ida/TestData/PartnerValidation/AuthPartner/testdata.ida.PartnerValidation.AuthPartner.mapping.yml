@@ -528,16 +528,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
-      identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.type: $Device:finger:dtype_code$
-      identityReq.digitalId.subType: $Device:finger:dstype_code$
+      identityReq.deviceCode: $TestData:Finger_code$
+      identityReq.deviceProviderID: $TestData:Finger_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Finger_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Finger_serial_number$
+      identityReq.digitalId.make: $TestData:Finger_make$
+      identityReq.digitalId.model: $TestData:Finger_model$
+      identityReq.digitalId.deviceProvider: $TestData:Finger_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Finger_provider_id$
+      identityReq.digitalId.type: $TestData:Finger_dtype_code$
+      identityReq.digitalId.subType: $TestData:Finger_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$    
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -562,16 +562,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
-      identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.type: $Device:finger:dtype_code$
-      identityReq.digitalId.subType: $Device:finger:dstype_code$
+      identityReq.deviceCode: $TestData:Finger_code$
+      identityReq.deviceProviderID: $TestData:Finger_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Finger_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Finger_serial_number$
+      identityReq.digitalId.make: $TestData:Finger_make$
+      identityReq.digitalId.model: $TestData:Finger_model$
+      identityReq.digitalId.deviceProvider: $TestData:Finger_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Finger_provider_id$
+      identityReq.digitalId.type: $TestData:Finger_dtype_code$
+      identityReq.digitalId.subType: $TestData:Finger_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -597,16 +597,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Iris'][Subtype='Left']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:iris:code$
-      identityReq.deviceProviderID: $Device:iris:provider_id$
-      identityReq.deviceServiceVersion: $Device:iris:sw_version$
-      identityReq.digitalId.serialNo: $Device:iris:serial_number$
-      identityReq.digitalId.make: $Device:iris:make$
-      identityReq.digitalId.model: $Device:iris:model$
-      identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
-      identityReq.digitalId.type: $Device:iris:dtype_code$
-      identityReq.digitalId.subType: $Device:iris:dstype_code$
+      identityReq.deviceCode: $TestData:Iris_code$
+      identityReq.deviceProviderID: $TestData:Iris_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Iris_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Iris_serial_number$
+      identityReq.digitalId.make: $TestData:Iris_make$
+      identityReq.digitalId.model: $TestData:Iris_model$
+      identityReq.digitalId.deviceProvider: $TestData:Iris_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Iris_provider_id$
+      identityReq.digitalId.type: $TestData:Iris_dtype_code$
+      identityReq.digitalId.subType: $TestData:Iris_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1204,16 +1204,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
-      identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.type: $Device:finger:dtype_code$
-      identityReq.digitalId.subType: $Device:finger:dstype_code$
+      identityReq.deviceCode: $TestData:Finger_code$
+      identityReq.deviceProviderID: $TestData:Finger_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Finger_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Finger_serial_number$
+      identityReq.digitalId.make: $TestData:Finger_make$
+      identityReq.digitalId.model: $TestData:Finger_model$
+      identityReq.digitalId.deviceProvider: $TestData:Finger_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Finger_provider_id$
+      identityReq.digitalId.type: $TestData:Finger_dtype_code$
+      identityReq.digitalId.subType: $TestData:Finger_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1238,16 +1238,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:finger:code$
-      identityReq.deviceProviderID: $Device:finger:provider_id$
-      identityReq.deviceServiceVersion: $Device:finger:sw_version$
-      identityReq.digitalId.serialNo: $Device:finger:serial_number$
-      identityReq.digitalId.make: $Device:finger:make$
-      identityReq.digitalId.model: $Device:finger:model$
-      identityReq.digitalId.deviceProvider: $Device:finger:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:finger:provider_id$
-      identityReq.digitalId.type: $Device:finger:dtype_code$
-      identityReq.digitalId.subType: $Device:finger:dstype_code$
+      identityReq.deviceCode: $TestData:Finger_code$
+      identityReq.deviceProviderID: $TestData:Finger_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Finger_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Finger_serial_number$
+      identityReq.digitalId.make: $TestData:Finger_make$
+      identityReq.digitalId.model: $TestData:Finger_model$
+      identityReq.digitalId.deviceProvider: $TestData:Finger_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Finger_provider_id$
+      identityReq.digitalId.type: $TestData:Finger_dtype_code$
+      identityReq.digitalId.subType: $TestData:Finger_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$    
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false
@@ -1273,16 +1273,16 @@ testdata:
       identityReq.transactionID: $input.auth-request:AuthReq.transactionID$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Iris'][Subtype='Left']//following::BDB$
       #Device
-      identityReq.deviceCode: $Device:iris:code$
-      identityReq.deviceProviderID: $Device:iris:provider_id$
-      identityReq.deviceServiceVersion: $Device:iris:sw_version$
-      identityReq.digitalId.serialNo: $Device:iris:serial_number$
-      identityReq.digitalId.make: $Device:iris:make$
-      identityReq.digitalId.model: $Device:iris:model$
-      identityReq.digitalId.deviceProvider: $Device:iris:provider_name$
-      identityReq.digitalId.deviceProviderId: $Device:iris:provider_id$
-      identityReq.digitalId.type: $Device:iris:dtype_code$
-      identityReq.digitalId.subType: $Device:iris:dstype_code$
+      identityReq.deviceCode: $TestData:Iris_code$
+      identityReq.deviceProviderID: $TestData:Iris_provider_id$
+      identityReq.deviceServiceVersion: $TestData:Iris_sw_version$
+      identityReq.digitalId.serialNo: $TestData:Iris_serial_number$
+      identityReq.digitalId.make: $TestData:Iris_make$
+      identityReq.digitalId.model: $TestData:Iris_model$
+      identityReq.digitalId.deviceProvider: $TestData:Iris_provider_name$
+      identityReq.digitalId.deviceProviderId: $TestData:Iris_provider_id$
+      identityReq.digitalId.type: $TestData:Iris_dtype_code$
+      identityReq.digitalId.subType: $TestData:Iris_dstype_code$
       identityReq.digitalId.dateTime: $TIMESTAMP$
     output.output-1-expected-n-error-res:
       output.1.response.n.err.status: BOOLEAN:false

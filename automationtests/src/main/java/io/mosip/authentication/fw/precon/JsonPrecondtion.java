@@ -96,6 +96,11 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			outputJson = outputJson.replaceAll("$version$", RunConfigUtil.objRunConfig.getAuthVersion());
 			outputJson = outputJson.replace("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
 			outputJson = outputJson.replaceAll("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
+			// Replacing the domainuri and env in request
+			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
+			outputJson = outputJson.replace("$domainUri$", System.getProperty("env.endpoint"));
+			outputJson = outputJson.replace("$env$", System.getProperty("env.endpoint"));
+			}
 			if (outputJson.contains("$REMOVE$"))
 				outputJson = removeObject(new JSONObject(outputJson));
 			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);

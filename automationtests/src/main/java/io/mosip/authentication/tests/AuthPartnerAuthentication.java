@@ -194,6 +194,7 @@ public class AuthPartnerAuthentication extends PrerequisteTests implements ITest
 		Reporter.log("<b><u>Modification of demo auth request</u></b>");
 		if (!modifyRequest(testCaseName.listFiles(), tempMap, mapping, "auth-request"))
 			throw new AuthenticationTestException("Failed at modifying the request file. Kindly check testdata.");
+		displayContentInFile(testCaseName.listFiles(), "auth-request");
 		logger.info("******Post request Json to EndPointUrl: " + RunConfigUtil.objRunConfig.getEndPointUrl()
 				+ RunConfigUtil.objRunConfig.getAuthPath() + extUrl + " *******");
 		if (!postRequestAndGenerateOuputFile(testCaseName.listFiles(),

@@ -5,7 +5,7 @@
 	"responseTime": "2019-05-20T12:32:26.948+05:30",
 	"response": {
 		"kycStatus": false,
-		"staticToken": "$IGNORE$",
+		"authToken": "$IGNORE$",
 		"identity": "$IGNORE$"
 	}
 }

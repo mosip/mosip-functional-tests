@@ -74,7 +74,7 @@ public class JWSSignAndVerifyController {
 	}
 
 
-	private String trimBeginEnd(String pKey) {
+	public static String trimBeginEnd(String pKey) {
 		pKey = pKey.replaceAll("-*BEGIN([^-]*)-*(\r?\n)?", "");
 		pKey = pKey.replaceAll("-*END([^-]*)-*(\r?\n)?", "");
 		pKey = pKey.replaceAll("\\s", "");

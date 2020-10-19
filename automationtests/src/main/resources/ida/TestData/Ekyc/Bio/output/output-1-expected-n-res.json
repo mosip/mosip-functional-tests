@@ -11,6 +11,6 @@
 	],
 	"response": {
 		"kycStatus": true,
-		"staticToken": "$IGNORE$"
+		"authToken": "$IGNORE$"
 	}
 }
