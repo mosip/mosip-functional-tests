@@ -28,6 +28,7 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.AssertResponses;
@@ -37,7 +38,7 @@ import io.mosip.util.ResponseRequestMapper;
 import io.mosip.util.TokenGeneration;
 import io.restassured.response.Response;
 
-public class PacketManagerSearchFields extends BaseTestCase implements ITest{
+public class PacketManagerSearchFields extends BaseTestCase implements ITest {
 
 	private static Logger logger = Logger.getLogger(PacketManagerSearchFields.class);
 	protected static String testCaseName = "";
@@ -52,12 +53,13 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 	String validToken = "";
 	TokenGeneration generateToken = new TokenGeneration();
 	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	String new_packet_path = "regProc/existingPacket/temp";
 	
 	@Override
 	public String getTestName() {
 		return this.testCaseName;
 	}
-	
+
 	/**
 	 * This method is used for generating token
 	 * 
@@ -75,7 +77,7 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 		prop = generateToken.readPropertyFileToObtainProperty("config/tokenGeneration.properties");
 		validToken = generateToken.getTokenForClientIdSecretKey(prop);
 	}
-	
+
 	/**
 	 * This method is used for fetching test case name
 	 * 
@@ -89,7 +91,7 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 		String apiName = "packetManagerSearchFields";
 		testCaseName = moduleName + "_" + apiName + "_" + object.get("testCaseName").toString();
 	}
-	
+
 	@BeforeClass
 	public void healthCheck() throws Exception {
 		String parentDir = apiRequests.getResourcePath();
@@ -101,6 +103,13 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 			Boolean status = healthCheckUtil.healthCheck(properties.getProperty("packetManagerSearchFieldsApi"));
 			if (status) {
 				Assert.assertTrue(true);
+				PacketUtil packetUtil = new PacketUtil();
+				String existing_packet_path = parentDir + new_packet_path;
+				String searchField_smoke = parentDir + folderPath + File.separator + "Valid_smoke";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, searchField_smoke);
+				String searchField_smoke_cacheFalse = parentDir + folderPath + File.separator
+						+ "Valid_smoke_byPassCacheFalse";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, searchField_smoke_cacheFalse);
 			} else {
 				throw new Exception("Health Check Failed For The Api");
 			}
@@ -142,12 +151,12 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 		}
 		return readFolder;
 	}
-	
+
 	@Test(dataProvider = "packetManagerSearchFields")
 	public void packetManagerSearchFields(String testSuite, Integer i, JSONObject object) {
 		String testcase = (String) object.get("testCaseName");
 		String searchFieldsApi = prop.getProperty("packetManagerSearchFieldsApi");
-		
+
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		String configPath = apiRequests.getResourcePath() + testSuite + "/";
@@ -161,7 +170,7 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		if (testcase.contains("forbidden")) {
 			getTokenForUser("syncTokenGenerationFilePath");
 			boolean tokenStatus = apiRequests.validateToken(validToken);
@@ -177,7 +186,7 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 				tokenStatus = apiRequests.validateToken(validToken);
 			}
 		}
-		
+
 		try {
 			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 		} catch (IOException | ParseException e1) {
@@ -187,19 +196,27 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 		System.out.println("actualResponse.asString() :");
 		System.out.println(actualResponse.asString());
-		outerKeys.add("requesttime");
-		outerKeys.add("responsetime");
-		// innerKeys.add("actionTimeStamp");
-		// innerKeys.add("updatedDateTime");
-		try {
-			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
-		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (testcase.contains("smoke")) {
+			Object responseFields = actualResponse.jsonPath().get("response.fields");
+			Assert.assertNotNull(responseFields);
+
+		} else {
+
+			outerKeys.add("requesttime");
+			outerKeys.add("responsetime");
+			// innerKeys.add("actionTimeStamp");
+			// innerKeys.add("updatedDateTime");
+			try {
+				status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
+			} catch (IOException | ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Assert.assertTrue(status, "object are not equal");
+
 		}
-		Assert.assertTrue(status, "object are not equal");
 	}
-	
+
 	/**
 	 * This method is used for generating report
 	 * 
@@ -222,5 +239,5 @@ public class PacketManagerSearchFields extends BaseTestCase implements ITest{
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 }

@@ -10,10 +10,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -31,16 +33,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import io.mosip.dbdto.CryptomanagerDto;
+import io.mosip.dbdto.CryptomanagerRequestDto;
 import io.mosip.dbdto.DecrypterDto;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.registrationProcessor.regpacket.metainfo.dto.FieldValueArray;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
+import io.mosip.tokengeneration.dto.UsernamePwdTokenEntity;
+import io.mosip.util.DateUtils;
 import io.mosip.util.HMACUtils;
 import io.mosip.util.TokenGeneration;
 import io.restassured.response.Response;
 
 public class EncrypterDecrypter {
-	
+
 	TokenGeneration generateToken = new TokenGeneration();
 	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
 
@@ -118,7 +124,7 @@ public class EncrypterDecrypter {
 		});
 	}
 
-	public byte[] zipDirectoryAndSign(String folderPath, String folderToZip, String validToken, PropertiesUtil prop) {
+	public byte[] zipDirectoryAndSign(String folderPath, String folderToZip, String token, PropertiesUtil prop) {
 
 		byte[] sign = null;
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
@@ -130,48 +136,89 @@ public class EncrypterDecrypter {
 		byte[] bytes = null;
 		try {
 			bytes = Files.readAllBytes(zipFile.toPath());
-			sign = new byte[0];
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		/*
-		 * JSONObject signRequestBody = new JSONObject(); signRequestBody =
-		 * generateSignRequestData(zipFile); String SIGN_URL = "/v1/keymanager/sign";
-		 * boolean tokenStatus = apiRequests.validateToken(token, prop); while
-		 * (!tokenStatus) { try { token = getToken("syncTokenGenerationFilePath", prop);
-		 * } catch (IOException e) { e.printStackTrace(); } tokenStatus =
-		 * apiRequests.validateToken(token, prop); } Response response =
-		 * apiRequests.postRequestToSign(SIGN_URL, signRequestBody,
-		 * MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, token, prop);
-		 * System.out.println(response.asString());
-		 * 
-		 * JSONObject data; try { data = (JSONObject) new
-		 * JSONParser().parse(response.asString()); JSONObject responseObject =
-		 * (JSONObject) data.get("response"); sign = (String)
-		 * responseObject.get("signature");
-		 * 
-		 * } catch (ParseException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+
+		JSONObject signRequestBody = new JSONObject();
+		signRequestBody = generateSignRequestData(zipFile);
+		String SIGN_URL = "/v1/keymanager/sign";
+		boolean tokenStatus = apiRequests.validateToken(token);
+		while (!tokenStatus) {
+			try {
+				token = getToken("syncTokenGenerationFilePath");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			tokenStatus = apiRequests.validateToken(token);
+		}
+		Response response = apiRequests.postRequestToSign(SIGN_URL, signRequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, token);
+		System.out.println(response.asString());
+
+		JSONObject data;
+		try {
+			data = (JSONObject) new JSONParser().parse(response.asString());
+			JSONObject responseObject = (JSONObject) data.get("response");
+			sign = responseObject.get("signature").toString().getBytes();
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
 		return sign;
 	}
-	
-	/**
-	 * This method is used for creating token
-	 * 
-	 * @param tokenType
-	 * @return token
-	 */
-	public String getToken(String tokenType) {
-		String tokenGenerationProperties = generateToken.readPropertyFile(tokenType);
-		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-		String token = generateToken.getToken(tokenEntity);
+
+	private JSONObject generateSignRequestData(File zipFile) {
+		JSONObject signReqOuterDto = new JSONObject();
+		try {
+			byte[] fileInBytes = FileUtils.readFileToByteArray(zipFile);
+			String DATETIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
+			String packetData = new String(fileInBytes, StandardCharsets.UTF_8);
+
+			JSONObject signReqData = new JSONObject();
+
+			signReqData.put("data", packetData);
+			signReqOuterDto.put("id", "");
+			signReqOuterDto.put("metadata", null);
+			signReqOuterDto.put("version", "v1");
+			signReqOuterDto.put("request", signReqData);
+			DateTimeFormatter format = DateTimeFormatter.ofPattern(DATETIME_PATTERN);
+			LocalDateTime localdatetime = LocalDateTime.parse(DateUtils.getUTCCurrentDateTimeString(DATETIME_PATTERN),
+					format);
+			signReqOuterDto.put("requesttime", localdatetime.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return signReqOuterDto;
+	}
+
+	public String getToken(String tokenType) throws IOException {
+		PropertiesUtil prop = new PropertiesUtil();
+		TokenGeneration generateToken = new TokenGeneration();
+		String token = "";
+		if (prop.AUTH_TYPE_CLIENTID_SECRETKEY) {
+			TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+			String tokenGenerationProperties = generateToken.readPropertyFile(tokenType);
+			tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
+			token = generateToken.getToken(tokenEntity);
+		} else {
+			/*
+			 * Code to generate token if username, password are there
+			 */
+			String tokenGenerationFilePath = generateToken.readPropertyFile(tokenType);
+			UsernamePwdTokenEntity tokenEntity1 = generateToken
+					.createTokenGeneratorDtoForUserIdPassword(tokenGenerationFilePath);
+			token = generateToken.getAuthTokenForUsernamePassword(tokenEntity1);
+
+		}
+
 		return token;
 	}
-	
+
 	public byte[] encryptZippedPacket(String folderPath, String zippedFileName, String token, PropertiesUtil prop)
 			throws Exception {
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
@@ -179,7 +226,7 @@ public class EncrypterDecrypter {
 
 		JSONObject encryptedFileBody = new JSONObject();
 		encryptedFileBody = generateCryptographicDataEncryption(new File(zipFile));
-		//logger.info("encrypt request packet  : " + encryptedFileBody);
+		// logger.info("encrypt request packet : " + encryptedFileBody);
 		String encrypterURL = "v1/keymanager/encrypt";
 		boolean tokenStatus = apiRequests.validateToken(token);
 		while (!tokenStatus) {
@@ -199,7 +246,7 @@ public class EncrypterDecrypter {
 					"responseObject.toString().contains(\"data\") :- " + responseObject.toString().contains("data"));
 			byte[] encryptedPacket = responseObject.get("data").toString().getBytes();
 			inputstream = new ByteArrayInputStream(encryptedPacket);
-			//logger.info("Outstream is " + inputstream);
+			// logger.info("Outstream is " + inputstream);
 			FileOutputStream fos = new FileOutputStream(zipFile);
 			fos.write(encryptedPacket);
 			fos.close();
@@ -214,15 +261,15 @@ public class EncrypterDecrypter {
 			throw new Exception(e);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public JSONObject generateCryptographicDataEncryption(File file) {
 		RegProcApiRequests apiRequests = new RegProcApiRequests();
 		String applicationId = "REGISTRATION";
-		//InputStream outstream = null;
-		//TokenGeneration generateToken = new TokenGeneration();
-		//TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
-		//String validToken = "";
+		// InputStream outstream = null;
+		// TokenGeneration generateToken = new TokenGeneration();
+		// TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+		// String validToken = "";
 		JSONObject encryptRequest = new JSONObject();
 		CryptomanagerDto request = new CryptomanagerDto();
 		JSONObject cryptographicRequest = new JSONObject();
@@ -276,6 +323,96 @@ public class EncrypterDecrypter {
 			e.printStackTrace();
 		}
 		return encryptRequest;
+	}
+
+	public byte[] encryptZippedPacket(String id, File zipFile, String token, PropertiesUtil prop) throws Exception {
+		byte[] packet_bytes = null;
+		try {
+			packet_bytes = Files.readAllBytes(zipFile.toPath());
+		} catch (IOException e1) {
+			throw new Exception(e1);
+		}
+		String centerId = id.substring(0, 5);
+		String machineId = id.substring(5, 10);
+		String refId = centerId + "_" + machineId;
+		String packetString = CryptoUtil.encodeBase64String(packet_bytes);
+		CryptomanagerRequestDto cryptomanagerRequestDto = new CryptomanagerRequestDto();
+		cryptomanagerRequestDto.setApplicationId(CryptomanagerConstant.APPLICATION_ID);
+		cryptomanagerRequestDto.setData(packetString);
+		cryptomanagerRequestDto.setReferenceId(refId);
+		SecureRandom sRandom = new SecureRandom();
+		byte[] nonce = new byte[CryptomanagerConstant.GCM_NONCE_LENGTH];
+		byte[] aad = new byte[CryptomanagerConstant.GCM_AAD_LENGTH];
+		sRandom.nextBytes(nonce);
+		sRandom.nextBytes(aad);
+		cryptomanagerRequestDto.setAad(CryptoUtil.encodeBase64String(aad));
+		cryptomanagerRequestDto.setSalt(CryptoUtil.encodeBase64String(nonce));
+
+		String packetCreatedDateTime = id.substring(id.length() - 14);
+		String formattedDate = packetCreatedDateTime.substring(0, 8) + "T"
+				+ packetCreatedDateTime.substring(packetCreatedDateTime.length() - 6);
+
+		cryptomanagerRequestDto
+				.setTimeStamp(LocalDateTime.parse(formattedDate, DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss")));
+		CryptomanagerDto request = new CryptomanagerDto();
+		request.setId(CryptomanagerConstant.ENCRYPT_SERVICE_ID);
+		request.setMetadata(null);
+		request.setRequest(cryptomanagerRequestDto);
+		DateTimeFormatter format = DateTimeFormatter.ofPattern(CryptomanagerConstant.DATETIME_PATTERN);
+		LocalDateTime localdatetime = LocalDateTime
+				.parse(DateUtils.getUTCCurrentDateTimeString(CryptomanagerConstant.DATETIME_PATTERN), format);
+		request.setRequesttime(localdatetime);
+		request.setVersion(CryptomanagerConstant.APPLICATION_VERSION);
+
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+
+		String encrypterURL = "/v1/keymanager/encrypt";
+		boolean tokenStatus = apiRequests.validateToken(token);
+		while (!tokenStatus) {
+			try {
+				token = getToken("syncTokenGenerationFilePath");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			tokenStatus = apiRequests.validateToken(token);
+		}
+		Response response = apiRequests.postRequestWithRequestResponseHeaders(encrypterURL, request, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, token);
+		InputStream inputstream = null;
+		try {
+			JSONObject data = (JSONObject) new JSONParser().parse(response.asString());
+			JSONObject responseObject = (JSONObject) data.get("response");
+			System.out.println(data);
+			// String encryptedPacketString=
+			// CryptoUtil.encodeBase64(data.get("data").toString().getBytes());
+			System.out.println(
+					"responseObject.toString().contains(\"data\") :- " + responseObject.toString().contains("data"));
+//			byte[] encryptedPacket = responseObject.get("data").toString().getBytes();
+			byte[] encryptedPacket = mergeEncryptedData(CryptoUtil.decodeBase64((String) responseObject.get("data")),
+					nonce, aad);
+			inputstream = new ByteArrayInputStream(encryptedPacket);
+			FileOutputStream fos = new FileOutputStream(zipFile);
+			fos.write(encryptedPacket);
+			fos.close();
+			inputstream.close();
+			return encryptedPacket;
+		} catch (ParseException e) {
+			System.out.println("Response of encryption:- " + response.asString());
+			e.printStackTrace();
+			throw new Exception(e);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+
+	private static byte[] mergeEncryptedData(byte[] encryptedData, byte[] nonce, byte[] aad) {
+		byte[] finalEncData = new byte[encryptedData.length + CryptomanagerConstant.GCM_AAD_LENGTH
+				+ CryptomanagerConstant.GCM_NONCE_LENGTH];
+		System.arraycopy(nonce, 0, finalEncData, 0, nonce.length);
+		System.arraycopy(aad, 0, finalEncData, nonce.length, aad.length);
+		System.arraycopy(encryptedData, 0, finalEncData, nonce.length + aad.length, encryptedData.length);
+		return finalEncData;
 	}
 
 }

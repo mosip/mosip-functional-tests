@@ -100,7 +100,7 @@ public class IntegMethods extends BaseTestCase {
 		String regId=registrationPacketSyncDto.getSyncRegistrationDTOs().get(0).getRegistrationId();
 		JSONObject requestToEncrypt=encryptData.encryptData(registrationPacketSyncDto);
 		String center_machine_refID=regId.substring(0,5)+"_"+regId.substring(5, 10);
-		Response resp=apiRequests.postRequestToDecrypt(encrypterURL,requestToEncrypt,MediaType.APPLICATION_JSON,
+		Response resp=apiRequests.postRequestToEncryptDecrypt(encrypterURL,requestToEncrypt,MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON,validToken); 
 
 		//Response resp=applnMethods.postRequestToDecrypt(requestToEncrypt, encrypterURL);

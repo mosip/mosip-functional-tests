@@ -26,6 +26,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -39,7 +40,9 @@ import com.google.common.base.Verify;
 import io.mosip.dbaccess.RegProcDataRead;
 import io.mosip.dbentity.RegistrationStatusEntity;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.EncryptData;
+import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.registrationProcessor.util.StageValidationMethods;
 import io.mosip.service.ApplicationLibrary;
@@ -82,6 +85,7 @@ public class AdminRequirement extends BaseTestCase implements ITest {
 	Properties prop = new Properties();
 	static String moduleName = "RegProc";
 	static String apiName = "AdminRequirement";
+	String new_packet_path = "regProc/existingPacket/temp";
 
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
 	TokenGeneration generateToken = new TokenGeneration();
@@ -102,6 +106,17 @@ public class AdminRequirement extends BaseTestCase implements ITest {
 		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
 		String token = generateToken.getToken(tokenEntity);
 		return token;
+	}
+
+	@BeforeClass
+	public void healthCheck() throws Exception {
+		String parentDir = apiRequests.getResourcePath();
+		String propertyFilePath = apiRequests.getResourcePath() + "config/registrationProcessorAPI.properties";
+		Properties properties = new Properties();
+		PacketUtil packetUtil = new PacketUtil();
+		String existing_packet_path = parentDir + new_packet_path;
+		String adminRequirement_smoke = parentDir + folderPath + "/smoke";
+		packetUtil.editAdminRequirementSmokeJsons(existing_packet_path, adminRequirement_smoke);
 	}
 
 	/**
@@ -193,120 +208,19 @@ public class AdminRequirement extends BaseTestCase implements ITest {
 				if (object.get("testCaseName").toString().contains("smoke")) {
 					if (actualResponse.jsonPath().get("response") != null)
 						status = true;
-				} else
-					status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
+				} else {
+					try {
+						status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys,
+								innerKeys);
+					} catch (Exception ex) {
+						ex.printStackTrace();
+					}
+				}
+
 				Assert.assertTrue(status, "object are not equal");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-
-			if (/* !utcCheck && */ status) {
-				// boolean isError = expectedResponse.containsKey("errors");
-				boolean isError = false;
-				List<Map<String, String>> errorResponse = actualResponse.jsonPath().get("errors");
-				if (errorResponse != null && !errorResponse.isEmpty()) {
-					isError = true;
-				}
-
-				logger.info("isError ========= : " + isError);
-
-				if (!isError) {
-					List<Map<String, String>> response = actualResponse.jsonPath().get("response");
-					logger.info("response : " + response);
-					JSONArray expected = (JSONArray) expectedResponse.get("response");
-					if (expected != null && !expected.isEmpty() && actualRequest != null) {
-						List<String> expectedRegIds = new ArrayList<>();
-						String expectedRegId = null;
-						logger.info("expected: " + expected);
-						Iterator<Object> iterator = expected.iterator();
-						// extracting reg ids from the expected response
-						while (iterator.hasNext()) {
-							JSONObject jsonObject = (JSONObject) iterator.next();
-							expectedRegId = jsonObject.get("registrationId").toString().trim();
-							expectedRegIds.add(expectedRegId);
-						}
-
-						for (Map<String, String> res : response) {
-							regIds = res.get("registrationId").toString();
-						}
-						RegistrationStatusEntity dbDto = readDataFromDb.validateRegIdinRegistration(regIds);
-						List<Object> count = readDataFromDb.countRegIdInRegistration(regIds);
-						logger.info("dbDto :" + dbDto);
-
-						// Checking audit logs (not yet implemented)
-						/*
-						 * LocalDateTime logTime =
-						 * LocalDateTime.of(2019,Month.JANUARY,30,10,15,51,270000000); //2019-01-30
-						 * 10:15:51.27 logger.info("log time : "+logTime); AuditRequestDto auditDto =
-						 * RegProcDataRead.regproc_dbDataInAuditLog(regIds, "REGISTRATION_ID",
-						 * "REGISTRATION_PROCESSOR", "GET",logTime);
-						 * logger.info("AUDIT DTO : "+auditDto.getApplicationName());
-						 */
-
-						/*
-						 * if(dbDto != null && count.isEmpty()&& auditDto != null) { //if reg id present
-						 * in response and reg id fetched from table matches, then it is validated if
-						 * (expectedRegIds.contains(dbDto.getId())&&
-						 * expectedRegIds.contains(auditDto.getId())){ LocalDateTime dbDate =
-						 * dbDto.getCreateDateTime(); logger.info("dbDate : "+dbDate); EncryptData data
-						 * = new EncryptData(); boolean dateCheck =
-						 * data.isValidTimestampDB(dbDate.toString());
-						 * logger.info("dateCheck : "+dateCheck); if(dateCheck) {
-						 * logger.info("Validated in DB......."); finalStatus = "Pass";
-						 * softAssert.assertTrue(true); }else { logger.info("timestamp not valid"); }
-						 * 
-						 * } }
-						 */
-
-					}
-
-					finalStatus = "Pass";
-					softAssert.assertTrue(true);
-				} else {
-
-					JSONArray expectedError = (JSONArray) expectedResponse.get("errors");
-					String expectedErrorCode = null;
-					List<Map<String, String>> error = actualResponse.jsonPath().get("errors");
-
-					logger.info("error : " + error);
-					for (Map<String, String> err : error) {
-						String errorCode = err.get("errorCode").toString();
-						logger.info("errorCode : " + errorCode);
-						Iterator<Object> iterator1 = expectedError.iterator();
-
-						while (iterator1.hasNext()) {
-							JSONObject jsonObject = (JSONObject) iterator1.next();
-							expectedErrorCode = jsonObject.get("errorCode").toString().trim();
-							logger.info("expectedErrorCode: " + expectedErrorCode);
-						}
-						if (expectedErrorCode.matches(errorCode)) {
-							finalStatus = "Pass";
-							softAssert.assertAll();
-							object.put("status", finalStatus);
-							arr.add(object);
-						}
-					}
-				}
-
-			} else if (utcCheck) {
-				finalStatus = "Pass";
-			} else {
-				finalStatus = "Fail";
-			}
-
-			/*
-			 * if(object.get("testCaseName").toString().contains("StatusCheck")) {
-			 * readDataFromDb.deleteRegIdinRegistration(requestedRegId);
-			 * logger.info("deleted requestedRegId " + requestedRegId); }
-			 */
-
-			boolean setFinalStatus = false;
-			if (finalStatus.equals("Fail"))
-				setFinalStatus = false;
-			else if (finalStatus.equals("Pass"))
-				setFinalStatus = true;
-			Verify.verify(setFinalStatus);
-			softAssert.assertAll();
 
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
