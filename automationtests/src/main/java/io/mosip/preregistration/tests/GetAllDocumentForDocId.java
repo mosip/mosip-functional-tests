@@ -117,7 +117,7 @@ public class GetAllDocumentForDocId extends BaseTestCase implements ITest {
 	 */
 	@Test(dataProvider = "GetAllDocumentForDocId")
 	public void getAllDocumentForDocId(String testSuite, Integer i, JSONObject object) throws Exception {
-
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);

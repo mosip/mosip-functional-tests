@@ -120,7 +120,7 @@ public class SyncMasterData extends BaseTestCase implements ITest {
 	 */
 	@Test(dataProvider = "SyncMasterData")
 	public void syncMasterData(String testSuite, Integer i, JSONObject object) throws Exception {
-
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		

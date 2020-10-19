@@ -65,6 +65,7 @@ public class FetchAllApplicationCreatedByUser extends BaseTestCase implements IT
 
 	@Test
 	public void fetchAllAplicationCreatedByUser() {
+		logger.info("Test Case Name: "+testCaseName);
 		String cookie = lib.getToken();
 		JSONObject actualRequest;
 		actualRequest = lib.createRequest("Create_PreRegistration/createPreRegistration_smoke");

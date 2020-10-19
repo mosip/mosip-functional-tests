@@ -109,7 +109,7 @@ public class FetchAllPreRegistrationIds extends BaseTestCase implements ITest{
 	 */
 	@Test(dataProvider = "Fetch_all_PreRegistration_Ids")
 	public void fetchAllPreRegistrationIds(String testSuite, Integer i, JSONObject object) throws Exception {
-	
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		PreRegistrationLibrary lib=new PreRegistrationLibrary();
