@@ -70,7 +70,39 @@ public class IdaRunConfig extends RunConfig{
 	private String cryptomanagerEncrypt;
 	private String splitEncryptedData;
 	private String authManagerUserIdPwd;
+	private String uinSalt;
+	private String partnerCodeSalt;
+	private String authPartnerID;
+	private int tokenIDLength;
 	
+	@Override
+	public String getUinSalt() {
+		return uinSalt;
+	}
+	public void setUinSalt(String uinSalt) {
+		this.uinSalt = uinSalt;
+	}
+	@Override
+	public String getPartnerCodeSalt() {
+		return partnerCodeSalt;
+	}
+	public void setPartnerCodeSalt(String partnerCodeSalt) {
+		this.partnerCodeSalt = partnerCodeSalt;
+	}
+	@Override
+	public String getAuthPartnerID() {
+		return authPartnerID;
+	}
+	public void setAuthPartnerID(String authPartnerID) {
+		this.authPartnerID = authPartnerID;
+	}
+	@Override
+	public int getTokenIDLength() {
+		return tokenIDLength;
+	}
+	public void setTokenIDLength(int tokenIDLength) {
+		this.tokenIDLength = tokenIDLength;
+	}
 	
 	public String getAuthManagerUserIdPwd() {
 		return authManagerUserIdPwd;
@@ -398,6 +430,11 @@ public class IdaRunConfig extends RunConfig{
 	 * @param testType
 	 */
 	public  void setConfig(String testDataPath,String testDataFileName,String testType) {
+		String env = System.getProperty("env.user");
+		setUinSalt(AuthTestsUtil.getPropertyValue("uinSalt"+env));
+		setPartnerCodeSalt(AuthTestsUtil.getPropertyValue("partnerCodeSalt"+env));
+		setAuthPartnerID(AuthTestsUtil.getPropertyValue("authPartnerID"+env));
+		setTokenIDLength(Integer.parseInt(AuthTestsUtil.getPropertyValue("tokenIDLength"+env)));
 		setIdRepoVersion(AuthTestsUtil.getPropertyValue("idrepoVersion"));
 		setAuthVersion(AuthTestsUtil.getPropertyValue("authVersion"));
 		setEndPointUrl(AuthTestsUtil.getPropertyValue("endPointUrl"));

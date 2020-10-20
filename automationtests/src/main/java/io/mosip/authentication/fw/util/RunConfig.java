@@ -599,6 +599,10 @@ public abstract class RunConfig {
 		public abstract String getSaveFtpChipDetailPath();
 		public abstract void setSaveFtpChipDetailPath(String saveFtpChipDetailPath);
 		public abstract String getApproveRejectFtpChipDetailPath();
+		public abstract int getTokenIDLength();
+		public abstract String getAuthPartnerID();
+		public abstract String getPartnerCodeSalt();
+		public abstract String getUinSalt();
 		
 		
 		

@@ -11,17 +11,9 @@ import io.mosip.kernel.core.util.HMACUtils;
 public class TokenIDGenerator {
 
 
-    private String uinSalt = "zHuDEAbmbxiUbUShgy6pwUhKh9DE0EZn9kQDKPPKbWscGajMwf";
-
-    private int tokenIDLength = 36;
-
-    private String partnerCodeSalt = "yS8w5Wb6vhIKdf1msi4LYTJks7mqkbmITk2O63Iq8h0bkRlD0d";
-    
-    public String authPartnerID = "792112";
-
  
 
-    public String generateTokenID(String uin, String partnerCode) {
+    public String generateTokenID(String uin, String partnerCode, String uinSalt, String partnerCodeSalt, int tokenIDLength) {
         String uinHash = HMACUtils.digestAsPlainText(HMACUtils.generateHash((uin + uinSalt).getBytes()));
         String hash = HMACUtils
                 .digestAsPlainText(HMACUtils.generateHash((partnerCodeSalt + partnerCode + uinHash).getBytes()));

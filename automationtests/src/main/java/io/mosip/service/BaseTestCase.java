@@ -168,7 +168,7 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			insertDevicedata = true;
+			//insertDevicedata = true;
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();

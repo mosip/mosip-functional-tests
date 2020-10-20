@@ -2340,4 +2340,28 @@ public class AdminRunConfig extends RunConfig {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int getTokenIDLength() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getAuthPartnerID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPartnerCodeSalt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUinSalt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
