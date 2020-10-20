@@ -100,7 +100,7 @@ public class EncrypterDecrypter extends BaseTestCase {
 			tokenStatus=apiRequests.validateToken(validToken);
 		}
 		
-		Response response = apiRequests.postRequestToDecrypt(decrypterURL, decryptDto,MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
+		Response response = apiRequests.postRequestToEncryptDecrypt(decrypterURL, decryptDto,MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 		JSONObject data= (JSONObject) new JSONParser().parse(response.asString());
 		JSONObject responseObject=(JSONObject) data.get("response");
 		byte[] decryptedPacket = CryptoUtil.decodeBase64(responseObject.get("data").toString());
@@ -161,7 +161,7 @@ public class EncrypterDecrypter extends BaseTestCase {
 		  JSONObject decryptedFileBody=new JSONObject();
 		  decryptedFileBody=generateCryptographicDataEncryption(file1);
 		  logger.info("encrypt request packet  : "+decryptedFileBody);
-		  Response response=apiRequests.postRequestToDecrypt(encrypterURL, decryptedFileBody, MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON,validToken);
+		  Response response=apiRequests.postRequestToEncryptDecrypt(encrypterURL, decryptedFileBody, MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON,validToken);
 		  
 		  try {
 			  JSONObject data= (JSONObject) new JSONParser().parse(response.asString());
@@ -198,7 +198,7 @@ public class EncrypterDecrypter extends BaseTestCase {
 				validToken = getToken("syncTokenGenerationFilePath");
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
-		  Response response=apiRequests.postRequestToDecrypt(encrypterURL, decryptedFileBody, MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON,validToken);
+		  Response response=apiRequests.postRequestToEncryptDecrypt(encrypterURL, decryptedFileBody, MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON,validToken);
 		  try {
 			  JSONObject data= (JSONObject) new JSONParser().parse(response.asString());
 			  JSONObject responseObject=(JSONObject) data.get("response");

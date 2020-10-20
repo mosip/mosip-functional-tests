@@ -261,7 +261,7 @@ public class PacketReceiver extends BaseTestCase implements ITest {
 
 						String center_machine_refID = regId.substring(0, 5) + "_" + regId.substring(5, 10);
 						String encrypterURL = "/v1/keymanager/encrypt";
-						Response resp = apiRequests.postRequestToDecrypt(encrypterURL, requestToEncrypt,
+						Response resp = apiRequests.postRequestToEncryptDecrypt(encrypterURL, requestToEncrypt,
 								MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 						String encryptedData = resp.jsonPath().get("response.data").toString();
 						LocalDateTime timeStamp = encryptData.getTime(regId);

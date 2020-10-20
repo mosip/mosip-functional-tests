@@ -272,4 +272,45 @@ public class TestDataUtility {
 		return "1234567878";
 	}
 
+	public String generateFullName_Phill() {
+		String firstName;
+		String lastName;
+		firstName = generateRandomName();
+		String middleName = generateRandomName();
+		lastName = generateRandomName();
+		String fullName = firstName + " " + middleName + " " + lastName;
+		return fullName;
+	}
+
+	public DOBDto generateChildDOB() {
+		// YYYY/mm/DD
+		DOBDto dobDto = new DOBDto();
+		DecimalFormat formatter = new DecimalFormat("00");
+		int YYYY = generateChildYear();
+		String MM = formatter.format(generateChildMonth());
+		String dd = formatter.format(generateDate());
+
+		String date = YYYY + "/" + MM + "/" + dd;
+		int age = 2020 - YYYY;
+		dobDto.setDate(date);
+		dobDto.setAge(age);
+		return dobDto;
+	}
+
+	private Object generateChildMonth() {
+		int monthLimit = 10;
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(monthLimit);
+		return randomInt;
+	}
+
+	private int generateChildYear() {
+		int ageLimit = 5;
+		int currYear = 2020;
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(ageLimit);
+		int birthYear = currYear - randomInt;
+		return birthYear;
+	}
+
 }

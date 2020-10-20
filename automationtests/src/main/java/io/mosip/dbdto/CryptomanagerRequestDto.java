@@ -4,59 +4,91 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 public class CryptomanagerRequestDto {
-	    private LocalDateTime timeStamp;
+	/**
+	 * Application id of decrypting module
+	 */
 
-	    private String data;
+	private String applicationId;
+	/**
+	 * Refrence Id
+	 */
 
-	    private String applicationId;
+	private String referenceId;
+	/**
+	 * Timestamp
+	 */
 
-	    private String referenceId;
+	private LocalDateTime timeStamp;
+	/**
+	 * Data in BASE64 encoding to encrypt/decrypt
+	 */
 
-	    public LocalDateTime getTimeStamp ()
-	    {
-	        return timeStamp;
-	    }
+	private String data;
 
-	    public void setTimeStamp (LocalDateTime timeStamp)
-	    {
-	        this.timeStamp = timeStamp;
-	    }
+	/**
+	 * salt in BASE64 encoding for encrypt/decrypt
+	 */
 
-	    public String getData ()
-	    {
-	        return data;
-	    }
+	private String salt;
 
-	    public void setData (String data)
-	    {
-	        this.data = data;
-	    }
+	/**
+	 * aad in BASE64 encoding for encrypt/decrypt
+	 */
 
-	    public String getApplicationId ()
-	    {
-	        return applicationId;
-	    }
+	private String aad;
 
-	    public void setApplicationId (String applicationId)
-	    {
-	        this.applicationId = applicationId;
-	    }
+	public LocalDateTime getTimeStamp() {
+		return timeStamp;
+	}
 
-	    public String getReferenceId ()
-	    {
-	        return referenceId;
-	    }
+	public void setTimeStamp(LocalDateTime timeStamp) {
+		this.timeStamp = timeStamp;
+	}
 
-	    public void setReferenceId (String referenceId)
-	    {
-	        this.referenceId = referenceId;
-	    }
+	public String getData() {
+		return data;
+	}
 
-		@Override
-		public String toString() {
-			return "timeStamp=" + timeStamp + ", data=" + data + ", applicationId="
-					+ applicationId + ", referenceId=" + referenceId;
-		}
+	public void setData(String data) {
+		this.data = data;
+	}
 
-	
+	public String getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
+	}
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	public String getAad() {
+		return aad;
+	}
+
+	public void setAad(String aad) {
+		this.aad = aad;
+	}
+
+	@Override
+	public String toString() {
+		return "CryptomanagerRequestDto [applicationId=" + applicationId + ", referenceId=" + referenceId
+				+ ", timeStamp=" + timeStamp + ", data=" + data + ", salt=" + salt + ", aad=" + aad + "]";
+	}
+
 }

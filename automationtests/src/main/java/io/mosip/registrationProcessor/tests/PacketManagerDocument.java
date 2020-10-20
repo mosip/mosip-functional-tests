@@ -28,6 +28,7 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.AssertResponses;
@@ -52,6 +53,7 @@ public class PacketManagerDocument extends BaseTestCase implements ITest{
 	String validToken = "";
 	TokenGeneration generateToken = new TokenGeneration();
 	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	String new_packet_path = "regProc/existingPacket/temp";
 	
 	@Override
 	public String getTestName() {
@@ -101,6 +103,11 @@ public class PacketManagerDocument extends BaseTestCase implements ITest{
 			Boolean status = healthCheckUtil.healthCheck(properties.getProperty("packetManagerDocumentApi"));
 			if (status) {
 				Assert.assertTrue(true);
+				PacketUtil packetUtil = new PacketUtil();
+				String existing_packet_path = parentDir + new_packet_path;
+				String document_smoke = parentDir + folderPath + File.separator + "Valid_smoke";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, document_smoke);
+				
 			} else {
 				throw new Exception("Health Check Failed For The Api");
 			}

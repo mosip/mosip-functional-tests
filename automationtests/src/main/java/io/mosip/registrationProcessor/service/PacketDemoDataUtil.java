@@ -16,6 +16,8 @@ import io.mosip.registrationProcessor.entity.Location;
 import io.mosip.registrationProcessor.regpacket.dto.DOBDto;
 import io.mosip.registrationProcessor.regpacket.dto.FieldData;
 import io.mosip.registrationProcessor.regpacket.dto.Identity;
+import io.mosip.registrationProcessor.regpacket.dto.PhilIdentity;
+import io.mosip.registrationProcessor.regpacket.dto.PhilIdentityObject;
 import io.mosip.registrationProcessor.regpacket.dto.RegProcIdDto;
 
 public class PacketDemoDataUtil {
@@ -49,6 +51,170 @@ public class PacketDemoDataUtil {
 //		System.out.println(
 //				LANG_CODE_AR + " of " + locationName + " at hierarchy level " + hierarchy_level + " is " + result);
 		return result;
+	}
+	
+	public PhilIdentityObject modifyPhilDemographicData(PropertiesUtil prop, Session session, String idJsonPath) {
+		JSONUtil jsonUtil = new JSONUtil();
+		TestDataUtility testDataUtil = new TestDataUtility();
+		PhilIdentityObject idObject = jsonUtil.mapJsonFileToPhilObject(idJsonPath);
+		String LANG_CODE_AR = "ara";
+		String LANG_CODE_ENG = "eng";
+		PhilIdentity identityDto = idObject.getIdentity();
+		List<FieldData> fullName = new ArrayList<>();
+		String fullNameEng = testDataUtil.generateFullName_Phill();
+
+		String[] nameSegments = fullNameEng.split(" ");
+//		FieldData fullNameArData = new FieldData(LANG_CODE_AR, fullNameEng);
+//		FieldData fullNameEngData = new FieldData(LANG_CODE_ENG, fullNameEng);
+//		fullName.add(fullNameEngData);
+//		fullName.add(fullNameArData);
+//		identityDto.setFullName(fullName);
+
+		String firstNameEng = nameSegments[0];
+		String middleNameEng = nameSegments[1];
+		String lastNameEng = nameSegments[2];
+
+		List<FieldData> firstName = new ArrayList<>();
+		FieldData firstNameArData = new FieldData(LANG_CODE_AR, firstNameEng);
+		FieldData firstNameEngData = new FieldData(LANG_CODE_ENG, firstNameEng);
+		firstName.add(firstNameEngData);
+		// firstName.add(firstNameArData);
+		identityDto.setFirstName(firstName);
+
+		List<FieldData> middleName = new ArrayList<>();
+		FieldData middleNameArData = new FieldData(LANG_CODE_AR, middleNameEng);
+		FieldData middleNameEngData = new FieldData(LANG_CODE_ENG, middleNameEng);
+		// middleName.add(middleNameArData);
+		middleName.add(middleNameEngData);
+		identityDto.setFirstName(middleName);
+
+		List<FieldData> lastName = new ArrayList<>();
+		FieldData lastNameArData = new FieldData(LANG_CODE_AR, lastNameEng);
+		FieldData lastNameEngData = new FieldData(LANG_CODE_ENG, lastNameEng);
+		// lastName.add(lastNameArData);
+		lastName.add(lastNameEngData);
+		identityDto.setFirstName(lastName);
+
+		if (prop.IS_CHILD_PACKET) {
+			DOBDto dobDto = testDataUtil.generateChildDOB();
+			identityDto.setDateOfBirth(dobDto.getDate());
+		} else {
+			DOBDto dobDto = testDataUtil.generateDOB();
+			identityDto.setDateOfBirth(dobDto.getDate());
+		}
+
+		List<FieldData> gender = new ArrayList<>();
+		String genderEng = testDataUtil.genrateGenderEng();
+		String genderAr = testDataUtil.arabicTexts.get(genderEng);
+		FieldData genderEngData = new FieldData(LANG_CODE_ENG, genderEng);
+		FieldData genderArData = new FieldData(LANG_CODE_AR, genderAr);
+		gender.add(genderEngData);
+		// gender.add(genderArData);
+		identityDto.setGender(gender);
+
+		List<FieldData> residenceStatus = new ArrayList<>();
+		String resStatusEng = testDataUtil.generateResidenceStatusEng();
+		String resStatusAr = testDataUtil.arabicTexts.get(resStatusEng);
+		FieldData resStatusEngData = new FieldData(LANG_CODE_ENG, resStatusEng);
+		FieldData resStatusArData = new FieldData(LANG_CODE_AR, resStatusAr);
+		residenceStatus.add(resStatusEngData);
+		// residenceStatus.add(resStatusArData);
+		identityDto.setResidenceStatus(residenceStatus);
+
+		List<FieldData> addressLine1 = new ArrayList<>();
+		String addressLine1_eng = testDataUtil.generateAddressLine();
+		FieldData addressLine1_EngData = new FieldData(LANG_CODE_ENG, addressLine1_eng);
+		FieldData addressLine1_arData = new FieldData(LANG_CODE_AR, addressLine1_eng);
+		addressLine1.add(addressLine1_EngData);
+		// addressLine1.add(addressLine1_arData);
+		identityDto.setAddressLine1(addressLine1);
+		identityDto.setCaddressLine1(addressLine1);
+
+		List<FieldData> addressLine2 = new ArrayList<>();
+		String addressLine2_eng = testDataUtil.generateAddressLine();
+		FieldData addressLine2_engData = new FieldData(LANG_CODE_ENG, addressLine2_eng);
+		FieldData addressLine2_arData = new FieldData(LANG_CODE_AR, addressLine2_eng);
+		addressLine2.add(addressLine2_engData);
+		// addressLine2.add(addressLine2_arData);
+		identityDto.setAddressLine2(addressLine2);
+		identityDto.setCaddressLine2(addressLine2);
+
+		List<FieldData> addressLine3 = new ArrayList<>();
+		String addressLine3_eng = testDataUtil.generateAddressLine();
+		FieldData addressLine3_engData = new FieldData(LANG_CODE_ENG, addressLine3_eng);
+		FieldData addressLine3_arData = new FieldData(LANG_CODE_AR, addressLine3_eng);
+		addressLine3.add(addressLine3_engData);
+		// addressLine3.add(addressLine3_arData);
+		identityDto.setAddressLine3(addressLine3);
+		identityDto.setCaddressLine3(addressLine3);
+
+		List<FieldData> addressLine4 = new ArrayList<>();
+		String addressLine4_eng = testDataUtil.generateAddressLine();
+		FieldData addressLine4_engData = new FieldData(LANG_CODE_ENG, addressLine4_eng);
+		FieldData addressLine4_arData = new FieldData(LANG_CODE_AR, addressLine4_eng);
+		addressLine3.add(addressLine4_engData);
+		// addressLine3.add(addressLine4_arData);
+		identityDto.setAddressLine4(addressLine4);
+		identityDto.setCaddressLine4(addressLine4);
+
+		List<FieldData> region = new ArrayList<>();
+		String countryCode = testDataUtil.getCountryCode(session, prop);
+		Object[] regionObj = testDataUtil.getLocation(countryCode, 1, session);
+		String regionName = (String)regionObj[1];
+		String regionValAr = convertLocationEngToArabic(regionName, 1, session);
+		FieldData regionEng = new FieldData(LANG_CODE_ENG, regionName);
+		FieldData regionAr = new FieldData(LANG_CODE_AR, regionValAr);
+		region.add(regionEng);
+		// region.add(regionAr);
+		identityDto.setRegion(region);
+		identityDto.setCregion(region);
+
+		List<FieldData> province = new ArrayList<>();
+		Object[] provinceObj = testDataUtil.getLocation((String)regionObj[0], 2, session);
+		String provinceName = (String)provinceObj[1];
+		String provinceValAr = convertLocationEngToArabic(provinceName, 2, session);
+		FieldData provinceEng = new FieldData(LANG_CODE_ENG, provinceName);
+		FieldData provinceAr = new FieldData(LANG_CODE_AR, provinceValAr);
+		province.add(provinceEng);
+		// province.add(provinceAr);
+		identityDto.setProvince(province);
+		identityDto.setCprovince(province);
+
+		List<FieldData> city = new ArrayList<>();
+		Object[] cityObj = testDataUtil.getLocation((String)provinceObj[0], 3, session);
+		String cityName = (String)cityObj[1];
+		String cityValAr = convertLocationEngToArabic(cityName, 3, session);
+		FieldData cityEng = new FieldData(LANG_CODE_ENG, cityName);
+		FieldData cityAr = new FieldData(LANG_CODE_AR, cityValAr);
+		city.add(cityEng);
+		// city.add(cityAr);
+		identityDto.setCity(city);
+		identityDto.setCcity(city);
+
+		identityDto.setReferenceIdentityNumber(testDataUtil.getReferenceIdentityNumber());
+
+		List<FieldData> zone = new ArrayList<>();
+		Object[] zoneObj = testDataUtil.getLocation((String)cityObj[0], 4, session);
+		String zoneName = (String)zoneObj[1];
+		String zoneValAr = convertLocationEngToArabic(zoneName, 4, session);
+		FieldData zoneEng = new FieldData(LANG_CODE_ENG, zoneName);
+		FieldData zoneAr = new FieldData(LANG_CODE_AR, zoneValAr);
+		zone.add(zoneEng);
+		// zone.add(zoneAr);
+		identityDto.setZone(zone);
+
+		Object[] postalCode = testDataUtil.getLocation((String)zoneObj[0], 5, session);
+		String postalCodeStr = (String) postalCode[1];
+		identityDto.setPostalCode(postalCodeStr);
+		identityDto.setCpostalCode(postalCodeStr);
+
+		identityDto.setPhone(testDataUtil.generatePhoneNumber().toString());
+
+		String[] names = fullNameEng.split(" ");
+		identityDto.setEmail(testDataUtil.generateEmailAddress(names[0], names[1]));
+
+		idObject.setIdentity(identityDto);
+		return idObject;
 	}
 
 	public RegProcIdDto modifyDemographicData(PropertiesUtil prop, Session session, String idJsonPath) {
@@ -234,6 +400,7 @@ public class PacketDemoDataUtil {
 				}
 			}
 			int counter = 1;
+			String creationDate = getCurrUTCDate();
 			// System.out.println(packetMetaInfoFile);
 			// System.out.println("line 425 PacketDemoDataUtil " + metadata.toString());
 			for (int i = 0; i < metadata.size(); i++) {
@@ -249,7 +416,7 @@ public class PacketDemoDataUtil {
 					keyVal.put("value", centerId);
 					counter++;
 				} else if ("creationDate".equals(keyVal.get("label"))) {
-					keyVal.put("value", getCurrDate());
+					keyVal.put("value", creationDate);
 					counter++;
 				} else if (counter == 5) {
 					break;
@@ -269,6 +436,11 @@ public class PacketDemoDataUtil {
 
 			identity.put("metaData", metadata);
 			identity.put("operationsData", operationsData);
+			/*
+			 * Edit creationDate time in identity
+			 */
+			
+			identity.put("creationDate", creationDate);
 			jsonObject.put("identity", identity);
 			// System.out.println(identity);
 			jsonUtil.writeJSONToFile(packetMetaInfoFile, jsonObject);
@@ -276,6 +448,16 @@ public class PacketDemoDataUtil {
 
 		}
 
+	}
+	
+	private String getCurrUTCDate() {
+		String timestamp = "";
+		String timestampFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS";
+		SimpleDateFormat f = new SimpleDateFormat(timestampFormat);
+		f.setTimeZone(TimeZone.getTimeZone("UTC"));
+		timestamp = f.format(new Date());
+		timestamp = timestamp + "Z";
+		return timestamp;
 	}
 
 	String getCurrDate() {

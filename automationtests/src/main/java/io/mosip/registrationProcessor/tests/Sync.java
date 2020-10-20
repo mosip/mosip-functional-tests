@@ -126,7 +126,6 @@ public class Sync extends BaseTestCase implements ITest {
 				PacketCreater packetCreater = new PacketCreater();
 				new_packet_path = packetCreater.createPacketFromExistingPacket(parentDir, existingPacketPath);
 				System.out.println("New packet created = " + new_packet_path);
-				System.out.println("Hello World!");
 				/*
 				 * Copy generated packet to the smoke test case folder of sync
 				 */
@@ -195,7 +194,12 @@ public class Sync extends BaseTestCase implements ITest {
 		String regId = null;
 		JSONObject requestToEncrypt = null;
 
-		if (object.get("testCaseName").toString().contains("requesttimeEmpty")) {
+		if (object.get("testCaseName").toString().contains("lengthMoreThan29")) {
+
+			System.out.println(object.get("testCaseName").toString());
+		}
+		
+		if (object.get("testCaseName").toString().contains("registrationTypeInvalid")) {
 
 			System.out.println(object.get("testCaseName").toString());
 		}
@@ -203,12 +207,21 @@ public class Sync extends BaseTestCase implements ITest {
 		File file = ResponseRequestMapper.getPacket(testSuite, object);
 		RegistrationPacketSyncDTO registrationPacketSyncDto = new RegistrationPacketSyncDTO();
 		try {
+			String encryptedData = "";
 			if (file != null) {
 				registrationPacketSyncDto = encryptData.createSyncRequest(file, "NEW");
 
 				regId = registrationPacketSyncDto.getSyncRegistrationDTOs().get(0).getRegistrationId();
 
-				requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
+				// requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
+				validToken = getToken("syncTokenGenerationFilePath");
+				boolean tokenStatus = apiRequests.validateToken(validToken);
+				while (!tokenStatus) {
+					validToken = getToken("syncTokenGenerationFilePath");
+					tokenStatus = apiRequests.validateToken(validToken);
+				}
+
+				encryptedData = encryptData.encodeAndEncryptSyncRequest(registrationPacketSyncDto, validToken);
 			} else {
 				actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
 
@@ -229,22 +242,16 @@ public class Sync extends BaseTestCase implements ITest {
 
 					registrationPacketSyncDto = encryptData.createSyncRequest(actualRequest);
 
-					requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
+					// requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
+					encryptedData = encryptData.encodeAndEncryptSyncRequest(registrationPacketSyncDto, validToken);
 				}
 			}
 
 			String center_machine_refID = regId.substring(0, 5) + "_" + regId.substring(5, 10);
 
-			validToken = getToken("syncTokenGenerationFilePath");
-			boolean tokenStatus = apiRequests.validateToken(validToken);
-			while (!tokenStatus) {
-				validToken = getToken("syncTokenGenerationFilePath");
-				tokenStatus = apiRequests.validateToken(validToken);
-			}
-
-			Response resp = apiRequests.postRequestToDecrypt(encrypterURL, requestToEncrypt, MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, validToken);
-			String encryptedData = resp.jsonPath().get("response.data").toString();
+//			Response resp = apiRequests.postRequestToDecrypt(encrypterURL, requestToEncrypt, MediaType.APPLICATION_JSON,
+//					MediaType.APPLICATION_JSON, validToken);
+//			String encryptedData = resp.jsonPath().get("response.data").toString();
 			// LocalDateTime timeStamp = encryptData.getTime(regId);
 
 			String timeStamp = registrationPacketSyncDto.getRequesttime();
@@ -269,6 +276,9 @@ public class Sync extends BaseTestCase implements ITest {
 			actualResponse = apiRequests.regProcSyncRequest(prop.getProperty("syncListApi"), encryptedData,
 					center_machine_refID, timeStamp, MediaType.APPLICATION_JSON, validToken);
 			// outer and inner keys which are dynamic in the actual response
+
+			System.out.println("actualResponse.as String(): " + actualResponse.asString());
+
 			outerKeys.add("requesttime");
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");

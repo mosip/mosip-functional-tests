@@ -10,6 +10,7 @@ import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 
 import io.mosip.commons.packet.dto.PacketInfo;
+import io.mosip.registrationProcessor.regpacket.dto.PhilIdentityObject;
 import io.mosip.registrationProcessor.regpacket.dto.RegProcIdDto;
 import io.mosip.registrationProcessor.regpacket.metainfo.dto.PacketMetaInfo;
 
@@ -112,6 +113,21 @@ public class JSONUtil {
 			if (br != null)
 				br.close();
 		}
+	}
+
+	public PhilIdentityObject mapJsonFileToPhilObject(String idJsonPath) {
+		PhilIdentityObject obj = null;
+		try {
+			Gson gson = new Gson();
+			InputStream in = new FileInputStream(new File(idJsonPath));
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			obj = gson.fromJson(br, PhilIdentityObject.class);
+			// System.out.println("ID.json read as String is " + gson.toJson(obj));
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return obj;
 	}
 
 }
