@@ -103,7 +103,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response postRequestToDecrypt(String url, Object body, String contentHeader, String acceptHeader,
+	public Response postRequestToEncryptDecrypt(String url, Object body, String contentHeader, String acceptHeader,
 			String token) {
 		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI + url);
 		logger.info("REST ASSURRED :: Request To Encrypt Is " + body);
@@ -313,7 +313,6 @@ public class RegProcApiRequests extends BaseTestCase {
 			// prop.BASE_URL + url);
 			// logger.info("REST ASSURRED :: Request data To encrypt is " + body);
 			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
-			System.out.println("Sending encrypt request to: " + ApplnURI + url);
 			Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).when().post(ApplnURI + url).then().extract()
 					.response();
@@ -340,4 +339,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		}
 		return postResponse;
 	}
+	
+	
 }

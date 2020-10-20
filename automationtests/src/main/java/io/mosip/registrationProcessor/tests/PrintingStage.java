@@ -27,6 +27,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -42,6 +43,7 @@ import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbdto.RegistrationPacketSyncDTO;
 import io.mosip.dbdto.SyncRegistrationDto;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.ApplicationLibrary;
@@ -83,6 +85,7 @@ public class PrintingStage extends BaseTestCase implements ITest {
 	static String apiName = "PrintingStage";
 	static String moduleName = "RegProc";
 	CommonLibrary common = new CommonLibrary();
+	String new_packet_path = "regProc/existingPacket/temp";
 
 	RegProcApiRequests apiRequests = new RegProcApiRequests();
 	TokenGeneration generateToken = new TokenGeneration();
@@ -100,6 +103,19 @@ public class PrintingStage extends BaseTestCase implements ITest {
 		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
 		String token = generateToken.getToken(tokenEntity);
 		return token;
+	}
+
+	@BeforeClass
+	public void copyPacketsTotestCaseFolder() {
+		String parentDir = apiRequests.getResourcePath();
+		try {
+			PacketUtil packetUtil = new PacketUtil();
+			String existing_packet_path = parentDir + new_packet_path;
+			String folderPathForPrintingTestCase = parentDir + folderPath + "/PrintingStage_smoke";
+			packetUtil.copyGeneratedPacketToPrintingTestDir(existing_packet_path, folderPathForPrintingTestCase);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	/**
@@ -212,7 +228,7 @@ public class PrintingStage extends BaseTestCase implements ITest {
 
 						String center_machine_refID = regId.substring(0, 5) + "_" + regId.substring(5, 10);
 						String encrypterURL = "/v1/keymanager/encrypt";
-						Response resp = apiRequests.postRequestToDecrypt(encrypterURL, requestToEncrypt,
+						Response resp = apiRequests.postRequestToEncryptDecrypt(encrypterURL, requestToEncrypt,
 								MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 						String encryptedData = resp.jsonPath().get("response.data").toString();
 						LocalDateTime timeStamp = encryptData.getTime(regId);
@@ -228,7 +244,6 @@ public class PrintingStage extends BaseTestCase implements ITest {
 						}
 
 					} catch (java.text.ParseException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}

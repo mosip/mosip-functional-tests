@@ -28,6 +28,7 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.registrationProcessor.util.RegProcTokenGenerate;
@@ -55,6 +56,7 @@ public class PacketManagerAudits extends BaseTestCase implements ITest {
 	String validToken = "";
 	TokenGeneration generateToken = new TokenGeneration();
 	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	String new_packet_path = "regProc/existingPacket/temp";
 
 	/**
 	 * This method is used for generating token
@@ -99,11 +101,22 @@ public class PacketManagerAudits extends BaseTestCase implements ITest {
 			Boolean status = healthCheckUtil.healthCheck(properties.getProperty("packetManagerAuditsApi"));
 			if (status) {
 				Assert.assertTrue(true);
+
+				PacketUtil packetUtil = new PacketUtil();
+				String existing_packet_path = parentDir + new_packet_path;
+				String audit_smoke = parentDir + folderPath + File.separator + "Valid_smoke";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, audit_smoke);
+				String audit_smoke_cacheFalse = parentDir + folderPath + File.separator
+						+ "Valid_smoke_byPassCacheFalse";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, audit_smoke_cacheFalse);
+
 			} else {
 				throw new Exception("Health Check Failed For The Api");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -187,20 +200,26 @@ public class PacketManagerAudits extends BaseTestCase implements ITest {
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 		System.out.println(actualResponse.asString());
 
-		outerKeys.add("requesttime");
-		outerKeys.add("responsetime");
-		// innerKeys.add("actionTimeStamp");
-		innerKeys.add("updatedDateTime");
+		if (testcase.contains("smoke")) {
+			Object responseFields = actualResponse.jsonPath().get("response[0].fields");
+			Assert.assertNotNull(responseFields);
 
-		//Object responseObj = actualResponse.jsonPath().get("response");
-		// Assert.assertNotNull(responseObj);
-		try {
-			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
-		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} else {
+			outerKeys.add("requesttime");
+			outerKeys.add("responsetime");
+			// innerKeys.add("actionTimeStamp");
+			innerKeys.add("updatedDateTime");
+
+			// Object responseObj = actualResponse.jsonPath().get("response");
+			// Assert.assertNotNull(responseObj);
+			try {
+				status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
+			} catch (IOException | ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Assert.assertTrue(status, "object are not equal");
 		}
-		Assert.assertTrue(status, "object are not equal");
 
 	}
 

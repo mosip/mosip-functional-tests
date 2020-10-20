@@ -3,8 +3,8 @@
   "metadata": {},
   "request": {
     "person": "individualBiometrics",
-    "bypassCache": false,
-    "id": "10001100778852420200925094259",
+    "bypassCache": true,
+    "id": "10010100292778220201017123024",
     "modalities": null,
     "process": "",
     "source": "REGISTRATION_CLIENT"

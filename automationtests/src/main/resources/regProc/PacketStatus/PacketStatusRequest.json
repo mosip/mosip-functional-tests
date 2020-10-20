@@ -6,14 +6,5 @@
   "emptyId" : "",
   "emptyTimestamp" : "",
   "invalidRequestUTC" : "",
-  "validRequestUTC1" : "",
- "LTElapsedTimeProcessing" : "",
- "Processed" : "",
- "Processing3" : "",
- "Rejected"  : "",
- "ReRegister3" : "",
- "RetryCountGTThresholdReRegister1" : "",
- "RetryCountGTThresoldReRegister2" : "",
- "RetryCountLTEThresholdResend1" : "",
- "RetryCountLTEThresoldResend2" : ""
+  "validRequestUTC1" : ""
 }

@@ -22,6 +22,8 @@ import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
+import io.mosip.tokengeneration.dto.UsernamePasswordDto;
+import io.mosip.tokengeneration.dto.UsernamePwdTokenEntity;
 import io.restassured.response.Response;
 
 public class TokenGeneration extends BaseTestCase {
@@ -139,4 +141,62 @@ public class TokenGeneration extends BaseTestCase {
 		}
 		return token;
 	}
+
+	public UsernamePwdTokenEntity createTokenGeneratorDtoForUserIdPassword(String tokenGenerationFilePath) {
+		UsernamePwdTokenEntity tokenEntity = new UsernamePwdTokenEntity();
+		tokenEntity.setId("io.mosip.registration.processor");
+		Date currentDate = new Date();
+		LocalDateTime requestTime = LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault());
+		tokenEntity.setRequesttime(requestTime);
+		tokenEntity.setVersion("1.0");
+		Properties prop = new Properties();
+		FileReader reader;
+		String propertyFilePath = System.getProperty("user.dir") + "/" + tokenGenerationFilePath;
+		try {
+			reader = new FileReader(new File(propertyFilePath));
+			prop.load(reader);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		UsernamePasswordDto requestDto = new UsernamePasswordDto();
+		requestDto.setUserName(prop.getProperty("token.request.username"));
+		requestDto.setPassword(prop.getProperty("token.request.password"));
+		requestDto.setAppId(prop.getProperty("token.request.appid"));
+		tokenEntity.setRequest(requestDto);
+		return tokenEntity;
+	}
+
+	@SuppressWarnings("unchecked")
+	public String getAuthTokenForUsernamePassword(UsernamePwdTokenEntity tokenEntity) {
+		String token = "";
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+		JSONObject requestBodyToBeSent = new JSONObject();
+		JSONObject nestedRequest = new JSONObject();
+		nestedRequest.put("userName", tokenEntity.getRequest().getUserName());
+		nestedRequest.put("password", tokenEntity.getRequest().getPassword());
+		nestedRequest.put("appId", tokenEntity.getRequest().getAppId());
+		requestBodyToBeSent.put("metadata", "");
+		requestBodyToBeSent.put("version", tokenEntity.getVersion());
+		requestBodyToBeSent.put("id", tokenEntity.getId());
+		requestBodyToBeSent.put("requesttime", tokenEntity.getRequesttime().atOffset(ZoneOffset.UTC).toString());
+		requestBodyToBeSent.put("request", nestedRequest);
+
+		String AUTH_URL = "/v1/authmanager/authenticate/useridPwd";
+		Response response = apiRequests.postRequest(AUTH_URL, requestBodyToBeSent, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON);
+		System.out.println("Authtoken generation request response: " + response.asString());
+		try {
+			if (null != response && !response.toString().contains("errorCode")) {
+				token = response.getCookie("Authorization");
+			}
+		} catch (Exception ex) {
+			logger.error("Exception occured while generating authtoken, with error message:- " + ex.getMessage());
+			ex.printStackTrace();
+		}
+
+		return token;
+	}
+
 }

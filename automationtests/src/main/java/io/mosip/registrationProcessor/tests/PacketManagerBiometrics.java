@@ -30,6 +30,7 @@ import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.HealthCheckUtil;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.registrationProcessor.util.RegProcTokenGenerate;
@@ -56,6 +57,8 @@ public class PacketManagerBiometrics extends BaseTestCase implements ITest {
 	String validToken = "";
 	TokenGeneration generateToken = new TokenGeneration();
 	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+
+	String new_packet_path = "regProc/existingPacket/temp";
 
 	/**
 	 * This method is used for generating token
@@ -105,6 +108,15 @@ public class PacketManagerBiometrics extends BaseTestCase implements ITest {
 			Boolean status = healthCheckUtil.healthCheck(properties.getProperty("packetManagerBiometricsApi"));
 			if (status) {
 				Assert.assertTrue(true);
+
+				PacketUtil packetUtil = new PacketUtil();
+				String existing_packet_path = parentDir + new_packet_path;
+				String biometrics_smoke = parentDir + folderPath + File.separator + "Valid_smoke";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path, biometrics_smoke);
+				String biometrics_smoke_cacheFalse = parentDir + folderPath + File.separator
+						+ "Valid_smoke_byPassCacheFalse";
+				packetUtil.editPacketManagerRequestResponse(existing_packet_path,
+						biometrics_smoke_cacheFalse);
 			} else {
 				throw new Exception("Health Check Failed For The Api");
 			}
