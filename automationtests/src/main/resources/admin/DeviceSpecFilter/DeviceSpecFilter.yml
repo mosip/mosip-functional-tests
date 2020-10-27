@@ -9,7 +9,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Cam"
+		"text": "Face scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,7 +18,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Cam"
+        "fieldValue": "Face scanner"
       }
     ]
   }'
@@ -32,7 +32,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Cam"
+		"text": "Face scanner"
 	}],
 	"languageCode": "ara",
 	"requesttime": "$TIMESTAMP$"
@@ -41,7 +41,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Cam"
+        "fieldValue": "Face scanner"
       }
     ]
   }'
@@ -55,7 +55,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "Cam"
+		"text": "Face scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -64,7 +64,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Cam"
+        "fieldValue": "Face scanner"
       }
     ]
   }'
@@ -78,7 +78,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "Cam"
+		"text": "Face scanner"
 	}],
 	"languageCode": "ara",
 	"requesttime": "$TIMESTAMP$"
@@ -87,7 +87,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Cam"
+        "fieldValue": "Face scanner"
       }
     ]
   }'
@@ -133,7 +133,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "Technoforte"
+        "fieldValue": "Technoforte TFUpd"
       }
     ]
   }'
@@ -179,7 +179,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "Technoforte"
+        "fieldValue": "Technoforte TFUpd"
       }
     ]
   }'

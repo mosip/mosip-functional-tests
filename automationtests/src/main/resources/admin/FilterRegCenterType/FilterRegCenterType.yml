@@ -18,8 +18,8 @@ FilterRegCenterType:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Regular",
-        "fieldCode":"REG"
+        "fieldValue": "alternate",
+        "fieldCode":"ALT-3"
       }
     ]
   }'
@@ -66,8 +66,8 @@ FilterRegCenterType:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "منتظم",
-        "fieldCode":"REG"
+        "fieldValue": "alternate updated",
+        "fieldCode":"ALT-3"
       }
     ]
   }'
@@ -114,8 +114,8 @@ FilterRegCenterType:
     "filters": [
       {
         "fieldID": "code",
-        "fieldValue": "REG",
-        "fieldCode":"REG"
+        "fieldValue": "ALT-3",
+        "fieldCode":"ALT-3"
       }
     ]
   }'
@@ -277,7 +277,7 @@ FilterRegCenterType:
    "errors": [
     {
       "errorCode": "KER-MSD-317",
-      "message": "Column fbheafg doesn\u0027t exist for the searched entity"
+      "message": "$IGNORE$"
     }
   ]
 }'  

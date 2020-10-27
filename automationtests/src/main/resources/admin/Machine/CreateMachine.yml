@@ -1,63 +1,117 @@
 CreateMachine:
    Admin_CreateMachine_All_Valid_Smoke:
-      endPoint: /v1/masterdata/devices
+      endPoint: /v1/masterdata/machines
       role: admin
       restMethod: post
-      inputTemplate: admin/Device/CreateMachine
-      outputTemplate: admin/Device/CreateMachineResult
+      inputTemplate: admin/Machine/machine
+      outputTemplate: admin/Machine/machineResult
       input: '{
-     "id": "d123",
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"CST",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "id":"$IGNORE$", 
+    "name": "Mach-Test",
+	"machineSpecId": "1001",
+	"serialNum":"FB5962911687",
+	"ipAddress": "192.168.0.424",
 	"isActive": true,
 	"langCode": "eng",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"macAddress": "61-D3-FD-12-C9-ED",
 	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": false,
-	"langCode": "eng",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
+	"validityDateTime": "$IGNORE$"
 }'
-   Admin_CreateMachine_Valid_Act_Prim_Lang_WithSecon_Language:
-      endPoint: /v1/masterdata/devices
+   Admin_CreateMachine_inValid_removing_publicKey:
+      endPoint: /v1/masterdata/machines
       role: admin
       restMethod: post
-      inputTemplate: admin/Device/CreateMachine
-      outputTemplate: admin/Device/CreateMachineResult
+      inputTemplate: admin/Machine/machine
+      outputTemplate: admin/error
       input: '{
-     "id": "d123",
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "ara",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"$REMOVE$",
+    "zoneCode":"CST",
+    "requesttime": "$TIMESTAMP$"
+  }'
       output: '{
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "ara",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.publicKey: must not be null"
+    }
+  ]
+}'
+   Admin_CreateMachine_Invalid_publicKey_As_blank:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      restMethod: post
+      inputTemplate: admin/Machine/machine
+      outputTemplate: admin/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"",
+    "zoneCode":"CST",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-353",
+      "message": "Invalid public key provided"
+    }
+  ]
+}'
+   Admin_CreateMachine_Invalid_publicKey_above_maxlength_1024:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      restMethod: post
+      inputTemplate: admin/Machine/machine
+      outputTemplate: admin/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"",
+    "zoneCode":"CST",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-353",
+      "message": "Invalid public key provided"
+    }
+  ]
 }'

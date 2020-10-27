@@ -221,7 +221,7 @@ FilterTemplateDetails:
    "errors": [
     {
       "errorCode": "KER-MSD-317",
-      "message": "Column fbheafg doesn\u0027t exist for the searched entity"
+      "message": "$IGNORE$"
     }
   ]
 }'

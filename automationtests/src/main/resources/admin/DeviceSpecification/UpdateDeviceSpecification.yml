@@ -14,7 +14,7 @@ UpdateDeviceSpecification:
       "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
-      "name": "Cam",
+      "name": "Face scanner",
       "requesttime": "$TIMESTAMP$"
       }'
       output: '{
@@ -37,7 +37,7 @@ UpdateDeviceSpecification:
       "langCode": "ara",
       "minDriverversion": "1.0",
       "model": "2020",
-      "name": "Cam",
+      "name": "Face scanner",
       "requesttime": "$TIMESTAMP$"
       }'
       output: '{

@@ -68,7 +68,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": false,
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
@@ -99,7 +99,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": false,
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",

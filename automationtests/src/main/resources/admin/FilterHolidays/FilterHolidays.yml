@@ -214,7 +214,7 @@ FilterHolidays:
 		"text": "AutoTest user"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP"
+	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [

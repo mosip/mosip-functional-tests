@@ -135,6 +135,28 @@ public class AdminTestUtil extends BaseTestCase{
 			return response;
 		}
 	}
+	protected Response putWithPathParamBodyAndCookie(String url, String jsonInput, String cookieName, String role) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>(){}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: "+jsonInput+" Exception: "+e.getMessage());
+		}
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 	
 	/**
 	 * This method will hit get request and return the response

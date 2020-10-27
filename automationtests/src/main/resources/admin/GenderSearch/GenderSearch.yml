@@ -22,23 +22,44 @@ GenderSearch:
    "data": [
      {
         "isActive": true,
-        "createdBy": "superadmin",
         "code": "FLE",
         "genderName": "Female",
         "langCode": "eng"
       },
       {
+        "isActive": false,
+        "code": "Genderdummy-1",
+        "genderName": "Genderdummy-1",
+        "langCode": "eng"
+      },
+      {
         "isActive": true,
-        "createdBy": "superadmin",
         "code": "MLE",
         "genderName": "Male",
         "langCode": "eng"
       },
       {
         "isActive": false,
-        "createdBy": "superadmin",
         "code": "OTH",
         "genderName": "Others",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "code": "QQQ",
+        "genderName": "QQQ",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "code": "Genderdummy",
+        "genderName": "TestGenderName",
+        "langCode": "eng"
+      },
+      {
+        "isActive": false,
+        "code": "WWW",
+        "genderName": "WWW",
         "langCode": "eng"
       }
     ]
@@ -191,23 +212,32 @@ GenderSearch:
    "data": [
      {
         "isActive": true,
-        "createdBy": "superadmin",
-        "code": "FLE",
-        "genderName": "أنثى",
-        "langCode": "ara"
-      },
-      {
-        "isActive": false,
-        "createdBy": "superadmin",
-        "code": "OTH",
-        "genderName": "الآخرين",
+        "code": "QQQ",
+        "genderName": "QQQ",
         "langCode": "ara"
       },
       {
         "isActive": true,
-        "createdBy": "superadmin",
+        "code": "Genderdummy",
+        "genderName": "TestGenderName",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
+        "code": "FLE",
+        "genderName": "Ø£Ù†Ø«Ù‰",
+        "langCode": "ara"
+      },
+      {
+        "isActive": false,
+        "code": "OTH",
+        "genderName": "Ø§Ù„Ø¢Ø®Ø±ÙŠÙ†",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
         "code": "MLE",
-        "genderName": "الذكر",
+        "genderName": "Ø§Ù„Ø°ÙƒØ±",
         "langCode": "ara"
       }
     ]
@@ -235,23 +265,44 @@ GenderSearch:
    "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
         "code": "FLE",
         "genderName": "Female",
         "langCode": "eng"
       },
       {
         "isActive": true,
-        "createdBy": "superadmin",
+        "code": "Genderdummy",
+        "genderName": "TestGenderName",
+        "langCode": "eng"
+      },
+      {
+        "isActive": false,
+        "code": "Genderdummy-1",
+        "genderName": "Genderdummy-1",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
         "code": "MLE",
         "genderName": "Male",
         "langCode": "eng"
       },
       {
         "isActive": false,
-        "createdBy": "superadmin",
         "code": "OTH",
         "genderName": "Others",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "code": "QQQ",
+        "genderName": "QQQ",
+        "langCode": "eng"
+      },
+      {
+        "isActive": false,
+        "code": "WWW",
+        "genderName": "WWW",
         "langCode": "eng"
       }
     ]
@@ -323,23 +374,32 @@ GenderSearch:
    "data": [
       {
         "isActive": true,
-        "createdBy": "superadmin",
         "code": "FLE",
-        "genderName": "أنثى",
+        "genderName": "Ø£Ù†Ø«Ù‰",
         "langCode": "ara"
       },
       {
         "isActive": true,
-        "createdBy": "superadmin",
+        "code": "Genderdummy",
+        "genderName": "TestGenderName",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
         "code": "MLE",
-        "genderName": "الذكر",
+        "genderName": "Ø§Ù„Ø°ÙƒØ±",
         "langCode": "ara"
       },
       {
         "isActive": false,
-        "createdBy": "superadmin",
         "code": "OTH",
-        "genderName": "الآخرين",
+        "genderName": "Ø§Ù„Ø¢Ø®Ø±ÙŠÙ†",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
+        "code": "QQQ",
+        "genderName": "QQQ",
         "langCode": "ara"
       }
     ]
@@ -479,33 +539,6 @@ GenderSearch:
     }
   ]
 }'
-   Admin_GenderSearch_InvalidPageStartAsEmpty:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: admin/GenderSearch/search
-      outputTemplate: admin/error
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "genderName",
-		"sortType": "ASC"
-	}],
-
-	"pageStart":'',
-	"pageFetch": 0,
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
-    }
-  ]
-}'
    Admin_GenderSearch_InvalidPageFetchAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
@@ -521,7 +554,7 @@ GenderSearch:
 	}],
 
 	"pageStart":0,
-	"pageFetch":'',
+	"pageFetch":0,
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
