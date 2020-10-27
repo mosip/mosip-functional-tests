@@ -135,9 +135,10 @@ public class AdminTestUtil extends BaseTestCase{
 			return response;
 		}
 	}
-	protected Response putWithPathParamBodyAndCookie(String url, String jsonInput, String cookieName, String role) {
+	
+	protected Response putWithPathParamBodyAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
-		String inputJson = inputJsonKeyWordHandeler(jsonInput);
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
 		try {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>(){}.getType());
