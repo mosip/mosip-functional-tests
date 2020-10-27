@@ -434,7 +434,7 @@ public class IdaRunConfig extends RunConfig{
 		setUinSalt(AuthTestsUtil.getPropertyValue("uinSalt"+env));
 		setPartnerCodeSalt(AuthTestsUtil.getPropertyValue("partnerCodeSalt"+env));
 		setAuthPartnerID(AuthTestsUtil.getPropertyValue("authPartnerID"+env));
-		setTokenIDLength(Integer.parseInt(AuthTestsUtil.getPropertyValue("tokenIDLength"+env)));
+		setTokenIDLength(Integer.parseInt(AuthTestsUtil.getPropertyValue("tokenIDLength")));
 		setIdRepoVersion(AuthTestsUtil.getPropertyValue("idrepoVersion"));
 		setAuthVersion(AuthTestsUtil.getPropertyValue("authVersion"));
 		setEndPointUrl(AuthTestsUtil.getPropertyValue("endPointUrl"));
