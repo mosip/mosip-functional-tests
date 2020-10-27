@@ -1,0 +1,21 @@
+createApproveServiceToSaveDeviceDetail:
+   ServiceToSaveDeviceDetail_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/pmpartners/pmpartners/PartnerAPIKeyRequests/{apiKeyReqId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail
+      outputTemplate: partner/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetailResult
+      input: '{
+    "deviceProviderId": "P001",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "99881",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Print",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "message": "PartnerAPIKey Updated successfully"
+    }'

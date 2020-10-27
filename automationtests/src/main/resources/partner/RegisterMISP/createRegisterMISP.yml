@@ -1,0 +1,42 @@
+createRegisterMISP:
+   RegisterMISP_All_Valid_Smoke_mid:
+      endPoint: /partnermanagement/v1/misps/misps
+      role: partner
+      restMethod: post
+      inputTemplate: partner/RegisterMISP/createRegisterMISP
+      outputTemplate: partner/RegisterMISP/createRegisterMISPResult
+      input: '{
+      "organizationName": "mosip_misp",
+      "contactNumber": "9840587089",
+      "emailId": "misp@misp.com",
+      "address": "India",
+      "requesttime": "$TIMESTAMP$"
+	
+  }'
+      output: ' {
+        "mispStatus": "Active",
+        "mispID": "103"
+    }'
+
+   RegisterMISP_Missing_InputParameter_contactNumber:
+      endPoint: /partnermanagement/v1/misps/misps
+      role: partner
+      restMethod: post
+      inputTemplate: partner/RegisterMISP/createRegisterMISP
+      outputTemplate: partner/error
+      input: '{
+      "organizationName": "mosip_misp",
+      "contactNumber": "$REMOVE$",
+      "emailId": "misp@misp.com",
+      "address": "India",
+      "requesttime": "$TIMESTAMP$"
+	
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.contactNumber"
+    }
+  ]
+}'

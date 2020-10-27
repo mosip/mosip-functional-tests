@@ -1,0 +1,21 @@
+createUpdateMISP:
+   UpdateMISP_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/misps/misps/{mispID}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/UpdateMISP/createUpdateMISP
+      outputTemplate: partner/UpdateMISP/createUpdateMISPResult
+      input: '{
+    "address": "india",
+    "contactNumber": "9840587099",
+    "emailId": "misp@misp.com",
+    "mispID": "$DID:Active$",
+    "name": "mosip_misp",
+    "requesttime": "$TIMESTAMP$"
+
+  }'
+      output: ' {
+        "mispStatus": "Active",
+        "mispID": "103"
+    }'
+
