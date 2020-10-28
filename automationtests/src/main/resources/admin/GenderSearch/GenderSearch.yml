@@ -27,9 +27,21 @@ GenderSearch:
         "langCode": "eng"
       },
       {
+        "isActive": true,
+        "code": "mle",
+        "genderName": "gendera",
+        "langCode": "eng"
+      },
+      {
         "isActive": false,
         "code": "Genderdummy-1",
         "genderName": "Genderdummy-1",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "code": "MLO",
+        "genderName": "Male",
         "langCode": "eng"
       },
       {
@@ -45,21 +57,9 @@ GenderSearch:
         "langCode": "eng"
       },
       {
-        "isActive": true,
-        "code": "QQQ",
-        "genderName": "QQQ",
-        "langCode": "eng"
-      },
-      {
-        "isActive": true,
+        "isActive": false,
         "code": "Genderdummy",
         "genderName": "TestGenderName",
-        "langCode": "eng"
-      },
-      {
-        "isActive": false,
-        "code": "WWW",
-        "genderName": "WWW",
         "langCode": "eng"
       }
     ]
@@ -100,7 +100,7 @@ GenderSearch:
       }
     ]
 }'
-   Admin_GenderSearch_ValidSortTypeAsDesc:
+   Admin_GenderSearch_ValidSortTypeAsDesc_ara:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
       restMethod: post
@@ -145,7 +145,7 @@ GenderSearch:
       }
     ]
   }'    
-   Admin_GenderSearch_ValidLangCodeAsFra:
+   Admin_GenderSearch_ValidLangCodeAs_fra:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
       restMethod: post
@@ -189,7 +189,7 @@ GenderSearch:
       }
     ]
 }'
-   Admin_GenderSearch_ValidLangCodeAsAra:
+   Admin_GenderSearch_ValidLangCodeAs_ara:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
       restMethod: post
@@ -225,19 +225,19 @@ GenderSearch:
       {
         "isActive": true,
         "code": "FLE",
-        "genderName": "Ø£Ù†Ø«Ù‰",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       },
       {
         "isActive": false,
         "code": "OTH",
-        "genderName": "Ø§Ù„Ø¢Ø®Ø±ÙŠÙ†",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       },
       {
         "isActive": true,
         "code": "MLE",
-        "genderName": "Ø§Ù„Ø°ÙƒØ±",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       }
     ]
@@ -270,7 +270,7 @@ GenderSearch:
         "langCode": "eng"
       },
       {
-        "isActive": true,
+        "isActive": false,
         "code": "Genderdummy",
         "genderName": "TestGenderName",
         "langCode": "eng"
@@ -283,7 +283,19 @@ GenderSearch:
       },
       {
         "isActive": true,
+        "code": "mle",
+        "genderName": "gendera",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
         "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "code": "MLO",
         "genderName": "Male",
         "langCode": "eng"
       },
@@ -292,22 +304,10 @@ GenderSearch:
         "code": "OTH",
         "genderName": "Others",
         "langCode": "eng"
-      },
-      {
-        "isActive": true,
-        "code": "QQQ",
-        "genderName": "QQQ",
-        "langCode": "eng"
-      },
-      {
-        "isActive": false,
-        "code": "WWW",
-        "genderName": "WWW",
-        "langCode": "eng"
       }
     ]
 }'
-   Admin_GenderSearch_Valid_langCodeAsFra_sortBy_code:
+   Admin_GenderSearch_Valid_langCodeAs_fra_sortBy_code:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
       restMethod: post
@@ -351,7 +351,7 @@ GenderSearch:
       }
     ]
 }'
-   Admin_GenderSearch_Valid_langCodeAsAra_sortBy_code:
+   Admin_GenderSearch_Valid_langCodeAs_ara_sortBy_code:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
       restMethod: post
@@ -375,7 +375,7 @@ GenderSearch:
       {
         "isActive": true,
         "code": "FLE",
-        "genderName": "Ø£Ù†Ø«Ù‰",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       },
       {
@@ -387,13 +387,13 @@ GenderSearch:
       {
         "isActive": true,
         "code": "MLE",
-        "genderName": "Ø§Ù„Ø°ÙƒØ±",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       },
       {
         "isActive": false,
         "code": "OTH",
-        "genderName": "Ø§Ù„Ø¢Ø®Ø±ÙŠÙ†",
+        "genderName": "$IGNORE$",
         "langCode": "ara"
       },
       {
@@ -651,18 +651,28 @@ GenderSearch:
       output: '{
    "data": [
     {
+        "isActive": true,
         "code": "FLE",
         "genderName": "Female",
-        "langCode": "eng",
-        "isActive": true,
-        "createdBy": "superadmin"
+        "langCode": "eng"
       },
       {
+        "isActive": true,
+        "code": "mle",
+        "genderName": "gendera",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
         "code": "MLE",
         "genderName": "Male",
-        "langCode": "eng",
+        "langCode": "eng"
+      },
+      {
         "isActive": true,
-        "createdBy": "superadmin"
+        "code": "MLO",
+        "genderName": "Male",
+        "langCode": "eng"
       }
     ]
 }'   

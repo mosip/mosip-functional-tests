@@ -1,5 +1,5 @@
 CreateDeviceSpecification:
-   Admin_CreateDeviceSpecification_All_Valid_Smoke:
+   Admin_CreateDeviceSpecification_All_Valid_Smoke_langid:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
       restMethod: post
@@ -10,7 +10,7 @@ CreateDeviceSpecification:
       "description": "Test DeviceSpec",
       "deviceTypeCode": "CMR",
       "id": "743",
-      "isActive": false,
+      "isActive": true,
       "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
@@ -18,11 +18,11 @@ CreateDeviceSpecification:
       "requesttime": "$TIMESTAMP$"
       }'
       output: '{
-      "id": "743",
+      "id": "$IGNORE$",
       "langCode": "eng"
       }'
       
-   Admin_CreateDeviceSpecification_All_Valid_Mandatory_Fields:
+   Admin_CreateDeviceSpecification_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
       restMethod: post
@@ -44,7 +44,7 @@ CreateDeviceSpecification:
       "id": "743",
       "langCode": "ara"
       }'
-   Admin_CreateDeviceSpecification_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateDeviceSpecification_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
       restMethod: post
@@ -82,7 +82,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "$REMOVE$",
@@ -108,7 +108,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "",
@@ -134,7 +134,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
@@ -186,7 +186,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -212,7 +212,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -238,7 +238,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "$REMOVE$",
       "name": "Cam",
@@ -264,7 +264,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "",
       "name": "Cam",
@@ -290,7 +290,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "qwertyuiopasdfg17",
       "name": "Cam",
@@ -316,7 +316,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "$REMOVE$",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -342,7 +342,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -368,7 +368,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -394,7 +394,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "DMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -420,7 +420,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "$REMOVE$",
       "model": "2020",
       "name": "Cam",
@@ -446,7 +446,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "",
       "model": "2020",
       "name": "Cam",
@@ -472,7 +472,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "qwertyuiopasdfg17",
       "model": "2020",
       "name": "Cam",
@@ -498,7 +498,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": true,
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",
@@ -628,7 +628,7 @@ CreateDeviceSpecification:
       "deviceTypeCode": "CMR",
       "id": "744",
       "isActive": "$REMOVE$",
-      "langCode": "ara",
+      "langCode": "eng",
       "minDriverversion": "1.0",
       "model": "2020",
       "name": "Cam",

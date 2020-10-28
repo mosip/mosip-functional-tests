@@ -20,7 +20,7 @@ UpdateHoliday:
         "holidayName": "AutoTest user",
         "langCode": "eng"
     }'
-   Admin_UpdateHoliday_All_Valid_Mandatory_Fields:
+   Admin_UpdateHoliday_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/holidays
       role: admin
       restMethod: put

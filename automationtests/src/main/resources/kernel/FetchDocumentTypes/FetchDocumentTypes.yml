@@ -1,0 +1,55 @@
+FetchDocumentTypes:
+   Kernel_FetchDocumentTypes_valid_smoke_langcodeandCode:
+      endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
+      outputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypesResult
+      input: '{
+  "documentcategorycode":"DocTestCode01",
+   "langcode":"eng"
+}'
+      output: '{
+"documents": {
+        "code": "MSD",
+        "name": "MSD Card",
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_FetchDocumentTypes_invalid_documentcategorycode_notpresent:
+      endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
+      outputTemplate: kernel/error
+      input: '{
+  "documentcategorycode":"Java",
+   "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-118",
+      "message": "Document Type not found"
+    }
+  ]
+}'
+   Kernel_FetchDocumentTypes_invalid_langcode_notpresent:
+      endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
+      outputTemplate: kernel/error
+      input: '{
+  "documentcategorycode":"DocTestCode01",
+   "langcode":"ger"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-118",
+      "message": "Document Type not found"
+    }
+  ]
+}'

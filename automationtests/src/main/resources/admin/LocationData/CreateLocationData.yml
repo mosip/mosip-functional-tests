@@ -12,11 +12,11 @@ CreateLocationData:
     "hierarchyName":"City",
     "parentLocCode":"KNT",    
     "langCode": "eng",
-    "isActive": false,
+    "isActive": true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": false,
+"isActive": true,
 "code": "TST",
 "name": "Test_Loc_A_2",
 "hierarchyLevel":"3",
@@ -24,7 +24,7 @@ CreateLocationData:
 "parentLocCode": "KNT",
 "langCode": "eng"
 }'
-   Admin_CreateLocationData_Valid_scondaryLang_isActive_true:
+   Admin_CreateLocationData_Valid_scondaryLang_ara_isActive_true:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: post
@@ -66,7 +66,7 @@ CreateLocationData:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": false,
+"isActive": true,
 "code": "TST5",
 "name": "Test_Loc_A_5",
 "hierarchyLevel":"3",
@@ -149,7 +149,7 @@ CreateLocationData:
 "parentLocCode": "$IGNORE$",
 "langCode": "eng"
 }'
-   Admin_CreateLocationData_Invalid_code_for_SecondaryLang:
+   Admin_CreateLocationData_Invalid_code_for_SecondaryLang_ara:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: post
@@ -168,8 +168,8 @@ CreateLocationData:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-391",
-      "message": "Location hierarchy is invalid"
+      "errorCode": "KER-MSD-999",
+      "message": "Cannot create data in secondary language as data does not exist in primary language"
     }
   ]
 }'
@@ -197,7 +197,7 @@ CreateLocationData:
     }
   ]
 }'
-   Admin_CreateLocationData_Invalid_EmptyCode_SecondaryLang:
+   Admin_CreateLocationData_Invalid_EmptyCode_SecondaryLang_ara:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: post

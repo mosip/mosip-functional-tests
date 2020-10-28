@@ -34,9 +34,9 @@ DeviceSpecSearch:
 	"model": "2020",
 	"deviceTypeCode": "CMR",
 	"minDriverversion": "1.0",
-	"description": "Test DeviceSpec updated",
+	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -118,7 +118,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -200,7 +200,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -241,7 +241,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "Camera"
 	}]
 }'
@@ -377,7 +377,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -418,7 +418,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -669,7 +669,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -717,7 +717,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -758,7 +758,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": true,
+	"isActive": false,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'

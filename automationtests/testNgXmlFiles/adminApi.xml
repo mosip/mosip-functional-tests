@@ -10,7 +10,7 @@
 	</listeners>
 	
 	 
-	<!-- <test name="CreateIndividualType">
+	<test name="CreateIndividualType">
 		<parameter name="ymlFile" value="admin/IndividualType/CreateIndividualType.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
@@ -37,7 +37,7 @@
 	<test name="CreateDeviceSpecification">
 		<parameter name="ymlFile" value="admin/DeviceSpecification/CreateDeviceSpecification.yml"/>  
 		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="UpdateDeviceSpecification">
@@ -264,7 +264,7 @@
 	 <test name="CreateTemplate">
 		<parameter name="ymlFile" value="admin/Template/CreateTemplate.yml"/>  
 		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	 <test name="SearchTemplateDetails">
@@ -313,7 +313,7 @@
 	<test name="CreateMachineSpecification">
 		<parameter name="ymlFile" value="admin/MachineSpecification/CreateMachineSpecification.yml"/>  
 		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="SearchMachineSpec">
@@ -382,12 +382,12 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FetchPacketStatus">
+	<!-- <test name="FetchPacketStatus">
 		<parameter name="ymlFile" value="admin/FetchPacketStatus/FetchPacketStatus.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>
+	</test> -->
 	 <test name="GetLeafZones">
 		<parameter name="ymlFile" value="admin/GetLeafZones/GetLeafZones.yml"/>  
 		<classes>
@@ -405,7 +405,7 @@
 		<classes>
 		<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>  -->
+	</test> 
 	<test name="CreateDevice">
 	<parameter name="ymlFile"
 		value="admin/Device/CreateDevice.yml" />
@@ -434,5 +434,47 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	
+	
+	
+ 
+ 
+	<test name="CreateMachine">
+	<parameter name="ymlFile"
+		value="admin/Machine/CreateMachine.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+</test>
+	<test name="SearchMachine">
+	<parameter name="ymlFile"
+		value="admin/SearchMachine/SearchMachine.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+</test>
+	<test name="FilterMachines">
+	<parameter name="ymlFile"
+		value="admin/FilterMachines/FilterMachines.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+</test>
+	<test name="UpdateMachine">
+	<parameter name="ymlFile"
+		value="admin/Machine/UpdateMachine.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePut" />
+	</classes>
+</test>
+<test name="CreateRegistrationCenter">
+	<parameter name="ymlFile"
+		value="admin/RegistrationCenter/CreateRegistrationCenter.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+</test>
 
+
+ 
 </suite>

@@ -16,6 +16,40 @@ CreateTemplateFileFormat:
 	"code": "Doc",
 	"langCode": "eng"
 }'
+   Admin_CreateTemplateFileFormat_Act_primaryLang_withSec_lang_ara:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "اختبار الوثيقة",
+	"isActive": true,
+	"langCode": "ara",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc",
+	"langCode": "ara"
+}'
+   Admin_CreateTemplateFileFormat_valid_fra:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "Test de doc",
+	"isActive": true,
+	"langCode": "fra",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc",
+	"langCode": "fra"
+}'
    Admin_CreateTemplateFileFormat_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/templatefileformats
       role: admin

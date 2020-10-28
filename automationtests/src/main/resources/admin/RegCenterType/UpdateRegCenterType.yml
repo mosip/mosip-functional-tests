@@ -10,14 +10,14 @@ UpdateRegCenterType:
     "langCode": "eng",
     "name": "alternate",
     "descr": "alternate center updated",
-    "isActive":false,
+    "isActive":true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
 	"code": "ALT-3",
 	"langCode": "eng"
 }'
-   Admin_UpdateRegCenterType_All_Valid_Mandatory_Fields:
+   Admin_UpdateRegCenterType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
       restMethod: put

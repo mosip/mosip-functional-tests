@@ -24,7 +24,7 @@ UpdateLocationData:
 "parentLocCode": "KNT",
 "langCode": "eng"
 }'
-   Admin_UpdateLocationData_Valid_scondaryLang_isActive_true:
+   Admin_UpdateLocationData_Valid_scondaryLang_ara_isActive_true:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: put
@@ -62,11 +62,11 @@ UpdateLocationData:
     "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
-    "isActive": false,
+    "isActive": true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": false,
+"isActive": true,
 "code": "IND",
 "name": "INDIA updated",
 "hierarchyLevel":"0",
@@ -74,7 +74,7 @@ UpdateLocationData:
 "parentLocCode": "$IGNORE$",
 "langCode": "eng"
 }'
-   Admin_UpdateLocationData_Invalid_code_for_SecondaryLang:
+   Admin_UpdateLocationData_Invalid_code_for_SecondaryLang_ara:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: put
@@ -98,7 +98,7 @@ UpdateLocationData:
     }
   ]
 }'
-   Admin_UpdateLocationData_Invalid_EmptyCode_SecondaryLang:
+   Admin_UpdateLocationData_Invalid_EmptyCode_SecondaryLang_ara:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: put

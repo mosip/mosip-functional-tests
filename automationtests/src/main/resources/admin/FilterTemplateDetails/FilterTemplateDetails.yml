@@ -61,7 +61,7 @@ FilterTemplateDetails:
       }
     ]
   }'
-   Admin_FilterTemplateDetails_FilterType_all_LangCode_Arabic:
+   Admin_FilterTemplateDetails_FilterType_all_LangCode_ara:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
       restMethod: post
@@ -88,7 +88,7 @@ FilterTemplateDetails:
       }
     ]
   }'
-   Admin_FilterTemplateDetails_FilterType_unique_LangCode_Arabic:
+   Admin_FilterTemplateDetails_FilterType_unique_LangCode_ara:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
       restMethod: post
@@ -127,7 +127,7 @@ FilterTemplateDetails:
 		"type": "ghji",
 		"text": "التخويل"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

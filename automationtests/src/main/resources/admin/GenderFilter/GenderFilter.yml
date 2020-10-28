@@ -109,7 +109,7 @@ GenderFilter:
       output: '{
     "filters": []
   }'
-   Admin_GenderFilter_ValidLangCodeAsAra_Smoke:
+   Admin_GenderFilter_ValidLangCodeAs_ara_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
       restMethod: post
@@ -144,7 +144,7 @@ GenderFilter:
 		"type": "All",
 		"text": "TestGenderName"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -167,7 +167,7 @@ GenderFilter:
 		"type": "All",
 		"text": "TestGenderName"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -190,7 +190,7 @@ GenderFilter:
 		"type": "between",
 		"text": "TestGenderName"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -213,7 +213,7 @@ GenderFilter:
 		"type": "All",
 		"text": "abdhsg"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -231,7 +231,7 @@ GenderFilter:
 		"type": "All",
 		"text": "TestGenderName"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": ""
 }'
       output: '{
@@ -254,7 +254,7 @@ GenderFilter:
 		"type": "",
 		"text": "TestGenderName"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

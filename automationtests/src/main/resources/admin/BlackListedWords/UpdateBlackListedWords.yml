@@ -17,7 +17,7 @@ UpdateBlackListedWords:
 	"word": "dumb upd",
 	"langCode": "eng"
 }'
-   Admin_UpdateBlackListedWords_Valid_OnlyMandatoryFields_DB:
+   Admin_UpdateBlackListedWords_Valid_OnlyMandatoryFields_DB_ara:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
       restMethod: put

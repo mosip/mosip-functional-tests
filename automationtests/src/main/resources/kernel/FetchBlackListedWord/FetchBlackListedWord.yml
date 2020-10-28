@@ -1,0 +1,34 @@
+FetchBlackListedWord:
+   Kernel_FetchBlackListedWord_valid_smoke:
+      endPoint: /v1/masterdata/blacklistedwords/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBlackListedWord/fetchBlackListedWord
+      outputTemplate: kernel/FetchBlackListedWord/fetchBlackListedWordResult
+      input: '{
+      "langcode": "eng"
+      }'
+      output: '{
+"blacklistedwords": [{
+        "word":"shit",
+        "langCode":"eng",
+        "isActive":true
+      }]
+}'    
+   Kernel_FetchBlackListedWord_invalid_langcode:
+      endPoint: /v1/masterdata/blacklistedwords/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBlackListedWord/fetchBlackListedWord
+      outputTemplate: kernel/error
+      input: '{
+      "langcode": "GER"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "Blacklisted word not found"
+    }
+  ]
+}'    

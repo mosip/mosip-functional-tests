@@ -8,7 +8,7 @@ UpdateMachineSpecification:
       input: '{
     "brand": "HP",
     "description": "HP brand updated",
-    "id": "HP04",
+    "id": "$ID:eng$",
     "isActive": true,
     "langCode": "eng",
     "machineTypeCode": "DKS",
@@ -18,10 +18,10 @@ UpdateMachineSpecification:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"langCode": "eng"
 }'
-   Admin_UpdateMachineSpecification_All_Valid_Mandatory_Fields:
+   Admin_UpdateMachineSpecification_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       restMethod: put
