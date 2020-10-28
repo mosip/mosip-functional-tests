@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
+import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
 
 /**
@@ -95,6 +96,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
+		case "batch":
+			if (!kernelCmnLib.isValidToken(batchJobToken)) 
+				batchJobToken = new PreRegistrationLibrary().batchToken();
+			return batchJobToken;
 		case "invalid":
 			return "anyRandomString";
 		default:
