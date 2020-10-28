@@ -17,7 +17,7 @@ UpdateMachineType:
 	"code": "Laptop-2",
 	"langCode": "eng"
 }'
-   Admin_UpdateMachineType_All_Valid_Mandatory_Fields:
+   Admin_UpdateMachineType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/machinetypes
       role: admin
       restMethod: put

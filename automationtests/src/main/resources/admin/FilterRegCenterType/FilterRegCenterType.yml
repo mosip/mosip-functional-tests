@@ -9,7 +9,7 @@ FilterRegCenterType:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": ""
+		"text": "alternate"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterRegCenterType:
       {
         "fieldID": "name",
         "fieldValue": "alternate",
-        "fieldCode":"ALT-3"
+        "fieldCode": "ALT-3"
       }
     ]
   }'
@@ -114,8 +114,23 @@ FilterRegCenterType:
     "filters": [
       {
         "fieldID": "code",
-        "fieldValue": "ALT-3",
-        "fieldCode":"ALT-3"
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "$IGNORE$"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "$IGNORE$"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "$IGNORE$"
+      },
+      {
+        "fieldID": "code",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "$IGNORE$"
       }
     ]
   }'
@@ -160,7 +175,7 @@ FilterRegCenterType:
 		"type": "unique",
 		"text": "fbheafg"
 	}],
-	"languageCode": "fra",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

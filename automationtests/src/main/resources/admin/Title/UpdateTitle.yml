@@ -17,7 +17,7 @@ UpdateTitle:
 	"code": "TEST0011",
 	"langCode": "eng"
 }'
-   Admin_UpdateTitle_All_Valid_Mandatory_Fields:
+   Admin_UpdateTitle_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/title
       role: admin
       restMethod: put

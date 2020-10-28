@@ -28,7 +28,7 @@ HolidaySearch:
   }'
       output: '{
 	"data": [{
-		"isActive": true,
+		"isActive": false,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -104,7 +104,7 @@ HolidaySearch:
   }'
       output: '{
 	"data": [{
-		"isActive": true,
+		"isActive": false,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -180,7 +180,7 @@ HolidaySearch:
   }'
       output: '{
 	"data": [{
-		"isActive": true,
+		"isActive": false,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -227,7 +227,7 @@ HolidaySearch:
 		"langCode": "ara"
 	}]
 }'
-   Admin_HolidaySearch_equals_isActive_pos:
+   Admin_HolidaySearch_equals_isActive_pos_ara:
       endPoint: /v1/masterdata/holidays/search
       role: admin
       restMethod: post

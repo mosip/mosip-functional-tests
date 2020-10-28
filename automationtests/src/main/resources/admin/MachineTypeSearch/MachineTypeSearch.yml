@@ -427,7 +427,7 @@ MachineTypeSearch:
     }
   ]
 }'
-   Admin_MachineTypeSearch_columnName_withNoSearchSupport:
+   Admin_MachineTypeSearch_columnName_withNoSearchSupport_ara:
       endPoint: /v1/masterdata/machinetypes/search
       role: admin
       restMethod: post

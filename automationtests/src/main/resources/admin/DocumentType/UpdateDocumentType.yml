@@ -20,7 +20,7 @@ UpdateDocumentType:
 	"langCode": "eng",
 	"name": "MSD Card"
 }'
-   Admin_UpdateDocumentType_All_Valid_Mandatory_Fields:
+   Admin_UpdateDocumentType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: put
@@ -41,7 +41,7 @@ UpdateDocumentType:
 	"langCode": "ara",
 	"name": "CSD Card"
 }'
-   Admin_UpdateDocumentType_Validz_PrimLang_True_DeAct_SeconLang:
+   Admin_UpdateDocumentType_Validz_PrimLang_True_DeAct_SeconLang_ara:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: put
@@ -62,7 +62,7 @@ UpdateDocumentType:
 	"langCode": "ara",
 	"name": "CSD Card"
 }'
-   Admin_UpdateDocumentType_Valid_PrimLang_False_Act_SeconLang:
+   Admin_UpdateDocumentType_Valid_PrimLang_False_Act_SeconLang_ara:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: put

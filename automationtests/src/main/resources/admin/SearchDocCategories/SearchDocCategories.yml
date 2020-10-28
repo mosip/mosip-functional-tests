@@ -34,15 +34,7 @@ SearchDocCategories:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "data": [
-     {
-        "isActive": false,
-        "description": "$IGNORE$",
-        "code": "DocTestCode1",
-        "langCode": "eng",
-        "name": "DocCat"
-      }
-    ]
+   "data": []
 }'
    Admin_SearchDocCategories_Valid_languageCode_ara_:
       endPoint: /v1/masterdata/documentcategories/search

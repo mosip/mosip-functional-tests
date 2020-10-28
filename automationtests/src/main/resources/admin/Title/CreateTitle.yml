@@ -9,7 +9,7 @@ CreateTitle:
     "code": "TEST0011",
     "titleName": "TEST0011",
 	"titleDescription": "TEST0011",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -17,7 +17,7 @@ CreateTitle:
 	"code": "TEST0011",
 	"langCode": "eng"
 }'
-   Admin_CreateTitle_All_Valid_Mandatory_Fields:
+   Admin_CreateTitle_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/title
       role: admin
       restMethod: post
@@ -35,7 +35,7 @@ CreateTitle:
 	"code": "TEST0011",
 	"langCode": "ara"
 }'
-   Admin_CreateTitle_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateTitle_Sec_Data_Present_but_No_Data_Prim_lang_ara:
       endPoint: /v1/masterdata/title
       role: admin
       restMethod: post

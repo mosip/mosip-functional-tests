@@ -8,7 +8,7 @@ CreateDocumentCategory:
       input: '{
      "code": "DocTestCode01",
     "description": "Testing positive Doc",
-    "isActive": false,
+    "isActive": true,
     "langCode": "eng",
     "name": "DocCat",
     "requesttime": "$TIMESTAMP$"
@@ -35,7 +35,7 @@ CreateDocumentCategory:
 	"code": "DocTestCode1",
 	"langCode": "eng"
 }'
-   Admin_CreateDocumentCategory_valid_sec_lang_SameDataAsVldScnrio:
+   Admin_CreateDocumentCategory_valid_sec_lang_ara_SameDataAsVldScnrio:
       endPoint: /v1/masterdata/documentcategories
       role: admin
       restMethod: post

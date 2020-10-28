@@ -110,7 +110,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -133,7 +133,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -156,7 +156,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "dell"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -258,22 +258,22 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "HP",
+        "fieldValue": "$IGNORE$",
         "fieldCode": "HP04"
       },
       {
         "fieldID": "name",
-        "fieldValue": "inspiron",
+        "fieldValue": "$IGNORE$",
         "fieldCode": "0"
       },
       {
         "fieldID": "name",
-        "fieldValue": "Test",
+        "fieldValue": "$IGNORE$",
         "fieldCode": "123"
       },
       {
-        "fieldID": "name",
-        "fieldValue": "Vostro",
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$",
         "fieldCode": "1001"
       }
     ]
