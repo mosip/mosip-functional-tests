@@ -1,5 +1,5 @@
 CreateMachineSpecification:
-   Admin_CreateMachineSpecification_All_Valid_Smoke_langid:
+   Admin_CreateMachineSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       restMethod: post

@@ -1,5 +1,5 @@
 CreateDeviceSpecification:
-   Admin_CreateDeviceSpecification_All_Valid_Smoke_langid:
+   Admin_CreateDeviceSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
       restMethod: post

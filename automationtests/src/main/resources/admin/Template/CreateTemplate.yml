@@ -1,5 +1,5 @@
 CreateTemplate:
-   Admin_CreateTemplate_All_Valid_Smoke_langid:
+   Admin_CreateTemplate_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/templates
       role: admin
       restMethod: post
@@ -33,7 +33,7 @@ CreateTemplate:
         "description": "نموذج الاختبار",
         "fileFormatCode": "Doc",
         "fileText": "abc",
-        "id": "$ID:eng$",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid$",
         "isActive": true,
         "langCode": "ara",
         "model": "$REMOVE$",
@@ -57,7 +57,7 @@ CreateTemplate:
         "description": "modèle de test",
         "fileFormatCode": "Doc",
         "fileText": "abc",
-        "id": "$ID:eng$",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid$",
         "isActive": true,
         "langCode": "fra",
         "model": "$REMOVE$",

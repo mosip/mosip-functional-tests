@@ -8,7 +8,7 @@ UpdateMachineSpecification:
       input: '{
     "brand": "HP",
     "description": "HP brand updated",
-    "id": "$ID:eng$",
+    "id": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid$",
     "isActive": true,
     "langCode": "eng",
     "machineTypeCode": "DKS",
