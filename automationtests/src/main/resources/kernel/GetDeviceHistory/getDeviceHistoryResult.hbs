@@ -1,0 +1,26 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "deviceHistoryDetails": [
+       {{#each deviceHistoryDetails}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "serialNum": "{{serialNum}}",
+        "ipAddress": "$IGNORE$",
+        "macAddress": "{{macAddress}}",
+        "deviceSpecId": "{{deviceSpecId}}",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}},
+        "effectDateTime": "{{effectDateTime}}",
+        "validityDateTime": "$IGNORE$"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

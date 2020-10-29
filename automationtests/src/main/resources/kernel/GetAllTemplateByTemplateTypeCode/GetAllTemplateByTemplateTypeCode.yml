@@ -1,0 +1,39 @@
+GetAllTemplateByTemplateTypeCode:
+   Kernel_GetAllTemplateByTemplateTypeCode_smoke:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: ida
+      restMethod: get
+      inputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCode
+      outputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCodeResult
+      input: '{
+	"code":"Test-info-Template-auto"
+}'
+      output: '{
+"templates": [{
+                "name": "Test-template",
+                "fileFormatCode": "Doc",
+                "fileText": "abc",
+                "moduleId": "10001",
+                "moduleName": "Pre-Registration",
+                "templateTypeCode": "Test-info-Template-auto",
+                "langCode": "eng",
+                "isActive": true
+            }]
+}'
+   Kernel_GetAllTemplateByTemplateTypeCode_invalid_code:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: ida
+      restMethod: get
+      inputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCode
+      outputTemplate: kernel/error
+      input: '{
+	"code":"xycd"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
+    }
+  ]
+}'
