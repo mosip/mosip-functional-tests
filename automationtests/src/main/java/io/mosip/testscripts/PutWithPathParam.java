@@ -25,7 +25,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
 public class PutWithPathParam extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+	private static final Logger logger = Logger.getLogger(PutWithPathParam.class);
 	protected String testCaseName = "";
 	/**
 	 * get current testcaseName
@@ -60,7 +60,7 @@ public class PutWithPathParam extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
-		Response response = putWithPathParamBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		Response response = putWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

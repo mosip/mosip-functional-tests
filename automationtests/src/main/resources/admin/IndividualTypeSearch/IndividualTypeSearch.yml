@@ -61,7 +61,7 @@ IndividualTypeSearch:
     ],
       "pageStart": 0,
       "pageFetch": 1,
-    "languageCode": "ara",
+    "languageCode": "eng",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -91,7 +91,7 @@ IndividualTypeSearch:
     ],
       "pageStart": 0,
       "pageFetch": 1,
-    "languageCode": "ara",
+    "languageCode": "eng",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{

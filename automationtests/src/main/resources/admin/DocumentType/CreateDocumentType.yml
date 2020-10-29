@@ -8,7 +8,7 @@ CreateDocumentType:
       input: '{
 	"code": "MSD",
 	"description": "MSD Card Holder",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "MSD Card",
 	"requesttime": "$TIMESTAMP$"
@@ -16,7 +16,7 @@ CreateDocumentType:
       output: '{
 	"code": "MSD",
 	"description": "MSD Card Holder",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "MSD Card"
 }'
@@ -29,7 +29,7 @@ CreateDocumentType:
       input: '{
 	"code": "CSD",
 	"description": "$REMOVE$",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "CSD Card",
 	"requesttime": "$TIMESTAMP$"
@@ -37,11 +37,11 @@ CreateDocumentType:
       output: '{
 	"code": "CSD",
 	"description": "$IGNORE$",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "CSD Card"
 }'
-   Admin_CreateDocumentType_All_Valid_Mandatory_Fields_Ara:
+   Admin_CreateDocumentType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: post
@@ -62,7 +62,7 @@ CreateDocumentType:
 	"langCode": "ara",
 	"name": "CSD Card"
 }'
-   Admin_CreateDocumentType_Valid_PrimLang_False_Act_SeconLang:
+   Admin_CreateDocumentType_Valid_PrimLang_False_Act_SeconLang_ara:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: post

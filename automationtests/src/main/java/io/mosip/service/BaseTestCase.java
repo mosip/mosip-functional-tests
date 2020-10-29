@@ -80,6 +80,7 @@ public class BaseTestCase {
 	public static Map<String, String> partnerQueries;
 	public static String partnerDemoServicePort = null;
 	public static boolean insertDevicedata = false;
+	public static boolean proxy = true;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -114,7 +115,8 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
-		partnerDemoServicePort=(String) kernelCmnLib.readProperty("partnerDemoService").get(System.getProperty("env.user")+".encryptionPort");
+		partnerDemoServicePort = (String) kernelCmnLib.readProperty("partnerDemoService")
+				.get(System.getProperty("env.user") + ".encryptionPort");
 		/**
 		 * Make sure test-output is there
 		 */
@@ -140,7 +142,6 @@ public class BaseTestCase {
 	/*
 	 * Saving TestNG reports to be published
 	 */
-
 
 	public static void suiteSetup() {
 		File logFile = new File("./src/logs/mosip-api-test.log");
@@ -184,12 +185,13 @@ public class BaseTestCase {
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
+			
 			new PreregistrationDAO().makeAllRegistartionCenterActive();
 			try {
 				expiredPreRegIds = lib.createExpiredApplication();
 				consumedPreRegIds = lib.createConsumedPreId();
 			} catch (Exception e) {
-				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
+				logger.error("Preregistration excution will be skipped due to issue in prerquistie " + e.getMessage());
 				listOfModules.remove("prereg");
 			}
 
@@ -204,10 +206,10 @@ public class BaseTestCase {
 				e.printStackTrace();
 
 			}
+					 
 		}
-		 
-	}
 
+	}
 
 	/**
 	 * After the entire test suite clean up rest assured
@@ -220,13 +222,13 @@ public class BaseTestCase {
 		} else if (ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite")) {
 			new PMPDataManager(false);
 		}
-		 
+
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
-		
+
 		// extent.flush();
 	} // end testTearDown
 
@@ -242,34 +244,33 @@ public class BaseTestCase {
 		logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
 		return logProp;
 	}
-	
-	private void copyReportAndLog()
-	{
+
+	private void copyReportAndLog() {
 		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
-		String dirToReport = System.getProperty("user.home")+"/"+folderForReport;
+		String dirToReport = System.getProperty("user.home") + "/" + folderForReport;
 		File dest = new File(dirToReport);
-		if(!dest.exists())
+		if (!dest.exists())
 			dest.mkdir();
-		
-		String os=System.getProperty("os.name");
+
+		String os = System.getProperty("os.name");
 		String projDirPath = null;
-		 if(MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) 
-			 projDirPath = System.getProperty("user.dir");
-		else 
-			projDirPath=new File(System.getProperty("user.dir")).getParent();
-		 
-		File reportFolder = new File(projDirPath+"/testng-report");
-		File logFolder = new File(projDirPath+"/src/logs");
-		
+		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows") == false)
+			projDirPath = System.getProperty("user.dir");
+		else
+			projDirPath = new File(System.getProperty("user.dir")).getParent();
+
+		File reportFolder = new File(projDirPath + "/testng-report");
+		File logFolder = new File(projDirPath + "/src/logs");
+
 		try {
-			if(dest.listFiles().length!=0)
-			FileUtils.cleanDirectory(dest);
+			if (dest.listFiles().length != 0)
+				FileUtils.cleanDirectory(dest);
 			FileUtils.copyDirectoryToDirectory(reportFolder, dest);
 			FileUtils.copyDirectoryToDirectory(logFolder, dest);
 		} catch (Exception e) {
-			logger.info("Not able to store the log and report at the specified path: "+dirToReport);
+			logger.info("Not able to store the log and report at the specified path: " + dirToReport);
 			logger.error(e.getMessage());
 		}
-		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
+		logger.info("Copied the logs and reports successfully in folder: " + dirToReport);
 	}
 }

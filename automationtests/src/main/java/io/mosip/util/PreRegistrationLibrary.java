@@ -28,6 +28,7 @@ import java.util.TimeZone;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONTokener;
@@ -56,6 +57,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.preregistration.dao.PreregistrationDAO;
 import io.mosip.preregistration.util.PreRegistrationUtil;
 import io.mosip.preregistration.util.PreregistrationEception;
@@ -390,7 +392,10 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		request = batchOtpRequest(testSuite);
 		generateOTP(request);
 		try {
-			otp = dao.getOTP(userId).get(0);
+			if(proxy)
+				otp = "111111";
+			else
+				otp = dao.getOTP(userId).get(0);
 		} catch (IndexOutOfBoundsException e) {
 			Assert.assertTrue(false, "send otp failed");
 		}
@@ -2017,6 +2022,17 @@ public class PreRegistrationLibrary extends BaseTestCase {
 		preReg_SyncMasterDataURI = preRegUtil.fetchPreregProp().get("preReg_SyncMasterDataURI");
 		preReg_FetchCenterIDURI = preRegUtil.fetchPreregProp().get("preReg_FetchCenterIDURI");
 		preReg_MultipleBookAppURI = preRegUtil.fetchPreregProp().get("preReg_MultipleBooking");
+		copyPreregTestResource();
 	}
-
+	
+	public static void copyPreregTestResource() {
+		try {
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/preReg");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			FileUtils.copyDirectoryToDirectory(source, destination);
+			logger.info("Copied the prereg test resource successfully");
+		} catch (Exception e) {
+			logger.error("Exception occured while copying the file: "+e.getMessage());
+		}
+	}
 }

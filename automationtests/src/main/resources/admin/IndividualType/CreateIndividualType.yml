@@ -7,18 +7,18 @@ CreateIndividualType:
       outputTemplate: admin/IndividualType/IndividualTypeResult
       input: '{
     "code": "TST-129",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "abc",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"isActive": false,
+	"isActive": true,
 	"code": "TST-129",
 	"langCode": "eng",
 	"name": "abc"
 }'
-   Admin_CreateIndividualType_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateIndividualType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/individualtypes
       role: admin
       restMethod: post
@@ -39,7 +39,7 @@ CreateIndividualType:
     }
   ]
 }'
-   Admin_CreateIndividualType_valid_secondarylang_SameDataAsVldScnrio:
+   Admin_CreateIndividualType_valid_secondarylang_ara_SameDataAsVldScnrio:
       endPoint: /v1/masterdata/individualtypes
       role: admin
       restMethod: post

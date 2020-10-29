@@ -1,5 +1,5 @@
 CreateMachineSpecification:
-   Admin_CreateMachineSpecification_All_Valid_Smoke:
+   Admin_CreateMachineSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       restMethod: post
@@ -18,10 +18,10 @@ CreateMachineSpecification:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"langCode": "eng"
 }'
-   Admin_CreateMachineSpecification_All_Valid_Mandatory_Fields:
+   Admin_CreateMachineSpecification_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       restMethod: post
@@ -43,7 +43,7 @@ CreateMachineSpecification:
 	"id": "HP04",
 	"langCode": "ara"
 }'
-   Admin_CreateMachineSpecification_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateMachineSpecification_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       restMethod: post

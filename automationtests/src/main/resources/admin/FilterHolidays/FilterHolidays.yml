@@ -98,7 +98,7 @@ FilterHolidays:
 		"type": "unique",
 		"text": "AutoTest user"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

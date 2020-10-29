@@ -18,7 +18,7 @@ UpdateIndividualType:
 	"langCode": "eng",
 	"name": "abc updated"
 }'
-   Admin_UpdateIndividualType_Valid_PrimLangz_False_Act_SeconLang:
+   Admin_UpdateIndividualType_Valid_PrimLangz_False_Act_SeconLang_ara:
       endPoint: /v1/masterdata/individualtypes
       role: admin
       restMethod: put

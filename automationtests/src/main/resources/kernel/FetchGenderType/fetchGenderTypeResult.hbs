@@ -1,0 +1,13 @@
+{
+  "genderType": [
+  {{#each genderType}}
+    {
+      "code": "{{code}}",
+      "genderName": "{{genderName}}",
+      "langCode": "{{langCode}}",
+      "isActive": {{isActive}}
+    }
+    {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+}

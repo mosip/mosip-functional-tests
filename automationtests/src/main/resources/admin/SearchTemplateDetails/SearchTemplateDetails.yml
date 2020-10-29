@@ -27,16 +27,16 @@ SearchTemplateDetails:
       output: '{
    "data": [
      {
-        "isActive": true,
-        "id": "test-03",
+        "isActive": false,
+        "id": "$IGNORE$",
         "name": "Test-template",
         "description": "test template",
-        "fileFormatCode": "html",        
+        "fileFormatCode": "Doc",        
         "model": "model-1",        
         "fileText": "abc",        
         "moduleId": "10001",        
         "moduleName": "Pre-Registration",        
-        "templateTypeCode": "Acknowledgement-email-subject",        
+        "templateTypeCode": "Test-info-Template-auto",        
         "langCode": "eng"        
       }
     ]
@@ -72,13 +72,13 @@ SearchTemplateDetails:
         "isActive": true,
         "id": "test-03",
         "name": "Test-template",
-        "description": "test template",
-        "fileFormatCode": "html",        
+        "description": "نموذج الاختبار",
+        "fileFormatCode": "Doc",        
         "model": "$IGNORE$",        
         "fileText": "abc",        
         "moduleId": "10001",        
         "moduleName": "Pre-Registration",        
-        "templateTypeCode": "Acknowledgement-email-subject",        
+        "templateTypeCode": "Test-info-Template-auto",        
         "langCode": "ara"        
       }
     ]
@@ -111,16 +111,16 @@ SearchTemplateDetails:
       output: '{
    "data": [
      {
-        "isActive": true,
-        "id": "test-03",
+        "isActive": false,
+        "id": "$IGNORE$",
         "name": "Test-template",
         "description": "test template",
-        "fileFormatCode": "html",        
+        "fileFormatCode": "Doc",        
         "model": "$IGNORE$",        
         "fileText": "abc",        
         "moduleId": "10001",        
         "moduleName": "Pre-Registration",        
-        "templateTypeCode": "Acknowledgement-email-subject",        
+        "templateTypeCode": "Test-info-Template-auto",        
         "langCode": "eng"        
       }
     ]

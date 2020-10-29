@@ -9,7 +9,7 @@ CreateHoliday:
     "holidayDate": "2020-08-15",
     "holidayDesc": "AutoTest user Holiday",
     "holidayName": "AutoTest user",
-    "isActive": false,
+    "isActive": true,
     "langCode": "eng",
     "locationCode": "KTA",
 	"requesttime": "$TIMESTAMP$"
@@ -20,7 +20,7 @@ CreateHoliday:
         "holidayName": "AutoTest user",
         "langCode": "eng"
     }'
-   Admin_CreateHoliday_All_Valid_Mandatory_Fields:
+   Admin_CreateHoliday_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/holidays
       role: admin
       restMethod: post

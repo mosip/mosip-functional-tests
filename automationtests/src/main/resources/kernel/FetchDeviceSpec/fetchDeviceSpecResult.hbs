@@ -1,0 +1,18 @@
+{
+    "devicespecifications": [
+	{{#each devicespecifications}}
+        {
+            "id": "$IGNORE$",
+            "name": "{{name}}",
+            "brand": "{{brand}}",
+            "model": "{{model}}",
+            "deviceTypeCode": "{{deviceTypeCode}}",
+            "minDriverversion": "{{minDriverversion}}",
+            "description": "{{description}}",
+            "langCode": "{{langCode}}",
+            "isActive": {{isActive}}
+        }
+		{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+}

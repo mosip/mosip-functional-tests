@@ -8,7 +8,7 @@ UpdateTemplateFileFormat:
       input: '{
     "code": "Doc",
     "description": "Doc Test updated",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -24,8 +24,8 @@ UpdateTemplateFileFormat:
       outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
       input: '{
     "code": "CSV",
-    "description": "CSV Test updated",
-	"isActive": false,
+    "description": "اCSV Test",
+	"isActive": true,
 	"langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'

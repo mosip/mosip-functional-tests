@@ -111,6 +111,41 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 	}
 	
+	protected Response postWithFormPathParamAndFile(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		JSONObject req = new JSONObject(inputJson);
+		HashMap<String, String> formParams = new HashMap<String, String>();
+		HashMap<String, String> pathParams = new HashMap<String, String>();
+		
+		File filetoUpload = null;
+		String fileKeyName = null;
+		if(req.has("filePath") && req.has("fileKeyName") ) {
+		 filetoUpload = new File(RunConfigUtil.getResourcePath() + req.get("filePath").toString());
+		 req.remove("filePath");
+		 fileKeyName = req.get("fileKeyName").toString();
+		 req.remove("fileKeyName");
+		}
+		else 
+			logger.error("request doesn't contanin filePath and fileKeyName: "+inputJson);
+		pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
+		req.remove("preRegistrationId");
+		formParams.put("Document request", req.toString());
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.postWithFormPathParamAndFile(url, formParams, pathParams, filetoUpload, fileKeyName,
+						MediaType.MULTIPART_FORM_DATA, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
 	/**
 	 * This method will hit put request and return the response
 	 * @param url
@@ -136,7 +171,7 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 	}
 	
-	protected Response putWithPathParamBodyAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+	protected Response putWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -150,6 +185,36 @@ public class AdminTestUtil extends BaseTestCase{
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			  response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response putWithPathParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName, String pathParams) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		JSONObject req = new JSONObject(inputJson);
+		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
+		String params[] = pathParams.split(",");
+		for(String param: params)
+		{
+			if(req.has(param)) {
+				 pathParamsMap.put(param, req.get(param).toString());
+				 req.remove(param);
+			}
+			else 
+			logger.error("request doesn't contanin param: "+param+" in: "+inputJson);
+		}
+		
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******put request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.putWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;

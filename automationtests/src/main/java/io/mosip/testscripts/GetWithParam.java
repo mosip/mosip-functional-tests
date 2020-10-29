@@ -25,7 +25,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
 public class GetWithParam extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+	private static final Logger logger = Logger.getLogger(GetWithParam.class);
 	protected String testCaseName = "";
 	/**
 	 * get current testcaseName

@@ -86,7 +86,7 @@ FetchPacketStatus:
    "errors": [
     {
       "errorCode": "KER-ATH-403",
-      "message": "Access is denied"
+      "message": "$IGNORE$"
     }
   ]
 }'

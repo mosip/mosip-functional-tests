@@ -8,7 +8,7 @@ CreateMachineType:
       input: '{
     "code": "Laptop-2",
     "description": "Laptop-2 info",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "Laptop-2 test",
 	"requesttime": "$TIMESTAMP$"
@@ -17,7 +17,7 @@ CreateMachineType:
 	"code": "Laptop-2",
 	"langCode": "eng"
 }'
-   Admin_CreateMachineType_All_Valid_Mandatory_Fields:
+   Admin_CreateMachineType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/machinetypes
       role: admin
       restMethod: post
@@ -35,7 +35,7 @@ CreateMachineType:
 	"code": "Laptop-2",
 	"langCode": "ara"
 }'
-   Admin_CreateMachineType_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateMachineType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/machinetypes
       role: admin
       restMethod: post

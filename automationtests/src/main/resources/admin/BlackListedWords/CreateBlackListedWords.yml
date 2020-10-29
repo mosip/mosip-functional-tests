@@ -16,7 +16,7 @@ CreateBlackListedWords:
 	"word": "dumb",
 	"langCode": "eng"
 }'
-   Admin_CreateBlackListedWords_Valid_OnlyMandatoryFields_DB:
+   Admin_CreateBlackListedWords_Valid_OnlyMandatoryFields_DB_ara:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
       restMethod: post
