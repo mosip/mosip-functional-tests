@@ -1,0 +1,46 @@
+createPartnerSelfRegistration:
+   Partner_PartnerSelfRegistration_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/partnerService/PartnerSelfRegistration/createPartnerSelfRegistration
+      outputTemplate: partner/partnerService/PartnerSelfRegistration/createPartnerSelfRegistrationResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "Tech-123",
+        "status": "Active"
+    }'
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_PartnerId:
+      endPoint: /partnermanagement/v1/partners/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/partnerService/PartnerSelfRegistration/createPartnerSelfRegistration
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "$REMOVE$",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

@@ -1,0 +1,37 @@
+createAddContact:
+   Partner_AddContact_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123/addcontact
+      role: partner
+      restMethod: post
+      inputTemplate: partner/partnerService/AddContact/createAddContact
+      outputTemplate: partner/partnerService/AddContact/createAddContactResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "9903255448",
+    "emailId": "print@email.com",
+    "is_Active": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: 'Contacts details added successfully.'
+
+   Partner_AddContact_Missing_InputParameter_address:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123/addcontact
+      role: partner
+      restMethod: post
+      inputTemplate: partner/partnerService/AddContact/createAddContact
+      outputTemplate: partner/error
+      input: '{
+    "address": "$REMOVE$",
+    "contactNumber": "9903255448",
+    "emailId": "print@email.com",
+    "is_Active": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

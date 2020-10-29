@@ -1,0 +1,36 @@
+createUpdatePartnerDetails:
+   Partner_UpdatePartnerDetails_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      role: partner
+      restMethod: put
+      inputTemplate: partner/partnerService/UpdatePartnerDetails/createUpdatePartnerDetails
+      outputTemplate: partner/partnerService/UpdatePartnerDetails/createUpdatePartnerDetailsResult
+      input: '{
+    "address": "Bangalore Ind",
+    "contactNumber": "8553967576",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "Tech-123",
+        "status": "Active"
+    }'
+
+   Partner_UpdatePartnerDetails_Missing_InputParameter_Address:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      role: partner
+      restMethod: put
+      inputTemplate: partner/partnerService/UpdatePartnerDetails/createUpdatePartnerDetails
+      outputTemplate: partner/error
+      input: '{
+    "address": "$REMOVE$",
+    "contactNumber": "8553967576",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

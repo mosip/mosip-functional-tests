@@ -1,0 +1,20 @@
+createUpdatePolicyGroup:
+   Partner_UpdatePolicyGroup_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroup/{policyGroupId}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/policy/UpdatePolicyGroup/createUpdatePolicyGroup
+      outputTemplate: partner/policy/UpdatePolicyGroup/createUpdatePolicyGroupResult
+      input: '{
+    "active": true,
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group",
+    "policyGroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "name": "mosip policy group",
+        "desc": "desc mosip policy group",
+        "is_Active": true
+    }'
+

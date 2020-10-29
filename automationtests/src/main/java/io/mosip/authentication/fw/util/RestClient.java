@@ -290,4 +290,14 @@ public class RestClient {
         RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + deleteResponse.time());
         return deleteResponse;
     }
+	
+	public static Response postRequestWithCookieAndOnlyPathParm(String url, HashMap<String, String> body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
+				.cookie(cookieName, cookieValue).log().all().when().post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
 }
