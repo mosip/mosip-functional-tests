@@ -14,7 +14,33 @@ createUpdateMISP:
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-        "mispStatus": "Active",
-        "mispID": "103"
+        "name": "mosip_misp",
+        "contactNumber": "9840587092",
+        "emailID": "misp@misp.com",
+        "address": "india",
+        "mispID": "134"
     }'
+
+   Partner_UpdateMISP_Missing_InputParameter_contactNumber:
+      endPoint: /partnermanagement/v1/misps/misps/{mispID}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/misp/UpdateMISP/createUpdateMISP
+      outputTemplate: partner/error
+      input: '{
+    "address": "india",
+    "contactNumber": "$REMOVE$",
+    "emailId": "misp@misp.com",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "name": "mosip_misp",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.contactNumber"
+    }
+  ]
+}'
 

@@ -8,7 +8,7 @@
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	 <test name="CreateDefinePolicyGroup">
+	 <test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/DefinePolicyGroup/createDefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -16,7 +16,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="CreateGetPolicyGroup">
+	<test name="GetPolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicyGroup/createGetPolicyGroup.yml" />
 		<classes>
@@ -24,21 +24,22 @@
 				name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="CreateUpdatePolicyGroup">
-		<parameter name="ymlFile"
-			value="partner/policy/UpdatePolicyGroup/createUpdatePolicyGroup.yml" />
+	<test name="UpdatePolicyGroup">
+		<parameter name="ymlFile" value="partner/policy/UpdatePolicyGroup/createUpdatePolicyGroup.yml" />
+		<parameter name="pathParams" value="policyGroupId" />
 		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParam" />
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="CreatePartnerSelfRegistration">
+
+	 <test name="CreatePartner">
 		<parameter name="ymlFile"
 			value="partner/partnerService/PartnerSelfRegistration/createPartnerSelfRegistration.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="CreateUpdatePartnerDetails">
+	<test name="UpdatePartnerDetails">
 		<parameter name="ymlFile"
 			value="partner/partnerService/UpdatePartnerDetails/createUpdatePartnerDetails.yml" />
 		<classes>
@@ -54,7 +55,7 @@
 				name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="CreateAddContact">
+	<test name="AddContact">
 		<parameter name="ymlFile"
 			value="partner/partnerService/AddContact/createAddContact.yml" />
 		<classes>
@@ -62,7 +63,7 @@
 				name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="CreateRetrievePartnerDetails">
+	<test name="GetPartnerDetails">
 		<parameter name="ymlFile"
 			value="partner/partnerService/RetrievePartnerDetails/createRetrievePartnerDetails.yml" />
 		<classes>
@@ -70,7 +71,7 @@
 				name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="CreatePublishPolicy">
+	<test name="PublishPolicy">
 		<parameter name="ymlFile" value="partner/policy/PublishPolicy/createPublishPolicy.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
@@ -84,13 +85,14 @@
 				name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="CreateUpdateMISP">
-		<parameter name="ymlFile" value="partner/misp/UpdateMISP/createUpdateMISP.yml"/>  
+	<test name="UpdateMISP">
+		<parameter name="ymlFile" value="partner/misp/UpdateMISP/createUpdateMISP.yml"/> 
+		<parameter name="pathParams" value="mispID" /> 
 		<classes>
-		<class name="io.mosip.testscripts.PutWithPathParam" />
+		 <class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="CreateGetMisp">
+	<test name="GetMisp">
 		<parameter name="ymlFile"
 			value="partner/misp/GetMisp/createGetMisp.yml" />
 		<classes>
@@ -98,21 +100,28 @@
 				name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	<test name="CreateGetMispsByOrg">
+	<test name="GetMispsByOrg">
 		<parameter name="ymlFile"
 			value="partner/misp/GetMispsByOrg/createGetMispsByOrg.yml" />
 		<classes>
 			<class
 				name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> 
-	<test name="CreateServiceToSaveDeviceDetail">
+	</test>
+	<test name="CreateDeviceDetail">
 		<parameter name="ymlFile"
 			value="partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test> 
+	<test name="UpdateDeviceDetail">
+		<parameter name="ymlFile"
+			value="partner/DeviceDetail/ServiceToUpdateDeviceDetail/createServiceToUpdateDeviceDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> 
 	
 	<!--<test name="createSubmitPartnerApiKeyRequest">
 		<parameter name="ymlFile" value="partner/SubmitPartnerApiKeyRequest/createSubmitPartnerApiKeyRequest.yml"/>  
