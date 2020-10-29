@@ -1,9 +1,0 @@
-{
-  "responsetime": "$IGNORE$",
-  "errors": [
-    {
-      "errorCode": "KER-MSD-339",
-      "message": "No zone found for the logged-in user 110102"
-    }
-  ]
-}

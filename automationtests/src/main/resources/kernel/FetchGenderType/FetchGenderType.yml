@@ -1,0 +1,52 @@
+FetchGenderType:
+   Kernel_FetchGenderType_allValid_smoke_get:
+      endPoint: /v1/masterdata/gendertypes
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchGenderType/fetchGenderType
+      outputTemplate: kernel/FetchGenderType/fetchGenderTypeResult
+      input: '{
+   "langcode":"$REMOVE$"
+}'
+      output: '{
+"genderType": [{
+      "code": "MLE",
+      "genderName": "Male",
+      "langCode": "eng",
+      "isActive": true
+    }]
+}'
+   Kernel_FetchGenderType_allValid_smoke_lang:
+      endPoint: /v1/masterdata/gendertypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchGenderType/fetchGenderType
+      outputTemplate: kernel/FetchGenderType/fetchGenderTypeResult
+      input: '{
+   "langcode":"eng"
+}'
+      output: '{
+"genderType": [{
+      "code": "MLE",
+      "genderName": "Male",
+      "langCode": "eng",
+      "isActive": true
+    }]
+}'
+   Kernel_FetchGenderType_invalid_langcode_unexisting:
+      endPoint: /v1/masterdata/gendertypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchGenderType/fetchGenderType
+      outputTemplate: kernel/error
+      input: '{
+   "langcode":"GER"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-018",
+      "message": "Gender Type not found"
+    }
+  ]
+}'

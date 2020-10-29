@@ -1,0 +1,541 @@
+SearchTemplateDetails:
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_smoke:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": false,
+        "id": "$IGNORE$",
+        "name": "Test-template",
+        "description": "test template",
+        "fileFormatCode": "Doc",        
+        "model": "model-1",        
+        "fileText": "abc",        
+        "moduleId": "10001",        
+        "moduleName": "Pre-Registration",        
+        "templateTypeCode": "Test-info-Template-auto",        
+        "langCode": "eng"        
+      }
+    ]
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_ara:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "ara",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "id": "test-03",
+        "name": "Test-template",
+        "description": "نموذج الاختبار",
+        "fileFormatCode": "Doc",        
+        "model": "$IGNORE$",        
+        "fileText": "abc",        
+        "moduleId": "10001",        
+        "moduleName": "Pre-Registration",        
+        "templateTypeCode": "Test-info-Template-auto",        
+        "langCode": "ara"        
+      }
+    ]
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "contains",
+        "value": "Test-temp"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": false,
+        "id": "$IGNORE$",
+        "name": "Test-template",
+        "description": "test template",
+        "fileFormatCode": "Doc",        
+        "model": "$IGNORE$",        
+        "fileText": "abc",        
+        "moduleId": "10001",        
+        "moduleName": "Pre-Registration",        
+        "templateTypeCode": "Test-info-Template-auto",        
+        "langCode": "eng"        
+      }
+    ]
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_null:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": ""
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_null:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "startsWith",
+        "value": ""
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_invalid:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "startsWith",
+        "value": "defshd"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": []
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_invalid:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "defshd"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": []
+}'
+   Admin_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contains_filterValue_invalid:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/SearchTemplateDetails/searchTemplateDetailsResult
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "contains",
+        "value": "defshd"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "data": []
+}'
+   Admin_SearchTemplateDetails_inavlid_Empty_FilterType:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_inavlid_Empty_ColumnName:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_inavlid_Empty_FilterValue:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": ""
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_inavlid_columnName:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "defjdkf",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_inavlid_pageFetch_lessThan1:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": -1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-313",
+      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_inavlid_paginationValue:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": abc,
+      "pageFetch": 1,
+    "languageCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : pagination"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_invalid_LangCode:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "engr",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_SearchTemplateDetails_invalid_LangCode_empty:
+      endPoint: /v1/masterdata/templates/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchTemplateDetails/searchTemplateDetails
+      outputTemplate: admin/error
+      input: '{
+    "filters": [{
+        "columnName": "name",
+        "type": "equals",
+        "value": "Test-template"
+      }
+    ],
+    "sort": [
+      {
+			        "sortField": "name",
+			        "sortType": "ASC"
+			      }
+    ],
+  
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'

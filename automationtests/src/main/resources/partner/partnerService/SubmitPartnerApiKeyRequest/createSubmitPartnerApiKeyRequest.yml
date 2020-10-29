@@ -1,0 +1,36 @@
+createSubmitPartnerApiKeyRequest:
+   SubmitPartnerApiKeyRequest_All_Valid_Smoke_sis:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123/partnerAPIKeyRequests
+      role: partner
+      restMethod: patch 
+      inputTemplate: partner/partnerService/SubmitPartnerApiKeyRequest/createSubmitPartnerApiKeyRequest
+      outputTemplate: partner/partnerService/SubmitPartnerApiKeyRequest/createSubmitPartnerApiKeyRequestResult
+      input: '{
+        "policyName": "mosip policy",
+        "useCaseDescription": "Need to submit the payment",
+		"requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+        "apiRequestId": "254785",
+        "message": "PartnerAPIKeyRequest successfully created"
+    }'
+
+   SubmitPartnerApiKeyRequest_Missing_InputParameter_policyName:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123/partnerAPIKeyRequests
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/partnerService/SubmitPartnerApiKeyRequest/createSubmitPartnerApiKeyRequest
+      outputTemplate: partner/error
+      input: '{
+        "policyName": "$REMOVE$",
+        "useCaseDescription": "Need to submit the payment",
+		"requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

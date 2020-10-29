@@ -1,0 +1,38 @@
+SearchLocationData:
+   Admin_SearchLocationData_Valid_Smoke:
+      endPoint: /v1/masterdata/locations/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/SearchLocationData/searchLocationData
+      outputTemplate: admin/SearchLocationData/searchLocationDataResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "region",
+        "type": "equals",
+        "value": "INDIA",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "region",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "isActive": false,
+        "region": "INDIA",
+        "city": "{{city}}",
+        "province": "{{province}}",
+        "zone": "{{zone}}",
+        "postalCode": "{{postalCode}}" 
+      }'

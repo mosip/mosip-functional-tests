@@ -1,0 +1,14 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+    "errors": [
+      {{#each errors}}
+          {
+            "errorCode": "{{errorCode}}",
+			"message": "{{message}}"
+          }
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+}

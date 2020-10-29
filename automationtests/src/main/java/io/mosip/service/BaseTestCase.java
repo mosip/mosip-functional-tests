@@ -53,6 +53,7 @@ public class BaseTestCase {
 	public String preRegAdminToken;
 	protected static String regClientToken;
 	public String regProcToken;
+	public final String COOKIENAME = "Authorization";
 
 	public String individualCookie = null;
 	public String idaCookie = null;
@@ -81,6 +82,7 @@ public class BaseTestCase {
 	public static Map partnerQueries;
 	public static String partnerDemoServicePort = null;
 	public static boolean insertDevicedata = false;
+	public static boolean proxy = true;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -179,7 +181,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
 			PartnerTestUtil.initiatePartnerTest();
 		}
-
+		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
+			AdminTestUtil.initiateKernelTest();
+		}
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();

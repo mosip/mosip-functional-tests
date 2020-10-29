@@ -1,0 +1,18 @@
+CreatePrereg:
+   Prereg_CreatePrereg_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
+      input: '{
+  "postalCode": "14022",
+  "dateOfBirth": "1996/01/01",
+  "email": "mosipuser123@mailinator.com",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+  "langCode": "eng"
+}'

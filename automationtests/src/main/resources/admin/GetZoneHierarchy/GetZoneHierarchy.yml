@@ -1,0 +1,275 @@
+GetZoneHierarchy:
+   Admin_GetZoneHierarchy_Valid_Smoke:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/getZoneHierarchyResult
+      input: '{
+	"langCode": "eng"
+}'
+      output: '{
+"response": [{
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CST",
+        "langCode": "eng",
+        "name": "Casablanca-Settat",
+        "hierarchyLevel": "2",
+        "hierarchyName": "Region",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "eng",
+        "name": "Benslimane",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CSB",
+        "langCode": "eng",
+        "name": "Casablanca",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/CSB"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "STT",
+        "langCode": "eng",
+        "name": "Settat",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/STT"        
+                        
+    }
+    ]
+  }'
+   Admin_GetZoneHierarchy_NorthUser_ara:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/getZoneHierarchyResult
+      input: '{
+	"langCode": "ara"
+}'
+      output: '{
+"response": [{
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CST",
+        "langCode": "ara",
+        "name": "الدارالبيضاء-سطات",
+        "hierarchyLevel": "2",
+        "hierarchyName": "منطقة",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "ara",
+        "name": "بنسليمان",
+        "hierarchyLevel": "3",
+        "hierarchyName": "المحافظة",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CSB",
+        "langCode": "ara",
+        "name": "ٱلدَّارٱلْبَيْضَاء‎",
+        "hierarchyLevel": "3",
+        "hierarchyName": "المحافظة",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/CSB"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "STT",
+        "langCode": "ara",
+        "name": "سطات‎",
+        "hierarchyLevel": "3",
+        "hierarchyName": "المحافظة",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/STT"        
+                        
+    }
+    ]
+  }'
+   Admin_GetZoneHierarchy_NorthUser_fra:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneHierarchy/GetZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/GetZoneHierarchyResult
+      input: '{
+	"langCode": "fra"
+}'
+      output: '{
+"response": [{
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CST",
+        "langCode": "fra",
+        "name": "Casablanca-Settat",
+        "hierarchyLevel": "2",
+        "hierarchyName": "$IGNORE$",
+        "parentZoneCode": "NTH",
+        "hierarchyPath": "MOR/NTH/CST"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "BSN",
+        "langCode": "fra",
+        "name": "Benslimane",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/BSN"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "CSB",
+        "langCode": "fra",
+        "name": "Casablanca",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/CSB"        
+                        
+    },
+    {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "code": "STT",
+        "langCode": "fra",
+        "name": "Settat",
+        "hierarchyLevel": "3",
+        "hierarchyName": "Province",
+        "parentZoneCode": "CST",
+        "hierarchyPath": "MOR/NTH/CST/STT"        
+                        
+    }
+    ]
+  }'
+   Admin_GetZoneHierarchy_with_Invalid_user:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: invalid
+      restMethod: get
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/error
+      input: '{
+	"langCode": "eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}'
+   Admin_GetZoneHierarchy_with invalid langCode:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneHierarchy/getZoneHierarchy
+      outputTemplate: admin/GetZoneHierarchy/error
+      input: '{
+	"langCode": "engr"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'

@@ -1,0 +1,119 @@
+FetchDevice:
+   Kernel_FetchDevice_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/devices/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "$REMOVE$",
+  "languagecode": "eng"
+}'
+      output: '{
+"devices": [{
+			"name": "$IGNORE$",
+			"serialNum": "$IGNORE$",
+			"deviceSpecId": "$IGNORE$",
+			"macAddress": "$IGNORE$",
+			"langCode": "eng",
+			"isActive": true,
+			"deviceTypeCode": "$IGNORE$",
+			"zoneCode": "$IGNORE$",
+			"regCenterId": "$IGNORE$"
+		}]
+}'       
+   Kernel_FetchDevice_allValid_smoke_with_lang_and_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": "eng"
+}'
+      output: '{
+"devices": [{
+			"name": "$IGNORE$",
+			"serialNum": "$IGNORE$",
+			"deviceSpecId": "$IGNORE$",
+			"macAddress": "$IGNORE$",
+			"langCode": "eng",
+			"isActive": true,
+			"deviceTypeCode": "IRS",
+			"zoneCode": "$IGNORE$",
+			"regCenterId": "$IGNORE$"
+		}]
+}'       
+   Kernel_FetchDevice_invalid_deviceType_unexisting:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/error
+      input: '{
+  "deviceType": "notInDB",
+  "languagecode": "eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       
+   Kernel_FetchDevice_invalid_languagecode_blank_with_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/error
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       
+   Kernel_FetchDevice_invalid_languagecode_unexisting:
+      endPoint: /v1/masterdata/devices/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/error
+      input: '{
+  "deviceType": "$REMOVE$",
+  "languagecode": "ENGR"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'
+   Kernel_FetchDevice_invalid_languagecode_unexisting_with_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/error
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": "ENGR"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       

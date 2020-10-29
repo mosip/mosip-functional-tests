@@ -1,0 +1,42 @@
+FilterLocationData:
+   Admin_FilterLocationData_Valid_Smoke:
+      endPoint: /v1/masterdata/locations/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterLocationData/filterLocationData
+      outputTemplate: admin/FilterLocationData/filterLocationDataResult
+      input: '{
+	"filters": [{
+		"columnName": "Zone",
+		"type": "unique",
+		"text": "KTA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": []
+  }'
+   Admin_FilterLocationData_Invalid_EmptyFilterType:
+      endPoint: /v1/masterdata/locations/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterLocationData/filterLocationData
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "Zone",
+		"type": "",
+		"text": "KTA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'

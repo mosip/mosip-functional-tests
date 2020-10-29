@@ -1,0 +1,300 @@
+CreateTemplateFileFormat:
+   Admin_CreateTemplateFileFormat_All_Valid_Smoke:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "Doc Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc",
+	"langCode": "eng"
+}'
+   Admin_CreateTemplateFileFormat_Act_primaryLang_withSec_lang_ara:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "اختبار الوثيقة",
+	"isActive": true,
+	"langCode": "ara",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc",
+	"langCode": "ara"
+}'
+   Admin_CreateTemplateFileFormat_valid_fra:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "Test de doc",
+	"isActive": true,
+	"langCode": "fra",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc",
+	"langCode": "fra"
+}'
+   Admin_CreateTemplateFileFormat_All_Valid_Mandatory_Fields:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "CSV",
+    "description": "CSV Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "CSV",
+	"langCode": "eng"
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "Docx",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Description_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "Docxx",
+    "description": "$REMOVE$",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: must not be null"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Description_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "Docxx",
+    "description": "",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Code_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "$REMOVE$",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Code_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_LangCode_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_LangCode_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   AAdmin_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "engr",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_Invalid_LangCode:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "GER",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_CreateTemplateFileFormat_InputParameter_isActive_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: admin/TemplateFileFormat/templateFileFormat
+      outputTemplate: admin/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": "$REMOVE$",
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}'

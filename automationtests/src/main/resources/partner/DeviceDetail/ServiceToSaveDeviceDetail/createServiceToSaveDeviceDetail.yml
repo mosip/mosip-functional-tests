@@ -1,0 +1,74 @@
+createServiceToSaveDeviceDetail:
+   Partner_ServiceToSaveDeviceDetail_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail
+      outputTemplate: partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "device-id-123"
+    }'
+
+   Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_DeviceId:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+
+   Partner_ServiceToSaveDeviceDetail_Invalid_InputParameter_DeviceProviderId:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "00000123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_AUT_002",
+      "message": "Device provider id not found from the partners list"
+    }
+  ]
+}'
