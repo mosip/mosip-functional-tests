@@ -6,11 +6,9 @@
 		regression smokeAndRegression -->
 	<listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
-		<listener
-			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<test name="PreReg Tests">
+	<!-- <test name="PreReg Tests">
 		<classes>
 		    <class name="io.mosip.preregistration.tests.BatchJob" />
 			<class name="io.mosip.preregistration.tests.Audit" />
@@ -70,6 +68,19 @@
 			<class name="io.mosip.preregistration.tests.ConsumedTestCase" />
 			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
 		</classes>
-	</test>
-	
+	</test> -->
+<test name="CreatePreRegistration">
+	<parameter name="ymlFile" value="preReg/createPrereg/createPrereg.yml" />
+	<parameter name="idKeyName" value="preRegistrationId" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+</test>
+<test name="UploadDocument">
+	<parameter name="ymlFile" value="preReg/uploadDocument/uploadDocument.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
+	</classes>
+</test>
+
 </suite>
