@@ -33,7 +33,7 @@ CreateGender:
 	"code": "Genderdummy-1",
 	"langCode": "eng"
 }'
-   Admin_CreateGender_valid_sec_lang_SameDataAsVldScnrio:
+   Admin_CreateGender_valid_sec_lang_ara_SameDataAsVldScnrio:
       endPoint: /v1/masterdata/gendertypes
       role: admin
       restMethod: post

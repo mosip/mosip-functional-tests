@@ -10,14 +10,14 @@ CreateRegCenterType:
     "langCode": "eng",
     "name": "alternate",
     "descr": "alternate center",
-    "isActive":false,
+    "isActive":true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
 	"code": "ALT-3",
 	"langCode": "eng"
 }'
-   Admin_CreateRegCenterType_All_Valid_Mandatory_Fields:
+   Admin_CreateRegCenterType_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
       restMethod: post
@@ -35,7 +35,7 @@ CreateRegCenterType:
 	"code": "ALT-3",
 	"langCode": "ara"
 }'
-   Admin_CreateRegCenterType_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateRegCenterType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
       restMethod: post

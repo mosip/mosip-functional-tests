@@ -28,7 +28,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -63,7 +63,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -101,7 +101,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -139,7 +139,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -177,7 +177,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -215,7 +215,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -253,7 +253,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -291,7 +291,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -329,7 +329,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",
@@ -367,7 +367,7 @@ SearchMachineSpec:
   }'
       output: '{
 	"data": [{
-	"id": "HP04",
+	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
 	"model": "1234",

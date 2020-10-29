@@ -8,7 +8,7 @@ CreateDeviceType:
       input: '{
     "code": "GST3",
     "description": "test 1.0.8",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "GST",
 	"requesttime": "$TIMESTAMP$"
@@ -26,7 +26,7 @@ CreateDeviceType:
       input: '{
     "code": "GST4",
     "description": "$REMOVE$",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"name": "GST4",
 	"requesttime": "$TIMESTAMP$"
@@ -35,7 +35,7 @@ CreateDeviceType:
 	"code": "GST4",
 	"langCode": "eng"
 }'
-   Admin_CreateDeviceType_valid_secondarylang_SameDataAsVldScnrio:
+   Admin_CreateDeviceType_valid_secondarylang_ara_SameDataAsVldScnrio:
       endPoint: /v1/masterdata/devicetypes
       role: admin
       restMethod: post
@@ -53,7 +53,7 @@ CreateDeviceType:
 	"code": "GST3",
 	"langCode": "ara"
 }'
-   Admin_CreateDeviceType_Sec_Data_Present_but_No_Data_Prim_lang:
+   Admin_CreateDeviceType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
       endPoint: /v1/masterdata/devicetypes
       role: admin
       restMethod: post

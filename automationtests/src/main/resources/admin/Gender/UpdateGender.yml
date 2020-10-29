@@ -8,7 +8,7 @@ UpdateGender:
       input: '{
 	"code": "Genderdummy",
 	"genderName": "TestGenderName updated",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -25,7 +25,7 @@ UpdateGender:
       input: '{
 	"code": "Genderdummy-1",
 	"genderName": "Genderdummy-1 updated",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -33,7 +33,7 @@ UpdateGender:
 	"code": "Genderdummy-1",
 	"langCode": "eng"
 }'
-   Admin_UpdateGender_valid_sec_lang_SameDataAsVldScnrio:
+   Admin_UpdateGender_valid_sec_lang_ara_SameDataAsVldScnrio:
       endPoint: /v1/masterdata/gendertypes
       role: admin
       restMethod: put

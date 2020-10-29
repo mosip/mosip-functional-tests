@@ -1,5 +1,5 @@
 CreateTemplate:
-   Admin_CreateTemplate_All_Valid_Smoke:
+   Admin_CreateTemplate_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/templates
       role: admin
       restMethod: post
@@ -7,7 +7,7 @@ CreateTemplate:
       outputTemplate: admin/Template/templateResult
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -16,36 +16,60 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
 	"id": "test-03",
 	"langCode": "eng"
 }'
-   Admin_CreateTemplate_All_Valid_Mandatory_Fields:
+   Admin_CreateTemplate_All_Valid_Mandatory_Fields_ara:
       endPoint: /v1/masterdata/templates
       role: admin
       restMethod: post
       inputTemplate: admin/Template/template
       outputTemplate: admin/Template/templateResult
       input: '{
-        "description": "test template",
-        "fileFormatCode": "html",
+        "description": "نموذج الاختبار",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
-        "id": "test-03",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid$",
         "isActive": true,
         "langCode": "ara",
         "model": "$REMOVE$",
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
 	"id": "test-03",
 	"langCode": "ara"
+}'
+   Admin_CreateTemplate_All_Valid_fra:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      restMethod: post
+      inputTemplate: admin/Template/template
+      outputTemplate: admin/Template/templateResult
+      input: '{
+        "description": "modèle de test",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid$",
+        "isActive": true,
+        "langCode": "fra",
+        "model": "$REMOVE$",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"id": "test-03",
+	"langCode": "fra"
 }'
    Admin_CreateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates
@@ -55,7 +79,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -64,7 +88,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "$REMOVE$",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -83,7 +107,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -92,7 +116,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -111,7 +135,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -120,7 +144,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -148,7 +172,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -176,7 +200,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -204,7 +228,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -223,7 +247,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -232,7 +256,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -251,7 +275,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -279,7 +303,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -307,7 +331,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -335,7 +359,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -344,7 +368,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -363,7 +387,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -372,7 +396,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -391,7 +415,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -400,7 +424,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -419,7 +443,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": false,
@@ -428,7 +452,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -447,7 +471,7 @@ CreateTemplate:
       outputTemplate: admin/error
       input: '{
         "description": "test template",
-        "fileFormatCode": "html",
+        "fileFormatCode": "Doc",
         "fileText": "abc",
         "id": "test-03",
         "isActive": "$REMOVE$",
@@ -456,7 +480,7 @@ CreateTemplate:
         "moduleId": "10001",
         "moduleName": "Pre-Registration",
         "name": "Test-template",
-        "templateTypeCode": "Acknowledgement-email-subject",
+        "templateTypeCode": "Test-info-Template-auto",
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{

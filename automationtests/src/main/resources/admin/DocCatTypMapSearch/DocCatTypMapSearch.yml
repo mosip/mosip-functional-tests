@@ -116,7 +116,7 @@ DocCatTypMapSearch:
 		"name": "$IGNORE$"
 	}]
 }'
-   Admin_DocCatTypMapSearch_Valid_sort_by_name:
+   Admin_DocCatTypMapSearch_Valid_sort_by_name_ara:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
       restMethod: post
@@ -175,7 +175,7 @@ DocCatTypMapSearch:
 	}],
 	"pageStart": 0,
 	"pageFetch": 1,
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -206,7 +206,7 @@ DocCatTypMapSearch:
 	}],
 	"pageStart": 0,
 	"pageFetch": 1,
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -237,7 +237,7 @@ DocCatTypMapSearch:
 	}],
 	"pageStart": 0,
 	"pageFetch": 1,
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
