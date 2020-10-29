@@ -102,6 +102,10 @@ public class KernelAuthentication extends BaseTestCase{
 			return batchJobToken;
 		case "invalid":
 			return "anyRandomString";
+		case "regAdmin":
+			if (!kernelCmnLib.isValidToken(regAdminCookie)) 
+				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
+			return regAdminCookie;	
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
