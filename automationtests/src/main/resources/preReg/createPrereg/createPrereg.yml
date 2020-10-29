@@ -14,5 +14,5 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "langCode": "fra"
+  "langCode": "eng"
 }'

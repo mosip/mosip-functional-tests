@@ -17,7 +17,7 @@ UploadDocument:
 }'
       output: '{
 "id":"mosip.pre-registration.document.upload",
-"docName":"doc_POI.pdf",
+"docName":"doc_POA.pdf",
 "docCatCode":"POA",
 "docTypCode":"RNC",
 "docFileFormat":"pdf"
