@@ -534,4 +534,28 @@ public class AdminTestUtil extends BaseTestCase{
 		array = array + "]";
 		return array;
 	}
+	
+	protected Response postWithOnlyPathParamAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		Response response=null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>(){}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: "+jsonInput+" Exception: "+e.getMessage());
+		}
+	
+	token = kernelAuthLib.getTokenByRole(role);
+	logger.info("******get request to EndPointUrl: " + url + " *******");
+	Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+	try {
+		  response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+		  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+		return response;
+	} catch (Exception e) {
+		logger.error("Exception " + e);
+		return response;
+	}
+}
 }

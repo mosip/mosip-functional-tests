@@ -1,0 +1,36 @@
+createGetMisp:
+   Partner_GetMisp_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/misps/misps/mispId/{mispId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/misp/GetMisp/createGetMisp
+      outputTemplate: partner/misp/GetMisp/createGetMispResult
+      input: '{
+		"mispId": "$ID:RegisterMISP_All_Valid_Smoke_sid$"
+}'
+      output: ' {
+            "isActive": true,
+            "name": "mosip_misp",
+            "address": "India",
+            "contactNumber": "9840587089",
+            "emailId": "misp@misp.com",
+            "status_code": "Inprogress"
+    }'
+
+   Partner_GetMisp_By_Invalid_mispId:
+      endPoint: /partnermanagement/v1/misps/misps/mispId/{mispId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/misp/GetMisp/createGetMisp
+      outputTemplate: partner/error
+      input: '{
+		"mispId": "misp-00001"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_MSP_005",
+      "message": "MISP ID does not exist  misp-00001"
+    }
+  ]
+}'

@@ -1,0 +1,33 @@
+createGetPolicyGroup:
+   Partner_GetPolicyGroup_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroupId/{policyGroupId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/policy/GetPolicyGroup/createGetPolicyGroup
+      outputTemplate: partner/policy/GetPolicyGroup/createGetPolicyGroupResult
+      input: '{
+		"policyGroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid$"
+}'
+      output: '{
+            "descr": "desc mosip policy group",
+            "isActive": true,
+            "name": "mosip policy group"
+    }'
+
+   Partner_GetPolicyGroup_By_Invalid_policyGroupId:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroupId/{policyGroupId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/policy/GetPolicyGroup/createGetPolicyGroup
+      outputTemplate: partner/error
+      input: '{
+		"policyGroupId": "policygroup-id-00001"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_016",
+      "message": "Policy Group ID does not exist"
+    }
+  ]
+}'

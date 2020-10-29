@@ -1,4 +1,6 @@
 {
+"responsetime": "$IGNORE$",	
+"response": {
   "devices": [
   {{#each devices}}
     {
@@ -11,11 +13,12 @@
 			"langCode": "{{langCode}}",
 			"isActive": {{isActive}},
 			"validityDateTime": "$IGNORE$",
-      "deviceTypeCode": "{{deviceTypeCode}}",
+            "deviceTypeCode": "{{deviceTypeCode}}",
 			"zoneCode": "{{zoneCode}}",
 			"regCenterId": "{{regCenterId}}"
 		}
      {{#unless @last}},{{/unless}}
       	{{/each}}
   ]
+}
 }
