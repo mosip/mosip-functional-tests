@@ -1,0 +1,15 @@
+createApproveRejectPartnerAPIKeyReq:
+   Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/pmpartners/pmpartners/PartnerAPIKeyRequests/{apiKeyReqId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReq
+      outputTemplate: partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReqResult
+      input: '{
+      "status": "Approved",
+      "apiKeyReqId": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "message": "PartnerAPIKey Updated successfully"
+    }'

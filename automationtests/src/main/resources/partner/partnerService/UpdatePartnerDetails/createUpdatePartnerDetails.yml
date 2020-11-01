@@ -34,3 +34,24 @@ createUpdatePartnerDetails:
     }
   ]
 }'
+
+   Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber:
+      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      role: partner
+      restMethod: put
+      inputTemplate: partner/partnerService/UpdatePartnerDetails/createUpdatePartnerDetails
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore Ind",
+    "contactNumber": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+

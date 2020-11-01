@@ -47,3 +47,87 @@ createServiceToUpdateDeviceDetail:
     }
   ]
 }'
+
+
+
+   Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceProviderId:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/DeviceDetail/ServiceToUpdateDeviceDetail/createServiceToUpdateDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "$REMOVE$",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+
+   Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceSubTypeCode:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/DeviceDetail/ServiceToUpdateDeviceDetail/createServiceToUpdateDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "$REMOVE$",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+   Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode:
+      endPoint: /partnermanagement/v1/partners/devicedetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/DeviceDetail/ServiceToUpdateDeviceDetail/createServiceToUpdateDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "$REMOVE$",
+    "id": "device-id-123",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

@@ -1,0 +1,64 @@
+createSaveFTPChipDetail:
+   Partner_SaveFTPChipDetail_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/ftpchipdetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FTPChipDetail/SaveFTPChipDetail/createSaveFTPChipDetail
+      outputTemplate: partner/FTPChipDetail/SaveFTPChipDetail/createSaveFTPChipDetailResult
+      input: '{
+    "ftpProviderId": "Tech-123",
+    "id": "ftp-001",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-01",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "ftp-001"
+    }'
+
+   Partner_SaveFTPChipDetail_Missing_InputParameter_ftpProviderId:
+      endPoint: /partnermanagement/v1/partners/ftpchipdetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FTPChipDetail/SaveFTPChipDetail/createSaveFTPChipDetail
+      outputTemplate: partner/error
+      input: '{
+    "ftpProviderId": "$REMOVE$",
+    "id": "ftp-001",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-01",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+   Partner_SaveFTPChipDetail_Missing_InputParameter_ftpId:
+      endPoint: /partnermanagement/v1/partners/ftpchipdetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FTPChipDetail/SaveFTPChipDetail/createSaveFTPChipDetail
+      outputTemplate: partner/error
+      input: '{
+    "ftpProviderId": "Tech-123",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-01",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
