@@ -1,0 +1,131 @@
+FetchLocationHirarchy:
+   Kernel_FetchLocationHirarchy_valid_smoke_withonlylangcode:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+  	"langcode": "eng",
+	"locationcode": "$REMOVE$"
+ }'
+      output: '{
+		"locations": [{
+				"locationHierarchylevel": 3,
+				"locationHierarchyName": "City",
+				"isActive": true
+			}]
+}'
+   Kernel_FetchLocationHirarchy_valid_smoke_withLocCode_langCode:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+  "langcode": "eng",
+  "locationcode": "10000"
+}'
+      output: '{
+"locations": [{
+				"code": "10000",
+				"name": "10000",
+				"hierarchyLevel": 5,
+				"hierarchyName": "Postal Code",
+				"parentLocCode": "QRHS",
+				"langCode": "eng",
+				"isActive": true
+			}]
+}'
+   Kernel_FetchLocationHirarchy_valid_smoke_locationHierarchy:
+      endPoint: /v1/masterdata/locationHierarchyLevels/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+  "hierarchyname":"Postal Code"
+ }'
+      output: '{
+		"locations": [{
+				"code": "14022",
+				"name": "14022",
+				"hierarchyLevel": 5,
+				"hierarchyName": "code postal",
+				"parentLocCode": "BNMR",
+				"langCode": "fra",
+				"isActive": true
+			}]
+}'
+	Kernel_FetchLocationHirarchy_invalid_langcode_empty:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+  "langcode":"",
+  "locationcode":"10000"
+}'
+      output: '{
+		"errors": [
+		{
+			"errorCode": "KER-MSD-026",
+			"message": "Location not found"
+		}
+	]
+}'
+
+	Kernel_FetchLocationHirarchy_invalid_langcode_notpresent:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+   	"langcode":"Java",
+  	"locationcode":"10000"
+}'
+      output: '{
+	"errors": [
+		{
+			"errorCode": "KER-MSD-026",
+			"message": "Location not found"
+		}
+	]
+}'
+	Kernel_FetchLocationHirarchy_invalid_langcode_withlangcodeOnly_notpresent:
+      endPoint: /v1/masterdata/locationHierarchyLevels/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+   	"langcode":"Java"
+}'
+      output: '{
+	"errors": [
+		{
+			"errorCode": "KER-MSD-026",
+			"message": "Location not found"
+		}
+	]
+}'
+	Kernel_FetchLocationHirarchy_invalid_locationcode_notpresent:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchy
+      outputTemplate: kernel/FetchLocationHirarchy/FetchLocationHirarchyResult
+      input: '{
+   	"langcode":"eng",
+  	"locationcode":"Java"
+}'
+      output: '{
+	"errors": [
+		{
+			"errorCode": "KER-MSD-026",
+			"message": "Location not found"
+		}
+	]
+}'

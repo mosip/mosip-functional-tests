@@ -58,8 +58,15 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> -->
- 	<test name="GetDocType_DocCatByAppID">
+ 	<!-- <test name="GetDocType_DocCatByAppID">
 		<parameter name="ymlFile" value="kernel/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	
+	<test name="FetchLocationHierarchy">
+		<parameter name="ymlFile" value="kernel/FetchLocationHierarchy/FetchLocationHierarchy.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
