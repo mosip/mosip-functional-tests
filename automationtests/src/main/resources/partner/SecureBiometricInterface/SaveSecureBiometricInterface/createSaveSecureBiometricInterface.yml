@@ -1,0 +1,71 @@
+createSaveSecureBiometricInterface:
+   Partner_SaveSecureBiometricInterface_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SecureBiometricInterface/SaveSecureBiometricInterface/createSaveSecureBiometricInterface
+      outputTemplate: partner/SecureBiometricInterface/SaveSecureBiometricInterface/createSaveSecureBiometricInterfaceResult
+      input: '{
+    "deviceDetailId": "device-id-123",
+    "isItForRegistrationDevice": "true",
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-30T08:23:57.986Z",
+    "swVersion": "MO.TD.01",
+    "requesttime": "$TIMESTAMP$"
+
+  }'
+      output: '{
+        "id": "1041de38-b0d5-4037-8d3c-14f9f17e36be"
+    }'
+
+
+   Partner_SaveSecureBiometricInterface_Missing_InputParameter_deviceDetailId:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SecureBiometricInterface/SaveSecureBiometricInterface/createSaveSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "deviceDetailId": "$REMOVE$",
+    "isItForRegistrationDevice": "true",
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-30T08:23:57.986Z",
+    "swVersion": "MO.TD.01",
+    "requesttime": "$TIMESTAMP$"
+
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+   Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SecureBiometricInterface/SaveSecureBiometricInterface/createSaveSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "deviceDetailId": "device-id-123",
+    "isItForRegistrationDevice": "true",
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-30T08:23:57.986Z",
+    "swVersion": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
