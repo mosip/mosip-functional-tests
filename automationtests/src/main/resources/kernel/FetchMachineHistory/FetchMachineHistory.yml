@@ -1,0 +1,107 @@
+FetchMachineHistory:
+   Kernel_FetchMachineHistory_allValid_smoke_Get:
+      endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchMachineHistory/fetchMachineHistory
+      outputTemplate: kernel/FetchMachineHistory/fetchMachineHistoryResult
+      input: '{
+      {
+		"effdatetimes": "2019-10-17T07:24:26.721Z",
+		"langcode": "eng",
+		"id": "10001"  
+}'
+      output: '{
+"machineHistoryDetails": [{
+				"id": "10001",
+			   	"name": "Machine 1",
+			    "serialNum": "NM5328114630",
+			    "ipAddress": "192.168.0.150",
+			    "macAddress": "e1:01:2b:c2:1d:b0",
+			    "machineSpecId": "1001",
+			    "langCode": "eng",
+			    "isActive": true,
+			    "effectDateTime": "2019-01-21T10:45:44.437Z",
+			    "validityDateTime": null
+			}]
+}'
+   Kernel_FetchMachineHistory_invalid_effdatetimes_beforeEffectiveDate_Get:
+      endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchMachineHistory/fetchMachineHistory
+      outputTemplate: kernel/FetchMachineHistory/fetchMachineHistoryResult
+      input: '{
+      {
+		"effdatetimes": "2018-01-21T10:45:44.438Z",
+		"langcode": "eng",
+		"id": "10001"  
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-032",
+            "message": "Machine History not found"
+        }
+    ]
+}'
+   Kernel_FetchMachineHistory_invalid_effdatetimes_invalidDateFormat_Get:
+      endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchMachineHistory/fetchMachineHistory
+      outputTemplate: kernel/FetchMachineHistory/fetchMachineHistoryResult
+      input: '{
+      {
+		"effdatetimes": "2018-01-21",
+		"langcode": "eng",
+		"id": "10001"  
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-033",
+            "message": "Invalid date format Text 2018-01-21 could not be parsed at index 10"
+        }
+    ]
+}'
+   Kernel_FetchMachineHistory_invalid_id_existing_Get:
+      endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchMachineHistory/fetchMachineHistory
+      outputTemplate: kernel/FetchMachineHistory/fetchMachineHistoryResult
+      input: '{
+      {
+		"effdatetimes": "2019-01-21T10:46:35.915Z",
+		"langcode": "eng",
+		"id": "notInDb"  
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-032",
+            "message": "Machine History not found"
+        }
+    ]
+}'
+   Kernel_FetchMachineHistory_invalid_langcode_unexisting_id_in_db_Get:
+      endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
+      role: kernel
+      restMethod: get
+      inputTemplate: kernel/FetchMachineHistory/fetchMachineHistory
+      outputTemplate: kernel/FetchMachineHistory/fetchMachineHistoryResult
+      input: '{
+      {
+		"effdatetimes": "2019-01-21T10:46:35.915Z",
+		"langcode": "HIND",
+		"id": "10001"  
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-032",
+            "message": "Machine History not found"
+        }
+    ]
+}'
