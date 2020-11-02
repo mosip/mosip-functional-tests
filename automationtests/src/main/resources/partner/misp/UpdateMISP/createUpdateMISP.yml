@@ -44,3 +44,74 @@ createUpdateMISP:
   ]
 }'
 
+   Partner_UpdateMISP_Missing_InputParameter_address:
+      endPoint: /partnermanagement/v1/misps/misps/{mispID}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/misp/UpdateMISP/createUpdateMISP
+      outputTemplate: partner/error
+      input: '{
+    "address": "$REMOVE$",
+    "contactNumber": "9840587099",
+    "emailId": "misp@misp.com",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "name": "mosip_misp",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.address"
+    }
+  ]
+}'
+
+
+   Partner_UpdateMISP_Missing_InputParameter_emailId:
+      endPoint: /partnermanagement/v1/misps/misps/{mispID}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/misp/UpdateMISP/createUpdateMISP
+      outputTemplate: partner/error
+      input: '{
+    "address": "india",
+    "contactNumber": "9840587099",
+    "emailId": "$REMOVE$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "name": "mosip_misp",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.emailId"
+    }
+  ]
+}'
+
+   Partner_UpdateMISP_Missing_InputParameter_name:
+      endPoint: /partnermanagement/v1/misps/misps/{mispID}
+      role: partner
+      restMethod: put
+      inputTemplate: partner/misp/UpdateMISP/createUpdateMISP
+      outputTemplate: partner/error
+      input: '{
+    "address": "india",
+    "contactNumber": "9840587099",
+    "emailId": "misp@misp.com",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "name": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.name"
+    }
+  ]
+}'
+
+

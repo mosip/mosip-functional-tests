@@ -40,3 +40,23 @@ createDefinePolicyGroup:
     }
   ]
 }'
+
+   Partner_DefinePolicyGroup_Missing_InputParameter_name:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroup
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/createDefinePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.name"
+    }
+  ]
+}'

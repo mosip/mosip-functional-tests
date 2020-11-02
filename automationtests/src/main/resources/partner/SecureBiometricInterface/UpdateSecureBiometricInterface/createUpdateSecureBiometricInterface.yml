@@ -1,0 +1,73 @@
+createUpdateSecureBiometricInterface:
+   Partner_UpdateSecureBiometricInterface_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: put
+      inputTemplate: partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterface
+      outputTemplate: partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterfaceResult
+      input: '{
+    "deviceDetailId": "device-id-123",
+	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-31T07:00:13.375Z",
+    "swVersion": "MO.TD.011",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$"
+    }'
+
+   Partner_UpdateSecureBiometricInterface_Missing_InputParameter_Id:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: put
+      inputTemplate: partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "deviceDetailId": "device-id-123",
+	"id": "$REMOVE$",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-31T07:00:13.375Z",
+    "swVersion": "MO.TD.011",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'
+
+   Partner_UpdateSecureBiometricInterface_Missing_InputParameter_deviceDetailId:
+      endPoint: /partnermanagement/v1/partners/securebiometricinterface
+      role: partner
+      restMethod: put
+      inputTemplate: partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "deviceDetailId": "$REMOVE$",
+	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2020-12-31T07:00:13.375Z",
+    "swVersion": "MO.TD.011",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

@@ -12,8 +12,8 @@ createRetrievePartnerDetails:
     	"partnerID": "Tech-123",
     	"policyGroup": "mosip policy group",
     	"organizationName": "Techno",
-    	"address": "Bangalore Ind",
-    	"contactNumber": "8553967576",
+    	"address": "Bangalore",
+    	"contactNumber": "8553967572",
     	"emailId": "mosip@gmail.com"
   }'
 
