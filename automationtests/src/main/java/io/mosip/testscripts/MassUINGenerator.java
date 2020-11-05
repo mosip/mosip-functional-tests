@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -87,7 +88,8 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
-		String genRid = "278476573600025" + timestampValue;
+		//String genRid = "278476573600025" + timestampValue;
+		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
