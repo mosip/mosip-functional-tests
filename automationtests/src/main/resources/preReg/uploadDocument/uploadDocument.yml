@@ -11,7 +11,7 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid$",
+	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
 	"filePath": "preReg/uploadDocument/doc_POA.pdf",
 	"fileKeyName": "file"
 }'
