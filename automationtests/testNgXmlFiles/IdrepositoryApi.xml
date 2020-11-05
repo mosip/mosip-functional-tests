@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<test name="Idrepository Test">
+	<!-- <test name="Idrepository Test">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -42,6 +42,16 @@
 				name="io.mosip.authentication.idRepository.tests.ReactivateVIDsForUIN" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+		</classes>
+	</test> -->
+	
+	<test name="GenerateUIN">
+		<parameter name="ymlFile"
+			value="idRepository\uinrids\generateuin.yml" />
+		<parameter name="perTCUinCount"
+			value="500" />
+		<classes>
+			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
 	</test>
 </suite>
