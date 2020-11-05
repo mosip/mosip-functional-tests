@@ -741,6 +741,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		public String getOtpValue(String inputFilePath, String mappingFileName, String otpMappingFieldName) {
 		String value = JsonPrecondtion.getValueFromJson(inputFilePath, mappingFileName, otpMappingFieldName);
 		if (value.contains(":")) {
+			if(proxy) return "111111";
 			String[] otpKeyword = value.split(":");
 			String otpQuery = otpKeyword[0];
 			String waitTime = otpKeyword[1];
@@ -1158,6 +1159,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	public String getOtpValue(String value) {
 		if (value.contains(":")) {
+			if(proxy) return "111111";
 			String[] otpKeyword = value.split(":");
 			String otpQuery = otpKeyword[0];
 			String waitTime = otpKeyword[1];
