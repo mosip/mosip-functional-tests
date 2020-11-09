@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
+
 <suite name="Partner Suite">
+
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
@@ -32,13 +34,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	 <test name="CreatePartner">
+	  <test name="CreatePartner">
 		<parameter name="ymlFile"
 			value="partner/partnerService/PartnerSelfRegistration/createPartnerSelfRegistration.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test> 
 	<test name="GetPartnerDetails">
 		<parameter name="ymlFile"
 			value="partner/partnerService/RetrievePartnerDetails/createRetrievePartnerDetails.yml" />
@@ -72,6 +74,7 @@
 				name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
 	<test name="AddContact">
 		<parameter name="ymlFile"
 			value="partner/partnerService/AddContact/createAddContact.yml" />
@@ -86,7 +89,7 @@
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
 	</test>
-	<test name="createSubmitPartnerApiKeyRequest">
+	 <test name="createSubmitPartnerApiKeyRequest">
 		<parameter name="ymlFile" 
 			value="partner/partnerService/SubmitPartnerApiKeyRequest/createSubmitPartnerApiKeyRequest.yml"/> 
 		<parameter name="idKeyName" value="apiRequestId" />
@@ -96,11 +99,18 @@
 	</test>
 	<test name="createApproveRejectPartnerAPIKeyReq">
 		<parameter name="ymlFile" value="partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReq.yml"/>  
+		<parameter name="pathParams" value="apiKeyReqId" />
 		<classes>
-		<class name="io.mosip.testscripts.PatchWithPathParam" />
+		<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
-	
+	<test name="UpdatePolicy">
+		<parameter name="ymlFile" value="partner/policy/UpdatePolicy/createUpdatePolicy.yml" />
+		<parameter name="pathParams" value="policyID" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
 	<test name="CreateRegisterMISP">
 		<parameter name="ymlFile" value="partner/misp/RegisterMISP/createRegisterMISP.yml"/>  
 		<parameter name="idKeyName" value="mispID" />
@@ -189,7 +199,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
-	</test> 
+	</test>
 
 	<!--<test name="createProcessRequest">
 		<parameter name="ymlFile" value="partner/ProcessRequest/createProcessRequest.yml"/>  

@@ -9,7 +9,7 @@ createUpdateMISP:
     "address": "india",
     "contactNumber": "9840587099",
     "emailId": "misp@misp.com",
-    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$",
     "name": "mosip_misp",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -31,7 +31,7 @@ createUpdateMISP:
     "address": "india",
     "contactNumber": "$REMOVE$",
     "emailId": "misp@misp.com",
-    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$",
     "name": "mosip_misp",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -54,7 +54,7 @@ createUpdateMISP:
     "address": "$REMOVE$",
     "contactNumber": "9840587099",
     "emailId": "misp@misp.com",
-    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$",
     "name": "mosip_misp",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -78,7 +78,7 @@ createUpdateMISP:
     "address": "india",
     "contactNumber": "9840587099",
     "emailId": "$REMOVE$",
-    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$",
     "name": "mosip_misp",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -101,7 +101,7 @@ createUpdateMISP:
     "address": "india",
     "contactNumber": "9840587099",
     "emailId": "misp@misp.com",
-    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid$",
+    "mispID": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$",
     "name": "$REMOVE$",
     "requesttime": "$TIMESTAMP$"
   }'
