@@ -32,7 +32,7 @@ public class LostPacketWorker {
 		String existing_packet_path = prop.LOST_UIN_PATH;
 		EncrypterDecrypter encryptDecrypt = new EncrypterDecrypter();
 
-		String PARENT_FOLDER_PATH = prop.NEW_PACKET_FOLDER_PATH + "temp";
+		String PARENT_FOLDER_PATH = prop.NEW_PACKET_WORKER_PATH + "temp";
 		String packetFolder = PARENT_FOLDER_PATH + File.separator + registrationId;
 
 		String packetContentFolder = PARENT_FOLDER_PATH + File.separator + registrationId + File.separator + SOURCE
@@ -43,11 +43,11 @@ public class LostPacketWorker {
 		helper.computeChecksumForEvidencePacket();
 		helper.computeChecksumForOptionalPacket();
 
-		String zippedPacketFolder = prop.NEW_PACKET_FOLDER_PATH + "zipped";
+		String zippedPacketFolder = prop.NEW_PACKET_WORKER_PATH + "zipped";
 		new File(zippedPacketFolder).mkdir();
 		zipPacketContents(packetFolder, zippedPacketFolder, encryptDecrypt, auth_token, prop);
 		String checksumslogFilePath = prop.CHECKSUM_LOGFILE_PATH;
-		String packetGenPath = prop.NEW_PACKET_FOLDER_PATH + "zipped" + File.separator;
+		String packetGenPath = prop.NEW_PACKET_WORKER_PATH + "zipped" + File.separator;
 		logRegIdCheckSumToFile(packetGenPath, checksumslogFilePath, registrationId, checksum);
 		String regidLogFilePath = prop.REGID_LOG_FILE;
 		try {

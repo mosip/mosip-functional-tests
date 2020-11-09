@@ -40,9 +40,14 @@ public class Main {
 			System.out.println(
 					"sync_data_multiple - To create sync data for multi kind packets by reading from a checksum log file");
 			System.out.println("packet_upload - To sync and upload packets");
+			System.out.println("reliability - To generate, sync and upload packet continuously");
 		} else {
 			String mode = args[0];
 			switch (mode) {
+			case "reliability":
+				ReliabilityTestSetup rts = new ReliabilityTestSetup();
+				rts.pepareTestDataReliability();
+				break;
 			case "packet_gen":
 				/*
 				 * Generates packets and outputs packet file path and checksum to a file. It

@@ -107,7 +107,7 @@ public class SyncRequestCreater {
 		JSONObject requestToEncrypt = null;
 		// String filePath = PropertiesUtil.NEW_PACKET_FOLDER_PATH + "Generated/" +
 		// regId + ".zip";
-		String filePath = prop.NEW_PACKET_FOLDER_PATH + "zipped/" + regId + ".zip";
+		String filePath = prop.NEW_PACKET_WORKER_PATH + "zipped/" + regId + ".zip";
 		File file = new File(filePath);
 
 		if (file.exists()) {
@@ -136,11 +136,11 @@ public class SyncRequestCreater {
 			syncDto.setSyncData(encryptedData);
 			syncDto.setPacketPath(filePath);
 			syncDto.setReferenceId(referenceId);
-			RegProcApiRequests apiRequests = new RegProcApiRequests();
-			String timeStamp = getUTCTime().toString();
-			String syncApi = "/registrationprocessor/v1/registrationstatus/sync";
-			Response syncResponse = apiRequests.regProcSyncRequest(syncApi, encryptedData, referenceId, timeStamp,
-					MediaType.APPLICATION_JSON, token, prop);
+//			RegProcApiRequests apiRequests = new RegProcApiRequests();
+//			String timeStamp = getUTCTime().toString();
+//			String syncApi = "/registrationprocessor/v1/registrationstatus/sync";
+//			Response syncResponse = apiRequests.regProcSyncRequest(syncApi, encryptedData, referenceId, timeStamp,
+//					MediaType.APPLICATION_JSON, token, prop);
 			fileUtil.logSyncDataToFile(syncDto, prop.SYNCDATA__FILE_PATH);
 		}
 		
@@ -174,7 +174,7 @@ public class SyncRequestCreater {
 		JSONObject requestToEncrypt = null;
 		// String filePath = PropertiesUtil.NEW_PACKET_FOLDER_PATH + "Generated/" +
 		// regId + ".zip";
-		String filePath = prop.NEW_PACKET_FOLDER_PATH + "zipped/" + regId + ".zip";
+		String filePath = prop.NEW_PACKET_WORKER_PATH + "zipped/" + regId + ".zip";
 		File file = new File(filePath);
 
 		if (file.exists()) {

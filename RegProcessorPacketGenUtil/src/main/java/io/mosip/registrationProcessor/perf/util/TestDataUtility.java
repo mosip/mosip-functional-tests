@@ -97,7 +97,7 @@ public class TestDataUtility {
 		return genderEngArr[randomInt];
 	}
 
-	public String genrateGenderAra() {
+	public String generateGenderAra() {
 		String[] genderEngArr = new String[] { "الذكر", "أنثى" };
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(2);
@@ -197,7 +197,7 @@ public class TestDataUtility {
 		return fullName;
 	}
 
-	String generateRandomName() {
+	public String generateRandomName() {
 		String name = "";
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(26);
@@ -273,7 +273,7 @@ public class TestDataUtility {
 	}
 
 	public String getReferenceIdentityNumber() {
-		return "1234567878";
+		return "12345678789054321";
 	}
 
 }

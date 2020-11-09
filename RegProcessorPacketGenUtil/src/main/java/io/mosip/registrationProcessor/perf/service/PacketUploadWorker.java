@@ -61,7 +61,8 @@ public class PacketUploadWorker {
 		String syncApi = "/registrationprocessor/v1/registrationstatus/sync";
 		Response syncResponse = apiRequests.regProcSyncRequest(syncApi, syncData, center_machine_refID, timeStamp,
 				MediaType.APPLICATION_JSON, auth_token, prop);
-
+		System.out.println("Response of sync packet request:--");
+		System.out.println(syncResponse.asString());
 		String syncStatus = syncResponse.jsonPath().get("response[0].status");
 		System.out.println("Sync status for regid " + regid + " is " + syncStatus);
 		if (syncStatus.equalsIgnoreCase("success")) {

@@ -39,6 +39,7 @@ import io.mosip.registration.processor.perf.packet.dto.PacketMetaInfo;
 import io.mosip.registrationProcessor.perf.regPacket.dto.PhilIdentityObject;
 import io.mosip.registrationProcessor.perf.regPacket.dto.RegProcIdDto;
 import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
+import io.mosip.registrationProcessor.perf.util.IndividualType;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.RegCenterDetailFetcher;
@@ -231,7 +232,7 @@ public class TweakRegProcPackets {
 
 		srcPath += File.separator + SOURCE + File.separator + PROCESS;
 
-		String destinationPath = prop.NEW_PACKET_FOLDER_PATH + "temp/" + newRegId;
+		String destinationPath = prop.NEW_PACKET_WORKER_PATH + "temp/" + newRegId;
 		destinationPath += File.separator + SOURCE + File.separator + PROCESS;
 		File destDir = new File(destinationPath);
 
@@ -311,7 +312,7 @@ public class TweakRegProcPackets {
 		String originalRegId = readRegIdFromPropertyFile("oldRegId");
 		String srcPath = prop.VALID_PACKET_PATH_FOR_PACKET_GENERATION + "/" + "TemporaryValidpackets" + "/"
 				+ originalRegId;
-		String destinationPath = prop.NEW_PACKET_FOLDER_PATH + "temp/" + newRegId;
+		String destinationPath = prop.NEW_PACKET_WORKER_PATH + "temp/" + newRegId;
 		File destDir = new File(destinationPath);
 
 		File srcDir = new File(srcPath);
@@ -345,7 +346,7 @@ public class TweakRegProcPackets {
 	}
 
 	public byte[] modifyDemoDataOfDecryptedPacket(String newPacketFolderPath, String packetGenPath,
-			String checksumslogFilePath, String token, PropertiesUtil prop, Session session) throws Exception {
+			String checksumslogFilePath, String auth_token, PropertiesUtil prop, Session session) throws Exception {
 
 		Gson gson = new Gson();
 		Properties properties = new Properties();
@@ -384,7 +385,7 @@ public class TweakRegProcPackets {
 		 * Generate new registration ID
 		 */
 		String newRegId = packetDataUtil.generateRegId(centerId, machineId);
-		String PARENT_FOLDER_PATH = prop.NEW_PACKET_FOLDER_PATH + "temp";
+		String PARENT_FOLDER_PATH = prop.NEW_PACKET_WORKER_PATH + "temp";
 
 		String packetFolder = PARENT_FOLDER_PATH + File.separator + newRegId;
 
@@ -395,16 +396,28 @@ public class TweakRegProcPackets {
 
 		String identityFolder = packetContentFolder + File.separator + newRegId + "_id";
 
-		if (!prop.IDOBJECT_TYPE_PHIL) {
-			String idJsonPath = packetContentFolder + File.separator + newRegId + "_id" + File.separator + "ID.json";
-			RegProcIdDto updatedPacketDemoDto = packetDataUtil.modifyDemographicData(prop, session, idJsonPath);
-			jsonUtil.writeJsonToFile(gson.toJson(updatedPacketDemoDto), idJsonPath);
-
+//		if (!prop.IDOBJECT_TYPE_PHIL) {
+//			String idJsonPath = packetContentFolder + File.separator + newRegId + "_id" + File.separator + "ID.json";
+//			RegProcIdDto updatedPacketDemoDto = packetDataUtil.modifyDemographicData(prop, session, idJsonPath);
+//			jsonUtil.writeJsonToFile(gson.toJson(updatedPacketDemoDto), idJsonPath);
+//
+//		} else {
+//			String idJsonPath = packetContentFolder + File.separator + newRegId + "_id" + File.separator + "ID.json";
+//			PhilIdentityObject updatedIdObject = packetDataUtil.modifyPhilDemographicData(prop, session, idJsonPath);
+//			jsonUtil.writeJsonToFile(gson.toJson(updatedIdObject), idJsonPath);
+//		}
+		
+		String individual_type = "";
+		if (prop.IS_CHILD_PACKET) {
+			individual_type = IndividualType.NEW_CHILD.getIndividualType();
 		} else {
-			String idJsonPath = packetContentFolder + File.separator + newRegId + "_id" + File.separator + "ID.json";
-			PhilIdentityObject updatedIdObject = packetDataUtil.modifyPhilDemographicData(prop, session, idJsonPath);
-			jsonUtil.writeJsonToFile(gson.toJson(updatedIdObject), idJsonPath);
+			individual_type = IndividualType.NEW_ADULT.getIndividualType();
 		}
+
+		IdObjectCreater idObjectCreater = new IdObjectCreater();
+		String identityJson = idObjectCreater.createIDObject(prop, auth_token, session, PROCESS, individual_type);
+		String idJsonPath = packetContentFolder + File.separator + newRegId + "_id" + File.separator + "ID.json";
+		jsonUtil.writeJsonToFile(identityJson, idJsonPath);
 
 		String packetMetaInfoFile = packetContentFolder + File.separator + newRegId + "_id" + File.separator
 				+ "packet_meta_info.json";
@@ -438,9 +451,9 @@ public class TweakRegProcPackets {
 			logger.error(" modifyDemoDataOfDecryptedPacket writeChecksumToFile: " + e.getMessage());
 		}
 
-		String zippedPacketFolder = prop.NEW_PACKET_FOLDER_PATH + "zipped";
+		String zippedPacketFolder = prop.NEW_PACKET_WORKER_PATH + "zipped";
 		new File(zippedPacketFolder).mkdir();
-		zipPacketContents(packetFolder, zippedPacketFolder, encryptDecrypt, token, prop);
+		zipPacketContents(packetFolder, zippedPacketFolder, encryptDecrypt, auth_token, prop);
 
 		logRegIdCheckSumToFile(packetGenPath, checksumslogFilePath, newRegId, checksum, PROCESS);
 		String regidLogFilePath = prop.REGID_LOG_FILE;

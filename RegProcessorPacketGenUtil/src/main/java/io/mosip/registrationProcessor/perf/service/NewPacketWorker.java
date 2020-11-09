@@ -21,6 +21,7 @@ import io.mosip.registration.processor.perf.packet.dto.PacketMetaInfo;
 import io.mosip.registrationProcessor.perf.regPacket.dto.PhilIdentityObject;
 import io.mosip.registrationProcessor.perf.regPacket.dto.RegProcIdDto;
 import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
+import io.mosip.registrationProcessor.perf.util.IndividualType;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 
@@ -31,7 +32,8 @@ public class NewPacketWorker {
 
 	public void generateNewpacket(Session session, PropertiesUtil prop, String auth_token) throws Exception {
 
-		String newPacketFolderPath = prop.NEW_PACKET_FOLDER_PATH;
+		String newPacketFolderPath = prop.NEW_PACKET_WORKER_PATH;
+
 		String checksumslogFilePath = prop.CHECKSUM_LOGFILE_PATH;
 		String packetGenPath = newPacketFolderPath + "zipped" + File.separator;
 		new File(packetGenPath).mkdirs();
@@ -43,30 +45,47 @@ public class NewPacketWorker {
 		String machineId = "10029";
 		String userId = "110010";
 		String registrationId = generateRegId(centerId, machineId);
-		String PARENT_FOLDER_PATH = prop.NEW_PACKET_FOLDER_PATH + "temp";
+		String PARENT_FOLDER_PATH = prop.NEW_PACKET_WORKER_PATH + "temp";
 		NewPacketHelper helper = new NewPacketHelper(registrationId, PARENT_FOLDER_PATH);
 
 		String packetFolder = PARENT_FOLDER_PATH + File.separator + registrationId;
 
 		String packetContentFolder = PARENT_FOLDER_PATH + File.separator + registrationId + File.separator + SOURCE
 				+ File.separator + PROCESS;
-		String existing_packet_path = prop.NEW_PACKET_PATH;
+		String existing_packet_path = "";
+		if (!prop.IS_CHILD_PACKET)
+			existing_packet_path = prop.NEW_PACKET_PATH;
+		else
+			existing_packet_path = prop.CHILD_PACKET_PATH;
+
 		helper.copyPacketToWorkLocation(existing_packet_path);
 
 		String identityFolder = packetContentFolder + File.separator + registrationId + "_id";
 		PacketDemoDataUtil packetDataUtil = new PacketDemoDataUtil();
-		if (!prop.IDOBJECT_TYPE_PHIL) {
-			String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator
-					+ "ID.json";
-			RegProcIdDto updatedPacketDemoDto = packetDataUtil.modifyDemographicData(prop, session, idJsonPath);
-			jsonUtil.writeJsonToFile(gson.toJson(updatedPacketDemoDto), idJsonPath);
+//		if (!prop.IDOBJECT_TYPE_PHIL) {
+//			String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator
+//					+ "ID.json";
+//			RegProcIdDto updatedPacketDemoDto = packetDataUtil.modifyDemographicData(prop, session, idJsonPath);
+//			jsonUtil.writeJsonToFile(gson.toJson(updatedPacketDemoDto), idJsonPath);
+//
+//		} else {
+//			String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator
+//					+ "ID.json";
+//			PhilIdentityObject updatedIdObject = packetDataUtil.modifyPhilDemographicData(prop, session, idJsonPath);
+//			jsonUtil.writeJsonToFile(gson.toJson(updatedIdObject), idJsonPath);
+//		}
 
+		IdObjectCreater idObjectCreater = new IdObjectCreater();
+		String individual_type = "";
+		if (prop.IS_CHILD_PACKET) {
+			individual_type = IndividualType.NEW_CHILD.getIndividualType();
 		} else {
-			String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator
-					+ "ID.json";
-			PhilIdentityObject updatedIdObject = packetDataUtil.modifyPhilDemographicData(prop, session, idJsonPath);
-			jsonUtil.writeJsonToFile(gson.toJson(updatedIdObject), idJsonPath);
+			individual_type = IndividualType.NEW_ADULT.getIndividualType();
 		}
+		String identityJson = idObjectCreater.createIDObject(prop, auth_token, session, PROCESS, individual_type);
+		String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator + "ID.json";
+		jsonUtil.writeJsonToFile(identityJson, idJsonPath);
+		helper.updateIDSchemaInIdentityFiles(prop);
 
 		String packetMetaInfoFile = packetContentFolder + File.separator + registrationId + "_id" + File.separator
 				+ "packet_meta_info.json";
@@ -97,7 +116,7 @@ public class NewPacketWorker {
 			logger.error(" modifyDemoDataOfDecryptedPacket generateChecksum: " + e.getMessage());
 			throw new Exception(e);
 		}
-		
+
 		helper.computeChecksumForEvidencePacket();
 		helper.computeChecksumForOptionalPacket();
 
@@ -108,7 +127,7 @@ public class NewPacketWorker {
 			logger.error(" modifyDemoDataOfDecryptedPacket writeChecksumToFile: " + e.getMessage());
 		}
 
-		String zippedPacketFolder = prop.NEW_PACKET_FOLDER_PATH + "zipped";
+		String zippedPacketFolder = prop.NEW_PACKET_WORKER_PATH + "zipped";
 		new File(zippedPacketFolder).mkdir();
 		helper.zipPacketContents(packetFolder, zippedPacketFolder, encryptDecrypt, auth_token, prop);
 

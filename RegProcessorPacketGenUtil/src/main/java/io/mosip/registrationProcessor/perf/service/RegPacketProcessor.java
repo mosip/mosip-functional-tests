@@ -41,7 +41,7 @@ public class RegPacketProcessor {
 		// String newPacketFolderPath = folderPath.getProperty("newPacketFolderPath");
 
 //		String checksumslogFilePath = folderPath.getProperty("checksumslogFilePath");
-		String newPacketFolderPath = prop.NEW_PACKET_FOLDER_PATH;
+		String newPacketFolderPath = prop.NEW_PACKET_WORKER_PATH;
 		// String validPacketForPacketGeneration =
 		// PropertiesUtil.VALID_PACKET_PATH_FOR_PACKET_GENERATION;
 		String checksumslogFilePath = prop.CHECKSUM_LOGFILE_PATH;

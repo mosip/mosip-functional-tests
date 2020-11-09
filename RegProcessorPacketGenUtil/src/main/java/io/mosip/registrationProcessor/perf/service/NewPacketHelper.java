@@ -43,6 +43,7 @@ public class NewPacketHelper {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void copyPacketToWorkLocation(String existing_packet_path) {
 
 		File existing_packet_file = new File(existing_packet_path);
@@ -64,8 +65,8 @@ public class NewPacketHelper {
 				e.printStackTrace();
 			}
 		}
-		String packetContentFolder = PARENT_FOLDER_PATH + File.separator + registrationId + File.separator + SOURCE
-				+ File.separator + PROCESS;
+//		String packetContentFolder = PARENT_FOLDER_PATH + File.separator + registrationId + File.separator + SOURCE
+//				+ File.separator + PROCESS;
 
 		String srcPath = existing_packet_path + "/" + originalRegId;
 		srcPath += File.separator + SOURCE + File.separator + PROCESS;
@@ -123,6 +124,7 @@ public class NewPacketHelper {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void computeChecksumForEvidencePacket() {
 
 		String centerId = registrationId.substring(0, 5);
@@ -227,6 +229,7 @@ public class NewPacketHelper {
 		return timestamp;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void computeChecksumForOptionalPacket() {
 		String centerId = registrationId.substring(0, 5);
 		String machineId = registrationId.substring(5, 10);
@@ -351,6 +354,7 @@ public class NewPacketHelper {
 		packetDataUtil.logRegIdsToFile(logFilePath, regId);
 	}
 
+	@SuppressWarnings("unused")
 	void zipPacketContents(String packetFolderPath, String zippedPacketFolder, EncrypterDecrypter encryptDecrypt,
 			String token, PropertiesUtil prop) throws Exception {
 		String foldername = packetFolderPath.substring(packetFolderPath.length() - 29);
@@ -499,5 +503,28 @@ public class NewPacketHelper {
 		Gson gson = new Gson();
 		jsonUtil.writeJsonToFile(gson.toJson(packetInfo), metaInfoJsonFile);
 
+	}
+
+	public void updateIDSchemaInIdentityFiles(PropertiesUtil prop) {
+		String packetPathDir = PARENT_FOLDER_PATH + File.separator + registrationId;
+		packetPathDir += File.separator + SOURCE + File.separator + PROCESS;
+		String evidencePacket = packetPathDir + File.separator + registrationId + "_evidence";
+		String optionalPacket = packetPathDir + File.separator + registrationId + "_optional";
+
+		String filePath1 = evidencePacket + File.separator + "ID.json";
+		float idSchemaVersion = Float.parseFloat(prop.ID_SCHEMA_VERSION);
+		updateIdentitySchemaInFile(filePath1, idSchemaVersion);
+		String filePath2 = optionalPacket + File.separator + "ID.json";
+		updateIdentitySchemaInFile(filePath2, idSchemaVersion);
+	}
+
+	@SuppressWarnings("rawtypes")
+	private void updateIdentitySchemaInFile(String filePath, Float idSchemaVersion) {
+		JSONUtil jsonUtil = new JSONUtil();
+		JSONObject idJson = jsonUtil.loadJsonFromFile(filePath);
+		Map identity = (Map) idJson.get("identity");
+		identity.put("IDSchemaVersion", idSchemaVersion);
+		idJson.put("identity", identity);
+		jsonUtil.writeJsonToFile(idJson.toJSONString(), filePath);
 	}
 }

@@ -382,9 +382,9 @@ public class PacketDemoDataUtil {
 		String fullNameEng = testDataUtil.generateFullName();
 		String fullNameFr = translateText(fullNameEng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_FR);
 		String fullNameAr = translateText(fullNameEng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_AR);
-		FieldData fullNameFrData = new FieldData(LANG_CODE_FR, fullNameFr);
+		FieldData fullNameEngData = new FieldData(LANG_CODE_ENG, fullNameFr);
 		FieldData fullNameArData = new FieldData(LANG_CODE_AR, fullNameAr);
-		fullName.add(fullNameFrData);
+		fullName.add(fullNameEngData);
 		fullName.add(fullNameArData);
 		identityDto.setFullName(fullName);
 
@@ -403,8 +403,9 @@ public class PacketDemoDataUtil {
 		String genderFr = testDataUtility.frenchTexts.get(genderEng);
 		String genderAr = testDataUtility.arabicTexts.get(genderEng);
 		FieldData genderFrData = new FieldData(LANG_CODE_FR, genderFr);
+		FieldData genderEngData = new FieldData(LANG_CODE_ENG, genderEng);
 		FieldData genderArData = new FieldData(LANG_CODE_AR, genderAr);
-		gender.add(genderFrData);
+		gender.add(genderEngData);
 		gender.add(genderArData);
 		identityDto.setGender(gender);
 		Gson gson = new Gson();
@@ -412,9 +413,10 @@ public class PacketDemoDataUtil {
 		String resStatusEng = testDataUtility.generateResidenceStatusEng();
 		String resStatusFr = testDataUtility.frenchTexts.get(resStatusEng);
 		String resStatusAr = testDataUtility.arabicTexts.get(resStatusEng);
+		FieldData resStatusEngData = new FieldData(LANG_CODE_ENG, resStatusEng);
 		FieldData resStatusFrData = new FieldData(LANG_CODE_FR, resStatusFr);
 		FieldData resStatusArData = new FieldData(LANG_CODE_AR, resStatusAr);
-		residenceStatus.add(resStatusFrData);
+		residenceStatus.add(resStatusEngData);
 		residenceStatus.add(resStatusArData);
 		identityDto.setResidenceStatus(residenceStatus);
 
@@ -423,8 +425,9 @@ public class PacketDemoDataUtil {
 		String addressLine1_fr = translateText(addressLine1_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_FR);
 		String addressLine1_ar = translateText(addressLine1_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_AR);
 		FieldData addressLine1_frData = new FieldData(LANG_CODE_FR, addressLine1_fr);
+		FieldData addressLine1_engData = new FieldData(LANG_CODE_ENG, addressLine1_fr);
 		FieldData addressLine1_arData = new FieldData(LANG_CODE_AR, addressLine1_ar);
-		addressLine1.add(addressLine1_frData);
+		addressLine1.add(addressLine1_engData);
 		addressLine1.add(addressLine1_arData);
 		identityDto.setAddressLine1(addressLine1);
 
@@ -433,8 +436,9 @@ public class PacketDemoDataUtil {
 		String addressLine2_fr = translateText(addressLine2_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_FR);
 		String addressLine2_ar = translateText(addressLine2_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_AR);
 		FieldData addressLine2_frData = new FieldData(LANG_CODE_FR, addressLine2_fr);
+		FieldData addressLine2_engData = new FieldData(LANG_CODE_ENG, addressLine2_eng);
 		FieldData addressLine2_arData = new FieldData(LANG_CODE_AR, addressLine2_ar);
-		addressLine2.add(addressLine2_frData);
+		addressLine2.add(addressLine2_engData);
 		addressLine2.add(addressLine2_arData);
 		identityDto.setAddressLine2(addressLine2);
 
@@ -443,8 +447,9 @@ public class PacketDemoDataUtil {
 		String addressLine3_fr = translateText(addressLine3_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_FR);
 		String addressLine3_ar = translateText(addressLine3_eng, GOOGLE_LANG_CODE_ENG, GOOGLE_LANG_CODE_AR);
 		FieldData addressLine3_frData = new FieldData(LANG_CODE_FR, addressLine3_fr);
+		FieldData addressLine3_engData = new FieldData(LANG_CODE_ENG, addressLine3_eng);
 		FieldData addressLine3_arData = new FieldData(LANG_CODE_AR, addressLine3_ar);
-		addressLine3.add(addressLine3_frData);
+		addressLine3.add(addressLine3_engData);
 		addressLine3.add(addressLine3_arData);
 		identityDto.setAddressLine3(addressLine3);
 
@@ -457,8 +462,9 @@ public class PacketDemoDataUtil {
 		String regionValAr = convertLocationEngToArabic(regionName, 1, session);
 
 		FieldData regionFr = new FieldData(LANG_CODE_FR, regionValFr);
+		FieldData regionEng = new FieldData(LANG_CODE_ENG, regionName);
 		FieldData regionAr = new FieldData(LANG_CODE_AR, regionValAr);
-		region.add(regionFr);
+		region.add(regionEng);
 		region.add(regionAr);
 		identityDto.setRegion(region);
 
@@ -471,9 +477,9 @@ public class PacketDemoDataUtil {
 		String provinceValFr = convertLocationEngToFrench(provinceName, 2, session);
 		String provinceValAr = convertLocationEngToArabic(provinceName, 2, session);
 		FieldData provinceFr = new FieldData(LANG_CODE_FR, provinceValFr);
-
+		FieldData provinceEng = new FieldData(LANG_CODE_ENG, provinceName);
 		FieldData provinceAr = new FieldData(LANG_CODE_AR, provinceValAr);
-		province.add(provinceFr);
+		province.add(provinceEng);
 		province.add(provinceAr);
 		identityDto.setProvince(province);
 
@@ -483,8 +489,9 @@ public class PacketDemoDataUtil {
 		String cityValFr = convertLocationEngToFrench(cityName, 3, session);
 		String cityValAr = convertLocationEngToArabic(cityName, 3, session);
 		FieldData cityFr = new FieldData(LANG_CODE_FR, cityValFr);
+		FieldData cityEng = new FieldData(LANG_CODE_ENG, cityName);
 		FieldData cityAr = new FieldData(LANG_CODE_AR, cityValAr);
-		city.add(cityFr);
+		city.add(cityEng);
 		city.add(cityAr);
 		identityDto.setCity(city);
 		identityDto.setReferenceIdentityNumber(testDataUtil.getReferenceIdentityNumber());
@@ -495,8 +502,9 @@ public class PacketDemoDataUtil {
 		String zoneValFr = convertLocationEngToFrench(localAdministrativeAuthName, 4, session);
 		String zoneValAr = convertLocationEngToArabic(localAdministrativeAuthName, 4, session);
 		FieldData zoneFr = new FieldData(LANG_CODE_FR, zoneValFr);
+		FieldData zoneEng = new FieldData(LANG_CODE_ENG, localAdministrativeAuthName);
 		FieldData zoneAr = new FieldData(LANG_CODE_AR, zoneValAr);
-		zone.add(zoneFr);
+		zone.add(zoneEng);
 		zone.add(zoneAr);
 		identityDto.setZone(zone);
 
