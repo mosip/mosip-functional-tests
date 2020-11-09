@@ -32,6 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
+import io.mosip.device.register.Runner;
 import io.mosip.device.register.constants.Urls;
 import io.mosip.device.register.dto.ApproverDto;
 import io.mosip.device.register.dto.DeviceInfoRequestDto;
@@ -49,7 +50,14 @@ public class DeviceUtil {
 	public static int deviceNumber = 1;
 	Properties config = getConfig();
 	ObjectMapper mapper = new ObjectMapper();
-	
+
+	public static String checkRunType() {
+		if (DeviceUtil.class.getResource("DeviceUtil.class").getPath().toString().contains(".jar"))
+			return "JAR";
+		else
+			return "IDE";
+	}
+
 	public static String getCurrentDateAndTime() {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 		Date date = new Date();
@@ -68,13 +76,12 @@ public class DeviceUtil {
 	public Properties getConfig() {
 		Properties prop = new Properties();
 		FileInputStream config = null;
-		URL res = getClass().getClassLoader().getResource("config.properties");
+		
 		try {
-			config = new FileInputStream(Paths.get(res.toURI()).toFile());
+			File file=getGlobalResourcePath("config.properties");
+			config = new FileInputStream(file);
 			prop.load(config);
 		} catch (IOException e) {
-			auditLog.info("config.properties was not found in the project");
-		} catch (URISyntaxException e) {
 			auditLog.info("config.properties was not found in the project");
 		} finally {
 			try {
@@ -90,11 +97,10 @@ public class DeviceUtil {
 
 	public Map<String, Map<String, String>> loadDataFromCsv() {
 		Map<String, Map<String, String>> deviceData = new HashMap<>();
-
-		URL res = getClass().getClassLoader().getResource("deviceData");
+		//URL res = getClass().getClassLoader().getResource("deviceData");
 		try {
 
-			File testFolder = Paths.get(res.toURI()).toFile();
+			File testFolder = getGlobalResourcePath("DeviceData");
 			File[] testFiles = testFolder.listFiles();
 			for (File testFile : testFiles) {
 				if (testFile.getName().contains(".csv")) {
@@ -107,8 +113,6 @@ public class DeviceUtil {
 					}
 				}
 			}
-		} catch (URISyntaxException e) {
-			auditLog.info("Could not find any test data");
 		} catch (IOException e) {
 			auditLog.info("Could not extract any test data from the file");
 		}
@@ -127,14 +131,12 @@ public class DeviceUtil {
 	}
 
 	public String readCertificate(String certificateName) {
-		URL res = getClass().getClassLoader().getResource("DeviceData/certificates/" + certificateName);
+	//	URL res = getClass().getClassLoader().getResource("DeviceData/certificates/" + certificateName);
 		String pemFile = "";
 		try {
-			File certiFile = Paths.get(res.toURI()).toFile();
+			File certiFile = new File(getGlobalResourcePath("DeviceData").getAbsolutePath()+"/certificates/"+certificateName);
 			pemFile = new String(Files.readAllBytes(certiFile.toPath()), Charset.defaultCharset());
 
-		} catch (URISyntaxException e) {
-			auditLog.info("Could Not Find The Certificates");
 		} catch (IOException e) {
 			auditLog.info("Could Not Find The Certificates");
 		}
@@ -176,14 +178,14 @@ public class DeviceUtil {
 
 	}
 
-	public void approveDevice(String id, String cookie,String url, boolean regType) {
+	public void approveDevice(String id, String cookie, String url, boolean regType) {
 		ApproverDto approverDto = new ApproverDto();
 		approverDto.setApprovalStatus("Activate");
 		approverDto.setId(id);
 		approverDto.setIsItForRegistrationDevice(regType);
 		RequestBuilder<ApproverDto> approveDeviceDetails = new RequestBuilder<ApproverDto>(approverDto, "",
 				DeviceUtil.getCurrentDateAndTimeForAPI(), "String", config.getProperty("version"));
-		//String url = Urls.REGISTER_DEVICE;
+		// String url = Urls.REGISTER_DEVICE;
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(approveDeviceDetails)
 				.contentType("application/json").log().all().when().patch(config.getProperty("baseUrl") + url).then()
@@ -208,9 +210,11 @@ public class DeviceUtil {
 				.log().all().extract().response();
 		return postResponse.jsonPath().get("response.id").toString();
 	}
-	
-	public String convertDiditalIdInfoToJWT(Map<String, String> testDataMap, String deviceProvider,String deviceProviderId,String deviceSubType, String model, String make, String serialNo, String type) throws UnsupportedEncodingException {
-		DigitalIdDto digitalIdDto=new DigitalIdDto();
+
+	public String convertDiditalIdInfoToJWT(Map<String, String> testDataMap, String deviceProvider,
+			String deviceProviderId, String deviceSubType, String model, String make, String serialNo, String type)
+			throws UnsupportedEncodingException {
+		DigitalIdDto digitalIdDto = new DigitalIdDto();
 		String digitalId = null;
 		digitalIdDto.setDateTime(getCurrentDateAndTimeForAPI());
 		digitalIdDto.setDeviceProvider(deviceProvider);
@@ -221,21 +225,21 @@ public class DeviceUtil {
 		digitalIdDto.setSerialNo(serialNo);
 		digitalIdDto.setType(type);
 		try {
-			digitalId = getDigitalModality(mapper.readValue(
-					new String(digitalIdDto.toString()),
-					Map.class),testDataMap);
+			digitalId = getDigitalModality(mapper.readValue(new String(digitalIdDto.toString()), Map.class),
+					testDataMap);
 		} catch (JsonProcessingException e) {
-			
+
 			e.printStackTrace();
 		}
 		return digitalId;
-		//return Base64.getEncoder().encodeToString(digitalIdDto.toString().getBytes("UTF-8"));
+		// return
+		// Base64.getEncoder().encodeToString(digitalIdDto.toString().getBytes("UTF-8"));
 	}
 
 	public String convertDeviceInfoToJWT(DeviceInfoRequestDto infoRequestDto, Map<String, String> testDataMap) {
 		Map<String, Map<String, String>> deviceinfoData = mapper.convertValue(infoRequestDto, Map.class);
 		String result = null;
-		JwtUtility j=new JwtUtility();
+		JwtUtility j = new JwtUtility();
 		try {
 			result = JwtUtility.getJwt(mapper.writeValueAsBytes(deviceinfoData), j.getPrivateKey(),
 					JwtUtility.getCertificate(testDataMap));
@@ -244,11 +248,11 @@ public class DeviceUtil {
 		}
 		return result;
 	}
-	
+
 	public String convertDeviceRegToJwt(DeviceRegDto deviceRegDto, Map<String, String> testDataMap) {
 		Map<String, Map<String, String>> deviceRegData = mapper.convertValue(deviceRegDto, Map.class);
 		String result = null;
-		JwtUtility j=new JwtUtility();
+		JwtUtility j = new JwtUtility();
 		try {
 			result = JwtUtility.getJwt(mapper.writeValueAsBytes(deviceRegData), j.getPrivateKey(),
 					JwtUtility.getCertificate(testDataMap));
@@ -257,8 +261,9 @@ public class DeviceUtil {
 		}
 		return result;
 	}
-	private String getDigitalModality(Map<String, String> digitalIdMap,Map<String, String> testDataMap) {
-		JwtUtility j=new JwtUtility();
+
+	private String getDigitalModality(Map<String, String> digitalIdMap, Map<String, String> testDataMap) {
+		JwtUtility j = new JwtUtility();
 		String result = null;
 		Map<String, String> digitalMap = new LinkedHashMap<String, String>();
 		digitalMap.put("dateTime", getCurrentDateAndTimeForAPI());
@@ -277,11 +282,26 @@ public class DeviceUtil {
 		}
 		return result;
 	}
-	
+
 	public Response postRequest(RequestBuilder<?> request, String url, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
 		return given().cookie(builder.build()).relaxedHTTPSValidation().body(request).contentType("application/json")
 				.log().all().when().post(config.getProperty("baseUrl") + url).then().log().all().extract().response();
 	}
+	
+	public static File getGlobalResourcePath(String fileName) {
+		File homeDir=null;
+		String os=System.getProperty("os.name");
+		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) {
+			 homeDir = new File(System.getProperty("user.dir") + "/"+fileName);
+		}
+		else {
+			File dir=new File(System.getProperty("user.dir"));
+		homeDir = new File(dir.getParent()  + "/"+fileName);
+		}
+		return homeDir; 
+	}
+	
+
 
 }

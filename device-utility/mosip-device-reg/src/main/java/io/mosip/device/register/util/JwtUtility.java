@@ -55,9 +55,12 @@ public class JwtUtility {
 	}
 	public PrivateKey getPrivateKey() {		
 		try {
+			File getKeyStorePath=DeviceUtil.getGlobalResourcePath("DeviceData/certificates/identity.p12");
+			InputStream is=new FileInputStream(getKeyStorePath);
 			
 			KeyStore keystore = KeyStore.getInstance("PKCS12");
-			keystore.load(this.getClass().getClassLoader().getResourceAsStream("DeviceData/certificates/identity.p12"), "storepassword".toCharArray());
+			keystore.load(is, "storepassword".toCharArray());
+			is.close();
 			PrivateKey key = (PrivateKey)keystore.getKey("notebook", "storepassword".toCharArray());
 			return key;
 //			FileInputStream pkeyfis = new FileInputStream(
