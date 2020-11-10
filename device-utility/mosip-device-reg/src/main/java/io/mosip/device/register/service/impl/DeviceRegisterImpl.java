@@ -143,46 +143,51 @@ public class DeviceRegisterImpl implements DeviceRegister {
 		deviceUtil.approveDevice(id, cookie,Urls.REGISTER_DEVICE,registerRequestDto.getIsItForRegistrationDevice());
 		String secureId=deviceUtil.saveSecureBiometrics(id, cookie,registerRequestDto.getIsItForRegistrationDevice());
 		deviceUtil.approveDevice(secureId, cookie,Urls.APPROVE_BIOMETRICS,registerRequestDto.getIsItForRegistrationDevice());
-		try {
-			String digitalId=deviceUtil.convertDiditalIdInfoToJWT(testDataMap,
-					testDataMap.get("organisation_name"),
-					registerRequestDto.getDeviceProviderId(),
-					testDataMap.get("deviceSubType"), 
-					testDataMap.get("model"),
-					testDataMap.get("make"), 
-					testDataMap.get("serial_no"),
-					testDataMap.get("deviceType"));
+//		try {
+//			registerDevice(testDataMap, registerRequestDto);
+//
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
 
-			DeviceRegDto deviceRegDto=new DeviceRegDto();
-			deviceRegDto.setDeviceId(testDataMap.get("device_id"));
-			deviceRegDto.setFoundationalTrustProviderId(testDataMap.get("foundationalTrustProviderId"));
-			deviceRegDto.setPurpose(testDataMap.get("purpose"));
-			//TODO
-			DeviceInfoRequestDto infoRequestDto=new DeviceInfoRequestDto();
-			infoRequestDto.setCertification("L0");
-			infoRequestDto.setDeviceSubId(testDataMap.get("device_sub_id"));
-			infoRequestDto.setDigitalId(digitalId);
-			infoRequestDto.setFirmware("firmware");
-			infoRequestDto.setTimeStamp(DeviceUtil.getCurrentDateAndTimeForAPI());
-			infoRequestDto.setDeviceExpiry(DeviceUtil.getFutureDateAndTime());
-			String deviceInfoRequestString = deviceUtil.convertDeviceInfoToJWT(infoRequestDto,testDataMap);
-			deviceRegDto.setDeviceInfo(deviceInfoRequestString);
-			
-			SignedRegisterDeviceDto signedRegisterDeviceDto=new SignedRegisterDeviceDto();
-			//signedRegisterDeviceDto.setDeviceData(Base64.getEncoder().encodeToString(deviceRegDto.toString().getBytes()));
-			
-			String deviceRegString=deviceUtil.convertDeviceRegToJwt(deviceRegDto,testDataMap);
-			signedRegisterDeviceDto.setDeviceData(deviceRegString);
-			
-			RequestBuilder<SignedRegisterDeviceDto> signedDeviceRegisterDto = new RequestBuilder<SignedRegisterDeviceDto>(
-					signedRegisterDeviceDto, "", DeviceUtil.getCurrentDateAndTimeForAPI(), "String",
-					config.getProperty("version"));
-		//	deviceUtil.postRequest(signedDeviceRegisterDto,Urls.SIGNED_REGISTER_BIOMETRICS , cookie);
+	private void registerDevice(Map<String, String> testDataMap, DeviceRegisterRequestDto registerRequestDto)
+			throws UnsupportedEncodingException {
+		String digitalId=deviceUtil.convertDiditalIdInfoToJWT(testDataMap,
+				testDataMap.get("organisation_name"),
+				registerRequestDto.getDeviceProviderId(),
+				testDataMap.get("deviceSubType"), 
+				testDataMap.get("model"),
+				testDataMap.get("make"), 
+				testDataMap.get("serial_no"),
+				testDataMap.get("deviceType"));
 
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		DeviceRegDto deviceRegDto=new DeviceRegDto();
+		deviceRegDto.setDeviceId(testDataMap.get("device_id"));
+		deviceRegDto.setFoundationalTrustProviderId(testDataMap.get("foundationalTrustProviderId"));
+		deviceRegDto.setPurpose(testDataMap.get("purpose"));
+		//TODO
+		DeviceInfoRequestDto infoRequestDto=new DeviceInfoRequestDto();
+		infoRequestDto.setCertification("L0");
+		infoRequestDto.setDeviceSubId(testDataMap.get("device_sub_id"));
+		infoRequestDto.setDigitalId(digitalId);
+		infoRequestDto.setFirmware("firmware");
+		infoRequestDto.setTimeStamp(DeviceUtil.getCurrentDateAndTimeForAPI());
+		infoRequestDto.setDeviceExpiry(DeviceUtil.getFutureDateAndTime());
+		String deviceInfoRequestString = deviceUtil.convertDeviceInfoToJWT(infoRequestDto,testDataMap);
+		deviceRegDto.setDeviceInfo(deviceInfoRequestString);
+		
+		SignedRegisterDeviceDto signedRegisterDeviceDto=new SignedRegisterDeviceDto();
+		//signedRegisterDeviceDto.setDeviceData(Base64.getEncoder().encodeToString(deviceRegDto.toString().getBytes()));
+		
+		String deviceRegString=deviceUtil.convertDeviceRegToJwt(deviceRegDto,testDataMap);
+		signedRegisterDeviceDto.setDeviceData(deviceRegString);
+		
+		RequestBuilder<SignedRegisterDeviceDto> signedDeviceRegisterDto = new RequestBuilder<SignedRegisterDeviceDto>(
+				signedRegisterDeviceDto, "", DeviceUtil.getCurrentDateAndTimeForAPI(), "String",
+				config.getProperty("version"));
+//	deviceUtil.postRequest(signedDeviceRegisterDto,Urls.SIGNED_REGISTER_BIOMETRICS , cookie);
 	}
 
 }
