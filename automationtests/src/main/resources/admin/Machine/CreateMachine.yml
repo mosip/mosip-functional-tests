@@ -38,7 +38,7 @@ CreateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Smoke_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"ara",
@@ -70,7 +70,7 @@ CreateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Smoke_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"fra",

@@ -9,7 +9,7 @@ UpdateDeviceSpecification:
       "brand": "Technoforte",
       "description": "Test DeviceSpec updated",
       "deviceTypeCode": "CMR",
-      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid$",
+      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
       "isActive": true,
       "langCode": "eng",
       "minDriverversion": "1.0",

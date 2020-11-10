@@ -6,7 +6,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Smoke_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"eng",
@@ -38,7 +38,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Smoke_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"ara",
@@ -70,7 +70,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Smoke_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"fra",
@@ -102,7 +102,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_All_Valid_Mandatory_Fields_sid$",
+    "id":"$ID:CreateMachine_All_Valid_Mandatory_Fields_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"eng",
@@ -134,7 +134,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_inValid_removing_publicKey_sid$",
+    "id":"$ID:CreateMachine_inValid_removing_publicKey_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"eng",
@@ -166,7 +166,7 @@ UpdateMachine:
       inputTemplate: admin/Machine/machine
       outputTemplate: admin/Machine/machineResult
       input: '{
-    "id":"$ID:CreateMachine_Invalid_publicKey_As_blank_sid$",
+    "id":"$ID:CreateMachine_Invalid_publicKey_As_blank_sid_id$",
     "ipAddress":"192.168.0.424",
     "isActive":true,
     "langCode":"eng",

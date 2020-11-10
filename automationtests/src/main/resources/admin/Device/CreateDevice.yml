@@ -36,7 +36,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/Device/createDeviceResult
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -67,7 +67,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/Device/createDeviceResult
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -98,7 +98,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -125,7 +125,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -152,7 +152,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -179,7 +179,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -206,7 +206,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -233,7 +233,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -260,7 +260,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -287,7 +287,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -314,7 +314,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -341,7 +341,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -368,7 +368,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -395,7 +395,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
@@ -422,7 +422,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "736",
 	"ipAddress": "qwertyuiopasdfge18",
@@ -449,7 +449,7 @@ CreateDevice:
       inputTemplate: admin/Device/createDevice
       outputTemplate: admin/error
       input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid$",
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy_1",
 	"deviceSpecId": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
 	"ipAddress": "172.23.174.113",
