@@ -7,7 +7,7 @@ createUpdateSecureBiometricInterface:
       outputTemplate: partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterfaceResult
       input: '{
     "deviceDetailId": "device-id-123",
-	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$",
+	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
     "isActive": true,
     "isItForRegistrationDevice": true,
     "swBinaryHash": "0",
@@ -17,7 +17,7 @@ createUpdateSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$"
+        "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$"
     }'
 
    Partner_UpdateSecureBiometricInterface_Missing_InputParameter_Id:
@@ -54,7 +54,7 @@ createUpdateSecureBiometricInterface:
       outputTemplate: partner/error
       input: '{
     "deviceDetailId": "$REMOVE$",
-	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid$",
+	"id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
     "isActive": true,
     "isItForRegistrationDevice": true,
     "swBinaryHash": "0",
