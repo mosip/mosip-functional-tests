@@ -152,7 +152,7 @@ DeviceSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "testDevicedummy",
+	"name": "testDevicedummy updated",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"description": "$IGNORE$",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
@@ -193,7 +193,7 @@ DeviceSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "testDevicedummy",
+	"name": "testDevicedummy updated",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"description": "$IGNORE$",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
@@ -357,7 +357,7 @@ DeviceSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "testDevicedummy",
+	"name": "testDevicedummy updated",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"description": "$IGNORE$",
 	"macAddress": "D4-3D-7E-C0-8C-4A",

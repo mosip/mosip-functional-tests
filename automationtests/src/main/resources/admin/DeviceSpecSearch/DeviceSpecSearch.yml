@@ -36,7 +36,7 @@ DeviceSpecSearch:
 	"minDriverversion": "1.0",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -118,7 +118,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -200,7 +200,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -241,7 +241,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "Camera"
 	}]
 }'
@@ -377,7 +377,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -418,7 +418,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -669,7 +669,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -717,7 +717,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
@@ -758,7 +758,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": false,
+	"isActive": true,
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
