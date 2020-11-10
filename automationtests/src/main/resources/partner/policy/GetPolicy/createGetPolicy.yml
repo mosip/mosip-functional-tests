@@ -6,7 +6,7 @@ createGetPolicy:
       inputTemplate: partner/policy/GetPolicy/createGetPolicy
       outputTemplate: partner/policy/GetPolicy/createGetPolicyResult
       input: '{
-    "policyID": "$ID:DefinePolicy_All_Valid_Smoke_sid$"
+    "policyID": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$"
   }'
       output: ' {
         "policyGroupName": "mosip policy group",

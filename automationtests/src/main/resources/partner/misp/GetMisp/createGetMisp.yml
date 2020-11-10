@@ -6,7 +6,7 @@ createGetMisp:
       inputTemplate: partner/misp/GetMisp/createGetMisp
       outputTemplate: partner/misp/GetMisp/createGetMispResult
       input: '{
-		"mispId": "$ID:RegisterMISP_All_Valid_Smoke_sid$"
+		"mispId": "$ID:RegisterMISP_All_Valid_Smoke_sid_mispID$"
 }'
       output: ' {
             "isActive": true,
