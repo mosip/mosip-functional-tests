@@ -169,6 +169,14 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="ApproveRejectSecureBiometricInterface">
+		<parameter name="ymlFile"
+			value="partner/SecureBiometricInterface/ApproveRejectSecureBiometricInterface/createApproveRejectSecureBiometricInterface.yml" />
+		<parameter name="pathParams" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
 	<test name="UpdateSecureBiometricInterface">
 		<parameter name="ymlFile"
 			value="partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterface.yml" />
