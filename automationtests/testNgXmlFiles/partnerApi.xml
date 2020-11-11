@@ -19,7 +19,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="GetPolicyGroup">
+	 <test name="GetPolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicyGroup/createGetPolicyGroup.yml" />
 		<classes>
@@ -64,7 +64,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="GetPolicy">
+	 <test name="GetPolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicy/createGetPolicy.yml" />
 		<classes>

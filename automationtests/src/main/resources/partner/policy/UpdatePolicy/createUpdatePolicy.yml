@@ -16,6 +16,7 @@ createUpdatePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
@@ -45,6 +46,7 @@ createUpdatePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -73,6 +75,7 @@ createUpdatePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -101,6 +104,7 @@ createUpdatePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -130,13 +134,14 @@ createUpdatePolicy:
 		"authTokenType": "$REMOVE$",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Missing Input Parameter - authTokenType"
+      "errorCode": "PMS-PV-006",
+      "message": "Missing input parameter - authTokenType"
     }
   ]
 }'
@@ -158,6 +163,7 @@ createUpdatePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "$REMOVE$",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{

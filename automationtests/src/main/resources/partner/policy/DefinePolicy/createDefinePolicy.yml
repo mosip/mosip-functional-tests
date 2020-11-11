@@ -15,6 +15,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
@@ -43,6 +44,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -71,6 +73,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -99,6 +102,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -127,6 +131,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -155,6 +160,7 @@ createDefinePolicy:
 		"authTokenType": "$REMOVE$",
 		"policyGroupName": "mosip policy group",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -183,6 +189,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "$REMOVE$",
 		"policyType": "Auth",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -210,6 +217,7 @@ createDefinePolicy:
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
 		"policyType": "$REMOVE$",
+		"version": "1.0",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
