@@ -17,12 +17,13 @@ public class RegProcPerfDaoImpl {
 
 	public List<Location> getCountry(Session session, String countryCode) {
 
-		//Session session = dbUtil.obtainSession(prop);
+		// Session session = dbUtil.obtainSession(prop);
 		List<Location> locations = new ArrayList<>();
-		Query q = session.createQuery("from Location where lang_code='eng' and hierarchy_level=0 and code='"+countryCode+"'");
+		Query q = session.createQuery(
+				"from Location where lang_code='eng' and hierarchy_level=0 and code='" + countryCode + "'");
 		locations = q.getResultList();
-		//System.out.println("Country fetched: " + locations.size());
-		//session.close();
+		// System.out.println("Country fetched: " + locations.size());
+		// session.close();
 		return locations;
 	}
 
@@ -33,7 +34,7 @@ public class RegProcPerfDaoImpl {
 		// Session session = dbUtil.obtainSession(prop);
 		Query q = session.createQuery(query);
 		locations = q.getResultList();
-		//session.close();
+		// session.close();
 		return locations;
 	}
 
@@ -41,7 +42,7 @@ public class RegProcPerfDaoImpl {
 		String result = "";
 		String fromLangCode = "eng";
 
-		//System.out.println("Fetching " + locationName + " in " + toLangCode);
+		// System.out.println("Fetching " + locationName + " in " + toLangCode);
 		String queryString = "select name from Location where lang_code='" + toLangCode
 				+ "' and code in (SELECT code FROM Location where name='" + locationName + "' and lang_code='"
 				+ fromLangCode + "' and hierarchy_level=" + hierarchy_level + ")";
@@ -49,7 +50,7 @@ public class RegProcPerfDaoImpl {
 		Query query = session.createQuery(queryString);
 
 		result = (String) query.getSingleResult();
-		//session.close();
+		// session.close();
 		return result;
 	}
 
@@ -74,8 +75,44 @@ public class RegProcPerfDaoImpl {
 			obj.setUserId(row[2].toString());
 			regCenterList.add(obj);
 		}
-		//session.close();
+		// session.close();
 		return regCenterList;
+	}
+
+	public String getGenderNameFromCode(String key_value, String language, PropertiesUtil prop, Session session) {
+
+		String queryString = "select name from gender where code = '" + key_value + "' and lang_code = '" + language
+				+ "'";
+		Query query = session.createQuery(queryString);
+
+		String result = (String) query.getSingleResult();
+		return result;
+	}
+
+	public String getResidenceTypeFromResidenceCode(String key_value, String language, PropertiesUtil prop2,
+			Session session) {
+		String queryString = "select name from individual_type where code = '" + key_value + "' and lang_code = '"
+				+ language + "'";
+		Query query = session.createQuery(queryString);
+
+		String result = (String) query.getSingleResult();
+		return result;
+	}
+
+	public String getDynamicData(String key, Session session) {
+		String queryString = "select value_json from dynamic_field where name='" + key + "'";
+		Query query = session.createQuery(queryString);
+
+		String result = (String) query.getSingleResult();
+		return result;
+	}
+
+	public String getLocationNameByCode(String key_value, String language, PropertiesUtil prop2, Session session) {
+		String queryString = "select name from location where code = '" + key_value + "' and lang_code= '" + language
+				+ "'";
+		Query query = session.createQuery(queryString);
+		String result = (String) query.getSingleResult();
+		return result;
 	}
 
 }

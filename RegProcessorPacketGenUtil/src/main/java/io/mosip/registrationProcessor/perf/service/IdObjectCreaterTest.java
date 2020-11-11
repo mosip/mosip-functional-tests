@@ -33,18 +33,11 @@ public class IdObjectCreaterTest {
 			auth_token = generateToken.getAuthTokenForUsernamePassword(tokenEntity1, prop);
 
 		}
-		//Session session = new DBUtil().obtainSession(prop);
-		//idObjectCreater.createIDObject(prop, auth_token, session, process);
+		// Session session = new DBUtil().obtainSession(prop);
+		// idObjectCreater.createIDObject(prop, auth_token, session, process);
 		PreregistrationSyncService preRegSyncService = new PreregistrationSyncService();
-		try {
-			preRegSyncService.loadPreregData(prop, auth_token);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		preRegSyncService.loadPreregData(prop, auth_token);
+
 	}
 
 }

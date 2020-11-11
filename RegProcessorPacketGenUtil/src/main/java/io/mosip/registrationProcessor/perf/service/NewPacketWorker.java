@@ -86,6 +86,12 @@ public class NewPacketWorker {
 		String idJsonPath = packetContentFolder + File.separator + registrationId + "_id" + File.separator + "ID.json";
 		jsonUtil.writeJsonToFile(identityJson, idJsonPath);
 		helper.updateIDSchemaInIdentityFiles(prop);
+		
+		if(prop.SYNC_PREREG) {
+			PreregistrationSyncHelper preregSyncHelper = new PreregistrationSyncHelper();
+			preregSyncHelper.copyDocumentsPreregpacketToRegPacket(idJsonPath, identityFolder, prop);
+		}
+		
 
 		String packetMetaInfoFile = packetContentFolder + File.separator + registrationId + "_id" + File.separator
 				+ "packet_meta_info.json";

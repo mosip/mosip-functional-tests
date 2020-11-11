@@ -40,6 +40,12 @@
 			class="io.mosip.registrationProcessor.perf.entity.RegistrationCenterUser" />
 		<mapping
 			class="io.mosip.registrationProcessor.perf.entity.RegistrationCenterUserMachine" />
+		<mapping
+			class="io.mosip.registrationProcessor.perf.entity.DynamicField" />
+		<mapping
+			class="io.mosip.registrationProcessor.perf.entity.Gender" />
+		<mapping
+			class="io.mosip.registrationProcessor.perf.entity.IndividualType" />
 
 	</session-factory>
 </hibernate-configuration>

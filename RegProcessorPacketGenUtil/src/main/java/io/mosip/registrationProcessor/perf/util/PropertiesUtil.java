@@ -5,6 +5,7 @@ import java.util.Properties;
 
 public class PropertiesUtil {
 
+	public  String PREREG_ID;
 	public String REG_ID;
 	public int NUMBER_OF_TEST_DATA;
 	public String REGID_LOG_FILE;
@@ -38,6 +39,8 @@ public class PropertiesUtil {
 	public String NEW_PACKET_PATH;
 	public String CHILD_PACKET_PATH;
 	public String MULTI_LANG_VAL;
+	public Boolean SYNC_PREREG;
+	public String PREREG_PACKET_PATH;
 
 	/*
 	 * public void loadProperties(String configFile) {
@@ -101,5 +104,9 @@ public class PropertiesUtil {
 		NEW_PACKET_PATH = properties.getProperty("NEW_PACKET_PATH");
 		CHILD_PACKET_PATH = properties.getProperty("CHILD_PACKET_PATH");
 		MULTI_LANG_VAL = properties.getProperty("MULTI_LANG_VAL");
+		SYNC_PREREG = Boolean.parseBoolean(properties.getProperty("SYNC_PREREG"));
+		PREREG_PACKET_PATH = properties.getProperty("PREREG_PACKET_PATH");
+		PREREG_ID = properties.getProperty("PREREG_ID");
+		
 	}
 }
