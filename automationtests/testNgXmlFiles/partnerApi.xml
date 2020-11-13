@@ -19,7 +19,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="GetPolicyGroup">
+	 <test name="GetPolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicyGroup/createGetPolicyGroup.yml" />
 		<classes>
@@ -64,7 +64,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="GetPolicy">
+	 <test name="GetPolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicy/createGetPolicy.yml" />
 		<classes>
@@ -167,6 +167,14 @@
 		<parameter name="idKeyName" value="id" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="ApproveRejectSecureBiometricInterface">
+		<parameter name="ymlFile"
+			value="partner/SecureBiometricInterface/ApproveRejectSecureBiometricInterface/createApproveRejectSecureBiometricInterface.yml" />
+		<parameter name="pathParams" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test>
 	<test name="UpdateSecureBiometricInterface">
