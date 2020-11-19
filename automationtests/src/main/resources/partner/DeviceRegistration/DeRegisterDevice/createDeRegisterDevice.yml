@@ -1,0 +1,16 @@
+createDeRegisterDevice:
+   Partner_DeRegisterDevice_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/partners/registereddevices/deregister
+      role: partner
+      restMethod: post
+      inputTemplate: partner/DeviceRegistration/DeRegisterDevice/createDeRegisterDevice
+      outputTemplate: partner/DeviceRegistration/DeRegisterDevice/createDeRegisterDeviceResult
+      input: '{
+    "device": "ewoJImRldmljZUNvZGUiOiAiZWRmNjRkYTYtYzA1My00NjdkLWFiN2YtODFjNTcwNWM1MTQ3IiwKCSJlbnYiOiAiRGV2ZWxvcGVyIgp9",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "Device details approved successfully."
+    }'
+
