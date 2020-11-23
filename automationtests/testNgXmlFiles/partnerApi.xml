@@ -191,7 +191,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test> 
 	<test name="ApproveRejectFtpChipDetail">
 		<parameter name="ymlFile"
 			value="partner/FTPChipDetail/ApproveRejectFtpChipDetail/createApproveRejectFtpChipDetail.yml" />
@@ -204,6 +204,22 @@
 			value="partner/FtpChipDetail/UpdateFtpChipDetail/createUpdateFtpChipDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="SignedRegisteredDevice">
+		<parameter name="ymlFile"
+			value="partner/DeviceRegistration/SignedRegisteredDevice/createSignedRegisteredDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForRegisteredDevice" />
+		</classes>
+	</test>
+	
+	<test name="DeRegisterDevice">
+		<parameter name="ymlFile"
+			value="partner/DeviceRegistration/DeRegisterDevice/createDeRegisterDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForDeRegisterDevice" />
 		</classes>
 	</test>
 
