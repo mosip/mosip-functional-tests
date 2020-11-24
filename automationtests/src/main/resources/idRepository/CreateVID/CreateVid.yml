@@ -1,0 +1,15 @@
+CreateVID:
+  IdRepository_CreateVID_withValidParameters_For VidType_Smoke_Temporary_sid:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/CreateVID/createVid
+      outputTemplate: idRepository/CreateVID/createVidResult
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "vidStatus":"ACTIVE"
+}'
