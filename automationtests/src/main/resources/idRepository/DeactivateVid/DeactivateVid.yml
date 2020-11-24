@@ -1,0 +1,14 @@
+DeactivateVIDs:
+  IdRepository_DeactivateVIDs_Smoke_Pos:
+      endPoint: /idrepository/v1/vid/deactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      outputTemplate: idRepository/DeactivateVid/deactivateVidResult
+      input: '{
+    "UIN": "6397584501",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "DEACTIVATED"
+}'
