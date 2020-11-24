@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<!-- <test name="Idrepository Test">
+	<test name="Idrepository Test">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -44,15 +44,17 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
-	 -->
-	<!-- <test name="idRepository">
+
+	<!--
+	<test name="GenerateUIN">
 		<parameter name="ymlFile"
 			value="idRepository\IAddIdentity\AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
-	</test> -->
-	<test name="idRepository">
+	</test>
+
+	<test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
 	<classes>
@@ -93,4 +95,5 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
+ -->
 </suite>
