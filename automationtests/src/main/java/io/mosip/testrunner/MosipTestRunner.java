@@ -48,23 +48,21 @@ public class MosipTestRunner {
 		File homeDir=null;
 		TestNG runner = new TestNG();
 		List<String> suitefiles = new ArrayList<String>();
-		
 		//String specifiedModules = System.getProperty("modules");
 		List<String> modulesToRun = BaseTestCase.listOfModules;
 		String os=System.getProperty("os.name");
 		LOGGER.info(os);
 		//suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
-		/* if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) {
+		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==true) {
 			 homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
-		}*/
-		if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==true) {
-			 URL res = MosipTestRunner.class.getClassLoader().getResource("testNgXmlFiles");
-			 try {
-				homeDir = Paths.get(res.toURI()).toFile();
-			} catch (URISyntaxException e) {
-				LOGGER.error("Exception getting the xml file path :"+e.getMessage());
-			}
 		}
+		/*
+		 * if(checkRunType().contains("IDE") ||
+		 * os.toLowerCase().contains("windows")==true) { URL res =
+		 * MosipTestRunner.class.getClassLoader().getResource("testNgXmlFiles"); try {
+		 * homeDir = Paths.get(res.toURI()).toFile(); } catch (URISyntaxException e) {
+		 * LOGGER.error("Exception getting the xml file path :"+e.getMessage()); } }
+		 */
 		else {
 			File dir=new File(System.getProperty("user.dir"));
 		homeDir = new File(dir.getParent() + "/testNgXmlFiles");
