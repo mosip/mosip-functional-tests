@@ -4,7 +4,7 @@
 <suite name="Resident Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
-	<listeners>
+	<!-- <listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
@@ -27,5 +27,68 @@
 				
 				
 		</classes>
+	</test> -->
+	
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+	
+	
+	<test name="SendOTP1">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/createSendOTP.yml" />
+		<classes>
+			<class name="io.mosip.resident.tests.PostWithHeder" />
+		</classes>
 	</test>
+	<test name="PrintUin">
+		<parameter name="ymlFile"
+			value="resident/PRINTUIN/createPrintUin.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SendOTP2">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/createSendOTP.yml" />
+		<classes>
+			<class name="io.mosip.resident.tests.PostWithHeder" />
+		</classes>
+	</test>
+	<test name="GenerateVID">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/createGenerateVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<!-- <test name="SendOtpForVid">
+		<parameter name="ymlFile"
+			value="resident/SendOtpForVid/createSendOTP.yml" />
+		<classes>
+			<class name="io.mosip.resident.tests.PostWithHeder" />
+		</classes>
+	</test> 
+	<test name="RevokeVID">
+		<parameter name="ymlFile"
+			value="resident/RevokeVID/createRevokeVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> --> 
+	<test name="RidCheckStatus">
+		<parameter name="ymlFile"
+			value="resident/RidCheckStatus/createRidCheckStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="EUIN">
+		<parameter name="ymlFile"
+			value="resident/EUIN/createEuin.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
 </suite>

@@ -1,0 +1,18 @@
+createRevokeVID:
+   Resident_RevokeVID__All_Valid_Smoke:
+      endPoint: /resident/v1/vid/5645026810924975
+      role: resident
+      restMethod: post
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "5645026810924975",
+  "individualIdType": "VID",
+  "otp": "111111",
+  "vidStatus": "REVOKED",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "message": "Notification has been sent to the provided contact detail(s)"
+    }'
