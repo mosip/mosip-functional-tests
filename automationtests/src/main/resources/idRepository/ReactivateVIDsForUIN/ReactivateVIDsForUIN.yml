@@ -1,0 +1,14 @@
+ReactivateVIDs:
+  IdRepository_ReactivateVIDs_Smoke_Pos:
+      endPoint: /idrepository/v1/vid/reactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      outputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUINResult
+      input: '{
+    "UIN": "8473829814",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "ACTIVE"
+}'

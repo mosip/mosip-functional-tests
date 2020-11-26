@@ -1,4 +1,4 @@
-package io.mosip.testscripts;
+package io.mosip.testscripts.idrepo;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -57,15 +57,11 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
-		Response response =null;
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		if(testCaseName.contains("With_Valid Smoke_Rid")) {
-			String inputJson=getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-			inputJson=inputJson.replace("$rid$", generatedRid);
-			response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		}else
-		response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		String inputJson=getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		inputJson=inputJson.replace("$rid$", generatedRid);
+		Response response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

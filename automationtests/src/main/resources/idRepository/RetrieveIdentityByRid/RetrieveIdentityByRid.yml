@@ -1,0 +1,13 @@
+RetrieveIdentityByRid:
+  IdRepository_RetrieveIdentityByRid_With_Valid Smoke_Rid:
+      endPoint: /idrepository/v1/identity/idvid/{rid}?type=all
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/RetrieveIdentityByRid/retrieveIdentityByRid
+      outputTemplate: idRepository/RetrieveIdentityByRid/retrieveIdentityByRidResult
+      input: '{
+      "rid":"$rid$"
+      }'
+      output: '{
+    "vidStatus": "ACTIVATED"
+}'
