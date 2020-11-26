@@ -32,7 +32,7 @@ UpdateDeviceSpecification:
       "brand": "Technoforte TFUpd",
       "description": "$REMOVE$",
       "deviceTypeCode": "CMR",
-      "id": "743",
+      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
       "isActive": true,
       "langCode": "ara",
       "minDriverversion": "1.0",
@@ -66,7 +66,7 @@ UpdateDeviceSpecification:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.name: must not be null"
+      "message": "changed for demo"
     }
   ]
 }'
