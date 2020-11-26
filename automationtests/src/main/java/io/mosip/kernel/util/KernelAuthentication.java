@@ -105,7 +105,11 @@ public class KernelAuthentication extends BaseTestCase{
 		case "regAdmin":
 			if (!kernelCmnLib.isValidToken(regAdminCookie)) 
 				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
-			return regAdminCookie;	
+			return regAdminCookie;
+		case "resident":
+			if(!kernelCmnLib.isValidToken(residentCookie))
+				residentCookie = kernelAuthLib.getAuthForResident();
+			return residentCookie;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -138,6 +142,21 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", props.get("partner_appid"));
 		request.put("password", props.get("partner_password"));
 		request.put("userName", props.get("partner_user"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForResident() {
+		JSONObject actualrequest = getRequestJson(testsuite);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("resident_appid"));
+		request.put("password", props.get("resident_password"));
+		request.put("userName", props.get("resident_user"));
 		actualrequest.put("request", request);
 		
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);

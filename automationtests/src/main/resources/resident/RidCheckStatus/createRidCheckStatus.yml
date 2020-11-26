@@ -1,0 +1,56 @@
+createRidCheckStatus:
+   Resident_RidCheckStatus_All_Valid_Smoke:
+      endPoint: /resident/v1/rid/check-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
+      outputTemplate: resident/RidCheckStatus/createRidCheckStatusResult
+      input: '{
+    "individualId": "10001100010000720201014134056",
+    "individualIdType": "RID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "ridStatus": "PROCESSED"
+    }'
+
+   Resident_RidCheckStatus_Missing_InputParameter_individualId:
+      endPoint: /resident/v1/rid/check-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
+      outputTemplate: resident/error
+      input: '{
+    "individualId": "$REMOVE$",
+    "individualIdType": "RID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ]
+}'
+
+   Resident_RidCheckStatus_Missing_InputParameter_individualIdType:
+      endPoint: /resident/v1/rid/check-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
+      outputTemplate: resident/error
+      input: '{
+    "individualId": "10001100010000720201014134056",
+    "individualIdType": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ]
+}'
+
