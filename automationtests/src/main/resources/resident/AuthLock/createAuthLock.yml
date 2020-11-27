@@ -1,0 +1,42 @@
+createAuthLock:
+   Resident_AuthLock_All_Valid_Smoke:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLock/createAuthLock
+      outputTemplate: resident/AuthLock/createAuthLockResult
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "8172138568",
+  "individualIdType": "UIN",
+  "otp": "111111",
+  "authType": "demo",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "status": null,
+        "message": "Notification has been sent to the provided contact detail(s)"
+    }'
+
+   Resident_AuthLock_Invalid_InputParameter_authType:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLock/createAuthLock
+      outputTemplate: resident/error
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "8172138568",
+  "individualIdType": "UIN",
+  "otp": "111111",
+  "authType": "$REMOVE$",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- authType"
+    }
+  ]
+}'
