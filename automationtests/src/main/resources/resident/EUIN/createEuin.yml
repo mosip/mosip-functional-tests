@@ -1,0 +1,69 @@
+createEUIN:
+   Resident_EUIN_Invalid_InputParameter_individualId:
+      endPoint: /resident/v1/req/euin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/EUIN/createEUIN
+      outputTemplate: resident/error
+      input: '{
+    "transactionID": "1234567890",
+    "individualId": "9617589328",
+    "individualIdType": "UIN",
+    "cardType": "UIN",
+    "otp": "111111",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-004",
+      "message": "UIN not available in database"
+    }
+  ]
+}'
+
+   Resident_EUIN_Missing_InputParameter_transactionId:
+      endPoint: /resident/v1/req/euin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/EUIN/createEUIN
+      outputTemplate: resident/error
+      input: '{
+    "transactionID": "$REMOVE$",
+    "individualId": "9617589328",
+    "individualIdType": "UIN",
+    "cardType": "UIN",
+    "otp": "111111",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'
+
+   Resident_EUIN_Missing_InputParameter_individualId:
+      endPoint: /resident/v1/req/euin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/EUIN/createEUIN
+      outputTemplate: resident/error
+      input: '{
+    "transactionID": "1234567890",
+    "individualId": "$REMOVE$",
+    "individualIdType": "UIN",
+    "cardType": "UIN",
+    "otp": "111111",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ]
+}'
