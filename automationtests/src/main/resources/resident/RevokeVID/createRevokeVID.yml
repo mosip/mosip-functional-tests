@@ -1,13 +1,13 @@
 createRevokeVID:
    Resident_RevokeVID__All_Valid_Smoke:
-      endPoint: /resident/v1/vid/5645026810924975
+      endPoint: /resident/v1/vid/5329487524103783
       role: resident
-      restMethod: post
+      restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
   "transactionID": "1234567190",
-  "individualId": "5645026810924975",
+  "individualId": "5329487524103783",
   "individualIdType": "VID",
   "otp": "111111",
   "vidStatus": "REVOKED",

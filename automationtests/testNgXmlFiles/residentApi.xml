@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 		<test name="Resident Tests">
-		<classes>	
+		<classes>
 		
 			<class name="io.mosip.resident.tests.UpdateUIN" />
 			<class name="io.mosip.resident.tests.GenerateVID" />
@@ -33,6 +33,7 @@
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
+	
 	
 	
 	<test name="SendOTP1">
@@ -62,7 +63,37 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
+	</test> 
+	<test name="SendOTP3">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/createSendOTP.yml" />
+		<classes>
+			<class name="io.mosip.resident.tests.PostWithHeder" />
+		</classes>
 	</test>
+	<test name="AuthLock">
+		<parameter name="ymlFile"
+			value="resident/AuthLock/createAuthLock.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="SendOTP4">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/createSendOTP.yml" />
+		<classes>
+			<class name="io.mosip.resident.tests.PostWithHeder" />
+		</classes>
+	</test>
+	<test name="AuthUnLock">
+		<parameter name="ymlFile"
+			value="resident/AuthUnLock/createAuthUnLock.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
 	<!-- <test name="SendOtpForVid">
 		<parameter name="ymlFile"
 			value="resident/SendOtpForVid/createSendOTP.yml" />
@@ -74,9 +105,10 @@
 		<parameter name="ymlFile"
 			value="resident/RevokeVID/createRevokeVID.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test> --> 
+	
 	<test name="RidCheckStatus">
 		<parameter name="ymlFile"
 			value="resident/RidCheckStatus/createRidCheckStatus.yml" />
@@ -91,4 +123,5 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	
 </suite>
