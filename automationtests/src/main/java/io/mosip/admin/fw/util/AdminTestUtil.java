@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -496,7 +498,8 @@ public class AdminTestUtil extends BaseTestCase{
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
 			Map<String, Object> map = gson.fromJson(input, type);   
-			Template compiledTemplate = handlebars.compile(template);
+			String templateJsonString = new String(Files.readAllBytes(Paths.get(RunConfigUtil.getResourcePath()+template+".hbs")), "UTF-8");
+			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
 		} catch (Exception e) {
