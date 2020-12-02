@@ -16,3 +16,5 @@ The entry point class Main is defined inside the package *io.mosip.registrationP
 5. decrypt_packet- Utility runs to decrypt an encrypted packet, the packet must be provided as a pre-defined path mentioned in config.properties file and also the process of the encrypted packet must be mentioned in config.properties file.
 6. sync_data_multiple - Utility runs to sync the generated packets. In this mode, packets of multiple processes type can be synced.
 7. packet_upload - Utility runs to upload the generated and synced packet by reading the path of packets from a file generated earlier. packets with regid and path mentioned in the file are uploaded one by one
+<br/><br/>
+The utility can be built to an executable jar byusing Maven goals. If wish to excute the utility as a jar, the required resources present in src/main/resources when executed from IDE, should be placed inside MosipTestResource present in the same parent directory where the jar is.
