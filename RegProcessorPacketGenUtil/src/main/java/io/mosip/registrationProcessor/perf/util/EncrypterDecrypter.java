@@ -60,15 +60,7 @@ import net.lingala.zip4j.exception.ZipException;
 
 public class EncrypterDecrypter {
 	private static Logger logger = Logger.getLogger(EncrypterDecrypter.class);
-	// static ApplicationLibrary applnMethods = new ApplicationLibrary();
-	// RegProcApiRequests apiRequests = new RegProcApiRequests();
-	// private final String decrypterURL = "/v1/cryptomanager/decrypt";
-	// private final String encrypterURL = "/v1/cryptomanager/encrypt";
-	// private String applicationId = "REGISTRATION";
-	// InputStream outstream = null;
-	// TokenGeneration generateToken = new TokenGeneration();
-	// TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
-	// String validToken = "";
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public String getToken(String tokenType, PropertiesUtil prop) throws IOException {
 
@@ -216,7 +208,8 @@ public class EncrypterDecrypter {
 
 	public String readPropertyFromFile(String apiName) {
 		Properties prop = new Properties();
-		String propertyFilePath = System.getProperty("user.dir") + "/src/config/apiList.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + "config/apiList.properties";
 		FileReader reader;
 		try {
 			reader = new FileReader(new File(propertyFilePath));

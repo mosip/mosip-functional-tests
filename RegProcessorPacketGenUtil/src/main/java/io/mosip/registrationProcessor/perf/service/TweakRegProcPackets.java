@@ -36,19 +36,23 @@ import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.registration.processor.perf.packet.dto.FieldValueArray;
 import io.mosip.registration.processor.perf.packet.dto.Identity;
 import io.mosip.registration.processor.perf.packet.dto.PacketMetaInfo;
+import io.mosip.registrationProcessor.perf.dto.UserIdDto;
 import io.mosip.registrationProcessor.perf.regPacket.dto.PhilIdentityObject;
 import io.mosip.registrationProcessor.perf.regPacket.dto.RegProcIdDto;
+import io.mosip.registrationProcessor.perf.util.CSVUtil;
 import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
 import io.mosip.registrationProcessor.perf.util.IndividualType;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.RegCenterDetailFetcher;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
 public class TweakRegProcPackets {
 
 	private static Logger logger = Logger.getLogger(TweakRegProcPackets.class);
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public TweakRegProcPackets() {
 
@@ -102,7 +106,8 @@ public class TweakRegProcPackets {
 	private String readRegIdFromPropertyFile(String key) {
 
 		Properties properties = new Properties();
-		String propertiespath = System.getProperty("user.dir") + "/packetFolderName.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertiespath = baseResourcePath + "packetFolderName.properties";
 		try {
 			FileReader reader = new FileReader(new File(propertiespath));
 			properties.load(reader);
@@ -118,7 +123,8 @@ public class TweakRegProcPackets {
 
 	private void writeRegIdToPropertyFile(String registrationId) {
 
-		String propertiespath = System.getProperty("user.dir") + "/packetFolderName.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertiespath = baseResourcePath + "/packetFolderName.properties";
 		try (OutputStream output = new FileOutputStream(propertiespath);) {
 			Properties prop = new Properties();
 			prop.setProperty("oldRegId", registrationId);
@@ -227,7 +233,8 @@ public class TweakRegProcPackets {
 	private void copyPacketContentToWorkLocation1(String newRegId, PropertiesUtil prop) {
 
 		String originalRegId = readRegIdFromPropertyFile("oldRegId");
-		String srcPath = prop.VALID_PACKET_PATH_FOR_PACKET_GENERATION + "/" + "TemporaryValidpackets" + "/"
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String srcPath = baseResourcePath + prop.VALID_PACKET_PATH_FOR_PACKET_GENERATION + "DecryptedPackets" + File.separator
 				+ originalRegId;
 
 		srcPath += File.separator + SOURCE + File.separator + PROCESS;
@@ -353,7 +360,8 @@ public class TweakRegProcPackets {
 		EncrypterDecrypter encryptDecrypt = new EncrypterDecrypter();
 		JSONUtil jsonUtil = new JSONUtil();
 
-		String packetInfoPropertiespath = System.getProperty("user.dir") + File.separator + "packetInfo.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String packetInfoPropertiespath = baseResourcePath + File.separator + "packetInfo.properties";
 		FileReader reader = null;
 		try {
 			reader = new FileReader(new File(packetInfoPropertiespath));
@@ -378,6 +386,11 @@ public class TweakRegProcPackets {
 		System.out.println("centerId: " + centerId + ", \nmachineId: " + machineId);
 		String userId = "110010";
 
+		CSVUtil csvUtil = new CSVUtil();
+		UserIdDto userDto = csvUtil.loadCenterMachineUserFromCSV();
+		centerId = userDto.getCenterId();
+		machineId = userDto.getMachineId();
+		userId = userDto.getUserId();
 		// String SOURCE = "REGISTRATION_CLIENT";
 		// String PROCESS = "NEW";
 		PacketDemoDataUtil packetDataUtil = new PacketDemoDataUtil();
@@ -406,7 +419,7 @@ public class TweakRegProcPackets {
 //			PhilIdentityObject updatedIdObject = packetDataUtil.modifyPhilDemographicData(prop, session, idJsonPath);
 //			jsonUtil.writeJsonToFile(gson.toJson(updatedIdObject), idJsonPath);
 //		}
-		
+
 		String individual_type = "";
 		if (prop.IS_CHILD_PACKET) {
 			individual_type = IndividualType.NEW_CHILD.getIndividualType();
@@ -459,7 +472,7 @@ public class TweakRegProcPackets {
 		String regidLogFilePath = prop.REGID_LOG_FILE;
 		logRegIdsToFile(regidLogFilePath, newRegId);
 
-		// deleteFolderInTempDir(PARENT_FOLDER_PATH, newRegId);
+		deleteFolderInTempDir(PARENT_FOLDER_PATH, newRegId);
 		return null;
 	}
 

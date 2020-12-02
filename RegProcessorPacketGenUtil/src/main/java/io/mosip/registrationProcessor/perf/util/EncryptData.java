@@ -47,6 +47,7 @@ public class EncryptData {
 //	private String applicationId = "REGISTRATION";
 //	ObjectMapper objectMapper = new ObjectMapper();
 	private static Logger logger = Logger.getLogger(EncryptData.class);
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public String encodeAndEncryptSyncRequest(RegistrationPacketSyncDTO registrationPacketSyncDto, PropertiesUtil prop,
 			String token) throws org.json.simple.parser.ParseException {
@@ -121,7 +122,8 @@ public class EncryptData {
 
 	public String readPropertyFromFile(String apiName) {
 		Properties prop = new Properties();
-		String propertyFilePath = System.getProperty("user.dir") + "/src/config/apiList.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + "config/apiList.properties";
 		FileReader reader;
 		try {
 			reader = new FileReader(new File(propertyFilePath));

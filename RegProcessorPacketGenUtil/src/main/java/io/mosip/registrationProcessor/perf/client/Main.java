@@ -5,17 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
 
 import io.mosip.dbentity.TokenGenerationEntity;
 import io.mosip.dbentity.UsernamePwdTokenEntity;
 import io.mosip.registrationProcessor.perf.service.SyncRequestCreater;
-import io.mosip.registrationProcessor.perf.service.TestDataGenerator;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.TokenGeneration;
-import io.mosip.resgistrationProcessor.perf.dbaccess.DBUtil;
 
 public class Main {
 	private static Logger logger = Logger.getLogger(Main.class);
@@ -106,10 +102,21 @@ public class Main {
 				break;
 			default:
 				System.out.println("Receives either of below parameters:");
-				System.out.println("packet_gen: To generate packets");
 				System.out.println(
-						"sync_data: To generate sync data in a CSV file by using the checksums.txt file of generated packets");
-				System.out.println("test_data: To generate test data in a CSV file");
+						"packet_gen - To generate packets, for multiple new packets or child packet with parent RID");
+				System.out.println("new_packet - To generate a new packet");
+				System.out.println("sync_data - To generate sync data(test data to reg proc sync API)");
+				System.out.println(
+						"update_packet - to update packet, must provide a processed reg id in properties file");
+				System.out.println("test_data - To generate test data for idrepo create identity API");
+				System.out.println("sync_data_update - To generate sync data for update packet flow");
+				System.out.println("lost_uin - To generate a packet for lost UIN");
+				System.out.println("lost_uin_sync - To generate sync data for lost UIN");
+				System.out.println("decrypt_packet - To decrypt an encrypted packet");
+				System.out.println(
+						"sync_data_multiple - To create sync data for multi kind packets by reading from a checksum log file");
+				System.out.println("packet_upload - To sync and upload packets");
+				System.out.println("reliability - To generate, sync and upload packet continuously");
 			}
 
 		}

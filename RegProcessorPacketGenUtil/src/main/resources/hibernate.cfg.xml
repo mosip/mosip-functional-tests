@@ -8,7 +8,7 @@
 
 		<!-- Connection settings -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://minibox.mosip.net:30090/mosip_master</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://qa2.mosip.net:30090/mosip_master</property>
 		<property name="hibernate.connection.username">masteruser</property>
 		<property name="hibernate.connection.password">mosip123</property>
 		<property name="hibernate.default_schema">master</property>

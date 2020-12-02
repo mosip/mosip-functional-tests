@@ -3,19 +3,22 @@ package io.mosip.registrationProcessor.perf.service;
 import java.io.File;
 
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 
 public class DecryptPacketWorker {
 
 	private String SOURCE = "REGISTRATION_CLIENT";
 	private String PROCESS = "NEW";
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public void decryptPacket(PropertiesUtil prop, String authToken) throws Exception {
 
 		this.PROCESS = prop.PROCESS_DECRYPTION;
+		String baseResourcePath = resourcePathUtil.getResourcePath();
 
 		DecryptPacketHelper helper = new DecryptPacketHelper();
 		// String decryptionDir = prop.DECRYPTION_PACKET_PATH;
-		File decryptionDir = new File(prop.DECRYPTION_PACKET_PATH);
+		File decryptionDir = new File(baseResourcePath + prop.DECRYPTION_PACKET_PATH);
 		String registrationId = "";
 		String centerId = "";
 		String machineId = "";
@@ -30,7 +33,7 @@ public class DecryptPacketWorker {
 			}
 		}
 
-		String decryption_path = prop.DECRYPTION_PACKET_PATH + File.separator + prop.DECRYPTION_FOLDER;
+		String decryption_path = baseResourcePath + prop.DECRYPTION_PACKET_PATH + File.separator + prop.DECRYPTION_FOLDER;
 		String extractedPath = "";
 		if (null != packetToDecrypt) {
 			File decryptedPacket = null;

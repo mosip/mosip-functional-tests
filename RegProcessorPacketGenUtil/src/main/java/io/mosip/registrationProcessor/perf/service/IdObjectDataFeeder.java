@@ -11,6 +11,7 @@ import io.mosip.registrationProcessor.perf.entity.Location;
 import io.mosip.registrationProcessor.perf.util.IndividualType;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 import io.mosip.registrationProcessor.perf.util.TestDataUtility;
 import io.mosip.resgistrationProcessor.perf.dbaccess.RegProcPerfDaoImpl;
 
@@ -28,6 +29,7 @@ public class IdObjectDataFeeder {
 	private Location postalCodeObject;
 	private String process;
 	private PropertiesUtil prop;
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public IdObjectDataFeeder() {
 	}
@@ -37,16 +39,17 @@ public class IdObjectDataFeeder {
 		this.session = session;
 		this.prop = prop;
 		this.process = process;
+		String baseResourcePath = resourcePathUtil.getResourcePath();
 		if (individual_type.equalsIgnoreCase(IndividualType.NEW_ADULT.getIndividualType())) {
-			packetPath = prop.NEW_PACKET_PATH;
-		}else if(individual_type.equalsIgnoreCase(IndividualType.NEW_CHILD.getIndividualType())) {
-			packetPath = prop.CHILD_PACKET_PATH;
+			packetPath = baseResourcePath + prop.NEW_PACKET_PATH;
+		} else if (individual_type.equalsIgnoreCase(IndividualType.NEW_CHILD.getIndividualType())) {
+			packetPath = baseResourcePath + prop.CHILD_PACKET_PATH;
 		}
 		assignIDJsonPathValue(packetPath, process);
 	}
 
 	private void assignIDJsonPathValue(String packetPath, String process) {
-
+		System.out.println("packetPath: " + packetPath);
 		File[] files = new File(packetPath).listFiles();
 		if (files.length == 1) {
 			String packet_home = files[0].getAbsolutePath();

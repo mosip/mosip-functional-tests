@@ -57,7 +57,7 @@ public class PacketCreationClient implements Runnable {
 	private void processRegPacket(PropertiesUtil prop, Session session, String authToken) throws IOException {
 
 		RegPacketProcessor regpacketProcessor = new RegPacketProcessor();
-		String token = getToken("syncTokenGenerationFilePath", prop);
+//		String token = getToken("syncTokenGenerationFilePath", prop);
 //		logger.debug("token :" + token);
 //		logger.info("token :" + token);
 		System.out.println("token :" + authToken);
