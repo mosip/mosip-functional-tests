@@ -16,12 +16,13 @@ import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 
 public class LostPacketWorker {
 
 	private String SOURCE = "REGISTRATION_CLIENT";
 	private String PROCESS = "LOST";
-
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 	public void createLostPacket(PropertiesUtil prop, String auth_token) {
 		LostPacketHelper helper = new LostPacketHelper();
 		String centerId = "10010";
@@ -29,7 +30,7 @@ public class LostPacketWorker {
 		String userId = "110010";
 		String registrationId = helper.generateRegId(centerId, machineId);
 
-		String existing_packet_path = prop.LOST_UIN_PATH;
+		String existing_packet_path = resourcePathUtil.getResourcePath()+prop.LOST_UIN_PATH;
 		EncrypterDecrypter encryptDecrypt = new EncrypterDecrypter();
 
 		String PARENT_FOLDER_PATH = prop.NEW_PACKET_WORKER_PATH + "temp";

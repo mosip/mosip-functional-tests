@@ -33,6 +33,7 @@ import io.mosip.registrationProcessor.perf.schema.dto.SchemaObjectElement;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.RegProcApiRequests;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 import io.mosip.resgistrationProcessor.perf.dbaccess.RegProcPerfDaoImpl;
 import io.restassured.response.Response;
 import net.lingala.zip4j.core.ZipFile;
@@ -44,10 +45,11 @@ import net.lingala.zip4j.exception.ZipException;
  */
 public class PreregistrationSyncHelper {
 	private static Logger logger = Logger.getLogger(PreregistrationSyncHelper.class);
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	private String readPropertyFromFile(String apiName) {
 		Properties prop = new Properties();
-		String propertyFilePath = System.getProperty("user.dir") + "/src/config/apiList.properties";
+		String propertyFilePath = resourcePathUtil.getResourcePath() + "config/apiList.properties";
 		FileReader reader;
 		try {
 			reader = new FileReader(new File(propertyFilePath));
@@ -71,7 +73,7 @@ public class PreregistrationSyncHelper {
 		PreRegArchiveDTO syncResponse = new ObjectMapper().readValue(
 				new ObjectMapper().writeValueAsString(responseObj.jsonPath().get("response")), PreRegArchiveDTO.class);
 
-		String preRegPacketPath = System.getProperty("user.dir") + File.separator + prop.PREREG_PACKET_PATH;
+		String preRegPacketPath = resourcePathUtil.getResourcePath() + prop.PREREG_PACKET_PATH;
 
 		String filePath = preRegPacketPath + "/" + preregId + ".zip";
 		byte[] packetBytes = CryptoUtil.decodeBase64(syncResponse.getZipBytes());

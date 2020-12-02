@@ -32,6 +32,7 @@ public class TokenGeneration {
 
 	// ApplicationLibrary applnMethods = new ApplicationLibrary();
 	private static Logger logger = Logger.getLogger(TokenGeneration.class);
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public TokenGenerationEntity createTokenGeneratorDtoForClientIdSecretKey(String tokenGenerationFilePath) {
 		TokenGenerationEntity tokenGenerationEntity = new TokenGenerationEntity();
@@ -44,8 +45,10 @@ public class TokenGeneration {
 		tokenGenerationEntity.setVersion("1.0");
 		FileReader reader;
 		Properties prop = new Properties();
-
-		String propertyFilePath = System.getProperty("user.dir") + "/" + tokenGenerationFilePath;
+//		String baseResourcePath = new File(CSVUtil.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+//				.toString();
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + tokenGenerationFilePath;
 		try {
 			reader = new FileReader(new File(propertyFilePath));
 			prop.load(reader);
@@ -71,7 +74,10 @@ public class TokenGeneration {
 		tokenEntity.setVersion("1.0");
 		Properties prop = new Properties();
 		FileReader reader;
-		String propertyFilePath = System.getProperty("user.dir") + "/" + tokenGenerationFilePath;
+//		String baseResourcePath = new File(CSVUtil.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+//				.toString();
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + File.separator + tokenGenerationFilePath;
 		try {
 			reader = new FileReader(new File(propertyFilePath));
 			prop.load(reader);
@@ -262,7 +268,15 @@ public class TokenGeneration {
 
 	public String readPropertyFile(String tokenGenerationFilePathproperty) {
 		Properties prop = new Properties();
-		String propertyFilePath = System.getProperty("user.dir") + "/src/config/folderPaths.properties";
+		// String propertyFilePath = System.getProperty("user.dir") +
+		// "/src/config/folderPaths.properties";
+
+//		String baseResourcePath = new File(CSVUtil.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+//				.toString();
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + File.separator + "config" + File.separator
+				+ "folderPaths.properties";
+
 		FileReader reader;
 		try {
 			reader = new FileReader(new File(propertyFilePath));

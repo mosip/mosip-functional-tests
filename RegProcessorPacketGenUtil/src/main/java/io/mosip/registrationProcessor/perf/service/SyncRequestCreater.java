@@ -50,7 +50,7 @@ public class SyncRequestCreater {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		String TOKEN_TYPE = "syncTokenGenerationFilePath";
 		String tokenGenerationFilePath = generateToken.readPropertyFile(TOKEN_TYPE);
 		String token = "";
@@ -89,7 +89,7 @@ public class SyncRequestCreater {
 				String checksum = literals[1];
 				Long fileSize = Long.parseLong(literals[2]);
 				try {
-					//createSyncRequest(regid, checksum, fileSize, prop);
+					// createSyncRequest(regid, checksum, fileSize, prop);
 					createSyncRequestForProcess(regid, checksum, fileSize, prop, packetType, token);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -122,7 +122,7 @@ public class SyncRequestCreater {
 				}
 				// requestToEncrypt = encryptData.encodeData_0(registrationPacketSyncDto);
 			}
-			
+
 			String encryptedData = "";
 			try {
 				encryptedData = encryptData.encodeAndEncryptSyncRequest(registrationPacketSyncDto, prop, token);
@@ -136,16 +136,16 @@ public class SyncRequestCreater {
 			syncDto.setSyncData(encryptedData);
 			syncDto.setPacketPath(filePath);
 			syncDto.setReferenceId(referenceId);
-//			RegProcApiRequests apiRequests = new RegProcApiRequests();
-//			String timeStamp = getUTCTime().toString();
-//			String syncApi = "/registrationprocessor/v1/registrationstatus/sync";
-//			Response syncResponse = apiRequests.regProcSyncRequest(syncApi, encryptedData, referenceId, timeStamp,
-//					MediaType.APPLICATION_JSON, token, prop);
+			RegProcApiRequests apiRequests = new RegProcApiRequests();
+			String timeStamp = getUTCTime().toString();
+			String syncApi = "/registrationprocessor/v1/registrationstatus/sync";
+			Response syncResponse = apiRequests.regProcSyncRequest(syncApi, encryptedData, referenceId, timeStamp,
+					MediaType.APPLICATION_JSON, token, prop);
 			fileUtil.logSyncDataToFile(syncDto, prop.SYNCDATA__FILE_PATH);
 		}
-		
+
 	}
-	
+
 	public Object getUTCTime() {
 		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
@@ -189,7 +189,7 @@ public class SyncRequestCreater {
 				}
 				// requestToEncrypt = encryptData.encodeData_0(registrationPacketSyncDto);
 			}
-			
+
 			String encryptedData = "";
 			try {
 				encryptedData = encryptData.encodeAndEncryptSyncRequest(registrationPacketSyncDto, prop, token);

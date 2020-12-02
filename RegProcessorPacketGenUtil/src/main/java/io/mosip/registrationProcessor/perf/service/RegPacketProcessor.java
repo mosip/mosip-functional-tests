@@ -8,8 +8,11 @@ import java.util.Properties;
 import org.hibernate.Session;
 
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 
 public class RegPacketProcessor {
+
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public RegPacketProcessor() {
 
@@ -30,9 +33,9 @@ public class RegPacketProcessor {
 			throws Exception {
 
 		Properties folderPath = new Properties();
+		String baseResourcePath = resourcePathUtil.getResourcePath();
 		try {
-			FileReader reader = new FileReader(
-					new File(System.getProperty("user.dir") + "/src/config/folderPaths.properties"));
+			FileReader reader = new FileReader(new File(baseResourcePath + "config/folderPaths.properties"));
 			folderPath.load(reader);
 			reader.close();
 		} catch (IOException e1) {

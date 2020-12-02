@@ -24,11 +24,13 @@ import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
 import io.mosip.registrationProcessor.perf.util.IndividualType;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 
 public class NewPacketWorker {
 	private static Logger logger = Logger.getLogger(NewPacketWorker.class);
 	private String SOURCE = "REGISTRATION_CLIENT";
 	private String PROCESS = "NEW";
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public void generateNewpacket(Session session, PropertiesUtil prop, String auth_token) throws Exception {
 
@@ -53,10 +55,11 @@ public class NewPacketWorker {
 		String packetContentFolder = PARENT_FOLDER_PATH + File.separator + registrationId + File.separator + SOURCE
 				+ File.separator + PROCESS;
 		String existing_packet_path = "";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
 		if (!prop.IS_CHILD_PACKET)
-			existing_packet_path = prop.NEW_PACKET_PATH;
+			existing_packet_path = baseResourcePath + prop.NEW_PACKET_PATH;
 		else
-			existing_packet_path = prop.CHILD_PACKET_PATH;
+			existing_packet_path = baseResourcePath + prop.CHILD_PACKET_PATH;
 
 		helper.copyPacketToWorkLocation(existing_packet_path);
 

@@ -8,10 +8,12 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 
 public class DBUtil {
 
 	public Session session;
+	static ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public Session obtainSession(PropertiesUtil prop) {
 
@@ -35,25 +37,21 @@ public class DBUtil {
 
 	private static File loadConfigFile(PropertiesUtil prop) {
 		File file = null;
+		String baseResourcePath = resourcePathUtil.getResourcePath();
 		if ("qa".equalsIgnoreCase(prop.ENVIRONMENT)) {
-
-			String regProcDBConfigFile = System.getProperty("user.dir") + "\\"
-					+ "src\\main\\resources\\regProc_qa.cfg.xml";
+			String regProcDBConfigFile = baseResourcePath + "regProc_qa.cfg.xml";
 			file = new File(regProcDBConfigFile);
 			return file;
 		} else if ("preprod".equalsIgnoreCase(prop.ENVIRONMENT)) {
-			String regProcDBConfigFile = System.getProperty("user.dir") + "\\"
-					+ "src\\main\\resources\\regProc_preprod.cfg.xml";
+			String regProcDBConfigFile = baseResourcePath + "regProc_preprod.cfg.xml";
 			file = new File(regProcDBConfigFile);
 			return file;
 		} else if ("dev".equalsIgnoreCase(prop.ENVIRONMENT)) {
-			String regProcDBConfigFile = System.getProperty("user.dir") + "\\"
-					+ "src\\main\\resources\\regProc_dev.cfg.xml";
+			String regProcDBConfigFile = baseResourcePath + "regProc_dev.cfg.xml";
 			file = new File(regProcDBConfigFile);
 			return file;
-		}else {
-			String regProcDBConfigFile = System.getProperty("user.dir") + "\\"
-					+ "src\\main\\resources\\hibernate.cfg.xml";
+		} else {
+			String regProcDBConfigFile = baseResourcePath + "hibernate.cfg.xml";
 			file = new File(regProcDBConfigFile);
 			return file;
 		}

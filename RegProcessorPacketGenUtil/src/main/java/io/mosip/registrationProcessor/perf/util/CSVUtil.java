@@ -1,5 +1,6 @@
 package io.mosip.registrationProcessor.perf.util;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -27,9 +29,11 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import io.mosip.registrationProcessor.perf.dto.RegDataCSVDto;
+import io.mosip.registrationProcessor.perf.dto.UserIdDto;
 
 public class CSVUtil {
 	private static Logger logger = Logger.getLogger(CSVUtil.class);
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	public List<String> loadCSVData(String csvFilepath) throws FileNotFoundException {
 		return null;
@@ -63,7 +67,7 @@ public class CSVUtil {
 	}
 
 	@SuppressWarnings("deprecation")
-	public List<RegDataCSVDto> loadObjectsFromCSV(String filePath) {
+	public List<RegDataCSVDto> loadRegistrationDataFromCSV(String filePath) {
 		List<RegDataCSVDto> list = new ArrayList<RegDataCSVDto>();
 		Map<String, String> mapping = new HashMap<String, String>();
 		mapping.put("fullName", "fullName");
@@ -101,12 +105,53 @@ public class CSVUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// System.out.println("Size of list " + list.size());
-//		for (RegDataCSVDto o : list) {
-//			System.out.println(o.getFullName());
-//		}
 
 		return list;
+	}
+
+	public UserIdDto loadCenterMachineUserFromCSV() {
+		List<UserIdDto> userList = new ArrayList<>();
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		//System.out.println("baseResourcePath: " + baseResourcePath);
+		String csvFile = baseResourcePath + File.separator + "centerID_machineID_userID.csv";
+		BufferedReader br = null;
+		String line = "";
+		String cvsSplitBy = ",";
+		try {
+
+			br = new BufferedReader(new FileReader(csvFile));
+			while ((line = br.readLine()) != null) {
+
+				// use comma as separator
+				String[] keys = line.split(cvsSplitBy);
+				String centerId = keys[0];
+				String machineId = keys[1];
+				String userId = keys[2];
+				UserIdDto userDto = new UserIdDto();
+				userDto.setCenterId(centerId);
+				userDto.setMachineId(machineId);
+				userDto.setUserId(userId);
+				userList.add(userDto);
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(userList.size());
+		UserIdDto userObj = userList.get(randomInt);
+		return userObj;
 	}
 
 }

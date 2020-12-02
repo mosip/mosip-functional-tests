@@ -24,13 +24,14 @@ import io.mosip.registrationProcessor.perf.util.EncrypterDecrypter;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.RegProcApiRequests;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 import io.restassured.response.Response;
 
 public class UpdatePacketWorker {
 
 	private String SOURCE = "REGISTRATION_CLIENT";
 	private String PROCESS = "UPDATE";
-
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 	public void processPacketToUpdate(PropertiesUtil prop, String auth_token) {
 		UpdatePacketHelper helper = new UpdatePacketHelper();
 		String centerId = "10010";

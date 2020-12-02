@@ -23,14 +23,14 @@ public class NewPacketClient {
 		Session session = new DBUtil().obtainSession(prop);
 		
 		File parentFile = new File(prop.PARENT_FOLDER);
-//		File[] filesToDelete = parentFile.listFiles();
-//		for (File f : filesToDelete) {
-//			try {
-//				FileUtils.forceDelete(f);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		File[] filesToDelete = parentFile.listFiles();
+		for (File f : filesToDelete) {
+			try {
+				FileUtils.forceDelete(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		TokenGeneration generateToken = new TokenGeneration();
 		String TOKEN_TYPE = "syncTokenGenerationFilePath";
 		String tokenGenerationFilePath = generateToken.readPropertyFile(TOKEN_TYPE);

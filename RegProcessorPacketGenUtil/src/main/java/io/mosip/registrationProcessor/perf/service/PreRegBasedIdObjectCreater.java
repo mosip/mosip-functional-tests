@@ -40,7 +40,7 @@ public class PreRegBasedIdObjectCreater {
 			JSONObject idJsonObject = preregSyncHelper.parsePreregIdentityJson(identityKeys, idSchemaMap, prop,
 					session);
 
-			preregSyncHelper.addDocumentsToIdJson(idJsonObject, prop);
+			//preregSyncHelper.addDocumentsToIdJson(idJsonObject, prop);
 		}
 
 		return idJson;

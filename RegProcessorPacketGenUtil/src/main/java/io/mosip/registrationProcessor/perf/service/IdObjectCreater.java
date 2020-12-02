@@ -21,6 +21,7 @@ import io.mosip.registrationProcessor.perf.schema.dto.SchemaObjectList;
 import io.mosip.registrationProcessor.perf.util.JSONUtil;
 import io.mosip.registrationProcessor.perf.util.PropertiesUtil;
 import io.mosip.registrationProcessor.perf.util.RegProcApiRequests;
+import io.mosip.registrationProcessor.perf.util.ResourcePathUtil;
 import io.restassured.response.Response;
 
 /**
@@ -28,10 +29,12 @@ import io.restassured.response.Response;
  *
  */
 public class IdObjectCreater {
+	ResourcePathUtil resourcePathUtil = new ResourcePathUtil();
 
 	private String readPropertyFromFile(String apiName) {
 		Properties prop = new Properties();
-		String propertyFilePath = System.getProperty("user.dir") + "/src/config/apiList.properties";
+		String baseResourcePath = resourcePathUtil.getResourcePath();
+		String propertyFilePath = baseResourcePath + "config/apiList.properties";
 		FileReader reader;
 		try {
 			reader = new FileReader(new File(propertyFilePath));
@@ -64,17 +67,18 @@ public class IdObjectCreater {
 //		}
 		// System.out.println(gson.toJson(objList.getObjectList()));
 		// System.out.println(types.toString());
-		String identityJson  = "";
-		if(prop.SYNC_PREREG) {
-			
+		String identityJson = "";
+		if (prop.SYNC_PREREG) {
+
 			PreRegBasedIdObjectCreater creater = new PreRegBasedIdObjectCreater();
-			creater.frameIdentityJson(objList.getObjectList(), prop, session, idSchemaVersion, process, individual_type, token);
-			
-		}else {
-			 identityJson = helper.frameIdentityJson(objList.getObjectList(), prop, session, idSchemaVersion, process,
-						individual_type);
+			creater.frameIdentityJson(objList.getObjectList(), prop, session, idSchemaVersion, process, individual_type,
+					token);
+
+		} else {
+			identityJson = helper.frameIdentityJson(objList.getObjectList(), prop, session, idSchemaVersion, process,
+					individual_type);
 		}
-		
+
 		System.out.println("generated identityJson:::- " + identityJson);
 		return identityJson;
 	}
