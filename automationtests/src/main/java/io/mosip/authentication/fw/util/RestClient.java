@@ -94,6 +94,15 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
+	
+	public static Response postRequestWithQueryParamAndBody(String url, Object body, HashMap<String, String> queryParams, String contentHeader, String acceptHeader) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams).contentType(contentHeader)
+				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	/**
 	 * REST ASSURED GET request method without type or after ?
