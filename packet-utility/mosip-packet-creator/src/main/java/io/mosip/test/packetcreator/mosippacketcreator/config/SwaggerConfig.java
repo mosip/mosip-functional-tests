@@ -15,17 +15,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    /**
-     * Master service Version
-     */
-    private static final String SYNCDATA_SERVICE_VERSION = "0.0.1";
-    /**
-     * Application Title
-     */
+    private static final String SERVICE_VERSION = "0.0.1";
     private static final String TITLE = "Test Data Service";
-    /**
-     * Master Data Service
-     */
     private static final String DESCRIPTION = "Test Data Service";
 
 
@@ -46,7 +37,7 @@ public class SwaggerConfig {
      * @return {@link ApiInfo}
      */
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title(TITLE).description(DESCRIPTION).version(SYNCDATA_SERVICE_VERSION).build();
+        return new ApiInfoBuilder().title(TITLE).description(DESCRIPTION).version(SERVICE_VERSION).build();
     }
 
 }

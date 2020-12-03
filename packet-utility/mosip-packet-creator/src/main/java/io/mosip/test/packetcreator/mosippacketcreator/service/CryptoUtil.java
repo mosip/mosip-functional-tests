@@ -26,6 +26,7 @@ import tss.tpm.CreatePrimaryResponse;
 import tss.tpm.*;
 
 import javax.annotation.PostConstruct;
+import javax.xml.bind.DatatypeConverter;
 
 @Component
 public class CryptoUtil {
@@ -129,7 +130,7 @@ public class CryptoUtil {
         return mergeddata;
     }
 
-    private void test(String requestBody, String refId,JSONObject encryptObj) throws Exception {
+    /*private void test(String requestBody, String refId,JSONObject encryptObj) throws Exception {
         byte[] packet = org.apache.commons.codec.binary.Base64.decodeBase64(requestBody);
         byte[] nonce = Arrays.copyOfRange(packet, 0, GCM_NONCE_LENGTH);
         byte[] aad = Arrays.copyOfRange(packet, GCM_NONCE_LENGTH, GCM_NONCE_LENGTH + GCM_AAD_LENGTH);
@@ -154,7 +155,7 @@ public class CryptoUtil {
 
         String plaindata = new String(Base64.getDecoder().decode(secretObject.getString("data")));
         logger.info("decrypt plaindata >>>>>>>>>>>>>>>> {}", plaindata);
-    }
+    }*/
 
     public String getHash(byte[] data) throws Exception{
         try{
@@ -162,7 +163,18 @@ public class CryptoUtil {
             messageDigest.update(data);
             return Base64.getUrlEncoder().encodeToString(messageDigest.digest());
         } catch(Exception ex){
-            logger.error("Cryptoutil init err ", ex);
+            logger.error("Cryptoutil getHash err ", ex);
+            throw new Exception("Invalid crypto util");
+        }
+    }
+
+    public String getHexEncodedHash(byte[] data) throws Exception{
+        try{
+            MessageDigest messageDigest = MessageDigest.getInstance(HMAC_ALGORITHM_NAME);
+            messageDigest.update(data);
+            return DatatypeConverter.printHexBinary(messageDigest.digest()).toUpperCase();
+        } catch(Exception ex){
+            logger.error("Cryptoutil getHexEncodedHash err ", ex);
             throw new Exception("Invalid crypto util");
         }
     }

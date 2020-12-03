@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -61,7 +62,8 @@ public class PacketSyncService {
         jsonObject.put("registrationType", process);
 
         byte[] fileBytes = Files.readAllBytes(container);
-        jsonObject.put("packetHashValue", cryptoUtil.getHash(fileBytes));
+
+        jsonObject.put("packetHashValue", cryptoUtil.getHexEncodedHash(fileBytes));
         jsonObject.put("packetSize", fileBytes.length);
         jsonObject.put("supervisorStatus", supervisorStatus);
         jsonObject.put("supervisorComment", supervisorComment);
