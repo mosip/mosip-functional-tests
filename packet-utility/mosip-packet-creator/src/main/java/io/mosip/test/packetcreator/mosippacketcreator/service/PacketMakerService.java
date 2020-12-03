@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.annotation.PostConstruct;
+import javax.xml.bind.DatatypeConverter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import org.springframework.util.StringUtils;
 
 @Service
 public class PacketMakerService {
@@ -39,6 +41,7 @@ public class PacketMakerService {
     private static final String UNDERSCORE = "_";
     private static final String PACKET_META_FILENAME = "packet_meta_info.json";
     private static final String PACKET_DATA_HASH_FILENAME = "packet_data_hash.txt";
+    private static final String PACKET_OPERATION_HASH_FILENAME = "packet_operations_hash.txt";
 
     @Value("${mosip.test.regclient.store:/home/sasikumar/Documents/MOSIP/packetcreator}")
     private String finalDestination;
@@ -58,6 +61,15 @@ public class PacketMakerService {
     @Value("${mosip.test.regclient.machineid}")
     private String machineId;
 
+    @Value("${mosip.test.rid.seq.initialvalue}")
+    private int counter;
+
+    @Value("${mosip.test.regclient.userid}")
+    private String officerId;
+
+    @Value("${mosip.test.regclient.supervisorid}")
+    private String supervisorId;
+
     @Autowired
     private APIRequestUtil apiUtil;
 
@@ -72,9 +84,6 @@ public class PacketMakerService {
 
     private String workDirectory;
     private String defaultTemplateLocation;
-
-    @Value("${mosip.test.rid.seq.initialvalue}")
-    private int counter;
 
     @PostConstruct
     public void initService(){
@@ -154,13 +163,25 @@ public class PacketMakerService {
             logger.error("Error creating packet {} ", regId);
             return false;
         }
-        updateHashSequence(packetRootFolder);
+
+        updatePacketMetaInfo(packetRootFolder, "metaData","registrationId", regId, true);
+        updatePacketMetaInfo(packetRootFolder, "metaData","creationDate", apiUtil.getUTCDateTime(null), true);
+        updatePacketMetaInfo(packetRootFolder, "metaData","machineId", machineId, false);
+        updatePacketMetaInfo(packetRootFolder, "metaData","centerId", centerId, false);
+        updatePacketMetaInfo(packetRootFolder, "metaData","registrationType",
+                StringUtils.capitalize(process.toLowerCase()), false);
+
+        updatePacketMetaInfo(packetRootFolder, "operationsData", "officerId", officerId, false);
+        updatePacketMetaInfo(packetRootFolder, "operationsData", "supervisorId", supervisorId, false);
+
+        LinkedList<String> sequence = updateHashSequence1(packetRootFolder);
+        LinkedList<String> operations_seq = updateHashSequence2(packetRootFolder);
+        updatePacketDataHash(packetRootFolder, sequence, PACKET_DATA_HASH_FILENAME);
+        updatePacketDataHash(packetRootFolder, operations_seq, PACKET_OPERATION_HASH_FILENAME);
         return true;
-        //return packPacket(containerRootFolder, regId, type);
     }
 
     public boolean packPacket(String containerRootFolder, String regId, String type) throws Exception{
-        //String packetRootFolder = getPacketRoot(getProcessRoot(containerRootFolder), regId, type);
         boolean result = zipAndEncrypt(Path.of(containerRootFolder));
         if (!result){
             logger.error("Encryption failed!!! ");
@@ -280,39 +301,135 @@ public class PacketMakerService {
 		return centerId + machineId + counter + currUTCTime;
     }
 
-    private void updateHashSequence(String packetRootFolder) throws Exception {
+    private LinkedList<String>  updateHashSequence1(String packetRootFolder) throws Exception {
+        LinkedList<String> sequence = new LinkedList<>();
+        String metaInfo_json = Files.readString(Path.of(packetRootFolder, PACKET_META_FILENAME));
+        JSONObject metaInfo = new JSONObject(metaInfo_json);
+
+        metaInfo.getJSONObject("identity").put("hashSequence1", new JSONArray());
+
+        sequence = updateHashSequence(metaInfo, "hashSequence1", "biometricSequence", sequence,
+                getBiometricFiles(packetRootFolder));
+
+        sequence = updateHashSequence(metaInfo, "hashSequence1", "demographicSequence", sequence,
+                getDemographicDocFiles(packetRootFolder));
+
+        Files.write(Path.of(packetRootFolder, PACKET_META_FILENAME), metaInfo.toString().getBytes("UTF-8"));
+
+        return sequence;
+    }
+
+    private LinkedList<String>  updateHashSequence2(String packetRootFolder) throws Exception {
+        LinkedList<String> sequence = new LinkedList<>();
+        String metaInfo_json = Files.readString(Path.of(packetRootFolder, PACKET_META_FILENAME));
+        JSONObject metaInfo = new JSONObject(metaInfo_json);
+
+        metaInfo.getJSONObject("identity").put("hashSequence2", new JSONArray());
+
+        sequence = updateHashSequence(metaInfo, "hashSequence2", "otherFiles", sequence,
+                getOperationsFiles(packetRootFolder));
+
+        Files.write(Path.of(packetRootFolder, PACKET_META_FILENAME), metaInfo.toString().getBytes("UTF-8"));
+
+        return sequence;
+    }
+
+    private void updatePacketDataHash(String packetRootFolder, LinkedList<String> sequence, String fileName) throws Exception {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        for(String path : sequence) {
+            messageDigest.update(Files.readAllBytes(Path.of(path)));
+        }
+        String packetDataHash = new String(Hex.encode(messageDigest.digest())).toUpperCase();
+        //TODO - its failing with Hex.encoded hash, so using the below method to generate hash
+
+        String packetDataHash2 = DatatypeConverter.printHexBinary(messageDigest.digest()).toUpperCase();
+        logger.info("sequence packetDataHash >> {} ", packetDataHash);
+        logger.info("sequence packetDataHash2 >> {} ", packetDataHash2);
+
+        Files.write(Path.of(packetRootFolder, fileName), packetDataHash2.getBytes());
+    }
+
+    private List<String> getBiometricFiles(String packetRootFolder) {
+        List<String> paths = new ArrayList<>();
         File packetFolder = Path.of(packetRootFolder).toFile();
+        File[] biometricFiles = packetFolder.listFiles((d, name) -> name.endsWith(".xml"));
+        for(File file : biometricFiles) {
+            paths.add(file.getAbsolutePath());
+        }
+        return paths;
+    }
+
+    private List<String> getDemographicDocFiles(String packetRootFolder) {
+        List<String> paths = new ArrayList<>();
+        File packetFolder = Path.of(packetRootFolder).toFile();
+        File[] documents = packetFolder.listFiles((d, name) -> name.endsWith(".pdf") ||
+                name.endsWith(".jpg") || name.equals("ID.json"));
+        for(File file : documents) {
+            paths.add(file.getAbsolutePath());
+        }
+        return paths;
+    }
+
+    //TODO - add operators biometric files
+    private List<String> getOperationsFiles(String packetRootFolder) {
+        List<String> paths = new ArrayList<>();
+        File packetFolder = Path.of(packetRootFolder).toFile();
+        File[] documents = packetFolder.listFiles((d, name) -> name.equals("audit.json"));
+        for(File file : documents) {
+            paths.add(file.getAbsolutePath());
+        }
+        return paths;
+    }
+
+    private LinkedList<String> updateHashSequence(JSONObject metaInfo, String parentKey, String seqName,
+                                                  LinkedList<String> sequence, List<String> files) {
+
+        JSONObject seqObject = new JSONObject();
+        if(files != null && files.size() > 0) {
+            JSONArray list = new JSONArray();
+            for(String path : files) {
+                File file = new File(path);
+                String fileName = file.getName();
+                list.put(fileName.substring(0, fileName.lastIndexOf(".")));
+                sequence.add(file.getAbsolutePath());
+            }
+            if(list.length() > 0) {
+                seqObject.put("label", seqName);
+                seqObject.put("value", list);
+            }
+        }
+        if(seqObject.length() > 0)
+            metaInfo.getJSONObject("identity").getJSONArray(parentKey).put(seqObject);
+
+        return sequence;
+    }
+
+    private void updatePacketMetaInfo(String packetRootFolder, String parentKey, String key, String value, boolean parentLevel) throws Exception {
         String metaInfo_json = Files.readString(Path.of(packetRootFolder, PACKET_META_FILENAME));
         JSONObject jsonObject = new JSONObject(metaInfo_json);
-        jsonObject.getJSONObject("identity").put("hashSequence1", new JSONArray());    
-        File[] biometricFiles = packetFolder.listFiles((d, name) -> name.endsWith(".xml"));
-        File[] demographicFiles = packetFolder.listFiles((d, name) -> name.endsWith(".pdf") ||
-                name.endsWith(".jpg") || name.equals("ID.json"));    
-        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");    
-        JSONObject bio_seq = new JSONObject();
-        if(biometricFiles != null && biometricFiles.length > 0) {
-            bio_seq.put("label", "biometricSequence");
-            bio_seq.put("value", new JSONArray());
-            for(File file : biometricFiles) {
-                String fileName = file.getName();
-                bio_seq.getJSONArray("value").put(fileName.substring(0, fileName.lastIndexOf(".")));
-                messageDigest.update(Files.readAllBytes(file.toPath()));
+
+        if(parentLevel)
+            jsonObject.getJSONObject("identity").put(key, value);
+
+        boolean updated = false;
+        if(jsonObject.getJSONObject("identity").has(parentKey)) {
+            JSONArray metadata = jsonObject.getJSONObject("identity").getJSONArray(parentKey);
+            for(int i=0;i<metadata.length();i++) {
+                if(metadata.getJSONObject(i).getString("label").equals(key)) {
+                    jsonObject.getJSONObject("identity").getJSONArray(parentKey)
+                            .getJSONObject(i).put("value", value);
+                    updated = true;
+                }
             }
-            jsonObject.getJSONObject("identity").getJSONArray("hashSequence1").put(bio_seq);
-        }    
-        JSONObject demo_seq = new JSONObject();
-        if(demographicFiles != null && demographicFiles.length > 0) {
-            demo_seq.put("label", "demographicSequence");
-            demo_seq.put("value", new JSONArray());
-            for(File file : demographicFiles) {
-                String fileName = file.getName();
-                demo_seq.getJSONArray("value").put(fileName.substring(0, fileName.lastIndexOf(".")));
-                messageDigest.update(Files.readAllBytes(file.toPath()));
-            }
-            jsonObject.getJSONObject("identity").getJSONArray("hashSequence1").put(demo_seq);
-        }    
-        String packetDataHash = new String(Hex.encode(messageDigest.digest())).toUpperCase();
-        Files.write(Path.of(packetRootFolder, PACKET_DATA_HASH_FILENAME), packetDataHash.getBytes("UTF-8"));    
+        }
+
+        if(!updated)  {
+            JSONObject rid = new JSONObject();
+            rid.put("label", key);
+            rid.put("value", value);
+            jsonObject.getJSONObject("identity").getJSONArray(parentKey).put(rid);
+        }
+
         Files.write(Path.of(packetRootFolder, PACKET_META_FILENAME), jsonObject.toString().getBytes("UTF-8"));
     }
 }
