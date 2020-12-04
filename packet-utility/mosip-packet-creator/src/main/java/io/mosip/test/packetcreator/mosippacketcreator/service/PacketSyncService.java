@@ -47,6 +47,9 @@ public class PacketSyncService {
     @Value("${mosip.test.packet.syncapi}")
     private String syncapi;
 
+    @Value("${mosip.test.packet.uploadapi}")
+    private String uploadapi;
+
     public String syncPacketRid(String containerFile, String name,
                                 String supervisorStatus, String supervisorComment) throws Exception {
         Path container = Path.of(containerFile);
@@ -90,7 +93,10 @@ public class PacketSyncService {
         return response.toString();
     }
 
-
+    public String uploadPacket(String path) throws Exception {
+        JSONObject response = apiRequestUtil.uploadFile(uploadapi, path);
+        return response.toString();
+    }
 
 
 }

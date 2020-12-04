@@ -98,7 +98,11 @@ public class PacketMakerService {
             logger.error("", ex);
         }
        
-    } 
+    }
+
+    public String getWorkDirectory() {
+        return workDirectory;
+    }
 
     public String createContainer(String dataFile, String templatePacketLocation) throws Exception{
         String templateLocation = (null == templatePacketLocation)?defaultTemplateLocation: templatePacketLocation;

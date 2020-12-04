@@ -38,13 +38,16 @@ public class ZipUtils {
     }
 
     public boolean unzip(String sourceFile, String targetDirectory) {
+        boolean unzipped = false;
         try(InputStream in = Files.newInputStream(Path.of(sourceFile));
             ZipInputStream zipInputStream = new ZipInputStream(in)){
             ZipEntry zipEntry = zipInputStream.getNextEntry();
-            while (zipEntry != null) {
 
+            while (zipEntry != null) {
                 String fileName = zipEntry.getName();
-                try (OutputStream os = Files.newOutputStream(Path.of(targetDirectory,fileName))) {
+                Path file = Path.of(targetDirectory,fileName);
+                file.toFile().createNewFile();
+                try (OutputStream os = Files.newOutputStream(file)) {
                     byte[] buffer = new byte[1024];
                     int len;
                     while ((len = zipInputStream.read(buffer)) > 0) {
@@ -53,11 +56,12 @@ public class ZipUtils {
                     }
                 }
                 zipEntry = zipInputStream.getNextEntry();
+                unzipped = true;
             }
-            return true;
         } catch (IOException e) {
             logger.error("Error while unzip", e);
+            unzipped = false;
         }
-        return false;
+        return unzipped;
     }
 }

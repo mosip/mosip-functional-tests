@@ -5,6 +5,8 @@ import java.util.Base64;
 import io.mosip.test.packetcreator.mosippacketcreator.dto.PacketCreateDto;
 import io.mosip.test.packetcreator.mosippacketcreator.dto.SyncRidDto;
 import io.mosip.test.packetcreator.mosippacketcreator.service.*;
+import org.jobrunr.scheduling.JobScheduler;
+import org.jobrunr.scheduling.cron.Cron;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,12 @@ public class TestDataController {
     @Autowired
     PacketSyncService packetSyncService;
 
+    @Autowired
+    JobScheduler jobScheduler;
+
+    @Autowired
+    PacketJobService packetJobService;
+
     @PostMapping(value = "/packetcreator")
     public @ResponseBody String getTestData(@RequestBody PacketCreateDto packetCreateDto) {
         try{
@@ -53,7 +61,7 @@ public class TestDataController {
     @GetMapping(value = "/sync")
     public @ResponseBody String syncPreregData() {
         try {
-            pss.syncAndDownload();
+            pss.syncPrereg();
             return "All Done!";
         } catch (Exception exception) {
             logger.error("", exception);
@@ -80,6 +88,18 @@ public class TestDataController {
     public @ResponseBody String syncRid(@RequestBody SyncRidDto syncRidDto) throws Exception {
         return packetSyncService.syncPacketRid(syncRidDto.getContainerPath(), syncRidDto.getName(),
                 syncRidDto.getSupervisorStatus(), syncRidDto.getSupervisorComment());
+    }
+
+    @GetMapping(value = "/packetsync")
+    public @ResponseBody String packetsync(String path) throws Exception {
+        return packetSyncService.uploadPacket(path);
+    }
+
+    @GetMapping(value = "/startjob")
+    public @ResponseBody String startJob() {
+        String response = jobScheduler.scheduleRecurrently(()->packetJobService.execute(),
+                Cron.every5minutes());
+        return response;
     }
         
 }

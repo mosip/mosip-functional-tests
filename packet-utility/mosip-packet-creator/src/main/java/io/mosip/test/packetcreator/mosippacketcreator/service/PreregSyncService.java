@@ -1,13 +1,11 @@
 package io.mosip.test.packetcreator.mosippacketcreator.service;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Base64;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,6 +55,10 @@ public class PreregSyncService {
 		}
 	}
 
+	public String getWorkDirectory() {
+		return workDirectory;
+	}
+
     public JSONObject syncPrereg() throws Exception {
 		if(lastSyncTime == null) {
 			lastSyncTime = LocalDateTime.now();
@@ -64,16 +66,18 @@ public class PreregSyncService {
 		}
 		LocalDateTime currentSyncTime = LocalDateTime.now();
 		JSONObject syncRequest = new JSONObject();
-		syncRequest.put("registrationCenterId", centerId);	
+		syncRequest.put("registrationCenterId", centerId);
 		syncRequest.put("fromDate",apiUtil.getUTCDate(lastSyncTime));
 		syncRequest.put("toDate",apiUtil.getUTCDate(currentSyncTime));
 
 		JSONObject wrapper = new JSONObject();
-		wrapper.put("metadata", "");
+		//wrapper.put("metadata", "");
 		wrapper.put("version", "1.0");
 		wrapper.put("id", "mosip.pre-registration.datasync.fetch.ids");
 		wrapper.put("requesttime", apiUtil.getUTCDateTime(null));
 		wrapper.put("request", syncRequest);
+
+		logger.info("pre-reg sync request {}", wrapper);
 
 		JSONObject preregResponse = apiUtil.post(syncapi, wrapper);
 		logger.info("sync responded with {} pre-reg ids", preregResponse.get("countOfPreRegIds"));
@@ -82,23 +86,15 @@ public class PreregSyncService {
     }
 
     public String downloadPreregPacket(String preregId) throws Exception{
-		String preregUrl = syncapi+"\\"+ preregId;
-
-		JSONObject preregResponse = apiUtil.get(preregUrl, new JSONObject(), new JSONObject());
-
+		JSONObject preregResponse = apiUtil.get(syncapi+"/"+preregId, new JSONObject(), new JSONObject());
 		logger.info("Downloaded data for prereg id {} ", preregResponse.getString("pre-registration-id"));
-		File tempFile = File.createTempFile("prereg", "zip");
-		try (OutputStream opStream = new FileOutputStream(tempFile)){
-			opStream.write(preregResponse.get("zip-bytes").toString().getBytes());
-			opStream.flush();
-			logger.info("Wrote prereg id {} to {} ", preregResponse.get("pre-registration-id"), tempFile.getAbsolutePath());
-		} catch (Exception ex){
-			logger.error("", ex);
-		}
-        return tempFile.getAbsolutePath();
+		Path temPath = Path.of(workDirectory, preregId+".zip");
+		Files.write(temPath, Base64.getDecoder().decode(preregResponse.getString("zip-bytes")));
+		logger.info("Wrote prereg id {} to {} ", preregResponse.getString("pre-registration-id"), temPath.toString());
+        return temPath.toString();
 	}
 	
-	public void syncAndDownload() throws Exception {
+	/*public void syncAndDownload() throws Exception {
 		JSONObject jb = syncPrereg();
 		while(jb.keys().hasNext()) {
 			String prid = (String)jb.get("pre-registration-id");
@@ -116,6 +112,6 @@ public class PreregSyncService {
 				logger.error("Failed for PRID : {}", prid, iox);
 			}
 		}
-	}
+	}*/
 
 }
