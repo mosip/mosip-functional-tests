@@ -503,7 +503,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
@@ -554,7 +554,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
@@ -604,7 +604,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Iris_dtype_code$
       identityReq.digitalId.subType: $TestData:Iris_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MisssingIrisBioInMosipDB:errorCode$
@@ -637,7 +637,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidBioSubtype:errorCode$
@@ -670,7 +670,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:RequestTimeIsFuture:errorCode$
@@ -704,7 +704,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:RequestTimeLT24HR:errorCode$
@@ -738,7 +738,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:RequestTimeLT24HR:errorCode$
@@ -773,7 +773,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidRequest:errorCode$
@@ -807,7 +807,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:PolicyWithoutBioFinger:errorCode$
@@ -842,7 +842,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
@@ -879,7 +879,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:Missingversion:errorCode$
@@ -914,7 +914,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioSubtype:errorCode$
@@ -949,7 +949,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioType:errorCode$
@@ -984,7 +984,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
@@ -1020,7 +1020,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:ConsentNotSet:errorCode$
@@ -1056,7 +1056,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingId:errorCode$
@@ -1091,7 +1091,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingUIN:errorCode$
@@ -1126,7 +1126,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingindividualIdType:errorCode$
@@ -1161,7 +1161,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMPZ$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingrequestTime:errorCode$
@@ -1196,7 +1196,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:NoAuthTypeSelected:errorCode$
@@ -1231,7 +1231,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingtransactionID:errorCode$
@@ -1267,7 +1267,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:Invalidversion:errorCode$
@@ -1302,7 +1302,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidBioSubtype:errorCode$
@@ -1337,7 +1337,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidBioType:errorCode$
@@ -1372,7 +1372,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
@@ -1408,7 +1408,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidRequest:errorCode$
@@ -1444,7 +1444,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:ConsentNotSet:errorCode$
@@ -1480,7 +1480,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidId:errorCode$
@@ -1515,7 +1515,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidUIN:errorCode$
@@ -1550,7 +1550,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidVID:errorCode$
@@ -1584,7 +1584,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:DeactivatedUIN:errorCode$
@@ -1620,7 +1620,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidindividualIdType:errorCode$
@@ -1655,7 +1655,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMPZ$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -1690,7 +1690,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidtransactionID:errorCode$
@@ -1726,7 +1726,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:Missingversion:errorCode$
@@ -1761,7 +1761,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioSubtype:errorCode$
@@ -1796,7 +1796,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingBioType:errorCode$
@@ -1832,7 +1832,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:ConsentNotSet:errorCode$
@@ -1868,7 +1868,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingId:errorCode$
@@ -1903,7 +1903,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingUIN:errorCode$
@@ -1938,7 +1938,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingindividualIdType:errorCode$
@@ -1973,7 +1973,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMPZ$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingrequestTime:errorCode$
@@ -2008,7 +2008,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:NoAuthTypeSelected:errorCode$
@@ -2043,7 +2043,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingtransactionID:errorCode$
@@ -2109,7 +2109,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:BiometricFingerMismatch:errorCode$
@@ -2210,7 +2210,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:ExpiredVID:errorCode$
@@ -2244,7 +2244,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:RevokedVID:errorCode$
@@ -2278,7 +2278,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InactiveVID:errorCode$
@@ -2312,7 +2312,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceCode:errorCode$
@@ -2346,7 +2346,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceProviderID:errorCode$
@@ -2380,7 +2380,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceServiceVersion:errorCode$
@@ -2414,7 +2414,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceSerialNo:errorCode$
@@ -2448,7 +2448,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceMake:errorCode$
@@ -2482,7 +2482,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceModel:errorCode$
@@ -2516,7 +2516,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:InvalidDeviceProvider:errorCode$
@@ -2550,7 +2550,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceCode:errorCode$
@@ -2584,7 +2584,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceServiceVersion:errorCode$
@@ -2618,7 +2618,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceSerialNo:errorCode$
@@ -2652,7 +2652,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceMake:errorCode$
@@ -2686,7 +2686,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceModel:errorCode$
@@ -2720,7 +2720,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceProvider:errorCode$
@@ -2754,7 +2754,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceProviderID:errorCode$
@@ -2788,7 +2788,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceCode:errorCode$
@@ -2822,7 +2822,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceProviderID:errorCode$
@@ -2856,7 +2856,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceServiceVersion:errorCode$
@@ -2890,7 +2890,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceSerialNo:errorCode$
@@ -2924,7 +2924,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceMake:errorCode$
@@ -2958,7 +2958,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceModel:errorCode$
@@ -2992,7 +2992,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceProvider:errorCode$
@@ -3026,7 +3026,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-res:
-      output.1.response.status: $TestData:auth_Fail_status$
+      output.1.response.status: $IGNORE$
       output.1.response.responseTime: $TIMESTAMP$
       output.1.response.transactionID: $input.ekyc-request:AuthReq.transactionID$
       output.1.response.error.errorCode: $errors:MissingDeviceProviderID:errorCode$
