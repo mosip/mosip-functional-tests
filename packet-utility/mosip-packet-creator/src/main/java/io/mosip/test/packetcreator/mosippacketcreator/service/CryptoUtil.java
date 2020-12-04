@@ -67,7 +67,7 @@ public class CryptoUtil {
     @PostConstruct
     public void initialize() {
         if(tpmAvailable) {
-            tpm = TpmFactory.localTpmSimulator();
+            tpm = TpmFactory.platformTpm();
             signingPrimaryResponse = createSigningKey();
         }
     }
