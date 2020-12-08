@@ -115,7 +115,7 @@ public class PacketMakerService {
         createPacket(tempPacketRootFolder, regId, dataFile, "optional");
         packPacket(getPacketRoot(getProcessRoot(tempPacketRootFolder), regId, "optional"), regId, "optional");
         packContainer(tempPacketRootFolder);
-        return Path.of(tempPacketRootFolder + ".zip").toString();
+        return Path.of(Path.of(tempPacketRootFolder).getParent() + ".zip").toString();
         
     }
 
@@ -196,14 +196,16 @@ public class PacketMakerService {
         String signature = Base64.getEncoder().encodeToString(cryptoUtil.sign(Files.readAllBytes(Path.of(Path.of(containerRootFolder) + "_unenc.zip"))));
 
         Files.delete(Path.of(containerRootFolder + "_unenc.zip"));
+        FileSystemUtils.deleteRecursively(Path.of(containerRootFolder));
 
         String containerMetaDataFileLocation = containerRootFolder + ".json";
         return fixContainerMetaData(containerMetaDataFileLocation, regId, type, encryptedHash, signature);
     }
 
     public boolean packContainer(String containerRootFolder) throws Exception{
-        boolean result = zipAndEncrypt(Path.of(containerRootFolder));
-        Files.delete(Path.of(containerRootFolder + "_unenc.zip"));
+        Path path = Path.of(containerRootFolder).getParent();
+        boolean result = zipAndEncrypt(path);
+        Files.delete(Path.of(path + "_unenc.zip"));
         return result;
     }
 
@@ -252,7 +254,7 @@ public class PacketMakerService {
 
     private String createTempTemplate(String templatePacket, String rid) throws IOException, SecurityException{
         Path sourceDirectory = Paths.get(templatePacket);
-        String tempDir = workDirectory + File.separator + rid;        
+        String tempDir = workDirectory + File.separator + rid + File.separator + rid;
         Path targetDirectory = Paths.get(tempDir);
         FileSystemUtils.copyRecursively(sourceDirectory, targetDirectory);
         setupTemplateName(tempDir, rid);
