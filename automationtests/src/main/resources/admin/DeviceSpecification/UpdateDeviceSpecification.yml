@@ -32,7 +32,7 @@ UpdateDeviceSpecification:
       "brand": "Technoforte TFUpd",
       "description": "$REMOVE$",
       "deviceTypeCode": "CMR",
-      "id": "743",
+      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
       "isActive": true,
       "langCode": "ara",
       "minDriverversion": "1.0",

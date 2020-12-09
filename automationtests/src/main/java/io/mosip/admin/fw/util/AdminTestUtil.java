@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -86,6 +88,23 @@ public class AdminTestUtil extends BaseTestCase{
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			  response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response postWithBodyAndHeder(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.postRequestWithHeder(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -621,7 +640,8 @@ public class AdminTestUtil extends BaseTestCase{
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
 			Map<String, Object> map = gson.fromJson(input, type);   
-			Template compiledTemplate = handlebars.compile(template);
+			String templateJsonString = new String(Files.readAllBytes(Paths.get(RunConfigUtil.getResourcePath()+template+".hbs")), "UTF-8");
+			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
 		} catch (Exception e) {

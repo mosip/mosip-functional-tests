@@ -1,14 +1,27 @@
 package io.mosip.authentication.fw.util;
 
-import io.mosip.kernel.util.KernelDataBaseAccess;
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.TimeZone;
 
+import javax.ws.rs.core.MediaType;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
+import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KernelDataBaseAccess;
+import io.restassured.response.Response;
+import io.mosip.service.BaseTestCase;
 public class PMPDataManager {
 
     KernelDataBaseAccess pmpDbAccess;
-
+    String uploadCertiUrl = "/partnermanagement/v1/partners/partners/uploadPartnerCertificate";
+    String getCertiUrl = "/idauthentication/v1/internal/getCertificate";
+    KernelAuthentication authManager ;
+	
+    Logger logger = Logger.getLogger(PMPDataManager.class);
     /**
      *
      * @param isDataToBeInsert
@@ -17,12 +30,44 @@ public class PMPDataManager {
         pmpDbAccess = new KernelDataBaseAccess();
         if(isDataToBeInsert) {
             insertData();
+            authManager = new KernelAuthentication();
+            uploadPartnerCertificate();
         }
         if(!isDataToBeInsert){
             deleteData();
         }
     }
 
+    public void uploadPartnerCertificate()
+    {
+    	Object certificate = getCertificate();
+    	String uploadCertificateReq ="{\"id\": \"string\",\"metadata\": {},\"request\": {\"certificateData\": \"CERTIFICATE\",\"organizationName\": \"IITB\",\"partnerDomain\": \"Auth\",\"partnerId\": \"PID\",\"partnerType\": \"PMS Auth\"},\"requesttime\": \"TIMESTAMP\",\"version\": \"1.0\"}";
+    	uploadCertificateReq = uploadCertificateReq.replace("PID", "1873299273").replace("TIMESTAMP", generateCurrentUTCTimeStamp());
+    	JSONObject jsonReq = new JSONObject(uploadCertificateReq);
+    	JSONObject request = new JSONObject(jsonReq.get("request").toString());
+    	request.put("certificateData", certificate);
+    	jsonReq.put("request", request);
+    	Response apiResponse = RestClient.postRequestWithCookie(BaseTestCase.ApplnURI+uploadCertiUrl, jsonReq.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", authManager.getTokenByRole("regproc"));
+    	logger.info("response from upload certificate api:  "+apiResponse.asString());
+    }
+    private String generateCurrentUTCTimeStamp() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return dateFormat.format(date);
+	}
+    
+    public Object getCertificate()
+    {
+    	HashMap<String, String> pathParams = new HashMap<String, String>();
+    	pathParams.put("applicationId", "IDA");
+    	// this partner is created in the below queries and used for ekyc
+    	pathParams.put("referenceId", "1873299273");
+    	Response apiResponse=RestClient.getRequestWithCookieAndQueryParm(BaseTestCase.ApplnURI+getCertiUrl, pathParams, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", authManager.getTokenByRole("regproc"));
+    	logger.info("response from get certificate api:  "+apiResponse.asString());
+    	JSONObject jsonResponse = new JSONObject(apiResponse.asString());
+    	return (jsonResponse.get("response")!=null)? new JSONObject(jsonResponse.get("response").toString()).get("certificate"): "no certificate in get certificate api response";
+    }
     /**
      * This method deletes data.
      */

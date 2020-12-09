@@ -1,0 +1,88 @@
+createPRINTUIN:
+   Resident_PRINTUIN_All_Valid_Smoke:
+      endPoint: /resident/v1/req/print-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/PRINTUIN/createPrintUin
+      outputTemplate: resident/PRINTUIN/createPrintUinResult
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "8172138568",
+  "individualIdType": "UIN",
+  "cardType": "MASKED_UIN",
+  "otp": "111111",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "registrationId": "10001100010010820201120082850",
+        "message": "Notification has been sent to the provided contact detail(s)"
+    }'
+
+   Resident_PRINTUIN_Missing_InputParameter_transactionId:
+      endPoint: /resident/v1/req/print-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/PRINTUIN/createPrintUin
+      outputTemplate: resident/error
+      input: '{
+  "transactionID": "$REMOVE$",
+  "individualId": "8172138568",
+  "individualIdType": "UIN",
+  "cardType": "MASKED_UIN",
+  "otp": "111111",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'
+
+   Resident_PRINTUIN_Missing_InputParameter_individualId:
+      endPoint: /resident/v1/req/print-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/PRINTUIN/createPrintUin
+      outputTemplate: resident/error
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "$REMOVE$",
+  "individualIdType": "UIN",
+  "cardType": "MASKED_UIN",
+  "otp": "111111",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ]
+}'
+
+   Resident_PRINTUIN_Missing_InputParameter_individualIdType:
+      endPoint: /resident/v1/req/print-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/PRINTUIN/createPrintUin
+      outputTemplate: resident/error
+      input: '{
+  "transactionID": "1234567190",
+  "individualId": "8172138568",
+  "individualIdType": "$REMOVE$",
+  "cardType": "MASKED_UIN",
+  "otp": "111111",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ]
+}'
