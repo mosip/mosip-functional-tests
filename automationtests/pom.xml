@@ -162,7 +162,17 @@
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
 	</properties>
-	<dependencies>
+		<dependencies>
+	
+		<!-- https://mvnrepository.com/artifact/net.sf.opencsv/opencsv -->
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>2.3</version>
+		</dependency>
+		
+	
+	
 		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 		<dependency>
 			<groupId>org.javassist</groupId>
