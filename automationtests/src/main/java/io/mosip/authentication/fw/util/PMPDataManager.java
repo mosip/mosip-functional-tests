@@ -20,6 +20,7 @@ public class PMPDataManager {
     String uploadCertiUrl = "/partnermanagement/v1/partners/partners/uploadPartnerCertificate";
     String getCertiUrl = "/idauthentication/v1/internal/getCertificate";
     KernelAuthentication authManager ;
+    private static String certificateId = "";
 	
     Logger logger = Logger.getLogger(PMPDataManager.class);
     /**
@@ -34,6 +35,7 @@ public class PMPDataManager {
             uploadPartnerCertificate();
         }
         if(!isDataToBeInsert){
+        	deleteCertficate();
             deleteData();
         }
     }
@@ -49,6 +51,11 @@ public class PMPDataManager {
     	jsonReq.put("request", request);
     	Response apiResponse = RestClient.postRequestWithCookie(BaseTestCase.ApplnURI+uploadCertiUrl, jsonReq.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", authManager.getTokenByRole("regproc"));
     	logger.info("response from upload certificate api:  "+apiResponse.asString());
+    	JSONObject jsonRes = new JSONObject(apiResponse.asString()).getJSONObject("response");
+    	if(jsonRes!=null)
+    		certificateId = jsonRes.getString("certificateId");
+    	logger.info("Certificate Id to be deleted:  "+certificateId);
+    	System.err.println(certificateId);
     }
     private String generateCurrentUTCTimeStamp() {
 		Date date = new Date();
@@ -67,6 +74,11 @@ public class PMPDataManager {
     	logger.info("response from get certificate api:  "+apiResponse.asString());
     	JSONObject jsonResponse = new JSONObject(apiResponse.asString());
     	return (jsonResponse.get("response")!=null)? new JSONObject(jsonResponse.get("response").toString()).get("certificate"): "no certificate in get certificate api response";
+    }
+    
+    public void deleteCertficate() {
+    	String query = "DELETE FROM keymgr.partner_cert_store WHERE cert_id = '"+certificateId+"'";
+    	pmpDbAccess.executeQuery(query,"keymgr");
     }
     /**
      * This method deletes data.
