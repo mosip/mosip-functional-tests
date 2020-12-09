@@ -126,7 +126,7 @@
     "value" : "FB5962911685"
   }, {
     "label" : "keyIndex",
-    "value" : "49:40:22:0D:2B:CE:93:5D:7D:ED:CD:40:42:D1:10:7F:C7:31:9E:36:FF:22:47:F1:15:D4:A9:76:E8:F1:9D:DC"
+    "value" : "81:86:E7:40:B5:0A:E0:8B:21:C7:D8:EE:EF:56:1A:0F:98:06:8D:38:41:FA:AF:8D:04:69:65:59:CC:98:65:A2"
   }, {
     "label" : "consentOfApplicant",
     "value" : "Yes"
@@ -150,18 +150,44 @@
   } ],
   "registrationId" : "10002100740001120201014052001",
   "capturedRegisteredDevices" : [ {
-    "deviceServiceVersion" : "SB.WIN.001",
+    "deviceServiceVersion" : "0.9.5",
     "digitalId" : {
-      "dateTime" : "2020-10-14T10:48:57.534+05:30",
-      "deviceSubType" : "Full face",
-      "model" : "C615",
-      "type" : "Face",
-      "make" : "Logitech",
-      "serialNo" : "535626446",
-      "deviceProviderId" : "SYNCBYTE.LTC165",
-      "deviceProvider" : "SYNCBYTE"
+      "dateTime" : "2020-11-23T11:29:21.468+05:30",
+      "deviceSubType" : "Slap",
+      "model" : "SLAP01",
+      "type" : "Finger",
+      "make" : "MOSIP",
+      "serialNo" : "1234567890",
+      "deviceProviderId" : "MOSIP.PROXY.SBI",
+      "deviceProvider" : "MOSIP"
     },
-    "deviceCode" : "79847aec-b87c-4692-9ae9-43ba203a3411"
+    "deviceCode" : "b692b595-3523-slap-99fc-bd76e35f190f"
+  }, {
+    "deviceServiceVersion" : "0.9.5",
+    "digitalId" : {
+      "dateTime" : "2020-11-23T11:29:21.811+05:30",
+      "deviceSubType" : "Full Face",
+      "model" : "FACE01",
+      "type" : "Face",
+      "make" : "MOSIP",
+      "serialNo" : "2345678901",
+      "deviceProviderId" : "MOSIP.PROXY.SBI",
+      "deviceProvider" : "MOSIP"
+    },
+    "deviceCode" : "b692b595-3523-face-99fc-bd76e35f190f"
+  }, {
+    "deviceServiceVersion" : "0.9.5",
+    "digitalId" : {
+      "dateTime" : "2020-11-23T11:29:22.187+05:30",
+      "deviceSubType" : "Double",
+      "model" : "IRIS01",
+      "type" : "Iris",
+      "make" : "MOSIP",
+      "serialNo" : "3456789012",
+      "deviceProviderId" : "MOSIP.PROXY.SBI",
+      "deviceProvider" : "MOSIP"
+    },
+    "deviceCode" : "b692b595-3523-iris-99fc-bd76e35f190f"
   } ],
   "checkSum" : {
     "mosip-client.jar" : "2A860E3CA974CF9A859CB2851950AF1140F4CA64B88D8E67198A06250316654F",
@@ -181,7 +207,7 @@
     "value" : null
   }, {
     "label" : "supervisorPassword",
-    "value" : "false"
+    "value" : "true"
   }, {
     "label" : "officerPassword",
     "value" : "true"
@@ -193,10 +219,10 @@
     "value" : null
   }, {
     "label" : "supervisorOTPAuthentication",
-    "value" : "false"
+    "value" : null
   }, {
     "label" : "officerOTPAuthentication",
-    "value" : "false"
+    "value" : null
   } ],
   "creationDate" : "2020-10-14T10:54:15.848Z",
   "hashSequence1" : [ {
