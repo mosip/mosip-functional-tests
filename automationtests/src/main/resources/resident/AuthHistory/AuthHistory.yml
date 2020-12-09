@@ -1,0 +1,28 @@
+AuthHistory:      
+  Resident_AuthHistory_With_UIN_smoke_Pos:
+      endPoint: /resident/v1/req/auth-history
+      role: regproc
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/AuthHistory/authHistoryResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "23455",
+		"individualIdType": "UIN",
+		"otp": "123456",
+		"sendOtp":{
+	"id": "mosip.identity.otp",
+	"version": "1.0",
+	"transactionID": "{{transactionID}}",
+	"requestTime": "{{requestTime}}",
+	"individualId": "{{individualId}}",
+	"individualIdType": "{{individualIdType}}",
+	"otpChannel": [
+		"EMAIL",
+		"PHONE"
+	]
+	}
+	}'
+      output: '{
+  "vidStatus":"ACTIVE"
+}'
