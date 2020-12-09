@@ -202,6 +202,7 @@ public class CryptoUtil {
                 return sign.sign();
             }
         } catch (Exception ex) {
+            logger.error("Failed to sign data", ex);
             throw new Exception("Failed to sign data");
         }
     }

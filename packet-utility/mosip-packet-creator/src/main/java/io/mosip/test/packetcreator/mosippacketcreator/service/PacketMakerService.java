@@ -8,12 +8,8 @@ import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -115,7 +111,7 @@ public class PacketMakerService {
         createPacket(tempPacketRootFolder, regId, dataFile, "optional");
         packPacket(getPacketRoot(getProcessRoot(tempPacketRootFolder), regId, "optional"), regId, "optional");
         packContainer(tempPacketRootFolder);
-        return Path.of(Path.of(tempPacketRootFolder).getParent() + ".zip").toString();
+        return Path.of(Path.of(tempPacketRootFolder) + ".zip").toString();
         
     }
 
@@ -178,6 +174,8 @@ public class PacketMakerService {
         updatePacketMetaInfo(packetRootFolder, "operationsData", "officerId", officerId, false);
         updatePacketMetaInfo(packetRootFolder, "operationsData", "supervisorId", supervisorId, false);
 
+        updateAudit(packetRootFolder, regId);
+
         LinkedList<String> sequence = updateHashSequence1(packetRootFolder);
         LinkedList<String> operations_seq = updateHashSequence2(packetRootFolder);
         updatePacketDataHash(packetRootFolder, sequence, PACKET_DATA_HASH_FILENAME);
@@ -192,7 +190,10 @@ public class PacketMakerService {
             return false;
         }
 
-        String encryptedHash = cryptoUtil.getHash(Files.readAllBytes(Path.of(Path.of(containerRootFolder) + ".zip")));
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        String encryptedHash = org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(messageDigest.
+                digest(Files.readAllBytes(Path.of(Path.of(containerRootFolder) + ".zip"))));
+
         String signature = Base64.getEncoder().encodeToString(cryptoUtil.sign(Files.readAllBytes(Path.of(Path.of(containerRootFolder) + "_unenc.zip"))));
 
         Files.delete(Path.of(containerRootFolder + "_unenc.zip"));
@@ -203,7 +204,7 @@ public class PacketMakerService {
     }
 
     public boolean packContainer(String containerRootFolder) throws Exception{
-        Path path = Path.of(containerRootFolder).getParent();
+        Path path = Path.of(containerRootFolder);
         boolean result = zipAndEncrypt(path);
         Files.delete(Path.of(path + "_unenc.zip"));
         return result;
@@ -254,7 +255,7 @@ public class PacketMakerService {
 
     private String createTempTemplate(String templatePacket, String rid) throws IOException, SecurityException{
         Path sourceDirectory = Paths.get(templatePacket);
-        String tempDir = workDirectory + File.separator + rid + File.separator + rid;
+        String tempDir = workDirectory + File.separator + rid;
         Path targetDirectory = Paths.get(tempDir);
         FileSystemUtils.copyRecursively(sourceDirectory, targetDirectory);
         setupTemplateName(tempDir, rid);
@@ -342,13 +343,13 @@ public class PacketMakerService {
 
     private void updatePacketDataHash(String packetRootFolder, LinkedList<String> sequence, String fileName) throws Exception {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         for(String path : sequence) {
-            messageDigest.update(Files.readAllBytes(Path.of(path)));
+            out.write(Files.readAllBytes(Path.of(path)));
         }
-        String packetDataHash = new String(Hex.encode(messageDigest.digest())).toUpperCase();
+        String packetDataHash = new String(Hex.encode(messageDigest.digest(out.toByteArray()))).toUpperCase();
         //TODO - its failing with Hex.encoded hash, so using the below method to generate hash
-
-        String packetDataHash2 = DatatypeConverter.printHexBinary(messageDigest.digest()).toUpperCase();
+        String packetDataHash2 = DatatypeConverter.printHexBinary(messageDigest.digest(out.toByteArray())).toUpperCase();
         logger.info("sequence packetDataHash >> {} ", packetDataHash);
         logger.info("sequence packetDataHash2 >> {} ", packetDataHash2);
 
@@ -370,6 +371,7 @@ public class PacketMakerService {
         File packetFolder = Path.of(packetRootFolder).toFile();
         File[] documents = packetFolder.listFiles((d, name) -> name.endsWith(".pdf") ||
                 name.endsWith(".jpg") || name.equals("ID.json"));
+        //File[] documents = packetFolder.listFiles((d, name) -> name.equals("ID.json"));
         for(File file : documents) {
             paths.add(file.getAbsolutePath());
         }
@@ -437,5 +439,20 @@ public class PacketMakerService {
         }
 
         Files.write(Path.of(packetRootFolder, PACKET_META_FILENAME), jsonObject.toString().getBytes("UTF-8"));
+    }
+
+    private void updateAudit(String path, String rid) {
+        Path auditfile = Path.of(path, "audit.json");
+        if(auditfile.toFile().exists()) {
+            try {
+                List<String> newLines = new ArrayList<>();
+                for(String line : Files.readAllLines(auditfile, StandardCharsets.UTF_8)) {
+                    newLines.add(line.replaceAll("<RID>", rid));
+                }
+                Files.write(auditfile, newLines, StandardCharsets.UTF_8);
+            } catch (IOException e) {
+                logger.info("Failed to update audit.json", e);
+            }
+        }
     }
 }
