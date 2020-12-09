@@ -52,17 +52,17 @@
 		<classes>
 			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
-	</test>
-
+	</test>-->
+<!-- 
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.idrepo.AddIdentity" />
 	</classes>
-</test>
+</test> -->
 	
-	<test name="CreateVID">
+	<!--<test name="CreateVID">
 		<parameter name="ymlFile"	value="idRepository\CreateVID\CreateVid.yml" />
 	    <parameter name="idKeyName" value="VID" />
 	<classes>
