@@ -1,7 +1,10 @@
 {
-    "id": "mosip.id.create",
-    "request": {
-        "registrationId": "{{registrationId}}",
+    "id": "mosip.id.read",
+    "version": "v1",
+    "responsetime": "$IGNORE$",
+    "metadata": null,
+    "response": {
+        "status": "{{status}}",
         "identity": {
             "residenceStatus": [
                 {
@@ -9,15 +12,27 @@
                     "value": "FR"
                 }
             ],
-            "IDSchemaVersion": 0.1,
-            "UIN": "{{UIN}}",
-            "fullName": [
+            "IDSchemaVersion": 0.2,
+            "UIN": 3170615914,
+            "firstName": [
                 {
                     "language": "eng",
-                    "value": "TestQA"
+                    "value": "First3"
                 }
             ],
-            "dateOfBirth": "{{dateOfBirth}}",
+            "middleName": [
+                {
+                    "language": "eng",
+                    "value": "Middle3"
+                }
+            ],
+            "lastName": [
+                {
+                    "language": "eng",
+                    "value": "Last3"
+                }
+            ],
+            "dateOfBirth": "1970/07/06",
             "gender": [
                 {
                     "language": "eng",
@@ -26,6 +41,12 @@
                 {
                     "language": "ara",
                     "value": "الذكر"
+                }
+            ],
+            "bloodType": [
+                {
+                    "language": "eng",
+                    "value": "A"
                 }
             ],
             "addressLine1": [
@@ -64,10 +85,9 @@
                     "value": "Kenitra"
                 }
             ],
-            "postalCode": "14022",
-            "phone": "8553967572",
-            "email": "{{email}}",
-            "referenceIdentityNumber": "6789545678878",
+            "postalCode": "{{postalCode}}",
+            "phone": "{{phone}}",
+            "email": "$IGNORE$",
             "zone": [
                 {
                     "language": "eng",
@@ -120,18 +140,9 @@
         "documents": [
             {
                 "category": "individualBiometrics",
-                "value": "{{value}}"
-            },
-            {
-                "category": "proofOfRelationship",
-                "value": "dGVzdA"
-            },
-            {
-                "category": "proofOfDateOfBirth",
-                "value": "dGVzdA"
+                "value": "$IGNORE$"
             }
         ]
     },
-    "requesttime": "2020-08-10T10:42:07.825Z",
-    "version": "{{version}}"
+    "errors": []
 }
