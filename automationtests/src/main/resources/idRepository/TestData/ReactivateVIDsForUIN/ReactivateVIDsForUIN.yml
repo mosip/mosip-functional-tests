@@ -3,25 +3,25 @@ ReactivateVIDs:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
-      outputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUINResult
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
+      outputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUINResult
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "4729768790",
     "requesttime": "$TIMESTAMP$",
     "id": "mosip.vid.reactivate",
     "version": "v1"
 }'  
       output: '{
-    "vidStatus": "ACTIVE"
+	"vidStatus": "ACTIVE"
 }'
   IdRepository_ReactivateVIDs_Invalid_ID_Neg:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "8473829814",
     "requesttime": "$TIMESTAMP$",
     "id": "moeactivate",
     "version": "v1"
@@ -38,10 +38,10 @@ ReactivateVIDs:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "8473829814",
     "requesttime": "$TIMESTAMP$",
     "id": "$REMOVE$",
     "version": "v1"
@@ -54,11 +54,51 @@ ReactivateVIDs:
     }
   ]
 }'
+  IdRepository_ReactivateVIDs_Invalid_UIN_Neg:
+      endPoint: /idrepository/v1/vid/reactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
+      outputTemplate: idRepository/error
+      input: '{
+    "UIN": "8414",
+    "requesttime": "$TIMESTAMP$",
+    "id": "mosip.vid.reactivate",
+    "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_ReactivateVIDs_Blank_UIN_Neg:
+      endPoint: /idrepository/v1/vid/reactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
+      outputTemplate: idRepository/error
+      input: '{
+    "UIN": "",
+    "requesttime": "$TIMESTAMP$",
+    "id": "mosip.vid.reactivate",
+    "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
   IdRepository_ReactivateVIDs_Missing_UIN_Neg:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
     "UIN": "$REMOVE$",
@@ -78,11 +118,11 @@ ReactivateVIDs:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMES",
+    "UIN": "8473829814",
+    "requesttime": "$TIMEST$",
     "id": "mosip.vid.reactivate",
     "version": "v1"
 }'
@@ -94,14 +134,34 @@ ReactivateVIDs:
     }
   ]
 }'
+  IdRepository_ReactivateVIDs_Blank_Timestamp_Neg:
+      endPoint: /idrepository/v1/vid/reactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
+      outputTemplate: idRepository/error
+      input: '{
+    "UIN": "8473829814",
+    "requesttime": "",
+    "id": "mosip.vid.reactivate",
+    "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
   IdRepository_ReactivateVIDs_Missing_Timestamp_Neg:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "8473829814",
     "requesttime": "$REMOVE$",
     "id": "mosip.vid.reactivate",
     "version": "v1"
@@ -118,10 +178,10 @@ ReactivateVIDs:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "8473829814",
     "requesttime": "$TIMESTAMP$",
     "id": "mosip.vid.reactivate",
     "version": "#rrdg"
@@ -138,10 +198,10 @@ ReactivateVIDs:
       endPoint: /idrepository/v1/vid/reactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
+      inputTemplate: idRepository/TestData/ReactivateVIDsForUIN/reactivateVIDsforUIN
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "8473829814",
     "requesttime": "$TIMESTAMP$",
     "id": "mosip.vid.reactivate",
     "version": "$REMOVE$"

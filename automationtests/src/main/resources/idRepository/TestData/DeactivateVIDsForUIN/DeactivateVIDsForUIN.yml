@@ -3,11 +3,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
-      outputTemplate: idRepository/DeactivateVid/deactivateVidResult
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
+      outputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUinResult
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMESTAMP$",
+    "UIN": "6397584501",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "id": "mosip.vid.deactivate",
     "version": "v1"
 }'  
@@ -18,11 +18,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMESTAMP$",
+    "UIN": "8403685295",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "id": "eactivate",
     "version": "v1"
 }'
@@ -38,11 +38,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMESTAMP$",
+    "UIN": "3785367165",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "id": "$REMOVE$",
     "version": "v1"
 }'
@@ -54,15 +54,55 @@ DeactivateVIDs:
     }
   ]
 }'
+  IdRepository_DeactivateVIDs_Invalid_UIN_Neg:
+      endPoint: /idrepository/v1/vid/deactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
+      outputTemplate: idRepository/error
+      input: '{
+    "UIN": "7368",
+    "requesttime": "2019-04-30T06:12:25.288Z",
+    "id": "mosip.vid.deactivate",
+    "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_DeactivateVIDs_Blank_UIN_Neg:
+      endPoint: /idrepository/v1/vid/deactivate
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
+      outputTemplate: idRepository/error
+      input: '{
+    "UIN": "",
+    "requesttime": "2019-04-30T06:12:25.288Z",
+    "id": "mosip.vid.deactivate",
+    "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
   IdRepository_DeactivateVIDs_Missing_UIN_Neg:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
     "UIN": "$REMOVE$",
-    "requesttime": "$TIMESTAMP$",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "id": "mosip.vid.deactivate",
     "version": "v1"
 }'
@@ -78,11 +118,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "2019-0:12:25.288Z",
+    "UIN": "7368160870",
+    "requesttime": "2019-0T06:12:25.288Z",
     "id": "mosip.vid.deactivate",
     "version": "v1"
 }'
@@ -98,10 +138,10 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "UIN": "3281795065",
     "requesttime": "$REMOVE$",
     "id": "mosip.vid.deactivate",
     "version": "v1"
@@ -118,11 +158,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMESTAMP$",
+    "UIN": "8473829814",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "version": "0976",
     "id": "mosip.vid.deactivate"
 }'
@@ -138,11 +178,11 @@ DeactivateVIDs:
       endPoint: /idrepository/v1/vid/deactivate
       role: regproc
       restMethod: post
-      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      inputTemplate: idRepository/TestData/DeactivateVIDsForUIN/deactivateVidsForUin
       outputTemplate: idRepository/error
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "requesttime": "$TIMESTAMP$",
+    "UIN": "7806937409",
+    "requesttime": "2019-04-30T06:12:25.288Z",
     "version": "$REMOVE$",
     "id": "mosip.vid.deactivate"
 }'
