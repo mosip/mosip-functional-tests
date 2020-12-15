@@ -1,0 +1,439 @@
+CreateVID:
+  IdRepository_CreateVID_withValidParameters_For VidType_Smoke_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/TestData/CreateVid/createVidResult
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+    "vidStatus": "ACTIVE",
+    "VID": "$IGNORE$"
+}'
+  IdRepository_CreateVID_withInvalidVersion_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "t5",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidUIN_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate:  idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidRequestTime_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": ""
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidVidType_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetu",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidId_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mose",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidVersion_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "234455",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidUIN_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "35205dydh",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidRequest_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12.288"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalidVidType_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Pe",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withInvalId_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mcrae",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingVersion_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "$REMOVE$",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingUIN_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "$REMOVE$",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingRequestTime_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "$REMOVE$"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingVidType_For VidType_Temporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "$REMOVE$",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingIdForTemporary:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Temporary",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "$REMOVE$",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingVersion_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "$REMOVE$",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingUIN_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "$REMOVE$",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - UIN"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingRequestTime_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "$REMOVE$"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingVidType_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "$REMOVE$",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateVID_withMissingId_For VidType_Perpetual:
+      endPoint: /idrepository/v1/vid
+      role: regproc
+      restMethod: post
+      inputTemplate: idRepository/TestData/CreateVid/createVid
+      outputTemplate: idRepository/error
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "3520518561",
+    "version": "v1",
+    "id": "$REMOVE$",
+    "requesttime": "2019-04-30T06:12:25.288Z"
+}'  
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - id"
+    }
+  ]
+}'
+
