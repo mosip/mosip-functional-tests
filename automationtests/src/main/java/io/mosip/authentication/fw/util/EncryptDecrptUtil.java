@@ -233,7 +233,10 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 */
 	public static String getDecyptFromStr(String content) {
 		try {
-			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(), content,
+			HashMap<String, String> queryParams = new HashMap<String, String>();
+			// this partner is created in pmpdatamanager class, partner certificate is uploaded for this partner.
+			queryParams.put("refId", "1873299273");
+			return RestClient.postRequestWithQueryParamAndBody(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);

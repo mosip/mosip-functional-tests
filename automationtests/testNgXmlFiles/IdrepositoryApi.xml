@@ -44,6 +44,15 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>-->
+
+	<!--
+	<test name="GenerateUIN">
+		<parameter name="ymlFile"
+			value="idRepository\IAddIdentity\AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.MassUINGenerator" />
+		</classes>
+	</test>-->
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />

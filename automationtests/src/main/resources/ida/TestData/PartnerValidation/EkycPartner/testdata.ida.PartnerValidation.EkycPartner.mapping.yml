@@ -64,7 +64,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime: $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:InvalidUIN:errorMessage$
       output.1.response.n.err.errorCode: $errors:InvalidUIN:errorCode$
@@ -96,7 +96,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMPZ$
       output.1.response.n.err.errorMessage: $errors:InvalidrequestTime:errorMessage$
       output.1.response.n.err.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -167,7 +167,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:NoAuthTypeSelected:errorMessage$
       output.1.response.n.err.errorCode: $errors:NoAuthTypeSelected:errorCode$
@@ -201,7 +201,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$    
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:NoAuthTypeSelected:errorMessage$
       output.1.response.n.err.errorCode: $errors:NoAuthTypeSelected:errorCode$
@@ -234,7 +234,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$    
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerWithoutEkyc:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerWithoutEkyc:errorCode$
@@ -267,7 +267,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerWithoutEkyc:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerWithoutEkyc:errorCode$
@@ -300,7 +300,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:DeactivatedUIN:errorMessage$
       output.1.response.n.err.errorCode: $errors:DeactivatedUIN:errorCode$
@@ -410,7 +410,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerIDNotRegistered:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerIDNotRegistered:errorCode$
@@ -443,7 +443,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$   
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerIDNotRegistered:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerIDNotRegistered:errorCode$
@@ -475,7 +475,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$    
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerIDNotRegistered:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerIDNotRegistered:errorCode$
@@ -508,7 +508,7 @@ testdata:
       identityReq.digitalId.type: $TestData:Finger_dtype_code$
       identityReq.digitalId.subType: $TestData:Finger_dstype_code$    
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:PartnerIDNotRegistered:errorMessage$
       output.1.response.n.err.errorCode: $errors:PartnerIDNotRegistered:errorCode$
@@ -574,7 +574,7 @@ testdata:
       identityReq.data.timestamp: $TIMESTAMP$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$  
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:MSLKNotRegisteredToPID:errorMessage$
       output.1.response.n.err.errorCode: $errors:MSLKNotRegisteredToPID:errorCode$
@@ -592,7 +592,7 @@ testdata:
       identityReq.data.timestamp: $TIMESTAMP$
       identityReq.bioValue: $idrepo~$input.auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$  
     output.output-1-expected-n-error-res:
-      output.1.response.n.err.status: $TestData:auth_Fail_status$
+      output.1.response.n.err.status: $IGNORE$
       output.1.response.y.responseTime:  $TIMESTAMP$
       output.1.response.n.err.errorMessage: $errors:MSLKNotRegisteredToPID:errorMessage$
       output.1.response.n.err.errorCode: $errors:MSLKNotRegisteredToPID:errorCode$

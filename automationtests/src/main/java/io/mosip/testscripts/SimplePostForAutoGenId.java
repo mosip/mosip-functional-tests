@@ -27,7 +27,7 @@ import io.restassured.response.Response;
 public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePostForAutoGenId.class);
 	protected String testCaseName = "";
-	String idKeyName = null;
+	public String idKeyName = null;
 	/**
 	 * get current testcaseName
 	 */

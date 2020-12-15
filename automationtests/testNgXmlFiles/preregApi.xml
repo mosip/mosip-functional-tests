@@ -71,19 +71,28 @@
 			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
 		</classes>
 	</test>
-	<!-- <test name="CreatePreregistration">
+	<!--  <test name="CreatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/createPrereg/createPrereg.yml" />
 			<parameter name="idKeyName"	value="preRegistrationId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>
-	<test name="Uploaddocument">
+	</test> -->
+	<!--<test name="Uploaddocument">
 		<parameter name="ymlFile"
 			value="preReg/uploadDocument/uploadDocument.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
+		</classes>
+	</test> -->
+	
+	<!-- <test name="BookAppointment">
+		<parameter name="ymlFile"
+			value="preReg/bookAppointment/bookAppointment.yml" />
+		<parameter name="pathParams" value="preRegistrationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
 		</classes>
 	</test> -->
 </suite>

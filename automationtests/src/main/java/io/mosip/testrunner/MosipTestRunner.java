@@ -2,12 +2,14 @@ package io.mosip.testrunner;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
-
 
 import io.mosip.service.BaseTestCase;
 
@@ -46,15 +48,21 @@ public class MosipTestRunner {
 		File homeDir=null;
 		TestNG runner = new TestNG();
 		List<String> suitefiles = new ArrayList<String>();
-		
 		//String specifiedModules = System.getProperty("modules");
 		List<String> modulesToRun = BaseTestCase.listOfModules;
 		String os=System.getProperty("os.name");
 		LOGGER.info(os);
 		//suitefiles.add(new File(System.getProperty("user.dir") +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
-		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) {
+		 if(checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==true) {
 			 homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
 		}
+		/*
+		 * if(checkRunType().contains("IDE") ||
+		 * os.toLowerCase().contains("windows")==true) { URL res =
+		 * MosipTestRunner.class.getClassLoader().getResource("testNgXmlFiles"); try {
+		 * homeDir = Paths.get(res.toURI()).toFile(); } catch (URISyntaxException e) {
+		 * LOGGER.error("Exception getting the xml file path :"+e.getMessage()); } }
+		 */
 		else {
 			File dir=new File(System.getProperty("user.dir"));
 		homeDir = new File(dir.getParent() + "/testNgXmlFiles");
@@ -83,9 +91,13 @@ public class MosipTestRunner {
 	public static String getGlobalResourcePath() {
 		if (checkRunType().equalsIgnoreCase("JAR")) {
 			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource".toString();
-		} else if (checkRunType().equalsIgnoreCase("IDE"))
-			return new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+		} else if (checkRunType().equalsIgnoreCase("IDE")) {
+			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
 					.toString();
+			if(path.contains("test-classes"))
+				path = path.replace("test-classes", "classes");
+			return path;
+		}
 		return "Global Resource File Path Not Found";
 	}
 

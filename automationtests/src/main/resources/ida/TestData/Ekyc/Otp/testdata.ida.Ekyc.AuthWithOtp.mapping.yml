@@ -199,7 +199,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidOTP:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidOTP:errorCode$
@@ -427,7 +427,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$    
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidUIN:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidUIN:errorCode$
@@ -469,7 +469,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidtransactionID:errorCode$
@@ -508,7 +508,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -549,7 +549,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidindividualIdType:errorCode$
@@ -590,7 +590,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Invalidversion:errorMessage$
       output.2.response.err.errorCode: $errors:Invalidversion:errorCode$
@@ -629,7 +629,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:RequestTimeGT24HR:errorMessage$
       output.2.response.err.errorCode: $errors:RequestTimeGT24HR:errorCode$
@@ -668,7 +668,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:RequestTimeLT24HR:errorMessage$
       output.2.response.err.errorCode: $errors:RequestTimeLT24HR:errorCode$
@@ -708,7 +708,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidUIN:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidUIN:errorCode$
@@ -749,7 +749,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidtransactionID:errorCode$
@@ -788,7 +788,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -829,7 +829,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidindividualIdType:errorCode$
@@ -870,7 +870,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Invalidversion:errorMessage$
       output.2.response.err.errorCode: $errors:Invalidversion:errorCode$
@@ -909,7 +909,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:MissingUIN:errorMessage$
       output.2.response.err.errorCode: $errors:MissingUIN:errorCode$
@@ -950,7 +950,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:MissingtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:MissingtransactionID:errorCode$
@@ -989,7 +989,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:MissingrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:MissingrequestTime:errorCode$
@@ -1029,7 +1029,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:MissingindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:MissingindividualIdType:errorCode$
@@ -1070,7 +1070,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Missingversion:errorMessage$
       output.2.response.err.errorCode: $errors:Missingversion:errorCode$
@@ -1110,7 +1110,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidVID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidVID:errorCode$
@@ -1150,7 +1150,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidtransactionID:errorCode$
@@ -1190,7 +1190,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -1231,7 +1231,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidindividualIdType:errorCode$
@@ -1272,7 +1272,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Invalidversion:errorMessage$
       output.2.response.err.errorCode: $errors:Invalidversion:errorCode$
@@ -1312,7 +1312,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:RequestTimeGT24HR:errorMessage$
       output.2.response.err.errorCode: $errors:RequestTimeGT24HR:errorCode$
@@ -1352,7 +1352,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:RequestTimeLT24HR:errorMessage$
       output.2.response.err.errorCode: $errors:RequestTimeLT24HR:errorCode$
@@ -1392,7 +1392,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidVID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidVID:errorCode$
@@ -1433,7 +1433,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:InvalidtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidtransactionID:errorCode$
@@ -1473,7 +1473,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidrequestTime:errorCode$
@@ -1514,7 +1514,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:InvalidindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:InvalidindividualIdType:errorCode$
@@ -1555,7 +1555,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Invalidversion:errorMessage$
       output.2.response.err.errorCode: $errors:Invalidversion:errorCode$
@@ -1594,7 +1594,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:MissingUIN:errorMessage$
       output.2.response.err.errorCode: $errors:MissingUIN:errorCode$
@@ -1635,7 +1635,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $TIMESTAMP$
       output.2.response.err.errorMessage: $errors:MissingtransactionID:errorMessage$
       output.2.response.err.errorCode: $errors:MissingtransactionID:errorCode$
@@ -1675,7 +1675,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:MissingrequestTime:errorMessage$
       output.2.response.err.errorCode: $errors:MissingrequestTime:errorCode$
@@ -1716,7 +1716,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:MissingindividualIdType:errorMessage$
       output.2.response.err.errorCode: $errors:MissingindividualIdType:errorCode$
@@ -1757,7 +1757,7 @@ testdata:
       output.1.y.response.id: $TestData:id_otp_valid$
       output.1.y.response.ver: $version$
     output.output-2-expected-n-kyc-res:
-      output.2.response.err.status: $TestData:auth_Fail_status$
+      output.2.response.err.status: $IGNORE$
       output.2.response.err.responseTime: $IGNORE$
       output.2.response.err.errorMessage: $errors:Missingversion:errorMessage$
       output.2.response.err.errorCode: $errors:Missingversion:errorCode$
