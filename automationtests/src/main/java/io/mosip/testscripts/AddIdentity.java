@@ -36,6 +36,7 @@ import io.restassured.response.Response;
 public class AddIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
+	public Response response = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -77,7 +78,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
-		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

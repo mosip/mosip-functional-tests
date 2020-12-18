@@ -28,6 +28,7 @@ import io.restassured.response.Response;
 public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
+	public Response response = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -90,7 +91,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
 		
-		Response response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
