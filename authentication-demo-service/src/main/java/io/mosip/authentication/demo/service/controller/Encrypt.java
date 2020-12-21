@@ -30,6 +30,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONException;
@@ -72,12 +73,12 @@ import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
-import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- *  The Class Encrypt is used to encrypt the identity block using Kernel Api.
+ * The Class Encrypt is used to encrypt the identity block using Kernel Api.
  *
  * @author Dinesh Karuppiah
  */
@@ -85,14 +86,14 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(tags = { "Encrypt" })
 public class Encrypt {
-	
+
 	public static final int THUMBPRINT_LENGTH = 20;
 
 	@Autowired
 	private Environment env;
 
 	/** The Constant ASYMMETRIC_ALGORITHM. */
-	private static final String SSL = "SSL";	
+	private static final String SSL = "SSL";
 
 	/** The obj mapper. */
 	@Autowired
@@ -101,7 +102,7 @@ public class Encrypt {
 	/** KeySplitter. */
 	@Value("${" + IdAuthConfigKeyConstants.KEY_SPLITTER + "}")
 	private String keySplitter;
-	
+
 	/** The encrypt URL. */
 	@Value("${mosip.ida.publicKey-url}")
 	private String publicKeyURL;
@@ -109,31 +110,30 @@ public class Encrypt {
 	/** The app ID. */
 	@Value("${application.id}")
 	private String appID;
-	
+
 	@Autowired
 	private CryptoUtility cryptoUtil;
-	
+
 	@Value("${mosip.ida.encrypt-url}")
-	private String encryptURL;	
+	private String encryptURL;
 
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Encrypt.class);
-	
+
 	/**
 	 * Encrypt.
 	 *
-	 * @param encryptionRequestDto            the encryption request dto
-	 * @param isInternal the is internal
+	 * @param encryptionRequestDto the encryption request dto
+	 * @param isInternal           the is internal
 	 * @return the encryption response dto
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@PostMapping(path = "/encrypt")
 	@ApiOperation(value = "Encrypt Identity with sessionKey and Encrypt Session Key with Public Key", response = EncryptionResponseDto.class)
 	public EncryptionResponseDto encrypt(@RequestBody EncryptionRequestDto encryptionRequestDto,
-			@RequestParam(name="refId",required=false) @Nullable String refId,
-			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
-			@RequestParam(name="isInternal",required=false) @Nullable boolean isBiometrics)
-			throws Exception {
+			@RequestParam(name = "refId", required = false) @Nullable String refId,
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isBiometrics) throws Exception {
 		if (refId == null) {
 			refId = getRefId(isInternal, isBiometrics);
 		}
@@ -143,33 +143,36 @@ public class Encrypt {
 	/**
 	 * this method is used to call Kernel encrypt api.
 	 *
-	 * @param encryptionRequestDto            the encryption request dto
-	 * @param isInternal the is internal
+	 * @param encryptionRequestDto the encryption request dto
+	 * @param isInternal           the is internal
 	 * @return the encryption response dto
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, String refId)
 			throws Exception {
 		String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
 		SecretKey secretKey = cryptoUtil.genSecKey();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
-		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
-		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));	
-		X509Certificate x509Cert = getCertificate(identityBlock, refId);
-		PublicKey publicKey = x509Cert.getPublicKey();	
+		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8),
+				secretKey);
+		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
+		X509Certificate x509Cert = getCertificate(refId);
+		PublicKey publicKey = x509Cert.getPublicKey();
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
 		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
-		byte[] byteArr = cryptoUtil.symmetricEncrypt(
-				HMACUtils.digestAsPlainText(HMACUtils.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(), secretKey);
+		byte[] byteArr = cryptoUtil.symmetricEncrypt(Encrypt
+				.digestAsPlainText(HMACUtils2.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(),
+				secretKey);
 		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
 		return encryptionResponseDto;
 	}
-	
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@PostMapping(path = "/encryptBiometricValue")
-	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue, 
-			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
-			@RequestParam(name="transactionId",required=false) @Nullable String transactionId, 
-			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal)
+	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue,
+			@RequestParam(name = "timestamp", required = false) @Nullable String timestamp,
+			@RequestParam(name = "transactionId", required = false) @Nullable String transactionId,
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal)
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			InvalidKeySpecException {
@@ -181,7 +184,7 @@ public class Encrypt {
 			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
 					throws IOException {
 				String authToken = generateAuthToken();
-				if(authToken != null && !authToken.isEmpty()) {
+				if (authToken != null && !authToken.isEmpty()) {
 					request.getHeaders().set("Cookie", "Authorization=" + authToken);
 				}
 				return execution.execute(request, body);
@@ -189,12 +192,13 @@ public class Encrypt {
 		};
 
 		restTemplate.setInterceptors(Collections.singletonList(interceptor));
-		
-		
+
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
-		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
+		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
+				IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
 		String salt = CryptoUtil.encodeBase64(saltLastBytes);
-		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
+		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
+				IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
@@ -204,50 +208,47 @@ public class Encrypt {
 		request.setReferenceId(getRefId(isInternal, true));
 		request.setData(bioValue);
 		request.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
-		
+
 		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(request));
 		ResponseEntity<Map> response = restTemplate.exchange(encryptURL, HttpMethod.POST, httpEntity, Map.class);
-		
-		if(response.getStatusCode() == HttpStatus.OK) {
+
+		if (response.getStatusCode() == HttpStatus.OK) {
 			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
 			SplittedEncryptedData splitedEncryptedData = splitEncryptedData(responseData);
 			return splitedEncryptedData;
 		}
-		return null ;
+		return null;
 	}
-	
+
 	/**
 	 * Creates the request.
 	 *
 	 * @param <T> the generic type
-	 * @param t the t
+	 * @param t   the t
 	 * @return the request wrapper
 	 */
-	public static <T> RequestWrapper<T> createRequest(T t){
-    	RequestWrapper<T> request = new RequestWrapper<>();
-    	request.setRequest(t);
-    	request.setId("ida");
-    	request.setRequesttime(DateUtils.getUTCCurrentDateTime());
-    	return request;
-    }
-	
+	public static <T> RequestWrapper<T> createRequest(T t) {
+		RequestWrapper<T> request = new RequestWrapper<>();
+		request.setRequest(t);
+		request.setId("ida");
+		request.setRequesttime(DateUtils.getUTCCurrentDateTime());
+		return request;
+	}
 
-	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE) 
+	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE)
 	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) {
 		byte[] dataBytes = CryptoUtil.decodeBase64(data);
 		byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
 		return new SplittedEncryptedData(CryptoUtil.encodeBase64(splits[0]), CryptoUtil.encodeBase64(splits[1]));
 	}
-	
-	@PostMapping(path = "/combineDataToEncrypt", consumes = MediaType.APPLICATION_JSON_VALUE) 
+
+	@PostMapping(path = "/combineDataToEncrypt", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String combineDataToEncrypt(@RequestBody SplittedEncryptedData splittedData) {
-		return CryptoUtil.encodeBase64(
-				CryptoUtil.combineByteArray(
-						CryptoUtil.decodeBase64(splittedData.getEncryptedData()), 
-						CryptoUtil.decodeBase64(splittedData.getEncryptedSessionKey()), 
-						keySplitter));
+		return CryptoUtil
+				.encodeBase64(CryptoUtil.combineByteArray(CryptoUtil.decodeBase64(splittedData.getEncryptedData()),
+						CryptoUtil.decodeBase64(splittedData.getEncryptedSessionKey()), keySplitter));
 	}
-	
+
 	private static byte[][] splitAtFirstOccurance(byte[] strBytes, byte[] sepBytes) {
 		int index = findIndex(strBytes, sepBytes);
 		if (index >= 0) {
@@ -274,23 +275,23 @@ public class Encrypt {
 		}).findFirst() // first occurence
 				.orElse(-1); // No element found
 	}
-	
+
 	/**
 	 * Gets the encrypted value.
 	 *
-	 * @param data            the data
+	 * @param data       the data
 	 * @param isInternal the is internal
 	 * @return the encrypted value
-	 * @throws IOException             Signals that an I/O exception has occurred.
-	 * @throws KeyManagementException             the key management exception
-	 * @throws NoSuchAlgorithmException             the no such algorithm exception
-	 * @throws RestClientException             the rest client exception
-	 * @throws JSONException             the JSON exception
-	 * @throws CertificateException 
+	 * @throws IOException              Signals that an I/O exception has occurred.
+	 * @throws KeyManagementException   the key management exception
+	 * @throws NoSuchAlgorithmException the no such algorithm exception
+	 * @throws RestClientException      the rest client exception
+	 * @throws JSONException            the JSON exception
+	 * @throws CertificateException
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public X509Certificate getCertificate(String data, String refId)
-			throws IOException, KeyManagementException, NoSuchAlgorithmException, RestClientException, JSONException, CertificateException {
+	public X509Certificate getCertificate(String refId) throws IOException, KeyManagementException,
+			NoSuchAlgorithmException, RestClientException, JSONException, CertificateException {
 		turnOffSslChecking();
 		RestTemplate restTemplate = new RestTemplate();
 		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
@@ -299,7 +300,7 @@ public class Encrypt {
 			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
 					throws IOException {
 				String authToken = generateAuthToken();
-				if(authToken != null && !authToken.isEmpty()) {
+				if (authToken != null && !authToken.isEmpty()) {
 					request.getHeaders().set("Cookie", "Authorization=" + authToken);
 				}
 				return execution.execute(request, body);
@@ -308,30 +309,22 @@ public class Encrypt {
 
 		restTemplate.setInterceptors(Collections.singletonList(interceptor));
 
-		String utcTime = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
-		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
-		request.setApplicationId(appID);
-		request.setReferenceId(refId);
-		request.setData(Base64.encodeBase64URLSafeString(data.getBytes(StandardCharsets.UTF_8)));
-		request.setTimeStamp(utcTime);
-		
 		Map<String, String> uriParams = new HashMap<>();
 		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(publicKeyURL)
-				.queryParam("applicationId", appID)
-				.queryParam("referenceId", refId);
-		ResponseEntity<Map> response = restTemplate.exchange(builder.build(uriParams), HttpMethod.GET,
-				null, Map.class);
-		String certificate =  (String) ((Map<String, Object>) response.getBody().get("response")).get("certificate");
-		
+				.queryParam("applicationId", appID).queryParam("referenceId", refId);
+		ResponseEntity<Map> response = restTemplate.exchange(builder.build(uriParams), HttpMethod.GET, null, Map.class);
+		String certificate = (String) ((Map<String, Object>) response.getBody().get("response")).get("certificate");
+
 		certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		X509Certificate x509cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
+		X509Certificate x509cert = (X509Certificate) cf
+				.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
 		return x509cert;
 	}
 
-	private String getRefId(boolean isInternal, boolean isBiometrics) {
+	public String getRefId(boolean isInternal, boolean isBiometrics) {
 		String refId;
-		if(isBiometrics) {
+		if (isBiometrics) {
 			if (isInternal) {
 				refId = env.getProperty(IdAuthConfigKeyConstants.INTERNAL_BIO_REFERENCE_ID);
 			} else {
@@ -361,11 +354,11 @@ public class Encrypt {
 		request.setRequesttime(DateUtils.getUTCCurrentDateTime());
 		request.setRequest(requestBody);
 		ClientResponse response = WebClient.create(env.getProperty("auth-token-generator.rest.uri")).post()
-				.syncBody(request)
-				.exchange().block();
-		logger.info("sessionID", "IDA", "ENCRYPT", "AuthResponse :" +  response.toEntity(String.class).block().getBody());
+				.syncBody(request).exchange().block();
+		logger.info("sessionID", "IDA", "ENCRYPT",
+				"AuthResponse :" + response.toEntity(String.class).block().getBody());
 		List<ResponseCookie> list = response.cookies().get("Authorization");
-		if(list != null && !list.isEmpty()) {
+		if (list != null && !list.isEmpty()) {
 			ResponseCookie responseCookie = list.get(0);
 			return responseCookie.getValue();
 		}
@@ -375,8 +368,7 @@ public class Encrypt {
 	/**
 	 * Gets the headers.
 	 *
-	 * @param req
-	 *            the req
+	 * @param req the req
 	 * @return the headers
 	 */
 	@SuppressWarnings("unused")
@@ -401,16 +393,14 @@ public class Encrypt {
 
 		public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String arg1)
 				throws CertificateException {
-			}
+		}
 	} };
 
 	/**
 	 * Turns off the ssl checking.
 	 *
-	 * @throws NoSuchAlgorithmException
-	 *             the no such algorithm exception
-	 * @throws KeyManagementException
-	 *             the key management exception
+	 * @throws NoSuchAlgorithmException the no such algorithm exception
+	 * @throws KeyManagementException   the key management exception
 	 */
 	public static void turnOffSslChecking() throws NoSuchAlgorithmException, KeyManagementException {
 		// Install the all-trusting trust manager
@@ -418,34 +408,39 @@ public class Encrypt {
 		sc.init(null, UNQUESTIONING_TRUST_MANAGER, null);
 		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 	}
-	
+
 	public static class SplittedEncryptedData {
 		private String encryptedSessionKey;
 		private String encryptedData;
-		
+
 		public SplittedEncryptedData() {
 			super();
 		}
-		
-		public SplittedEncryptedData(String encryptedSessionKey,String encryptedData) {
+
+		public SplittedEncryptedData(String encryptedSessionKey, String encryptedData) {
 			super();
 			this.encryptedData = encryptedData;
 			this.encryptedSessionKey = encryptedSessionKey;
 		}
-		
-		
+
 		public String getEncryptedData() {
 			return encryptedData;
 		}
+
 		public void setEncryptedData(String encryptedData) {
 			this.encryptedData = encryptedData;
 		}
+
 		public String getEncryptedSessionKey() {
 			return encryptedSessionKey;
 		}
+
 		public void setEncryptedSessionKey(String encryptedSessionKey) {
 			this.encryptedSessionKey = encryptedSessionKey;
 		}
 	}
 
+	public static String digestAsPlainText(byte[] data) {
+		return DatatypeConverter.printHexBinary(data).toUpperCase();
+	}
 }
