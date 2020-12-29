@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,6 +28,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.util.StringUtils;
 
+
 @Service
 public class PacketMakerService {
     
@@ -39,10 +39,10 @@ public class PacketMakerService {
     private static final String PACKET_DATA_HASH_FILENAME = "packet_data_hash.txt";
     private static final String PACKET_OPERATION_HASH_FILENAME = "packet_operations_hash.txt";
 
-    @Value("${mosip.test.regclient.store:/home/sasikumar/Documents/MOSIP/packetcreator}")
+    @Value("${mosip.test.regclient.store:../packetcreator}")
     private String finalDestination;
 
-    @Value("${mosip.test.packet.template.location:/home/sasikumar/Documents/MOSIP/packetcreator/template}")
+    @Value("${mosip.test.packet.template.location:../packetcreator/template}")
     private String templateFolder;
 
     @Value("${mosip.test.packet.template.source:REGISTRATION_CLIENT}")
@@ -141,7 +141,7 @@ public class PacketMakerService {
         Map<?,?> genericJSONObject = objectMapper.readValue(Paths.get(templateFile).toFile(), Map.class);
         String dataToMerge = data.toString();
         ObjectReader objectReader = objectMapper.readerForUpdating(genericJSONObject);
-        return objectReader.readValue(dataToMerge); 
+        return objectReader.readValue(dataToMerge);
     }
 
     public boolean createPacketRandom(String containerRootFolder, String regId, String templateFilePath, String type){
@@ -158,11 +158,12 @@ public class PacketMakerService {
         String schemaVersion = jb.optString("IDSchemaVersion", "0");
         String schemaJson = schemaUtil.getAndSaveSchema(schemaVersion, workDirectory);
         JSONObject jbToMerge = schemaUtil.getPacketIDData(schemaJson, dataToMerge, type);
-        Map<?,?> mergedJsonMap = mergeJSON(templateFile, jbToMerge);
-        if(!writeJSONFile(mergedJsonMap, templateFile)) {
-            logger.error("Error creating packet {} ", regId);
-            return false;
-        }
+
+        JSONObject templateJson = new JSONObject(Files.readString(Paths.get(templateFile)));
+        JsonMerger jsonMerger = new JsonMerger();
+        JSONObject mergedJsonMap = jsonMerger.merge(templateJson, jbToMerge);
+
+        Files.write(Path.of(templateFile), mergedJsonMap.toString().getBytes(StandardCharsets.UTF_8));
 
         updatePacketMetaInfo(packetRootFolder, "metaData","registrationId", regId, true);
         updatePacketMetaInfo(packetRootFolder, "metaData","creationDate", apiUtil.getUTCDateTime(null), true);
