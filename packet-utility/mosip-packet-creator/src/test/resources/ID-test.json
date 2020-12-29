@@ -1,0 +1,31 @@
+{
+	"identity": {
+		"firstName": [
+			{
+				"language": "eng",
+				"value": "Automation"
+			}
+		],
+		"IDSchemaVersion": "0.1",
+		"phone": "9631517648",
+		"addressLine4": [
+			{
+				"language": "eng",
+				"value": "Hijkl Division"
+			}
+		],
+		"region": [
+			{
+				"language": "eng",
+				"value": "RSK"
+			}
+		],
+		"maritalStatus": [
+			{
+				"language": "eng",
+				"value": "101"
+			}
+		],
+		"email": "anusha.se@email.com"
+	}
+}
