@@ -26,7 +26,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
 public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+	private static final Logger logger = Logger.getLogger(PostWithBodyWithOtpGenerate.class);
 	protected String testCaseName = "";
 	public Response response = null;
 	/**
