@@ -1,5 +1,7 @@
 package io.mosip.testscripts;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +17,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
@@ -24,10 +29,12 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
-public class GetWithParam extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(GetWithParam.class);
+public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(GetWithParamForDownloadCard.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public byte[] pdf=null;
+	public String pdfAsText =null;
 	/**
 	 * get current testcaseName
 	 */
@@ -60,21 +67,15 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		
-		  Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-		  .doJsonOutputValidation(response.asString(),
-		  getJsonFromTemplate(testCaseDTO.getOutput(),
-		  testCaseDTO.getOutputTemplate()));
-		  Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		 
-		
-		
-		  if (!OutputValidationUtil.publishOutputResult(ouputValid)) throw new
-		  AdminTestException("Failed at output validation");
-		 
-
+		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		 try {
+			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
+			} catch (IOException e) {
+				Reporter.log("Exception : " + e.getMessage());
+			}
+		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+				+ pdfAsText+ "</pre>");
+       
 	}
 
 	/**

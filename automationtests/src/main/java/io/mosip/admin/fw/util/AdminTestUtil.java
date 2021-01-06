@@ -1,7 +1,9 @@
 package io.mosip.admin.fw.util;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,7 +24,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
-
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
@@ -40,6 +41,8 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
@@ -68,7 +71,9 @@ public class AdminTestUtil extends BaseTestCase{
 	public static String genertedUIN=null;
 	public static String generatedRid=null;
 	public static String regDeviceResponse=null;
-
+	public static String generatedVID=null;
+	public static final String AUTHORIZATHION_HEADERNAME="Authorization";
+	public static final String authHeaderValue="Some String";
 	
 	
 	
@@ -85,7 +90,7 @@ public class AdminTestUtil extends BaseTestCase{
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");//
 		try {
 			  response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
@@ -97,14 +102,14 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 	}
 	
-	protected Response postWithBodyAndHeder(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			  response = RestClient.postRequestWithHeder(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -453,7 +458,7 @@ public class AdminTestUtil extends BaseTestCase{
 		
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
@@ -487,15 +492,41 @@ public class AdminTestUtil extends BaseTestCase{
 		logger.info("******get request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
-			  response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			
+			response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
+			 
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 			return response;
 		}
 	}
+	
+	protected byte[] getWithPathParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		byte[] pdf=null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>(){}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: "+jsonInput+" Exception: "+e.getMessage());
+		}
+	
+	token = kernelAuthLib.getTokenByRole(role);
+	logger.info("******get request to EndPointUrl: " + url + " *******");
+	Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+	try {
+		pdf=RestClient.getPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+		return pdf;
+	} catch (Exception e) {
+		logger.error("Exception " + e);
+		return pdf;
+	}
+}
+	
 	
 	protected Response getWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
@@ -551,7 +582,30 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 
 	}
-	
+	public void writeAutoGeneratedId(String testCaseName, String idName, String value)
+	{
+		if(testCaseName == null || idName == null || value == null)
+			{
+				logger.error("autogenerated id is not stored as few details not available");
+				return ;
+			}
+			String fileName = getAutoGenIdFileName(testCaseName);
+			String identifierKeyName = getAutogenIdKeyName(testCaseName, idName);
+			FileOutputStream outputStream = null;
+			FileInputStream inputStream = null;
+			Properties props = new Properties();
+			try {
+				inputStream = new FileInputStream(RunConfigUtil.getResourcePath()+fileName);
+				props.load(inputStream);
+				props.put(identifierKeyName, value);
+				outputStream = new FileOutputStream(RunConfigUtil.getResourcePath()+fileName);
+				props.store(outputStream, "autogenerated fields");
+				logger.info("added autogenerated fields to property: "+RunConfigUtil.getResourcePath()+fileName);
+			} catch (JSONException | IOException e) {
+				logger.error("Exception while getting autogenerated id and writing in property file:" + e.getMessage());
+			}
+	}
+
 	/**
 	 * @param testCaseName
 	 * @param fieldName
@@ -632,7 +686,7 @@ public class AdminTestUtil extends BaseTestCase{
 		return scriptsMap;
 	}	
 	
-	protected String getJsonFromTemplate(String input, String template)
+	public String getJsonFromTemplate(String input, String template)
 	{
 		String resultJson = null;
 		try {
@@ -829,4 +883,16 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		return inputFile;
 		}
+	
+	public Properties getproperty(String path) {
+		Properties prop = new Properties();
+		
+		try {
+			File file = new File(path);
+			prop.load(new FileInputStream(file));
+		} catch (IOException e) {
+			logger.error("Exception " + e.getMessage());
+		}
+		return prop;
+	}
 }

@@ -400,6 +400,16 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
+	
+	public static byte[] getPdf(String url, HashMap<String, String> body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
+    		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+    		byte[] pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf").accept("*/*")
+    				.cookie(cookieName, cookieValue).log().all().when().get(url).then().extract().asByteArray();
+    		return pdf;
+	}
+	
+	
 
 	public static Response getRequestWithCookieAndQueryParm(String url, HashMap<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
