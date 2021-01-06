@@ -28,6 +28,7 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PatchWithPathParamsAndBody.class);
 	protected String testCaseName = "";
 	String pathParams = null;
+	public Response response = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -62,7 +63,7 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
-		Response response = patchWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+		response = patchWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

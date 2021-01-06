@@ -1,0 +1,110 @@
+Retrieve_VID_pos:
+  IdRepository_Retrieve_VID_pos_perpetual_Active:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "3856051946973103"
+}'
+      output: '{
+	"UIN": "9356108407"
+}'
+  IdRepository_Retrieve_VID_pos_temperory_Active:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "2056806931274285"
+}'
+      output: '{
+	"UIN": "9356108407"
+}'
+  IdRepository_Retrieve_VID_pos_perpetual_Expired:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "5910390236176051"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is EXPIRED"
+    }
+  ]
+}'
+  IdRepository_Retrieve_VID_pos_perpetual_DEACTIVATED:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "9248054908470275"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is DEACTIVATED"
+    }
+  ]
+}'
+  IdRepository_Retrieve_VID_pos_Temperory_DEACTIVATED:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "3640892481295835"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is DEACTIVATED"
+    }
+  ]
+}'
+  IdRepository_Retrieve_VID_pos_perpetual_Revoked:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "4609583204215901"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is REVOKED"
+    }
+  ]
+}'
+  IdRepository_Retrieve_VID_pos_Temperory_Revoked:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: regproc
+      restMethod: get
+      inputTemplate: idRepository/TestData/RetrieveUINByVID/retrieveUINbyVID
+      outputTemplate: idRepository/TestData/RetrieveUINByVID/RetrieveUINbyVIDResult
+      input: '{
+    "VID": "4609583204215901"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is REVOKED"
+    }
+  ]
+}'

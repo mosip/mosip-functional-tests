@@ -28,6 +28,7 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 	private static final Logger logger = Logger.getLogger(PostWithFormDataAndMultipleFile.class);
 	protected String testCaseName = "";
 	String idKeyName = null;
+	public Response response = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -62,7 +63,7 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
-		Response response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
+		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

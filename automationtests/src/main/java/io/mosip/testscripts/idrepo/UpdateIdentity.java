@@ -1,14 +1,15 @@
-package io.mosip.testscripts.resident;
+package io.mosip.testscripts.idrepo;
 
 import java.lang.reflect.Field;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
-
+import javax.ws.rs.core.MediaType;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
+import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -18,19 +19,29 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
-
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.kernel.util.KernelAuthentication;
 import io.restassured.response.Response;
 
-public class SimplePost extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+public class UpdateIdentity extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(UpdateIdentity.class);
 	protected String testCaseName = "";
+	private static String identity;
+	public static void saveIdentityForUpdateIdentityVerification(String id) {
+		identity=id;
+	}
+	
+	public static String getIdentityForUpdateIdentityVerification() {
+		return identity;
+	}
 	/**
 	 * get current testcaseName
 	 */
@@ -62,32 +73,31 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+		testCaseName = testCaseDTO.getTestCaseName();
+		updateIdentity(testCaseDTO);
 		
-		String request=testCaseDTO.getInput();
-        JSONObject jsonObject= new JSONObject(request);
-        JSONObject sendOtp=(JSONObject)jsonObject.get("sendOtp");
-        System.out.println(sendOtp);
-        String sendOtpInputString=sendOtp.toString().replace("{{requestTime}}", generateCurrentUTCTimeStamp()).replace("{{individualId}}", genertedUIN).replace("{{transactionID}}", "1234567890").replace("{{individualIdType}}", "UIN");
-        System.out.println(sendOtpInputString);
-        jsonObject.remove("sendOtp");
-        System.out.println(jsonObject.toString());
-        String input=getJsonFromTemplate(jsonObject.toString(), testCaseDTO.getInputTemplate());
-        System.out.println(input);
-
+	}
+	
+	public void updateIdentity(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	
+		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		Calendar cal = Calendar.getInstance();
+		String timestampValue = dateFormatter.format(cal.getTime());
+		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		generatedRid=genRid;
+		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		
-		String inputJosnString=getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		inputJson = inputJson.replace("$RID$", genRid);
 		
-		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		Response response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
-
+		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
 	}
+	
 
 	/**
 	 * The method ser current test name to result
@@ -107,13 +117,5 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}
-	
-	
-	private String generateCurrentUTCTimeStamp() {
-		Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-		return dateFormat.format(date);
-	}
+	}	
 }
