@@ -273,7 +273,18 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
-	}	
+	}
+	
+	public static Response patchRequestWithCookieAndHeader(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue).body(body).contentType(contentHeader)
+				.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader, String urls,
 			String cookieName, String cookieValue) {

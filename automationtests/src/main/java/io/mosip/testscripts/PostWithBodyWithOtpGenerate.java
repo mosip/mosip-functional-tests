@@ -26,7 +26,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
 public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+	private static final Logger logger = Logger.getLogger(PostWithBodyWithOtpGenerate.class);
 	protected String testCaseName = "";
 	/**
 	 * get current testcaseName
@@ -72,6 +72,11 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Response otpResponse = postRequestWithCookieAndHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());

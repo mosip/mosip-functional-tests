@@ -58,8 +58,8 @@ createRegisterMISP:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_003",
-      "message": "Could not process the request"
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.organizationName"
     }
   ]
 }'

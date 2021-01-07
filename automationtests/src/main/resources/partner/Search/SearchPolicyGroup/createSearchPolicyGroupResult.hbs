@@ -1,0 +1,29 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "id": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": null,
+        "descr": "$IGNORE$",
+        "isActive": "{{isActive}}",
+        "isDeleted": null,
+        "name": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "userId": "$IGNORE$"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

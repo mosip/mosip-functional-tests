@@ -7,23 +7,309 @@ AuthHistory:
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "7205415943",
-		"individualIdType": "UIN",
+		"individualId": "6571302148",
+		"individualIdType": "$AddIdentityPhil_withValidParameters_smoke_Pos_UIN$",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
 		"otp": "111111",
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "7205415943",
+	"individualId": "6571302148",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
 	}
 	}'
       output: '{
-  "vidStatus":"ACTIVE",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX7143",
+        "maskedMobile": "XXXXXX9887",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXlXXhXXuXXr@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_With_VID_smoke_Pos:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/AuthHistory/authHistoryResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "6245312854190293",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "6245312854190293",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_InValid_UIN_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "@33444FFGDGDG",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7912518574",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_InValid_individualIdType_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7912518574",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7912518574",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_InValid_OTP_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7912518574",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "1@@@@11",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7912518574",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- otp"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_TransactionMismatch_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234890",
+		"individualId": "4587526315",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4587526315",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-004",
+      "message": "Input transactionID does not match transactionID of OTP Request"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_Invalid_Id_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "4587526315",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mos@@3345istory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4587526315",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'
+  Resident_AuthHistory_InValid_version_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5471453819",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v@@@@@@@@@@@3333331",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5471453819",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3333",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXnXXaXXhXX@gmail.com"
+    }
+}'
+  Resident_AuthHistory_InvalidTimestamp_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5471453819",
+		"individualIdType": "UIN",
+		"requesttime": "@@3333434444",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5471453819",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3333",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXnXXaXXhXX@gmail.com"
     }
 }'

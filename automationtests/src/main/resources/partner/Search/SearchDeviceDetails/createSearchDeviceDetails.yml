@@ -1,0 +1,33 @@
+createSearchDeviceDetails:
+   Partner_SearchDeviceDetails_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/partners/devicedetail/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchDeviceDetails/createSearchDeviceDetails
+      outputTemplate: partner/Search/SearchDeviceDetails/createSearchDeviceDetailsResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "contains",
+        "value": "234"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isItForRegistrationDevice": "null"
+      }
+    ]
+}'

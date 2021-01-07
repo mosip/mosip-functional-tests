@@ -1,0 +1,36 @@
+createSearchPolicy:
+   Partner_SearchPolicy_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/policies/policy/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPolicy/createSearchPolicy
+      outputTemplate: partner/Search/SearchPolicy/createSearchPolicyResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Data Share2"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ],
+  "policyType": "DataShare",
+  "pageFetch": "5",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "version": "1.0",
+        "policyType": "Auth",
+        "schema": "https://schemas.mosip.io/v1/auth-policy"
+      }
+    ]
+}'

@@ -27,6 +27,7 @@ import io.restassured.response.Response;
 public class GetWithParam extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(GetWithParam.class);
 	protected String testCaseName = "";
+	public Response response = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -58,7 +59,6 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
-		Response response =null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		

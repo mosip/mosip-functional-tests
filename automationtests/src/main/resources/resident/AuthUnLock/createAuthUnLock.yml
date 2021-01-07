@@ -1,42 +1,742 @@
-createAuthUnLock:
-   Resident_AuthUnLock_All_Valid_Smoke:
+AuthUnlock:
+   Resident_AuthUnLock_Valid_UIN_All:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
       restMethod: post
       inputTemplate: resident/AuthUnLock/createAuthUnLock
       outputTemplate: resident/AuthUnLock/createAuthUnLockResult
       input: '{
-  "transactionID": "1234567190",
-  "individualId": "8172138568",
-  "individualIdType": "UIN",
-  "otp": "111111",
-  "authType": "demo",
-  "requesttime": "$TIMESTAMP$"
-  }'
+		"transactionID": "1234567890",
+		"individualId": "4853764709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
       output: '{
-        "status": null,
-        "message": "Notification has been sent to the provided contact detail(s)"
-    }'
-
-   Resident_AuthUnLock_Invalid_InputParameter_authType:
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_UIN_smoke_demo_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "4853764709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "demo"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_VID_smoke_demo_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5397042072435496",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "demo"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5397042072435496",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_UIN_smoke_Face_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "4853764709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_VID_smoke_Face_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5397042072435496",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5397042072435496",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_UIN_smoke_Finger_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "4853764709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Finger"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_VID_smoke_Finger_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5397042072435496",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Finger"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5397042072435496",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_VID_smoke_Iris_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "5397042072435496",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "5397042072435496",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Valid_UIN_smoke_Iris_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "4853764709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InValid_AuthType_Neg:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
       restMethod: post
       inputTemplate: resident/AuthUnLock/createAuthUnLock
       outputTemplate: resident/error
       input: '{
-  "transactionID": "1234567190",
-  "individualId": "8172138568",
-  "individualIdType": "UIN",
-  "otp": "111111",
-  "authType": "$REMOVE$",
-  "requesttime": "$TIMESTAMP$"
-  }'
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "@3###CE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
       output: '{
    "errors": [
     {
       "errorCode": "RES-SER-009",
       "message": "Invalid Input Parameter- authType"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InValid_UIN_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "48@3###4709",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4853764709",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_missing_UIN_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "$REMOVE$",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InValid_individualIdType_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "U@@@4N",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InValid_OTP_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "1#@@311",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-004",
+      "message": "Invalid Input Parameter - OTP"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_TransactionMismatch_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1237890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-004",
+      "message": "Input transactionID does not match transactionID of OTP Request"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Invalid_Id_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mothlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_missing_Id_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InValid_version_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "@333#1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Missing_version_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "$REMOVE$",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_InvalidTimestamp_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "T@345IMP",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_AuthUnLock_Missing_Timestamp_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "7438693546",
+		"individualIdType": "UIN",
+		"requesttime": "$REMOVE$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-FACE"}],
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "7438693546",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
 }'

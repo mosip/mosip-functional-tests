@@ -1,0 +1,33 @@
+createSearchPolicyGroup:
+   Partner_SearchPolicyGroup_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Auth"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": "true"
+      }
+    ]
+}'
