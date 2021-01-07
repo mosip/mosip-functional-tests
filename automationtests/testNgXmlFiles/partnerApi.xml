@@ -222,7 +222,67 @@
 			<class name="io.mosip.testscripts.SimplePostForDeRegisterDevice" />
 		</classes>
 	</test>
-
+	
+	<test name="SearchPolicy">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchPolicy/createSearchPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="SearchPolicyGroup">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchPolicyGroup/createSearchPolicyGroup.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="SearchDeviceDetails">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchDeviceDetails/createSearchDeviceDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchRegisteredDevice">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchRegisteredDevice/createSearchRegisteredDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="SearchSecureBiometric">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchSecureBiometric/createSearchSecureBiometric.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="SearchDeviceType">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchDeviceType/createSearchDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+<test name="SearchPartnerType">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchPartnerType/createSearchPartnerType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchPartner">
+		<parameter name="ymlFile"
+			value="partner/Search/SearchPartner/createSearchPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<!--<test name="createProcessRequest"> <parameter name="ymlFile" value="partner/ProcessRequest/createProcessRequest.yml"/> 
 		<classes> <class name="io.mosip.testscripts.PatchWithParam" /> </classes> 
 		</test> -->

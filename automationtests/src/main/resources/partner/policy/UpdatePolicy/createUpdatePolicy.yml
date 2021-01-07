@@ -52,12 +52,11 @@ createUpdatePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_003",
-      "message": "Could not process the request"
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.name"
     }
   ]
 }'
-
    Partner_UpdatePolicy_Missing_InputParameter_desc:
       endPoint: /partnermanagement/v1/policies/policies/{policyID}
       role: partner
@@ -81,8 +80,8 @@ createUpdatePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_003",
-      "message": "Could not process the request"
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.desc"
     }
   ]
 }'
@@ -169,8 +168,8 @@ createUpdatePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_019",
-      "message": "Policy group name does not exist"
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.policyGroupName"
     }
   ]
 }'

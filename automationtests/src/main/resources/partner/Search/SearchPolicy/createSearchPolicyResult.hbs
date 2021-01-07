@@ -1,0 +1,35 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$TIMESTAMP$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "id": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": "$IGNORE$",
+        "descr": "$IGNORE$",
+        "isActive": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "name": "$IGNORE$",
+        "policyFileId": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "validFromDate": "$IGNORE$",
+        "validToDate": "$IGNORE$",
+        "version": "{{version}}",
+        "policyType": "$IGNORE$",
+        "schema": "{{schema}}",
+        "policyGroup": "$IGNORE$"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

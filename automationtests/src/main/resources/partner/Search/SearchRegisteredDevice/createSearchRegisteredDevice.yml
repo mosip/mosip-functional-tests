@@ -1,0 +1,34 @@
+createSearchRegisteredDevice:
+   Partner_SearchRegisteredDevice_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/partners/registereddevices/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchRegisteredDevice/createSearchRegisteredDevice
+      outputTemplate: partner/Search/SearchRegisteredDevice/createSearchRegisteredDeviceResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "contains",
+        "value": "b692b595-3523-face-99fc-bd76e35f190f"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+       "active": "true"
+      }
+    ]
+}'

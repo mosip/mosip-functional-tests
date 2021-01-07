@@ -45,8 +45,8 @@
 		</classes>
 	</test>-->
 
-	<!--
-	<test name="GenerateUIN">
+	
+	<!--<test name="GenerateUIN">
 		<parameter name="ymlFile"
 			value="idRepository\IAddIdentity\AddIdentity.yml" />
 		<classes>

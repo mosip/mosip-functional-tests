@@ -1,0 +1,108 @@
+UpdateUIN:
+   Resident_UpdateUIN_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/UpdateUIN/UpdateUinResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2609347184",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2609347184",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/UpdateUIN/UpdateUinResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2609347184",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+		"otp": "",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2609347184",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-020",
+      "message": "request.otp: otp should not be empty"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+   Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/UpdateUIN/UpdateUinResult
+      input: '{
+		"transactionID": "",
+		"individualId": "2609347184",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2609347184",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-020",
+      "message": "request.transactionID: transactionID should not be empty"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'

@@ -1,0 +1,34 @@
+createSearchDeviceType:
+   Partner_SearchDeviceType_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Face"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "active": "true"
+      }
+    ]
+}'

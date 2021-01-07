@@ -29,7 +29,7 @@ createGetMispsByOrg:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_MSP_012",
+      "errorCode": "PMS_MSP_409",
       "message": "No MISP details found"
     }
   ]

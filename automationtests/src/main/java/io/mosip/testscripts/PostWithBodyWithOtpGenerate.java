@@ -73,7 +73,9 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		
+
 		Response otpResponse = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;

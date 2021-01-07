@@ -1,12 +1,17 @@
 {
-  "id": "mosip.resident.authlock",
+  "id": "{{id}}",
   "request": {
     "transactionID":"{{transactionID}}",
     "individualId":"{{individualId}}",
     "individualIdType":"{{individualIdType}}",
     "otp":"{{otp}}",
-    "authType":["{{authType}}"]
+	"authType": [
+      {{#each authType}}
+            "{{auth}}"
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
   },
   "requesttime": "{{requesttime}}",
-  "version": "v1"
+  "version": "{{version}}"
 }
