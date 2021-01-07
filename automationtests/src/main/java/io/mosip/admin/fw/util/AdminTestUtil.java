@@ -13,6 +13,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -46,6 +47,7 @@ import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
+import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
@@ -74,7 +76,8 @@ public class AdminTestUtil extends BaseTestCase{
 	public static String generatedVID=null;
 	public static final String AUTHORIZATHION_HEADERNAME="Authorization";
 	public static final String authHeaderValue="Some String";
-	
+	public static final String SIGNATURE_HEADERNAME="signature";
+	public Properties props = getproperty(RunConfigUtil.getResourcePath()+"config/application.properties");
 	
 	
 	/**
@@ -93,6 +96,26 @@ public class AdminTestUtil extends BaseTestCase{
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			  response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response postRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		Response response=null;
+		HashMap<String, String> headers = new HashMap<String, String>();
+		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson));
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -894,5 +917,22 @@ public class AdminTestUtil extends BaseTestCase{
 			logger.error("Exception " + e.getMessage());
 		}
 		return prop;
+	}
+public String generateSignatureWithRequest(String Request) {
+		String signUrl = ApplnURI+props.getProperty("internalSignEndpoint");
+		String token = kernelAuthLib.getTokenByRole("regproc");
+		String encodedrequest = Base64.getEncoder().encodeToString(Request.getBytes());
+		String signJsonPath = RunConfigUtil.getResourcePath()+props.getProperty("signJsonPath");
+		String reqJsonString = FileUtil.readInput(signJsonPath);
+		reqJsonString.replace("$DATA$", encodedrequest);
+		Response response=RestClient.postRequestWithCookie(signUrl, reqJsonString, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, token);
+		JSONObject res = new JSONObject(response.asString());
+		JSONObject responseJson = new JSONObject(res.get("response").toString());
+		if(responseJson.has("jwtSignedData"))
+		return responseJson.get("jwtSignedData").toString();
+		else
+			logger.error("No able to get the Signature from: "+signUrl+" with request: "+reqJsonString);
+		return "Not able to Get Signature";
+		
 	}
 }
