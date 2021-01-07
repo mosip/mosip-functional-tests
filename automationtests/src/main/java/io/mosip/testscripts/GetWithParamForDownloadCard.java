@@ -1,11 +1,12 @@
 package io.mosip.testscripts;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -16,6 +17,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
@@ -23,14 +27,14 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.restassured.http.Header;
-import io.restassured.http.Headers;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class GetWithParamAndDownload extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(GetWithParamAndDownload.class);
+public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(GetWithParamForDownloadCard.class);
 	protected String testCaseName = "";
+	public Response response = null;
+	public byte[] pdf=null;
+	public String pdfAsText =null;
 	/**
 	 * get current testcaseName
 	 */
@@ -62,43 +66,16 @@ public class GetWithParamAndDownload extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
-		Response response =null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		Map<String, List<OutputValidationDto>> ouputValid = null;
-		String contentTypeValue=null;
-		String fileNameValue=null;
-		JSONObject jsonObject=new JSONObject();
-		//JsonPath jsonPath = response.getBody().jsonPath();
-		//Object errorr=jsonPath.get("error");
-		if(response.getBody() != null && testCaseName.contains("CredentialsStatus_All_Valid_Smoke")) {
-			for(Header header:response.getHeaders()) {
-				if((header.getName().equals("Content-Type"))){
-					contentTypeValue=header.getValue();	
-				}
-				if((header.getName().equals("Content-Disposition"))){
-					fileNameValue=header.getValue().split(";")[1].split("=")[1];
-					fileNameValue=fileNameValue.substring(1, fileNameValue.length()-1);
-					
+		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		 try {
+			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
+			} catch (IOException e) {
+				Reporter.log("Exception : " + e.getMessage());
 			}
-				
-		}
-			jsonObject.put("Content-Type", contentTypeValue);
-			jsonObject.put("filename", fileNameValue);
-			 ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(jsonObject.toJSONString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		}
-		else {
-			 ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		}
-		
-		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
-
+		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+				+ pdfAsText+ "</pre>");
+       
 	}
 
 	/**

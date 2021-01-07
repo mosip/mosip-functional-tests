@@ -114,7 +114,7 @@
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
 	<test name="CancellCredential">

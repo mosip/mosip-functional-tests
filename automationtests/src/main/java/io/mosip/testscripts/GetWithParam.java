@@ -62,12 +62,18 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
+		  Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+		  .doJsonOutputValidation(response.asString(),
+		  getJsonFromTemplate(testCaseDTO.getOutput(),
+		  testCaseDTO.getOutputTemplate()));
+		  Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		 
+		
+		
+		  if (!OutputValidationUtil.publishOutputResult(ouputValid)) throw new
+		  AdminTestException("Failed at output validation");
+		 
 
 	}
 

@@ -31,6 +31,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PostWithPathParamsAndBody.class);
 	protected String testCaseName = "";
 	public String pathParams = null;
+	
 	/**
 	 * get current testcaseName
 	 */
