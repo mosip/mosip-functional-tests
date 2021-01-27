@@ -53,7 +53,7 @@ public class MosipTestRunner {
 		List<String> suitefiles = new ArrayList<String>();
 
 		suitefiles.add(new File(MosipTestRunner.getGlobalResourcePath()+"/IntegrationTest.xml").getAbsolutePath());
-		suitefiles.add(new File(MosipTestRunner.getGlobalResourcePath()+"/testngapi.xml").getAbsolutePath());
+		//suitefiles.add(new File(MosipTestRunner.getGlobalResourcePath()+"/testngapi.xml").getAbsolutePath());
 		
 		runner.setTestSuites(suitefiles);
 		runner.setOutputDirectory("testng-report");

@@ -47,231 +47,238 @@ import io.mosip.util.TokenGeneration;
 import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
-public class PacketGenerator  extends  BaseTestCase implements ITest {
-	 private static Logger logger = Logger.getLogger(PacketReceiver.class);	 
-	 protected static String testCaseName = "";
-	 boolean status = false;
-	 boolean dbStatus=false;
-	 String finalStatus = "";	 
-	 JSONArray arr = new JSONArray();	 
-	 ObjectMapper mapper = new ObjectMapper();
-	 ApplicationLibrary applicationLibrary = new ApplicationLibrary();
-	 SoftAssert softAssert=new SoftAssert();
-	 Response actualResponse = null;
-	 JSONObject expectedResponse = null;
-	 String dest = "";
-	 static String folderPath = "regProc/DeactivateRequest";
-	 static String outputFile = "DeactivateRequestOutput.json";
-	 static String requestKeyFile = "DeactivateUinRequest.json";
-	 String rId = null;
-	 static String moduleName="RegProc";
-	 static String apiName="PacketGeneratorDeactivate";
-		RegProcApiRequests apiRequests=new RegProcApiRequests();
-		TokenGeneration generateToken=new TokenGeneration();
-		TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
-		String validToken="";
-		
-		public String getToken(String tokenType) { String tokenGenerationProperties=generateToken.readPropertyFile(tokenType);
-		tokenEntity=generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-		String token=generateToken.getToken(tokenEntity);
+public class PacketGenerator extends BaseTestCase implements ITest {
+	private static Logger logger = Logger.getLogger(PacketReceiver.class);
+	protected static String testCaseName = "";
+	boolean status = false;
+	boolean dbStatus = false;
+	String finalStatus = "";
+	JSONArray arr = new JSONArray();
+	ObjectMapper mapper = new ObjectMapper();
+	ApplicationLibrary applicationLibrary = new ApplicationLibrary();
+	SoftAssert softAssert = new SoftAssert();
+	Response actualResponse = null;
+	JSONObject expectedResponse = null;
+	String dest = "";
+	static String folderPath = "regProc/DeactivateRequest";
+	static String outputFile = "DeactivateRequestOutput.json";
+	static String requestKeyFile = "DeactivateUinRequest.json";
+	String rId = null;
+	static String moduleName = "RegProc";
+	static String apiName = "PacketGeneratorDeactivate";
+	RegProcApiRequests apiRequests = new RegProcApiRequests();
+	TokenGeneration generateToken = new TokenGeneration();
+	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	String validToken = "";
+
+	public String getToken(String tokenType) {
+		String tokenGenerationProperties = generateToken.readPropertyFile(tokenType);
+		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
+		String token = generateToken.getToken(tokenEntity);
 		return token;
+	}
+
+	Properties prop = new Properties();
+	RegProcTransactionDb regProcDbRead = new RegProcTransactionDb();
+
+	/**
+	 * This method is used for reading the test data based on the test case name
+	 * passed
+	 * 
+	 * @param context
+	 * @return object[][]
+	 * @throws Exception
+	 */
+	@DataProvider(name = "DeactivateUin")
+	public Object[][] readData(ITestContext context) {
+		RegProcApiRequests apiRequests = new RegProcApiRequests();
+		String propertyFilePath = apiRequests.getResourcePath() + "config/registrationProcessorAPI.properties";
+		String testParam = context.getCurrentXmlTest().getParameter("testType");
+		testLevel = System.getProperty("env.testLevel");
+		Object[][] readFolder = null;
+		try {
+			prop.load(new FileReader(new File(propertyFilePath)));
+			switch (testLevel) {
+			case "smoke":
+				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smoke");
+				break;
+			case "regression":
+				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "regression");
+				break;
+			default:
+				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smokeAndRegression");
+			}
+		} catch (IOException | ParseException e) {
+			logger.error("Exception occurred in Packet Receiver class in readData method" + e);
 		}
-	 Properties prop =  new Properties();
-	 RegProcTransactionDb regProcDbRead=new RegProcTransactionDb();
-	 /**
-	  * This method is used for reading the test data based on the test case name passed
-	  * 
-	  * @param context
-	  * @return object[][]
-	  * @throws Exception
-	  */
-	 @DataProvider(name = "DeactivateUin")
-	 public Object[][] readData(ITestContext context){
-		 RegProcApiRequests apiRequests = new RegProcApiRequests();
-		String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
-	 	 String testParam = context.getCurrentXmlTest().getParameter("testType");
-	 	testLevel=System.getProperty("env.testLevel");
-	 	 Object[][] readFolder = null;
-	 	 try {
-	 	 	 prop.load(new FileReader(new File(propertyFilePath)));
-	 	 	 switch (testLevel) {
-	 	 	 case "smoke":
-	 	 	 	 readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smoke");
-	 	 	 	 break;
-	 	 	 case "regression":
-	 	 	 	 readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "regression");
-	 	 	 	 break;
-	 	 	 default:
-	 	 	 	 readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smokeAndRegression");
-	 	 	 }
-	 	 }catch (IOException | ParseException e) {
-	 	 	 logger.error("Exception occurred in Packet Receiver class in readData method"+e);
-	 	 }
-	 	 return readFolder;
-	 }
+		return readFolder;
+	}
 
-	 /**
-	  * This method is used for generating actual response and comparing it with expected response
-	  * along with db check and audit log check
-	  * @param testSuite
-	  * @param i
-	  * @param object
-	  */
-	 @Test(dataProvider="DeactivateUin")
-	 public void packetGenerator(String testSuite, Integer i, JSONObject object){
-	 	 List<String> outerKeys = new ArrayList<String>();
-	 	 List<String> innerKeys = new ArrayList<String>();	
-	 	 String currentTestCaseName=object.get("testCaseName").toString();
-	 	 EncrypterDecrypter encrypter = new EncrypterDecrypter();
-	 	 try {
-	 	 	 JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
-	 	 	 if(currentTestCaseName.contains("requestTime")==false) {
-	 	 		actualRequest.put("requesttime", apiRequests.getUTCTime());
-	 	 	 }
-	 	 	 expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
+	/**
+	 * This method is used for generating actual response and comparing it with
+	 * expected response along with db check and audit log check
+	 * 
+	 * @param testSuite
+	 * @param i
+	 * @param object
+	 */
+	@Test(dataProvider = "DeactivateUin")
+	public void packetGenerator(String testSuite, Integer i, JSONObject object) {
+		List<String> outerKeys = new ArrayList<String>();
+		List<String> innerKeys = new ArrayList<String>();
+		String currentTestCaseName = object.get("testCaseName").toString();
+		EncrypterDecrypter encrypter = new EncrypterDecrypter();
+		try {
+			JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
+			if (currentTestCaseName.contains("requestTime") == false) {
+				actualRequest.put("requesttime", apiRequests.getUTCTime());
+			}
+			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 
-	 	 	 //outer and inner keys which are dynamic in the actual response
-	 	 	 outerKeys.add("responsetime");
-	 	 	 innerKeys.add("registrationId");
-	 	 	validToken=getToken("getStatusTokenGenerationFilePath");
-			boolean tokenStatus=apiRequests.validateToken(validToken);
-			while(!tokenStatus) {
+			// outer and inner keys which are dynamic in the actual response
+			outerKeys.add("responsetime");
+			innerKeys.add("registrationId");
+			validToken = getToken("getStatusTokenGenerationFilePath");
+			boolean tokenStatus = apiRequests.validateToken(validToken);
+			while (!tokenStatus) {
 				validToken = getToken("getStatusTokenGenerationFilePath");
-				tokenStatus=apiRequests.validateToken(validToken);
+				tokenStatus = apiRequests.validateToken(validToken);
 			}
-			
 
-			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-			boolean activateStatus=false;
-	 	 	try {
-	 	 		actualResponse.jsonPath().get("errors").toString();
-	 	 		activateStatus=true;
+			actualResponse = apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),
+					MediaType.APPLICATION_JSON, validToken);
+			System.out.println(actualResponse.asString());
+			boolean activateStatus = false;
+			try {
+				actualResponse.jsonPath().get("errors").toString();
+				activateStatus = true;
 			} catch (Exception e) {
-				activateStatus=false;
+				activateStatus = false;
 			}
-	 	 	if(object.get("testCaseName").toString().contains("smoke") && activateStatus ) {
-	 	 		String errorMessage=actualResponse.jsonPath().get("errors[0].message").toString();
-	 	 		
-	 	 		if(errorMessage.equals("Uin is already DEACTIVATED")) {
-	 	 			try {
-	 	 				JSONObject activateUin=ResponseRequestMapper.mapRequest(testSuite, object);
-	 	 				
-		 	 			JSONObject activateUinRequest=(JSONObject) activateUin.get("request");
-		 	 			
-		 	 			activateUinRequest.put("registrationType", "ACTIVATED");
-		 	 			
-		 	 			activateUin.put("request", activateUinRequest);
-		 	 			
-		 	 			activateUin.put("requesttime", apiRequests.getUTCTime());
-		 	 			
-		 	 			apiRequests.regProcPacketGenerator(activateUin,  prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-		 	 			
-		 	 			
-					} 
-	 	 			
-	 	 			catch (Exception e) {
-	 	 				e.printStackTrace();
+			if (object.get("testCaseName").toString().contains("smoke") && activateStatus) {
+				String errorMessage = actualResponse.jsonPath().get("errors[0].message").toString();
+
+				if (errorMessage.equals("Uin is already DEACTIVATED")) {
+					try {
+						JSONObject activateUin = ResponseRequestMapper.mapRequest(testSuite, object);
+
+						JSONObject activateUinRequest = (JSONObject) activateUin.get("request");
+
+						activateUinRequest.put("registrationType", "ACTIVATED");
+
+						activateUin.put("request", activateUinRequest);
+
+						activateUin.put("requesttime", apiRequests.getUTCTime());
+
+						apiRequests.regProcPacketGenerator(activateUin, prop.getProperty("packetGeneratorApi"),
+								MediaType.APPLICATION_JSON, validToken);
+
 					}
-	 	 		}
-	 	 		try {
-	 	 			Thread.sleep(20000);
-	 	 			
-	 	 			actualResponse=apiRequests.regProcPacketGenerator(actualRequest, prop.getProperty("packetGeneratorApi"),MediaType.APPLICATION_JSON,validToken);
-	 	 			
-	 	 		}
-	 	 		catch (Exception e) {
+
+					catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				try {
+					Thread.sleep(20000);
+
+					actualResponse = apiRequests.regProcPacketGenerator(actualRequest,
+							prop.getProperty("packetGeneratorApi"), MediaType.APPLICATION_JSON, validToken);
+
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
-	 	 		
-	 	 	}
 
-	 	 	String message="";
-	 	 	
-	 	 	 try {
-	 	 		 message=actualResponse.jsonPath().get("response.message").toString();
-	 	 		 }catch (Exception e) {
-	 	 			 message=actualResponse.jsonPath().get("errors[0].message").toString();
 			}
-	 	 	 boolean idRepoStatus=false;
-	 	  if(message.equals("Packet created and uploaded")) {
-	 		  			
-	 		  			String idRepoToken=getToken("idRepoTokenPath");
-	 		  			boolean idRepoTokenStatus=apiRequests.validateToken(idRepoToken);
-	 		  			while(!idRepoTokenStatus) {
-	 		  				idRepoToken = getToken("syncTokenGenerationFilePath");
-	 						tokenStatus=apiRequests.validateToken(idRepoToken);
-	 					}
-	 	 				idRepoStatus=apiRequests.getUinStatusFromIDRepo(actualRequest, idRepoToken, "DEACTIVATED");
-	 			
-	 	 	 }
-	 	
-	 		 //Asserting actual and expected response
-	 	 	 status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
-	 	 	 if(status) { 
-	 	 	 	 finalStatus="Pass";
-	 	 	 	 if(message.equals("Packet created and uploaded")) {
-	 	 	 		 if(idRepoStatus)
-	 	 	 			 finalStatus="Pass";
-	 	 	 		 else
-	 	 	 			 finalStatus="Fail";
-	 	 	 			 
-	 	 	 	 }
-	 	 	 }else
-	 	 	 	 finalStatus="Fail";
-	 	
-	 	 	 object.put("status", finalStatus);
-	 	 	 arr.add(object);
-	 	 	 boolean setFinalStatus = false;
-	 	 	 if (finalStatus.equals("Fail")) {
-	 	 	 	 setFinalStatus = false;
-	 	 	 } else if (finalStatus.equals("Pass"))
-	 	 	 	 setFinalStatus = true;
-	 	 	 Verify.verify(setFinalStatus);
-	 	 	 softAssert.assertAll();
-	 	 } catch (IOException | ParseException | VerifyException e) {
-	 	 	 logger.error("Exception occcurred in Packet Receiver class in packetReceiver method "+e);
-	 	 }
-	 	 
-	 }
 
-	 /**
-	  * This method is used for fetching test case name
-	  * @param method
-	  * @param testdata
-	  * @param ctx
-	  */
-	 @BeforeMethod(alwaysRun=true)
-	 public static void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) {
-	 	 JSONObject object = (JSONObject) testdata[2];
-	 	testCaseName =moduleName+"_"+apiName+"_"+ object.get("testCaseName").toString();
-	 }
+			String message = "";
 
-	 /**
-	  * This method is used for generating report
-	  * 
-	  * @param result
-	  */
-	 @AfterMethod(alwaysRun = true)
-	 public void setResultTestName(ITestResult result) {
+			try {
+				message = actualResponse.jsonPath().get("response.message").toString();
+			} catch (Exception e) {
+				message = actualResponse.jsonPath().get("errors[0].message").toString();
+			}
+			boolean idRepoStatus = false;
+			if (message.equals("Packet created and uploaded")) {
 
-	 	 Field method = null;
-	 	 try {
-	 	 	 method = TestResult.class.getDeclaredField("m_method");
-	 	 	 method.setAccessible(true);
-	 	 	 method.set(result, result.getMethod().clone());
-	 	 	 BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
-	 	 	 Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
-	 	 	 f.setAccessible(true);
-	 	 	 f.set(baseTestMethod, PacketGenerator.testCaseName);
-	 	 } catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-	 	 	 logger.error("Exception occurred in PacketReceiver class in setResultTestName "+e);
-	 	 }
-	 	
-	 }
+				String idRepoToken = getToken("idRepoTokenPath");
+				boolean idRepoTokenStatus = apiRequests.validateToken(idRepoToken);
+				while (!idRepoTokenStatus) {
+					idRepoToken = getToken("syncTokenGenerationFilePath");
+					tokenStatus = apiRequests.validateToken(idRepoToken);
+				}
+				idRepoStatus = apiRequests.getUinStatusFromIDRepo(actualRequest, idRepoToken, "DEACTIVATED");
 
-	 @Override
-	 public String getTestName() {
-	 	 return this.testCaseName;
-	 }
+			}
+
+			// Asserting actual and expected response
+			status = AssertResponses.assertResponses(actualResponse, expectedResponse, outerKeys, innerKeys);
+			if (status) {
+				finalStatus = "Pass";
+				if (message.equals("Packet created and uploaded")) {
+					if (idRepoStatus)
+						finalStatus = "Pass";
+					else
+						finalStatus = "Fail";
+
+				}
+			} else
+				finalStatus = "Fail";
+
+			object.put("status", finalStatus);
+			arr.add(object);
+			boolean setFinalStatus = false;
+			if (finalStatus.equals("Fail")) {
+				setFinalStatus = false;
+			} else if (finalStatus.equals("Pass"))
+				setFinalStatus = true;
+			Verify.verify(setFinalStatus);
+			softAssert.assertAll();
+		} catch (IOException | ParseException | VerifyException e) {
+			logger.error("Exception occcurred in Packet Receiver class in packetReceiver method " + e);
+		}
+
+	}
+
+	/**
+	 * This method is used for fetching test case name
+	 * 
+	 * @param method
+	 * @param testdata
+	 * @param ctx
+	 */
+	@BeforeMethod(alwaysRun = true)
+	public static void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) {
+		JSONObject object = (JSONObject) testdata[2];
+		testCaseName = moduleName + "_" + apiName + "_" + object.get("testCaseName").toString();
+	}
+
+	/**
+	 * This method is used for generating report
+	 * 
+	 * @param result
+	 */
+	@AfterMethod(alwaysRun = true)
+	public void setResultTestName(ITestResult result) {
+
+		Field method = null;
+		try {
+			method = TestResult.class.getDeclaredField("m_method");
+			method.setAccessible(true);
+			method.set(result, result.getMethod().clone());
+			BaseTestMethod baseTestMethod = (BaseTestMethod) result.getMethod();
+			Field f = baseTestMethod.getClass().getSuperclass().getDeclaredField("m_methodName");
+			f.setAccessible(true);
+			f.set(baseTestMethod, PacketGenerator.testCaseName);
+		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+			logger.error("Exception occurred in PacketReceiver class in setResultTestName " + e);
+		}
+
+	}
+
+	@Override
+	public String getTestName() {
+		return this.testCaseName;
+	}
 
 }

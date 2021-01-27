@@ -1,0 +1,125 @@
+FetchMachine:
+   Kernel_FetchMachine_allValid_smoke_with_id_lang:
+      endPoint: /v1/masterdata/machines/{id}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/FetchMachine/fetchMachineResult
+      input: '{
+  "id": "10011",
+  "langcode": "ara",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
+   Kernel_FetchMachine_inValid_id:
+      endPoint: /v1/masterdata/machines/{id}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/error
+      input: '{
+  "id": "10@@ed1",
+  "langcode": "ara",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}'
+   Kernel_FetchMachine_inValid_langcode:
+      endPoint: /v1/masterdata/machines/{id}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/error
+      input: '{
+  "id": "10011",
+  "langcode": "a",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}'
+   Kernel_FetchMachine_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/machines/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/FetchMachine/fetchMachineResult
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "ara",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
+   Kernel_FetchMachine_inValid_langcode:
+      endPoint: /v1/masterdata/machines/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/error
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "a",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}'
+   Kernel_FetchMachine_allValid_smoke_with_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/FetchMachine/fetchMachineByCenterResult
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "10011"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
+   Kernel_FetchMachine_inValid_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/error
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "1@222"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}'

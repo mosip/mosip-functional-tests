@@ -1,0 +1,385 @@
+UpdateVidStatus:
+  IdRepository_UpdateVidStatus_withInvalidversion_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "erdfddsss",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidRequestTime_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TI"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidVIDStatus_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "ROD",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidStatus"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidId_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mo",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingverion_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingRequestTime_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingId_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "$REMOVE$",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingVIDStatus_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "$REMOVE$",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - vidStatus"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "USED"
+}'
+  IdRepository_UpdateVidStatus_withInvalidverion_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "6ytfcf",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidVIDStatus_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidStatus"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidRequestTime_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withInvalidId_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "moe",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingverion_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "$REMOVE$",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingRequestTime_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingVIDStatus_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "$REMOVE$",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - vidStatus"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withMissingId_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "$REMOVE$",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - id"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withVidStatus_REVOKE_for_USED VID_For Vid Type_Temporary:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/TestData/UpdateVidStatus/UpdateVidStatusResult
+      input: '{
+    "vidStatus": "REVOKE",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "REVOKED"
+}'
+  IdRepository_UpdateVidStatus_withVidStatus_REVOKE_for_USED VID_For Vid Type_Perpetual:
+      endPoint: /idrepository/v1/vid/{vid}
+      role: regproc
+      restMethod: PATCH
+      inputTemplate: idRepository/TestData/UpdateVidStatus/updateVidStatus
+      outputTemplate: idRepository/TestData/UpdateVidStatus/UpdateVidStatusResult
+      input: '{
+    "vidStatus": "REVOKE",
+    "id": "mosip.vid.update",
+    "vid": "4821381658618592",
+	"version": "v1",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "REVOKED"
+}'

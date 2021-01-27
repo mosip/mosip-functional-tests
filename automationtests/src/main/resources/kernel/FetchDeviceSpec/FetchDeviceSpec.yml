@@ -1,0 +1,117 @@
+FetchDeviceSpec:
+   Kernel_FetchDeviceSpec_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "$REMOVE$",
+  "langcode": "eng"
+}'
+      output: '{
+"devicespecifications": [{
+            "name": "Fingerprint Scanner",
+            "brand": "Safran Morpho",
+            "model": "1300 E2",
+            "deviceTypeCode": "FRS",
+            "minDriverversion": "1.12",
+            "description": "To scan fingerprint",
+            "langCode": "eng",
+            "isActive": true
+        }]
+}'
+   Kernel_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": "eng"
+}'
+      output: '{
+"devicespecifications": [{
+            "name": "Fingerprint Scanner",
+            "brand": "Safran Morpho",
+            "model": "1300 E2",
+            "deviceTypeCode": "CMR",
+            "minDriverversion": "1.12",
+            "description": "To scan fingerprint",
+            "langCode": "eng",
+            "isActive": true
+        }]
+}'
+   Kernel_FetchDeviceSpec_invalid_devicetypecode_unexisting:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "notInDB",
+  "langcode": "eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   Kernel_FetchDeviceSpec_invalid_langcode_blank_with_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   Kernel_FetchDeviceSpec_invalid_langcode_unexisting:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "$IGNORE$",
+  "langcode": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   Kernel_FetchDeviceSpec_invalid_langcode_unexisting_with_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": "ENGR"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'

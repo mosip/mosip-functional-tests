@@ -7,7 +7,7 @@ testdata:
       authSubTyperequest: $REMOVE$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -19,7 +19,7 @@ testdata:
       authSubTyperequest: $REMOVE$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -31,7 +31,7 @@ testdata:
       authSubTyperequest: $REMOVE$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -43,7 +43,7 @@ testdata:
       authSubTyperequest: $REMOVE$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -55,7 +55,7 @@ testdata:
       authSubTyperequest: $TestData:bio_finger_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -67,7 +67,7 @@ testdata:
       authSubTyperequest: $TestData:bio_finger_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -79,7 +79,7 @@ testdata:
       authSubTyperequest: $TestData:bio_iris_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -91,7 +91,7 @@ testdata:
       authSubTyperequest: $TestData:bio_iris_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -103,7 +103,7 @@ testdata:
       authSubTyperequest: $TestData:bio_face_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$
       
@@ -115,6 +115,6 @@ testdata:
       authSubTyperequest: $TestData:bio_face_type$
       requestTime: $TIMESTAMPZ$
     output.output-1-expected-response:
-      output.responseTime: $TIMESTAMPZ$
+      output.responseTime: $IGNORE$
       #output.version: $IGNORE$
       #output.id: $IGNORE$

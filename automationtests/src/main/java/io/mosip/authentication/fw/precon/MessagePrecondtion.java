@@ -17,4 +17,9 @@ public abstract class MessagePrecondtion {
 			msgPrecon = new XmlPrecondtion();
 		return msgPrecon;
 	}
+
+	public Map<String, String> retrieveMappingAndItsValueToPerformJsonOutputValidation(String json) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

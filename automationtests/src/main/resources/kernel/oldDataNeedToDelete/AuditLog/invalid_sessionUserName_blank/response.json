@@ -1,0 +1,13 @@
+{
+    "id": "string",
+    "version": "string",
+    "responsetime": "2020-07-13T07:20:07.375Z",
+    "metadata": null,
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-AUD-001",
+            "message": "Request.sessionUserName size must be between 1 and 128"
+        }
+    ]
+}

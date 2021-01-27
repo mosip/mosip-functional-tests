@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
+import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
 
 /**
@@ -60,6 +61,64 @@ public class KernelAuthentication extends BaseTestCase{
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
 
+	
+	
+	public String getTokenByRole(String role)
+	{
+		String insensitiveRole = null;
+		if(role!=null)
+			insensitiveRole = role.toLowerCase();
+		else return "";
+		
+		switch(insensitiveRole) {
+		
+		case "individual":
+			if(!kernelCmnLib.isValidToken(individualCookie))
+				individualCookie = kernelAuthLib.getAuthForIndividual();
+			return individualCookie;
+		case "ida":
+			if(!kernelCmnLib.isValidToken(idaCookie))
+				idaCookie = kernelAuthLib.getAuthForIDA();
+			return idaCookie;
+		case "regproc":
+			if(!kernelCmnLib.isValidToken(regProcCookie))
+				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
+			return regProcCookie;
+		case "admin":
+			if(!kernelCmnLib.isValidToken(adminCookie))
+				adminCookie = kernelAuthLib.getAuthForAdmin();
+			return adminCookie;
+		case "zonalapprover":
+			if(!kernelCmnLib.isValidToken(zonalApproverCookie))
+				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
+			return zonalApproverCookie;
+		case "partner":
+			if(!kernelCmnLib.isValidToken(partnerCookie))
+				partnerCookie = kernelAuthLib.getAuthForPartner();
+			return partnerCookie;
+		case "batch":
+			if (!kernelCmnLib.isValidToken(batchJobToken)) 
+				batchJobToken = new PreRegistrationLibrary().batchToken();
+			return batchJobToken;
+		case "invalid":
+			return "anyRandomString";
+		case "regAdmin":
+			if (!kernelCmnLib.isValidToken(regAdminCookie)) 
+				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
+			return regAdminCookie;
+		case "resident":
+			if(!kernelCmnLib.isValidToken(residentCookie))
+				residentCookie = kernelAuthLib.getAuthForResident();
+			return residentCookie;
+		default:
+			if(!kernelCmnLib.isValidToken(adminCookie))
+				adminCookie = kernelAuthLib.getAuthForAdmin();
+			return adminCookie;			
+		}
+		 
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
 		JSONObject actualrequest = getRequestJson(testsuite);
@@ -86,6 +145,21 @@ public class KernelAuthentication extends BaseTestCase{
 		actualrequest.put("request", request);
 		
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForResident() {
+		JSONObject actualrequest = getRequestJson(testsuite);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("resident_appid"));
+		request.put("clientId", props.get("resident_clientId"));
+		request.put("secretKey", props.get("resident_secretKey"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}

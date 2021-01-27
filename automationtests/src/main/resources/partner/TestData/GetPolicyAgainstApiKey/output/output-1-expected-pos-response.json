@@ -1,0 +1,55 @@
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2020-09-17T13:46:12.765Z",
+    "response": {
+        "policyGroupId": "POLICY-GROUP-ID-01",
+        "policyGroupName": "MOSIP POLICY GROUP",
+        "policyGroupDesc": "DESCR MOSIP POLICY GROUP",
+        "policyGroupStatus": true,
+        "policyGroup_cr_by": "pm_testuser",
+        "policyGroup_cr_dtimes": "2020-05-14T09:48:43.394",
+        "policyGroup_up_by": null,
+        "policyGroup_upd_dtimes": null,
+        "policyId": "POLICY-AUTH-ID-01",
+        "policyName": "MOSIP AUTH POLICY",
+        "policyDesc": "DESC MOSIP AUTH POLICY",
+        "policyType": "Auth",
+        "publishDate": "2020-09-16T02:50:33.344",
+        "validTill": "2020-10-16T02:50:33.344",
+        "status": "PUBLISHED",
+        "version": "1.0",
+        "schema": null,
+        "is_Active": true,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-09-16T02:50:33.344",
+        "up_by": null,
+        "upd_dtimes": null,
+        "policies": {
+            "allowedAuthTypes": [
+                {
+                    "authType": "bio",
+                    "authSubType": "FINGER",
+                    "mandatory": true
+                }
+            ],
+            "shareableAttributes": [
+                {
+                    "encrypted": true,
+                    "format": "string",
+                    "attributeName": "string"
+                }
+            ],
+			"allowedKYCAttributes": null,
+            "dataSharePolicies": {
+                "validForInMinutes": "string",
+                "transactionsAllowed": "string",
+                "encryptionType": "string",
+                "shareDomain": "string",
+                "typeOfShare": "string"
+            },
+            "authTokenType": "partner"
+        }
+    },
+    "errors": []
+}

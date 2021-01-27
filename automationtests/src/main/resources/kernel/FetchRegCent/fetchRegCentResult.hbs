@@ -1,0 +1,36 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "registrationCenters": [
+  {{#each registrationCenters}}
+    {
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "centerTypeCode": "$IGNORE$",
+        "addressLine1": "$IGNORE$",
+        "addressLine2": "$IGNORE$",
+        "addressLine3": "$IGNORE$",
+        "latitude": "$IGNORE$",
+        "longitude": "$IGNORE$",
+        "locationCode": "$IGNORE$",
+        "holidayLocationCode": "$IGNORE$",
+        "contactPhone": "$IGNORE$",
+        "workingHours": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "numberOfKiosks": "$IGNORE$",
+        "perKioskProcessTime": "$IGNORE$",
+        "centerStartTime": "$IGNORE$",
+        "centerEndTime": "$IGNORE$",
+        "timeZone": "$IGNORE$",
+        "contactPerson": "$IGNORE$",
+        "lunchStartTime": "$IGNORE$",
+        "lunchEndTime": "$IGNORE$",
+        "isActive": "$IGNORE$",
+        "zoneCode": "$IGNORE$"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "errors": "$IGNORE$"
+}

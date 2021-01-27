@@ -3,12 +3,12 @@ package io.mosip.authentication.fw.util;
 import javax.ws.rs.core.MediaType;  
 
 import org.apache.log4j.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.kernel.crypto.jce.util.JWSValidation;
 
@@ -38,10 +38,20 @@ public class BiometricDataUtility extends AuthTestsUtil {
 	private static String cryptoEncryptUrl = RunConfigUtil.objRunConfig.getEndPointUrl()
 			+ RunConfigUtil.objRunConfig.getCryptomanagerEncrypt();
 
-	private static String encryptIsoBioValue(String isoBiovalue, String timestamp,String bioValueEncryptionTemplateJson) {
+	private static String encryptIsoBioValue(String isoBiovalue, String timestamp,String bioValueEncryptionTemplateJson, String transactionId) {
+		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
+		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, 12);
+		String salt = CryptoUtil.encodeBase64(saltLastBytes);
+		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, 16);
+		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 		String jsonContent = FileUtil.readInput(bioValueEncryptionTemplateJson);
-		String aad = EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length() - 16));
-		String salt = EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length() - 12));
+		/*
+		 * String aad =
+		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
+		 * () - 16)); String salt =
+		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
+		 * () - 12));
+		 */
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, isoBiovalue, "request.data");
@@ -76,7 +86,8 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
 			String bioValue = JsonPrecondtion.getValueFromJson(data, "bioValue");
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
-			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson);
+			String transactionId = JsonPrecondtion.getValueFromJson(data, "transactionId");
+			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson, transactionId);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedBioValue,

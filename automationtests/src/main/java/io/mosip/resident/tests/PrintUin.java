@@ -194,8 +194,8 @@ public class PrintUin extends ResidentTestUtil implements ITest{
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(outputValid));
-		//if(!OutputValidationUtil.publishOutputResult(outputValid))
-		//	throw new AuthenticationTestException("Failed at otp-generate-response output validation");
+		if(!OutputValidationUtil.publishOutputResult(outputValid))
+			throw new AuthenticationTestException("Failed at otp-generate-response output validation");
 		String dataToBeEncoded = JsonPrecondtion.getJsonValueFromJson(FileUtil.readInput(FileUtil.getFilePath(testCaseName, "search-request").getAbsolutePath()),"request.identityJson");
 		String enocdedBase64Data=CryptoUtil.encodeBase64String(dataToBeEncoded.getBytes());
 		Map<String, String> tempMap = new HashMap<String, String>();
@@ -211,21 +211,15 @@ public class PrintUin extends ResidentTestUtil implements ITest{
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getResidentPrintUin(),
 				"search-request", "output-2-actual-res", AUTHORIZATHION_COOKIENAME, residentCookieValue, 200))
 			throw new AuthenticationTestException("Failed at HTTP-POST update-UIN-request");
-		Map<String,List<OutputValidationDto>> outputValid2 = new HashMap<String, List<OutputValidationDto>>() ;
-		outputValid2 = OutputValidationUtil.doOutputValidation(
+		
+		Map<String, List<OutputValidationDto>> outputValid2 = OutputValidationUtil.doOutputValidation(
 				FileUtil.getFilePath(testCaseName, "output-2-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-2-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(outputValid2));
-		/*
-		 * Map<String, List<OutputValidationDto>> outputValid2 =
-		 * OutputValidationUtil.doOutputValidation( FileUtil.getFilePath(testCaseName,
-		 * "output-2-actual").toString(), FileUtil.getFilePath(testCaseName,
-		 * "output-2-expected").toString());
-		 * Reporter.log(ReportUtil.getOutputValiReport(outputValid2));
-		 * if(!OutputValidationUtil.publishOutputResult(outputValid2)) throw new
-		 * AuthenticationTestException("Failed at update-UIN-request output validation"
-		 * );
-		 */
+
+		if (!OutputValidationUtil.publishOutputResult(outputValid2))
+			throw new AuthenticationTestException("Failed at Print-UIN-request output validation");
+		 
 	}
 
 }

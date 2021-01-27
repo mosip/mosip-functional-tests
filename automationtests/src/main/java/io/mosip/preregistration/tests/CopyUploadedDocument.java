@@ -111,7 +111,7 @@ public class CopyUploadedDocument extends BaseTestCase implements ITest {
 
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
-
+		logger.info("Test Case Name: "+testCaseName);
 		String srcPreID = null;
 		String docCatCode = null;
 

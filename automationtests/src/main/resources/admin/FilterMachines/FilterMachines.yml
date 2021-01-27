@@ -1,0 +1,340 @@
+FilterMachines:
+   Admin_FilterMachines_Valid_Smoke:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_LangCode_ara:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "ara",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_LangCode_fra:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "fra",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_TypeAll:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "All",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_ColumnStatus:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "isActive",
+		"type": "all",
+		"text": ""
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_ColumnMacAddress:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "macAddress",
+		"type": "All",
+		"text": "61-D3-FD-12-C9-ED"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "macAddress",
+        "fieldValue": "61-D3-FD-12-C9-ED"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_ColumnSerialNumber:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "serialNum",
+		"type": "All",
+		"text": "FB5962911687"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "serialNum",
+        "fieldValue": "FB5962911687"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_ColumnMachineSpecId:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "machineSpecId",
+		"type": "All",
+		"text": "1001"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "1001"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Valid_TwoFilters_NameNStatus_ara:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "Mach-Test"
+	},
+	{
+		"columnName": "isActive",
+		"type": "all",
+		"text": "true"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test"
+      },
+      {
+        "fieldID": "name",
+        "fieldValue": "Mach-Test1"
+      },
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      },
+      {
+        "fieldID": "isActive",
+        "fieldValue": "false"
+      }
+    ]
+  }'
+   Admin_FilterMachines_Invalid_EmptyColumnName:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "equals",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}'
+   Admin_FilterMachines_Invalid_EmptyFilterType:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   Admin_FilterMachines_Invalid_ColumnName:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "dkfjdkfj",
+		"type": "equals",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_FilterMachines_Invalid_LangCode:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "equals",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "engr",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_FilterMachines_Invalid_EmptyLangCode:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/FilterMachines/filterMachines
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "equals",
+		"text": "Mach-Test"
+	}],
+	"languageCode": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'

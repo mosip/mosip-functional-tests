@@ -1,0 +1,14 @@
+RegenerateVid:
+  IdRepository_RegenerateVid_Smoke_Pos:
+      endPoint: /idrepository/v1/vid/{VID}/regenerate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/RegenerateVid/regenerateVid
+      outputTemplate: idRepository/RegenerateVid/regenerateVidResult
+      input: '{
+      "VID":"$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$"
+      }'
+      output: '{
+    "vidStatus": "ACTIVE",
+    "VID": "$IGNORE$"
+}'

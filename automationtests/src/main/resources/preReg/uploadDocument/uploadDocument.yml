@@ -1,0 +1,24 @@
+UploadDocument:
+   Prereg_UploadDocument_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POA",
+    "docTypCode" : "RNC",
+    "langCode" : "fra",
+    "requesttime" : "$TIMESTAMP$",
+	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+	"filePath": "preReg/uploadDocument/doc_POA.pdf",
+	"fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POA.pdf",
+"docCatCode":"POA",
+"docTypCode":"RNC",
+"docFileFormat":"pdf"
+}'

@@ -105,7 +105,7 @@ public class GetPreRegistartionData extends BaseTestCase implements ITest {
 
 	@Test(dataProvider = "Get_Pre_Registartion_data")
 	public void generate_Response1(String testSuite, Integer i, JSONObject object) throws Exception {
-		
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		outerKeys.add("resTime");

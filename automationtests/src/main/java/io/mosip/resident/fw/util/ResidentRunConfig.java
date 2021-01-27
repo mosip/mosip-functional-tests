@@ -9,12 +9,9 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
-import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.ErrorsDto;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 
 public class ResidentRunConfig extends RunConfig {
 	
@@ -1818,6 +1815,174 @@ public class ResidentRunConfig extends RunConfig {
 
 	@Override
 	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDefinePolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDefinePolicyPath(String definePolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getUpdatePolicyStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPublishPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPublishPolicyPath(String publishPolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getGetPolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPolicyAgainstApiKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getGetPartnersPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAddContactPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAddContactPath(String addContactPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUpdateDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSaveSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSaveFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getApproveRejectFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getTokenIDLength() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getAuthPartnerID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPartnerCodeSalt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUinSalt() {
 		// TODO Auto-generated method stub
 		return null;
 	}

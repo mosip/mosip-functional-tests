@@ -17,6 +17,8 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
@@ -32,12 +34,16 @@ import javax.annotation.PostConstruct;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.xml.bind.DatatypeConverter;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.jose4j.lang.JoseException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
@@ -48,6 +54,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
@@ -61,7 +68,7 @@ import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManagerBuilder;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
-import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.swagger.annotations.Api;
 
 /**
@@ -166,29 +173,11 @@ public class AuthRequestController {
 	 * @param transactionId the transaction id
 	 * @param request       the request
 	 * @return the string
-	 * @throws KeyManagementException             the key management exception
-	 * @throws InvalidKeyException                the invalid key exception
-	 * @throws NoSuchAlgorithmException           the no such algorithm exception
-	 * @throws InvalidKeySpecException            the invalid key spec exception
-	 * @throws NoSuchPaddingException             the no such padding exception
-	 * @throws InvalidAlgorithmParameterException the invalid algorithm parameter
-	 *                                            exception
-	 * @throws IllegalBlockSizeException          the illegal block size exception
-	 * @throws BadPaddingException                the bad padding exception
-	 * @throws IOException                        Signals that an I/O exception has
-	 *                                            occurred.
-	 * @throws JSONException                      the JSON exception
-	 * @throws IdAuthenticationAppException       the id authentication app
-	 *                                            exception
-	 * @throws IdAuthenticationBusinessException  the id authentication business
-	 *                                            exception
-	 * @throws JoseException 
-	 * @throws UnrecoverableEntryException 
-	 * @throws CertificateException 
-	 * @throws KeyStoreException 
+	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	@PostMapping(path = "/createAuthRequest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path = "/createAuthRequest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> createAuthRequest(@RequestParam(name = ID, required = true) @Nullable String id,
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
 			@RequestParam(name = "isKyc", required = false) @Nullable boolean isKyc,
@@ -196,21 +185,20 @@ public class AuthRequestController {
 			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
-			@RequestBody Map<String, Object> request)
-			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
+			@RequestBody Map<String, Object> request) throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
 		reqValues.put(OTP, false);
 		reqValues.put(DEMO, false);
 		reqValues.put(BIO, false);
 		reqValues.put(PIN, false);
-		
-		if(requestTime == null) {
-			requestTime = DateUtils
-					.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
-			
+		reqValues.put("thumbprint",
+				CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(encrypt.getRefId(isInternal,
+						(reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())))))));
+
+		if (requestTime == null) {
+			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
+
 		}
 
 		idValuesMap(id, idType, isKyc, isInternal, reqValues, transactionId, requestTime);
@@ -221,8 +209,8 @@ public class AuthRequestController {
 		if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
 			Object bioObj = request.get(BIOMETRICS);
 			if (bioObj instanceof List) {
-				List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal,
-						requestTime, transactionId, (List<Map<String, Object>>) bioObj);
+				List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
+						transactionId, (List<Map<String, Object>>) bioObj);
 				request.put(BIOMETRICS, encipheredBiometrics);
 			}
 		}
@@ -242,7 +230,10 @@ public class AuthRequestController {
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
-				return ResponseEntity.ok(res);
+				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
+				HttpHeaders httpHeaders = new HttpHeaders();
+				httpHeaders.add("signature", jWSSignAndVerifyController.sign(response.toString(), false));
+				return new ResponseEntity<>(response.toString(), httpHeaders, HttpStatus.OK);
 			} else {
 				throw new IdAuthenticationBusinessException(
 						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
@@ -256,6 +247,11 @@ public class AuthRequestController {
 		}
 	}
 
+	public byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
+		return DigestUtils.sha256(cert.getEncoded());
+	}
+
+	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/encipherBiometricData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Map<String, Object>> encipherBiometrics(
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
@@ -264,7 +260,8 @@ public class AuthRequestController {
 			@RequestBody List<Map<String, Object>> biometrics)
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
+			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException,
+			KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
 		String previousHash = digest(getHash(""));
 
 		for (Map<String, Object> bioMap : biometrics) {
@@ -288,38 +285,36 @@ public class AuthRequestController {
 				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
 				dataMap.put(ENV, environment.getProperty(MOSIP_BASE_URL));
 				dataMap.put(SPEC_VERSION, "1.0");
-				
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
-				if(txnIdObj == null) {
+				if (txnIdObj == null) {
 					dataMap.put(TRANSACTION_ID, transactionIdArg == null ? "1234567890" : transactionIdArg);
 				}
 				String transactionId = String.valueOf(dataMap.get(TRANSACTION_ID));
 
-
-				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp, transactionId, isInternal);
+				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp,
+						transactionId, isInternal);
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
+				bioMap.put("thumbprint", CryptoUtil.encodeBase64(
+						getCertificateThumbprint(encrypt.getCertificate(encrypt.getRefId(isInternal, true)))));
 
 				Object digitalId = dataMap.get(DIGITAL_ID);
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
-					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr);
+					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
 					dataMap.put(DIGITAL_ID, signedDititalId);
 				}
 
 				String dataStrJson = mapper.writeValueAsString(dataMap);
-				try {
-					String dataStr;
-					if(isInternal) {
-						dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
-					} else {
-						dataStr = jWSSignAndVerifyController.sign(dataStrJson);
-					}
-					bioMap.put(DATA, dataStr);
-				} catch (KeyStoreException | CertificateException | UnrecoverableEntryException | JoseException e) {
-					e.printStackTrace();
+				
+				String dataStr;
+				if (isInternal) {
+					dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
+				} else {
+					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
 				}
+				bioMap.put(DATA, dataStr);
 
 				String currentHash = digest(getHash(dataStrJson));
 				String concatenatedHash = previousHash + currentHash;
@@ -333,8 +328,8 @@ public class AuthRequestController {
 		return biometrics;
 	}
 
-	private String digest(byte[] hash) {
-		return HMACUtils.digestAsPlainText(hash);
+	private String digest(byte[] hash) throws NoSuchAlgorithmException {
+		return DatatypeConverter.printHexBinary(hash).toUpperCase();
 	}
 
 	/**
@@ -343,8 +338,9 @@ public class AuthRequestController {
 	 * @param string the string
 	 * @return the hash
 	 * @throws UnsupportedEncodingException the unsupported encoding exception
+	 * @throws NoSuchAlgorithmException
 	 */
-	private byte[] getHash(String string) throws UnsupportedEncodingException {
+	private byte[] getHash(String string) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		return getHash(string.getBytes(UTF_8));
 	}
 
@@ -353,9 +349,10 @@ public class AuthRequestController {
 	 *
 	 * @param bytes the bytes
 	 * @return the hash
+	 * @throws NoSuchAlgorithmException
 	 */
-	private byte[] getHash(byte[] bytes) {
-		return HMACUtils.generateHash(bytes);
+	private byte[] getHash(byte[] bytes) throws NoSuchAlgorithmException {
+		return HMACUtils2.generateHash(bytes);
 	}
 
 	/**
@@ -371,10 +368,8 @@ public class AuthRequestController {
 			BiFunction<String, String, Optional<String>> authTypeMapFunction = (key, authType) -> Optional
 					.ofNullable(request).filter(map -> map.containsKey(key)).map(map -> authType);
 			reqAuthArr = Stream
-					.of(authTypeMapFunction.apply("demographics", "demo"), 
-							authTypeMapFunction.apply(BIOMETRICS, "bio"),
-							authTypeMapFunction.apply("otp", "otp"), 
-							authTypeMapFunction.apply("staticPin", "pin"))
+					.of(authTypeMapFunction.apply("demographics", "demo"), authTypeMapFunction.apply(BIOMETRICS, "bio"),
+							authTypeMapFunction.apply("otp", "otp"), authTypeMapFunction.apply("staticPin", "pin"))
 					.filter(Optional::isPresent).map(Optional::get).toArray(size -> new String[size]);
 		} else {
 			reqAuth = reqAuth.trim();
@@ -404,9 +399,7 @@ public class AuthRequestController {
 	}
 
 	private void encryptValuesMap(Map<String, Object> identity, Map<String, Object> reqValues, Boolean isInternal)
-			throws NoSuchAlgorithmException, InvalidKeySpecException, IOException, KeyManagementException,
-			JSONException, InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException,
-			IllegalBlockSizeException, BadPaddingException {
+			throws Exception {
 		EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
 		encodeBioData(identity);
 		encryptionRequestDto.setIdentityRequest(identity);

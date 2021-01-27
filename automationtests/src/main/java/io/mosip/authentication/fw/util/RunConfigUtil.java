@@ -7,7 +7,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.admin.fw.util.AdminRunConfig;
 import io.mosip.authentication.fw.dto.TokenIdDto;
 import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
 import io.mosip.pmp.fw.util.PartnerRunConfig;
@@ -99,11 +98,17 @@ public class RunConfigUtil {
 	 * @return tokenID
 	 */
 	public static String getTokenId(String uin, String partnerID) {		
-		getTokenIdPropertyValue(getTokenIdPropertyPath());
-		if (TokenIdDto.getTokenId().containsKey(uin + "." + partnerID))
-			return TokenIdDto.getTokenId().get(uin + "." + partnerID);
-		else
-			return "TOKENID:"+uin + "." + partnerID;
+		/*
+		 * getTokenIdPropertyValue(getTokenIdPropertyPath()); if
+		 * (TokenIdDto.getTokenId().containsKey(uin + "." + partnerID)) return
+		 * TokenIdDto.getTokenId().get(uin + "." + partnerID); else return
+		 * "TOKENID:"+uin + "." + partnerID;
+		 */
+		if(uin.length()>10)
+		uin=UINUtil.getUinForVid(uin);
+		TokenIDGenerator tokenGenrator = new TokenIDGenerator();
+		String token = tokenGenrator.generateTokenID(uin, RunConfigUtil.objRunConfig.getAuthPartnerID(), RunConfigUtil.objRunConfig.getUinSalt(), RunConfigUtil.objRunConfig.getPartnerCodeSalt(), RunConfigUtil.objRunConfig.getTokenIDLength());
+		return tokenGenrator.generateTokenID(token, partnerID, RunConfigUtil.objRunConfig.getUinSalt(), RunConfigUtil.objRunConfig.getPartnerCodeSalt(), RunConfigUtil.objRunConfig.getTokenIDLength());
 	}
 	
 	/**
@@ -133,8 +138,6 @@ public class RunConfigUtil {
 			objRunConfig = new IdaRunConfig();
 		else if (module.equals("idrepo"))
 			objRunConfig = new IdRepoRunConfig();
-		else if (module.equals("admin"))
-			objRunConfig = new AdminRunConfig();
 		else if (module.equals("resident"))
 			objRunConfig = new ResidentRunConfig();
 		else if (module.equals("partner"))

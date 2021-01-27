@@ -1,0 +1,323 @@
+DeviceFilter:
+   Admin_DeviceFilter_Name_eng_Unique_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Name_eng_All_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Name_ara_Unique_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "ara",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Name_ara_All_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "ara",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Name_fra_Unique_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "fra",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Name_fra_All_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "fra",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "testDevicedummy"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_MacAddress_Unique_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "macAddress",
+		"type": "unique",
+		"text": "D4-3D-7E-C0-8C-4A"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "macAddress",
+        "fieldValue": "D4-3D-7E-C0-8C-4A"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_MacAddress_All_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "macAddress",
+		"type": "all",
+		"text": "D4-3D-7E-C0-8C-4A"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "macAddress",
+        "fieldValue": "D4-3D-7E-C0-8C-4A"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_SerialNum_Unique_smoke:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/DeviceFilter/deviceFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "serialNum",
+		"type": "unique",
+		"text": "ceec5f62-77b7-46f3-816b-3e734305a9c8"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "serialNum",
+        "fieldValue": "ceec5f62-77b7-46f3-816b-3e734305a9c8"
+      }
+    ]
+  }'    
+   Admin_DeviceFilter_Invalid_LangCode:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "engr",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'    
+   Admin_DeviceFilter_Blank_LangCode:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'    
+   Admin_DeviceFilter_Invalid_RequestTime:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "2019-7-3T05:22:35.845"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'    
+   Admin_DeviceFilter_Invalid_filterType_blank:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'    
+   Admin_DeviceFilter_inValid_columnName:
+      endPoint: /v1/masterdata/devices/filtervalues
+      role: admin
+      restMethod: post
+      inputTemplate: admin/DeviceFilter/deviceFilter
+      outputTemplate: admin/error
+      input: '{
+	"filters": [{
+		"columnName": "fbheafg",
+		"type": "unique",
+		"text": "testDevicedummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'    

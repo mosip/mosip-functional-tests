@@ -1,0 +1,13 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2020-09-27T08:58:15.144Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-ATH-403",
+      "message": "Forbidden"
+    }
+  ]
+}

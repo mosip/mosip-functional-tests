@@ -194,8 +194,8 @@ public class EnableEUin extends ResidentTestUtil implements ITest{
 				FileUtil.getFilePath(testCaseName, "output-1-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-1-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(outputValid));
-		//if(!OutputValidationUtil.publishOutputResult(outputValid))
-		//	throw new AuthenticationTestException("Failed at otp-generate-response output validation");
+		if(!OutputValidationUtil.publishOutputResult(outputValid))
+			throw new AuthenticationTestException("Failed at otp-generate-response output validation");
 		Map<String, String> tempMap = new HashMap<String, String>();
 		tempMap.put("pinInfovalue", getOtpValue(
 				FileUtil.getFilePath(testCaseName, "search-request").getAbsolutePath(), mapping, "pinInfovalue"));
@@ -213,6 +213,9 @@ public class EnableEUin extends ResidentTestUtil implements ITest{
 				FileUtil.getFilePath(testCaseName, "output-2-actual").toString(),
 				FileUtil.getFilePath(testCaseName, "output-2-expected").toString());
 		Reporter.log(ReportUtil.getOutputValiReport(outputValid2));
+		
+		if (!OutputValidationUtil.publishOutputResult(outputValid2))
+			throw new AuthenticationTestException("Failed at response output validation");
 	}
 
 }

@@ -1,0 +1,166 @@
+GetListOfRoles:
+   Kernel_GetListOfRoles_smoke:
+      endPoint: /v1/syncdata/roles
+      role: regAdmin
+      restMethod: get
+      inputTemplate: kernel/GetListOfRoles/getListOfRoles
+      outputTemplate: kernel/GetListOfRoles/getListOfRolesResult
+      input: '{}'
+      output: '{
+"roles": [{
+        "roleId": "PRE_REGISTRATION",
+        "roleName": "PRE_REGISTRATION"
+      },
+      {
+        "roleId": "RESIDENT",
+        "roleName": "RESIDENT"
+      },
+      {
+        "roleId": "CREDENTIAL_REQUEST",
+        "roleName": "CREDENTIAL_REQUEST"
+      },
+      {
+        "roleId": "CENTRAL_APPROVER",
+        "roleName": "CENTRAL_APPROVER"
+      },
+      {
+        "roleId": "DOCUMENT_READ",
+        "roleName": "DOCUMENT_READ"
+      },
+      {
+        "roleId": "PARTNERMANAGER",
+        "roleName": "PARTNERMANAGER"
+      },
+      {
+        "roleId": "uma_authorization",
+        "roleName": "uma_authorization"
+      },
+      {
+        "roleId": "METADATA_READ",
+        "roleName": "METADATA_READ"
+      },
+      {
+        "roleId": "MASTERDATA_ADMIN",
+        "roleName": "MASTERDATA_ADMIN"
+      },
+      {
+        "roleId": "REGISTRATION_PROCESSOR",
+        "roleName": "REGISTRATION_PROCESSOR"
+      },
+      {
+        "roleId": "CREDENTIAL_ISSUANCE",
+        "roleName": "CREDENTIAL_ISSUANCE"
+      },
+      {
+        "roleId": "SUPERADMIN",
+        "roleName": "SUPERADMIN"
+      },
+      {
+        "roleId": "CENTRAL_ADMIN",
+        "roleName": "CENTRAL_ADMIN"
+      },
+      {
+        "roleId": "GLOBAL_ADMIN",
+        "roleName": "GLOBAL_ADMIN"
+      },
+      {
+        "roleId": "PMS_USER",
+        "roleName": "PMS_USER"
+      },
+      {
+        "roleId": "REGISTRATION_SUPERVISOR",
+        "roleName": "REGISTRATION_SUPERVISOR"
+      },
+      {
+        "roleId": "REGISTRATION_OFFICER",
+        "roleName": "REGISTRATION_OFFICER"
+      },
+      {
+        "roleId": "ZONAL_ADMIN",
+        "roleName": "ZONAL_ADMIN"
+      },
+      {
+        "roleId": "REGISTRATION_OPERATOR",
+        "roleName": "REGISTRATION_OPERATOR"
+      },
+      {
+        "roleId": "AUTH_PARTNER",
+        "roleName": "AUTH_PARTNER"
+      },
+      {
+        "roleId": "DATA_READ",
+        "roleName": "DATA_READ"
+      },
+      {
+        "roleId": "POLICYMANAGER",
+        "roleName": "POLICYMANAGER"
+      },
+      {
+        "roleId": "AUTH",
+        "roleName": "AUTH"
+      },
+      {
+        "roleId": "BIOMETRIC_READ",
+        "roleName": "BIOMETRIC_READ"
+      },
+      {
+        "roleId": "PREREG",
+        "roleName": "PREREG"
+      },
+      {
+        "roleId": "FTM_PROVIDER",
+        "roleName": "FTM_PROVIDER"
+      },
+      {
+        "roleId": "CREATE_SHARE",
+        "roleName": "CREATE_SHARE"
+      },
+      {
+        "roleId": "REGISTRATION_ADMIN",
+        "roleName": "REGISTRATION_ADMIN"
+      },
+      {
+        "roleId": "PARTNER",
+        "roleName": "PARTNER"
+      },
+      {
+        "roleId": "offline_access",
+        "roleName": "offline_access"
+      },
+      {
+        "roleId": "DEVICE_PROVIDER",
+        "roleName": "DEVICE_PROVIDER"
+      },
+      {
+        "roleId": "INDIVIDUAL",
+        "roleName": "INDIVIDUAL"
+      },
+      {
+        "roleId": "ONLINE_VERIFICATION_PARTNER",
+        "roleName": "ONLINE_VERIFICATION_PARTNER"
+      },
+      {
+        "roleId": "CREDENTIAL_PARTNER",
+        "roleName": "CREDENTIAL_PARTNER"
+      },
+      {
+        "roleId": "MISP",
+        "roleName": "MISP"
+      },
+      {
+        "roleId": "ID_AUTHENTICATION",
+        "roleName": "ID_AUTHENTICATION"
+      },
+      {
+        "roleId": "PARTNER_ADMIN",
+        "roleName": "PARTNER_ADMIN"
+      },
+      {
+        "roleId": "ZONAL_APPROVER",
+        "roleName": "ZONAL_APPROVER"
+      },
+      {
+        "roleId": "PRE_REGISTRATION_ADMIN",
+        "roleName": "PRE_REGISTRATION_ADMIN"
+      }]
+}'

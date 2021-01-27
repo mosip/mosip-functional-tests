@@ -96,6 +96,11 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			outputJson = outputJson.replaceAll("$version$", RunConfigUtil.objRunConfig.getAuthVersion());
 			outputJson = outputJson.replace("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
 			outputJson = outputJson.replaceAll("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
+			// Replacing the domainuri and env in request
+			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
+			outputJson = outputJson.replace("$domainUri$", System.getProperty("env.endpoint"));
+			outputJson = outputJson.replace("$env$", System.getProperty("env.endpoint"));
+			}
 			if (outputJson.contains("$REMOVE$"))
 				outputJson = removeObject(new JSONObject(outputJson));
 			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
@@ -593,5 +598,34 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			return mappingAndItsValue;
 		}
 	}
-	
+	@Override
+	public Map<String, String> retrieveMappingAndItsValueToPerformJsonOutputValidation(String json) {
+		Map<String, String> mappingAndItsValue = null;
+		try {
+			JsonPrecondtion objJsonPrecondtion = new JsonPrecondtion(json);
+			mappingAndItsValue = JsonPrecondtion.getJsonFieldsValue(json, objJsonPrecondtion.getPathList(""));
+			return mappingAndItsValue;
+		} catch (Exception e) {
+			JSONPRECONDATION_LOGGER.error(
+					"Exception Occured in retrieve Mapping And Its Value To Perform OutputValidation" + e.getMessage());
+			return mappingAndItsValue;
+		}
+	}
+	public static Map<String, String> getJsonFieldsValue(String json, Map<String, String> map) {
+		Map<String, String> returnMap = null;
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			returnMap = new HashMap<String, String>();
+			Object jsonObj = mapper.readValue(json,Object.class);
+			for (Entry<String, String> entry : map.entrySet()) {
+				if (PropertyUtils.getProperty(jsonObj, entry.getValue()) != null)
+					returnMap.put(entry.getValue(), PropertyUtils.getProperty(jsonObj, entry.getValue()).toString());
+				else
+					returnMap.put(entry.getValue(), "null");
+			}
+		} catch (Exception exp) {
+			JSONPRECONDATION_LOGGER.error("Exception occured in getting the value from json: " + exp.toString());
+		}
+		return returnMap;
+	}
 }

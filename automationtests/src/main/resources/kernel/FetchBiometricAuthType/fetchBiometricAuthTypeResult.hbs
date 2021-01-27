@@ -1,0 +1,21 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "biometrictypes": [
+    {{#each biometrictypes}}
+      {
+        "code": "{{code}}",
+        "name": "{{name}}",
+        "description": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

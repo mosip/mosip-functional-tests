@@ -52,8 +52,8 @@ public class RetrieveMISPByMispID extends PartnerTestUtil implements ITest {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createMISIPQuery = partnerQueries.get("createMISP").toString();
 		String validateMISIPLicenceQuery = partnerQueries.get("validateMISPLicence").toString();
-		if (masterDB.executeQuery(createMISIPQuery, "pmp") 
-				&& masterDB.executeQuery(validateMISIPLicenceQuery, "pmp"))
+		if (masterDB.executeQuery(createMISIPQuery, "pms") 
+				&& masterDB.executeQuery(validateMISIPLicenceQuery, "pms"))
 			logger.info("RetrieveMISPByMispID Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to RetrieveMISPByMispID using query from partnerQueries.properties");
@@ -202,8 +202,8 @@ public class RetrieveMISPByMispID extends PartnerTestUtil implements ITest {
 	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pmp")
-				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteValidateMISPLicence").toString(), "pms")
+				&& masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("deleted all MispID data successfully");
 		else {
 			logger.info("not able to delete MispID data using query from query.properties");

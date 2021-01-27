@@ -50,7 +50,7 @@ public class UpdateMispStatusByMispId extends PartnerTestUtil implements ITest {
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 		String mispQuery = partnerQueries.get("createMISP").toString();
-		if (masterDB.executeQuery(mispQuery, "pmp"))
+		if (masterDB.executeQuery(mispQuery, "pms"))
 			logger.info("UpdateMispStatusByMispId Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to UpdateMispStatusByMispId using query from partnerQueries.properties");
@@ -185,7 +185,7 @@ public class UpdateMispStatusByMispId extends PartnerTestUtil implements ITest {
 	
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deleteMISP").toString(), "pms"))
 			logger.info("deleted all UpdateMispStatusByMispId data successfully");
 		else {
 			logger.info("not able to delete UpdateMispStatusByMispId data using query from query.properties");

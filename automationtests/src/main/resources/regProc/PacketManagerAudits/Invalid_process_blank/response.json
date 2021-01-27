@@ -1,0 +1,13 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2020-10-17T14:11:03.529Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-KPM-010",
+      "message": "KER-KPM-010 --> KER-KPM-010 --> KER-KPM-010 --> Packet not present in packet store"
+    }
+  ]
+}

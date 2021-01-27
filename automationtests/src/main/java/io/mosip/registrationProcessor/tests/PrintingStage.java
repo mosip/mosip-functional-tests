@@ -27,6 +27,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -42,6 +43,7 @@ import io.mosip.dbaccess.RegProcTransactionDb;
 import io.mosip.dbdto.RegistrationPacketSyncDTO;
 import io.mosip.dbdto.SyncRegistrationDto;
 import io.mosip.dbentity.TokenGenerationEntity;
+import io.mosip.registrationProcessor.service.PacketUtil;
 import io.mosip.registrationProcessor.util.EncryptData;
 import io.mosip.registrationProcessor.util.RegProcApiRequests;
 import io.mosip.service.ApplicationLibrary;
@@ -61,61 +63,75 @@ import io.restassured.response.Response;
  */
 
 public class PrintingStage extends BaseTestCase implements ITest {
-	private final String encrypterURL="/v1/keymanager/encrypt";
+	private final String encrypterURL = "/v1/keymanager/encrypt";
 	protected static String testCaseName = "";
 	private static Logger logger = Logger.getLogger(PrintingStage.class);
 	boolean status = false;
 	String finalStatus = "Fail";
-	static Properties prop =  new Properties();
+	static Properties prop = new Properties();
 	JSONArray arr = new JSONArray();
 	ObjectMapper mapper = new ObjectMapper();
 	Response actualResponse = null;
 	JSONObject expectedResponse = null;
-	JSONObject actualRequest=null;
+	JSONObject actualRequest = null;
 	ApplicationLibrary applicationLibrary = new ApplicationLibrary();
-	String regIds="";
-	SoftAssert softAssert=new SoftAssert();
+	String regIds = "";
+	SoftAssert softAssert = new SoftAssert();
 	static String dest = "";
 	static String folderPath = "regProc/PrintingStage";
 	static String outputFile = "PrintingStageOutput.json";
 	static String requestKeyFile = "PrintingStageRequest.json";
-	static String description="";
-	static String apiName="PrintingStage";
-	static String moduleName="RegProc";
-	CommonLibrary common=new CommonLibrary();
-	
-	RegProcApiRequests apiRequests=new RegProcApiRequests();
-	TokenGeneration generateToken=new TokenGeneration();
-	TokenGenerationEntity tokenEntity=new TokenGenerationEntity();
-	String validToken="";
-	
+	static String description = "";
+	static String apiName = "PrintingStage";
+	static String moduleName = "RegProc";
+	CommonLibrary common = new CommonLibrary();
+	String new_packet_path = "regProc/existingPacket/temp";
+
+	RegProcApiRequests apiRequests = new RegProcApiRequests();
+	TokenGeneration generateToken = new TokenGeneration();
+	TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
+	String validToken = "";
+
 	/**
 	 * This method is used for creating token
 	 * 
 	 * @param tokenType
 	 * @return token
 	 */
-	public String getToken(String tokenType) { String tokenGenerationProperties=generateToken.readPropertyFile(tokenType);
-		tokenEntity=generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-		String token=generateToken.getToken(tokenEntity);
+	public String getToken(String tokenType) {
+		String tokenGenerationProperties = generateToken.readPropertyFile(tokenType);
+		tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
+		String token = generateToken.getToken(tokenEntity);
 		return token;
+	}
+
+	@BeforeClass
+	public void copyPacketsTotestCaseFolder() {
+		String parentDir = apiRequests.getResourcePath();
+		try {
+			PacketUtil packetUtil = new PacketUtil();
+			String existing_packet_path = parentDir + new_packet_path;
+			String folderPathForPrintingTestCase = parentDir + folderPath + "/PrintingStage_smoke";
+			packetUtil.copyGeneratedPacketToPrintingTestDir(existing_packet_path, folderPathForPrintingTestCase);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-	
-	
-	
+	}
+
 	/**
-	 *This method is used for reading the test data based on the test case name passed
+	 * This method is used for reading the test data based on the test case name
+	 * passed
 	 *
 	 * @param context
 	 * @return Object[][]
 	 */
 	@DataProvider(name = "printingStage")
-	public  Object[][] readData(ITestContext context){ 
+	public Object[][] readData(ITestContext context) {
 		Object[][] readFolder = null;
-		String propertyFilePath=apiRequests.getResourcePath()+"config/registrationProcessorAPI.properties";
+		String propertyFilePath = apiRequests.getResourcePath() + "config/registrationProcessorAPI.properties";
 		try {
 			prop.load(new FileReader(new File(propertyFilePath)));
-			testLevel=System.getProperty("env.testLevel");
+			testLevel = System.getProperty("env.testLevel");
 			switch (testLevel) {
 			case "smoke":
 				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smoke");
@@ -126,24 +142,25 @@ public class PrintingStage extends BaseTestCase implements ITest {
 			default:
 				readFolder = ReadFolder.readFolders(folderPath, outputFile, requestKeyFile, "smokeAndRegression");
 			}
-		}catch(IOException | ParseException |NullPointerException e){
-			Assert.assertTrue(false, "not able to read the folder in PrintingStage class in readData method: "+ e.getCause());
+		} catch (IOException | ParseException | NullPointerException e) {
+			Assert.assertTrue(false,
+					"not able to read the folder in PrintingStage class in readData method: " + e.getCause());
 		}
 		return readFolder;
 	}
 
 	/**
-	 * This method is used for generating actual response and comparing it with expected response
-	 * along with db check and audit log check
-	 *  
+	 * This method is used for generating actual response and comparing it with
+	 * expected response along with db check and audit log check
+	 * 
 	 * @param testSuite
 	 * @param i
 	 * @param object
-	 * @throws java.text.ParseException 
+	 * @throws java.text.ParseException
 	 */
 	@Test(dataProvider = "printingStage")
-	public void printingStage(String testSuite, Integer i, JSONObject object) throws java.text.ParseException{
-		
+	public void printingStage(String testSuite, Integer i, JSONObject object) throws java.text.ParseException {
+
 		File file = null;
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
@@ -152,134 +169,132 @@ public class PrintingStage extends BaseTestCase implements ITest {
 		File[] listOfFolders = folder.listFiles();
 		JSONObject objectData = new JSONObject();
 
-		EncryptData encryptData=new EncryptData();
+		EncryptData encryptData = new EncryptData();
 		String regId = null;
 		JSONObject requestToEncrypt = null;
 		RegistrationPacketSyncDTO registrationPacketSyncDto = new RegistrationPacketSyncDTO();
 
 		try {
-			file=ResponseRequestMapper.getUpdatePacket(testSuite, object);
+			file = ResponseRequestMapper.getUpdatePacket(testSuite, object);
 			expectedResponse = ResponseRequestMapper.mapResponse(testSuite, object);
 
-			//outer and inner keys which are dynamic in the actual response
+			// outer and inner keys which are dynamic in the actual response
 			outerKeys.add("requesttimestamp");
 			outerKeys.add("responsetime");
 			innerKeys.add("createdDateTime");
 			innerKeys.add("updatedDateTime");
 
-			/*for (int j = 0; j < listOfFolders.length; j++) {
-				if (listOfFolders[j].isDirectory()) {
-					if (listOfFolders[j].getName().equals(object.get("testCaseName").toString())) {
-						logger.info("Testcase name is" + listOfFolders[j].getName());
-						File[] listOfFiles = listOfFolders[j].listFiles();
-						for (File f : listOfFiles) 
-							if (f.getName().toLowerCase().contains("request")) {
-								objectData = (JSONObject) new JSONParser().parse(new FileReader(f.getPath()));
-								file=new File(f.getParent()+"/"+objectData.get("path"));
-								rId = file.getName().substring(0, file.getName().length()-4);
-							}
-					}
-				}
-			}*/
+			/*
+			 * for (int j = 0; j < listOfFolders.length; j++) { if
+			 * (listOfFolders[j].isDirectory()) { if
+			 * (listOfFolders[j].getName().equals(object.get("testCaseName").toString())) {
+			 * logger.info("Testcase name is" + listOfFolders[j].getName()); File[]
+			 * listOfFiles = listOfFolders[j].listFiles(); for (File f : listOfFiles) if
+			 * (f.getName().toLowerCase().contains("request")) { objectData = (JSONObject)
+			 * new JSONParser().parse(new FileReader(f.getPath())); file=new
+			 * File(f.getParent()+"/"+objectData.get("path")); rId =
+			 * file.getName().substring(0, file.getName().length()-4); } } } }
+			 */
 
-			
-			validToken=getToken("syncTokenGenerationFilePath");
-			boolean tokenStatus=apiRequests.validateToken(validToken);
-			while(!tokenStatus) {
+			validToken = getToken("syncTokenGenerationFilePath");
+			boolean tokenStatus = apiRequests.validateToken(validToken);
+			while (!tokenStatus) {
 				validToken = getToken("syncTokenGenerationFilePath");
-				tokenStatus=apiRequests.validateToken(validToken);
+				tokenStatus = apiRequests.validateToken(validToken);
 			}
 
-
-			//generation of actual response
-			actualResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"),validToken);
-
+			// generation of actual response
+			actualResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"), validToken);
+			System.out.println(actualResponse.asString());
 			String message = null;
 			boolean uploaded = false;
 			Response syncResponse = null;
 			regId = file.getName().substring(0, file.getName().lastIndexOf("."));
 			logger.info("regId : " + regId);
-			if(actualResponse.asString().contains("errors") && actualResponse.jsonPath().get("errors")!=null) {
-				List<Map<String,String>> error = actualResponse.jsonPath().get("errors");
-				for(Map<String,String> err : error){
+			if (actualResponse.asString().contains("errors") && actualResponse.jsonPath().get("errors") != null) {
+				List<Map<String, String>> error = actualResponse.jsonPath().get("errors");
+				for (Map<String, String> err : error) {
 					message = err.get("message").toString();
 				}
-				logger.info("message : "+message);
-				if(message.matches("Duplicate Request Received")) {
+				logger.info("message : " + message);
+				if (message.matches("Duplicate Request Received")) {
 					uploaded = true;
-				}else if(message.matches("Packet Not Found in Sync Table")) {
+				} else if (message.matches("Packet Not Found in Sync Table")) {
 					try {
-						registrationPacketSyncDto=encryptData.createSyncRequest(file,"NEW");
+						registrationPacketSyncDto = encryptData.createSyncRequest(file, "NEW");
 
-						regId=registrationPacketSyncDto.getSyncRegistrationDTOs().get(0).getRegistrationId();
-						requestToEncrypt=encryptData.encryptData(registrationPacketSyncDto);
+						regId = registrationPacketSyncDto.getSyncRegistrationDTOs().get(0).getRegistrationId();
+						requestToEncrypt = encryptData.encryptData(registrationPacketSyncDto);
 
-						String center_machine_refID=regId.substring(0,5)+"_"+regId.substring(5, 10);
+						String center_machine_refID = regId.substring(0, 5) + "_" + regId.substring(5, 10);
 						String encrypterURL = "/v1/keymanager/encrypt";
-						Response resp=apiRequests.postRequestToDecrypt(encrypterURL ,requestToEncrypt,MediaType.APPLICATION_JSON,
-								MediaType.APPLICATION_JSON,validToken);
+						Response resp = apiRequests.postRequestToEncryptDecrypt(encrypterURL, requestToEncrypt,
+								MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, validToken);
 						String encryptedData = resp.jsonPath().get("response.data").toString();
 						LocalDateTime timeStamp = encryptData.getTime(regId);
 
-						syncResponse = apiRequests.regProcSyncRequest(prop.getProperty("syncListApi"),encryptedData,center_machine_refID,
-								timeStamp.toString()+"Z", MediaType.APPLICATION_JSON,validToken);
+						syncResponse = apiRequests.regProcSyncRequest(prop.getProperty("syncListApi"), encryptedData,
+								center_machine_refID, timeStamp.toString() + "Z", MediaType.APPLICATION_JSON,
+								validToken);
 
-						if(syncResponse.toString().contains("response")) {
-							actualResponse = apiRequests.regProcPacketUpload(file, prop.getProperty("packetReceiverApi"),validToken);	
-							uploaded =true;
+						if (syncResponse.toString().contains("response")) {
+							actualResponse = apiRequests.regProcPacketUpload(file,
+									prop.getProperty("packetReceiverApi"), validToken);
+							uploaded = true;
 						}
 
 					} catch (java.text.ParseException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
 			}
 
-
-
-			if(uploaded) {
+			if (uploaded) {
 				RegProcTransactionDb transaction = new RegProcTransactionDb();
-				boolean isPrinted = transaction.printAndPost(regId);
-				if(isPrinted) {
+				boolean isPrinted = false;
+				try {
+					isPrinted = transaction.printAndPost(regId);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+				if (isPrinted) {
 					logger.info("Validated in DB....");
 					finalStatus = "Pass";
 					softAssert.assertTrue(true);
-				}else {
+				} else {
 					logger.info("Print stage is not present...");
-					if(testCaseName.contains("Invalid"))
-					{
-						finalStatus="Pass";
-					}else
+					if (testCaseName.contains("Invalid")) {
+						finalStatus = "Pass";
+					} else
 						finalStatus = "Fail";
 				}
-				
+
 			}
 
-			boolean setFinalStatus=false;
-			if(finalStatus.equals("Fail"))
-				setFinalStatus=false;
-			else if(finalStatus.equals("Pass"))
-				setFinalStatus=true;
+			boolean setFinalStatus = false;
+			if (finalStatus.equals("Fail"))
+				setFinalStatus = false;
+			else if (finalStatus.equals("Pass"))
+				setFinalStatus = true;
 			Verify.verify(setFinalStatus);
 			softAssert.assertAll();
 
 		} catch (IOException | ParseException e) {
-			Assert.assertTrue(false, "not able to execute packetInfo method : "+ e.getCause());
+			Assert.assertTrue(false, "not able to execute packetInfo method : " + e.getCause());
 		}
-	}  
-
+	}
 
 	/**
 	 * This method is used for fetching test case name
+	 * 
 	 * @param method
 	 * @param testdata
 	 * @param ctx
 	 */
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod(alwaysRun = true)
 	public void getTestCaseName(Method method, Object[] testdata, ITestContext ctx) {
 		JSONObject object = (JSONObject) testdata[2];
-		testCaseName =moduleName+"_"+apiName+"_"+ object.get("testCaseName").toString();
+		testCaseName = moduleName + "_" + apiName + "_" + object.get("testCaseName").toString();
 	}
 
 	/**
@@ -289,7 +304,7 @@ public class PrintingStage extends BaseTestCase implements ITest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
-		
+
 		Field method;
 		try {
 			method = TestResult.class.getDeclaredField("m_method");
@@ -300,7 +315,7 @@ public class PrintingStage extends BaseTestCase implements ITest {
 			f.setAccessible(true);
 			f.set(baseTestMethod, PrintingStage.testCaseName);
 		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-			logger.error("Exception occurred in PrintingStage class in setResultTestName method "+e);
+			logger.error("Exception occurred in PrintingStage class in setResultTestName method " + e);
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}

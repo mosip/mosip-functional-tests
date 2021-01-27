@@ -132,7 +132,7 @@ public class BookingAppointment extends BaseTestCase implements ITest {
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);
-
+		logger.info("Test Case Name: "+testCaseName);
 		Expectedresponse = ResponseRequestMapper.mapResponse(testSuite, object);
 
 		String val = null;

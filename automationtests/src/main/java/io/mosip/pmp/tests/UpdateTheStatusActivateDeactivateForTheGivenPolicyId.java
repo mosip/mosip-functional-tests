@@ -50,7 +50,7 @@ public class UpdateTheStatusActivateDeactivateForTheGivenPolicyId extends Partne
 	public void setTestType() {
 		this.testType = RunConfigUtil.getTestLevel();
 		String createPolicyQuery = partnerQueries.get("createPartnerpolicy").toString();
-		if (masterDB.executeQuery(createPolicyQuery, "pmp"))
+		if (masterDB.executeQuery(createPolicyQuery, "pms"))
 			logger.info("UpdateTheStatusActivateDeactivateForTheGivenPolicyId Test successfully using query from partnerQueries.properties");
 		else
 			logger.info("not able to UpdateTheStatusActivateDeactivateForTheGivenPolicyId using query from partnerQueries.properties");
@@ -185,7 +185,7 @@ public class UpdateTheStatusActivateDeactivateForTheGivenPolicyId extends Partne
 	 */
 	@AfterClass(alwaysRun = true)
 	public void cleanup() throws AdminTestException {
-		if (masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pmp"))
+		if (masterDB.executeQuery(partnerQueries.get("deletePartnerpolicy").toString(), "pms"))
 			logger.info("deleted all activatePartner data successfully");
 		else {
 			logger.info("not able to delete UpdateTheStatusActivateDeactivateForTheGivenPolicyId data using query from query.properties");

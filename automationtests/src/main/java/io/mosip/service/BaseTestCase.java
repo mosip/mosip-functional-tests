@@ -53,6 +53,7 @@ public class BaseTestCase {
 	public String preRegAdminToken;
 	protected static String regClientToken;
 	public String regProcToken;
+	public final String COOKIENAME = "Authorization";
 
 	public String individualCookie = null;
 	public String idaCookie = null;
@@ -64,6 +65,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String residentCookie = null;
 	public String autoTstUsrCkie = null;
 	public static List<String> listOfModules = null;
 
@@ -81,6 +83,7 @@ public class BaseTestCase {
 	public static Map partnerQueries;
 	public static String partnerDemoServicePort = null;
 	public static boolean insertDevicedata = false;
+	public static boolean proxy = true;
 	/**
 	 * Method that will take care of framework setup
 	 */
@@ -168,13 +171,10 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			insertDevicedata = true;
+			//insertDevicedata = true;
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-			AdminTestUtil.createMasterDataForAdminFilterSearchApis();
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -182,7 +182,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
 			PartnerTestUtil.initiatePartnerTest();
 		}
-
+		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
+			AdminTestUtil.initiateKernelTest();
+		}
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
@@ -210,12 +212,9 @@ public class BaseTestCase {
 		
 		//inserting device management data
 		if(insertDevicedata) {
-			long deviceCount = new KernelDataBaseAccess().validateDBCount(queries.get("checkRegDeviceExist").toString(), "masterdata");
-			if(deviceCount!=6) {
-			AdminTestUtil.deleteDeviceManagementData();
+			AuthTestsUtil.deleteDeviceManagementData();
 			logger.info("Inserting device management data");
-			AdminTestUtil.createDeviceManagementData();
-			}
+			AuthTestsUtil.createDeviceManagementData();
 		}
 
 	} // End suiteSetup
@@ -251,19 +250,16 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
-		String testModule = ctx.getName();
-		if(testModule.equalsIgnoreCase("Admin Tests"))
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
-		else if(testModule.equalsIgnoreCase("AuthenticationTest"))
+		String testsuite = ctx.getCurrentXmlTest().getSuite().getName();
+		if(testsuite.contains("AuthenticationTest"))
 			{
 				new PMPDataManager(false);
-				AdminTestUtil.deleteDeviceManagementData();
+				AuthTestsUtil.deleteDeviceManagementData();
 			}
-		else if(ctx.getCurrentXmlTest().getSuite().getName().equalsIgnoreCase("Mosip API Suite"))
+		else if(testsuite.equalsIgnoreCase("Mosip API Suite"))
 		{
-			AdminTestUtil.deleteMasterDataForAdminFilterSearchApis();
 			new PMPDataManager(false);
-			AdminTestUtil.deleteDeviceManagementData();
+			AuthTestsUtil.deleteDeviceManagementData();
 		}
 		RestAssured.reset();
 		copyReportAndLog();

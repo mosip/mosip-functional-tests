@@ -175,7 +175,7 @@ public class ApplicantBiometric extends BaseTestCase implements ITest {
 			// Actual response generation
 			actualResponse = apiRequests.regProcPostRequest(prop.getProperty("applicantBiometricApi"), actualRequest,
 					MediaType.APPLICATION_JSON, validToken);
-
+			System.out.println(actualResponse.asString());
 			// outer and inner keys which are dynamic in the actual response
 
 			if (object.get("testCaseName").toString().contains("smoke")) {

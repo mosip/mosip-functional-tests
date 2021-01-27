@@ -1,0 +1,477 @@
+RevokeVID:
+   Resident_RevokeVID_All_Valid_Smoke:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2891534109472468",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2891534109472468",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_Id:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "m@@@333dstus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_Id:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_IdType:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "$REMOVE$",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_IdType:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "@344432ffff",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_Individual_Id:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "@234rff",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_Individual_Id:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "$REMOVE$",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_Request_Time:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$REMOVE$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_Request_Time:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "@22222ggdhh",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_version:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "@@223333243333####3",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_version:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "$REMOVE$",
+        "vidStatus": "REVOKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Missing_vid_status:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "$REMOVE$",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- vidStatus"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'
+   Resident_RevokeVID_Invalid_vidstatus:
+      endPoint: /resident/v1/vid/2480173603795104
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "2054862176812479",
+		"individualIdType": "VID",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "$REMOVE$",
+        "vidStatus": "R@223344hKED",
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "2054862176812479",
+	"individualIdType": "VID",
+	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-009",
+      "message": "Invalid Input Parameter- vidStatus"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX2850",
+		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }
+}'

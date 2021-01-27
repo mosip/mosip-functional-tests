@@ -1,0 +1,35 @@
+GetUserHistory:
+   Kernel_GetUserHistory_allValid_smoke:
+      endPoint: /v1/masterdata/users/{id}/{eff_dtimes}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetUserHistory/getUserHistory
+      outputTemplate: kernel/GetUserHistory/getUserHistoryResult
+      input: '{
+  "id":"110007",
+  "eff_dtimes":"2019-05-30T13:03:54.131Z"
+}'
+      output: '{
+"userResponseDto": [{
+			"id": "110007",
+			"isActive": "true"
+		}]
+}'
+   Kernel_GetusersBasedOnRegCenter_invalid_regid:
+      endPoint: /v1/masterdata/users/{id}/{eff_dtimes}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetUserHistory/getUserHistory
+      outputTemplate: kernel/error
+      input: '{
+  "id":"1100",
+  "eff_dtimes":"2019-05-30T13:03:54.131Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-003",
+      "message": "User History not found"
+    }
+  ]
+}'

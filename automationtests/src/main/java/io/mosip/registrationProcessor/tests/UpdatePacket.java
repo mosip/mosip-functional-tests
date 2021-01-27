@@ -177,7 +177,7 @@ public class UpdatePacket extends BaseTestCase implements ITest {
 				tokenStatus=apiRequests.validateToken(validToken);
 			}
 
-			Response resp=apiRequests.postRequestToDecrypt(encrypterURL,requestToEncrypt,MediaType.APPLICATION_JSON,
+			Response resp=apiRequests.postRequestToEncryptDecrypt(encrypterURL,requestToEncrypt,MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON,validToken);
 			String encryptedData = resp.jsonPath().get("response.data").toString();
 			LocalDateTime timeStamp = encryptData.getTime(regId);

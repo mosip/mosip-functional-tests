@@ -1,0 +1,62 @@
+createDefinePolicyGroup:
+   Partner_DefinePolicyGroup_All_Valid_Smoke_sid:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroup
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/createDefinePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/createDefinePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "id": "162549",
+        "name": "mosip policy group",
+        "desc": "desc mosip policy group",
+        "is_Active": true,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-10-20T07:05:34.945894",
+        "up_by": null,
+        "upd_dtimes": null
+    }'
+
+   Partner_DefinePolicyGroup_Missing_InputParameter_desc:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroup
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/createDefinePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "$REMOVE$",
+    "name": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.desc"
+    }
+  ]
+}'
+
+   Partner_DefinePolicyGroup_Missing_InputParameter_name:
+      endPoint: /partnermanagement/v1/policies/policies/policyGroup
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/createDefinePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter - request.name"
+    }
+  ]
+}'

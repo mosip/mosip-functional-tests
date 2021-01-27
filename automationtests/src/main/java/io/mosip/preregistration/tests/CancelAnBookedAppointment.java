@@ -107,7 +107,7 @@ ApplicationLibrary appLib=new ApplicationLibrary();
 
 	@Test(dataProvider = "CancelAnBookedAppointment")
 	public void cancelAnBookedAppointment(String testSuite, Integer i, JSONObject object) throws Exception {
-
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		JSONObject actualRequest = ResponseRequestMapper.mapRequest(testSuite, object);

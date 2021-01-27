@@ -70,7 +70,39 @@ public class IdaRunConfig extends RunConfig{
 	private String cryptomanagerEncrypt;
 	private String splitEncryptedData;
 	private String authManagerUserIdPwd;
+	private String uinSalt;
+	private String partnerCodeSalt;
+	private String authPartnerID;
+	private int tokenIDLength;
 	
+	@Override
+	public String getUinSalt() {
+		return uinSalt;
+	}
+	public void setUinSalt(String uinSalt) {
+		this.uinSalt = uinSalt;
+	}
+	@Override
+	public String getPartnerCodeSalt() {
+		return partnerCodeSalt;
+	}
+	public void setPartnerCodeSalt(String partnerCodeSalt) {
+		this.partnerCodeSalt = partnerCodeSalt;
+	}
+	@Override
+	public String getAuthPartnerID() {
+		return authPartnerID;
+	}
+	public void setAuthPartnerID(String authPartnerID) {
+		this.authPartnerID = authPartnerID;
+	}
+	@Override
+	public int getTokenIDLength() {
+		return tokenIDLength;
+	}
+	public void setTokenIDLength(int tokenIDLength) {
+		this.tokenIDLength = tokenIDLength;
+	}
 	
 	public String getAuthManagerUserIdPwd() {
 		return authManagerUserIdPwd;
@@ -398,6 +430,11 @@ public class IdaRunConfig extends RunConfig{
 	 * @param testType
 	 */
 	public  void setConfig(String testDataPath,String testDataFileName,String testType) {
+		String env = System.getProperty("env.user");
+		setUinSalt(AuthTestsUtil.getPropertyValue("uinSalt"+env));
+		setPartnerCodeSalt(AuthTestsUtil.getPropertyValue("partnerCodeSalt"+env));
+		setAuthPartnerID(AuthTestsUtil.getPropertyValue("authPartnerID"+env));
+		setTokenIDLength(Integer.parseInt(AuthTestsUtil.getPropertyValue("tokenIDLength")));
 		setIdRepoVersion(AuthTestsUtil.getPropertyValue("idrepoVersion"));
 		setAuthVersion(AuthTestsUtil.getPropertyValue("authVersion"));
 		setEndPointUrl(AuthTestsUtil.getPropertyValue("endPointUrl"));
@@ -1753,6 +1790,126 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public String getAllDynamicFieldPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getDefinePolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setDefinePolicyPath(String definePolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getUpdatePolicyDetailsPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getUpdatePolicyStatusPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getPublishPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setPublishPolicyPath(String publishPolicyPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getGetPolicyGroupPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getGetPolicyAgainstApiKeyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getGetPartnersPolicyPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getAddContactPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setAddContactPath(String addContactPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getSaveDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getApproveRejectDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUpdateDeviceDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getSaveSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getApproveRejectSecureBiometricInterfacePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getSaveFtpChipDetailPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getApproveRejectFtpChipDetailPath() {
 		// TODO Auto-generated method stub
 		return null;
 	}

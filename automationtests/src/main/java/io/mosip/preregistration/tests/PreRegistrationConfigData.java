@@ -71,6 +71,7 @@ public class PreRegistrationConfigData extends BaseTestCase implements ITest {
 	 */
 	@Test
 	public void getPreRegistrationConfigData() {
+		logger.info("Test Case Name: "+testCaseName);
 		List<String> outerKeys = new ArrayList<String>();
 		List<String> innerKeys = new ArrayList<String>();
 		boolean status = false;

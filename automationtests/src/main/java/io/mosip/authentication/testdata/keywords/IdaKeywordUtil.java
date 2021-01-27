@@ -58,7 +58,7 @@ public class IdaKeywordUtil extends KeywordUtil{
 				Map<String, String> dic = precondtionKeywords(tempmap);
 				String pid = dic.get("tspId").toString();
 				if (pid.contains("/"))
-					pid = pid.substring(0, pid.indexOf("/"));
+					pid = pid.substring(pid.indexOf("/")+1, pid.lastIndexOf("/"));
 				returnMap.put(entry.getKey(), RunConfigUtil.getTokenId(dic.get("uin"), pid));
 			} else if (entry.getValue().contains("otp.generate.email.fra.message.body")
 					|| entry.getValue().contains("otp.generate.email.fra.message.address")) {

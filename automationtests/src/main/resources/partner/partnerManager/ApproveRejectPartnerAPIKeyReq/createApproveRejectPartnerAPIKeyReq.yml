@@ -1,0 +1,35 @@
+createApproveRejectPartnerAPIKeyReq:
+   Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
+      endPoint: /partnermanagement/v1/pmpartners/pmpartners/PartnerAPIKeyRequests/{apiKeyReqId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReq
+      outputTemplate: partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReqResult
+      input: '{
+      "status": "Approved",
+      "apiKeyReqId": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "message": "PartnerAPIKey Updated successfully"
+    }'
+
+   Partner_ApproveRejectPartnerAPIKeyReq_Missing_InputParameter_status:
+      endPoint: /partnermanagement/v1/pmpartners/pmpartners/PartnerAPIKeyRequests/{apiKeyReqId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/partnerManager/ApproveRejectPartnerAPIKeyReq/createApproveRejectPartnerAPIKeyReq
+      outputTemplate: partner/error
+      input: '{
+      "status": "$REMOVE$",
+      "apiKeyReqId": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Missing Input Parameter"
+    }
+  ]
+}'

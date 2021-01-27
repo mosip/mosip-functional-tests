@@ -205,16 +205,20 @@ public class UnlockUIN extends AuthTestsUtil implements ITest{
 			String status = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "lockedrequest");
 			if (content.contains("authSubType")) {
 				String authSubType = JsonPrecondtion.getValueFromJson(inputFilePath, mapping, "authSubTyperequest");
-				if (!verifyAuthStatusTypeInDB(uin, type,authType + "-" + authSubType,"false"))
-					throw new AuthenticationTestException("False value is not updated in status code in DB for uin/vid: "
-							+ uin + " and type" + authType + "-" + authSubType);
-				else
+				/*
+				 * if (!verifyAuthStatusTypeInDB(uin, type,authType + "-" +
+				 * authSubType,"false")) throw new
+				 * AuthenticationTestException("False value is not updated in status code in DB for uin/vid: "
+				 * + uin + " and type" + authType + "-" + authSubType); else
+				 */
 					storeUinVidLockStatusData.put(type + "." + authType + "." + authSubType + "." + status, uin);
 			} else {
-				if (!verifyAuthStatusTypeInDB(uin,type, authType,"false"))
-					throw new AuthenticationTestException(
-							"False value is not updated in status code in DB for uin/vid: " + uin + " and type" + authType);
-				else
+				/*
+				 * if (!verifyAuthStatusTypeInDB(uin,type, authType,"false")) throw new
+				 * AuthenticationTestException(
+				 * "False value is not updated in status code in DB for uin/vid: " + uin +
+				 * " and type" + authType); else
+				 */
 					storeUinVidLockStatusData.put(type + "." + authType + "." + status, uin);
 
 			}

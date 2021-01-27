@@ -1,0 +1,10 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "string",
+    "isItForRegistrationDevice": true
+  },
+  "requesttime": "2020-09-23T10:29:49.309Z",
+  "version": "string"
+}

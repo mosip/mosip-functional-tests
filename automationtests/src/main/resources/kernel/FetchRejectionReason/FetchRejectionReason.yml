@@ -1,0 +1,98 @@
+FetchRejectionReason:
+   Kernel_FetchRejectionReason_valid_smoke:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchRejectionReason/fetchRejectionReason
+      outputTemplate: kernel/FetchRejectionReason/fetchRejectionReasonResult
+      input: '{
+	"reasoncategorycode": "CLR",
+	"langcode": "eng"
+}'
+      output: '{
+    "reasonCategories": [
+      {
+        "code": "CLR",
+        "name": "Client Rejection",
+        "description": "Rejection in Registration Client",
+        "langCode": "eng",
+        "isActive": true,
+        "reasonList": [
+          {
+            "code": "APM",
+            "name": "Age-Photo Mismatch",
+            "description": "Mismatch between the Age and Photo",
+            "rsnCatCode": "CLR",
+            "langCode": "eng",
+            "isActive": true
+          }]
+      }]
+}'
+   Kernel_FetchRejectionReason_invalid_langcode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchRejectionReason/fetchRejectionReason
+      outputTemplate: kernel/error
+      input: '{
+	"reasoncategorycode": "CLR",
+	"langcode": "GER"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+   Kernel_FetchRejectionReason_invalid_langcode_empty:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchRejectionReason/fetchRejectionReason
+      outputTemplate: kernel/FetchRejectionReason/fetchRejectionReasonNotFoundResult
+      input: '{
+	"reasoncategorycode": "CLR",
+	"langcode": ""
+}'
+      output: '{
+    "status": 404,
+    "error": "Not Found",
+    "message": "No message available",
+    "path": "/v1/masterdata/packetrejectionreasons/CLR/"
+}'
+   Kernel_FetchRejectionReason_invalid_reasoncategorycode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchRejectionReason/fetchRejectionReason
+      outputTemplate: kernel/error
+      input: '{
+	"reasoncategorycode": "java",
+	"langcode": "eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+   Kernel_FetchRejectionReason_invalid_reasoncategorycode_empty:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchRejectionReason/fetchRejectionReason
+      outputTemplate: kernel/FetchRejectionReason/fetchRejectionReasonNotFoundResult
+      input: '{
+	"reasoncategorycode": "",
+	"langcode": "eng"
+}'
+      output: '{
+    "status": 404,
+    "error": "Not Found",
+    "message": "No message available",
+    "path": "/v1/masterdata/packetrejectionreasons/eng"
+}'

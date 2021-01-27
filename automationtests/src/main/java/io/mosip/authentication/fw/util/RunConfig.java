@@ -547,6 +547,10 @@ public abstract class RunConfig {
 		public abstract String getRetrieveParticularPartnerDetailsForGivenPartnerIdPath();
 		public abstract String getRetrieveTheRequestForPartnerAPIKeyForGivenRequestIdPath();
 		public abstract String getRetrievePartnerAPIkeyToPolicyMappingsPath();
+		public abstract String getAddContactPath();
+		public abstract void setAddContactPath(String addContactPath);
+		
+		
 		
 		public abstract String getCreatePolicyGroupPath();
 		public abstract void setCreatePolicyGroupPath(String createPolicyGroupPath);
@@ -556,6 +560,18 @@ public abstract class RunConfig {
 		public abstract void setUpdateExistingPolicyForPolicyGroupPath(String updateExistingPolicyForPolicyGroupPath);
 		public abstract void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath);
 		public abstract String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath();
+		
+		public abstract String getDefinePolicyPath();
+		public abstract void setDefinePolicyPath(String definePolicyPath);
+		public abstract void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath);
+		public abstract String getUpdatePolicyDetailsPath();
+		public abstract void setUpdatePolicyStatusPath(String updatePolicyStatusPath);
+		public abstract String getUpdatePolicyStatusPath();
+		public abstract String getPublishPolicyPath();
+		public abstract void setPublishPolicyPath(String publishPolicyPath);
+		public abstract String getGetPolicyGroupPath();
+		public abstract String getGetPolicyAgainstApiKeyPath();
+		public abstract String getGetPartnersPolicyPath();
 		
 		
 		public abstract String getCreateMISPPath();
@@ -570,5 +586,26 @@ public abstract class RunConfig {
 		public abstract void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath);
 		public abstract String getUpdateMispStatusByMispIdPath();
 		public abstract String getDownloadMispLicenseKeyPath();
+		
+		
+		public abstract String getSaveDeviceDetailPath();
+		public abstract void setSaveDeviceDetailPath(String saveDeviceDetailPath);
+		public abstract String getApproveRejectDeviceDetailPath();
+		public abstract String getUpdateDeviceDetailPath();
+		public abstract void setUpdateDeviceDetailPath(String updateDeviceDetailPath);
+		public abstract String getSaveSecureBiometricInterfacePath();
+		public abstract void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath);
+		public abstract String getApproveRejectSecureBiometricInterfacePath();
+		public abstract String getSaveFtpChipDetailPath();
+		public abstract void setSaveFtpChipDetailPath(String saveFtpChipDetailPath);
+		public abstract String getApproveRejectFtpChipDetailPath();
+		public abstract int getTokenIDLength();
+		public abstract String getAuthPartnerID();
+		public abstract String getPartnerCodeSalt();
+		public abstract String getUinSalt();
+		
+		
+		
+		
 		
 }

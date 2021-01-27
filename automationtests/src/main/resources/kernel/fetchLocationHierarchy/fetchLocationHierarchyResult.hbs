@@ -1,0 +1,17 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "locationHierarchyLevels": [
+  {{#each locationHierarchyLevels}}
+    {
+        "hierarchyLevel": "$IGNORE$",
+        "hierarchyLevelName": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": "{{isActive}}"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "errors": "$IGNORE$"
+}

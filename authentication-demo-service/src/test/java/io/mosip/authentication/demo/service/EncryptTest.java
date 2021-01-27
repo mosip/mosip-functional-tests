@@ -104,9 +104,10 @@ public class EncryptTest {
 		//EncryptionResponseDto encryptionResponseDTO=new EncryptionResponseDto();
 	 // testData=encryptMock.getEncryptedValue(testData,"TEMP");
 		//ReflectionTestUtils.invokeMethod(encryptMock, "split", testData);
-	 EncryptionRequestDto encryptionRequestDto=new EncryptionRequestDto();
-	 encryptionRequestDto.setIdentityRequest(new ObjectMapper().readValue(testData.getBytes(), Map.class));
-		encryptMock.encrypt(encryptionRequestDto, null, false, false);
+		
+//	 EncryptionRequestDto encryptionRequestDto=new EncryptionRequestDto();
+//	 encryptionRequestDto.setIdentityRequest(new ObjectMapper().readValue(testData.getBytes(), Map.class));
+//		encryptMock.encrypt(encryptionRequestDto, null, false, false);
 	}
 	
 	

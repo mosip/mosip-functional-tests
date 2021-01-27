@@ -1,0 +1,35 @@
+testdata: 
+  Partner_ApproveRejectDeviceDetail_All_Valid_Smoke: 
+    input.register-partner-request: 
+      Rid: DEVICE-ID-01
+      approvalStatus: Activate
+      isItForRegistrationDevice: true
+    output.output-1-expected-pos-response: 
+      response: Device details approved successfully.
+      id: $IGNORE$
+      responsetime: $IGNORE$
+      version: $IGNORE$
+      metadata: $IGNORE$
+      errors: $IGNORE$
+  Partner_ApproveRejectDeviceDetail_Invalid_Id: 
+    input.register-partner-request: 
+      Rid: DEVICE-ID-00001
+      approvalStatus: Activate
+      isItForRegistrationDevice: true
+    output.output-1-expected-error-response: 
+      errorCode: $IGNORE$
+      id: $IGNORE$
+      message: "PMS_AUT_005 --> Device detail for id DEVICE-ID-00001 does not exist"
+      responsetime: $IGNORE$
+      version: $IGNORE$
+  Partner_ApproveRejectDeviceDetail_MissingInputParameter_approvalStatus: 
+    input.register-partner-request2:
+      Rid: DEVICE-ID-01
+      isItForRegistrationDevice: true
+    output.output-1-expected-error-response2: 
+      errorCodeerrors0: PMS_COR_001
+      id: $IGNORE$
+      messageerrors0: "Missing Input Parameter"
+      responsetime: $IGNORE$
+      timestamp: $IGNORE$
+      version: $IGNORE$

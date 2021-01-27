@@ -10,8 +10,8 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-		<test name="Resident Tests">
-		<classes>	
+		<!-- <test name="Resident Tests">
+		<classes>
 		
 			<class name="io.mosip.resident.tests.UpdateUIN" />
 			<class name="io.mosip.resident.tests.GenerateVID" />
@@ -27,5 +27,102 @@
 				
 				
 		</classes>
+	</test>  --> 
+	
+	
+	
+	<test name="AddIdentity">
+	<parameter name="ymlFile"
+		value="resident\AddIdentity\AddIdentity.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.AddIdentity" />
+	</classes>
+</test>
+	<test name="AuthHistory">
+		<parameter name="ymlFile"
+			value="resident/AuthHistory/AuthHistory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
 	</test>
+	<test name="PrintUin">
+		<parameter name="ymlFile"
+			value="resident/PRINTUIN/createPrintUin.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="GenerateVID">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/createGenerateVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="UpdateUIN">
+		<parameter name="ymlFile"
+			value="resident/UpdateUIN/UpdateUIN.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="RidCheckStatus">
+		<parameter name="ymlFile"
+			value="resident/RidCheckStatus/createRidCheckStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="AuthLock">
+		<parameter name="ymlFile"
+			value="resident/AuthLock/createAuthLock.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="AuthUnLock">
+		<parameter name="ymlFile"
+			value="resident/AuthUnLock/createAuthUnLock.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	
+	<test name="RevokeVID">
+	<parameter name="ymlFile"
+		value="resident\RevokeVID\createRevokeVID.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
+	</classes>
+</test>
+
+	<test name="RequestCredentials">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="CredentialCheckStatus">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DownloadWithReqid">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="CancellCredential">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
 </suite>

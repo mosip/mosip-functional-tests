@@ -1,0 +1,499 @@
+MachineTypeSearch:
+   Admin_MachineTypeSearch_Equals_Name_eng_smoke:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/MachineTypeSearch/machineTypeSearchResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "code": "Laptop-2",
+        "langCode": "eng",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
+      }
+    ]
+}'
+   Admin_MachineTypeSearch_searchBy_langCode:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/MachineTypeSearch/machineTypeSearchResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "langCode",
+        "type": "equals",
+        "value": "eng",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "code": "$IGNORE$",
+        "langCode": "eng",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
+      }
+    ]
+}'
+   Admin_MachineTypeSearch_withoutfilterValue_eng:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/MachineTypeSearch/machineTypeSearchResult
+      input: '{
+    "filters": [],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "code": "$IGNORE$",
+        "langCode": "eng",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
+      }
+    ]
+}'
+   Admin_MachineTypeSearch_langCode_ara:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/MachineTypeSearch/machineTypeSearchResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "ara",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": true,
+        "createdBy": "$IGNORE$",
+        "code": "Laptop-2",
+        "langCode": "ara",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
+      }
+    ]
+}'
+   Admin_MachineTypeSearch_invalid_SortField:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "fbheafg",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field fbheafg"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_invalid_columnName:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "fbheafg",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_invalid_empty_sortFieldType:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": ""
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_invalid_empty_sortField:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_columnName_empty:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_filterType_empty:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_invalidPaginationValue:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": abc,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : pagination,pageStart"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_inValid_filter_type:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "between",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_columnName_withNoSearchSupport_ara:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Admin_MachineTypeSearch_invalid_sortType:
+      endPoint: /v1/masterdata/machinetypes/search
+      role: admin
+      restMethod: post
+      inputTemplate: admin/MachineTypeSearch/machineTypeSearch
+      outputTemplate: admin/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "Laptop-2",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "code",
+        "sortType": "fbheafg"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type fbheafg is not supported"
+    }
+  ]
+}'

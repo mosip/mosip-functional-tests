@@ -1,0 +1,23 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "machineHistoryDetails": [
+  {{#each machineHistoryDetails}}
+    {
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "serialNum": "$IGNORE$",
+        "ipAddress": "$IGNORE$",
+        "macAddress": "$IGNORE$",
+        "machineSpecId": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": "{{isActive}}",
+        "effectDateTime": "$IGNORE$",
+        "validityDateTime": "$IGNORE$"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "errors": "$IGNORE$"
+}

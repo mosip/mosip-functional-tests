@@ -1,0 +1,16 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "mosipUserSaltList": [
+  {{#each mosipUserSaltList}}
+    {
+        "userId": "{{userId}}",
+        "salt": "{{salt}}"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+  "lastSyncTime": "$IGNORE$"
+  },
+  "errors": null
+}

@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<test name="Idrepository Test">
+	<!--<test name="Idrepository Test">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -43,5 +43,79 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
+	</test>-->
+
+	
+	<!--<test name="GenerateUIN">
+		<parameter name="ymlFile"
+			value="idRepository\IAddIdentity\AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.MassUINGenerator" />
+		</classes>
+	</test>-->
+	<test name="AddIdentity">
+	<parameter name="ymlFile"
+		value="idRepository\AddIdentity\AddIdentity.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.AddIdentity" />
+	</classes>
+</test>
+	<test name="CreateVID">
+		<parameter name="ymlFile"	value="idRepository\CreateVID\CreateVid.yml" />
+	    <parameter name="idKeyName" value="VID" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	<test name="RetrieveIdentityByRid">
+		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByRid\RetrieveIdentityByRid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	<test name="RetrieveIdentityByUin">
+		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByUin\RetrieveIdentityByUin.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	<test name="UpdateIdentity">
+		<parameter name="ymlFile"
+			value="idRepository\UpdateIdentity\UpdateIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.idrepo.UpdateIdentity" />
+		</classes>
+	</test>
+	<test name="UpdateVIDStatus">
+		<parameter name="ymlFile"
+			value="idRepository\UpdateVIDStatus\UpdateVidStatus.yml" />
+		<parameter name="pathParams" value="VID" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="DeactivateVIDs">
+		<parameter name="ymlFile"	value="idRepository\DeactivateVid\DeactivateVid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	<test name="RetrieveUINByVID">
+		<parameter name="ymlFile"	value="idRepository\RetrieveUINByVID\RetrieveUINByVID.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	<test name="ReactivateVIDs">
+		<parameter name="ymlFile"	value="idRepository\ReactivateVIDsForUIN\ReactivateVIDsForUIN.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	<test name="RegenerateVid">
+		<parameter name="ymlFile"	value="idRepository\RegenerateVid\RegenerateVid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+	</classes>
 	</test>
 </suite>

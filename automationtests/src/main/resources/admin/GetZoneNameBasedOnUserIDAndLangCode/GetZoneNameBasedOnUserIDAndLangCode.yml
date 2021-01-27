@@ -1,0 +1,76 @@
+GetZoneNameBasedOnUserIDAndLangCode:
+   Admin_GetZoneNameBasedOnUserIDAndLangCode_eng_smoke:
+      endPoint: /v1/masterdata/zones/zonename
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCode
+      outputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCodeResult
+      input: '{
+	"langCode": "eng",
+	"userID": "110005"
+}'
+      output: '{
+        "zoneName": "Casablanca-Settat"
+  }'
+   Admin_GetZoneNameBasedOnUserIDAndLangCode_ara:
+      endPoint: /v1/masterdata/zones/zonename
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCode
+      outputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCodeResult
+      input: '{
+	"langCode": "ara",
+	"userID": "110005"
+}'
+      output: '{
+        "zoneName": "الدارالبيضاء-سطات"
+  }'
+   Admin_GetZoneNameBasedOnUserIDAndLangCode_fra:
+      endPoint: /v1/masterdata/zones/zonename
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCode
+      outputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCodeResult
+      input: '{
+	"langCode": "fra",
+	"userID": "110005"
+}'
+      output: '{
+        "zoneName": "Casablanca-Settat"
+  }'
+   Admin_GetZoneNameBasedOnUser_inValid_langCode_blank:
+      endPoint: /v1/masterdata/zones/zonename
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCode
+      outputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/error
+      input: '{
+	"langCode": "",
+	"userID": "110005"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Admin_GetZoneNameBasedOnUser_inValid_langCode:
+      endPoint: /v1/masterdata/zones/zonename
+      role: admin
+      restMethod: get
+      inputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/getZoneNameBasedOnUserIDAndLangCode
+      outputTemplate: admin/GetZoneNameBasedOnUserIDAndLangCode/error
+      input: '{
+	"langCode": "engr",
+	"userID": "110005"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
