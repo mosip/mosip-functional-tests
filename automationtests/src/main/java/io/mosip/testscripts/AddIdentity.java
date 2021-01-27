@@ -15,6 +15,7 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -113,5 +114,16 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}	
+	@AfterClass(alwaysRun = true)
+	public void waittime() {
+		try 
+		{logger.info("waiting for 2Minutes after UIN Generation In IDREPO");
+			Thread.sleep(120000);
+		} catch (Exception e) {
+			logger.error("Exception : " + e.getMessage());
+		}
+		
+	}
 }
+
 

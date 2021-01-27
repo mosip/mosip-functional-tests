@@ -7,7 +7,8 @@ FetchDevice:
       outputTemplate: kernel/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "$REMOVE$",
-  "languagecode": "eng"
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
 "devices": [{
@@ -30,7 +31,8 @@ FetchDevice:
       outputTemplate: kernel/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "IRS",
-  "languagecode": "eng"
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
 "devices": [{
@@ -44,6 +46,41 @@ FetchDevice:
 			"zoneCode": "$IGNORE$",
 			"regCenterId": "$IGNORE$"
 		}]
+}'
+   Kernel_FetchDevice_allValid_smoke_with_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/FetchDevice/fetchDeviceByCenterResult
+      input: '{
+  "regCenterId": "10005",
+  "deviceType": "$REMOVE$",
+  "languagecode": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+			"isActive": true
+		}]
+}'
+   Kernel_FetchDevice_invalid_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDevice/fetchDevice
+      outputTemplate: kernel/error
+      input: '{
+  "regCenterId": "100@@345",
+  "deviceType": "$REMOVE$",
+  "languagecode": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-441",
+      "message": "Registration Center and Device Not Found"
+    }
+  ]
 }'       
    Kernel_FetchDevice_invalid_deviceType_unexisting:
       endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
@@ -53,7 +90,8 @@ FetchDevice:
       outputTemplate: kernel/error
       input: '{
   "deviceType": "notInDB",
-  "languagecode": "eng"
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -71,7 +109,8 @@ FetchDevice:
       outputTemplate: kernel/error
       input: '{
   "deviceType": "IRS",
-  "languagecode": ""
+  "languagecode": "",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -89,7 +128,8 @@ FetchDevice:
       outputTemplate: kernel/error
       input: '{
   "deviceType": "$REMOVE$",
-  "languagecode": "ENGR"
+  "languagecode": "ENGR",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -107,7 +147,8 @@ FetchDevice:
       outputTemplate: kernel/error
       input: '{
   "deviceType": "IRS",
-  "languagecode": "ENGR"
+  "languagecode": "ENGR",
+  "regCenterId": "$REMOVE$"
 }'
       output: '{
    "errors": [

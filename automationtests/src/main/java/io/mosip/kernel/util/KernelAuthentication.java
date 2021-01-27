@@ -155,11 +155,11 @@ public class KernelAuthentication extends BaseTestCase{
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("resident_appid"));
-		request.put("password", props.get("resident_password"));
-		request.put("userName", props.get("resident_user"));
+		request.put("clientId", props.get("resident_clientId"));
+		request.put("secretKey", props.get("resident_secretKey"));
 		actualrequest.put("request", request);
 		
-		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}

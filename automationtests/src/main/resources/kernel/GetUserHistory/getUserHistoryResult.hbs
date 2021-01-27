@@ -1,0 +1,21 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "userResponseDto": [
+  {{#each userResponseDto}}
+    {
+        "id": "{{id}}",
+        "langCode": "$IGNORE$",
+        "uin": "$IGNORE$",
+        "name": "$IGNORE$",
+        "email": "$IGNORE$",
+        "mobile": "$IGNORE$",
+        "statusCode": "$IGNORE$",
+        "isActive": {{isActive}}
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "errors": "$IGNORE$"
+}

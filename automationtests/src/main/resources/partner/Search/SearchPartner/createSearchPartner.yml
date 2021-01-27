@@ -1,5 +1,5 @@
 createSearchPartner:
-   Partner_SearchPartner_All_Valid_Smoke_sid:
+   Partner_SearchPartner_type_contains_Smoke_asc_sid:
       endPoint: /partnermanagement/v1/partners/partners/search
       role: partner
       restMethod: post
@@ -21,7 +21,7 @@ createSearchPartner:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
+  "partnerType": "all",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -32,7 +32,7 @@ createSearchPartner:
       }
     ]
 }'
-   Partner_SearchPartner_All_Valid_Smoke_sid:
+   Partner_SearchPartner_type_contains_Smoke_desc_sid:
       endPoint: /partnermanagement/v1/partners/partners/search
       role: partner
       restMethod: post
@@ -49,12 +49,623 @@ createSearchPartner:
     "sort": [
       {
         "sortField": "name",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_type_equals_Smoke_desc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Airtekiboi"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_type_equals_Smoke_asc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Airtekiboi"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
         "sortType": "asc"
       }
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
+  "partnerType": "all",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_type_startswith_Smoke_asc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startswith",
+        "value": "Airtekiboi"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_type_startswith_Smoke_desc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startswith",
+        "value": "Airtekiboi"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_columnname_id_desc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "startswith",
+        "value": "MOSIP.PROXY.SBI"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_columnname_id_asc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "startswith",
+        "value": "MOSIP.PROXY.SBI"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_columnname_address_asc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_columnname_address_desc_sid:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
+   Partner_SearchPartner_with_invalid_value_containts:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "containts",
+        "value": "@22333sssdddfghmnjkiouyttrsx76"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_invalid_value_equals:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "equals",
+        "value": "@22333sssdddfghmnjkiouyttrsx76"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_invalid_value_startswith:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "@22333sssdddfghmnjkiouyttrsx76"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_invalid_columnName:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "a@@@334455667788s",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-310",
+      "message": "Invalid column received:a@@@334455667788s"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_missing_columnName:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "$REMOVE$",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_missing_type:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "$REMOVE$",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_invalid_sort_type:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "dc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-358",
+      "message": "Sort type dc is not supported"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_missing_sort_type:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "$REMOVE$"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_invalid_sort_field:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "mo@@@del",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-357",
+      "message": "Invalid sort field mo@@@del"
+    }
+  ]
+}'
+   Partner_SearchPartner_with_missing_sort_field:
+      endPoint: /partnermanagement/v1/partners/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "$REMOVE$",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
 }'

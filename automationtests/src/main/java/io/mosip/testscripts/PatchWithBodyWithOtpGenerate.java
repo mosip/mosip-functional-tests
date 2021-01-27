@@ -72,7 +72,7 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		
-		Response otpResponse = postRequestWithCookieAndHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		Response otpResponse = patchRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
