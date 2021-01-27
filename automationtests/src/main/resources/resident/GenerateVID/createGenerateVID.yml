@@ -7,7 +7,7 @@ GenerateVID:
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -17,7 +17,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -27,9 +27,9 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_All_Valid_Smoke_Temp_VID_sid:
@@ -40,7 +40,7 @@ GenerateVID:
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "2632746125",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -50,7 +50,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "2632746125",
+	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -60,9 +60,9 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_invalid_version_Neg:
@@ -73,7 +73,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -83,7 +83,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -92,14 +92,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- version"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_missing_version_Neg:
@@ -110,7 +110,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -120,7 +120,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -129,14 +129,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- version"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_invalid_individualIdType_Neg:
@@ -147,7 +147,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 		"individualIdType": "@2345sdfs",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -157,7 +157,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -166,14 +166,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualIdType"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_missing_individualIdType_Neg:
@@ -184,7 +184,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 		"individualIdType": "$REMOVE$",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -194,7 +194,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -203,14 +203,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualIdType"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_invalid_individualId_Neg:
@@ -231,7 +231,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -240,14 +240,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_missing_individualId_Neg:
@@ -268,7 +268,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -277,14 +277,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_invalid_Timestamp_Neg:
@@ -295,7 +295,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "ESTA",
         "id": "mosip.resident.vid",
@@ -305,7 +305,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -314,14 +314,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_missing_Timestamp_Neg:
@@ -332,7 +332,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$REMOVE$",
         "id": "mosip.resident.vid",
@@ -342,7 +342,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -351,14 +351,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_MISSING_OTP_Neg:
@@ -369,7 +369,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -379,7 +379,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -388,14 +388,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- otp"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_Invalid_OTP_Neg:
@@ -406,7 +406,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -416,7 +416,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -425,14 +425,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- otp"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_missing_Id_Neg:
@@ -443,7 +443,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
@@ -453,7 +453,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -462,14 +462,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- id"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_invalid_Id_Neg:
@@ -480,7 +480,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "@3453#",
@@ -490,7 +490,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -499,14 +499,14 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- id"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'
    Resident_GenerateVID_TransactionMismatch_Neg:
@@ -517,7 +517,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234890",
-		"individualId": "4853764709",
+		"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -527,7 +527,7 @@ GenerateVID:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4853764709",
+	"individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -536,13 +536,13 @@ GenerateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-004",
-      "message": "Input transactionID does not match transactionID of OTP Request"
+      "errorCode": "RES-SER-422",
+      "message": "Invalid Input Parameter - transactionID"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
     }
 }'

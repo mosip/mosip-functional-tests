@@ -17,6 +17,22 @@ FetchDocumentTypes:
         "isActive": true
       }]
 }'
+   Kernel_FetchDocumentTypes_valid_smoke_langcode:
+      endPoint: /v1/masterdata/documenttypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
+      outputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypesbylangcodeResult
+      input: '{
+  "documentcategorycode":"$REMOVE$",
+   "langcode":"eng"
+}'
+      output: '{
+"documenttypes": {
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'
    Kernel_FetchDocumentTypes_invalid_documentcategorycode_notpresent:
       endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: admin

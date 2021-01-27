@@ -1,0 +1,33 @@
+GetusersBasedOnRegCenter:
+   Kernel_GetusersBasedOnRegCenter_allValid_smoke:
+      endPoint: /v1/syncdata/usersalt/{regid}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetusersBasedOnRegCenter/getusersBasedOnRegCenter
+      outputTemplate: kernel/GetusersBasedOnRegCenter/getusersBasedOnRegCenterResult
+      input: '{
+  "regid": "10001"
+}'
+      output: '{
+"mosipUserSaltList": [{
+			"userId": "$IGNORE$",
+			"salt": "$IGNORE$"
+		}]
+}'
+   Kernel_GetusersBasedOnRegCenter_invalid_regid:
+      endPoint: /v1/syncdata/usersalt/{regid}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetusersBasedOnRegCenter/getusersBasedOnRegCenter
+      outputTemplate: kernel/error
+      input: '{
+  "regid": "10000"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-SNC-303",
+      "message": "Registration center user not found "
+    }
+  ]
+}'
