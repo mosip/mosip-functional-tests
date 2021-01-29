@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Idrepository Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener
+			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+	<test name="Idrepository Test">
+		<classes>
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.AddIdentity" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.UpdateIdentity" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByUinPos" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByUinNeg" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveIdentityByRid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.CreateVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.UpdateVidStatus" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.RetrieveUinByVid" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.DeactivateVIDsForUIN" />
+			<class
+				name="io.mosip.authentication.idRepository.tests.ReactivateVIDsForUIN" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+		</classes>
+	</test>
+
+	<!--
+	<test name="GenerateUIN">
+		<parameter name="ymlFile"
+			value="idRepository\IAddIdentity\AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.MassUINGenerator" />
+		</classes>
+	</test>
+
+	<test name="AddIdentity">
+	<parameter name="ymlFile"
+		value="idRepository\AddIdentity\AddIdentity.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.idrepo.AddIdentity" />
+	</classes>
+</test>
+	
+	<test name="CreateVID">
+		<parameter name="ymlFile"	value="idRepository\CreateVID\CreateVid.yml" />
+	    <parameter name="idKeyName" value="VID" />
+	<classes>
+		<class name="io.mosip.testscripts.idrepo.GenerateVid" />
+	</classes>
+	</test>
+	
+	<test name="DeactivateVIDs">
+		<parameter name="ymlFile"	value="idRepository\DeactivateVid\DeactivateVid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.idrepo.GenerateVid" />
+	</classes>
+	</test>
+	<test name="ReactivateVIDs">
+		<parameter name="ymlFile"	value="idRepository\ReactivateVIDsForUIN\ReactivateVIDsForUIN.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.idrepo.GenerateVid" />
+	</classes>
+	</test>
+	
+	<test name="RegenerateVid">
+		<parameter name="ymlFile"	value="idRepository\RegenerateVid\RegenerateVid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+	</classes>
+	</test>
+	<test name="RetrieveIdentityByRid">
+		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByRid\RetrieveIdentityByRid.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+ -->
+</suite>

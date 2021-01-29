@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="RegistrationProcessor Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener
+			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+
+	<test name="RegistrationProcessor Tests">
+		<classes>
+			<class
+				name="io.mosip.registrationProcessor.tests.SecurityTests" />
+			<class name="io.mosip.registrationProcessor.tests.Sync" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketReceiver" />
+			<class name="io.mosip.registrationProcessor.tests.PacketStatus" />
+			<class
+				name="io.mosip.registrationProcessor.tests.AdminRequirement" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PrintingStage" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerAudits" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerBiometrics" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerDocument" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerSearchField" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerSearchFields" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerMetaInfo" />
+			<class
+				name="io.mosip.registrationProcessor.tests.PacketManagerValidatePacket" />
+		</classes>
+	</test>
+</suite>

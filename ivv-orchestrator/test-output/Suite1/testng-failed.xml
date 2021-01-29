@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite data-provider-thread-count="5" name="Failed suite [Suite1]" guice-stage="DEVELOPMENT">
+  <parameter name="stopOnError" value="false"/>
+  <parameter name="scenarioFilter" value="random"/>
+  <test thread-count="5" name="test1(failed)">
+    <classes>
+      <class name="io.mosip.ivv.orchestrator.Orchestrator">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="afterSuite"/>
+          <include name="run" invocation-numbers="0"/>
+          <include name="create_proxy_server"/>
+          <include name="afterMethod"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- io.mosip.ivv.orchestrator.Orchestrator -->
+    </classes>
+  </test> <!-- test1(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

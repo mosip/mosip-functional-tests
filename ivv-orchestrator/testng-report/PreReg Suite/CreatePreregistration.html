@@ -1,0 +1,938 @@
+<html>
+<head>
+<title>TestNG:  CreatePreregistration</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreatePreregistration</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Dec 06 17:44:05 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6046 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Prereg_CreatePrereg_All_Valid_Smoke_sid()'><b>Prereg_CreatePrereg_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Prereg_CreatePrereg_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_CreatePrereg_All_Valid_Smoke_sid, endPoint=/preregistration/v1/applications, role=batch, input={ "postalCode": "14022", "dateOfBirth": "1996/01/01", "email": "mosipuser123@mailinator.com", "langCode": "eng", "requesttime": "$TIMESTAMP$", "id": "mosip.pre-registration.demographic.create" }, output={ "langCode": "eng" }, inputTemplate=preReg/createPrereg/createPrereg, outputTemplate=preReg/createPrereg/createPreregResult, restMethod=post)<br/>
+<a href="#Output-178371348" onClick='toggleBox("Output-178371348", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-178371348" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-178371348">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.demographic.create",
+  "request": {
+    "langCode": "eng",
+    "demographicDetails": {
+      "identity": {
+        "IDSchemaVersion": "0.9",
+        "firstName": [
+          {
+            "language": "eng",
+            "value": "FName"
+          }
+        ],
+        "middleName": [
+          {
+            "language": "eng",
+            "value": "MName"
+          }
+        ],
+        "lastName": [
+          {
+            "language": "eng",
+            "value": "Lname"
+          }
+        ],
+        "suffix": [
+          {
+            "language": "eng",
+            "value": "Mr"
+          }
+        ],
+        "dateOfBirth": "1996/01/01",
+        "gender": [
+          {
+            "language": "eng",
+            "value": "MLE"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "eng",
+            "value": "FLP"
+          }
+        ],
+        "bloodType": [
+          {
+            "language": "eng",
+            "value": "101"
+          }
+        ],
+        "maritalStatus": [
+          {
+            "language": "eng",
+            "value": "101"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "eng",
+            "value": "ytbfvgb"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "eng",
+            "value": "tngrbfevd"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "eng",
+            "value": "bfsd"
+          }
+        ],
+        "addressLine4": [
+          {
+            "language": "eng",
+            "value": "rbtfevd"
+          }
+        ],
+        "province": [
+          {
+            "language": "eng",
+            "value": "100037"
+          }
+        ],
+        "City": [
+          {
+            "language": "eng",
+            "value": "100318"
+          }
+        ],
+        "Barangay": [
+          {
+            "language": "eng",
+            "value": "101755"
+          }
+        ],
+        "postalCode": [
+          {
+            "language": "eng",
+            "value": "143813"
+          }
+        ],
+        "caddressLine1": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "caddressLine2": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "caddressLine3": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "caddressLine4": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "cprovince": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "ccity": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "cbarangay": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "cPostalCode": [
+          {
+            "language": "eng",
+            "value": ""
+          }
+        ],
+        "phone": "9606139887",
+        "email": "mosipuser123@mailinator.com"
+      }
+    }
+  },
+  "version": "1.0",
+  "requesttime": "2020-12-06T12:14:06.573Z"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa.mosip.net/preregistration/v1/applications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.demographic.create",
+  "version": "1.0",
+  "responsetime": "2020-12-06T12:13:34.187Z",
+  "errors": [
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/postalCode"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Missing input parameter - identity/zone"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Missing input parameter - identity/region"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Missing input parameter - identity/fullName"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Missing input parameter - identity/city"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/suffix"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/middleName"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/maritalStatus"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/lastName"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/firstName"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/cprovince"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/ccity"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/cbarangay"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/caddressLine4"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/caddressLine3"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/caddressLine2"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/caddressLine1"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/cPostalCode"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/bloodType"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/addressLine4"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/City"
+    },
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/Barangay"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[15].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/caddressLine2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[12].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/cbarangay</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[18].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/bloodType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[2].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[7].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/maritalStatus</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[19].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[6].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[15].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[11].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[18].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[5].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[4].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Missing input parameter - identity/city</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[14].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[10].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[9].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Missing input parameter - identity/zone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[21].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/Barangay</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/postalCode</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[4].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[17].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[6].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/middleName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[20].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[9].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/firstName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[14].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/caddressLine3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[8].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[17].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/cPostalCode</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[10].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/cprovince</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[13].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[3].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Missing input parameter - identity/fullName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[20].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[21].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[8].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/lastName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[13].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/caddressLine4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[3].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[11].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/ccity</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[2].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Missing input parameter - identity/region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[7].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[16].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/caddressLine1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[19].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/addressLine4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[5].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Invalid input parameter - identity/suffix</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[16].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[12].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-IOV-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(middleName)[0].value</td>
+    <td>black</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.statusCode</td>
+    <td>Pending_Appointment</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(suffix)[0].value</td>
+    <td>adada</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.IDSchemaVersion</td>
+    <td>0.2</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(maritalStatus)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(residenceStatus)[0].value</td>
+    <td>FR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(city)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(province)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine1)[0].value</td>
+    <td>asas</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(gender)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(bloodType)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(region)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(lastName)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine4)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(region)[0].value</td>
+    <td>RSK</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.dateOfBirth</td>
+    <td>1996/01/01</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine3)[0].value</td>
+    <td>dad</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.demographic.create</td>
+    <td>mosip.pre-registration.demographic.create</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(residenceStatus)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(zone)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(middleName)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(city)[0].value</td>
+    <td>KNT</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine2)[0].value</td>
+    <td>asad</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(bloodType)[0].value</td>
+    <td>104</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.postalCode</td>
+    <td>14022</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(zone)[0].value</td>
+    <td>BNMR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.email</td>
+    <td>mosipuser123@mailinator.com</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine3)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(suffix)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine2)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine1)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(maritalStatus)[0].value</td>
+    <td>101</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(firstName)[0].value</td>
+    <td>baba</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(province)[0].value</td>
+    <td>KTA</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(firstName)[0].language</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.phone</td>
+    <td>9897866789</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(lastName)[0].value</td>
+    <td>ship</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(addressLine4)[0].value</td>
+    <td>dada</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.demographicDetails.identity.(gender)[0].value</td>
+    <td>MLE</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePostForAutoGenId.test(SimplePostForAutoGenId.java:72)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:73)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:37)
+	at io.mosip.ivv.preregistration.methods.SendOTP.setUp(SendOTP.java:28)
+	at io.mosip.ivv.preregistration.methods.SendOTP.run(SendOTP.java:22)
+	at io.mosip.ivv.orchestrator.Orchestrator.run(Orchestrator.java:182)
+... Removed 47 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace178371348", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace178371348'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePostForAutoGenId.test(SimplePostForAutoGenId.java:72)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:73)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:37)
+	at io.mosip.ivv.preregistration.methods.SendOTP.setUp(SendOTP.java:28)
+	at io.mosip.ivv.preregistration.methods.SendOTP.run(SendOTP.java:22)
+	at io.mosip.ivv.orchestrator.Orchestrator.run(Orchestrator.java:182)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>5</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@2e27d72f</td></tr>
+</table><p>
+</body>
+</html>

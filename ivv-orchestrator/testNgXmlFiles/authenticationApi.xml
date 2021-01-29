@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="AuthenticationTest Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener
+			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+	<test name="AuthenticationTest">
+		<classes>
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateUinRecord" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.CreateVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.UpdateVID" />
+			<class name="io.mosip.authentication.tests.LockUIN" />
+			<class name="io.mosip.authentication.tests.OtpGeneration" />
+			<class
+				name="io.mosip.authentication.tests.DemographicAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.AuthPartnerAuthentication" />
+			<class name="io.mosip.authentication.tests.OtpAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.BiometricAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.EkycWithBiometricAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.EkycPartnerAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.EkycWithOtpAuthentication" />
+			<class name="io.mosip.authentication.tests.MultiFactorAuthentication"/>
+			<class
+				name="io.mosip.authentication.tests.InternalBiometricAuthentication" />
+			<class
+				name="io.mosip.authentication.tests.InternalOtpGeneration" />
+			<class
+				name="io.mosip.authentication.tests.RetrieveAuthTypeStatus" />
+			<class
+				name="io.mosip.authentication.tests.InternalAuthTransaction" />
+			<class
+				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
+			<class name="io.mosip.authentication.tests.UnlockUIN" />
+			<!-- <class
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" /> -->
+		</classes>
+	</test>
+	
+	<test name="Resident Tests">
+		<classes>	
+			<class name="io.mosip.resident.tests.UpdateUIN" />
+			<class name="io.mosip.resident.tests.GenerateVID" />
+			<class name="io.mosip.resident.tests.CheckStatus" />
+			<class name="io.mosip.resident.tests.EnableEUin" />
+			<class name="io.mosip.resident.tests.AuthLock" />
+			<class name="io.mosip.resident.tests.AuthUnlock" />
+			<class name="io.mosip.resident.tests.AuthHistory" />
+			<class name="io.mosip.resident.tests.PrintUin" />
+			<class name="io.mosip.resident.tests.RevokeVID" />
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+		</classes>
+	</test>
+	
+</suite>

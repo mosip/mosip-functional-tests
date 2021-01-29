@@ -1,0 +1,9 @@
+doc_cat_code,doc_typ_code,doc_file_format,name,tags
+POA,RNC,pdf,poa_rnc.pdf,"CITIZEN,FOREIGNER"
+POA,COR,pdf,poa_cor.pdf,"CITIZEN,FOREIGNER"
+POI,CIN,pdf,poi_cin.pdf,CITIZEN
+POI,Passport,pdf,poi_psp.pdf,CITIZEN
+POB,Certificate of Birth,pdf,pob_cob.pdf,"CITIZEN,FOREIGNER"
+POR,Certificate of Relationship,pdf,por_crn.pdf,"CITIZEN,FOREIGNER"
+POEX,poex,pdf,poex.pdf,"CITIZEN,FOREIGNER"
+POEM,poem,pdf,poem.pdf,"CITIZEN,FOREIGNER"

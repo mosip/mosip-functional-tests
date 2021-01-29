@@ -1,0 +1,13 @@
+CheckStatus:
+   Prereg_CheckStatus_All_Valid_Smoke:
+      endPoint: /resident/v1/rid/check-status
+      role: resident
+      restMethod: post
+      inputTemplate: preReg/checkStatus/request
+      outputTemplate: preReg/checkStatus/response
+      input: '{
+  "individualId":"$RID$"
+}'
+      output: '{
+  "ridStatus": "UNDER PROCESSING - PLEASE CHECK BACK AGAIN LATER."
+}'

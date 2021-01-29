@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Admin Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+
+
+<!-- 	<test name="CreateIndividualType">
+		<parameter name="ymlFile"
+			value="admin/IndividualType/CreateIndividualType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="IndividualTypeSearch">
+		<parameter name="ymlFile"
+			value="admin/IndividualTypeSearch/IndividualTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterIndividualType">
+		<parameter name="ymlFile"
+			value="admin/FilterIndividualType/FilterIndividualType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateIndividualType">
+		<parameter name="ymlFile"
+			value="admin/IndividualType/UpdateIndividualType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="admin/DeviceSpecification/CreateDeviceSpecification.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="admin/DeviceSpecification/UpdateDeviceSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DeviceSpecSearch">
+		<parameter name="ymlFile"
+			value="admin/DeviceSpecSearch/DeviceSpecSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceSpecFilter">
+		<parameter name="ymlFile"
+			value="admin/DeviceSpecFilter/DeviceSpecFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="CreateDeviceType">
+		<parameter name="ymlFile"
+			value="admin/DeviceType/CreateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceTypeFilter">
+		<parameter name="ymlFile"
+			value="admin/DeviceTypeFilter/DeviceTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceTypeSearch">
+		<parameter name="ymlFile"
+			value="admin/DeviceTypeSearch/DeviceTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceType">
+		<parameter name="ymlFile"
+			value="admin/DeviceType/UpdateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+
+	<test name="CreateDocumentCategory">
+		<parameter name="ymlFile"
+			value="admin/DocumentCategory/CreateDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchDocCategories">
+		<parameter name="ymlFile"
+			value="admin/SearchDocCategories/SearchDocCategories.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterDocCategory">
+		<parameter name="ymlFile"
+			value="admin/FilterDocCategory/FilterDocCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDocumentCategory">
+		<parameter name="ymlFile"
+			value="admin/DocumentCategory/UpdateDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateGender">
+		<parameter name="ymlFile"
+			value="admin/Gender/CreateGender.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GenderFilter">
+		<parameter name="ymlFile"
+			value="admin/GenderFilter/GenderFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GenderSearch">
+		<parameter name="ymlFile"
+			value="admin/GenderSearch/GenderSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateGender">
+		<parameter name="ymlFile"
+			value="admin/Gender/UpdateGender.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateMachineType">
+		<parameter name="ymlFile"
+			value="admin/MachineType/CreateMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="MachineTypeSearch">
+		<parameter name="ymlFile"
+			value="admin/MachineTypeSearch/MachineTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+
+	<test name="UpdateMachineType">
+		<parameter name="ymlFile"
+			value="admin/MachineType/UpdateMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateTitle">
+		<parameter name="ymlFile"
+			value="admin/Title/CreateTitle.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="TitleSearch">
+		<parameter name="ymlFile"
+			value="admin/TitleSearch/TitleSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="TitleFilter">
+		<parameter name="ymlFile"
+			value="admin/TitleFilter/TitleFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTitle">
+		<parameter name="ymlFile"
+			value="admin/Title/UpdateTitle.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+
+	<test name="CreateDocumentType">
+		<parameter name="ymlFile"
+			value="admin/DocumentType/CreateDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchDocumentType">
+		<parameter name="ymlFile"
+			value="admin/SearchDocumentType/SearchDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterDocumentType">
+		<parameter name="ymlFile"
+			value="admin/FilterDocumentType/FilterDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="MapDocumentCategoryAndDocumentType">
+		<parameter name="ymlFile"
+			value="admin/MapDocumentCategoryAndDocumentType/MapDocumentCategoryAndDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+	<test name="DocCatTypMapSearch">
+		<parameter name="ymlFile"
+			value="admin/DocCatTypMapSearch/DocCatTypMapSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterDocCatTypMapping">
+		<parameter name="ymlFile"
+			value="admin/FilterDocCatTypMapping/FilterDocCatTypMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UnmapDocCategoryType">
+		<parameter name="ymlFile"
+			value="admin/UnmapDocCategoryType/UnmapDocCategoryType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+
+	<test name="CreateHoliday">
+		<parameter name="ymlFile"
+			value="admin/Holiday/CreateHoliday.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateHoliday">
+		<parameter name="ymlFile"
+			value="admin/Holiday/UpdateHoliday.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="HolidaySearch">
+		<parameter name="ymlFile"
+			value="admin/HolidaySearch/HolidaySearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterHolidays">
+		<parameter name="ymlFile"
+			value="admin/FilterHolidays/FilterHolidays.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+
+	<test name="CreateTemplateType">
+		<parameter name="ymlFile"
+			value="admin/TemplateType/CreateTemplateType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="admin/TemplateFileFormat/CreateTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="admin/TemplateFileFormat/UpdateTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateTemplate">
+		<parameter name="ymlFile"
+			value="admin/Template/CreateTemplate.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SearchTemplateDetails">
+		<parameter name="ymlFile"
+			value="admin/SearchTemplateDetails/SearchTemplateDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterTemplateDetails">
+		<parameter name="ymlFile"
+			value="admin/FilterTemplateDetails/FilterTemplateDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTemplate">
+		<parameter name="ymlFile"
+			value="admin/Template/UpdateTemplate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateRegCenterType">
+		<parameter name="ymlFile"
+			value="admin/RegCenterType/CreateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchRegCenterType">
+		<parameter name="ymlFile"
+			value="admin/SearchRegCenterType/SearchRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateRegCenterType">
+		<parameter name="ymlFile"
+			value="admin/RegCenterType/UpdateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterRegCenterType">
+		<parameter name="ymlFile"
+			value="admin/FilterRegCenterType/FilterRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+
+	<test name="CreateMachineSpecification">
+		<parameter name="ymlFile"
+			value="admin/MachineSpecification/CreateMachineSpecification.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SearchMachineSpec">
+		<parameter name="ymlFile"
+			value="admin/SearchMachineSpec/SearchMachineSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateMachineSpecification">
+		<parameter name="ymlFile"
+			value="admin/MachineSpecification/UpdateMachineSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterMachineSpec">
+		<parameter name="ymlFile"
+			value="admin/FilterMachineSpec/FilterMachineSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="CreateLocationData">
+		<parameter name="ymlFile"
+			value="admin/LocationData/CreateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateLocationData">
+		<parameter name="ymlFile"
+			value="admin/LocationData/UpdateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="SearchLocationData">
+		<parameter name="ymlFile"
+			value="admin/SearchLocationData/SearchLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterLocationData">
+		<parameter name="ymlFile"
+			value="admin/FilterLocationData/FilterLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="CreateBlackListedWords">
+		<parameter name="ymlFile"
+			value="admin/BlackListedWords/CreateBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateBlackListedWords">
+		<parameter name="ymlFile"
+			value="admin/BlackListedWords/UpdateBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="SearchBlackListedWords">
+		<parameter name="ymlFile"
+			value="admin/SearchBlackListedWords/SearchBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterBlackListedWords">
+		<parameter name="ymlFile"
+			value="admin/FilterBlackListedWords/FilterBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchPacketStatus">
+		<parameter name="ymlFile"
+			value="admin/FetchPacketStatus/FetchPacketStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParam" />
+		</classes>
+	</test>
+	<test name="GetLeafZones">
+		<parameter name="ymlFile"
+			value="admin/GetLeafZones/GetLeafZones.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetZoneHierarchy">
+		<parameter name="ymlFile"
+			value="admin/GetZoneHierarchy/GetZoneHierarchy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetZoneNameBasedOnUserIDAndLangCode">
+		<parameter name="ymlFile"
+			value="admin/GetZoneNameBasedOnUserIDAndLangCode/GetZoneNameBasedOnUserIDAndLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParam" />
+		</classes>
+	</test>
+	<test name="CreateDevice">
+		<parameter name="ymlFile"
+			value="admin/Device/CreateDevice.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="DeviceSearch">
+		<parameter name="ymlFile"
+			value="admin/DeviceSearch/DeviceSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceFilter">
+		<parameter name="ymlFile"
+			value="admin/DeviceFilter/DeviceFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDevice">
+		<parameter name="ymlFile"
+			value="admin/Device/UpdateDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateMachine">
+		<parameter name="ymlFile"
+			value="admin/Machine/CreateMachine.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SearchMachine">
+		<parameter name="ymlFile"
+			value="admin/SearchMachine/SearchMachine.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterMachines">
+		<parameter name="ymlFile"
+			value="admin/FilterMachines/FilterMachines.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateMachine">
+		<parameter name="ymlFile"
+			value="admin/Machine/UpdateMachine.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="CreateRegistrationCenter">
+		<parameter name="ymlFile"
+			value="admin/RegistrationCenter/CreateRegistrationCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+ -->
+ <test name="BulkUpload">
+		<parameter name="ymlFile"
+			value="admin/BulkUpload/BulkUpload.yml" />
+			<parameter name="idKeyName" value="transcationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormDataAndFile" />
+		</classes>
+	</test>
+	
+<!--	<test name="GetTxnDetailBulkUpload">
+		<parameter name="ymlFile"
+			value="admin/GetTxnDetailBulkUpload/TxnDetailByTxnId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	
+<!-- <test name="PacketUpload">
+		<parameter name="ymlFile"
+			value="admin/PacketUpload/PacketUpload.yml" />
+			<parameter name="idKeyName" value="transcationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormDataAndMultipleFile" />
+		</classes>
+	</test> -->
+</suite>

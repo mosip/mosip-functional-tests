@@ -1,0 +1,2 @@
+tc_no,tags,persona_class,persona,group_name,description,field1,field2,field3,field4,field5,field6,field7,field8,field9,field10,field11,field12,field13,field14,field15
+61,ErrorCodes_Test,MorocconMaleAdult,,,Creating Pre-Registration Data,pr_addApplication(),pr_addDocument(),pr_bookAppointment(),pr_generatePacket(),pr_checkStatus(),pr_getIdentityByRid(),pr_credentialRequest(),pr_checkCredentialStatus(),pr_downloadCard(),pr_updateUINDetail(),pr_checkStatus(),pr_getIdentityByRid(),pr_credentialRequest(),pr_checkCredentialStatus(),pr_downloadCard()

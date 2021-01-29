@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="7">Suite1</th></tr>
+<tr><td><a href="#t0">test1</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">104,657</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite1</th></tr></tbody><tbody id="t0"><tr><th colspan="4">test1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">io.mosip.ivv.orchestrator.Orchestrator</td><td><a href="#m0">run</a></td><td rowspan="1">1611927307929</td><td rowspan="1">104287</td></tr></tbody>
+</table>
+<h2>test1</h2><h3 id="m0">io.mosip.ivv.orchestrator.Orchestrator#run</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th></tr><tr class="param stripe"><td>0</td><td>io.mosip.ivv.core.dtos.Scenario@1eeb5818</td><td>{LOCK_ATTEMPTS=5, INVALID_EMAIL=mosiptest@, INVALID_SLOT=23:30-23:45, INVALID_PRID=100000000, FUTUREDATE=SYSDATE + 30, SHARELIST=, SYSDATE=System Date, INVALID_DOCID=10000, INVALID_DOCTYPE=ABC, INVALID_MOBILE=1234587m, INVALID_DOCFORMAT=MPEG, INVALID_DOCCATEGORY=POF, INVALID_CENTER=IC01, PASDTDATE=SYSDATE-1}</td><td>{LOCK_ATTEMPTS=5, INVALID_PREREGISTRATION_ID=18131, OTHER_PERSON_PREREGISTRATION_ID=35353535353, INVALID_EMAIL=mosiptest@, INVALID_SLOT=23:30-23:45, INVALID_PRID=100000000, FUTUREDATE=SYSDATE + 30, SHARELIST=, INVALID_LANG_CODE=English, SYSDATE=System Date, INVALID_DOCID=10000, INVALID_DOCTYPE=ABC, INVALID_MOBILE=1234587m, INVALID_DOCFORMAT=MPEG, INVALID_DOCCATEGORY=POF, INVALID_CENTER=IC01, PASDTDATE=SYSDATE-1}</td><td>{reportsFolder=\testRun\reports\, bookingBookID=mosip.pre-registration.booking.book, ivv.path.globals.sheet=local/GlobalsSheet.csv, ivv.global.apiversion=1.0, mosip.kernel.keygenerator.asymmetric-algorithm-name=RSA, ivv.path.biometrics.folder=local/data/biometrics/, otpServceID=mosip.identity.otp#Fri Oct 11 12:21:11 IST 2019, mosip.kernel.keygenerator.symmetric-algorithm-length=256, resourcesFolder=\src\main\resources\, ivv._path.reports=/testRun/reports/mosip_reports.html, mosip.kernel.keygenerator.symmetric-algorithm-name=AES, mosip.kernel.crypto.symmetric-algorithm-name=AES, mosip.kernel.keygenerator.asymmetric-algorithm-length=2048, ivv.db.url=jdbc:postgresql://52.172.54.231:9001/  , documentUploadID=mosip.pre-registration.document.upload, ivv.email.server.pass=vmfWuq2b1@feb2020, mosip.kernel.crypto.asymmetric-algorithm-name=RSA, uin=7324384587, ivv.prereg.skip=age,IDSchemaVersion,UIN,localAdministrativeAuthority,parentOrGuardianName,parentOrGuardianRID,parentOrGuardianUIN,CNIENumber, ivv._path.auditlog=/testRun/reports/mosip_auditLogs.log, ivv.path.documents.folder=local/data/documents/, ivv.path.persona.sheet=local/PersonaSheet.csv, mosip.kernel.data-key-splitter=#KEY_SPLITTER#, ivv.path.documents.sheet=local/DocumentsSheet.csv, ivv.path.mappingfile=local/mapping.json, logsFolder=\testRun\logs\, ivv.path.configs.sheet=local/ConfigsSheet.csv, ivv.swagger.host=http://localhost:8081, ivv.path.rcpersona.sheet=local/RCUserSheet.csv, ivv.scenario.continueOnFailure=N, ivv.path.biometrics.sheet=local/BiometricsSheet.csv, ivv.prereg.version=v1, ivv.db.user=mosipuser, apiver=1.0, archiveFolder=\testRun\archive\, ivv.prereg.apiversion=1.0, ivv.path.partner.sheet=local/PartnerSheet.csv, ivv.mosip.host=https://qa2.mosip.net, registrationID=10004100740002520191003100437, ivv.prereg.otp.subject=Otp message, ivv.global.version=v1, ivv.email.server.host=outlook.office365.com, resultsFolder=\testRun\results\, ivv.path.scenario.sheet=local/ScenarioSheet.csv, ivv.email.server.user=mosip-test@technoforte.co.in, resourcesDataDocumentsFolder=\src\main\resources\data\documents\, ivv.path.idobject=local/IDObjectSchema.json, environment=https://int.mosip.io, ivv.db.pass=Mosip@123, ivv.regclient.skip=}</td></tr><tr><th colspan="5">Messages</th></tr><tr><td colspan="5"><div class="messages"><pre> <b>GENERATE_RESIDENTS_DATA: </b> <br/>{"requests":{"PR_ResidentAttribute":{"Gender":"Any","PrimaryLanguage":"eng","Age":"RA_Adult"}}}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/resident/1) <pre>{"response":[{"path":"C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json","id":"615546155461554"}],"status":"SUCCESS"}</pre><br/><pre> <b>GET-TEMPLATE: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/packet/NEW/ /) <pre>{"packets":[{"path":"C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\packets_14097214387420848883\\615546155461554","id":"615546155461554"}]}</pre><br/><b><u>PreRegister and upload packet testCase: 1</u></b><br/><pre> <b>Send Otp: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/requestotp/email) <pre></pre><br/><pre> <b>Verify Otp: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/verifyotp/email) <pre>{"message":"VALIDATION_SUCCESSFUL","status":"success"}</pre><br/><pre> <b>AddApplication: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/preregister/) <pre>53143057250760</pre><br/><pre> <b>Upload Documents: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/documents/53143057250760) <pre></pre><br/><pre> <b>BookAppointment: </b> <br/>{}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/bookappointment/53143057250760/1) <pre>{"bookingStatusResponse":[{"bookingMessage":"Appointment booked successfully"}]}</pre><br/><pre> <b>Generate And UploadPacket: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\packets_14097214387420848883\\615546155461554"]}</pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/packet/sync/53143057250760) <pre>{"response":{"registrationId":"10002100821000120210129133610","status":"SUCCESS"}}</pre><br/><b><u>Prereg_CheckStatus_All_Valid_Smoke</u></b><br/><pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "request": {
+    "individualId": "10002100821000120210129133610",
+    "individualIdType": "RID"
+  },
+  "requesttime": "2021-01-29T13:36:50.366Z",
+  "version": "v1"
+}</textarea></pre><br/><b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa2.mosip.net/resident/v1/rid/check-status) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "version": "v1",
+  "responsetime": "2021-01-29T13:35:52.807Z",
+  "response": {
+    "ridStatus": "FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS."
+  }
+}</textarea></pre><br/><b> Output validation for: </b>expected vs actual<br/><table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.ridStatus</td>
+    <td>UNDER PROCESSING - PLEASE CHECK BACK AGAIN LATER.</td>
+    <td>FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS.</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.resident.checkstatus</td>
+    <td>mosip.resident.checkstatus</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr><tr><th colspan="5">Exception</th></tr><tr><td colspan="5"><div class="stacktrace">java.lang.AssertionError: Failed at credential issuance status check Response validation expected [true] but found [false]
+	at io.mosip.ivv.e2e.methods.CheckStatus.run(CheckStatus.java:60)
+	at io.mosip.ivv.orchestrator.Orchestrator.run(Orchestrator.java:168)
+	at io.mosip.ivv.orchestrator.TestRunner.startTestRunner(TestRunner.java:55)
+	at io.mosip.ivv.orchestrator.TestRunner.main(TestRunner.java:30)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

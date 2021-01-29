@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Kernel Suite">
+	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+		regression smokeAndRegression -->
+	<listeners>
+		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener
+			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+	</listeners>
+<!-- <test name="FetchHolidays">
+		<parameter name="ymlFile" value="kernel/FetchHolidays/FetchHoliday.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+<!-- <test name="FetchDevice">
+		<parameter name="ymlFile" value="kernel/FetchDevice/FetchDevice.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	<!-- <test name="FetchRejectionReason">
+		<parameter name="ymlFile" value="kernel/FetchRejectionReason/FetchRejectionReason.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	<!-- <test name="GetAllTemplateByTemplateTypeCode">
+		<parameter name="ymlFile" value="kernel/GetAllTemplateByTemplateTypeCode/GetAllTemplateByTemplateTypeCode.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	<!-- <test name="GetApplicantType">
+		<parameter name="ymlFile" value="kernel/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	<!-- <test name="GetIndividualType">
+		<parameter name="ymlFile" value="kernel/GetIndividualType/GetIndividualType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+ 	<!-- <test name="GetDeviceHistory">
+		<parameter name="ymlFile" value="kernel/GetDeviceHistory/GetDeviceHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+ --> 	<!-- <test name="GetListOfRoles">
+		<parameter name="ymlFile" value="kernel/GetListOfRoles/GetListOfRoles.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+ 	<test name="GetDocType_DocCatByAppID">
+		<parameter name="ymlFile" value="kernel/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+
+</suite>

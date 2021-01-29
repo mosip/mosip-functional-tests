@@ -1,0 +1,14 @@
+DownloadCard:
+   Resident_DownloadCard_All_Valid_Smoke:
+      endPoint: /resident/v1/req/card/{requestId}
+      role: resident
+      restMethod: get
+      inputTemplate: preReg/downloadCard/request
+      outputTemplate: preReg/downloadCard/response
+      input: '{
+		"requestId": "$requestId$"
+	}'
+      output: '{
+        "requestId": "$requestId$",
+		"statusCode": "PRINTING"
+}'

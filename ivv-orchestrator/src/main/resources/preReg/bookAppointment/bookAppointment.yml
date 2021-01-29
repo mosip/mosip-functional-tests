@@ -1,0 +1,18 @@
+BookAppointment:
+   Prereg_BookAppointment_All_Valid_Smoke:
+      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/bookAppointment/bookAppointment
+      outputTemplate: preReg/bookAppointment/bookAppointmentResult
+      input: '{
+  "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",   
+  "registration_center_id": "$registration_center_id$",
+  "appointment_date": "$appointment_date$",
+  "time_slot_from": "$time_slot_from$",
+  "time_slot_to": "$time_slot_to$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "langCode": "eng"
+}'

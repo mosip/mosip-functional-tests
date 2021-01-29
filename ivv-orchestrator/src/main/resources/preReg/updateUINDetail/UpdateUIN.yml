@@ -1,0 +1,46 @@
+UpdateUIN:
+   Resident_UpdateUIN_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: preReg/updateUINDetail/updateUIN
+      outputTemplate: preReg/updateUINDetail/UpdateUinResult
+      input: '{
+		"transactionID": "1234567890",
+		"individualId": "$UIN$",
+		"individualIdType": "UIN",
+		"requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDJSON$",
+        "identityJsonValue":{
+	"identity": {
+		"middleName": [
+                    {
+                        "language": "eng",
+                        "value": "UpdateMName"
+                    }
+                ],
+		"IDSchemaVersion": 0.9,
+		"UIN": "$UIN$"
+	}
+},
+		"otp": "111111",
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "$UIN$",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "preReg/printUin/sendOTP",
+	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	}
+	}'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX9887",
+		"sendOtpResTemplate":"preReg/printUin/sendOTPResult",
+        "maskedEmail": "XXsXXuXXrXX3@mailinator.com"
+    }
+}'

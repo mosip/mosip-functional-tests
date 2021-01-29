@@ -1,0 +1,23 @@
+GetResident:
+   Prereg_GetResident_All_Valid_Smoke_sid:
+      endPoint: /resident/1
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/getResident
+      outputTemplate: preReg/getResident
+      input: '{
+  "requests": {
+    "PR_ResidentAttribute": {
+      "Gender": "Any",
+      "PrimaryLanguage": "eng",
+      "Age": "RA_Adult"
+    }
+  }
+}'
+      output: '{
+	"response": [{
+		"path": "C:\\Users\\M1044571\\AppData\\Local\\Temp\\residents_5830310688634442781\\765176517651.json",
+		"id": "765176517651"
+	}],
+	"status": "SUCCESS"
+}'

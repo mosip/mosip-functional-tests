@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [PreReg Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener"/>
+    <listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+  </listeners>
+  <test thread-count="5" name="CreatePreregistration(failed)">
+    <parameter name="ymlFile" value="preReg/createPrereg/createPrereg.yml"/>
+    <parameter name="idKeyName" value="preRegistrationId"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePostForAutoGenId">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePostForAutoGenId -->
+    </classes>
+  </test> <!-- CreatePreregistration(failed) -->
+</suite> <!-- Failed suite [PreReg Suite] -->

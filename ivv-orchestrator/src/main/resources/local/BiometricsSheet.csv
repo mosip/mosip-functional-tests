@@ -1,0 +1,15 @@
+type,threshold,capture,name
+IRIS,80,leftEye,leftEye.pdf
+IRIS,80,rightEye,rightEye.pdf
+FINGER,80,leftThumb,leftThumb.pdf
+FINGER,80,rightThumb,rightThumb.pdf
+PHOTO,80,face,face.pdf
+FINGER,80,leftIndex,leftIndex.pdf
+FINGER,80,leftMiddle,leftMiddle.pdf
+FINGER,80,leftRing,leftRing.pdf
+FINGER,80,leftLittle,leftLittle.pdf
+FINGER,80,rightIndex,rightIndex.pdf
+FINGER,80,rightMiddle,rightMiddle.pdf
+FINGER,80,rightRing,rightRing.pdf
+FINGER,80,rightLittle,rightLittle.pdf
+PHOTO,80,exceptionPhoto,exceptionPhoto.pdf

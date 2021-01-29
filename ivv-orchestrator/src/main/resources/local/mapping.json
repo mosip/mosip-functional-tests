@@ -1,0 +1,11 @@
+{
+  "name": "fullName",
+  "email": "email",
+  "phone": "phone",
+  "proofOfAddress": "proofOfAddress",
+  "proofOfBirth": "proofOfBirth",
+  "proofOfIdentity": "proofOfIdentity",
+  "proofOfRelationship": "proofOfRelationship",
+  "proofOfException": "proofOfException",
+  "proofOfExemption": "proofOfExemption"
+}

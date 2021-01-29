@@ -1,0 +1,57 @@
+<h2>Reporter output</h2><table><tr><td><pre> <b>GENERATE_RESIDENTS_DATA: </b> <br/>{"requests":{"PR_ResidentAttribute":{"Gender":"Any","PrimaryLanguage":"eng","Age":"RA_Adult"}}}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/resident/1) <pre>{"response":[{"path":"C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json","id":"615546155461554"}],"status":"SUCCESS"}</pre></td></tr>
+<tr><td><pre> <b>GET-TEMPLATE: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/packet/NEW/ /) <pre>{"packets":[{"path":"C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\packets_14097214387420848883\\615546155461554","id":"615546155461554"}]}</pre></td></tr>
+<tr><td><b><u>PreRegister and upload packet testCase: 1</u></b></td></tr>
+<tr><td><pre> <b>Send Otp: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/requestotp/email) <pre></pre></td></tr>
+<tr><td><pre> <b>Verify Otp: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/verifyotp/email) <pre>{"message":"VALIDATION_SUCCESSFUL","status":"success"}</pre></td></tr>
+<tr><td><pre> <b>AddApplication: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/preregister/) <pre>53143057250760</pre></td></tr>
+<tr><td><pre> <b>Upload Documents: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\residents_885252440231712124\\615546155461554.json"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/documents/53143057250760) <pre></pre></td></tr>
+<tr><td><pre> <b>BookAppointment: </b> <br/>{}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/bookappointment/53143057250760/1) <pre>{"bookingStatusResponse":[{"bookingMessage":"Appointment booked successfully"}]}</pre></td></tr>
+<tr><td><pre> <b>Generate And UploadPacket: </b> <br/>{"personaFilePath":["C:\\Users\\ALOK~1.KUM\\AppData\\Local\\Temp\\packets_14097214387420848883\\615546155461554"]}</pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: http://localhost:8888/packet/sync/53143057250760) <pre>{"response":{"registrationId":"10002100821000120210129133610","status":"SUCCESS"}}</pre></td></tr>
+<tr><td><b><u>Prereg_CheckStatus_All_Valid_Smoke</u></b></td></tr>
+<tr><td><pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "request": {
+    "individualId": "10002100821000120210129133610",
+    "individualIdType": "RID"
+  },
+  "requesttime": "2021-01-29T13:36:50.366Z",
+  "version": "v1"
+}</textarea></pre></td></tr>
+<tr><td><b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa2.mosip.net/resident/v1/rid/check-status) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "version": "v1",
+  "responsetime": "2021-01-29T13:35:52.807Z",
+  "response": {
+    "ridStatus": "FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS."
+  }
+}</textarea></pre></td></tr>
+<tr><td><b> Output validation for: </b>expected vs actual</td></tr>
+<tr><td><table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.ridStatus</td>
+    <td>UNDER PROCESSING - PLEASE CHECK BACK AGAIN LATER.</td>
+    <td>FAILED - PLEASE VISIT THE NEAREST CENTER FOR DETAILS.</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.resident.checkstatus</td>
+    <td>mosip.resident.checkstatus</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></td></tr>
+</table>
