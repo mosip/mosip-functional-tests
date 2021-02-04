@@ -11,12 +11,6 @@ FetchDeviceSpec:
 }'
       output: '{
 "devicespecifications": [{
-            "name": "Fingerprint Scanner",
-            "brand": "Safran Morpho",
-            "model": "1300 E2",
-            "deviceTypeCode": "FRS",
-            "minDriverversion": "1.12",
-            "description": "To scan fingerprint",
             "langCode": "eng",
             "isActive": true
         }]
@@ -33,12 +27,6 @@ FetchDeviceSpec:
 }'
       output: '{
 "devicespecifications": [{
-            "name": "Fingerprint Scanner",
-            "brand": "Safran Morpho",
-            "model": "1300 E2",
-            "deviceTypeCode": "CMR",
-            "minDriverversion": "1.12",
-            "description": "To scan fingerprint",
             "langCode": "eng",
             "isActive": true
         }]
@@ -48,7 +36,7 @@ FetchDeviceSpec:
       role: admin
       restMethod: get
       inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
-      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      outputTemplate: kernel/error
       input: '{
   "devicetypecode": "notInDB",
   "langcode": "eng"
@@ -66,7 +54,7 @@ FetchDeviceSpec:
       role: admin
       restMethod: get
       inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
-      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      outputTemplate: kernel/error
       input: '{
   "devicetypecode": "CMR",
   "langcode": ""
@@ -84,10 +72,10 @@ FetchDeviceSpec:
       role: admin
       restMethod: get
       inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
-      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      outputTemplate: kernel/error
       input: '{
-  "devicetypecode": "$IGNORE$",
-  "langcode": ""
+  "devicetypecode": "$REMOVE$",
+  "langcode": "@@dddhdshsgblablala"
 }'
       output: '{
    "errors": [
@@ -102,7 +90,7 @@ FetchDeviceSpec:
       role: admin
       restMethod: get
       inputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpec
-      outputTemplate: kernel/FetchDeviceSpec/fetchDeviceSpecResult
+      outputTemplate: kernel/error
       input: '{
   "devicetypecode": "CMR",
   "langcode": "ENGR"

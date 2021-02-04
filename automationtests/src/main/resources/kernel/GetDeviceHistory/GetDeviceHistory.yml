@@ -6,20 +6,14 @@ GetDeviceHistory:
       inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
       outputTemplate: kernel/GetDeviceHistory/getDeviceHistoryResult
       input: '{
-  "id":"3000021",
+  "id":"2009",
   "langcode":"eng",
-  "effdatetimes":"2020-10-15T15:36:11.452Z"
+  "effdatetimes":"2021-02-04T15:36:11.452Z"
 }'
       output: '{
 "deviceHistoryDetails": [{
-        "id": "3000021",
-        "name": "Dummy Finger Print Scanner 1",
-        "serialNum": "SZ5912878988",
-        "macAddress": "85-BB-97-4B-14-05",
-        "deviceSpecId": "165",
         "langCode": "eng",
-        "isActive": true,
-        "effectDateTime": "$IGNORE$"
+        "isActive": true
       }]
 }'
    Kernel_GetDeviceHistory_invalid_langcode:

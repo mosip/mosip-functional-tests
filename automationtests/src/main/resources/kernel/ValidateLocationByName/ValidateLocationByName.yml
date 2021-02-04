@@ -1,0 +1,90 @@
+ValidateLocationByName:
+   Kernel_ValidateLocationByName_all_valid_smoke:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "MyCountry"
+  }'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_ValidateLocationByName_by_region:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "Rabat Sale Kenitra"
+  }'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_ValidateLocationByName_by_province:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "Rabat"
+  }'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_ValidateLocationByName_invalid_locationname:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "dhfbhd"
+  }'
+      output: '{
+	"status": "Invalid"
+}'
+   Kernel_ValidateLocationByName_by_local_authority:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "Sidi Allal Tazi"
+  }'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_ValidateLocationByName_by_city:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/ValidateLocationByName/validateLocationByNameResult
+      input: '{
+    "locationname" : "Kenitra"
+  }'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_ValidateLocationByName_empty_locationname:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ValidateLocationByName/validateLocationByName
+      outputTemplate: kernel/error
+      input: '{
+    "locationname" : ""
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'

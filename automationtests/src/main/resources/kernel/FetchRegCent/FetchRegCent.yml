@@ -104,33 +104,6 @@ FetchRegCent:
     }
   ]
 }'
-   Kernel_FetchRegCent_coordinate_specific_invalid_proximitydistance:
-      endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
-      role: admin
-      restMethod: get
-      inputTemplate: kernel/FetchRegCent/fetchRegCent
-      outputTemplate: kernel/error
-      input: '{
-  "longitude": "-6.453275",
-  "latitude": "34.52117",
-  "langcode": "eng",
-  "proximitydistance": "27",
-  "locationcode": "$REMOVE$",
-  "registrationcenterid": "$REMOVE$",
-  "year": "$REMOVE$",
-  "id": "$REMOVE$",
-  "hierarchylevel": "$REMOVE$",
-  "name": "$REMOVE$",
-  "timestamp": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
-    }
-  ]
-}'
    Kernel_FetchRegCent_By_LocationCode_allValid_smoke:
       endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
       role: admin
@@ -298,7 +271,7 @@ FetchRegCent:
   "proximitydistance": "$REMOVE$",
   "locationcode": "$REMOVE$",
   "registrationcenterid": "10001",
-  "year": "1002",
+  "year": "100@fhbdhhshssh2",
   "id": "$REMOVE$",
   "hierarchylevel": "$REMOVE$",
   "name": "$REMOVE$",
@@ -363,33 +336,6 @@ FetchRegCent:
     }
   ]
 }'
-   Kernel_FetchRegCent_By_id_invalid_id:
-      endPoint: /v1/masterdata/registrationcenters/{id}/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: kernel/FetchRegCent/fetchRegCent
-      outputTemplate: kernel/error
-      input: '{
-  "longitude": "$REMOVE$",
-  "latitude": "$REMOVE$",
-  "langcode": "eng",
-  "proximitydistance": "$REMOVE$",
-  "locationcode": "$REMOVE$",
-  "registrationcenterid": "$REMOVE$",
-  "year": "$REMOVE$",
-  "id": "1000000001",
-  "hierarchylevel": "$REMOVE$",
-  "name": "$REMOVE$",
-  "timestamp": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
-    }
-  ]
-}'
    Kernel_FetchRegCent_By_HierarchyLevel_Text_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
@@ -436,8 +382,8 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
     }
   ]
 }'
@@ -612,13 +558,13 @@ FetchRegCent:
   "id": "10001",
   "hierarchylevel": "$REMOVE$",
   "name": "$REMOVE$",
-  "timestamp": "2020T06:22:07.797Z"
+  "timestamp": "$TIMESTAM@@33$"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
+      "errorCode": "KER-MSD-033",
+      "message": "$IGNORE$"
     }
   ]
 }'

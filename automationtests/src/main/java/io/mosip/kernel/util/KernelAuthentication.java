@@ -174,10 +174,15 @@ public class KernelAuthentication extends BaseTestCase{
         JSONObject actualRequest_validation = getRequestJson(testsuite+"/OtpGeneration");
         //sending for otp
         appl.postWithJson(sendOtp, actualRequest_generation);
+        String otp=null;
+        		if (proxy)
+        			otp = "111111";
+        		else {
         //Getting the status of the UIN 
         String query="SELECT o.otp FROM kernel.otp_transaction o where id='"+key+"'";
         List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
-        String otp=status_list.get(0);
+        otp=status_list.get(0);
+        		}
         ((JSONObject)actualRequest_validation.get("request")).put("otp", otp);
         Response otpValidate=appl.postWithJson(useridOTP, actualRequest_validation);
         cookie=otpValidate.getCookie("Authorization");
