@@ -1,0 +1,14 @@
+RidGenerator:
+   Kernel_RidGenerator_All_Valid_Smoke_sid:
+      endPoint: /v1/ridgenerator/generate/rid/{centerid}/{machineid}
+      role: regproc
+      restMethod: post
+      inputTemplate: kernel/RidGenerator/ridGenerator
+      outputTemplate: kernel/RidGenerator/ridGeneratorResult
+      input: '{
+	"centerid": "68354",
+	"machineid": "95452"
+	}'
+      output: '{
+    "rid": "$REGEXP:6835495452*$"
+  }'

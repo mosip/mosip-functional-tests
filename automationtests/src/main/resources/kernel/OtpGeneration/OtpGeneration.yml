@@ -1,0 +1,29 @@
+OtpGeneration:
+   Kernel_OtpGeneration_allValid_smoke:
+      endPoint: /v1/otpmanager/otp/generate
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/OtpGeneration/otpGeneration
+      outputTemplate: kernel/OtpGeneration/otpGenerationResult
+      input: '{
+    "key": "otpKey",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "otp": "$IGNORE$",
+    "status": "GENERATION_SUCCESSFUL"
+}'
+   Kernel_OtpGeneration_invalid_key:
+      endPoint: /v1/otpmanager/otp/generate
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/OtpGeneration/otpGeneration
+      outputTemplate: kernel/OtpGeneration/otpGenerationResult
+      input: '{
+    "key": "o@@3344",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "otp": "$IGNORE$",
+    "status": "GENERATION_SUCCESSFUL"
+}'

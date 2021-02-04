@@ -30,7 +30,7 @@ FetchIDlist:
    "errors": [
     {
       "errorCode": "KER-MSD-022",
-      "message": "ID Type not found"
+      "message": "ID Type not found."
     }
   ]
 }'

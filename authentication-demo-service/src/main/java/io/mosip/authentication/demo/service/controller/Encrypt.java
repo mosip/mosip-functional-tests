@@ -169,6 +169,7 @@ public class Encrypt {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@PostMapping(path = "/encryptBiometricValue")
+
 	public SplittedEncryptedData encryptBiometrics(@RequestBody String bioValue,
 			@RequestParam(name = "timestamp", required = false) @Nullable String timestamp,
 			@RequestParam(name = "transactionId", required = false) @Nullable String transactionId,

@@ -1,0 +1,18 @@
+FetchLicenseKeyPermissions:
+   Kernel_FetchLicenseKeyPermissions_all_valid_smoke:
+      endPoint: /v1/keymanager/license/permission
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/LicenseKeyController/FetchLicenseKeyPermissions/fetchLicenseKeyPermissions
+      outputTemplate: kernel/LicenseKeyController/FetchLicenseKeyPermissions/fetchLicenseKeyPermissionsResult
+      input: '{
+	"licenseKey":"eng",
+	"tspId": "MOR"
+}'
+      output: '{
+    "permissions":[
+      {
+        "langCode": "eng",
+        "isActive":true
+          }]
+}'

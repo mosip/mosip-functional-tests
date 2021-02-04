@@ -1,0 +1,19 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "locations": [
+    {{#each locations}}
+      {
+        "locationHierarchylevel": $IGNORE$,
+        "locationHierarchyName": "$IGNORE$",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

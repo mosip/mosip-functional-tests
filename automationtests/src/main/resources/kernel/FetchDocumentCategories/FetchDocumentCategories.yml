@@ -6,14 +6,11 @@ FetchDocumentCategories:
       inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategoriesResult
       input: '{
-  "code":"DocTestCode01",
+  "code":"POI",
   "langcode":"eng"
 }'
       output: '{
 "documentcategories": [{
-        "code": "DocTestCode01",
-        "name": "DocCat",
-        "description": "$IGNORE$",
         "langCode": "eng",
         "isActive": true
       }]
@@ -43,7 +40,7 @@ FetchDocumentCategories:
       inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: kernel/error
       input: '{
-  "code":"$IGNORE$",
+  "code":"$REMOVE$",
   "langcode":"java"
 }'
       output: '{
@@ -61,14 +58,11 @@ FetchDocumentCategories:
       inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategoriesResult
       input: '{
-  "code":"$IGNORE$",
+  "code":"$REMOVE$",
   "langcode":"eng"
 }'
       output: '{
 "documentcategories": [{
-        "code": "DocTestCode01",
-        "name": "DocCat",
-        "description": "$IGNORE$",
         "langCode": "eng",
         "isActive": true
       }]

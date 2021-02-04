@@ -1,7 +1,7 @@
 GetDocType_DocCatByAppID:
    Kernel_GetDocType_DocCatByAppID_valid_smoke:
       endPoint: /v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}
-      role: individual
+      role: admin
       restMethod: get
       inputTemplate: kernel/GetDocType_DocCatByAppID/getDocType_DocCatByAppID
       outputTemplate: kernel/GetDocType_DocCatByAppID/getDocType_DocCatByAppIDResult
@@ -10,23 +10,29 @@ GetDocType_DocCatByAppID:
 	"languages": "eng"
 }'
       output: '{
-    "appTypeCode":"001",
     "langCode":"eng",
     "isActive":true,
     "documentCategories":[
       {
-        "code":"POI",
-        "name":"Proof of Identity",
-        "description":"Identity Proof",
         "langCode":"eng",
-        "isActive":true,
-        "documentTypes":[
-          {
-            "code":"CIN",
-            "name":"CNIE card",
-            "description":"Moroccan National Electronic ID Card",
-            "langCode":"eng",
-            "isActive":true
+        "isActive":true
           }]
-          }]
+}'
+   Kernel_GetDocType_DocCatByAppID_invalid_language:
+      endPoint: /v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetDocType_DocCatByAppID/getDocType_DocCatByAppID
+      outputTemplate: kernel/error
+      input: '{
+	"applicantId": "001",
+	"languages": "e@@@@456rfdhdh"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-150",
+      "message": "Document Category- Document Type mapping not found"
+    }
+  ]
 }'
