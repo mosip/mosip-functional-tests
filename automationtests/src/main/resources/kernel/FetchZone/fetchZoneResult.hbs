@@ -1,0 +1,28 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+    "response": [
+    {{#each response}}
+      {
+      "isActive": {{isActive}},
+      "createdBy": "$IGNORE$",
+      "createdDateTime": "$IGNORE$",
+      "updatedBy": null,
+      "updatedDateTime": null,
+      "isDeleted": null,
+      "deletedDateTime": null,
+      "code": "$IGNORE$",
+      "langCode": "$IGNORE$",
+      "name": "$IGNORE$",
+      "hierarchyLevel": $IGNORE$,
+      "hierarchyName": "$IGNORE$",
+      "parentZoneCode": "$IGNORE$",
+      "hierarchyPath": "$IGNORE$"
+     }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+  "errors": null
+}

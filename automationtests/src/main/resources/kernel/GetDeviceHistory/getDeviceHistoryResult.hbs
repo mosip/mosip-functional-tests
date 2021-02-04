@@ -7,15 +7,15 @@
     "deviceHistoryDetails": [
        {{#each deviceHistoryDetails}}
       {
-        "id": "{{id}}",
-        "name": "{{name}}",
-        "serialNum": "{{serialNum}}",
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "serialNum": "$IGNORE$",
         "ipAddress": "$IGNORE$",
-        "macAddress": "{{macAddress}}",
-        "deviceSpecId": "{{deviceSpecId}}",
+        "macAddress": "$IGNORE$",
+        "deviceSpecId": "$IGNORE$",
         "langCode": "{{langCode}}",
         "isActive": {{isActive}},
-        "effectDateTime": "{{effectDateTime}}",
+        "effectDateTime": "$IGNORE$",
         "validityDateTime": "$IGNORE$"
       }
       {{#unless @last}},{{/unless}}

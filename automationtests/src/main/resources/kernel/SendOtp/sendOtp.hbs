@@ -1,0 +1,19 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "appId": "{{appId}}",
+    "context": "{{context}}",
+    "otpChannel": [
+      {{#each otpChannel}}
+            "{{Channel}}"
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+    "templateVariables": {},
+    "userId": "{{userId}}",
+    "useridtype": "{{useridtype}}"
+  },
+  "requesttime": "{{requesttime}}",
+  "version": "string"
+}

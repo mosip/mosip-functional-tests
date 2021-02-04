@@ -6,12 +6,11 @@ FetchGenderType:
       inputTemplate: kernel/FetchGenderType/fetchGenderType
       outputTemplate: kernel/FetchGenderType/fetchGenderTypeResult
       input: '{
-   "langcode":"$REMOVE$"
+   "langcode":"$REMOVE$",
+   "gendername":"$REMOVE$"
 }'
       output: '{
 "genderType": [{
-      "code": "MLE",
-      "genderName": "Male",
       "langCode": "eng",
       "isActive": true
     }]
@@ -23,15 +22,40 @@ FetchGenderType:
       inputTemplate: kernel/FetchGenderType/fetchGenderType
       outputTemplate: kernel/FetchGenderType/fetchGenderTypeResult
       input: '{
-   "langcode":"eng"
+   "langcode":"eng",
+   "gendername":"$REMOVE$"
 }'
       output: '{
 "genderType": [{
-      "code": "MLE",
-      "genderName": "Male",
       "langCode": "eng",
       "isActive": true
     }]
+}'
+   Kernel_FetchGenderType_Validate_gender_name_smoke:
+      endPoint: /v1/masterdata/gendertypes/validate/{gendername}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchGenderType/fetchGenderType
+      outputTemplate: kernel/FetchGenderType/fetchGenderTypeValidationResult
+      input: '{
+   "langcode":"$REMOVE$",
+   "gendername":"Male"
+}'
+      output: '{
+	"status": "Valid"
+}'
+   Kernel_FetchGenderType_Validate_gender_name_invalid:
+      endPoint: /v1/masterdata/gendertypes/validate/{gendername}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchGenderType/fetchGenderType
+      outputTemplate: kernel/FetchGenderType/fetchGenderTypeValidationResult
+      input: '{
+   "langcode":"$REMOVE$",
+   "gendername":"M@@dfdf433556667"
+}'
+      output: '{
+	"status": "Invalid"
 }'
    Kernel_FetchGenderType_invalid_langcode_unexisting:
       endPoint: /v1/masterdata/gendertypes/{langcode}
@@ -40,7 +64,8 @@ FetchGenderType:
       inputTemplate: kernel/FetchGenderType/fetchGenderType
       outputTemplate: kernel/error
       input: '{
-   "langcode":"GER"
+   "langcode":"GER",
+   "gendername":"$REMOVE$"
 }'
       output: '{
    "errors": [

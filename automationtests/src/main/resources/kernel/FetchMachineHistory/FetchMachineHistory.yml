@@ -8,10 +8,11 @@ FetchMachineHistory:
       input: '{
   "effdatetimes": "2022-12-10T06:12:52.994Z",
   "langcode": "eng",
-  "id": "99999"
+  "id": "10004"
 }'
       output: '{
 "machineHistoryDetails": [{
+	        "langcode": "eng",
 			"isActive": true
 		}]
 }'

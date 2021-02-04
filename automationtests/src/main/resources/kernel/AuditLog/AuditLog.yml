@@ -1,0 +1,769 @@
+AuditLog:
+   Kernel_AuditLog_All_Valid_Smoke_sid:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/AuditLog/auditLogResult
+      input: '{
+    "eventId": "btnClick_002",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+    "status": true
+}'
+   Kernel_AuditLog_allValid_smoke_removing_optional_fields:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/AuditLog/auditLogResult
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+    "status": true
+}'
+   Kernel_AuditLog_invalid_applicationId_above64:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "qwertyuiopasdfghjklzxcvbnmqwertyqwertyuiopasdfghjklzxcvbnmqwert65",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.applicationId size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_applicationId_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.applicationId size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_applicationName_above128:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmas129",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.applicationId size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_applicationName_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.applicationName size must be between 1 and 128"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_createdBy_above256:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnm257",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.createdBy size must be between 1 and 256"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_createdBy_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.createdBy size must be between 1 and 256"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_createdBy_Removing required Data:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.createdBy size must be between 1 and 256"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventId_above64:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmas65",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventId size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventId_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventId size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventName_above128:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmas129",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventName size must be between 1 and 128"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventName_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventName size must be between 1 and 128"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventType_above64:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmas65",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventType size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_eventType_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.eventType size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_hostIp_above16:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "1234.12345.1234.1234",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.hostIp size must be between 1 and 16"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_hostIp_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.hostIp size must be between 1 and 16"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_hostName_above128:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "qwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmasqwertyuioplkjhgfdsazxcvbnmlkjhgfdsapqwertyuiopasdfghjklzxcvbnmas129",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.hostName size must be between 1 and 128"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_hostName_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.hostName size must be between 1 and 128"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_id_above64:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "qwertyuiopasdfghjklzxcvbnmqwertyqwertyuiopasdfghjklzxcvbnmqwert65",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.id size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_id_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "",
+    "idType": "audit",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.id size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_idType_above64:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "qwertyuiopasdfghjklzxcvbnmqwertyqwertyuiopasdfghjklzxcvbnmqwert65",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.idType size must be between 1 and 64"
+    }
+  ]
+}'
+   Kernel_AuditLog_invalid_idType_blank:
+      endPoint: /v1/auditmanager/audits
+      role: admin
+      restMethod: post
+      inputTemplate: kernel/AuditLog/auditLog
+      outputTemplate: kernel/error
+      input: '{
+    "eventId": "btnClick_001",
+    "eventName": "btnClick",
+    "eventType": "click",
+    "actionTimeStamp": "2018-12-12T11:11:11.256Z",
+    "hostName": "RegClient_003",
+    "hostIp": "132.23.42.34",
+    "applicationId": "otpValidator_001",
+    "applicationName": "otpValidator",
+    "sessionUserId": "session_001",
+    "sessionUserName": "auditSession",
+    "id": "aud_001",
+    "idType": "",
+    "createdBy": "supervisor_001",
+    "moduleName": "kernel",
+    "moduleId": "kernel_otp",
+    "description": "otpValidationLog",
+    "requesttime": "$TIMESTAMP$",
+    "version": "string"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-AUD-001",
+      "message": "Request.idType size must be between 1 and 64"
+    }
+  ]
+}'

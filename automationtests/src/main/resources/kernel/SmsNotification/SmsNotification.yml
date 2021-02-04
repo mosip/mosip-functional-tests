@@ -1,0 +1,16 @@
+SmsNotification:
+   Kernel_SmsNotification_all_valid_smoke:
+      endPoint: /v1/notifier/sms/send
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/SmsNotification/smsNotification
+      outputTemplate: kernel/SmsNotification/smsNotificationResult
+      input: '{
+    "message": "java",
+    "number": "8249732850",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"status": "success",
+	"message": "Sms Request Sent"
+}'

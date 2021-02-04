@@ -7,15 +7,11 @@ FetchTemplate:
       outputTemplate: kernel/FetchTemplate/fetchTemplateResult
       input: '{
       "langcode": "$REMOVE$",
+      "code": "$REMOVE$",
 "templatetypecode": "$REMOVE$"  
 }'
       output: '{
 "templates": [{
-				"name": "Template for authorization content",
-				"fileFormatCode": "txt",
-				"moduleId": "10007",
-				"moduleName": "ID Authentication",
-				"templateTypeCode": "auth-email-content",
 				"langCode": "eng",
 				"isActive": true
 			}]
@@ -28,15 +24,11 @@ FetchTemplate:
       outputTemplate: kernel/FetchTemplate/fetchTemplateResult
       input: '{
       "langcode": "eng",
+      "code": "$REMOVE$",
 "templatetypecode": "$REMOVE$"  
 }'
       output: '{
 "templates": [{
-				"name": "Template for authorization content",
-				"fileFormatCode": "txt",
-				"moduleId": "10007",
-				"moduleName": "ID Authentication",
-				"templateTypeCode": "auth-email-content",
 				"langCode": "eng",
 				"isActive": true
 			}]
@@ -49,15 +41,11 @@ FetchTemplate:
       outputTemplate: kernel/FetchTemplate/fetchTemplateResult
       input: '{
       "langcode": "eng",
+      "code": "$REMOVE$",
 "templatetypecode": "OTP-sms-template"  
 }'
       output: '{
 "templates": [{
-				"name": "Template for authorization content",
-				"fileFormatCode": "txt",
-				"moduleId": "10007",
-				"moduleName": "ID Authentication",
-				"templateTypeCode": "auth-email-content",
 				"langCode": "eng",
 				"isActive": true
 			}]
@@ -69,14 +57,15 @@ FetchTemplate:
       inputTemplate: kernel/FetchTemplate/fetchTemplate
       outputTemplate: kernel/error
       input: '{
-      "langcode": "",
+      "langcode": "@SSDWQ!!@W",
+      "code": "$REMOVE$",
 "templatetypecode": "OTP-sms-template"  
 }'
       output: '{
    "errors": [
     {
       "errorCode": "KER-MSD-046",
-      "message": "Template not found"
+      "message": "Template not found."
     }
   ]
 }'
@@ -88,13 +77,14 @@ FetchTemplate:
       outputTemplate: kernel/error
       input: '{
       "langcode": "GER",
+      "code": "$REMOVE$",
 "templatetypecode": "$REMOVE$"  
 }'
       output: '{
    "errors": [
     {
       "errorCode": "KER-MSD-046",
-      "message": "Template not found"
+      "message": "Template not found."
     }
   ]
 }'
@@ -105,14 +95,15 @@ FetchTemplate:
       inputTemplate: kernel/FetchTemplate/fetchTemplate
       outputTemplate: kernel/error
       input: '{
-      "langcode": "GER",
-"templatetypecode": "OTP-sms-template"  
+      "langcode": "GE@@@432R",
+      "code": "$REMOVE$",
+"templatetypecode": "$REMOVE$"  
 }'
       output: '{
    "errors": [
     {
       "errorCode": "KER-MSD-046",
-      "message": "Template not found"
+      "message": "Template not found."
     }
   ]
 }'
@@ -124,13 +115,50 @@ FetchTemplate:
       outputTemplate: kernel/error
       input: '{
       "langcode": "eng",
+      "code": "$REMOVE$",
 "templatetypecode": "notInDB"  
 }'
       output: '{
    "errors": [
     {
       "errorCode": "KER-MSD-046",
-      "message": "Template not found"
+      "message": "Template not found."
+    }
+  ]
+}'
+   Kernel_FetchTemplate_allValid_smoke_with_code:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchTemplate/fetchTemplate
+      outputTemplate: kernel/FetchTemplate/fetchTemplateResult
+      input: '{
+      "langcode": "$REMOVE$",
+      "code": "RPR_DUP_UIN_SMS",
+"templatetypecode": "$REMOVE$"  
+}'
+      output: '{
+"templates": [{
+				"langCode": "eng",
+				"isActive": true
+			}]
+}'
+   Kernel_FetchTemplate_invalid_code:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchTemplate/fetchTemplate
+      outputTemplate: kernel/error
+      input: '{
+      "langcode": "$REMOVE$",
+      "code": "RPR_DUP_UIN_RPR_DUP_UIN_",
+"templatetypecode": "$REMOVE$"  
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
     }
   ]
 }'

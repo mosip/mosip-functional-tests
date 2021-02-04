@@ -1,0 +1,67 @@
+TemplateFileFormat:
+   Kernel_TemplateFileFormat_allValid_smoke:
+      endPoint: /v1/masterdata/templatefileformats/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/TemplateFileFormat/templateFileFormat
+      outputTemplate: kernel/TemplateFileFormat/templateFileFormatResult
+      input: '{
+  "langcode": "eng",
+  "code": "json"
+}'
+      output: '{
+"templateFileFormats": [{
+			"isActive": true
+		}]
+}'
+   Kernel_TemplateFileFormat_inValid_langcode:
+      endPoint: /v1/masterdata/templatefileformats/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/TemplateFileFormat/templateFileFormat
+      outputTemplate: kernel/error
+      input: '{
+  "langcode": "endhddjg",
+  "code": "json"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
+    }
+  ]
+}'
+   Kernel_TemplateFileFormat_inValid_code:
+      endPoint: /v1/masterdata/templatefileformats/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/TemplateFileFormat/templateFileFormat
+      outputTemplate: kernel/error
+      input: '{
+  "langcode": "eng",
+  "code": "jdhdudhdson"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
+    }
+  ]
+}'
+   Kernel_TemplateFileFormat_langcode_allValid_smoke:
+      endPoint: /v1/masterdata/templatefileformats/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/TemplateFileFormat/templateFileFormat
+      outputTemplate: kernel/TemplateFileFormat/templateFileFormatResult
+      input: '{
+  "langcode": "eng",
+  "code": "$REMOVE$"
+}'
+      output: '{
+"templateFileFormats": [{
+			"isActive": true
+		}]
+}'

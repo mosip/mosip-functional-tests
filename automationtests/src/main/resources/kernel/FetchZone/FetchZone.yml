@@ -1,0 +1,63 @@
+FetchZone:
+   Kernel_FetchZone_Hierarchy_smoke:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchZone/fetchZone
+      outputTemplate: kernel/FetchZone/fetchZoneResult
+      input: '{
+  "langCode": "eng"
+}'
+      output: '{
+"response": [{
+        "isActive": true
+      }]
+}'
+   Kernel_FetchZone_Hierarchy_invalid_langcode:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchZone/fetchZone
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "en@@#eddeffrfrg"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Kernel_FetchZone_Leaf_smoke:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchZone/fetchZone
+      outputTemplate: kernel/FetchZone/fetchZoneResult
+      input: '{
+  "langCode": "eng"
+}'
+      output: '{
+"response": [{
+        "isActive": true
+      }]
+}'
+   Kernel_FetchZone_invalid_langcode:
+      endPoint: /v1/masterdata/zones/hierarchy/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchZone/fetchZone
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "en@@##EEDdd5442g"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
