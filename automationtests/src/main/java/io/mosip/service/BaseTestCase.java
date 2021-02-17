@@ -185,13 +185,20 @@ public class BaseTestCase {
 		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateKernelTest();
 		}
+		if (listOfModules.contains("regproc") || listOfModules.contains("all")) {
+			AdminTestUtil.initiateregProcTest();
+		}
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
+			
 			PreRegistrationLibrary pil = new PreRegistrationLibrary();
 			pil.PreRegistrationResourceIntialize();
-			new PreregistrationDAO().makeAllRegistartionCenterActive();
+			/* new PreregistrationDAO().makeAllRegistartionCenterActive(); */
+			 
 			try {
-				expiredPreRegIds = lib.createExpiredApplication();
-				consumedPreRegIds = lib.createConsumedPreId();
+				/*
+				 * expiredPreRegIds = lib.createExpiredApplication(); consumedPreRegIds =
+				 * lib.createConsumedPreId();
+				 */
 			} catch (Exception e) {
 				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
 				listOfModules.remove("prereg");

@@ -1,0 +1,30 @@
+GetApplicationWithPrId:
+   Prereg_GetApplicationWithPrId_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/GetApplicationWithPrId/getApplicationWithPrId
+      outputTemplate: preReg/GetApplicationWithPrId/getApplicationWithPrIdResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$"
+}'
+      output: '{
+  "langCode": "eng"
+}'
+   Prereg_GetApplicationWithPrId_inValid_preRegistrationId:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/GetApplicationWithPrId/getApplicationWithPrId
+      outputTemplate: preReg/error
+      input: '{
+  "preRegistrationId": "dhsb3772@Dfvgbgh"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}'

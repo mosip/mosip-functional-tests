@@ -1,15 +1,38 @@
 {
-    "id": "mosip.pre-registration.demographic.create",
+    "id": "mosip.pre-registration.demographic.retrieve.details",
     "version": "1.0",
     "responsetime": "$IGNORE$",
     "response": {
         "preRegistrationId": "$IGNORE$",
+        "createdBy": "$IGNORE$",
         "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
         "statusCode": "Pending_Appointment",
         "langCode": "{{langCode}}",
         "demographicDetails": {
             "identity": {
-                "IDSchemaVersion": 1,
+                "gender": [
+                    {
+                        "language": "eng",
+                        "value": "MLE"
+                    },
+                    {
+                        "language": "ara",
+                        "value": "MLE"
+                    }
+                ],
+                "city": [
+                    {
+                        "language": "eng",
+                        "value": "KNT"
+                    },
+                    {
+                        "language": "ara",
+                        "value": "KNT"
+                    }
+                ],
+                "postalCode": "14022",
                 "fullName": [
                     {
                         "language": "eng",
@@ -21,16 +44,28 @@
                     }
                 ],
                 "dateOfBirth": "1996/01/01",
-                "gender": [
+                "IDSchemaVersion": 1,
+                "province": [
                     {
                         "language": "eng",
-                        "value": "MLE"
+                        "value": "KTA"
                     },
                     {
                         "language": "ara",
-                        "value": "MLE"
+                        "value": "KTA"
                     }
                 ],
+                "zone": [
+                    {
+                        "language": "eng",
+                        "value": "BNMR"
+                    },
+                    {
+                        "language": "ara",
+                        "value": "BNMR"
+                    }
+                ],
+                "phone": "8249742850",
                 "addressLine1": [
                     {
                         "language": "eng",
@@ -81,38 +116,6 @@
                         "value": "RSK"
                     }
                 ],
-                "province": [
-                    {
-                        "language": "eng",
-                        "value": "KTA"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KTA"
-                    }
-                ],
-                "city": [
-                    {
-                        "language": "eng",
-                        "value": "KNT"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KNT"
-                    }
-                ],
-                "zone": [
-                    {
-                        "language": "eng",
-                        "value": "BNMR"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "BNMR"
-                    }
-                ],
-                "postalCode": "14022",
-                "phone": "8249742850",
                 "email": "sohan.dey@technoforte.co.in"
             }
         }
