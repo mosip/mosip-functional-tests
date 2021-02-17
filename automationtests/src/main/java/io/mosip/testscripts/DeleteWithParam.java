@@ -24,10 +24,9 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
-public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(PostWithFormPathParamAndFile.class);
+public class DeleteWithParam extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(DeleteWithParam.class);
 	protected String testCaseName = "";
-	public String idKeyName = null;
 	public Response response = null;
 	/**
 	 * get current testcaseName
@@ -45,7 +44,6 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -60,17 +58,22 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
 		testCaseName = testCaseDTO.getTestCaseName(); 
+		response = deleteWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
-		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		  Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+		  .doJsonOutputValidation(response.asString(),
+		  getJsonFromTemplate(testCaseDTO.getOutput(),
+		  testCaseDTO.getOutputTemplate()));
+		  Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		 
 		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
+		
+		  if (!OutputValidationUtil.publishOutputResult(ouputValid)) throw new
+		  AdminTestException("Failed at output validation");
+		 
 
 	}
 

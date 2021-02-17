@@ -1,0 +1,18 @@
+AssignData:
+   regProc_AssignData_All_Valid_Smoke_sid:
+      endPoint: /registrationprocessor/v1/manualverification/assignment
+      role: regProc
+      restMethod: post
+      inputTemplate: regProc/ManualAdjudication/AssignData/assignData
+      outputTemplate: regProc/ManualAdjudication/AssignData/assignDataResult
+      input: '{
+  "id": "mosip.manual.verification.assignment",
+  "version": "1.0",
+  "userId": "110006",
+  "matchType": "all",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "mvUsrId": "110006",
+  "statusCode": "ASSIGNED"
+}'

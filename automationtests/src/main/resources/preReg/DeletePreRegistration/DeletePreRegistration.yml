@@ -1,0 +1,30 @@
+DeletePreRegistration:
+   Prereg_DeletePreRegistration_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: delete
+      inputTemplate: preReg/DeletePreRegistration/deletePreRegistration
+      outputTemplate: preReg/DeletePreRegistration/deletePreRegistrationResult
+      input: '{
+	"preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$"
+}'
+      output: '{
+"deletedBy": "mosipuser123@mailinator.com"
+}'
+   Prereg_DeletePreRegistration_inValid_preRegistrationId_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: delete
+      inputTemplate: preReg/DeletePreRegistration/deletePreRegistration
+      outputTemplate: preReg/error
+      input: '{
+	"preRegistrationId": "nhhh654443@@ffffv"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}'

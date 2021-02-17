@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-	<test name="RegistrationProcessor Tests">
+	<!--<test name="RegistrationProcessor Tests">
 		<classes>
 			<class
 				name="io.mosip.registrationProcessor.tests.SecurityTests" />
@@ -38,5 +38,21 @@
 			<class
 				name="io.mosip.registrationProcessor.tests.PacketManagerValidatePacket" />
 		</classes>
+	</test>-->
+	
+	<test name="AssignData">
+		<parameter name="ymlFile"
+			value="regProc/ManualAdjudication/AssignData/AssignData.yml" />
+			<parameter name="idKeyName"	value="regId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
 	</test>
+	<test name="DecissionData">
+		<parameter name="ymlFile"
+			value="regProc/ManualAdjudication/DecissionData/DecissionData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
 </suite>
