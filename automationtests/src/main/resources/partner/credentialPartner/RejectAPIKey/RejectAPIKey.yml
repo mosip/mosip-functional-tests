@@ -1,0 +1,35 @@
+RejectAPIKey:
+   Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/apikey/{apikey}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/credentialPartner/RejectAPIKey/rejectAPIKey
+      outputTemplate: partner/credentialPartner/RejectAPIKey/rejectAPIKeyResult
+      input: '{
+      "status": "rejected",
+      "apikey": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "message": "Apikey request rejected successfully."
+    }'
+
+   Partner_ApproveRejectPartnerAPIKeyReq_Missing_InputParameter_status:
+      endPoint: /v1/partnermanager/partners/apikey/{apikey}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/credentialPartner/RejectAPIKey/rejectAPIKey
+      outputTemplate: partner/error
+      input: '{
+      "status": "$REMOVE$",
+      "apiKeyReqId": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be empty  request.status"
+    }
+  ]
+}'

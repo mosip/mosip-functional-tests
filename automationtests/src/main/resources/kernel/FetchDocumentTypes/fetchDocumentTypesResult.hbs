@@ -4,18 +4,18 @@
   "responsetime": "$IGNORE$",
   "metadata": "$IGNORE$",
   "response": {
-    "documenttypes": [
-      {{#each documenttypes}}  
+    "documents": [
+    {{#each documents}}
       {
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
+        "code": "{{code}}",
+        "name": "{{name}}",
         "description": "$IGNORE$",
         "langCode": "{{langCode}}",
-        "isActive": "{{isActive}}"
+        "isActive": {{isActive}}
       }
-       {{#unless @last}},{{/unless}}
+      {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
   },
-  "errors": null
+  "errors": "$IGNORE$"
 }

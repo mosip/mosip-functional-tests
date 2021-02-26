@@ -1,16 +1,18 @@
 FetchDocumentTypes:
-   Kernel_FetchDocumentTypes_all_valid_smoke_langcodeandCode:
+   Kernel_FetchDocumentTypes_valid_smoke_langcodeandCode:
       endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: admin
       restMethod: get
       inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
       outputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypesResult
       input: '{
-  "documentcategorycode":"POI",
+  "documentcategorycode":"DocTestCode01",
    "langcode":"eng"
 }'
       output: '{
-"documents": [{
+"documents": {
+        "code": "MSD",
+        "name": "MSD Card",
         "langCode": "eng",
         "isActive": true
       }]
@@ -26,28 +28,10 @@ FetchDocumentTypes:
    "langcode":"eng"
 }'
       output: '{
-"documenttypes": [{
+"documenttypes": {
         "langCode": "eng",
         "isActive": true
       }]
-}'
-   Kernel_FetchDocumentTypes_invalid_langcode:
-      endPoint: /v1/masterdata/documenttypes/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: kernel/FetchDocumentTypes/fetchDocumentTypes
-      outputTemplate: kernel/error
-      input: '{
-  "documentcategorycode":"$REMOVE$",
-   "langcode":"e@@efff34354566y"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-118",
-      "message": "Document Type not found"
-    }
-  ]
 }'
    Kernel_FetchDocumentTypes_invalid_documentcategorycode_notpresent:
       endPoint: /v1/masterdata/documenttypes/{documentcategorycode}/{langcode}

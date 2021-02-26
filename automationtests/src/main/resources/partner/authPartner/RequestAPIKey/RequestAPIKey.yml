@@ -1,0 +1,17 @@
+requetAPIKey:
+   Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/Tech-123/apikey/request
+      role: partner
+      restMethod: patch 
+      inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
+      outputTemplate: partner/authPartner/RequestAPIKey/requestApiKeyResult
+      input: '{
+        "policyName": "mosip policy",
+        "useCaseDescription": "Need to submit the payment",
+		"requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+        "apiRequestId": "254785",
+        "message": "PartnerAPIKeyRequest successfully submitted.",
+		"apikeyId": null
+    }'

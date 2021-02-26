@@ -1,0 +1,230 @@
+definePolicy:
+   Partner_DefinePolicy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+        "id": "110203",
+        "policyGroupName": "mosip policy group",
+        "name": "mosip policy",
+        "desc": "desc mosip policy",
+        "is_Active": false,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-10-20T21:49:13.222758"
+    }'
+
+   Partner_DefinePolicy_Missing_InputParameter_name:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "$REMOVE$",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Policy name should not be empty. request.name"
+    }
+  ]
+}'
+
+
+   Partner_DefinePolicy_Missing_InputParameter_desc:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "$REMOVE$",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Policy desc should not be blank. request.desc"
+    }
+  ]
+}'
+
+
+   Partner_DefinePolicy_Missing_InputParameter_authSubType:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "$REMOVE$",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "Auth policy exists with name : mosip policy"
+    }
+  ]
+}'
+
+
+   Partner_DefinePolicy_Missing_InputParameter_authType:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "$REMOVE$",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "Auth policy exists with name : mosip policy"
+    }
+  ]
+}'
+
+
+   Partner_DefinePolicy_Missing_InputParameter_authTokenType:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "$REMOVE$",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "Auth policy exists with name : mosip policy"
+    }
+  ]
+}'
+
+
+   Partner_DefinePolicy_Missing_InputParameter_policyGroupName:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "$REMOVE$",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Policy group name should not be empty. request.policyGroupName"
+    }
+  ]
+}'
+
+   Partner_DefinePolicy_Missing_InputParameter_policyType:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "desc mosip policy",
+		"name": "mosip policy",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"attributeName": "string",
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "$REMOVE$",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Policy type should not be empty. Allowed values Auth/DataShare/CredentialIssuance request.policyType"
+    }
+  ]
+}'

@@ -1,0 +1,62 @@
+definePolicyGroup:
+   Partner_DefinePolicyGroup_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "id": "162549",
+        "name": "mosip policy group",
+        "desc": "desc mosip policy group",
+        "is_Active": true,
+        "cr_by": "pm_testuser",
+        "cr_dtimes": "2020-10-20T07:05:34.945894",
+        "up_by": null,
+        "upd_dtimes": null
+    }'
+
+   Partner_DefinePolicyGroup_Missing_InputParameter_desc:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "$REMOVE$",
+    "name": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Group desc should not be blank. request.desc"
+    }
+  ]
+}'
+
+   Partner_DefinePolicyGroup_Missing_InputParameter_name:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Group name should not be empty. request.name"
+    }
+  ]
+}'

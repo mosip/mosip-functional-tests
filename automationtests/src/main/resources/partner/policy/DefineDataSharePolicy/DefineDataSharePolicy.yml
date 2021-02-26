@@ -1,0 +1,27 @@
+defineDataSharePolicy:
+   Partner_DefineDataSharePolicy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy",
+		"name": "mosip data share policy",
+		"policyId": "MDSP",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+ 	"id": "922280",
+    "policyGroupName": "mosip policy group",
+    "name": "mosip data share policy",
+    "desc": "mosip data share policy",
+    "is_Active": false,
+    "cr_by": "110124",
+    "cr_dtimes": "2021-02-19T10:59:07.388+0000"        
+    }'

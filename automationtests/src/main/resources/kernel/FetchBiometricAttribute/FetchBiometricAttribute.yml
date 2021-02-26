@@ -11,8 +11,8 @@ FetchBiometricAttribute:
 }'
       output: '{
 "biometricattributes": [{
-        "code": "TM",
-        "name": "Thumbs",
+        "code": "LTM",
+        "name": "Left Thumb",
         "biometricTypeCode": "FNR",
         "langCode": "eng",
         "isActive": true
@@ -53,4 +53,22 @@ FetchBiometricAttribute:
       "message": "BiometricAttribute not found"
     }
   ]
+}'   
+   Kernel_FetchBiometricAttribute_invalid_langcode_empty:
+      endPoint: /v1/masterdata/getbiometricattributesbyauthtype/{langcode}/{biometrictypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAttribute/fetchBiometricAttribute
+      outputTemplate: kernel/error
+      input: '{
+"langcode":"",
+ "biometrictypecode":"FNR"
 }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-004",
+      "message": "BiometricAttribute not found"
+    }
+  ]
+}'   

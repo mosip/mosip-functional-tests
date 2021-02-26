@@ -1,0 +1,148 @@
+createPartnerSelfRegistration:
+   Partner_PartnerSelfRegistration_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/authPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "Tech-123",
+        "status": "InProgress"
+    }'
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_PartnerId:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "$REMOVE$",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "partnerId must not be empty  request.partnerId"
+    }
+  ]
+}'
+
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_address:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "$REMOVE$",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "address must not be null  request.address"
+    }
+  ]
+}'
+
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_contactNumber:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "$REMOVE$",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "contactNumber must not be empty  request.contactNumber"
+    }
+  ]
+}'
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_emailId:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "$REMOVE$",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "emailId must not be empty  request.emailId"
+    }
+  ]
+}'
+
+   Partner_PartnerSelfRegistration_Missing_InputParameter_partnerType:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "$REMOVE$",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "partnerType must not be null  request.partnerType"
+    }
+  ]
+}'
