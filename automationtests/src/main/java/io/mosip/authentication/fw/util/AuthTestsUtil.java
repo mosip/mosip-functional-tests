@@ -1,7 +1,7 @@
 package io.mosip.authentication.fw.util;
 
 import java.io.DataOutputStream;
-import java.io.File;    
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -19,12 +19,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Map.Entry;
 
 import javax.ws.rs.core.MediaType;
 
@@ -32,12 +32,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
@@ -45,11 +41,9 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.kernel.util.KernelDataBaseAccess;
-import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -962,8 +956,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	
 	public static void initiateAuthTest() {
 		copyAuthTestResource();
-		IdRepoTestsUtil.copyIdrepoTestResource();
-		ResidentTestUtil.initiateResidentTest();
 	}
 	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	public static void createDeviceManagementData()

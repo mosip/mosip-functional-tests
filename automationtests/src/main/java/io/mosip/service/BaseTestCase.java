@@ -8,8 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import io.mosip.kernel.util.KernelDataBaseAccess;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -23,13 +22,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.PMPDataManager;
-import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
-import io.mosip.preregistration.dao.PreregistrationDAO;
-import io.mosip.resident.fw.util.ResidentTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
 import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
@@ -171,7 +166,6 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			//insertDevicedata = true;
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
@@ -191,31 +185,6 @@ public class BaseTestCase {
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			AdminTestUtil.copyPreregTestResource();
 			
-//			PreRegistrationLibrary pil = new PreRegistrationLibrary();
-//			pil.PreRegistrationResourceIntialize();
-//			/* new PreregistrationDAO().makeAllRegistartionCenterActive(); */
-//			 
-//			try {
-//				/*
-//				 * expiredPreRegIds = lib.createExpiredApplication(); consumedPreRegIds =
-//				 * lib.createConsumedPreId();
-//				 */
-//			} catch (Exception e) {
-//				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
-//				listOfModules.remove("prereg");
-//			}
-//
-//			/**
-//			 * here we are assuming batch job will run in every 5 min thats why we are
-//			 * giving wait for 10 min
-//			 */
-//			logger.info("waiting for job run to start");
-//			try {
-//				TimeUnit.SECONDS.sleep(10);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//
-//			}
 		}
 		
 		//inserting device management data
@@ -225,32 +194,7 @@ public class BaseTestCase {
 			AuthTestsUtil.createDeviceManagementData();
 		}
 
-	} // End suiteSetup
-
-		
-			//authToken=pil.getToken();
-			/*htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/MyOwnReport.html");
-			extent=new ExtentReports();
-			extent.setSystemInfo("Build Number", buildNumber);
-			extent.attachReporter(htmlReporter);*/
-
-			
-			/*htmlReporter.config().setDocumentTitle("MosipAutomationTesting Report");
-			htmlReporter.config().setReportName("Mosip Automation Report");
-			htmlReporter.config().setTheme(Theme.STANDARD);*/
-			/*TokenGeneration generateToken = new TokenGeneration();
-			TokenGenerationEntity tokenEntity = new TokenGenerationEntity();
-			String tokenGenerationProperties = generateToken.readPropertyFile("syncTokenGenerationFilePath");
-			tokenEntity = generateToken.createTokenGeneratorDto(tokenGenerationProperties);
-			regProcAuthToken = generateToken.getToken(tokenEntity);
-			TokenGenerationEntity adminTokenEntity = new TokenGenerationEntity();
-			String adminTokenGenerationProperties = generateToken.readPropertyFile("getStatusTokenGenerationFilePath");
-			adminTokenEntity = generateToken.createTokenGeneratorDto(adminTokenGenerationProperties);
-			adminRegProcAuthToken = generateToken.getToken(adminTokenEntity);*/
-			
-
-
-		// End suiteSetup
+	} 
 
 
 	/**

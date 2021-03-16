@@ -32,7 +32,7 @@ public class PMPDataManager {
         if(isDataToBeInsert) {
             insertData();
             authManager = new KernelAuthentication();
-			/* uploadPartnerCertificate(); */
+			 uploadPartnerCertificate(); 
         }
         if(!isDataToBeInsert){
         	deleteCertficate();
@@ -40,25 +40,27 @@ public class PMPDataManager {
         }
     }
 
-	/*
-	 * public void uploadPartnerCertificate() { Object certificate =
-	 * getCertificate(); String uploadCertificateReq
-	 * ="{\"id\": \"string\",\"metadata\": {},\"request\": {\"certificateData\": \"CERTIFICATE\",\"organizationName\": \"IITB\",\"partnerDomain\": \"Auth\",\"partnerId\": \"PID\",\"partnerType\": \"PMS Auth\"},\"requesttime\": \"TIMESTAMP\",\"version\": \"1.0\"}"
-	 * ; uploadCertificateReq = uploadCertificateReq.replace("PID",
-	 * "1873299273").replace("TIMESTAMP", generateCurrentUTCTimeStamp()); JSONObject
-	 * jsonReq = new JSONObject(uploadCertificateReq); JSONObject request = new
-	 * JSONObject(jsonReq.get("request").toString()); request.put("certificateData",
-	 * certificate); jsonReq.put("request", request); Response apiResponse =
-	 * RestClient.postRequestWithCookie(BaseTestCase.ApplnURI+uploadCertiUrl,
-	 * jsonReq.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-	 * "Authorization", authManager.getTokenByRole("regproc"));
-	 * logger.info("response from upload certificate api:  "+apiResponse.asString())
-	 * ; JSONObject jsonRes = new
-	 * JSONObject(apiResponse.asString()).getJSONObject("response");
-	 * if(jsonRes!=null) certificateId = jsonRes.getString("certificateId");
-	 * logger.info("Certificate Id to be deleted:  "+certificateId);
-	 * System.err.println(certificateId); }
-	 */
+	
+	public void uploadPartnerCertificate() {
+		Object certificate = getCertificate();
+		String uploadCertificateReq = "{\"id\": \"string\",\"metadata\": {},\"request\": {\"certificateData\": \"CERTIFICATE\",\"organizationName\": \"IITB\",\"partnerDomain\": \"Auth\",\"partnerId\": \"PID\",\"partnerType\": \"PMS Auth\"},\"requesttime\": \"TIMESTAMP\",\"version\": \"1.0\"}";
+		uploadCertificateReq = uploadCertificateReq.replace("PID", "1873299273").replace("TIMESTAMP",
+				generateCurrentUTCTimeStamp());
+		JSONObject jsonReq = new JSONObject(uploadCertificateReq);
+		JSONObject request = new JSONObject(jsonReq.get("request").toString());
+		request.put("certificateData", certificate);
+		jsonReq.put("request", request);
+		Response apiResponse = RestClient.postRequestWithCookie(BaseTestCase.ApplnURI + uploadCertiUrl,
+				jsonReq.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
+				authManager.getTokenByRole("regproc"));
+		logger.info("response from upload certificate api:  " + apiResponse.asString());
+		JSONObject jsonRes = new JSONObject(apiResponse.asString()).getJSONObject("response");
+		if (jsonRes != null)
+			certificateId = jsonRes.getString("certificateId");
+		logger.info("Certificate Id to be deleted:  " + certificateId);
+		/* System.err.println(certificateId); */
+	}
+	 
     private String generateCurrentUTCTimeStamp() {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
