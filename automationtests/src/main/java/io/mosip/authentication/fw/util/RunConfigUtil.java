@@ -8,9 +8,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import io.mosip.authentication.fw.dto.TokenIdDto;
-import io.mosip.authentication.idRepository.fw.util.IdRepoRunConfig;
-import io.mosip.pmp.fw.util.PartnerRunConfig;
-import io.mosip.resident.fw.util.ResidentRunConfig;
 import io.mosip.testrunner.MosipTestRunner;
 
 /**
@@ -134,14 +131,7 @@ public class RunConfigUtil {
 	 * @param moduleObject
 	 */
 	public static void getRunConfigObject(String module) {
-		if (module.equals("ida"))
 			objRunConfig = new IdaRunConfig();
-		else if (module.equals("idrepo"))
-			objRunConfig = new IdRepoRunConfig();
-		else if (module.equals("resident"))
-			objRunConfig = new ResidentRunConfig();
-		else if (module.equals("partner"))
-			objRunConfig = new PartnerRunConfig();
 	}
 	
 	/**

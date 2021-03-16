@@ -8,11 +8,11 @@ AssignData:
       input: '{
   "id": "mosip.manual.verification.assignment",
   "version": "1.0",
-  "userId": "110006",
+  "userId": "110126",
   "matchType": "all",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "mvUsrId": "110006",
+  "mvUsrId": "110126",
   "statusCode": "ASSIGNED"
 }'

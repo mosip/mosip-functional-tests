@@ -1,9 +1,0 @@
-{
-	"id": "mosip.resident.authunlock",
-	"version": "v1",
-	"responsetime": "$TIMESTAMP$",
-	"response": {
-		"message": "Notification has been sent to the provided contact detail(s)"
-	},
-	"errors": []
-}

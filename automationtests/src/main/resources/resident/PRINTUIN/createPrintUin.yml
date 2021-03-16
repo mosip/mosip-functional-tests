@@ -7,7 +7,7 @@ PrintUin:
       outputTemplate: resident/PRINTUIN/createPrintUinResult
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -17,7 +17,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -40,7 +40,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567891",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -50,7 +50,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567891",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -77,7 +77,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567892",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -87,7 +87,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567892",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -114,7 +114,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567893",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -124,7 +124,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567893",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -151,7 +151,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567894",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"individualIdType": "U7876@N",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -161,7 +161,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567894",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -188,7 +188,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567895",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 		"individualIdType": "U76@N",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -198,7 +198,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567895",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -235,7 +235,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567896",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -272,7 +272,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567897",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -299,7 +299,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -309,7 +309,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -336,7 +336,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -346,7 +346,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -373,7 +373,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -383,7 +383,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -410,7 +410,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$,
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -420,7 +420,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -447,7 +447,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "",
         "id": "mosip.resident.printuin",
@@ -457,7 +457,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -484,7 +484,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -494,7 +494,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -521,7 +521,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "@dsfga456",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -531,7 +531,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -558,7 +558,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -568,7 +568,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -595,7 +595,7 @@ PrintUin:
       outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567898",
-		"individualId": "6834197843",
+		"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
@@ -605,7 +605,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -642,7 +642,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -679,7 +679,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
@@ -716,7 +716,7 @@ PrintUin:
 		"sendOtp":{
 	"transactionID": "1234567898",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "6834197843",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"

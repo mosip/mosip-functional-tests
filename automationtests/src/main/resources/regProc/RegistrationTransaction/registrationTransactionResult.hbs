@@ -1,0 +1,20 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "response": [
+  {{#each response}}
+    {
+        "id": "$IGNORE$",
+        "registrationId": "{{registrationId}}",
+        "transactionTypeCode": "$IGNORE$",
+        "parentTransactionId": "$IGNORE$",
+        "statusCode": "$IGNORE$",
+        "statusComment": "$IGNORE$",
+        "createdDateTimes": "$IGNORE$"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+  "errors": "$IGNORE$"
+}

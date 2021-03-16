@@ -1,0 +1,70 @@
+BioFace:
+  Ida_Authentication_Biometric_Face_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/
+      role: ida
+      restMethod: post
+      inputTemplate: ida/BioFace/bioFace
+      outputTemplate: ida/BioFace/bioFaceResult
+      input: '{
+    "requestedAuth": [
+      {
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "pin": false
+      }
+    ],
+        "id": "mosip.identity.auth",
+        "consentObtained": true,
+		"individualId": "$UIN$",
+		"individualIdType": "UIN",
+		"request": "$request$",
+		"requestHMAC": "$HMAC$",
+		"requestTime": "$TIMESTAMP$",
+        "requestSessionKey": "$KEY$",
+		"transactionID": "1234567890",
+		"domainUri": "$domainUri$",
+        "env": "$env$",
+		"version": "$version$",
+		"identityRequest":{
+    "biometrics": [
+      {
+        "data": {
+          "bioSubType": "{{}}",
+          "bioType": "{{}}",
+          "bioValue": "{{}}",
+          "deviceCode": "",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "{{}}",
+          "digitalId": {
+            "dateTime": "2021-03-09T10:01:02.369Z",
+            "deviceProvider": "TP_05",
+            "deviceProviderId": "1873299273",
+            "deviceSubType": "Full face\u0027,",
+            "make": "Logitech",
+            "model": "6bdd1fc6-810f-11d0-bec7-08002be2092f",
+            "serialNo": "097b9460-d3d3-4e14-8ac9-c95a734d5d81",
+            "type": "Face"
+          },
+          "domainUri": "https://dev.mosip.net",
+          "env": "https://dev.mosip.net",
+          "purpose": "AUTH",
+          "qualityScore": 70,
+          "requestedScore": 70,
+          "timestamp": "2021-03-09T10:01:02.360Z",
+          "transactionId": "1234567890"
+        },
+        "hash": "$hash$",
+        "sessionKey": "$sessionKey$"
+      }
+    ],
+    "timestamp": "2021-03-09T10:01:02.387Z",
+    "transactionID": "1234567890"
+	"BioIdentityEncryptReqTemplate": "ida/BioFace/BioIdentityEncrypt",
+	"BioIdentityEncryptEndPoint": "/idauthentication/v1/internal/encrypt"
+	}
+	}'
+      output: '{
+  "vidStatus":"ACTIVE"
+}'

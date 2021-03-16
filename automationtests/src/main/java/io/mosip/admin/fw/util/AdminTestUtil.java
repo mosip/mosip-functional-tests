@@ -1019,4 +1019,16 @@ public String generateSignatureWithRequest(String Request) {
 		return "Not able to Get Signature";
 		
 	}
+public static void copyPreregTestResource() {
+	try {
+		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/preReg");
+		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+		FileUtils.copyDirectoryToDirectory(source, destination);
+		File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+		FileUtils.copyDirectoryToDirectory(config, destination);
+		logger.info("Copied the prereg test resource successfully");
+	} catch (Exception e) {
+		logger.error("Exception occured while copying the file: "+e.getMessage());
+	}
+}
 }
