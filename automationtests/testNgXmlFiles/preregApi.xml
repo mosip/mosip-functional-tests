@@ -129,6 +129,13 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
+	</test>
+	<test name="GetPRIDByDateRange">
+		<parameter name="ymlFile"
+			value="preReg/GetPRIDByDateRange/GetPRIDByDateRange.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
 	</test> 
 	 <test name="BookAppointment">
 		<parameter name="ymlFile"

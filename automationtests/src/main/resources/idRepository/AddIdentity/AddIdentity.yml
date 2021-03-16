@@ -295,7 +295,7 @@ AddIdentity:
     }
   ]
 }'
-   IdRepository_AddIdentity_with_invalid_InvalidFirstLangCodeForGender:
+   IdRepository_AddIdentity_with_invalid_Invalidlanguage:
       endPoint: /idrepository/v1/identity/
       role: regproc
       restMethod: post

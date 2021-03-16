@@ -1,5 +1,5 @@
 UpdateIdentity:
-  IdRepository_UpdateIdentity_with_AddressLine1_smoke:
+  IdRepository_UpdateIdentity_all_valid_smoke:
       endPoint: /idrepository/v1/identity/
       role: regproc
       restMethod: patch
@@ -11,7 +11,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore, Karnataka-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'
@@ -30,7 +29,6 @@ UpdateIdentity:
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'
@@ -54,7 +52,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "89HTR"
       }'
@@ -78,7 +75,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$T",
       "version": "v1"
       }'
@@ -102,7 +98,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'
@@ -126,7 +121,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "$REMOVE$"
       }'
@@ -150,7 +144,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$REMOVE$",
       "version": "v1"
       }'
@@ -174,7 +167,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'
@@ -198,7 +190,6 @@ UpdateIdentity:
       "email": "user@mailinator.com",
       "phone": "824222@@@@@####850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'
@@ -222,7 +213,6 @@ UpdateIdentity:
       "email": "us####@@@@$%%^^^^%%ator.com",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
-      "addressLine1": "1st street, Sarjapur Road, Bangalore-560087",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
       }'

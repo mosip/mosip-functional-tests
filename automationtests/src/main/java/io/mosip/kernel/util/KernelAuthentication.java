@@ -21,7 +21,8 @@ public class KernelAuthentication extends BaseTestCase{
 	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
-	public final Map<String, String> props = new CommonLibrary().readProperty("Kernel");
+	CommonLibrary clib= new CommonLibrary();
+	public final Map<String, String> props = clib.readProperty("Kernel");
 	
 	private String individual_appid=props.get("individual_appid");
 	private String individual_password=props.get("individual_password");
@@ -60,6 +61,9 @@ public class KernelAuthentication extends BaseTestCase{
 	private String useridOTP = props.get("useridOTP");
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
+	private String authRequest="kernel/Authorization/request.json";
+	private String preregSendOtp= props.get("preregSendOtp");
+	private String preregValidateOtp= props.get("preregValidateOtp");
 
 	
 	
@@ -98,7 +102,7 @@ public class KernelAuthentication extends BaseTestCase{
 			return partnerCookie;
 		case "batch":
 			if (!kernelCmnLib.isValidToken(batchJobToken)) 
-				batchJobToken = new PreRegistrationLibrary().batchToken();
+				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
 		case "invalid":
 			return "anyRandomString";
@@ -121,7 +125,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("admin_appid"));
@@ -136,7 +140,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForPartner() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("partner_appid"));
@@ -151,7 +155,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForResident() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("resident_appid"));
@@ -167,11 +171,11 @@ public class KernelAuthentication extends BaseTestCase{
 	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
 		// getting request and expected response jsondata from json files.
-        JSONObject actualRequest_generation = getRequestJson(testsuite+"/OtpGeneration");
+        JSONObject actualRequest_generation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
         //Getting the userId from request
         String key=((JSONObject)actualRequest_generation.get("request")).get("userId").toString();
         // getting request and expected response jsondata from json files.
-        JSONObject actualRequest_validation = getRequestJson(testsuite+"/OtpGeneration");
+        JSONObject actualRequest_validation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
         //sending for otp
         appl.postWithJson(sendOtp, actualRequest_generation);
         String otp=null;
@@ -188,11 +192,37 @@ public class KernelAuthentication extends BaseTestCase{
         cookie=otpValidate.getCookie("Authorization");
 		return cookie;
 	}
+	
+	public String getPreRegToken() {	
+		// getting request and expected response jsondata from json files.
+        JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
+        actualRequest_generation.put("requesttime", clib.getCurrentUTCTime()); 
+        //Getting the userId from request
+        String key=((JSONObject)actualRequest_generation.get("request")).get("userId").toString();
+        // getting request and expected response jsondata from json files.
+        JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
+        //sending for otp
+        appl.postWithJson(preregSendOtp, actualRequest_generation);
+        String otp=null;
+        		if (proxy)
+        			otp = "111111";
+        		else {
+        //Getting the status of the UIN 
+        String query="SELECT o.otp FROM kernel.otp_transaction o where id='"+key+"'";
+        List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
+        otp=status_list.get(0);
+        		}
+        ((JSONObject)actualRequest_validation.get("request")).put("otp", otp);
+        actualRequest_validation.put("requesttime", clib.getCurrentUTCTime());
+        Response otpValidate=appl.postWithJson(preregValidateOtp, actualRequest_validation);
+        cookie=otpValidate.getCookie("Authorization");
+		return cookie;
+	}
 
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationProcessor() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", regProc_appid);
@@ -207,7 +237,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForIDA() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", ida_appid);
@@ -222,7 +252,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationAdmin() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 
 		JSONObject request=new JSONObject();
 		request.put("appId", registrationAdmin_appid);
@@ -237,7 +267,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationOfficer() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", registrationOfficer_appid);
@@ -252,7 +282,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationSupervisor() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", registrationSupervisor_appid);
@@ -267,7 +297,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForZonalAdmin() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", zonalAdmin_appid);
@@ -282,7 +312,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForZonalApprover() {
-		JSONObject actualrequest = getRequestJson(testsuite);
+		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", zonalApprover_appid);
@@ -297,7 +327,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAutoUser() {
-		JSONObject actualrequest = getRequestJson(testsuite);	
+		JSONObject actualrequest = getRequestJson(authRequest);	
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("autoUsr_appid"));
 		request.put("password", props.get("autoUsr_password"));
@@ -309,10 +339,8 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	//Reading the request file from folder
-	public JSONObject getRequestJson(String testSuite){
-		JSONObject Request=null;
-		String configPath = folder  + testSuite+"/request.json";
-		return new CommonLibrary().readJsonData(configPath, true);
+	public JSONObject getRequestJson(String filepath){
+		return clib.readJsonData(filepath, true);
 		
 	}
 }

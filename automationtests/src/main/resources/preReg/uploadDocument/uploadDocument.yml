@@ -379,7 +379,7 @@ UploadDocument:
     }
   ]
 }'
-   Prereg_UploadDocument_Not_CurrentDate_id_sid:
+   Prereg_UploadDocument_Previous_Date_id_sid:
       endPoint: /preregistration/v1/documents/{preRegistrationId}
       role: batch
       restMethod: post

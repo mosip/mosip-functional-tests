@@ -189,32 +189,33 @@ public class BaseTestCase {
 			AdminTestUtil.initiateregProcTest();
 		}
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
+			AdminTestUtil.copyPreregTestResource();
 			
-			PreRegistrationLibrary pil = new PreRegistrationLibrary();
-			pil.PreRegistrationResourceIntialize();
-			/* new PreregistrationDAO().makeAllRegistartionCenterActive(); */
-			 
-			try {
-				/*
-				 * expiredPreRegIds = lib.createExpiredApplication(); consumedPreRegIds =
-				 * lib.createConsumedPreId();
-				 */
-			} catch (Exception e) {
-				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
-				listOfModules.remove("prereg");
-			}
-
-			/**
-			 * here we are assuming batch job will run in every 5 min thats why we are
-			 * giving wait for 10 min
-			 */
-			logger.info("waiting for job run to start");
-			try {
-				TimeUnit.SECONDS.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-
-			}
+//			PreRegistrationLibrary pil = new PreRegistrationLibrary();
+//			pil.PreRegistrationResourceIntialize();
+//			/* new PreregistrationDAO().makeAllRegistartionCenterActive(); */
+//			 
+//			try {
+//				/*
+//				 * expiredPreRegIds = lib.createExpiredApplication(); consumedPreRegIds =
+//				 * lib.createConsumedPreId();
+//				 */
+//			} catch (Exception e) {
+//				logger.error("Preregistration excution will be skipped due to issue in prerquistie "+e.getMessage());
+//				listOfModules.remove("prereg");
+//			}
+//
+//			/**
+//			 * here we are assuming batch job will run in every 5 min thats why we are
+//			 * giving wait for 10 min
+//			 */
+//			logger.info("waiting for job run to start");
+//			try {
+//				TimeUnit.SECONDS.sleep(10);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//
+//			}
 		}
 		
 		//inserting device management data

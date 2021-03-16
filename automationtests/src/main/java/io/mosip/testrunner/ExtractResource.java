@@ -24,32 +24,34 @@ public class ExtractResource {
 	 * Pass what are resources to be extract from jar
 	 */
 	public static void extractResourceFromJar() {
-		getListOfFilesFromJarAndCopyToExternalResource("ida/");
-		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
 		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
-		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
-		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
-		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
-		getListOfFilesFromJarAndCopyToExternalResource("admin/");
-		getListOfFilesFromJarAndCopyToExternalResource("resident/");
-		getListOfFilesFromJarAndCopyToExternalResource("partner/");
-		getListOfFilesFromJarAndCopyToExternalResource("reg/");
-		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
-		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
-		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
-		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("db");
-		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
+//		getListOfFilesFromJarAndCopyToExternalResource("ida/");
+//		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
+//		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
+//		getListOfFilesFromJarAndCopyToExternalResource("config/");
+//		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
+//		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
+//		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
+//		getListOfFilesFromJarAndCopyToExternalResource("admin/");
+//		getListOfFilesFromJarAndCopyToExternalResource("resident/");
+//		getListOfFilesFromJarAndCopyToExternalResource("partner/");
+//		getListOfFilesFromJarAndCopyToExternalResource("reg/");
+//		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
+//		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
+//		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
+//		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("db");
+//		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 	}
 	
 	/**
