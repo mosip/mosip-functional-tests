@@ -24,17 +24,19 @@ public class ExtractResource {
 	 * Pass what are resources to be extract from jar
 	 */
 	public static void extractResourceFromJar() {
+		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
+		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("ida/");
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
 		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
-		getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
-		getListOfFilesFromJarAndCopyToExternalResource("Registration/");
+    	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
+		/* getListOfFilesFromJarAndCopyToExternalResource("Registration/"); */
 		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
 		getListOfFilesFromJarAndCopyToExternalResource("partner/");
-		getListOfFilesFromJarAndCopyToExternalResource("reg/");
+		/* getListOfFilesFromJarAndCopyToExternalResource("reg/"); */
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
@@ -48,7 +50,7 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("db");
+		/* getListOfFilesFromJarAndCopyToExternalResource("db"); */
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 	}
 	

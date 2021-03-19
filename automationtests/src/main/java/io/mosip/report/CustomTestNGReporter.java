@@ -32,6 +32,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
 /**
@@ -122,7 +123,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 	/* Build custom report title. */
 	private String getCustomReportTitle(String title) {
 		StringBuffer retBuf = new StringBuffer();
-		retBuf.append(title + " " + this.getDateInStringFormat(new Date()));
+		retBuf.append(title + " " + this.getDateInStringFormat(new Date())+" ENV: "+BaseTestCase.ApplnURI);
 		return retBuf.toString();
 	}
 

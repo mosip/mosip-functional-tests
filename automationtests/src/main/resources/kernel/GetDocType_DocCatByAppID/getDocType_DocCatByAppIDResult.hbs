@@ -4,30 +4,18 @@
   "responsetime":"$IGNORE$",
   "metadata":"$IGNORE$",
   "response":{
-    "appTypeCode":"{{appTypeCode}}",
+    "appTypeCode":"$IGNORE$",
     "langCode":"{{langCode}}",
     "isActive":{{isActive}},
     "documentCategories":[
 {{#each documentCategories}}
       {
-        "code":"{{code}}",
-        "name":"{{name}}",
-        "description":"{{description}}",
+        "code":"$IGNORE$",
+        "name":"$IGNORE$",
+        "description":"$IGNORE$",
         "langCode":"{{langCode}}",
         "isActive":{{isActive}},
-        "documentTypes":[
-        {{#each documentTypes}}
-          {
-            "code":"{{code}}",
-            "name":"{{name}}",
-            "description":"{{description}}",
-            "langCode":"{{langCode}}",
-            "isActive":{{isActive}}
-          }
-          {{#unless @last}},{{/unless}}
-      	{{/each}}
-          ]
-      }
+        "documentTypes":"$IGNORE$"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}

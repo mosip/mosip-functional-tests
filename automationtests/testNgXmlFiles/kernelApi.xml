@@ -10,12 +10,32 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
- <test name="FetchHolidays">
-		<parameter name="ymlFile" value="kernel/FetchHolidays/FetchHoliday.yml"/>  
+	
+	<!--<test name="Kernel Tests">
+
 		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
+			<class name="io.mosip.kernel.tests.CentetMachineUserMappingToMasterData" />
+			<class name="io.mosip.kernel.tests.EncrptionDecryption" />
+			<class name="io.mosip.kernel.tests.GetApplicantType" />
+			<class name="io.mosip.kernel.tests.GetListOfRoles" />
+			<class name="io.mosip.kernel.tests.GetRegCenterByIDTimestamp" />
+			<class name="io.mosip.kernel.tests.GetRIDByUserId" />
+			<class name="io.mosip.kernel.tests.LicenseKeyController" />
+			<class name="io.mosip.kernel.tests.OTP" />
+			<class name="io.mosip.kernel.tests.RIDGenerator" />
+			<class name="io.mosip.kernel.tests.SyncConfigurations" />
+			<class name="io.mosip.kernel.tests.UploadPublickey" />
+			<class name="io.mosip.kernel.tests.SyncMDataWithKeyIndex" />
+			<class
+				name="io.mosip.kernel.tests.SyncMDataWithKeyIndexRegCentId" />
+			<class name="io.mosip.kernel.tests.SyncPublicKeyToRegClient" />
+			<class name="io.mosip.kernel.tests.TokenIdGenerator" />
+			<class name="io.mosip.kernel.tests.UINGeneration" />
+			<class name="io.mosip.kernel.tests.UINStatusCheck" />
+			<class name="io.mosip.kernel.tests.UINStatusUpdate" />
+			</test> -->
+			
+ 
  <test name="FetchDevice">
 		<parameter name="ymlFile" value="kernel/FetchDevice/FetchDevice.yml"/>  
 		<classes>
@@ -28,12 +48,27 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	 <test name="GetAllTemplateByTemplateTypeCode">
-		<parameter name="ymlFile" value="kernel/GetAllTemplateByTemplateTypeCode/GetAllTemplateByTemplateTypeCode.yml"/>  
+	 
+	<test name="FetchBiometricAttribute">
+		<parameter name="ymlFile" value="kernel/FetchBiometricAttribute/FetchBiometricAttribute.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> 
+	</test>
+	
+	<test name="FetchBlackListedWord">
+		<parameter name="ymlFile" value="kernel/FetchBlackListedWord/FetchBlackListedWord.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+
+	<test name="FetchIDlist">
+		<parameter name="ymlFile" value="kernel/FetchIDlist/FetchIDlist.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	 <test name="GetApplicantType">
 		<parameter name="ymlFile" value="kernel/GetApplicantType/GetApplicantType.yml"/>  
 		<classes>
@@ -48,18 +83,6 @@
 	</test> 
  	 <test name="GetDeviceHistory">
 		<parameter name="ymlFile" value="kernel/GetDeviceHistory/GetDeviceHistory.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-  	 <test name="GetListOfRoles">
-		<parameter name="ymlFile" value="kernel/GetListOfRoles/GetListOfRoles.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
- 	<test name="GetDocType_DocCatByAppID">
-		<parameter name="ymlFile" value="kernel/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -82,12 +105,7 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="FetchRegCentHistory">
-		<parameter name="ymlFile" value="kernel/FetchRegCentHistory/FetchRegCentHistory.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
+	
 	<test name="FetchRegcentMachUserMaping">
 		<parameter name="ymlFile" value="kernel/FetchRegcentMachUserMaping/FetchRegcentMachUserMaping.yml"/>  
 		<classes>
@@ -102,6 +120,194 @@
 	</test>
 	<test name="GetusersBasedOnRegCenter">
 		<parameter name="ymlFile" value="kernel/GetusersBasedOnRegCenter/GetusersBasedOnRegCenter.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="OtpGeneration">
+		<parameter name="ymlFile" value="kernel/OtpGeneration/OtpGeneration.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SmsNotification">
+		<parameter name="ymlFile" value="kernel/SmsNotification/SmsNotification.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidateGenderByName">
+		<parameter name="ymlFile" value="kernel/ValidateGenderByName/ValidateGenderByName.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="ValidateLocationByName">
+		<parameter name="ymlFile" value="kernel/ValidateLocationByName/ValidateLocationByName.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="SendOtp">
+		<parameter name="ymlFile" value="kernel/SendOtp/SendOtp.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="AuditLog">
+		<parameter name="ymlFile" value="kernel/AuditLog/AuditLog.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetDocType_DocCatByLangCode">
+		<parameter name="ymlFile" value="kernel/GetDocType_DocCatByLangCode/GetDocType_DocCatByLangCode.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="GetImmediateChildrenByLocCodeAndLangCode">
+		<parameter name="ymlFile" value="kernel/GetImmediateChildrenByLocCodeAndLangCode/GetImmediateChildrenByLocCodeAndLangCode.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="FetchRegCentHistory">
+		<parameter name="ymlFile" value="kernel/FetchRegCentHistory/FetchRegCentHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetDocType_DocCatByAppID">
+		<parameter name="ymlFile" value="kernel/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="FetchHolidays">
+		<parameter name="ymlFile" value="kernel/FetchHolidays/FetchHoliday.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetAllTemplateByTemplateTypeCode">
+		<parameter name="ymlFile" value="kernel/GetAllTemplateByTemplateTypeCode/GetAllTemplateByTemplateTypeCode.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchDeviceSpec">
+		<parameter name="ymlFile" value="kernel/FetchDeviceSpec/FetchDeviceSpec.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchDocumentCategories">
+		<parameter name="ymlFile" value="kernel/FetchDocumentCategories/FetchDocumentCategories.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchDocumentTypes">
+		<parameter name="ymlFile" value="kernel/FetchDocumentTypes/FetchDocumentTypes.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchGenderType">
+		<parameter name="ymlFile" value="kernel/FetchGenderType/FetchGenderType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchMachineHistory">
+		<parameter name="ymlFile" value="kernel/FetchMachineHistory/FetchMachineHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchTitle">
+		<parameter name="ymlFile" value="kernel/FetchTitle/FetchTitle.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="FetchTemplate">
+		<parameter name="ymlFile" value="kernel/FetchTemplate/FetchTemplate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	
+	<test name="FetchBiometricAuthType">
+		<parameter name="ymlFile" value="kernel/FetchBiometricAuthType/FetchBiometricAuthType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="ExceptionalHolidays">
+		<parameter name="ymlFile" value="kernel/ExceptionalHolidays/ExceptionalHolidays.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchLocation">
+		<parameter name="ymlFile" value="kernel/FetchLocation/FetchLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchModuleDetails">
+		<parameter name="ymlFile" value="kernel/FetchModuleDetails/FetchModuleDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="TemplateFileFormat">
+		<parameter name="ymlFile" value="kernel/TemplateFileFormat/TemplateFileFormat.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="TemplateType">
+		<parameter name="ymlFile" value="kernel/TemplateType/TemplateType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="WorkingNonWorkingDays">
+		<parameter name="ymlFile" value="kernel/WorkingNonWorkingDays/WorkingNonWorkingDays.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="ValidDocument">
+		<parameter name="ymlFile" value="kernel/ValidDocument/ValidDocument.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchZone">
+		<parameter name="ymlFile" value="kernel/FetchZone/FetchZone.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="ZoneUserDetails">
+		<parameter name="ymlFile" value="kernel/ZoneUserDetails/ZoneUserDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetRegistrationCenterDeviceHistory">
+		<parameter name="ymlFile" value="kernel/GetRegistrationCenterDeviceHistory/GetRegistrationCenterDeviceHistory.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

@@ -1,4 +1,20 @@
 FetchMachine:
+   Kernel_FetchMachine_allValid_smoke:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchMachine/fetchMachine
+      outputTemplate: kernel/FetchMachine/fetchMachineResult
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
    Kernel_FetchMachine_allValid_smoke_with_id_lang:
       endPoint: /v1/masterdata/machines/{id}/{langcode}
       role: admin

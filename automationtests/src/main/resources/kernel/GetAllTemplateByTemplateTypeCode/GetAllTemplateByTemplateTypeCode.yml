@@ -6,17 +6,11 @@ GetAllTemplateByTemplateTypeCode:
       inputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCode
       outputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCodeResult
       input: '{
-	"code":"Test-info-Template-auto"
+	"code":"auth-email-subject"
 }'
       output: '{
 "templates": [{
-                "name": "Test-template",
-                "fileFormatCode": "Doc",
-                "fileText": "abc",
-                "moduleId": "10001",
-                "moduleName": "Pre-Registration",
-                "templateTypeCode": "Test-info-Template-auto",
-                "langCode": "eng",
+                "fileFormatCode": "txt",
                 "isActive": true
             }]
 }'

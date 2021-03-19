@@ -14,11 +14,8 @@ import org.apache.log4j.Logger;
 import org.testng.Reporter;
 
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.testdata.keywords.IdRepoKeywordUtil;
 import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
-import io.mosip.pmp.fw.util.PartnerKeywordUtil;
-import io.mosip.resident.fw.util.ResidentKeywordUtil;
 
 /**
  * Precondtion json file according to the input and mapping provided in test

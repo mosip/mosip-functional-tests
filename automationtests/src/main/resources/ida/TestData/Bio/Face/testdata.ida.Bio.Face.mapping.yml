@@ -3,7 +3,7 @@ testdata:
     endpoint.url:
       partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
     input.bio-auth-request:
-      AuthReq.individualId: $UIN$
+      AuthReq.individualId: 6352386125
       AuthReq.requestTime: $TIMESTAMP$
       AuthReq.transactionID: $RANDOM:N:10$
     input.identity-encrypt-data:

@@ -5,17 +5,17 @@
   "metadata": "$IGNORE$",
   "response": {
     "documenttypes": [
-    {{#each documenttypes}}
+      {{#each documenttypes}}  
       {
         "code": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$",
         "langCode": "{{langCode}}",
-        "isActive": {{isActive}}
+        "isActive": "{{isActive}}"
       }
-      {{#unless @last}},{{/unless}}
+       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
   },
-  "errors": "$IGNORE$"
+  "errors": null
 }
