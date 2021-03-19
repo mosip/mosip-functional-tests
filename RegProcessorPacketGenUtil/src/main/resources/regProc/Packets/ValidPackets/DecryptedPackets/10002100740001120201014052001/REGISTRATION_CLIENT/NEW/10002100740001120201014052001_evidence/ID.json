@@ -1,0 +1,11 @@
+{ "identity" : {
+  "parentOrGuardianUIN" : "null",
+  "IDSchemaVersion" : 0.2,
+  "parentOrGuardianRID" : "null",
+  "proofOfException" : {
+    "value" : "proofOfException",
+    "type" : "EOP",
+    "format" : "jpg"
+  },
+  "UIN" : "null"
+} } 
