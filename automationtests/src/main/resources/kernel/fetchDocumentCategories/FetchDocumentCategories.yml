@@ -1,0 +1,69 @@
+FetchDocumentCategories:
+   Kernel_FetchDocumentCategories_valid_smoke_langcodeandCode:
+      endPoint: /v1/masterdata/documentcategories/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
+      outputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategoriesResult
+      input: '{
+  "code":"POI",
+  "langcode":"eng"
+}'
+      output: '{
+"documentcategories": [{
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_FetchDocumentCategories_invalid_code_notpresent:
+      endPoint: /v1/masterdata/documentcategories/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
+      outputTemplate: kernel/error
+      input: '{
+  "code":"notInDB",
+  "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-014",
+      "message": "Document Category not found"
+    }
+  ]
+}'
+   Kernel_FetchDocumentCategories_invalid_langcode:
+      endPoint: /v1/masterdata/documentcategories/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
+      outputTemplate: kernel/error
+      input: '{
+  "code":"$REMOVE$",
+  "langcode":"java"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-014",
+      "message": "Document Category not found"
+    }
+  ]
+}'
+   Kernel_FetchDocumentCategories_valid_smoke_langcode:
+      endPoint: /v1/masterdata/documentcategories/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategories
+      outputTemplate: kernel/FetchDocumentCategories/fetchDocumentCategoriesResult
+      input: '{
+  "code":"$REMOVE$",
+  "langcode":"eng"
+}'
+      output: '{
+"documentcategories": [{
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'

@@ -10,6 +10,7 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 
 /**
@@ -18,7 +19,7 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
  * @author Vignesh
  *
  */
-public class AuthPartnerProcessor extends AuthTestsUtil{
+public class AuthPartnerProcessor extends AdminTestUtil{
 
 	private static final Logger DEMOAPP_LOGGER = Logger.getLogger(AuthPartnerProcessor.class);
 	public static Process authPartherProcessor;
@@ -27,10 +28,11 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 	 * Start demo app or auth partner applciation in seperate thread using runtime processor
 	 */
 	public static void startProcess() {
+		String encryptUtilPort = props.getProperty("encryptUtilPort");
 		try {
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dmosip.base.url="+ApplnURI,
-							"-Dserver.port="+partnerDemoServicePort, "-jar", getDemoAppJarPath() });
+							"-Dserver.port="+encryptUtilPort, "-jar", getDemoAppJarPath() });
 			Runnable startDemoAppTask = () -> {
 				try (InputStream inputStream = authPartherProcessor.getInputStream();
 						BufferedReader bis = new BufferedReader(new InputStreamReader(inputStream));) {
@@ -54,17 +56,18 @@ public class AuthPartnerProcessor extends AuthTestsUtil{
 	 * @return filepath
 	 */
 	private static String getDemoAppJarPath() {
+		String demoAppVersion = props.getProperty("demoAppVersion");
 		if (getOSType().toString().equals("WINDOWS")) {
 			return "C:/Users/" + System.getProperty("user.name")
 					+ "/.m2/repository/io/mosip/authentication/authentication-demo-service/"
-					+ getDemoAppVersion()+ "/authentication-demo-service-" + getDemoAppVersion() + ".jar";
+					+ demoAppVersion+ "/authentication-demo-service-" + demoAppVersion + ".jar";
 		} else {
 			DEMOAPP_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
 			String mavenPath = RunConfigUtil.getLinuxMavenPath();
 			String settingXmlPath = mavenPath + "/conf/settings.xml";
 			String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
-			return repoPath + "/io/mosip/authentication/authentication-demo-service/" + getDemoAppVersion()
-					+ "/authentication-demo-service-" + getDemoAppVersion() + ".jar";
+			return repoPath + "/io/mosip/authentication/authentication-demo-service/" + demoAppVersion
+					+ "/authentication-demo-service-" + demoAppVersion + ".jar";
 		}
 	}
 	

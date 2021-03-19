@@ -29,8 +29,8 @@ public class RestClient {
 	private static final Logger RESTCLIENT_LOGGER = Logger.getLogger(RestClient.class);
 
 	private static RestAssuredConfig config = RestAssured.config()
-			.httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 50000)
-					.setParam("http.socket.timeout", 50000).setParam("http.connection-manager.timeout", 50000));
+			.httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 500000)
+					.setParam("http.socket.timeout", 500000).setParam("http.connection-manager.timeout", 500000));
 
 	/**
 	 * REST ASSURED POST request method
