@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<test name="AuthenticationTest">
+	<!-- <test name="AuthenticationTest">
 		<classes>
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.CreateUinRecord" />
@@ -47,8 +47,8 @@
 			<class
 				name="io.mosip.authentication.tests.InternalOtpAuthentication" />
 			<class name="io.mosip.authentication.tests.UnlockUIN" />
-			<!-- <class
-				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" /> -->
+			<class
+				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test>
 	
@@ -65,6 +65,15 @@
 			<class name="io.mosip.resident.tests.RevokeVID" />
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
+		</classes>
+	</test> -->
+	
+	<test name="CreateIndividualType">
+		<parameter name="ymlFile"
+			value="ida/BioFaceDummy/BioFace.yml" />
+		<parameter name="isInternal"	value="false" />	
+		<classes>
+			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
 	

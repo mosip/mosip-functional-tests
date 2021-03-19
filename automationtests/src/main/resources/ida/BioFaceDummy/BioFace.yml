@@ -1,0 +1,18 @@
+BioFace:
+  Ida_Authentication_Biometric_Face_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/BioFaceDummy/bioFace
+      outputTemplate: ida/BioFaceDummy/bioFaceResult
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"identityRequest":{
+    "timestamp": "$TIMESTAMP$",
+	"identityRequestTemplate": "ida/BioFaceDummy/BioIdentityEncrypt",
+	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+	}
+	}'
+      output: '{
+  "authStatus": "true"
+}'

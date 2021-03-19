@@ -962,8 +962,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	
 	public static void initiateAuthTest() {
 		copyAuthTestResource();
-		IdRepoTestsUtil.copyIdrepoTestResource();
-		ResidentTestUtil.initiateResidentTest();
+		//IdRepoTestsUtil.copyIdrepoTestResource();
+		//ResidentTestUtil.initiateResidentTest();
 	}
 	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
 	public static void createDeviceManagementData()

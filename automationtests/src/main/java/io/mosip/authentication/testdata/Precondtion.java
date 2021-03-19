@@ -134,14 +134,7 @@ public class Precondtion {
 	 */
 	public static KeywordUtil getKeywordObject(String moduleName) {
 		KeywordUtil objKeywordUtil = null;
-		if (moduleName.equalsIgnoreCase("ida"))
 			objKeywordUtil = new IdaKeywordUtil();
-		else if (moduleName.equalsIgnoreCase("idrepo"))
-			objKeywordUtil = new IdRepoKeywordUtil();
-		else if (moduleName.equalsIgnoreCase("resident"))
-			objKeywordUtil = new ResidentKeywordUtil();
-		else if (moduleName.equalsIgnoreCase("partner"))
-			objKeywordUtil = new PartnerKeywordUtil();
 		return objKeywordUtil;
 	}
 

@@ -81,7 +81,6 @@ public class BaseTestCase {
 	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map residentQueries;
 	public static Map partnerQueries;
-	public static String partnerDemoServicePort = null;
 	public static boolean insertDevicedata = false;
 	public static boolean proxy = true;
 	/**
@@ -118,7 +117,6 @@ public class BaseTestCase {
 		queries = kernelCmnLib.readProperty("adminQueries");
 		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
 		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
-		partnerDemoServicePort=(String) kernelCmnLib.readProperty("partnerDemoService").get(System.getProperty("env.user")+".encryptionPort");
 		/**
 		 * Make sure test-output is there
 		 */
@@ -165,9 +163,6 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
-			new PMPDataManager(false);
-			new PMPDataManager(true);
-			insertDevicedata = true;
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
@@ -251,16 +246,12 @@ public class BaseTestCase {
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
 		String testsuite = ctx.getCurrentXmlTest().getSuite().getName();
-		if(testsuite.contains("AuthenticationTest"))
-			{
-				new PMPDataManager(false);
-				AuthTestsUtil.deleteDeviceManagementData();
-			}
-		else if(testsuite.equalsIgnoreCase("Mosip API Suite"))
-		{
-			new PMPDataManager(false);
-			AuthTestsUtil.deleteDeviceManagementData();
-		}
+		/*
+		 * if(testsuite.contains("AuthenticationTest")) { new PMPDataManager(false);
+		 * AuthTestsUtil.deleteDeviceManagementData(); } else
+		 * if(testsuite.equalsIgnoreCase("Mosip API Suite")) { new
+		 * PMPDataManager(false); AuthTestsUtil.deleteDeviceManagementData(); }
+		 */
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");

@@ -4,7 +4,7 @@
 	"request": {
 		"applicationId": "IDA",
 		"dataToSign": "$DATA$",
-		"includeCertHash": false,
+		"includeCertHash": true,
 		"includeCertificate": true,
 		"includePayload": false,
 		"referenceId": "SIGN"

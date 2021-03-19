@@ -257,4 +257,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 	public Map<String, String> retrieveMappingAndItsValueToPerformOutputValidation(String filePath) {
 		return getValueFromXmlFile(filePath, XmlXpathGeneration.generateXpath(filePath));
 	}
+
+	@Override
+	public String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

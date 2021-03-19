@@ -1,6 +1,5 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath;
 
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -33,11 +33,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.FileUtil;
-import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.authentication.testdata.Precondtion;
 import io.mosip.authentication.testdata.TestDataConfig;
+import io.mosip.service.BaseTestCase;
  
 /**
  * The class perform precondtion the json message such as read, write and update the json message
@@ -66,40 +66,46 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			Object jsonObj = mapper.readValue(
 					new String(Files.readAllBytes(Paths.get(inputFilePath)), StandardCharsets.UTF_8), Object.class);
 			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
-																									// add
+				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
 			for (Entry<String, String> map : fieldvalue.entrySet()) {
 				if (map.getValue().contains("LONG:")) {
 					String value = map.getValue().replace("LONG:", "");
-					PropertyUtils.setProperty(jsonObj, AuthTestsUtil.getPropertyFromFilePath(propFileName).getProperty(map.getKey()),
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 							Long.parseLong(value));
 				} else if (map.getValue().contains("DOUBLE:")) {
 					String value = map.getValue().replace("DOUBLE:", "");
-					PropertyUtils.setProperty(jsonObj, AuthTestsUtil.getPropertyFromFilePath(propFileName).getProperty(map.getKey()),
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 							Double.parseDouble(value));
 				} else if (map.getValue().contains("BOOLEAN:")) {
 					String value = map.getValue();
 					if (value.contains("true"))
-						PropertyUtils.setProperty(jsonObj, AuthTestsUtil.getPropertyFromFilePath(propFileName).getProperty(map.getKey()),
+						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 								true);
 					if (value.contains("false"))
-						PropertyUtils.setProperty(jsonObj, AuthTestsUtil.getPropertyFromFilePath(propFileName).getProperty(map.getKey()),
+						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 								false);
 				} else
-					PropertyUtils.setProperty(jsonObj, AuthTestsUtil.getPropertyFromFilePath(propFileName).getProperty(map.getKey()),
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 							map.getValue());
 			}
 			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
 			mapper.writeValue(new FileOutputStream(outputFilePath), jsonObj);
 			String outputJson = new String(Files.readAllBytes(Paths.get(outputFilePath)), StandardCharsets.UTF_8);
 			// Replacing the version in request
-			outputJson = outputJson.replace("$version$", RunConfigUtil.objRunConfig.getAuthVersion());
-			outputJson = outputJson.replaceAll("$version$", RunConfigUtil.objRunConfig.getAuthVersion());
-			outputJson = outputJson.replace("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
-			outputJson = outputJson.replaceAll("$idrepoVersion$", RunConfigUtil.objRunConfig.getIdRepoVersion());
+			/*
+			 * outputJson = outputJson.replace("$version$",
+			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
+			 * outputJson.replaceAll("$version$",
+			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
+			 * outputJson.replace("$idrepoVersion$",
+			 * RunConfigUtil.objRunConfig.getIdRepoVersion()); outputJson =
+			 * outputJson.replaceAll("$idrepoVersion$",
+			 * RunConfigUtil.objRunConfig.getIdRepoVersion());
+			 */
 			// Replacing the domainuri and env in request
 			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
-			outputJson = outputJson.replace("$domainUri$", System.getProperty("env.endpoint"));
-			outputJson = outputJson.replace("$env$", System.getProperty("env.endpoint"));
+			outputJson = outputJson.replace("$domainUri$", BaseTestCase.ApplnURI);
+			outputJson = outputJson.replace("$env$", BaseTestCase.ApplnURI);
 			}
 			if (outputJson.contains("$REMOVE$"))
 				outputJson = removeObject(new JSONObject(outputJson));
@@ -111,6 +117,56 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			JSONPRECONDATION_LOGGER.error("Exception Occured in precondtion message: " + e.getMessage());
 			Reporter.log("Exception Occured in precondtion message: " + e.getMessage());
 			return fieldvalue;
+		}
+	}
+	@Override
+	public String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName) {
+		try {
+			
+			//JSONObject jsonObj = new JSONObject(inputJson);
+			ObjectMapper mapper = new ObjectMapper();
+			Object jsonObj = mapper.readValue(inputJson, Object.class);
+				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
+			for (Entry<String, String> map : fieldvalue.entrySet()) {
+				if (map.getValue().contains("LONG:")) {
+					String value = map.getValue().replace("LONG:", "");
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+							Long.parseLong(value));
+				} else if (map.getValue().contains("DOUBLE:")) {
+					String value = map.getValue().replace("DOUBLE:", "");
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+							Double.parseDouble(value));
+				} else if (map.getValue().contains("BOOLEAN:")) {
+					String value = map.getValue();
+					if (value.contains("true"))
+						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+								true);
+					if (value.contains("false"))
+						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+								false);
+				} else
+					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+							map.getValue());
+			}
+			
+			// Replacing the domainuri, env and requesttime in request
+			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.env"),
+					BaseTestCase.ApplnURI);
+			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.domainUri"),
+					BaseTestCase.ApplnURI);
+			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.requestTime"),
+					AdminTestUtil.generateCurrentUTCTimeStamp());
+			
+			String outputJson = mapper.writeValueAsString(jsonObj);			
+			
+			if (outputJson.contains("$REMOVE$"))
+				outputJson = removeObject(new JSONObject(outputJson));
+			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
+			return outputJson;
+		} catch (Exception e) {
+			JSONPRECONDATION_LOGGER.error("Exception Occured in updating json: " + e.getMessage());
+			Reporter.log("Exception Occured in updating json: " + e.getMessage());
+			return inputJson;
 		}
 	}
 	
@@ -128,7 +184,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			Object jsonObj = mapper.readValue(new String(Files.readAllBytes(Paths.get(inputFilePath)), "UTF-8"),
 					Object.class);
 			return PropertyUtils
-					.getProperty(jsonObj, getPropertyFromFilePath(mappingFileName).getProperty(mappingFieldName))
+					.getProperty(jsonObj, AdminTestUtil.getproperty(mappingFileName).getProperty(mappingFieldName))
 					.toString();
 		} catch (Exception exception) {
 			JSONPRECONDATION_LOGGER
@@ -169,7 +225,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(jsonContent, Object.class);
 			return mapper.writeValueAsString(PropertyUtils.getProperty(jsonObj,
-					AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(fieldName)));
+					AdminTestUtil.getproperty(mappingFilePath).getProperty(fieldName)));
 		} catch (Exception exp) {
 			JSONPRECONDATION_LOGGER
 					.error("Exception Occured in retrieving the value from json file: " + exp.getMessage());
