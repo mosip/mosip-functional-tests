@@ -65,14 +65,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		String jsonresponse=testCaseDTO.getOutput();
-		if (testCaseName.startsWith("Admin_")&& testCaseName.contains("_Smoke") ) {
-			JSONObject obj= new JSONObject(testCaseDTO.getOutput());
-			obj.put("isActive", false);
-			jsonresponse=obj.toString();
-		}
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(jsonresponse, testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
