@@ -32,12 +32,12 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(BioAuth.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	boolean isInternal = false;
+	public boolean isInternal = false;
 	
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		//AuthPartnerProcessor.startProcess();
+		AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
