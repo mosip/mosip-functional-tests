@@ -67,8 +67,24 @@
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
 	</test> -->
+	<!--
+	<test name="AddIdentity">
+	<parameter name="ymlFile"
+		value="idRepository\AddIdentity\AddIdentity.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.AddIdentity" />
+	</classes>
+</test>
+	<test name="BioAuth">
+		<parameter name="ymlFile"
+			value="ida/BioAuth/BioAuth.yml" />	
+		<parameter name="isInternal"	value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.BioAuth" />
+		</classes>
+	</test>-->
 	
-	<test name="CreateIndividualType">
+	<test name="BioFaceDummy">
 		<parameter name="ymlFile"
 			value="ida/BioFaceDummy/BioFace.yml" />
 		<parameter name="isInternal"	value="false" />	
@@ -76,5 +92,6 @@
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
+	
 	
 </suite>
