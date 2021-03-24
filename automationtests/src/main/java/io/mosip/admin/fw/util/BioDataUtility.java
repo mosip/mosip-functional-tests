@@ -48,6 +48,7 @@ public class BioDataUtility extends AdminTestUtil{
 		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, 16);
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 		String jsonContent = FileUtil.readInput(bioValueEncryptionTemplateJson);
+		FileUtil.writeFile("D:\\Bio.txt", isoBiovalue);
 		/*
 		 * String aad =
 		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length

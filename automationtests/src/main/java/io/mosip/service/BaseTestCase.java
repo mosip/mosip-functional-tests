@@ -158,6 +158,7 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
+			//new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
 			AuthTestsUtil.initiateAuthTest();
