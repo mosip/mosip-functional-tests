@@ -180,9 +180,10 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 		<dependency>
+		<!-- keep the version of this 3 or below 3 else it will convert = to  &#x3D; ref: https://github.com/handlebars-lang/handlebars.js/issues/1489 -->
 			<groupId>com.github.jknack</groupId>
 			<artifactId>handlebars</artifactId>
-			<version>4.1.2</version>
+			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

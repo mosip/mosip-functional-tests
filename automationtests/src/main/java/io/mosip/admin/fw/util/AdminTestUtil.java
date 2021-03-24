@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
-import java.net.URLDecoder;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -810,13 +808,9 @@ public class AdminTestUtil extends BaseTestCase{
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
 			Map<String, Object> map = gson.fromJson(input, type);   
 			String templateJsonString = new String(Files.readAllBytes(Paths.get(getResourcePath()+template+".hbs")), "UTF-8");
-			FileUtil.writeFile("D:\\Temp.txt", templateJsonString);
 			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
-			FileUtil.writeFile("D:\\Result1.txt", resultJson);
-			resultJson = URLDecoder.decode(resultJson, Charset.defaultCharset());
-			FileUtil.writeFile("D:\\Result2.txt", resultJson);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
