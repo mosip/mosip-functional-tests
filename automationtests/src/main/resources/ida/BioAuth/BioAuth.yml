@@ -1,10 +1,10 @@
-BioFace:
+BioAuth:
   Ida_Authentication_Biometric_Face_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioFaceDummy/bioFace
-      outputTemplate: ida/BioFaceDummy/bioFaceResult
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -29,7 +29,7 @@ BioFace:
           "serialNo": "78467171",
           "type": "Face",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioFaceDummy/BioIdentityEncrypt",
+	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'

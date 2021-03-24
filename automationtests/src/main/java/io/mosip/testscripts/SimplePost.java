@@ -6,6 +6,7 @@ import java.util.Map;
 
 
 import org.apache.log4j.Logger;
+/*import org.json.simple.JSONObject;*/
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -24,6 +25,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
+import org.json.JSONObject;
 
 public class SimplePost extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
@@ -63,7 +65,6 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
