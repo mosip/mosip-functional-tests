@@ -87,7 +87,7 @@
 	<!--<test name="BioFaceDummy">
 		<parameter name="ymlFile"
 			value="ida/BioFaceDummy/BioFace.yml" />
-		<parameter name="isInternal"	value="false" />	
+		<parameter name="isInternal"	value="true" />	
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
