@@ -1,14 +1,19 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
+    "transactionID": "$IGNORE$",
+    "version": "$IGNORE$",
+    "id": "$IGNORE$",
     "errors": [
       {{#each errors}}
-          {
+        {
             "errorCode": "{{errorCode}}",
-			"message": "{{message}}"
-          }
+            "errorMessage": "{{errorMessage}}"
+        }
           {{#unless @last}},{{/unless}}
       	{{/each}}
-  ]
+  ],
+    "responseTime": "$IGNORE$",
+    "response": {
+        "authStatus": {{authStatus}},
+        "authToken": null
+    }
 }

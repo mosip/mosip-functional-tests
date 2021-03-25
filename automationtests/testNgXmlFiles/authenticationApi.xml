@@ -74,7 +74,7 @@
 	<classes>
 		<class name="io.mosip.testscripts.AddIdentity" />
 	</classes>
-</test>
+</test>-->
 	<test name="BioAuth">
 		<parameter name="ymlFile"
 			value="ida/BioAuth/BioAuth.yml" />	
@@ -82,16 +82,16 @@
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
-	</test>-->
+	</test>
 	
-	<test name="BioFaceDummy">
+	<!--<test name="BioFaceDummy">
 		<parameter name="ymlFile"
 			value="ida/BioFaceDummy/BioFace.yml" />
 		<parameter name="isInternal"	value="false" />	
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
-	</test>
+	</test>-->
 	
 	
 </suite>
