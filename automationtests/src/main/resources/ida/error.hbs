@@ -6,7 +6,8 @@
       {{#each errors}}
         {
             "errorCode": "{{errorCode}}",
-            "errorMessage": "{{errorMessage}}"
+            "errorMessage": "{{errorMessage}}",
+            "actionMessage": "$IGNORE$"
         }
           {{#unless @last}},{{/unless}}
       	{{/each}}
@@ -14,6 +15,6 @@
     "responseTime": "$IGNORE$",
     "response": {
         "authStatus": {{authStatus}},
-        "authToken": null
+        "authToken": "$IGNORE$"
     }
 }

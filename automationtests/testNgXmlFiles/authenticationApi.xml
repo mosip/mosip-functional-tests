@@ -84,14 +84,14 @@
 		</classes>
 	</test>
 	
-	<!--<test name="BioFaceDummy">
+	<test name="BioInternalAuth">
 		<parameter name="ymlFile"
-			value="ida/BioFaceDummy/BioFace.yml" />
+			value="ida/BioInternalAuth/BioInternalAuth.yml" />
 		<parameter name="isInternal"	value="true" />	
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
-	</test>-->
+	</test>
 	
 	
 </suite>
