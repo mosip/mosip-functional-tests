@@ -177,7 +177,7 @@ public class Decrypt {
 				if(isInternal) {
 					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr), Map.class);
 				} else {
-					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr.split(".")[1]), Map.class);
+					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr.split("\\.")[1]), Map.class);
 				}
 				segmentMap.put("data", bioDataMap);
 				
