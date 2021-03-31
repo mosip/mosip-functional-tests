@@ -31,6 +31,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
+import net.minidev.json.JSONArray;
 
 public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePostForRegisteredDevice.class);
@@ -75,7 +76,8 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		ReadContext ctx = JsonPath.parse(response.getBody().asString());
-		if (ctx.read("$.errors") == null)
+		JSONArray arrayOfErrors = ctx.read("$.errors");
+		if (arrayOfErrors.isEmpty())
 			regDeviceResponse = (String) ctx.read("$.response");
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
@@ -93,11 +95,11 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		digitalId.put("serialNo", "TR001234567");
 		digitalId.put("deviceProvider", "Techno");
 		digitalId.put("deviceProviderId", "Tech-123");
-		digitalId.put("make", "abcde123");
+		digitalId.put("make", "abcde");
 		digitalId.put("model", "FRO90000");
 		digitalId.put("dateTime", getCurrentDateAndTimeForAPI());
 		digitalId.put("type", "Finger");
-		digitalId.put("deviceSubType", "Slab");
+		digitalId.put("deviceSubType", "Slap");
 		return digitalId.toString();
 	}
 	
@@ -105,12 +107,13 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 	public String creatingDeviceDataForDeviceInfo() {
 		String digitalId = creatingDeviceDataForDigitalId();
 		JSONObject deviceInfo = new JSONObject();
-		deviceInfo.put("deviceSubId", "1");
+		String[] deviceSubId = {"1","2"}; 
+		deviceInfo.put("deviceSubId", deviceSubId);
 		deviceInfo.put("certification", "L0");
 		deviceInfo.put("digitalId", encoder.encodeToString(digitalId.getBytes()));
 		deviceInfo.put("firmware", "001");
 		deviceInfo.put("deviceExpiry", getCurrentDateAndTimeForAPI());
-		deviceInfo.put("timeStamp", getCurrentDateAndTimeForAPI());
+		deviceInfo.put("timestamp", getCurrentDateAndTimeForAPI());
 		return deviceInfo.toString();
 	}
 

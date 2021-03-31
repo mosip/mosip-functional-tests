@@ -335,39 +335,54 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>				
-<!--  	<test name="CreateDeviceDetail">
+	</test>	 			
+   	<test name="CreateDeviceDetail">
 		<parameter name="ymlFile"
-			value="partner/DeviceDetail/ServiceToSaveDeviceDetail/createServiceToSaveDeviceDetail.yml" />
+			value="partner/device/makeAndModel/create/createDeviceDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="ApproveRejectDeviceDetail">
+	<test name="RejectDeviceDetail">
 		<parameter name="ymlFile"
-			value="partner/DeviceDetail/ApproveRejectDeviceDetail/createApproveRejectDeviceDetail.yml" />
+			value="partner/device/makeAndModel/reject/RejectDeviceDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
+	<test name="ApproveDeviceDetail">
+		<parameter name="ymlFile"
+			value="partner/device/makeAndModel/approve/ApproveDeviceDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test>
 	<test name="UpdateDeviceDetail">
 		<parameter name="ymlFile"
-			value="partner/DeviceDetail/ServiceToUpdateDeviceDetail/createServiceToUpdateDeviceDetail.yml" />
+			value="partner/device/makeAndModel/update/UpdateDeviceDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
 	<test name="CreateSecureBiometricInterface">
 		<parameter name="ymlFile"
-			value="partner/SecureBiometricInterface/SaveSecureBiometricInterface/createSaveSecureBiometricInterface.yml" />
+			value="partner/device/SecureBiometricInterface/create/CreateSecureBiometricInterface.yml" />
 		<parameter name="idKeyName" value="id" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="ApproveRejectSecureBiometricInterface">
+	<test name="RejectSecureBiometricInterface">
 		<parameter name="ymlFile"
-			value="partner/SecureBiometricInterface/ApproveRejectSecureBiometricInterface/createApproveRejectSecureBiometricInterface.yml" />
+			value="partner/device/SecureBiometricInterface/reject/RejectSecureBiometricInterface.yml" />
+		<parameter name="pathParams" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
+		<test name="ApproveSecureBiometricInterface">
+		<parameter name="ymlFile"
+			value="partner/device/SecureBiometricInterface/approve/ApproveSecureBiometricInterface.yml" />
 		<parameter name="pathParams" value="id" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
@@ -375,37 +390,39 @@
 	</test>
 	<test name="UpdateSecureBiometricInterface">
 		<parameter name="ymlFile"
-			value="partner/SecureBiometricInterface/UpdateSecureBiometricInterface/createUpdateSecureBiometricInterface.yml" />
+			value="partner/device/SecureBiometricInterface/update/UpdateSecureBiometricInterface.yml" />
 		<parameter name="pathParams" value="" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="SaveFTPChipDetail">
+	<!-- <test name="SaveFTPChipDetail">
 		<parameter name="ymlFile"
-			value="partner/FTPChipDetail/SaveFTPChipDetail/createSaveFTPChipDetail.yml" />
+			value="partner/device/ftmChipDetails/create/CreateFTPChipDetail.yml" />
+			<parameter name="idKeyName" value="id"></parameter>
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test> 
-	<test name="ApproveRejectFtpChipDetail">
+	<test name="ApproveFtpChipDetail">
 		<parameter name="ymlFile"
-			value="partner/FTPChipDetail/ApproveRejectFtpChipDetail/createApproveRejectFtpChipDetail.yml" />
+			value="partner/device/ftmChipDetails/approve/ApproveFtpChipDetail.yml" />
+			<parameter name="idKeyName" value="id"></parameter>
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test>
 	<test name="UpdateFtpChipDetail">
 		<parameter name="ymlFile"
-			value="partner/FtpChipDetail/UpdateFtpChipDetail/createUpdateFtpChipDetail.yml" />
+			value="partner/device/ftmChipDetails/update/UpdateFtpChipDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="SignedRegisteredDevice">
 		<parameter name="ymlFile"
-			value="partner/DeviceRegistration/SignedRegisteredDevice/createSignedRegisteredDevice.yml" />
+			value="partner/device/registration/RegistereDevice.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForRegisteredDevice" />
 		</classes>
@@ -413,74 +430,9 @@
 	
 	<test name="DeRegisterDevice">
 		<parameter name="ymlFile"
-			value="partner/DeviceRegistration/DeRegisterDevice/createDeRegisterDevice.yml" />
+			value="partner/device/deregistration/DeRegisterDevice.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForDeRegisterDevice" />
 		</classes>
-	</test> -->
-	
-<!-- 	<test name="SearchPolicy">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchPolicy/createSearchPolicy.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
 	</test>
-	
-	<test name="SearchPolicyGroup">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchPolicyGroup/createSearchPolicyGroup.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	
-	<test name="SearchDeviceDetails">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchDeviceDetails/createSearchDeviceDetails.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="SearchRegisteredDevice">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchRegisteredDevice/createSearchRegisteredDevice.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	
-	<test name="SearchSecureBiometric">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchSecureBiometric/createSearchSecureBiometric.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	
-	<test name="SearchDeviceType">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchDeviceType/createSearchDeviceType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-<test name="SearchPartnerType">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchPartnerType/createSearchPartnerType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="SearchPartner">
-		<parameter name="ymlFile"
-			value="partner/Search/SearchPartner/createSearchPartner.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test> -->
-	<!--<test name="createProcessRequest"> <parameter name="ymlFile" value="partner/ProcessRequest/createProcessRequest.yml"/> 
-		<classes> <class name="io.mosip.testscripts.PatchWithParam" /> </classes> 
-		</test> -->
-
 </suite>
