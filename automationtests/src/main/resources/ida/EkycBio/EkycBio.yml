@@ -1,10 +1,10 @@
-BioAuth:
-  Ida_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+EkycBio:
+  Ida_EkycBio_Face_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -29,19 +29,19 @@ BioAuth:
           "serialNo": "78467171",
           "type": "Face",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RingFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -66,19 +66,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_LeftMiddleFingerr_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -103,19 +103,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_LeftIndexFingerr_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -140,19 +140,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_LeftLittleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -177,19 +177,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightIndexFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -214,19 +214,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightRingFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -251,19 +251,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightMiddleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -288,19 +288,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightLittleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -325,19 +325,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_LeftThumb_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -362,19 +362,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightThumb_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -399,19 +399,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_RightIris_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -436,19 +436,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_LeftIris_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/bioAuthResult
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -473,19 +473,19 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true"
+  "kycStatus": "true"
 }'
-  Ida_BioAuth_Biometric_inValid_transactionID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_inValid_transactionID:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -510,12 +510,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -523,12 +523,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_transactionID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_blank_transactionID:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -553,12 +553,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -566,12 +566,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_inValid_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_inValid_individualIdType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -596,12 +596,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -609,12 +609,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_blank_individualIdType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -639,12 +639,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -652,12 +652,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_individualIdType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -682,12 +682,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -695,12 +695,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_invalid_bioSubType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -725,12 +725,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -738,12 +738,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_blank_bioSubType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -768,12 +768,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -781,12 +781,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Blank_bioType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -811,12 +811,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -824,12 +824,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_bioType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -854,12 +854,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -867,12 +867,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Invalid_bioType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -897,12 +897,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-DPM-004",
@@ -910,12 +910,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_biovalue:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_invalid_biovalue:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -940,12 +940,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-BIA-001",
@@ -953,12 +953,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_invalid_deviceCode:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -983,12 +983,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-DPM-001",
@@ -996,12 +996,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Blank_deviceCode:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1026,12 +1026,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1039,12 +1039,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_deviceCode:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1069,12 +1069,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1082,12 +1082,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Blank_deviceProviderID:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1112,12 +1112,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1125,12 +1125,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_deviceProviderID:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1155,12 +1155,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1168,12 +1168,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Invalid_deviceProviderID:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1198,12 +1198,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -1211,12 +1211,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Blank_deviceServiceVersion:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1241,12 +1241,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1254,12 +1254,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_deviceServiceVersion:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1284,12 +1284,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1297,12 +1297,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Invalid_deviceServiceVersion:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1327,12 +1327,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-DPM-002",
@@ -1340,12 +1340,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Blank_deviceProvider:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1370,12 +1370,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1383,12 +1383,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_deviceProvider:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1413,12 +1413,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1426,12 +1426,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Invalid_deviceProvider:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1456,12 +1456,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -1469,12 +1469,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Invalid_deviceSubType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1499,12 +1499,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-009",
@@ -1512,12 +1512,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_blank_deviceSubType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1542,12 +1542,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1555,12 +1555,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Missing_deviceSubType:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1585,12 +1585,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
@@ -1598,12 +1598,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Face_With_FingerBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Face_With_FingerBio_Invalid:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1628,12 +1628,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "face",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-BIA-001",
@@ -1641,12 +1641,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Iris_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Iris_With_FaceBio_Invalid:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1671,12 +1671,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Iris",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-BIA-001",
@@ -1684,12 +1684,12 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Finger_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  Ida_EkycBio_Finger_With_FaceBio_Invalid:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post
-      inputTemplate: ida/BioAuth/bioAuth
-      outputTemplate: ida/BioAuth/error
+      inputTemplate: ida/EkycBio/ekycBio
+      outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1714,12 +1714,12 @@ BioAuth:
           "serialNo": "78467175",
           "type": "Finger",
     "transactionId": "1234567890",
-	"identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+	"identityRequestTemplate": "ida/EkycBio/EkycBioIdentityEncrypt",
 	"identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
 	}
 	}'
       output: '{
-	"authStatus": false,
+	"kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-BIA-001",
