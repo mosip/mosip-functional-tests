@@ -1,5 +1,5 @@
 BioAuth:
-  Ida_Authentication_Biometric_Face_With_Valid_Smoke_Pos:
+  Ida_EKYC_Biometric_Face_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: ida
       restMethod: post

@@ -105,6 +105,9 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
+		
+		if(testCaseName.toLowerCase().contains("kyc"))
+		encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
 
 	}
 
