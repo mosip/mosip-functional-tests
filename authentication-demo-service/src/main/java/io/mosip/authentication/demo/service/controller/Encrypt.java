@@ -177,22 +177,7 @@ public class Encrypt {
 			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			InvalidKeySpecException {
-		Encrypt.turnOffSslChecking();
-		RestTemplate restTemplate = new RestTemplate();
-		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
-
-			@Override
-			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
-					throws IOException {
-				String authToken = generateAuthToken();
-				if (authToken != null && !authToken.isEmpty()) {
-					request.getHeaders().set("Cookie", "Authorization=" + authToken);
-				}
-				return execution.execute(request, body);
-			}
-		};
-
-		restTemplate.setInterceptors(Collections.singletonList(interceptor));
+		RestTemplate restTemplate = createRestTemplate();
 
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
 		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
@@ -219,6 +204,26 @@ public class Encrypt {
 			return splitedEncryptedData;
 		}
 		return null;
+	}
+
+	public RestTemplate createRestTemplate() throws NoSuchAlgorithmException, KeyManagementException {
+		Encrypt.turnOffSslChecking();
+		RestTemplate restTemplate = new RestTemplate();
+		ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
+
+			@Override
+			public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+					throws IOException {
+				String authToken = generateAuthToken();
+				if (authToken != null && !authToken.isEmpty()) {
+					request.getHeaders().set("Cookie", "Authorization=" + authToken);
+				}
+				return execution.execute(request, body);
+			}
+		};
+
+		restTemplate.setInterceptors(Collections.singletonList(interceptor));
+		return restTemplate;
 	}
 
 	/**
