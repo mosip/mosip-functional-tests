@@ -50,6 +50,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -86,6 +87,8 @@ import io.swagger.annotations.Api;
 @RestController
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
+
+	private static final String REQ_ID = "reqId";
 
 	private static final String PROP_PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 
@@ -145,6 +148,18 @@ public class AuthRequestController {
 	private static final String CLASSPATH = "classpath";
 
 	private static final String ENCODE_TYPE = "UTF-8";
+
+	private static final String DEFAULT_OTP_REQ_TEMPLATE = "{\r\n"
+			+ "  \"id\": \"${reqId}\",\r\n"
+			+ "  \"individualId\": \"${id}\",\r\n"
+			+ "  \"individualIdType\": \"${idType}\",\r\n"
+			+ "  \"otpChannel\": [\r\n"
+			+ "    \"email\"\r\n"
+			+ "  ],\r\n"
+			+ "  \"requestTime\": \"${timestamp}\",\r\n"
+			+ "  \"transactionID\": \"${txn}\",\r\n"
+			+ "  \"version\": \"${ver}\"\r\n"
+			+ "}";
 
 	@Autowired
 	private Encrypt encrypt;
@@ -240,8 +255,9 @@ public class AuthRequestController {
 				}
 				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 				HttpHeaders httpHeaders = new HttpHeaders();
-				httpHeaders.add("signature", jWSSignAndVerifyController.sign(response.toString(), false));
-				return new ResponseEntity<>(response.toString(), httpHeaders, HttpStatus.OK);
+				String responseStr = response.toString();
+				httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
 				throw new IdAuthenticationBusinessException(
 						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
@@ -293,7 +309,7 @@ public class AuthRequestController {
 		httpHeaders.add("Content-Type", "application/json");
 		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
 		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
-		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+		URI authRequestUrl = getOtpRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
 		
 		Map<String, Object> respMap = new LinkedHashMap<>();
 		
@@ -323,29 +339,158 @@ public class AuthRequestController {
 		return responseEntity;
 		
 	}
+	
+	/**
+	 * this method is used to create the auth request.
+	 *
+	 * @param id            the id
+	 * @param idType        the id type
+	 * @param isKyc         the is kyc
+	 * @param isInternal    the is internal
+	 * @param reqAuth       the req auth
+	 * @param transactionId the transaction id
+	 * @param request       the request
+	 * @return the string
+	 * @throws Exception
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@PostMapping(path = "/sendOtp", produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Map<String, Object>> sendOtp(@RequestParam(name = ID, required = true) @Nullable String id,
+			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestBody Map<String, Object> request) throws Exception {
+		
+		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, id,idType, transactionId, requestTime);
+		String reqSignature = otpReqEntity.getHeaders().get("signature").get(0);
+		String reqBody = otpReqEntity.getBody();
+		
+		RestTemplate restTemplate = encrypt.createRestTemplate();
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add("signature", reqSignature);
+		httpHeaders.add("Authorization", reqSignature);
+		httpHeaders.add("Content-Type", "application/json");
+		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
+		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
+		URI otpRequestUrl = getOtpRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+		
+		Map<String, Object> respMap = new LinkedHashMap<>();
+		
+		respMap.put("URL", otpRequestUrl);
+		
+		Map<String, Object> otpReqMap = new LinkedHashMap<>();
+		otpReqMap.put("body", reqBody);
+		otpReqMap.put("signature", reqSignature);
+		respMap.put("otpRequest", otpReqMap);
+		
+		Map<String, Object> otpRespBody = new LinkedHashMap<>();
+		Object respBody;
+		String respSignature;
+		try {
+			ResponseEntity<Map> authResponse = restTemplate.exchange(otpRequestUrl, HttpMethod.POST, httpEntity, Map.class);
+			respBody = authResponse.getBody();
+			respSignature = authResponse.getHeaders().get("response-signature").get(0);
+			otpRespBody.put("signature", respSignature);
+		} catch (RestClientException e) {
+			respBody = e;
+		}
+		
+		otpRespBody.put("body", respBody);
+		respMap.put("otpResponse", otpRespBody);
+		
+		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
+		return responseEntity;
+		
+	}
 
-	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
+	@SuppressWarnings("unchecked")
+	@PostMapping(path = "/createOtpReqest", produces = {
+			MediaType.TEXT_PLAIN_VALUE })
+	public ResponseEntity<String> createOtpRequestBody(
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal, 
+			@RequestParam(name = ID, required = true) @NonNull String id, 
+			@RequestParam(name = ID_TYPE, required = false) @Nullable  String idType, 
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId, 
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException {
+		String otpReqTemplate = environment.getProperty("otpRequestTemplate", DEFAULT_OTP_REQ_TEMPLATE);
+		
+		Map<String, Object> reqValues = new HashMap<>();
+
+		if (requestTime == null) {
+			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
+
+		}
+
+		idValuesMapForOtpReq(id, idType, isInternal, reqValues, transactionId, requestTime);
+		
+		StringWriter writer = new StringWriter();
+		InputStream templateValue;
+			templateValue = templateManager
+					.merge(new ByteArrayInputStream(otpReqTemplate.getBytes(StandardCharsets.UTF_8)), reqValues);
+
+		if (templateValue != null) {
+			IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
+			String res = writer.toString();
+			if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
+				Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+				resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
+				res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+			}
+			ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
+			HttpHeaders httpHeaders = new HttpHeaders();
+			String responseStr = response.toString();
+			httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+			return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
+		} else {
+			throw new IdAuthenticationBusinessException(
+					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
+							IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
+		}
+
+	}
+	
+	private void idValuesMapForOtpReq(String id, String idType, boolean isInternal, Map<String, Object> reqValues,
+			String transactionId, String utcCurrentDateTimeString) {
+		reqValues.put(ID, id);
+		if (null != idType) {
+			reqValues.put(ID_TYPE, idType);
+		} else {
+			reqValues.put(ID_TYPE, UIN);
+		}
+		
+		if (isInternal) {
+			reqValues.put(REQ_ID, "mosip.identity.otp.internal");
+		} else {
+			reqValues.put(REQ_ID, "mosip.identity.otp");
+		}
+		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
+		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
+		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
+	}
+
+	private URI getOtpRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
 		String baseUrl;
 		String urlSuffix;
 		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
 
 		boolean isInternal = false;
 		switch(reqId) {
-		case "mosip.identity.auth":
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
-			urlSuffix = "/idauthentication/v1/auth";
+		case "mosip.identity.otp":
+			baseUrl = isLocal ? "http://localhost:8092" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/otp";
 			break;
-		case "mosip.identity.kyc":
-			baseUrl = isLocal ? "http://localhost:8091" : envBaseUrl;
-			urlSuffix = "/idauthentication/v1/kyc";
-			break;
-		case "mosip.identity.auth.internal":
+		case "mosip.identity.otp.internal":
 			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
-			urlSuffix = "/idauthentication/v1/internal/auth";
+			urlSuffix = "/idauthentication/v1/internal/otp";
 			isInternal = true;
 			break;
 		default:
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:8092" : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		}
@@ -574,17 +719,18 @@ public class AuthRequestController {
 		} else {
 			reqValues.put(ID_TYPE, UIN);
 		}
-		if (isKyc) {
-			reqValues.put(AUTH_TYPE, "kyc");
-			reqValues.put(SECONDARY_LANG_CODE, environment.getProperty("mosip.secondary-language"));
-
+		
+		if (isInternal) {
+			reqValues.put(AUTH_TYPE, "auth.internal");
 		} else {
-			if (isInternal) {
-				reqValues.put(AUTH_TYPE, "auth.internal");
+			if (isKyc) {
+				reqValues.put(AUTH_TYPE, "kyc");
+				reqValues.put(SECONDARY_LANG_CODE, environment.getProperty("mosip.secondary-language"));
 			} else {
 				reqValues.put(AUTH_TYPE, "auth");
 			}
 		}
+		
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
