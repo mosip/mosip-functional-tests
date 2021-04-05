@@ -223,6 +223,10 @@ public class AuthRequestController {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
 		}
+		
+		if(!request.containsKey(TIMESTAMP)) {
+			request.put(TIMESTAMP, "");//Initializing. Setting value is done in further steps.
+		}
 
 		idValuesMap(id, idType, isKyc, isInternal, reqValues, transactionId, requestTime);
 		getAuthTypeMap(reqAuth, reqValues, request);
@@ -362,8 +366,7 @@ public class AuthRequestController {
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
-			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
-			@RequestBody Map<String, Object> request) throws Exception {
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws Exception {
 		
 		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, id,idType, transactionId, requestTime);
 		String reqSignature = otpReqEntity.getHeaders().get("signature").get(0);
