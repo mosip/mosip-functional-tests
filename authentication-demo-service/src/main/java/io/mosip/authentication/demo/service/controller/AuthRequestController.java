@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -23,6 +24,7 @@ import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -42,7 +44,9 @@ import org.jose4j.lang.JoseException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -51,6 +55,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -80,6 +86,8 @@ import io.swagger.annotations.Api;
 @RestController
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
+
+	private static final String PROP_PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 
 	private static final String SPEC_VERSION = "specVersion";
 
@@ -155,7 +163,7 @@ public class AuthRequestController {
 
 	@Autowired
 	JWSSignAndVerifyController jWSSignAndVerifyController;
-
+	
 	@PostConstruct
 	public void idTemplateManagerPostConstruct() {
 		templateManager = templateManagerBuilder.encodingType(ENCODE_TYPE).enableCache(false).resourceLoader(CLASSPATH)
@@ -245,6 +253,110 @@ public class AuthRequestController {
 					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(),
 					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
 		}
+	}
+	
+	/**
+	 * this method is used to create the auth request.
+	 *
+	 * @param id            the id
+	 * @param idType        the id type
+	 * @param isKyc         the is kyc
+	 * @param isInternal    the is internal
+	 * @param reqAuth       the req auth
+	 * @param transactionId the transaction id
+	 * @param request       the request
+	 * @return the string
+	 * @throws Exception
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@PostMapping(path = "/authenticate", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Map<String, Object>> authenticate(@RequestParam(name = ID, required = true) @Nullable String id,
+			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
+			@RequestParam(name = "isKyc", required = false) @Nullable boolean isKyc,
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestBody Map<String, Object> request) throws Exception {
+		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, request);
+		String reqBody = authRequest.getBody();
+		String reqSignature = authRequest.getHeaders().get("signature").get(0);
+		
+		RestTemplate restTemplate = encrypt.createRestTemplate();
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add("signature", reqSignature);
+		httpHeaders.add("Authorization", reqSignature);
+		httpHeaders.add("Content-Type", "application/json");
+		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
+		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
+		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+		
+		Map<String, Object> respMap = new LinkedHashMap<>();
+		
+		respMap.put("URL", authRequestUrl);
+		
+		Map<String, Object> authReqMap = new LinkedHashMap<>();
+		authReqMap.put("body", reqBody);
+		authReqMap.put("signature", reqSignature);
+		respMap.put("authRequest", authReqMap);
+		
+		Map<String, Object> authRespBody = new LinkedHashMap<>();
+		Object respBody;
+		String respSignature;
+		try {
+			ResponseEntity<Map> authResponse = restTemplate.exchange(authRequestUrl, HttpMethod.POST, httpEntity, Map.class);
+			respBody = authResponse.getBody();
+			respSignature = authResponse.getHeaders().get("response-signature").get(0);
+			authRespBody.put("signature", respSignature);
+		} catch (RestClientException e) {
+			respBody = e;
+		}
+		
+		authRespBody.put("body", respBody);
+		respMap.put("authResponse", authRespBody);
+		
+		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
+		return responseEntity;
+		
+	}
+
+	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
+		String baseUrl;
+		String urlSuffix;
+		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
+
+		boolean isInternal = false;
+		switch(reqId) {
+		case "mosip.identity.auth":
+			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/auth";
+			break;
+		case "mosip.identity.kyc":
+			baseUrl = isLocal ? "http://localhost:8091" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/kyc";
+			break;
+		case "mosip.identity.auth.internal":
+			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/internal/auth";
+			isInternal = true;
+			break;
+		default:
+			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/auth";
+			break;
+		}
+		
+		String url = baseUrl + urlSuffix;
+		
+		if(!isInternal) {
+			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX) : partnerUrlSuffix;
+			url += "/" + partnerSuffix;
+		}
+		return URI.create(url);
 	}
 
 	public byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
