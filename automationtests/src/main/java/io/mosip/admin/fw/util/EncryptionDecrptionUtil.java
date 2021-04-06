@@ -24,6 +24,7 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.restassured.response.Response;
 
 /**
@@ -327,7 +328,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
-		String token = kernelAuthLib.getTokenByRole("admin");
+		String token = kernelAuthLib.getTokenByRole("regproc");
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
@@ -427,5 +428,17 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			if(!ekycResponseValid)	throw new AdminTestException("Failed in KYC Response validation");
 		
 		return thumprintValid&&ekycResponseValid;
+	}
+	
+	public boolean verifyResponseUsingDigitalSignature(String resonseContent, String digitalSignature) {
+		HashMap<String, String> queryparams = new HashMap<String, String>();
+		queryparams.put("signature", digitalSignature);
+		String signatureApiPath = EncryptUtilBaseUrl + props.getProperty("validateSignatureUrl");
+		Response response = RestClient.postRequestWithQueryParamAndBody(signatureApiPath, resonseContent,queryparams, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON);
+		if (response.asString().contains("success"))
+			return true;
+		else
+			return false;
 	}
 }
