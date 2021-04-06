@@ -20,9 +20,11 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.restassured.response.Response;
 
 /**
@@ -51,9 +53,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	public static void getThumbprints() {
 		String appId = props.getProperty("appIdForCertificate");
-		partnerThumbPrint = getCertificateThumbprint(getCertificate(appId, props.getProperty("partnerrefId")));
-		internalThumbPrint = getCertificateThumbprint(getCertificate(appId, props.getProperty("internalrefId")));
-		idaFirThumbPrint = getCertificateThumbprint(getCertificate(appId, props.getProperty("idaFirRefId")));	
+		partnerThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("partnerrefId")));
+		internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("internalrefId")));
+		idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("idaFirRefId")));	
 	}
 	
 	public static String getEncryptUtilBaseUrl() {
@@ -273,12 +275,13 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @param content, String to be decoded
 	 * @return String, decoded data
 	 */
-	public String getDecyptFromStr(String content) {
+	public String getDecyptFromStr(String content, String referenceId, boolean isInternal) {
 		try {
-			HashMap<String, String> queryParams = new HashMap<String, String>();
+			HashMap<String, Object> queryParams = new HashMap<String, Object>();
 			// this partner is created in pmpdatamanager class, partner certificate is uploaded for this partner.
-			queryParams.put("refId", "1873299273");
-			return RestClient.postRequestWithQueryParamAndBody(EncryptUtilBaseUrl + props.get("decryptPath"), content, queryParams, 
+			queryParams.put("refId", referenceId);
+			queryParams.put("isInternal", isInternal);
+			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + props.get("decryptPath"), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -320,13 +323,13 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(DigestUtils.sha256(cert.getEncoded()));
 		} catch (CertificateEncodingException e) {
 			lOGGER.error("Exception in generate thumbrint: "+e.getMessage());
-			return null;
+			return e.getMessage();
 		}
 	}
-	public static Certificate getCertificate(String applicationId, String referenceId) {
+	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
-		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + props.getProperty("getCertificateUrl");
+		String token = kernelAuthLib.getTokenByRole("regproc");
+		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
@@ -357,5 +360,85 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return null;
 		}
 		
+	}
+	public static Certificate getPartnerCertificate(String partnerId) {
+		String cert = null;
+		String token = kernelAuthLib.getTokenByRole("regproc");
+		String url = ApplnURI + props.getProperty("getPartnerCertificateUrl");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("partnerId", partnerId);
+		lOGGER.info("Getting certificate for partner "+partnerId);
+		Response response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		JSONObject responseJson = new JSONObject(response.asString());
+		if(!responseJson.get("response").toString().equals("null"))
+		{
+			JSONObject certiResponseJson = new JSONObject(responseJson.get("response").toString());
+			cert = certiResponseJson.get("certificateData").toString();
+		}
+		else {
+			lOGGER.error("Not able to Fetch Certficate from: "+url);
+			return null;
+		}
+		
+		
+		cert = cert.replaceAll("-----BEGIN (.*)-----\n", "");
+		cert = cert.replaceAll("-----END (.*)----\n", "");
+		cert = cert.replaceAll("\\s", "");
+		try {
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			X509Certificate certificate = (X509Certificate) cf
+					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
+			return certificate;
+		} catch (CertificateException e) {
+			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
+			return null;
+		}
+		
+	}
+	
+	public boolean validateThumbPrint( String thumbPrint, String partnerId) {
+		String expectedThumbPrint = getCertificateThumbprint(getPartnerCertificate(partnerId));
+		return expectedThumbPrint.equals(thumbPrint);
+	}
+	
+	public boolean validateEkycResponseIdentity(String identity, String partnerId, boolean isInternal) {
+		String decryptedKycIdentity = getDecyptFromStr(identity, partnerId, isInternal);
+		Reporter.log("<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get("decryptPath") + ") <pre>"
+				+ ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
+		String keysToValidateInKYC[] = props.getProperty("keysToValidateInKYC").split(",");
+		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);
+		if(decryptedKycJson!=null ) {
+		for(String key : keysToValidateInKYC) 
+			if(!decryptedKycJson.has(key)) return false;
+		}
+		else return false;
+		return true;
+	}
+	
+
+	public boolean validateThumbPrintAndIdentity(Response response, String ekycUri) throws AdminTestException {
+		String thumbPrint = JsonPrecondtion.getValueFromJson(response.asString(), "response.thumbprint");
+		String uriParts[] = ekycUri.split("/");
+		String partnerId = uriParts[uriParts.length-2];
+		boolean thumprintValid = validateThumbPrint(thumbPrint, partnerId);
+			if(!thumprintValid)	throw new AdminTestException("Failed in Thumbprint validation");
+			
+		String identity = JsonPrecondtion.getValueFromJson(response.asString(), "response.identity");
+		boolean ekycResponseValid = validateEkycResponseIdentity(identity, partnerId, false);
+			if(!ekycResponseValid)	throw new AdminTestException("Failed in KYC Response validation");
+		
+		return thumprintValid&&ekycResponseValid;
+	}
+	
+	public boolean verifyResponseUsingDigitalSignature(String resonseContent, String digitalSignature) {
+		HashMap<String, String> queryparams = new HashMap<String, String>();
+		queryparams.put("signature", digitalSignature);
+		String signatureApiPath = EncryptUtilBaseUrl + props.getProperty("validateSignatureUrl");
+		Response response = RestClient.postRequestWithQueryParamAndBody(signatureApiPath, resonseContent,queryparams, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON);
+		if (response.asString().contains("success"))
+			return true;
+		else
+			return false;
 	}
 }

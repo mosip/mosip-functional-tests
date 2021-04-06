@@ -11,6 +11,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -128,6 +131,68 @@ public class Decrypt {
 			refId = getRefId(isInternal, isBiometrics);
 		}
 		return kernelDecrypt(data, refId, salt, aad);
+	}
+	
+	@PostMapping(path = "/authRequest/decryptAuthRequest", produces = MediaType.APPLICATION_JSON_VALUE) 
+	public String decryptAuthRequest(@RequestBody Map<String, Object> authRequestMap)
+			throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, KeyManagementException, InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, JSONException {
+
+		boolean isInternal = authRequestMap.get("id").equals("mosip.identity.auth.internal");
+		Map<String, Object> outputAuthRequestMap = new LinkedHashMap<>(authRequestMap);
+		String request = (String) outputAuthRequestMap.get("request");
+		String reqSessionKey = (String) outputAuthRequestMap.get("requestSessionKey");
+		
+		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request), null, isInternal, false, null, null);
+		Map<String, Object> requestMap = objMapper.readValue(decryptSplittedData.getBytes("UTF-8"), Map.class);
+		outputAuthRequestMap.put("request", requestMap);
+		
+		decryptBiometricsInRequestBlock(isInternal, requestMap);
+		
+		return objMapper.writeValueAsString(outputAuthRequestMap);
+	}
+
+	@PostMapping(path = "/authRequest/decryptBiometricsInRequestBlock", produces = MediaType.APPLICATION_JSON_VALUE) 
+	private Map<String, Object> decryptBiometricsInRequestBlock(
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
+			@RequestBody Map<String, Object> requestMap) throws IOException, JsonParseException,
+			JsonMappingException, KeyManagementException, NoSuchAlgorithmException, JSONException, InvalidKeyException,
+			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
+			InvalidKeySpecException {
+		List<Map<String, Object>> biometricsMap = (List<Map<String, Object>>) requestMap.get("biometrics");
+		decryptBiometricsListOfAuthRequest(isInternal, biometricsMap);
+		return requestMap;
+	}
+
+	@PostMapping(path = "/authRequest/decryptBiometricsListOfAuthRequest", produces = MediaType.APPLICATION_JSON_VALUE) 
+	private List<Map<String, Object>> decryptBiometricsListOfAuthRequest(
+			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
+			@RequestBody List<Map<String, Object>> biometricsMap) throws IOException,
+			JsonParseException, JsonMappingException, KeyManagementException, NoSuchAlgorithmException, JSONException,
+			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException,
+			BadPaddingException, InvalidKeySpecException {
+		if(biometricsMap != null) {
+			for(Map<String, Object> segmentMap: biometricsMap) {
+				String biometricDataStr = (String) segmentMap.get("data");
+				Map<String, Object> bioDataMap;
+				if(isInternal) {
+					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr), Map.class);
+				} else {
+					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr.split("\\.")[1]), Map.class);
+				}
+				segmentMap.put("data", bioDataMap);
+				
+				String encryptedBioValue = (String) bioDataMap.get("bioValue");
+				String timestamp = (String) bioDataMap.get("timestamp");
+				String transactionId = (String) bioDataMap.get("transactionId");
+				String bioSessionKey = (String) segmentMap.get("sessionKey");
+				
+				String combinedEncryptedBioValue = combine(encryptedBioValue, bioSessionKey);
+				String decryptBiometrics = this.decryptBiometrics(combinedEncryptedBioValue, timestamp, transactionId, isInternal);
+				
+				bioDataMap.put("bioValue", decryptBiometrics);
+			}
+		}
+		return biometricsMap;
 	}
 	
 	@PostMapping(path = "/decryptBiometricValue")
