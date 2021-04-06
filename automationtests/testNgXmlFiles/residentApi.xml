@@ -38,6 +38,14 @@
 		<class name="io.mosip.testscripts.AddIdentity" />
 	</classes>
 </test>
+<test name="GenerateVID">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/createGenerateVID.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
 	<test name="AuthHistory">
 		<parameter name="ymlFile"
 			value="resident/AuthHistory/AuthHistory.yml" />
@@ -45,6 +53,7 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
+	
 	<test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
@@ -52,13 +61,7 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
-	<test name="GenerateVID">
-		<parameter name="ymlFile"
-			value="resident/GenerateVID/createGenerateVID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
-		</classes>
-	</test>
+	
 	<test name="UpdateUIN">
 		<parameter name="ymlFile"
 			value="resident/UpdateUIN/UpdateUIN.yml" />
@@ -94,13 +97,14 @@
 	<classes>
 		<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 	</classes>
-</test>
+</test> 
 
 	<test name="RequestCredentials">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
+			<parameter name="idKeyName"	value="requestId" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="CredentialCheckStatus">
@@ -116,13 +120,13 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test>
-	<test name="CancellCredential">
+	</test> 
+	<!--<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test>--> 
 	
 </suite>
