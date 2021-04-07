@@ -87,8 +87,12 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		otpReqJson.remove("sendOtpEndPoint");
 		otpIdentyEnryptRequestPath = otpReqJson.getString("otpIdentyEnryptRequestPath");
 		otpReqJson.remove("otpIdentyEnryptRequestPath");
-
-		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
+		
+		Response otpResponse = null;
+		if(isInternal)
+			otpResponse = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "resident", testCaseDTO.getTestCaseName());
+		else
+			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
