@@ -66,15 +66,24 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test> -->
-	<!--
+	</test> 
+	
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
-		value="idRepository\AddIdentity\AddIdentity.yml" />
+		value="ida\AddIdentity\AddIdentity.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.AddIdentity" />
 	</classes>
-</test> -->
+</test> 
+
+<test name="GenerateVID">
+		<parameter name="ymlFile"
+			value="ida/GenerateVID/createGenerateVID.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>-->
 	<test name="BioAuth">
 		<parameter name="ymlFile"
 			value="ida/BioAuth/BioAuth.yml" />	
@@ -98,6 +107,15 @@
 		<parameter name="isInternal"	value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
+		</classes>
+	</test>
+	
+	<test name="OtpAuth">
+		<parameter name="ymlFile"
+			value="ida/OtpAuth/OtpAuth.yml" />	
+		<parameter name="isInternal"	value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
 	</test>
 </suite>

@@ -6,15 +6,10 @@
       {{#each errors}}
         {
             "errorCode": "{{errorCode}}",
-            "errorMessage": "{{errorMessage}}",
-            "actionMessage": "$IGNORE$"
+            "errorMessage": "{{errorMessage}}"
         }
           {{#unless @last}},{{/unless}}
       	{{/each}}
   ],
     "responseTime": "$IGNORE$",
-    "response": {
-        "kycStatus": {{kycStatus}},
-        "authToken": "$IGNORE$"
-    }
 }

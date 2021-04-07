@@ -1,0 +1,379 @@
+OtpAuth:
+  Ida_OTP_Auth_With_Valid_UIN_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/otpAuthResult
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "1234567890",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+  "authStatus": "true",
+ "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/otpAuthResult
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "6053189263576413",
+		"transactionId": "1234567890",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "6053189263576413",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+  "authStatus": "true",
+ "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Invalid_individualId_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "@@###cndjdhe77473838",
+		"transactionId": "1234567890",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/digitalId/deviceProviderId"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Blank_individualId_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "",
+		"transactionId": "1234567890",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/digitalId/deviceProviderId"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Missing_individualId_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "$REMOVE$",
+		"transactionId": "1234567890",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/digitalId/deviceProviderId"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Invalid_transactionId_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "76544ddffgg@@@3444",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - transactionID"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Blank_transactionId_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "",
+	    "individualIdType": "UIN",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - transactionID"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Invalid_individualIdType_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "1234567890",
+	    "individualIdType": "ndjshswhw3277272",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Blank_individualIdType_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "1234567890",
+	    "individualIdType": "",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
+  Ida_OTP_Auth_With_Missing_individualIdType_neg:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
+      restMethod: post
+      inputTemplate: ida/OtpAuth/otpAuth
+      outputTemplate: ida/OtpAuth/error
+      input: '{
+		"requestTime": "$TIMESTAMP$",
+		"individualId": "4315928037",
+		"transactionId": "1234567890",
+	    "individualIdType": "$REMOVE$",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+		"sendOtp":{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "4315928037",
+	"individualIdType": "UIN",
+	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+	}
+	}'
+      output: '{
+	"authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualIdType"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
+		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+    }
+}'
