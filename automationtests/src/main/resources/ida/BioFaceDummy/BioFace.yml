@@ -1,6 +1,6 @@
 BioAuth:
-  Ida_OTP_Auth_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/internal/auth
+  Ida_EKYC_Auth_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
       role: resident
       restMethod: post
       inputTemplate: ida/BioFaceDummy/bioFace
@@ -16,7 +16,7 @@ BioAuth:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"sendOtpReqTemplate": "ida/BioFaceDummy/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
 	"otpIdentyEnryptRequestPath": "ida/BioFaceDummy/BioIdentityEncrypt.json"
 	}
 	}'
