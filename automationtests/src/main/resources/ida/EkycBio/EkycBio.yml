@@ -1260,7 +1260,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1302,7 +1302,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1334,8 +1334,8 @@ EkycBio:
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+      "errorCode": "IDA-DPM-004",
+      "errorMessage": "Device Type and Biometric Type do not match"
     }
   ]
 }'
@@ -1344,7 +1344,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1428,7 +1428,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1470,7 +1470,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1512,7 +1512,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1554,7 +1554,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1596,7 +1596,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1638,7 +1638,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1680,7 +1680,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1722,7 +1722,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1807,7 +1807,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1849,7 +1849,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
@@ -1891,7 +1891,7 @@ EkycBio:
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "4315928037",
