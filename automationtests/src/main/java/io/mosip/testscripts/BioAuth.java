@@ -37,7 +37,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -106,8 +106,10 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc"))
-		encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
+		if(testCaseName.toLowerCase().contains("kyc") && !(response.getBody().asString().contains("errors"))) {
+			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
+		}
+		
 		
 		if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
 				throw new AdminTestException("Failed at Signature validation");
@@ -137,6 +139,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

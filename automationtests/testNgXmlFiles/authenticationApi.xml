@@ -66,7 +66,7 @@
 			<class
 				name="io.mosip.authentication.idRepository.prerequiste.DeleteUinRecord" />
 		</classes>
-	</test> -->
+	</test> 
 	
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
@@ -83,8 +83,8 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>
-	<!--<test name="BioAuth">
+	</test>-->
+	<test name="BioAuth">
 		<parameter name="ymlFile"
 			value="ida/BioAuth/BioAuth.yml" />	
 		<parameter name="isInternal"	value="false" />
@@ -93,7 +93,7 @@
 		</classes>
 	</test>
 	
-	<test name="BioInternalAuth">
+	<!--<test name="BioInternalAuth">
 		<parameter name="ymlFile"
 			value="ida/BioInternalAuth/BioInternalAuth.yml" />
 		<parameter name="isInternal"	value="true" />	
@@ -126,5 +126,17 @@
 		<classes>
 			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
+	</test>
+	
+	<test name="EkycOtp">
+	<parameter name="ymlFile"
+			value="ida/EkycOtp/EkycOtp.yml" />
+		<parameter name="isInternal"	value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.OtpAuth" />
+		</classes>
 	</test>-->
+	
+	
+	
 </suite>
