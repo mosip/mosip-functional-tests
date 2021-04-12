@@ -1,7 +1,7 @@
 BioAuth:
-  Ida_EKYC_Auth_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
-      role: resident
+  Ida_DemoAuth_DOB_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      role: ida
       restMethod: post
       inputTemplate: ida/BioFaceDummy/bioFace
       outputTemplate: ida/BioFaceDummy/bioFaceResult
@@ -11,19 +11,14 @@ BioAuth:
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": false,
-        "demo": false,
-        "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"sendOtpReqTemplate": "ida/BioFaceDummy/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
-	"otpIdentyEnryptRequestPath": "ida/BioFaceDummy/BioIdentityEncrypt.json"
+        "demo": true,
+        "otp": false,
+		"identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+	"identityRequestTemplate": "ida/BioFaceDummy/BioIdentityEncrypt"
 	}
 	}'
       output: '{
-  "authStatus": "true",
- "sendOtpResp":{
-        "transactionID": "1234567890",
-		"sendOtpResTemplate":"ida/BioFaceDummy/sendOtpRes"
-    }
+  "authStatus": "true"
 }'
