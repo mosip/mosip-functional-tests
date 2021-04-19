@@ -1,0 +1,103 @@
+WorkingNonWorkingDays:
+   Kernel_WorkingNonWorkingDays_weekdays_allValid_smoke:
+      endPoint: /v1/masterdata/weekdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDaysResult
+      input: '{
+  "langCode": "eng",
+  "registrationCenterId": "10001"
+}'
+      output: '{
+"weekdays": [{
+			"languagecode": "eng"
+		}]
+}'
+   Kernel_WorkingNonWorkingDays_weekdays_inValid_langCode:
+      endPoint: /v1/masterdata/weekdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "edhdhg",
+  "registrationCenterId": "10001"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Kernel_WorkingNonWorkingDays_weekdays_inValid_registrationCenterId:
+      endPoint: /v1/masterdata/weekdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "eng",
+  "registrationCenterId": "10ddjdj1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-802",
+      "message": "Center ID is invalid"
+    }
+  ]
+}'
+   Kernel_WorkingNonWorkingDays_workingdays_allValid_smoke:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDaysworkingdaysResult
+      input: '{
+  "langCode": "eng",
+  "registrationCenterId": "10001"
+}'
+      output: '{
+"weekdays": [{
+			"languagecode": "eng"
+		}]
+}'
+   Kernel_WorkingNonWorkingDays_workingdays_inValid_langCode:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "endhds3g",
+  "registrationCenterId": "10001"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Kernel_WorkingNonWorkingDays_workingdays_inValid_registrationCenterId:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterId}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/WorkingNonWorkingDays/workingNonWorkingDays
+      outputTemplate: kernel/error
+      input: '{
+  "langCode": "eng",
+  "registrationCenterId": "100chbdhhdhd01"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-802",
+      "message": "Center ID is invalid"
+    }
+  ]
+}'

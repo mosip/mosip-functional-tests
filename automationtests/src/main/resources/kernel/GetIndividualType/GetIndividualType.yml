@@ -1,0 +1,16 @@
+GetIndividualType:
+   Kernel_GetIndividualType_allValid_smoke:
+      endPoint: /v1/masterdata/individualtypes
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetIndividualType/getIndividualType
+      outputTemplate: kernel/GetIndividualType/getIndividualTypeResult
+      input: '{}'
+      output: '{
+"individualTypes": [{
+        "code": "FR",
+        "langCode": "eng",
+        "name": "Foreigner",
+        "isActive": true
+      }]
+}'

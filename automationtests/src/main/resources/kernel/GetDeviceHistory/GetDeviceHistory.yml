@@ -1,0 +1,114 @@
+GetDeviceHistory:
+   Kernel_GetDeviceHistory_allValid_smoke:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/GetDeviceHistory/getDeviceHistoryResult
+      input: '{
+  "id":"2009",
+  "langcode":"eng",
+  "effdatetimes":"2021-02-04T15:36:11.452Z"
+}'
+      output: '{
+"deviceHistoryDetails": [{
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_GetDeviceHistory_invalid_langcode:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/error
+      input: '{
+  "id":"3000021",
+  "langcode":"GER",
+  "effdatetimes":"2020-10-15T15:36:11.452Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-129",
+      "message": "Device History not found"
+    }
+  ]
+}'
+   Kernel_GetDeviceHistory_invalid_id:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/error
+      input: '{
+  "id":"15467",
+  "langcode":"eng",
+  "effdatetimes":"2020-10-15T15:36:11.452Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-129",
+      "message": "Device History not found"
+    }
+  ]
+}'
+   Kernel_GetDeviceHistory_invalid_effdatetimes_format_3:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/GetDeviceHistory/getDeviceHistoryNotFoundError
+      input: '{
+  "id":"3000021",
+  "langcode":"eng",
+  "effdatetimes":"2019/02/20T10:00:00.000Z"
+}'
+      output: '{
+   "errors": [
+    {
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available"
+}
+  ]
+}'
+   Kernel_GetDeviceHistory_invalid_effdatetimes_format_2:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/error
+      input: '{
+  "id":"3000021",
+  "langcode":"eng",
+  "effdatetimes":"2019-02-20 10:00:00.000Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-033",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Kernel_GetDeviceHistory_invalid_effdatetimes:
+      endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
+      role: regproc
+      restMethod: get
+      inputTemplate: kernel/GetDeviceHistory/getDeviceHistory
+      outputTemplate: kernel/error
+      input: '{
+  "id":"3000021",
+  "langcode":"eng",
+  "effdatetimes":"2019-01-30T12:10:00.000"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-033",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

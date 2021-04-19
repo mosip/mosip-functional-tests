@@ -1,0 +1,52 @@
+ZoneUserDetails:
+   Kernel_ZoneUserDetails_all_valid_smoke:
+      endPoint: /v1/masterdata/zoneuser/history/{userid}/{eff_dtimes}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ZoneUserDetails/zoneUserDetails
+      outputTemplate: kernel/ZoneUserDetails/zoneUserDetailsResult
+      input: '{
+  "userid": "110034",
+  "eff_dtimes": "2021-02-04T09:03:53.195Z"
+}'
+      output: '{
+"userResponseDto": [{
+        "isActive": true
+      }]
+}'
+   Kernel_ZoneUserDetails_in_valid_userid:
+      endPoint: /v1/masterdata/zoneuser/history/{userid}/{eff_dtimes}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ZoneUserDetails/zoneUserDetails
+      outputTemplate: kernel/error
+      input: '{
+  "userid": "1134",
+  "eff_dtimes": "2021-02-03T09:03:53.195Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-003",
+      "message": "User History not found"
+    }
+  ]
+}'
+   Kernel_ZoneUserDetails_in_valid_eff_dtimes:
+      endPoint: /v1/masterdata/zoneuser/history/{userid}/{eff_dtimes}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/ZoneUserDetails/zoneUserDetails
+      outputTemplate: kernel/error
+      input: '{
+  "userid": "110034",
+  "eff_dtimes": "2021-0209:03:53.195Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-002",
+      "message": "Invalid Date Format"
+    }
+  ]
+}'

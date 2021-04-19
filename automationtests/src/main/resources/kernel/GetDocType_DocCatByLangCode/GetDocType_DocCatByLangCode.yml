@@ -1,0 +1,36 @@
+GetDocType_DocCatByLangCode:
+   Kernel_GetDocType_DocCatByLangCode_valid_smoke:
+      endPoint: /v1/masterdata/validdocuments/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetDocType_DocCatByLangCode/getDocType_DocCatByLangCode
+      outputTemplate: kernel/GetDocType_DocCatByLangCode/getDocType_DocCatByLangCodeResult
+      input: '{
+	"languagecode":"eng"
+}'
+      output: '{
+    "langCode":"eng",
+    "isActive":true,
+    "documentcategories":[
+      {
+        "langCode":"eng",
+        "isActive":true
+          }]
+}'
+   Kernel_GetDocType_DocCatByLangCode_invalid_languagecode:
+      endPoint: /v1/masterdata/validdocuments/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/GetDocType_DocCatByLangCode/getDocType_DocCatByLangCode
+      outputTemplate: kernel/GetDocType_DocCatByLangCode/getDocType_DocCatByLangCodeResult
+      input: '{
+	"languagecode":"e@@ng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-150",
+      "message": "Document Category- Document Type mapping not found"
+    }
+  ]
+}'

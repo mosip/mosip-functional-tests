@@ -1,0 +1,33 @@
+GetAllTemplateByTemplateTypeCode:
+   Kernel_GetAllTemplateByTemplateTypeCode_smoke:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: ida
+      restMethod: get
+      inputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCode
+      outputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCodeResult
+      input: '{
+	"code":"auth-email-subject"
+}'
+      output: '{
+"templates": [{
+                "fileFormatCode": "txt",
+                "isActive": true
+            }]
+}'
+   Kernel_GetAllTemplateByTemplateTypeCode_invalid_code:
+      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
+      role: ida
+      restMethod: get
+      inputTemplate: kernel/GetAllTemplateByTemplateTypeCode/getAllTemplateByTemplateTypeCode
+      outputTemplate: kernel/error
+      input: '{
+	"code":"xycd"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
+    }
+  ]
+}'

@@ -1,0 +1,56 @@
+FetchBiometricAttribute:
+   Kernel_FetchBiometricAttribute_valid_smoke:
+      endPoint: /v1/masterdata/getbiometricattributesbyauthtype/{langcode}/{biometrictypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAttribute/fetchBiometricAttribute
+      outputTemplate: kernel/FetchBiometricAttribute/fetchBiometricAttributeResult
+      input: '{
+"langcode":"eng",
+ "biometrictypecode":"FNR"
+}'
+      output: '{
+"biometricattributes": [{
+        "code": "TM",
+        "name": "Thumbs",
+        "biometricTypeCode": "FNR",
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'    
+   Kernel_FetchBiometricAttribute_invalid_biometrictypecode:
+      endPoint: /v1/masterdata/getbiometricattributesbyauthtype/{langcode}/{biometrictypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAttribute/fetchBiometricAttribute
+      outputTemplate: kernel/error
+      input: '{
+"langcode":"eng",
+ "biometrictypecode":"FNRkwdnknnk"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-004",
+      "message": "BiometricAttribute not found"
+    }
+  ]
+}'   
+   Kernel_FetchBiometricAttribute_invalid_langcode:
+      endPoint: /v1/masterdata/getbiometricattributesbyauthtype/{langcode}/{biometrictypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAttribute/fetchBiometricAttribute
+      outputTemplate: kernel/error
+      input: '{
+"langcode":"GER",
+ "biometrictypecode":"FNR"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-004",
+      "message": "BiometricAttribute not found"
+    }
+  ]
+}'

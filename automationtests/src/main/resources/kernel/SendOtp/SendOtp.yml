@@ -1,0 +1,62 @@
+SendOtp:
+   Kernel_SendOtp_channel_EMAIL:
+      endPoint: /v1/authmanager/authenticate/sendotp
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/SendOtp/sendOtp
+      outputTemplate: kernel/SendOtp/sendOtpResult
+      input: '{
+    "appId": "prereg",
+    "context": "auth-otp",
+    "otpChannel": [{Channel: "EMAIL"}],
+    "templateVariables": {},
+    "userId": "mosiptestmail@gmail.com",
+    "useridtype": "USERID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"status": "success",
+	"message": "Email Request submitted"
+}'
+   Kernel_SendOtp_channel_Mobile:
+      endPoint: /v1/authmanager/authenticate/sendotp
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/SendOtp/sendOtp
+      outputTemplate: kernel/SendOtp/sendOtpResult
+      input: '{
+    "appId": "prereg",
+    "context": "auth-otp",
+    "otpChannel": [{Channel: "PHONE"}],
+    "templateVariables": {},
+    "userId": "8249742850",
+    "useridtype": "USERID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"status": "success",
+	"message": "Sms Request Sent"
+}'
+   Kernel_SendOtp_context_empty:
+      endPoint: /v1/authmanager/authenticate/sendotp
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/SendOtp/sendOtp
+      outputTemplate: kernel/error
+      input: '{
+    "appId": "prereg",
+    "context": "",
+    "otpChannel": [{Channel: "EMAIL"}],
+    "templateVariables": {},
+    "userId": "mosiptestmail@gmail.com",
+    "useridtype": "USERID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-ATH-436",
+      "message": " Template is missing for language engwith context -email-subject-template"
+    }
+  ]
+}'

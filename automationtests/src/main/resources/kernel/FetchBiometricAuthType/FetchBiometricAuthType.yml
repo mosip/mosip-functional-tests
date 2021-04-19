@@ -1,0 +1,103 @@
+FetchBiometricAuthType:
+   Kernel_FetchBiometricAuthType_valid_smoke:
+      endPoint: /v1/masterdata/biometrictypes
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthTypeResult
+      input: '{
+      "langcode": "$REMOVE$",
+      "code": "$REMOVE$"
+      }'
+      output: '{
+"biometrictypes": [{
+	    "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_FetchBiometricAuthType_valid_smoke_code_langcode:
+      endPoint: /v1/masterdata/biometrictypes/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthTypeResult
+      input: '{
+      "langcode": "eng",
+      "code": "FNR"
+      }'
+      output: '{
+"biometrictypes": [{
+	    "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_FetchBiometricAuthType_invalid_code:
+      endPoint: /v1/masterdata/biometrictypes/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/error
+      input: '{
+      "langcode": "eng",
+      "code": "F@334RFFDSWG"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-006",
+      "message": "Biometric Type not found"
+    }
+  ]
+}'
+   Kernel_FetchBiometricAuthType_invalid_langcode:
+      endPoint: /v1/masterdata/biometrictypes/{code}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/error
+      input: '{
+      "langcode": "e@@DFGFGGDDGH",
+      "code": "FNR"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-006",
+      "message": "Biometric Type not found"
+    }
+  ]
+}'
+   Kernel_FetchBiometricAuthType_valid_smoke_langcode:
+      endPoint: /v1/masterdata/biometrictypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthTypeResult
+      input: '{
+      "langcode": "eng",
+      "code": "$REMOVE$"
+      }'
+      output: '{
+"biometrictypes": [{
+        "langCode": "eng",
+        "isActive": true
+      }]
+}'
+   Kernel_FetchBiometricAuthType_invalid_langCode:
+      endPoint: /v1/masterdata/biometrictypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: kernel/FetchBiometricAuthType/fetchBiometricAuthType
+      outputTemplate: kernel/error
+      input: '{
+      "langcode": "@@DFDFGR434565",
+      "code": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-006",
+      "message": "Biometric Type not found"
+    }
+  ]
+}'   
