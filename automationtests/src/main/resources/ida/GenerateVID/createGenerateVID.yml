@@ -19,7 +19,7 @@ GenerateVID:
 	"requestTime": "$TIMESTAMP$",
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
@@ -27,9 +27,9 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
    auth_GenerateVID_Valid_Smoke_sid:
@@ -52,7 +52,7 @@ GenerateVID:
 	"requestTime": "$TIMESTAMP$",
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
@@ -60,9 +60,9 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
    auth_GenerateVID_All_Valid_Smoke_Temp_VID_sid:
@@ -85,7 +85,7 @@ GenerateVID:
 	"requestTime": "$TIMESTAMP$",
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+	"sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
 	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
@@ -93,8 +93,8 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedMobile": "XXXXXX8538",
+		"sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'

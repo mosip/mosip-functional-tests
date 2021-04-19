@@ -7,7 +7,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -44,7 +44,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -81,7 +81,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -118,7 +118,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -155,7 +155,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -192,7 +192,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -229,7 +229,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -266,7 +266,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -303,7 +303,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -340,7 +340,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -377,7 +377,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -414,7 +414,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -451,7 +451,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -969,7 +969,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "123HGFRFDDR3245@@456",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1011,7 +1011,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1053,7 +1053,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UHGFETN",
         "bio": true,
@@ -1095,7 +1095,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "",
         "bio": true,
@@ -1137,7 +1137,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "$REMOVE$",
         "bio": true,
@@ -1179,7 +1179,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1221,7 +1221,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1263,7 +1263,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1305,7 +1305,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1347,7 +1347,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1389,7 +1389,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1431,7 +1431,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1473,7 +1473,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1515,7 +1515,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1557,7 +1557,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1599,7 +1599,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1641,7 +1641,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1683,7 +1683,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1725,7 +1725,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1768,7 +1768,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1810,7 +1810,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1852,7 +1852,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1894,7 +1894,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1936,7 +1936,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1978,7 +1978,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2020,7 +2020,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2062,7 +2062,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2104,7 +2104,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2146,7 +2146,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,

@@ -7,7 +7,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -44,7 +44,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -81,7 +81,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -118,7 +118,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -155,7 +155,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -192,7 +192,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -229,7 +229,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -266,7 +266,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -303,7 +303,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -340,7 +340,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -377,7 +377,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -414,7 +414,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -451,7 +451,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -969,7 +969,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "123HGFRFDDR3245@@456",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1012,7 +1012,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1055,7 +1055,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UHGFETN",
         "bio": true,
@@ -1098,7 +1098,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "",
         "bio": true,
@@ -1141,7 +1141,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "$REMOVE$",
         "bio": true,
@@ -1184,7 +1184,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1227,7 +1227,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1270,7 +1270,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1313,7 +1313,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1356,7 +1356,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1399,7 +1399,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1442,7 +1442,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1485,7 +1485,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1528,7 +1528,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1571,7 +1571,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1614,7 +1614,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1657,7 +1657,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1700,7 +1700,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1743,7 +1743,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1786,7 +1786,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1829,7 +1829,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1872,7 +1872,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1915,7 +1915,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -1958,7 +1958,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2001,7 +2001,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2044,7 +2044,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2087,7 +2087,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2130,7 +2130,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
@@ -2173,7 +2173,7 @@ BioAuth:
       outputTemplate: ida/BioAuth/error
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": true,
