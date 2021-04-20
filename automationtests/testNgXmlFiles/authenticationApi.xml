@@ -84,7 +84,7 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	<test name="BioAuth">
+	<!--<test name="BioAuth">
 		<parameter name="ymlFile"
 			value="ida/BioAuth/BioAuth.yml" />	
 		<parameter name="isInternal"	value="false" />
@@ -143,7 +143,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
-	</test> 
+	</test> -->
 	
 	
 	
