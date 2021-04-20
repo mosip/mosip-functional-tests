@@ -20,7 +20,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -29,7 +29,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_UIN_smoke_demo_Pos:
@@ -53,7 +53,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -62,7 +62,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_VID_smoke_demo_Pos:
@@ -86,7 +86,7 @@ AuthUnlock:
 	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
 	"individualIdType": "VID",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -95,7 +95,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_UIN_smoke_Face_Pos:
@@ -119,7 +119,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -128,7 +128,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_VID_smoke_Face_Pos:
@@ -152,7 +152,7 @@ AuthUnlock:
 	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
 	"individualIdType": "VID",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -161,7 +161,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_UIN_smoke_Finger_Pos:
@@ -185,7 +185,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -194,7 +194,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_VID_smoke_Finger_Pos:
@@ -218,7 +218,7 @@ AuthUnlock:
 	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
 	"individualIdType": "VID",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -227,7 +227,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_VID_smoke_Iris_Pos:
@@ -251,7 +251,7 @@ AuthUnlock:
 	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
 	"individualIdType": "VID",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -260,7 +260,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Valid_UIN_smoke_Iris_Pos:
@@ -284,7 +284,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -293,7 +293,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InValid_AuthType_Neg:
@@ -317,20 +317,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- authType"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InValid_UIN_Neg:
@@ -354,20 +354,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_missing_UIN_Neg:
@@ -391,20 +391,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InValid_individualIdType_Neg:
@@ -428,20 +428,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualIdType"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InValid_OTP_Neg:
@@ -465,20 +465,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-004",
-      "message": "Invalid Input Parameter - OTP"
+      "errorCode": "RES-SER-422",
+      "message": "OTP is invalid"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_TransactionMismatch_Neg:
@@ -502,20 +502,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-004",
-      "message": "Input transactionID does not match transactionID of OTP Request"
+      "errorCode": "RES-SER-422",
+      "message": "Invalid Input Parameter - transactionID"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Invalid_Id_Neg:
@@ -539,7 +539,7 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
@@ -552,7 +552,7 @@ AuthUnlock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_missing_Id_Neg:
@@ -576,20 +576,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- id"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InValid_version_Neg:
@@ -613,20 +613,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- version"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Missing_version_Neg:
@@ -650,20 +650,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- version"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_InvalidTimestamp_Neg:
@@ -687,20 +687,20 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_AuthUnLock_Missing_Timestamp_Neg:
@@ -724,19 +724,19 @@ AuthUnlock:
 	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'

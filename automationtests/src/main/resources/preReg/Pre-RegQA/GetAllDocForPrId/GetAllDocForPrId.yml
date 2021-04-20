@@ -1,0 +1,31 @@
+GetAllDocForPrId:
+   Prereg_GetAllDocForPrId_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/documents/preregistration/{preRegistrationId}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/Pre-RegQA/GetAllDocForPrId/getAllDocForPrId
+      outputTemplate: preReg/Pre-RegQA/GetAllDocForPrId/getAllDocForPrIdResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$"
+}'
+      output: '{
+  "docCatCode":"POA",
+  "docTypCode":"RNC"
+}'
+   Prereg_GetAllDocForPrId_inValid_preRegistrationId_sid:
+      endPoint: /preregistration/v1/documents/preregistration/{preRegistrationId}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/Pre-RegQA/GetAllDocForPrId/getAllDocForPrId
+      outputTemplate: preReg/error
+      input: '{
+  "preRegistrationId": "jhgf4324"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}'

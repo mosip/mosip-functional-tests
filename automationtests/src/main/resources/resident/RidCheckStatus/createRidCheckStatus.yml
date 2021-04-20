@@ -1,20 +1,4 @@
 RidCheckStatus:
-   Resident_RidCheckStatus_All_Valid_Smoke:
-      endPoint: /resident/v1/rid/check-status
-      role: resident
-      restMethod: post
-      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
-      outputTemplate: resident/RidCheckStatus/createRidCheckStatusResult
-      input: '{
-    "individualId": "10001100010003620201218073423",
-    "id": "mosip.resident.checkstatus",
-    "individualIdType": "RID",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-        "ridStatus": "PROCESSED"
-    }'
-
    Resident_RidCheckStatus_Missing_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status
       role: resident
@@ -30,7 +14,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ]
@@ -50,7 +34,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualId"
     }
   ]
@@ -63,7 +47,7 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
       input: '{
-    "individualId": "10001100010003420201218060914",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_RID$",
     "id": "mosip.resident.checkstatus",
     "individualIdType": "$REMOVE$",
     "requesttime": "$TIMESTAMP$"
@@ -71,7 +55,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualIdType"
     }
   ]
@@ -83,7 +67,7 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
       input: '{
-    "individualId": "10001100010003420201218060914",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_RID$",
     "id": "mosip.resident.checkstatus",
     "individualIdType": "@2334#",
     "requesttime": "$TIMESTAMP$"
@@ -91,28 +75,8 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- individualIdType"
-    }
-  ]
-}'
-   Resident_RidCheckStatus_Invalid_Id:
-      endPoint: /resident/v1/rid/check-status
-      role: resident
-      restMethod: post
-      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
-      outputTemplate: resident/error
-      input: '{
-    "individualId": "10001100010003420201218060914",
-    "id": "@234###",
-    "individualIdType": "RID",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-009",
-      "message": "Invalid Input Parameter- id"
     }
   ]
 }'
@@ -123,7 +87,7 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
       input: '{
-    "individualId": "10001100010003420201218060914",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_RID$",
     "id": "$REMOVE$",
     "individualIdType": "RID",
     "requesttime": "$TIMESTAMP$"
@@ -131,7 +95,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- id"
     }
   ]
@@ -143,7 +107,7 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
       input: '{
-    "individualId": "10001100010003420201218060914",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_RID$",
     "id": "mosip.resident.checkstatus",
     "individualIdType": "RID",
     "requesttime": "$REMOVE$"
@@ -151,7 +115,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ]
@@ -163,7 +127,7 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
       input: '{
-    "individualId": "10001100010003420201218060914",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_RID$",
     "id": "mosip.resident.checkstatus",
     "individualIdType": "RID",
     "requesttime": "#@234455"
@@ -171,7 +135,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
     }
   ]

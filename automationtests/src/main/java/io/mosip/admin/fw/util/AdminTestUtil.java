@@ -187,6 +187,8 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	protected Response patchRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
+		if(url.contains("ID:"))
+			url = inputJsonKeyWordHandeler(url, testCaseName );
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -1105,6 +1107,26 @@ public static void copyPreregTestResource() {
 		File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
 		FileUtils.copyDirectoryToDirectory(config, destination);
 		logger.info("Copied the prereg test resource successfully");
+	} catch (Exception e) {
+		logger.error("Exception occured while copying the file: "+e.getMessage());
+	}
+}
+public static void copyIdrepoTestResource() {
+	try {
+		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/idRepository");
+		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+		FileUtils.copyDirectoryToDirectory(source, destination);
+		logger.info("Copied the idrepository test resource successfully");
+	} catch (Exception e) {
+		logger.error("Exception occured while copying the file: "+e.getMessage());
+	}
+}
+public static void copyResidentTestResource() {
+	try {
+		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/resident");
+		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+		FileUtils.copyDirectoryToDirectory(source, destination);
+		logger.info("Copied the Resident test resource successfully");
 	} catch (Exception e) {
 		logger.error("Exception occured while copying the file: "+e.getMessage());
 	}
