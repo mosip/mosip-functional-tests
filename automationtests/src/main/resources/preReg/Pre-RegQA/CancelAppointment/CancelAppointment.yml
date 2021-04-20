@@ -1,0 +1,30 @@
+CancelAppointment:
+   Prereg_CancelAppointment_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/CancelAppointment/cancelAppointment
+      outputTemplate: preReg/Pre-RegQA/CancelAppointment/cancelAppointmentResult
+      input: '{
+	"preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$"
+}'
+      output: '{
+"message": "Appointment for the selected application has been successfully cancelled"
+}'
+   Prereg_CancelAppointment_inValid_preRegistrationId_sid:
+      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/CancelAppointment/cancelAppointment
+      outputTemplate: preReg/error
+      input: '{
+	"preRegistrationId": "36272yhshsgblAppointment_sid_preRegistrati"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}'

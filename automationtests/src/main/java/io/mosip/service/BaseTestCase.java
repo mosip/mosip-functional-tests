@@ -161,13 +161,13 @@ public class BaseTestCase {
 			//new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
-			AuthTestsUtil.initiateAuthTest();
+			AdminTestUtil.copyIdrepoTestResource();
 		}
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
-			AuthTestsUtil.initiateAuthTest();
+			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
 			PartnerTestUtil.initiatePartnerTest();

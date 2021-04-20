@@ -7,7 +7,7 @@ UpdateUIN:
       outputTemplate: resident/UpdateUIN/UpdateUinResult
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "2609347184",
+		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
@@ -17,19 +17,19 @@ UpdateUIN:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "2609347184",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
   "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
@@ -37,10 +37,10 @@ UpdateUIN:
       role: resident
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
-      outputTemplate: resident/UpdateUIN/UpdateUinResult
+      outputTemplate: resident/error
       input: '{
 		"transactionID": "1234567890",
-		"individualId": "2609347184",
+		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
@@ -50,23 +50,23 @@ UpdateUIN:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "2609347184",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-020",
-      "message": "request.otp: otp should not be empty"
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- otp"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
    Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
@@ -74,10 +74,10 @@ UpdateUIN:
       role: resident
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
-      outputTemplate: resident/UpdateUIN/UpdateUinResult
+      outputTemplate: resident/error
       input: '{
 		"transactionID": "",
-		"individualId": "2609347184",
+		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"individualIdType": "UIN",
 		"requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
@@ -87,22 +87,22 @@ UpdateUIN:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "2609347184",
+	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/idauthentication/v1/internal/otp"
+	"sendOtpEndPoint": "/resident/v1/req/otp"
 	}
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-020",
-      "message": "request.transactionID: transactionID should not be empty"
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- transactionId"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "XXXXXX2850",
 		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'

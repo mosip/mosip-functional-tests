@@ -1,0 +1,295 @@
+UpdatePreregistration:
+   Prereg_UpdatePrereg_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistrationResult
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+  "langCode": "eng"
+}'
+   Prereg_UpdatePrereg_inValid_dateOfBirth_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/1",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/dateOfBirth"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_missing_Version_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "$REMOVE$",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_002",
+      "message": "Request version is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_invalid_Version_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1shsh33@#$",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_002",
+      "message": "Request version is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_invalid_email_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "soh#w@Scdfvg",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-IOV-004",
+      "message": "Invalid input parameter - identity/email"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_missing_langCode_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$REMOVE$",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_014",
+      "message": "Lang code is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_INVALID_langCode_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "abshw2416#@",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_014",
+      "message": "Lang code is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_INVALID_requesttime_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "2021dbhydb-02-10T07:23:34.093Z",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_015",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_Missing_requesttime_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$REMOVE$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_003",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_previous_date_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "2018-02-10T07:28:57.314Z",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_013",
+      "message": "Request date should be current date"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_invalid_id_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "mosip.pre43DD4@GGGgistration.demographic.update"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_missing_id_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}'
+   Prereg_UpdatePrereg_blank_id_sid:
+      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/Pre-RegQA/UpdatePreregistration/updatePreregistration
+      outputTemplate: preReg/error
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "eng",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+  "id": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}'
