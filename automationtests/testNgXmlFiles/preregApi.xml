@@ -71,7 +71,7 @@
 			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
 		</classes>
 	</test>-->
-	  <test name="CreatePreregistration">
+	<!--  <test name="CreatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/createPrereg/createPrereg.yml" />
 			<parameter name="idKeyName"	value="preRegistrationId" />
@@ -159,6 +159,136 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetPRIDForRegCent">
+		<parameter name="ymlFile"
+			value="preReg/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeletePreRegistration">
+		<parameter name="ymlFile"
+			value="preReg/DeletePreRegistration/DeletePreRegistration.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteSpecificDocForaPRID">
+		<parameter name="ymlFile"
+			value="preReg/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteAllDocForaPRID">
+		<parameter name="ymlFile"
+			value="preReg/DeleteAllDocForaPRID/DeleteAllDocForaPRID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="CancelAppointment">
+		<parameter name="ymlFile"
+			value="preReg/CancelAppointment/CancelAppointment.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>-->
+	
+	<test name="CreatePreregistration">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/createPrereg/createPrereg.yml" />
+			<parameter name="idKeyName"	value="preRegistrationId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="UpdatePreregistration">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/UpdatePreregistration/UpdatePreregistration.yml" />
+			<parameter name="pathParams" value="preRegistrationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	
+	<test name="GetApplicationWithPrId">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/GetApplicationWithPrId/GetApplicationWithPrId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetApplicationStatusWithPrId">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/GetApplicationStatusWithPrId/GetApplicationStatusWithPrId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="Uploaddocument">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/uploadDocument/uploadDocument.yml" />
+			<parameter name="idKeyName"	value="docId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
+		</classes>
+	</test>
+	
+	<test name="CopyDocument">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/CopyDocument/CopyDocument.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test> 
+	<test name="GetAllDocForPrId">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/GetAllDocForPrId/GetAllDocForPrId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="GetSpecificDocumentforaPRID">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/GetSpecificDocumentforaPRID/GetSpecificDocumentforaPRID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetPRIDByDateRange">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/GetPRIDByDateRange/GetPRIDByDateRange.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	 <test name="BookAppointment">
+		<parameter name="ymlFile"
+			value="preReg/bookAppointment/bookAppointment.yml" />
+		<parameter name="pathParams" value="preRegistrationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="GetAppointmentDetails">
+		<parameter name="ymlFile"
+			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetAvailableSlotForRegCentreId">
+		<parameter name="ymlFile"
+			value="preReg/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
 	<test name="GetPRIDForRegCent">
 		<parameter name="ymlFile"
 			value="preReg/GetPRIDForRegCent/GetPRIDForRegCent.yml" />

@@ -6,12 +6,12 @@ DownloadCredential:
       inputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqid
       outputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
       input: '{
-		"requestId": "b66b4888-3dc3-4c0e-b920-75e9f6a64b30",
+		"requestId": "$ID:RequestCredentials_euin_All_Valid_Smoke_sid_requestId$",
 		"requesttime": "$TIMESTAMP$"
 	}'
       output: ' {
         "Content-Type": "application/pdf",
-        "filename": "b66b4888-3dc3-4c0e-b920-75e9f6a64b30.pdf"
+        "filename": "$IGNORE$"
     }'
    Resident_CredentialsStatus_euin_All_Valid_Smoke_QrCode:
       endPoint: /resident/v1/req/card/{requestId}
@@ -20,10 +20,10 @@ DownloadCredential:
       inputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqid
       outputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
       input: '{
-		"requestId": "b66b4888-3dc3-4c0e-b920-75e9f6a64b30",
+		"requestId": "$ID:RequestCredentials_Qrcode_All_Valid_Smoke_sid_requestId$",
 		"requesttime": "$TIMESTAMP$"
 	}'
       output: ' {
         "Content-Type": "application/pdf",
-        "filename": "b66b4888-3dc3-4c0e-b920-75e9f6a64b30.pdf"
+        "filename": "$IGNORE$"
     }'

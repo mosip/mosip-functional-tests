@@ -77,7 +77,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		otpReqJson.remove("sendOtpEndPoint");
 		
 
-		Response otpResponse = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
 
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
