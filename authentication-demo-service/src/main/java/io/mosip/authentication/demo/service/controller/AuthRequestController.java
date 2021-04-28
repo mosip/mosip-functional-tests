@@ -71,6 +71,8 @@ import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.EncryptionRequestDto;
 import io.mosip.authentication.demo.service.dto.EncryptionResponseDto;
+import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManagerBuilder;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -313,7 +315,7 @@ public class AuthRequestController {
 		httpHeaders.add("Content-Type", "application/json");
 		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
 		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
-		URI authRequestUrl = getOtpRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
 		
 		Map<String, Object> respMap = new LinkedHashMap<>();
 		
@@ -330,8 +332,11 @@ public class AuthRequestController {
 		try {
 			ResponseEntity<Map> authResponse = restTemplate.exchange(authRequestUrl, HttpMethod.POST, httpEntity, Map.class);
 			respBody = authResponse.getBody();
-			respSignature = authResponse.getHeaders().get("response-signature").get(0);
-			authRespBody.put("signature", respSignature);
+			List<ServiceError> serviceErrorList = ExceptionUtils.getServiceErrorList(mapper.writeValueAsString(respBody));
+			if(serviceErrorList.isEmpty()) {
+				respSignature = authResponse.getHeaders().get("response-signature").get(0);
+				authRespBody.put("signature", respSignature);
+			}
 		} catch (RestClientException e) {
 			respBody = e;
 		}
@@ -474,6 +479,41 @@ public class AuthRequestController {
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
+	}
+	
+	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
+		String baseUrl;
+		String urlSuffix;
+		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
+
+		boolean isInternal = false;
+		switch(reqId) {
+		case "mosip.identity.auth":
+			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/auth";
+			break;
+		case "mosip.identity.kyc":
+			baseUrl = isLocal ? "http://localhost:8091" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/kyc";
+			break;
+		case "mosip.identity.auth.internal":
+			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/internal/auth";
+			isInternal = true;
+			break;
+		default:
+			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/auth";
+			break;
+		}
+		
+		String url = baseUrl + urlSuffix;
+		
+		if(!isInternal) {
+			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX) : partnerUrlSuffix;
+			url += "/" + partnerSuffix;
+		}
+		return URI.create(url);
 	}
 
 	private URI getOtpRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
