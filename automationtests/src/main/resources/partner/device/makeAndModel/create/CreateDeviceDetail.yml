@@ -1,0 +1,125 @@
+createServiceToSaveDeviceDetail:
+   Partner_ServiceToSaveDeviceDetail_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slap",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "device-id-123"
+    }'
+
+   Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_DeviceId:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "test",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_AUT_001",
+      "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types"
+    }
+  ]
+}'
+
+   Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_deviceProviderId:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "$REMOVE$",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.deviceProviderId"
+    }
+  ]
+}'
+
+   Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_deviceSubTypeCode:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "$REMOVE$",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.deviceSubTypeCode"
+    }
+  ]
+}'
+
+   Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_deviceTypeCode:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slab",
+    "deviceTypeCode": "$REMOVE$",
+    "id": "device-id-123",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.deviceTypeCode"
+    }
+  ]
+}'
