@@ -37,7 +37,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -73,6 +73,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
@@ -169,6 +170,6 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }
