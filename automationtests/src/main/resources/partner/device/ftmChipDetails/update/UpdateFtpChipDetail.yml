@@ -1,0 +1,64 @@
+createUpdateFtpChipDetail:
+   Partner_UpdateFtpChipDetail_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/ftpchipdetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
+      outputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetailResult
+      input: '{
+    "ftpChipDetailId": "ftp-001",
+    "ftpProviderId": "Tech-123",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-001",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "ftp-001"
+    }'
+
+   Partner_UpdateFtpChipDetail_Missing_InputParameter_ftpChipDetailId:
+      endPoint: /v1/partnermanager/ftpchipdetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
+      outputTemplate: partner/error
+      input: '{
+    "ftpChipDetailId": "$REMOVE$",
+    "ftpProviderId": "Tech-123",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-001",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.ftpChipDetailId"
+    }
+  ]
+}'
+
+   Partner_UpdateFtpChipDetail_Missing_InputParameter_ftpProviderId:
+      endPoint: /v1/partnermanager/ftpchipdetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
+      outputTemplate: partner/error
+      input: '{
+    "ftpChipDetailId": "ftp-001",
+    "ftpProviderId": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "Make123",
+    "model": "MODEL-001",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message":  "must not be null  request.ftpProviderId"
+    }
+  ]
+}'

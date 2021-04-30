@@ -1,0 +1,30 @@
+uploadPartnerCert:
+   Partner_UploadCACert_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      restMethod: put
+      inputTemplate: partner/authPartner/UploadCert/uploadCert
+      outputTemplate: partner/authPartner/UploadCert/uploadCertResult
+      input: '{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\nMIIDeTCCAmGgAwIBAgIUQcscbvEGbZX1wXAA6T5/0Kpz02swDQYJKoZIhvcNAQEL\nBQAwYTELMAkGA1UEBhMCSU4xEjAQBgNVBAgMCUthcmFudGFrYTESMBAGA1UEBwwJ\nQmFuZ2Fsb3JlMRIwEAYDVQQKDAlNT1NJUFRFU1QxFjAUBgNVBAMMDW1vc2lwdGVz\ndC5vcmcwHhcNMjEwMjIyMDkxNTI1WhcNMjIwMjIzMDkxNTI1WjBbMQswCQYDVQQG\nEwJJTjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUxDzAN\nBgNVBAoMBlRlY2hubzETMBEGA1UEAwwKVGVjaG5vLmNvbTCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAKaJLKs+lJg2BGzSL2vOcWBrxMN4hw8t2rqLU3UC\negoKzGBCWxd1+r9zeOIIJYFlbG1gv97rQfwjzouICnSk5IQTUsX0t9eJAt8mo1ut\n3rDpkD6VA5yUjaws5LcRZhsMLpHEWLn0K9XA7AN09lSr1aeA6g65s9nM/g7m2ssZ\nyHZqQ8yNWEmZT1LrDOdGO0W3hhI205BMKbPOPznY0ORvun0piPKmOMOU49Pi5fUH\nwxFatwIQfEtu8+i63KK07JNyGAlesg7L6LnnUFcJhjf1AgC6I0uhGv5gpkSn0gmH\n7IKuM1LEKue4C4xuadWbC2KKTp+Di7NGmX2lVWY/ztU65mkCAwEAAaMvMC0wDAYD\nVR0TAQH/BAIwADAdBgNVHQ4EFgQU2ZuSdUKje2nfB4hI6AkbyWHEAJYwDQYJKoZI\nhvcNAQELBQADggEBAGSb3oGB1T8JK9O2+nJ9Hwd/I3gObn0mGQ5tFWd4dkM0SdgA\nZB0TcyLVaFOAQ8VHcu4HbbEwOmOiabj1g4V/QDW87Hujr+B38Ki2oamx3AWp3cYI\n/H/i1Lune+b5/t5Ok2eO2nJU/Zg3yT9JyS03s4nW3NksjfHWQsBA1jkfavY2jaqj\nFA2mgl83oX7gVS1g1zs8JIn+DOajuRqZ5kXr/DA5aJHWRYbkcT7B0suItpFMnQnB\nHO9IzAhTYMSROZWaAFNgrwWnnt97rkd4yovvBDDzkuw0ysZVWWbqe8Zvk1KZrdCo\nIR5EgBsXbgTux3hB69cp0Osmpr/cq/MwvpIkVNE=\n-----END CERTIFICATE-----\n",
+    "partnerDomain": "Auth",
+    "partnerId": "Tech-123"
+  },
+  "requesttime": "",
+  "version": "string"
+}'
+      output: ' {
+  "id": null,
+  "version": null,
+  "responsetime": "2021-02-23T10:16:18.194Z",
+  "metadata": null,
+  "response": {
+    "signedCertificateData": "-----BEGIN CERTIFICATE-----\nMIIDfDCCAmSgAwIBAgIIb4JNfp2NrnEwDQYJKoZIhvcNAQELBQAwbTELMAkGA1UE\nBhMCSU4xCzAJBgNVBAgMAktBMRIwEAYDVQQHDAlCQU5HQUxPUkUxDTALBgNVBAoM\nBElJVEIxGjAYBgNVBAsMEU1PU0lQLVRFQ0gtQ0VOVEVSMRIwEAYDVQQDDAlNT1NJ\nUC1QTVMwHhcNMjEwMjIyMTAxMjI2WhcNMjIwMjIzMTAxMjI2WjBbMQswCQYDVQQG\nEwJJTjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUxDzAN\nBgNVBAoMBlRlY2hubzETMBEGA1UEAwwKVGVjaG5vLmNvbTCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAKodBaGG9h4IrUQVSw64LhG71T3SZCdMFAaKQjW2\nwq++Zlctztg4lnGnFz2gWorUi5XP6EBH+x2DnKIkNHWmbfOW30g4Sx6w5l3GGsLM\neQ8Wvt1hu9d8gUlpJp4B864ZSF5Q/YCl/UMmVb58OiUDXpzYfIs0KrLbCDgCvLCk\n+4kCoEj2PWj6MzklJfnWCzfMVscyDJBaR1vr51/YUcQYlDpOf1PrBdSOl1NhhTRs\ngKUv+nePH64FBrcKW6yAmj9CnUTioZvjEw+RFfn7ryKLfHC7RTwwM5nvR5P8DfFn\nC02n1oHRYwiF+EfEp9ioJfXOMGvZQXu97EytBxrZBTmT/KsCAwEAAaMyMDAwDwYD\nVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUZEd1PcRqKHCUfTUQO8S6dgtsCb4wDQYJ\nKoZIhvcNAQELBQADggEBAGSWFo6s+DJeIv4IojcPO3xC0r0BlXRDNFTnqcWBDXEx\ny5vFxnj1hqLFTUJTU4FpxLfk/5oo4nZj9HZGa0TlWpu03NNUmqBn3zdW/lcion/G\nXgEiTKIPGEXKjTDn3mSwbwnus7gX0q5yUPlHFZZ2PqzV5dKamk09D0VVRuJrqAY9\nfDlzIcjE6eP70A21QBop/o+TVXCXY6YznZPdCati9/DVXb0Xy0U15S6GEHXhTrcr\nGUD8uku1o/M7OG+USGP/ZM2a3HSi5AgZcsvhRPQOn/tLb3Xk+RpD+c6BwOLMEkl2\n2aW4HyoVzmludhkI888Burfxo2qb7dDzq7wHI0cdn3E=\n-----END CERTIFICATE-----\n",
+    "certificateId": "b8979d31-f2cb-4bf8-9953-109342b080d4",
+    "timestamp": "2021-02-23T10:16:18.288446"
+  },
+  "errors": null
+}'   

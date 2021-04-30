@@ -1,0 +1,18 @@
+getPartnerCert:
+   Partner_GetPartner_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/credentialPartner/GetPartner/getPartner
+      outputTemplate: partner/credentialPartner/GetPartner/getPartnerResult
+      input: '{
+		"partnerId": "MOVP"
+}'
+      output: '  {
+    	"partnerID": "MOVP",
+    	"policyGroup": "mosip policy group",
+    	"organizationName": "movp",
+    	"address": "Bangalore",
+    	"contactNumber": "9553967572",
+    	"emailId": "movp@gmail.com"
+  }'
