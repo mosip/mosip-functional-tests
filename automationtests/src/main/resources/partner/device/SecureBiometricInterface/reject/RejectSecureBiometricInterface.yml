@@ -1,0 +1,58 @@
+RejectSecureBiometricInterface:
+   Partner_RejectSecureBiometricInterface_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
+      input: '{
+    "approvalStatus": "De-activate",
+    "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "Secure biometric details approved successfully."
+    }'
+
+   Partner_RejectSecureBiometricInterface_Missing_InputParameter_approvalStatus:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "approvalStatus": "$REMOVE$",
+    "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.approvalStatus"
+    }
+  ]
+}'
+
+   Partner_RejectSecureBiometricInterface_Missing_InputParameter_isItForRegistrationDevice:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "approvalStatus": "Activate",
+    "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
+    "isItForRegistrationDevice": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "must not be null  request.isItForRegistrationDevice"
+    }
+  ]
+}'

@@ -10,10 +10,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-import io.mosip.kernel.core.cbeffutil.entity.BDBInfo;
-import io.mosip.kernel.core.cbeffutil.entity.BIR;
-import io.mosip.kernel.core.cbeffutil.jaxbclasses.RegistryIDType;
-import io.mosip.kernel.core.cbeffutil.jaxbclasses.SingleType;
+import io.mosip.kernel.biometrics.constant.BiometricType;
+import io.mosip.kernel.biometrics.entities.BDBInfo;
+import io.mosip.kernel.biometrics.entities.BIR;
+import io.mosip.kernel.biometrics.entities.RegistryIDType;
 import io.mosip.kernel.core.util.CryptoUtil;
 
 public class BIRDeserializer extends StdDeserializer<BIR> {
@@ -37,7 +37,7 @@ public class BIRDeserializer extends StdDeserializer<BIR> {
 		format.setType(node.get("bdbInfo").get("format").get("type").asText());
 		return new BIR.BIRBuilder().withBdb(CryptoUtil.decodeBase64(node.get("bdb").asText()))
 				.withBdbInfo(new BDBInfo.BDBInfoBuilder()
-						.withType((List<SingleType>) mapper.readValue(node.get("bdbInfo").get("type").toString(), List.class))
+						.withType((List<BiometricType>) mapper.readValue(node.get("bdbInfo").get("type").toString(), List.class))
 						.withSubtype(mapper.readValue(node.get("bdbInfo").get("subtype").toString(), List.class))
 						.withFormat(format).build()).build();
 	}

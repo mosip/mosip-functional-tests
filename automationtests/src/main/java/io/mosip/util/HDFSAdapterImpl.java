@@ -78,8 +78,7 @@ public class HDFSAdapterImpl implements FileSystemAdapter {
 	@Override
 	public boolean copyFile(String sourcePacket, String sourceFilePath, String destinationPacket,
 			String destinationFilePath) {
-		//LOGGER.info("Copying file from packet {} with path {} to packet {} with path {}", sourcePacket, sourceFilePath,
-			//	destinationPacket, destinationFilePath);
+		//LOGGER.info("Copying file from packet {} with path {} to packet {} with path {}", sourcePacket, sourceFilePath, destinationPacket, destinationFilePath);
 		return storeFile(destinationPacket, destinationFilePath, getFile(sourcePacket, sourceFilePath));
 	}
 

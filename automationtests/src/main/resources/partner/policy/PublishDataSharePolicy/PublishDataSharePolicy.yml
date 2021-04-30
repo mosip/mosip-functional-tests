@@ -1,0 +1,24 @@
+createPublishPolicy:
+   Partner_PublishDataSharePolicy_All_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}/publish
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/PublishDataSharePolicy/publishDataSharePolicy
+      outputTemplate: partner/policy/PublishDataSharePolicy/publishDataSharePolicyResult
+      input: '{
+		"policygroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$",
+		"policyId": "MDSP",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        "policyGroupName": "mosip policy group",
+        "policyGroupDesc": "desc mosip policy group",
+        "policyGroupStatus": true,
+        "policyName": "mosip data share policy",
+        "policyDesc": "mosip data share policy",
+        "policyType": "DataShare",
+        "status": "PUBLISHED",
+        "is_Active": true,
+		"format":"extraction",
+		"attributeName":"biometrics"
+    }'
