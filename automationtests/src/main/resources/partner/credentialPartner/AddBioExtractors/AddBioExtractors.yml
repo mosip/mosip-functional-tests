@@ -1,0 +1,13 @@
+addBioExtractors:
+   Partner_AddBioExtractors_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/MOVP/bioextractors/MDSP
+      role: partner
+      restMethod: post
+      inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
+      outputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractorsResult
+      input: '{
+	"partnerId":"MOVP",
+	"policyId":"MDSP",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{"message":"Extractors added successfully."}'

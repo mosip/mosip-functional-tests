@@ -1,0 +1,20 @@
+uploadCACert:
+   Partner_UploadCACertificate_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/ca/upload
+      role: partner
+      restMethod: put
+      inputTemplate: partner/authPartner/UploadCertificate/uploadCertificate
+      outputTemplate: partner/authPartner/UploadCertificate/uploadCertificateResult
+      input: '{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIUNWdO0RnI0SZOUAdqQ7mnn6TB86owDQYJKoZIhvcNAQEL\nBQAwYTELMAkGA1UEBhMCSU4xEjAQBgNVBAgMCUthcmFudGFrYTESMBAGA1UEBwwJ\nQmFuZ2Fsb3JlMRIwEAYDVQQKDAlNT1NJUFRFU1QxFjAUBgNVBAMMDW1vc2lwdGVz\ndC5vcmcwHhcNMjEwMjIyMDkxNTI1WhcNMjIwMjIzMDkxNTI1WjBhMQswCQYDVQQG\nEwJJTjESMBAGA1UECAwJS2FyYW50YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUxEjAQ\nBgNVBAoMCU1PU0lQVEVTVDEWMBQGA1UEAwwNbW9zaXB0ZXN0Lm9yZzCCASIwDQYJ\nKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN43fEvlIdZV0Fw2xF2vTl4+Kap4I9PA\nLE1aFF/XgBDbs0bNpTj/v5chQ0TuGwtjir4YlYm4CuNRSuesMNHtiy7ODvYr1n1c\nGW+bUp5/OdWGfmPpDOmX001XkY4WYc58+b8gDtXQGVmYOlLUO9nLjVJ4wEQesDe2\nemUPlld46w/TTtgFc5CszQ5bxGjZDmSj71BJeEjPCEoW3iCUIegBB45qx68RcKwf\n3mGu5v7UN3w8JUPxcUj463+mCj1JKVF9wXNXP5VL1HaapLSDgedoBA2vxK7l5Rha\nNSHpx4rm9/p0q26gJLkd3h6fTbdSI7pQC8iw3EPUgz5lGS1V2obNADcCAwEAAaMv\nMC0wDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU939AKvsuli3xt7aeoomZHG/+nw8w\nDQYJKoZIhvcNAQELBQADggEBALpnA+B5D/2gZs9PRceS1Lm0CrxQeEDACWK4nOqM\n6NAp6PqHddCRpvWMlO6n8Ud+cVVTs4ooNvFGdURTVdbW4zjl90PX1o7q5dhI/ztK\nTAqmPrljlTALoTH4ckSPNMjT7TrINDA5zABazST/IksM13JcxA3tLC+IifymTR0I\nNIWsE92ZEs/vpi8AJwltvwarnDJFC/cIIGwMrjj40R794ws3B6j3P2vjKl6trNof\na0+Hi7s8YDSqdo6HYy2HqFgKIfj/9jyLiKfwu7fkisr9/F/1ajkVMbgs225vhG5A\ndZ1lSwB3V9yptWnlTuSPG5SjCzhqsjypv6FbJ/S2t9GIAQQ=\n-----END CERTIFICATE-----\n",
+        "partnerDomain": "Auth"
+    },
+    	"requesttime": "",
+  	"version": "string"
+  }'
+      output: ' {
+        "status": "Upload Success."
+}'   
