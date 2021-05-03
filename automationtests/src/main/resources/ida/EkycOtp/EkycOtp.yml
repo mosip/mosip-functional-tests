@@ -1,13 +1,13 @@
 EkycOtp:
   Ida_OTP_Auth_With_Valid_UIN_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "UIN",
         "bio": false,
@@ -16,7 +16,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -33,7 +33,7 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -66,7 +66,7 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Invalid_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -82,7 +82,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -104,7 +104,7 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Blank_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -120,7 +120,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -142,7 +142,7 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Missing_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -158,7 +158,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -180,14 +180,14 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Invalid_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "76544ddffgg@@@3444",
 	    "individualIdType": "UIN",
         "bio": false,
@@ -196,7 +196,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -218,14 +218,14 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Blank_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "",
 	    "individualIdType": "UIN",
         "bio": false,
@@ -234,7 +234,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -256,14 +256,14 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Invalid_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "ndjshswhw3277272",
         "bio": false,
@@ -272,7 +272,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -294,14 +294,14 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Blank_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "",
         "bio": false,
@@ -310,7 +310,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
@@ -332,14 +332,14 @@ EkycOtp:
     }
 }'
   Ida_OTP_Auth_With_Missing_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+      endPoint: /idauthentication/v1/kyc/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
 		"requestTime": "$TIMESTAMP$",
-		"individualId": "4315928037",
+		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 		"transactionId": "1234567890",
 	    "individualIdType": "$REMOVE$",
         "bio": false,
@@ -348,7 +348,7 @@ EkycOtp:
 		"sendOtp":{
 	"transactionID": "1234567890",
 	"requestTime": "$TIMESTAMP$",
-	"individualId": "4315928037",
+	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
 	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",

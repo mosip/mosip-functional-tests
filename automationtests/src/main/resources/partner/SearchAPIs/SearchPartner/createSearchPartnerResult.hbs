@@ -1,0 +1,36 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "id": "$IGNORE$",
+        "address": "$IGNORE$",
+        "contactNo": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": null,
+        "emailId": "$IGNORE$",
+        "isActive": {{isActive}},
+        "isDeleted": null,
+        "name": "$IGNORE$",
+        "policyGroupId": "$IGNORE$",
+        "certificateAlias": "$IGNORE$",
+        "partnerTypeCode": "$IGNORE$",
+        "approvalStatus": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "userId": "$IGNORE$"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

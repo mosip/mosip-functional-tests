@@ -1,0 +1,39 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "code": "$IGNORE$",
+        "statusCode": "$IGNORE$",
+        "deviceId": "$IGNORE$",
+        "deviceSubId": "$IGNORE$",
+        "digitalId": "$IGNORE$",
+        "serialNo": "$IGNORE$",
+        "deviceDetailId": "$IGNORE$",
+        "purpose": "$IGNORE$",
+        "firmware": "$IGNORE$",
+        "expiryDate": "$IGNORE$",
+        "certificationLevel": "$IGNORE$",
+        "foundationalTPId": "$IGNORE$",
+        "hotlisted": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "active": "{{active}}",
+        "deleted": "$IGNORE$"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

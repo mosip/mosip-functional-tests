@@ -1,6 +1,6 @@
 BioAuth:
-  Ida_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -36,8 +36,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -73,8 +73,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -110,8 +110,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -147,8 +147,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -184,8 +184,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -221,8 +221,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -258,8 +258,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -295,8 +295,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -332,8 +332,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -369,8 +369,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -406,8 +406,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -443,8 +443,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -480,8 +480,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -517,8 +517,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -554,8 +554,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftMiddleFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftMiddleFingerr_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -591,8 +591,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -628,8 +628,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -665,8 +665,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -702,8 +702,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -739,8 +739,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -776,8 +776,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightLittleFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightLittleFinger_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -813,8 +813,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftThumb_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftThumb_With_VID_Valid_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -850,8 +850,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -887,8 +887,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -924,8 +924,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -961,8 +961,8 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioAuth_Biometric_inValid_transactionID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_inValid_transactionID:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1004,8 +1004,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_transactionID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_blank_transactionID:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1047,8 +1047,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_inValid_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_inValid_individualIdType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1090,8 +1090,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_blank_individualIdType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1133,8 +1133,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_individualIdType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_individualIdType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1176,8 +1176,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_invalid_bioSubType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1219,8 +1219,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_blank_bioSubType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1262,8 +1262,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Blank_bioType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1305,8 +1305,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_bioType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1348,8 +1348,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_bioType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Invalid_bioType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1391,8 +1391,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_biovalue:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_invalid_biovalue:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1434,8 +1434,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_invalid_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_invalid_deviceCode:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1477,8 +1477,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Blank_deviceCode:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1520,8 +1520,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceCode:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_deviceCode:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1563,8 +1563,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Blank_deviceProviderID:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1606,8 +1606,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_deviceProviderID:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1649,8 +1649,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceProviderID:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Invalid_deviceProviderID:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1692,8 +1692,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Blank_deviceServiceVersion:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1735,8 +1735,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_deviceServiceVersion:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1778,8 +1778,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceServiceVersion:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Invalid_deviceServiceVersion:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1821,8 +1821,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Blank_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Blank_deviceProvider:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1864,8 +1864,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_deviceProvider:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1907,8 +1907,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceProvider:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Invalid_deviceProvider:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1950,8 +1950,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Invalid_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Invalid_deviceSubType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1993,8 +1993,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_blank_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_blank_deviceSubType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -2036,8 +2036,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Biometric_Missing_deviceSubType:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Biometric_Missing_deviceSubType:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -2079,8 +2079,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Face_With_FingerBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Face_With_FingerBio_Invalid:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -2122,8 +2122,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Iris_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Iris_With_FaceBio_Invalid:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -2165,8 +2165,8 @@ BioAuth:
     }
   ]
 }'
-  Ida_BioAuth_Finger_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303
+  auth_BioAuth_Finger_With_FaceBio_Invalid:
+      endPoint: /idauthentication/v1/auth/$PartnerKey$
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
