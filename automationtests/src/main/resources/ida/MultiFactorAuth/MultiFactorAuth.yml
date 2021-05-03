@@ -19,7 +19,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "UNKNOWN",
@@ -72,7 +72,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left RingFinger",
@@ -125,7 +125,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left MiddleFinger",
@@ -178,7 +178,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left IndexFinger",
@@ -231,7 +231,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left LittleFinger",
@@ -284,7 +284,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right IndexFinger",
@@ -337,7 +337,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right RingFinger",
@@ -390,7 +390,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right MiddleFinger",
@@ -443,7 +443,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right LittleFinger",
@@ -496,7 +496,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left Thumb",
@@ -549,7 +549,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right Thumb",
@@ -602,7 +602,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Right",
@@ -655,7 +655,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/I25FX443oNXjwTobGzG7afSaEmHp0JwxfdKdN9Re8L9WSsUzcL/8250/417740",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/$PartnerKey$",
 	},
 		"identityRequest":{
           "bioSubType": "Left",

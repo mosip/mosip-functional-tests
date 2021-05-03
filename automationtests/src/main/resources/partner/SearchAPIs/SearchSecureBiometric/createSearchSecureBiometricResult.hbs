@@ -1,0 +1,25 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "swBinaryHash": "$IGNORE$",
+        "swVersion": "$IGNORE$",
+        "deviceDetailId": "$IGNORE$",
+        "swCreateDateTime": "$IGNORE$",
+        "swExpiryDateTime": "$IGNORE$",
+        "isItForRegistrationDevice": "{{isItForRegistrationDevice}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}
