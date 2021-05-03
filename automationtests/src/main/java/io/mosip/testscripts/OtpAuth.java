@@ -22,6 +22,7 @@ import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.FileUtil;
@@ -134,8 +135,13 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc"))
-		encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
+		if(testCaseName.toLowerCase().contains("kyc")) {
+			String error = null;
+			if(response.getBody().asString().contains("errors"))
+				error = JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
+			if(error.equalsIgnoreCase("null"))
+			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
+		}
 		
 		if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
 			throw new AdminTestException("Failed at Signature validation");

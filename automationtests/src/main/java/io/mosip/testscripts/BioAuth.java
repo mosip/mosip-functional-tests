@@ -22,6 +22,7 @@ import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
@@ -73,7 +74,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
 		if(request.has("identityRequest")) {
@@ -107,7 +108,11 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc") && !(response.getBody().asString().contains("errors"))) {
+		if(testCaseName.toLowerCase().contains("kyc")) {
+			String error = null;
+			if(response.getBody().asString().contains("errors"))
+				error = JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
+			if(error.equalsIgnoreCase("null"))
 			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
 		}
 		
