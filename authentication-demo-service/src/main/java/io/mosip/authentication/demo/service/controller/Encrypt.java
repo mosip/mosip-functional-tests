@@ -33,6 +33,7 @@ import javax.net.ssl.X509TrustManager;
 import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.ArrayUtils;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -76,6 +77,9 @@ import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * The Class Encrypt is used to encrypt the identity block using Kernel Api.
@@ -383,6 +387,12 @@ public class Encrypt {
 		headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
 		return new HttpEntity<CryptomanagerRequestDto>(req, headers);
 	}
+	
+	@PostMapping(path = "/prependThumbprintToDecrypt", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String prependThumbprintToDecrypt(@RequestBody SplittedData splittedData) {
+		return CryptoUtil.encodeBase64(
+				ArrayUtils.addAll(CryptoUtil.decodeBase64(splittedData.getThumbprint()), CryptoUtil.decodeBase64(splittedData.getEncryptedData())));
+	}
 
 	/**
 	 * The Constant UNQUESTIONING_TRUST_MANAGER nullifies the check for certificates
@@ -448,5 +458,13 @@ public class Encrypt {
 
 	public static String digestAsPlainText(byte[] data) {
 		return DatatypeConverter.printHexBinary(data).toUpperCase();
+	}
+	
+	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public static class SplittedData {
+		private String thumbprint;
+		private String encryptedData;
 	}
 }
