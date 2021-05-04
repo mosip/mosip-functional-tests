@@ -19,7 +19,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -52,7 +52,7 @@ OtpAuth:
 	"individualId": "6053189263576413",
 	"individualIdType": "VID",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -85,7 +85,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -124,7 +124,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -163,7 +163,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -202,7 +202,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -241,7 +241,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -280,7 +280,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -319,7 +319,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
@@ -358,7 +358,7 @@ OtpAuth:
 	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/6cjBgdJLzKZoILBTHrBrGDJ9nPy2IPMqIto4NsgMYuEJ7bfu2U/9998/934303",
+	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
 	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
 	}
 	}'
