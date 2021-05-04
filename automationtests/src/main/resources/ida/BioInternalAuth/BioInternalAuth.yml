@@ -1,5 +1,5 @@
 BioInternalAuth:
-  Ida_BioInternalAuth_Biometric_Face_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_Face_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -25,7 +25,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -51,7 +51,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -77,7 +77,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -103,7 +103,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -129,7 +129,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -155,7 +155,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -181,7 +181,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -207,7 +207,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -233,7 +233,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -259,7 +259,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -285,7 +285,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -311,7 +311,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -337,7 +337,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -363,7 +363,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -389,7 +389,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -415,7 +415,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -441,7 +441,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -467,7 +467,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -493,7 +493,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -519,7 +519,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -545,7 +545,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightLittleFinger_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightLittleFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -571,7 +571,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftThumb_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftThumb_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -597,7 +597,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -623,7 +623,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -649,7 +649,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
+  auth_BioInternalAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -675,7 +675,7 @@ BioInternalAuth:
       output: '{
   "authStatus": "true"
 }'
-  Ida_BioInternalAuth_Biometric_inValid_transactionID:
+  auth_BioInternalAuth_Biometric_inValid_transactionID:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -707,7 +707,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_blank_transactionID:
+  auth_BioInternalAuth_Biometric_blank_transactionID:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -739,7 +739,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_inValid_individualIdType:
+  auth_BioInternalAuth_Biometric_inValid_individualIdType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -771,7 +771,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_blank_individualIdType:
+  auth_BioInternalAuth_Biometric_blank_individualIdType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -803,7 +803,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_Misssing_individualIdType:
+  auth_BioInternalAuth_Biometric_Misssing_individualIdType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -835,7 +835,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_invalid_bioSubType:
+  auth_BioInternalAuth_Biometric_invalid_bioSubType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -867,7 +867,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_blank_bioSubType:
+  auth_BioInternalAuth_Biometric_blank_bioSubType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -899,7 +899,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_missing_bioType:
+  auth_BioInternalAuth_Biometric_missing_bioType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -931,7 +931,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_Blank_bioType:
+  auth_BioInternalAuth_Biometric_Blank_bioType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -963,7 +963,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_Invalid_bioType:
+  auth_BioInternalAuth_Biometric_Invalid_bioType:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -995,7 +995,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Biometric_invalid_biovalue:
+  auth_BioInternalAuth_Biometric_invalid_biovalue:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -1027,7 +1027,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Face_With_FingerBio_Invalid:
+  auth_BioInternalAuth_Face_With_FingerBio_Invalid:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -1059,7 +1059,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Iris_With_FaceBio_Invalid:
+  auth_BioInternalAuth_Iris_With_FaceBio_Invalid:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
@@ -1091,7 +1091,7 @@ BioInternalAuth:
     }
   ]
 }'
-  Ida_BioInternalAuth_Finger_With_FaceBio_Invalid:
+  auth_BioInternalAuth_Finger_With_FaceBio_Invalid:
       endPoint: /idauthentication/v1/internal/auth
       role: regproc
       restMethod: post
