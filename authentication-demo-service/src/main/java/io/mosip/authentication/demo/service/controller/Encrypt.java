@@ -193,7 +193,7 @@ public class Encrypt {
 		request.setAad(aad);
 		request.setReferenceId(getRefId(isInternal, true));
 		request.setData(bioValue);
-		request.setTimeStamp(DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime()));
+		request.setTimeStamp(timestamp);
 
 		HttpEntity<RequestWrapper<CryptomanagerRequestDto>> httpEntity = new HttpEntity<>(createRequest(request));
 		ResponseEntity<Map> response = restTemplate.exchange(encryptURL, HttpMethod.POST, httpEntity, Map.class);
