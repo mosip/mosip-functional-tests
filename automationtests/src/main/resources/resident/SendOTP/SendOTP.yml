@@ -1,0 +1,19 @@
+SendOTP:
+   Resident_SendOTP_Valid_UIN_All:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+	"transactionID": "1234567890",
+	"requestTime": "$TIMESTAMP$",
+	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+	"individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX2850",
+        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+    }'
+
+      

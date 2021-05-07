@@ -127,6 +127,22 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>--> 
+	</test>-->
+	
+	<test name="GetCredentialTypes">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/GetCredentialTypes/GetCredentialTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="SendOTP">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/SendOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	
 </suite>

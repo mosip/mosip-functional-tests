@@ -1,6 +1,6 @@
 EkycBio:
   auth_EkycBio_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -37,7 +37,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -74,7 +74,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -111,7 +111,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -148,7 +148,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -185,7 +185,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -222,7 +222,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -259,7 +259,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -296,7 +296,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -333,7 +333,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -370,7 +370,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -407,7 +407,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -444,7 +444,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -481,7 +481,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_Face_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -518,7 +518,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -555,7 +555,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -592,7 +592,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIndexFingerr_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -629,7 +629,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -666,7 +666,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -703,7 +703,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -740,7 +740,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -777,7 +777,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -814,7 +814,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -851,7 +851,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -888,7 +888,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -925,7 +925,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -962,7 +962,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_inValid_transactionID:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1004,7 +1004,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_blank_transactionID:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1046,7 +1046,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_inValid_individualIdType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1088,7 +1088,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_blank_individualIdType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1130,7 +1130,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_individualIdType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1172,7 +1172,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_invalid_bioSubType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1214,7 +1214,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_blank_bioSubType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1256,7 +1256,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Blank_bioType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1298,7 +1298,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_bioType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1340,7 +1340,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Invalid_bioType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1382,7 +1382,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_invalid_biovalue:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1424,7 +1424,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_invalid_deviceCode:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1466,7 +1466,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Blank_deviceCode:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1508,7 +1508,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_deviceCode:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1550,7 +1550,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Blank_deviceProviderID:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1592,7 +1592,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_deviceProviderID:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1634,7 +1634,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Invalid_deviceProviderID:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1676,7 +1676,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Blank_deviceServiceVersion:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1718,7 +1718,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_deviceServiceVersion:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1761,7 +1761,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Invalid_deviceServiceVersion:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1803,7 +1803,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Blank_deviceProvider:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1845,7 +1845,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_deviceProvider:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1887,7 +1887,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Invalid_deviceProvider:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1929,7 +1929,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Invalid_deviceSubType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -1971,7 +1971,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_blank_deviceSubType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -2013,7 +2013,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Missing_deviceSubType:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -2055,7 +2055,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Face_With_FingerBio_Invalid:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -2097,7 +2097,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
@@ -2139,7 +2139,7 @@ EkycBio:
   ]
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/kyc/$PartnerKey$
+      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
       inputTemplate: ida/EkycBio/ekycBio
