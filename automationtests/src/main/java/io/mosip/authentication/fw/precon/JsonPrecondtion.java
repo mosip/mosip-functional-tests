@@ -684,4 +684,28 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		}
 		return returnMap;
 	}
+	
+	public static String JsonObjSimpleParsing(String jsonIdentity,String jsonObjName,String idfield) throws Exception {
+		String value =null;   
+		JSONObject json = new JSONObject(jsonIdentity); 
+
+		JSONObject identity = json.getJSONObject(jsonObjName);
+
+
+		JSONArray identityitems = identity.getJSONArray(idfield);
+
+		for (int i = 0, size = identityitems.length(); i < size; i++)
+		{
+			JSONObject idItem = identityitems.getJSONObject(i);
+
+
+			String language = idItem.getString("language");
+			if(language.equals("eng"))
+				value = idItem.getString("value");
+
+		}
+
+		return value; 
+	}
+
 }
