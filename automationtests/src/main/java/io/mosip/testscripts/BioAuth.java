@@ -117,8 +117,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		}
 		
 		
-		if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
-				throw new AdminTestException("Failed at Signature validation");
+		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
+			//	throw new AdminTestException("Failed at Signature validation");
 
 	}
 

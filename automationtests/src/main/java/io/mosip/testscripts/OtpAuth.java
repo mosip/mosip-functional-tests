@@ -143,8 +143,8 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
 		}
 		
-		if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
-			throw new AdminTestException("Failed at Signature validation");
+		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
+			//throw new AdminTestException("Failed at Signature validation");
 
 	}
 
