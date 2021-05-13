@@ -1373,8 +1373,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static void copyAuthTestResource() {
 		try {
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/ida");
+			File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
+			FileUtils.copyDirectoryToDirectory(config, destination);
+			
 			IDASCRIPT_LOGGER.info("Copied the authentication test resource successfully");
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception occured while copying the file: "+e.getMessage());
