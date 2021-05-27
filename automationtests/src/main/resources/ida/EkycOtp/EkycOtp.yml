@@ -1,5 +1,5 @@
 EkycOtp:
-  Ida_EkycOtp_Auth_With_Valid_UIN_Smoke:
+  auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -32,7 +32,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Valid_VID_Smoke_Pos:
+  auth_EkycOtp_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -65,7 +65,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_individualId_neg:
+  auth_EkycOtp_With_Invalid_individualId_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -103,7 +103,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_individualId_neg:
+  auth_EkycOtp_With_Blank_individualId_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -141,7 +141,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Missing_individualId_neg:
+  auth_EkycOtp_With_Missing_individualId_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -179,7 +179,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_transactionId_neg:
+  auth_EkycOtp_With_Invalid_transactionId_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -217,7 +217,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_transactionId_neg:
+  auth_EkycOtp_With_Blank_transactionId_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -255,7 +255,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_individualIdType_neg:
+  auth_EkycOtp_With_Invalid_individualIdType_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -293,7 +293,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_individualIdType_neg:
+  auth_EkycOtp_With_Blank_individualIdType_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
@@ -331,7 +331,7 @@ EkycOtp:
 		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Missing_individualIdType_neg:
+  auth_EkycOtp_With_Missing_individualIdType_neg:
       endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
       role: ida
       restMethod: post
