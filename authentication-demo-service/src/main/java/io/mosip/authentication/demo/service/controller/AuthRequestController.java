@@ -5,13 +5,17 @@ package io.mosip.authentication.demo.service.controller;
 
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.UTF_8;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
@@ -21,8 +25,10 @@ import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -38,8 +44,13 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.xml.bind.DatatypeConverter;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
+import org.bouncycastle.operator.OperatorCreationException;
 import org.jose4j.lang.JoseException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,16 +63,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
@@ -71,6 +79,9 @@ import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.EncryptionRequestDto;
 import io.mosip.authentication.demo.service.dto.EncryptionResponseDto;
+import io.mosip.authentication.demo.service.helper.CertificateTypes;
+import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
+import io.mosip.authentication.demo.service.helper.PartnerTypes;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
@@ -78,6 +89,7 @@ import io.mosip.kernel.core.templatemanager.spi.TemplateManagerBuilder;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
+import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
 import io.swagger.annotations.Api;
 
 /**
@@ -163,6 +175,11 @@ public class AuthRequestController {
 			+ "  \"version\": \"${ver}\"\r\n"
 			+ "}";
 
+	private static final String BEGIN_CERTIFICATE = "-----BEGIN CERTIFICATE-----";
+	private static final String END_CERTIFICATE = "-----END CERTIFICATE-----";
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	private static final String TEMP_DIR = System.getProperty("java.io.tmpdir") + "/IDA";
+
 	@Autowired
 	private Encrypt encrypt;
 
@@ -180,6 +197,9 @@ public class AuthRequestController {
 
 	@Autowired
 	JWSSignAndVerifyController jWSSignAndVerifyController;
+
+	@Autowired
+	KeyMgrUtil keyMgrUtil;
 	
 	@PostConstruct
 	public void idTemplateManagerPostConstruct() {
@@ -218,8 +238,7 @@ public class AuthRequestController {
 		reqValues.put(BIO, false);
 		reqValues.put(PIN, false);
 		reqValues.put("thumbprint",
-				CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(encrypt.getRefId(isInternal,
-						(reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())))))));
+				CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(isInternal, TEMP_DIR))));
 
 		if (requestTime == null) {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
@@ -262,7 +281,10 @@ public class AuthRequestController {
 				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 				HttpHeaders httpHeaders = new HttpHeaders();
 				String responseStr = response.toString();
-				httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+				String rpSignature = jWSSignAndVerifyController.sign(responseStr, false, 
+					true, false, null, TEMP_DIR, PartnerTypes.RELYING_PARTY);
+				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
 				throw new IdAuthenticationBusinessException(
@@ -561,8 +583,8 @@ public class AuthRequestController {
 			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
 			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
 			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException,
-			KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException {
-		String previousHash = digest(getHash(""));
+			KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException, OperatorCreationException {
+		byte[] previousHash = getHash("");
 
 		for (Map<String, Object> bioMap : biometrics) {
 			Object data = bioMap.get(DATA);
@@ -591,18 +613,22 @@ public class AuthRequestController {
 				}
 				String transactionId = String.valueOf(dataMap.get(TRANSACTION_ID));
 
-				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp,
-						transactionId, isInternal);
+				//SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp,
+				//		transactionId, isInternal);
+				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBio(bioValue, timestamp,
+						transactionId, isInternal, TEMP_DIR);
+
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
-				bioMap.put("thumbprint", CryptoUtil.encodeBase64(
-						getCertificateThumbprint(encrypt.getCertificate(encrypt.getRefId(isInternal, true)))));
+				bioMap.put("thumbprint", CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, TEMP_DIR))));
 
 				Object digitalId = dataMap.get(DIGITAL_ID);
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
-					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
+					//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
+					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
+						false, null, TEMP_DIR, PartnerTypes.FTM);
 					dataMap.put(DIGITAL_ID, signedDititalId);
 				}
 
@@ -612,17 +638,25 @@ public class AuthRequestController {
 				if (isInternal) {
 					dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
 				} else {
-					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
+					//dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
+					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, 
+						false, null, TEMP_DIR, PartnerTypes.DEVICE);
 				}
 				bioMap.put(DATA, dataStr);
+				
+				// Updating hash calculation as per latest changes - 29-May-2021
+				byte[] currentHash = getHash(CryptoUtil.decodeBase64(bioValue));
+				byte[] finalBioDataBytes = new byte[currentHash.length + previousHash.length];
+				System.arraycopy(previousHash, 0, finalBioDataBytes, 0, previousHash.length);
+				System.arraycopy(currentHash, 0, finalBioDataBytes, previousHash.length, currentHash.length);
+				byte[] finalBioDataHash = getHash(finalBioDataBytes);
 
-				String currentHash = digest(getHash(dataStrJson));
-				String concatenatedHash = previousHash + currentHash;
+				/* String concatenatedHash = previousHash + currentHash;
 				byte[] finalHash = getHash(concatenatedHash);
-
-				String finalHashDigest = digest(finalHash);
-				bioMap.put("hash", finalHashDigest);
-				previousHash = finalHashDigest;
+				*/
+				String finalHashHexEncoded = digest(finalBioDataHash);
+				bioMap.put("hash", finalHashHexEncoded);
+				previousHash = finalBioDataHash;
 			}
 		}
 		return biometrics;
@@ -703,7 +737,7 @@ public class AuthRequestController {
 		EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
 		encodeBioData(identity);
 		encryptionRequestDto.setIdentityRequest(identity);
-		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, null, isInternal, false);
+		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal, TEMP_DIR);
 		reqValues.put("encHmac", encryptionResponse.getRequestHMAC());
 		reqValues.put("encSessionKey", encryptionResponse.getEncryptedSessionKey());
 		reqValues.put("encRequest", encryptionResponse.getEncryptedIdentity());
@@ -781,4 +815,52 @@ public class AuthRequestController {
 		reqValues.put(ENV, environment.getProperty(MOSIP_BASE_URL));
 	}
 
+	@SuppressWarnings("unchecked")
+	@PostMapping(path = "/uploadIDACertificate", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String uploadIDACertificate(
+			@RequestParam(name = "certificateType", required = true) CertificateTypes certificateType,
+			@RequestBody Map<String, String> requestData) throws CertificateException, IOException {
+		
+		String certificateData = requestData.get("certData");
+		String fileName = certificateType.getFileName();
+		System.out.println("certificateType: " + certificateType.toString());
+		System.out.println("certificateData: " + certificateData);
+		System.out.println("FileName: " + fileName);
+
+		X509Certificate x509Cert = (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
+		Base64.Encoder base64Encoder = Base64.getMimeEncoder(64, LINE_SEPARATOR.getBytes());
+		byte[] certificateBytes = x509Cert.getEncoded();
+		String encodedCertificateData = new String(base64Encoder.encode(certificateBytes));
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append(BEGIN_CERTIFICATE);
+		strBuilder.append(LINE_SEPARATOR);
+		strBuilder.append(encodedCertificateData);
+		strBuilder.append(LINE_SEPARATOR);
+		strBuilder.append(END_CERTIFICATE);
+		String certificateStr = strBuilder.toString();
+		
+
+		boolean isErrored = false;
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(TEMP_DIR + "/" + fileName ))) {
+			writer.write(certificateStr);
+			writer.flush();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			isErrored = true;
+		}
+		
+		return isErrored ? "Upload Failed" : "Upload Success"; 
+	}
+
+	@SuppressWarnings("unchecked")
+	@GetMapping (path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
+	public CertificateChainResponseDto generatePartnerKeys(
+			@RequestParam(name = "partnerType", required = true) PartnerTypes certificateType
+			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
+			KeyStoreException, OperatorCreationException {
+		
+		String filePrepend = certificateType.getFilePrepend();
+
+		return keyMgrUtil.getPartnerCertificates(filePrepend, TEMP_DIR);
+	}
 }
