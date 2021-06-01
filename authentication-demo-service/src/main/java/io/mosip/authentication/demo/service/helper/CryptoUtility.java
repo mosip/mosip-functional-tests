@@ -32,7 +32,7 @@ public class CryptoUtility {
 
 	/** The Constant SYM_ALGORITHM. */
 	private static final String SYM_ALGORITHM = "AES";
-	
+
 	/** The Constant SYM_ALGORITHM_LENGTH. */
 	private static final int SYM_ALGORITHM_LENGTH = 256;
 
@@ -134,4 +134,10 @@ public class CryptoUtility {
 		return cryptoCore.asymmetricEncrypt(publicKey, data);
 	}
 
+	public byte[] symmetricEncrypt(byte[] data, SecretKey secretKey, byte[] iv, byte[] aad)
+			throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
+			InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		return cryptoCore.symmetricDecrypt(secretKey, data, iv, aad);
+
+	}
 }
