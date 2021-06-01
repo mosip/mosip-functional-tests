@@ -137,7 +137,7 @@ public class CryptoUtility {
 	public byte[] symmetricEncrypt(byte[] data, SecretKey secretKey, byte[] iv, byte[] aad)
 			throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
 			InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-		return cryptoCore.symmetricDecrypt(secretKey, data, iv, aad);
+		return cryptoCore.symmetricEncrypt(secretKey, data, iv, aad);
 
 	}
 }
