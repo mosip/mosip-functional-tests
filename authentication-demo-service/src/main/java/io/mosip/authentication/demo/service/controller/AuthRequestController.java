@@ -14,6 +14,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
@@ -824,7 +825,6 @@ public class AuthRequestController {
 		String certificateData = requestData.get("certData");
 		String fileName = certificateType.getFileName();
 		System.out.println("certificateType: " + certificateType.toString());
-		System.out.println("certificateData: " + certificateData);
 		System.out.println("FileName: " + fileName);
 
 		X509Certificate x509Cert = (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
@@ -839,6 +839,10 @@ public class AuthRequestController {
 		strBuilder.append(END_CERTIFICATE);
 		String certificateStr = strBuilder.toString();
 		
+		Path parentPath = Paths.get(TEMP_DIR + "/" + fileName).getParent();
+        if (parentPath != null && !Files.exists(parentPath)) {
+            Files.createDirectories(parentPath);
+        }
 
 		boolean isErrored = false;
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(TEMP_DIR + "/" + fileName ))) {
@@ -855,12 +859,29 @@ public class AuthRequestController {
 	@SuppressWarnings("unchecked")
 	@GetMapping (path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CertificateChainResponseDto generatePartnerKeys(
-			@RequestParam(name = "partnerType", required = true) PartnerTypes certificateType
+			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType
 			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, OperatorCreationException {
 		
-		String filePrepend = certificateType.getFilePrepend();
+		String filePrepend = partnerType.getFilePrepend();
 
 		return keyMgrUtil.getPartnerCertificates(filePrepend, TEMP_DIR);
+	}
+
+	@SuppressWarnings("unchecked")
+	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String updatePartnerCertificate(
+		@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
+			@RequestBody Map<String, String> requestData) throws CertificateException, IOException, 
+			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException {
+		
+		String certificateData = requestData.get("certData");
+		String filePrepend = partnerType.getFilePrepend();
+
+		X509Certificate x509Cert = (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
+		System.out.println("certificateType: " + partnerType.toString());
+		System.out.println("filePrepend: " + filePrepend);
+		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, TEMP_DIR);
+		return isUpdated ? "Update Success" : "Update Failed"; 
 	}
 }

@@ -29,6 +29,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -252,6 +253,32 @@ public class KeyMgrUtil {
             cert.checkValidity();
             return true;
         } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public boolean updatePartnerCertificate(String partnerType, X509Certificate updateCert, String dirPath) throws NoSuchAlgorithmException, 
+            UnrecoverableEntryException, KeyStoreException, CertificateException, IOException {
+
+        String partnerFilePath = dirPath + '/' + partnerType + PARTNER_P12_FILE_NAME;
+        PrivateKeyEntry partnerPrivKeyEntry = getPrivateKeyEntry(partnerFilePath);
+        if (Objects.nonNull(partnerPrivKeyEntry)) {
+            X509Certificate fileCert = (X509Certificate) partnerPrivKeyEntry.getCertificate();
+            if (!Arrays.equals(fileCert.getPublicKey().getEncoded(), updateCert.getPublicKey().getEncoded())){
+                throw new CertificateException("Public Key not matched. Please upload correct certificate.");
+            }
+            X509Certificate[] chain = new X509Certificate[] {updateCert};
+            PrivateKeyEntry newPrivateKeyEntry = new PrivateKeyEntry(partnerPrivKeyEntry.getPrivateKey(), chain);
+
+            KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
+            keyStore.load(null, TEMP_P12_PWD);
+            keyStore.setEntry(KEY_ALIAS, newPrivateKeyEntry, new PasswordProtection (TEMP_P12_PWD));
+            
+            OutputStream outputStream = new FileOutputStream(partnerFilePath);
+            keyStore.store(outputStream, TEMP_P12_PWD);
+            outputStream.flush();
+            outputStream.close();
+            return true;
         }
         return false;
     }
