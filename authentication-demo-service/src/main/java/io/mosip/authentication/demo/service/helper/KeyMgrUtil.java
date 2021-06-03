@@ -33,9 +33,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.security.auth.x500.X500Principal;
+
+import org.bouncycastle.asn1.x500.RDN;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
+import org.bouncycastle.asn1.x500.style.IETFUtils;
 import org.bouncycastle.asn1.x500.style.RFC4519Style;
 import org.bouncycastle.asn1.x509.BasicConstraints;
 import org.bouncycastle.asn1.x509.Extension;
@@ -75,6 +79,8 @@ public class KeyMgrUtil {
     private static final String DEVICE_SPECIFIC_KEY = "-dsk";
     private static final String CHIP_SPECIFIC_KEY = "-csk";
 
+	private static final String DEFAULT_ORGANIZATION = "IDA-QA-TEST";
+
     public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
 		StringReader strReader = new StringReader(certData);
 		PemReader pemReader = new PemReader(strReader);
@@ -85,7 +91,7 @@ public class KeyMgrUtil {
 		return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
 	}
 
-    public CertificateChainResponseDto getPartnerCertificates(String partnerType, String dirPath) throws 
+    public CertificateChainResponseDto getPartnerCertificates(String partnerType, String dirPath, String organization) throws 
         NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, IOException, CertificateException, OperatorCreationException {
 
         String caFilePath = dirPath + '/' + partnerType + CA_P12_FILE_NAME;
@@ -94,14 +100,14 @@ public class KeyMgrUtil {
         PrivateKeyEntry caPrivKeyEntry = getPrivateKeyEntry(caFilePath);
         KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
         if (Objects.isNull(caPrivKeyEntry)) {
-            caPrivKeyEntry = generateKeys(null, "CA-" + partnerType, "CA-" + partnerType, caFilePath, keyUsage, dateTime, dateTimeExp);
+            caPrivKeyEntry = generateKeys(null, "CA-" + partnerType, "CA-" + partnerType, caFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         String caCertificate = getCertificate(caPrivKeyEntry);
 
         String interFilePath = dirPath + '/' + partnerType + INTER_P12_FILE_NAME;
         PrivateKeyEntry interPrivKeyEntry = getPrivateKeyEntry(interFilePath);
         if (Objects.isNull(interPrivKeyEntry)) {
-            interPrivKeyEntry = generateKeys(caPrivKeyEntry.getPrivateKey(), "CA-" + partnerType, "INTER-" + partnerType, interFilePath, keyUsage, dateTime, dateTimeExp);
+            interPrivKeyEntry = generateKeys(caPrivKeyEntry.getPrivateKey(), "CA-" + partnerType, "INTER-" + partnerType, interFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         String interCertificate = getCertificate(interPrivKeyEntry);
 
@@ -112,7 +118,7 @@ public class KeyMgrUtil {
                 keyUsage = new KeyUsage(KeyUsage.keyEncipherment | KeyUsage.encipherOnly | KeyUsage.decipherOnly);
             }
             partnerPrivKeyEntry = generateKeys(interPrivKeyEntry.getPrivateKey(), "INTER-" + partnerType, "PARTNER-" + partnerType, 
-                        partnerFilePath, keyUsage, dateTime, dateTimeExp);
+                        partnerFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         String partnerCertificate = getCertificate(partnerPrivKeyEntry);
         CertificateChainResponseDto responseDto = new CertificateChainResponseDto();
@@ -127,9 +133,10 @@ public class KeyMgrUtil {
         Path path = Paths.get(filePath);
         if (Files.exists(path)){
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
-            InputStream p12FileStream = new FileInputStream(filePath);
-            keyStore.load(p12FileStream, TEMP_P12_PWD);
-            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (TEMP_P12_PWD));
+	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
+	            keyStore.load(p12FileStream, TEMP_P12_PWD);
+	            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (TEMP_P12_PWD));
+            }
         }
         return null;
     }
@@ -143,7 +150,7 @@ public class KeyMgrUtil {
     }
     
     private PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType, String p12FilePath, KeyUsage keyUsage, 
-            LocalDateTime dateTime, LocalDateTime dateTimeExp) throws 
+            LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(RSA_ALGO);
         SecureRandom random = new SecureRandom();
@@ -151,9 +158,9 @@ public class KeyMgrUtil {
         KeyPair keyPair = generator.generateKeyPair();
         X509Certificate signCert = null;
         if(Objects.isNull(signKey)) {
-            signCert = generateX509Certificate(keyPair.getPrivate(), keyPair.getPublic(), signCertType, certType, keyUsage, dateTime, dateTimeExp);
+            signCert = generateX509Certificate(keyPair.getPrivate(), keyPair.getPublic(), signCertType, certType, keyUsage, dateTime, dateTimeExp, organization);
         } else {
-            signCert = generateX509Certificate(signKey, keyPair.getPublic(), signCertType, certType, keyUsage, dateTime, dateTimeExp);
+            signCert = generateX509Certificate(signKey, keyPair.getPublic(), signCertType, certType, keyUsage, dateTime, dateTimeExp, organization);
         }
         X509Certificate[] chain = new X509Certificate[] {signCert};
         PrivateKeyEntry privateKeyEntry = new PrivateKeyEntry(keyPair.getPrivate(), chain);
@@ -173,10 +180,10 @@ public class KeyMgrUtil {
     }
 
     private X509Certificate generateX509Certificate(PrivateKey signPrivateKey, PublicKey publicKey, String signCertType, 
-            String certType, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp) throws 
+            String certType, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             OperatorCreationException, NoSuchAlgorithmException, CertIOException, CertificateException {
-        X500Name certIssuer = getCertificateAttributes(signCertType);
-        X500Name certSubject = getCertificateAttributes(certType);
+        X500Name certIssuer = getCertificateAttributes(signCertType, organization);
+        X500Name certSubject = getCertificateAttributes(certType, organization);
         //LocalDateTime dateTime = LocalDateTime.now();
         Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
         //LocalDateTime dateTimeExp = dateTime.plusYears(1);
@@ -195,12 +202,12 @@ public class KeyMgrUtil {
         return new JcaX509CertificateConverter().getCertificate(certHolder);
 	}
     
-    private static X500Name getCertificateAttributes(String cn) {
+    private static X500Name getCertificateAttributes(String cn, String organization) {
 		 
 		X500NameBuilder builder = new X500NameBuilder(RFC4519Style.INSTANCE);
 		builder.addRDN(BCStyle.C, "IN");
 		builder.addRDN( BCStyle.ST, "KA");
-		builder.addRDN(BCStyle.O, "IDA-QA-TEST");
+		builder.addRDN(BCStyle.O, organization);
 		builder.addRDN(BCStyle.OU, "IDA-TEST-ORG-UNIT");
 		builder.addRDN(BCStyle.CN, cn);
 		return builder.build();
@@ -226,8 +233,19 @@ public class KeyMgrUtil {
             LocalDateTime dateTime = LocalDateTime.now(); 
             LocalDateTime dateTimeExp = dateTime.plusYears(1);
             KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
-            return generateKeys(pKeyEntry.getPrivateKey(), "PARTNER-" + partnerType, "CSK-" + partnerType, 
-                    csPartnerFilePath, keyUsage, dateTime, dateTimeExp);
+            
+            X500Principal signerPrincipal = ((X509Certificate)pKeyEntry.getCertificate()).getSubjectX500Principal();
+            X500Name x500Name = new X500Name(signerPrincipal.getName());
+            RDN[] rdns = x500Name.getRDNs(BCStyle.CN);
+            String cName = IETFUtils.valueToString((rdns[0]).getFirst().getValue());
+            System.out.println("signerPrincipal:: " + signerPrincipal.toString());
+            System.out.println("cName:: " + cName);
+
+            RDN[] o = x500Name.getRDNs(BCStyle.O);
+            String oName = IETFUtils.valueToString((o[0]).getFirst().getValue());
+            System.out.println("oName:: " + oName);
+            return generateKeys(pKeyEntry.getPrivateKey(), cName, "CSK-" + partnerType,
+                    csPartnerFilePath, keyUsage, dateTime, dateTimeExp, oName);
 
         }
 
@@ -242,8 +260,19 @@ public class KeyMgrUtil {
             LocalDateTime dateTime = LocalDateTime.now(); 
             LocalDateTime dateTimeExp = dateTime.plusMonths(1);
             KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
-            return generateKeys(pKeyEntry.getPrivateKey(), "PARTNER-" + partnerType, "DSK-" + partnerType, 
-                    dsPartnerFilePath, keyUsage, dateTime, dateTimeExp);
+           
+            X500Principal signerPrincipal = ((X509Certificate)pKeyEntry.getCertificate()).getSubjectX500Principal();
+            X500Name x500Name = new X500Name(signerPrincipal.getName());
+            RDN[] rdns = x500Name.getRDNs(BCStyle.CN);
+            String cName = IETFUtils.valueToString((rdns[0]).getFirst().getValue());
+            System.out.println("signerPrincipal:: " + signerPrincipal.toString());
+            System.out.println("cName:: " + cName);
+            
+            RDN[] o = x500Name.getRDNs(BCStyle.O);
+            String oName = IETFUtils.valueToString((o[0]).getFirst().getValue());
+            System.out.println("oName:: " + oName);
+            return generateKeys(pKeyEntry.getPrivateKey(), cName, "DSK-" + partnerType,
+                    dsPartnerFilePath, keyUsage, dateTime, dateTimeExp, oName);
         }
         return null;
     }

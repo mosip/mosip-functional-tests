@@ -621,15 +621,20 @@ public class AuthRequestController {
 
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
-				bioMap.put("thumbprint", CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, TEMP_DIR))));
+				bioMap.put("thumbprint", digest(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, TEMP_DIR))));
 
 				Object digitalId = dataMap.get(DIGITAL_ID);
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
-					//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
-					String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
-						false, null, TEMP_DIR, PartnerTypes.FTM);
+					String signedDititalId;
+					if(!isInternal) {
+						//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
+						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
+								false, null, TEMP_DIR, PartnerTypes.FTM);
+					} else {
+						signedDititalId = CryptoUtil.encodeBase64(digitalIdStr.getBytes());
+					}
 					dataMap.put(DIGITAL_ID, signedDititalId);
 				}
 
@@ -637,7 +642,7 @@ public class AuthRequestController {
 				
 				String dataStr;
 				if (isInternal) {
-					dataStr = new String(CryptoUtil.encodeBase64(dataStrJson.getBytes()));
+					dataStr = CryptoUtil.encodeBase64(dataStrJson.getBytes());
 				} else {
 					//dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
 					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, 
@@ -816,7 +821,6 @@ public class AuthRequestController {
 		reqValues.put(ENV, environment.getProperty(MOSIP_BASE_URL));
 	}
 
-	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/uploadIDACertificate", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String uploadIDACertificate(
 			@RequestParam(name = "certificateType", required = true) CertificateTypes certificateType,
@@ -856,19 +860,18 @@ public class AuthRequestController {
 		return isErrored ? "Upload Failed" : "Upload Success"; 
 	}
 
-	@SuppressWarnings("unchecked")
 	@GetMapping (path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CertificateChainResponseDto generatePartnerKeys(
-			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType
+			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
+			@RequestParam(name = "partnerName", required = true) String partnerName
 			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, OperatorCreationException {
 		
 		String filePrepend = partnerType.getFilePrepend();
 
-		return keyMgrUtil.getPartnerCertificates(filePrepend, TEMP_DIR);
+		return keyMgrUtil.getPartnerCertificates(filePrepend, TEMP_DIR, partnerName);
 	}
 
-	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updatePartnerCertificate(
 		@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
