@@ -169,6 +169,9 @@ public class BaseTestCase {
 		if (listOfModules.contains("masterdata") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateMasterDataTest();
 		}
+		if (listOfModules.contains("syncdata") || listOfModules.contains("all")) {
+			AdminTestUtil.initiateSyncDataTest();
+		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AdminTestUtil.copyResidentTestResource();
 		}
