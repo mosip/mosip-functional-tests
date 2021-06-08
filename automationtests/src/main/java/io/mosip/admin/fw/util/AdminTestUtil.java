@@ -751,24 +751,9 @@ public class AdminTestUtil extends BaseTestCase{
 		copyAdminTestResource();
 	}
 	
-	public static void initiateMasterDataTest() {
-		copyMasterDataTestResource();
-	}
-	
 	public static void copyAdminTestResource() {
 		try {
 			File source = new File(getGlobalResourcePath() + "/admin");
-			File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
-			FileUtils.copyDirectoryToDirectory(source, destination);
-			logger.info("Copied the admin test resource successfully");
-		} catch (Exception e) {
-			logger.error("Exception occured while copying the file: "+e.getMessage());
-		}
-	}
-	
-	public static void copyMasterDataTestResource() {
-		try {
-			File source = new File(getGlobalResourcePath() + "/masterdata");
 			File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
 			logger.info("Copied the admin test resource successfully");

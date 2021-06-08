@@ -166,9 +166,6 @@ public class BaseTestCase {
 		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateAdminTest();
 		}
-		if (listOfModules.contains("masterdata") || listOfModules.contains("all")) {
-			AdminTestUtil.initiateMasterDataTest();
-		}
 		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
 			AdminTestUtil.copyResidentTestResource();
 		}
