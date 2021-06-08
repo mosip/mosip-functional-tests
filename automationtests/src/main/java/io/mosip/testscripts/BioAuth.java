@@ -88,7 +88,13 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
 		
-		String encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+		String encryptedIdentityReq=null;
+		try {
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Map<String, String> bioAuthTempMap = (isInternal)? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq) : encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());

@@ -117,9 +117,15 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		
+		identityRequest.toString().replace("$DATETIME$",AdminTestUtil.generateCurrentUTCTimeStamp());  
 		String identyEnryptRequest = updateTimestampOtp(identityRequest);
-		String encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
+		String encryptedIdentityReq=null;
+		try {
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		if(Arrays.asList(testCaseDTO.getTestCaseName().split("_")).contains("MultiFactorAuth")) {
