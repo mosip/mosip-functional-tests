@@ -71,7 +71,22 @@
 			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
 		</classes>
 	</test>-->
-	<!--  <test name="CreatePreregistration">
+	
+	<!-- <test name="SendOtp">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidateOtp">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/ValidateOtp/ValidateOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	  <test name="CreatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/createPrereg/createPrereg.yml" />
 			<parameter name="idKeyName"	value="preRegistrationId" />
@@ -193,7 +208,32 @@
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
-	</test>-->
+	</test>
+	<test name="InvalidateToken">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/InvalidateToken/InvalidateToken.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	
+	
+	<test name="SendOtp">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidateOtp">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/ValidateOtp/ValidateOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	
 	
 	<test name="CreatePreregistration">
 		<parameter name="ymlFile"
@@ -322,6 +362,14 @@
 			value="preReg/CancelAppointment/CancelAppointment.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+	
+	<test name="InvalidateToken">
+		<parameter name="ymlFile"
+			value="preReg/Pre-RegQA/InvalidateToken/InvalidateToken.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 </suite>

@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -320,12 +321,17 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	
 	public static String getCertificateThumbprint(Certificate cert){
 		try {
-			return org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(DigestUtils.sha256(cert.getEncoded()));
+			//return org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(DigestUtils.sha256(cert.getEncoded()));
+			return toHex(DigestUtils.sha256(cert.getEncoded()));
 		} catch (CertificateEncodingException e) {
 			lOGGER.error("Exception in generate thumbrint: "+e.getMessage());
 			return e.getMessage();
 		}
 	}
+	
+	public static String toHex(byte[] bytes) {
+        return Hex.encodeHexString(bytes).toUpperCase();
+    }
 	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
 		String token = kernelAuthLib.getTokenByRole("regproc");
