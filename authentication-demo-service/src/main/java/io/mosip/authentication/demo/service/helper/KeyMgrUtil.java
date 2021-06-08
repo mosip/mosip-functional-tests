@@ -217,11 +217,11 @@ public class KeyMgrUtil {
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
         String filePrepend = partnerType.getFilePrepend();
 
-        if (partnerType == PartnerTypes.RELYING_PARTY) {
+        if (partnerType == PartnerTypes.RELYING_PARTY || partnerType == PartnerTypes.EKYC) {
             String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
             return getPrivateKeyEntry(partnerFilePath);
-        } 
-
+        }
+        
         if (partnerType == PartnerTypes.FTM) {
             String csPartnerFilePath = dirPath + '/' + filePrepend + CHIP_SPECIFIC_KEY + PARTNER_P12_FILE_NAME;
             PrivateKeyEntry csKeyEntry = getPrivateKeyEntry(csPartnerFilePath);

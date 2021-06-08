@@ -283,8 +283,10 @@ public class AuthRequestController {
 				HttpHeaders httpHeaders = new HttpHeaders();
 				String responseStr = response.toString();
 				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
+
 				String rpSignature = jWSSignAndVerifyController.sign(responseStr, false, 
-					true, false, null, TEMP_DIR, PartnerTypes.RELYING_PARTY);
+					true, false, null, TEMP_DIR, partnerTypes);
 				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
@@ -887,4 +889,5 @@ public class AuthRequestController {
 		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, TEMP_DIR);
 		return isUpdated ? "Update Success" : "Update Failed"; 
 	}
+
 }
