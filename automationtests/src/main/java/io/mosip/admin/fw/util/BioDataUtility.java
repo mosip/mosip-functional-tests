@@ -1,9 +1,15 @@
 package io.mosip.admin.fw.util;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateEncodingException;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
@@ -67,9 +73,12 @@ public class BioDataUtility extends AdminTestUtil {
 	}
 
 	public String constractBioIdentityRequest(String identityRequest, String bioValueencryptionTemplateJson,
-			String testcaseName, boolean isInternal) {
+			String testcaseName, boolean isInternal) throws Exception {
 		int count = AuthTestsUtil.getNumberOfTimeWordPresentInString(identityRequest, "\"data\"");
 		String previousHash = getHash("");
+		byte[] previousBioDataHash = null;
+		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
+		previousBioDataHash = generateHash(previousDataByteArr);
 		for (int i = 0; i < count; i++) {
 			String biometricsMapper = "identityRequest.(biometrics)[" + i + "]";
 			if (!isInternal) {
@@ -118,8 +127,15 @@ public class BioDataUtility extends AdminTestUtil {
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
-			String hash = getHash(previousHash + getHash(latestData));
-			previousHash = hash;
+			//instead of BioData, bioValue (before encrytion in case of Capture response) is used for computing the hash.
+	        byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
+	        // Here Byte Array
+	        byte[] currentBioDataHash = generateHash (currentDataByteArr);
+	        byte[] finalBioDataHash = new byte[currentBioDataHash.length + previousBioDataHash.length];
+	        System.arraycopy(previousBioDataHash, 0, finalBioDataHash, 0, previousBioDataHash.length);
+	        System.arraycopy(currentBioDataHash, 0, finalBioDataHash, previousBioDataHash.length, currentBioDataHash.length);
+			String hash = toHex (generateHash (finalBioDataHash));
+			previousBioDataHash = decodeHex(hash);
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, hash,
 					biometricsMapper + ".hash");
 		}
@@ -156,5 +172,20 @@ public class BioDataUtility extends AdminTestUtil {
 		 * e.getStackTrace()); return "Automation error occured: "+e.getMessage(); }
 		 */
 	}
+	
+	private static final String HASH_ALGORITHM_NAME = "SHA-256";
+    public static byte[] generateHash(final byte[] bytes) throws NoSuchAlgorithmException{
+        MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM_NAME);
+        return messageDigest.digest(bytes);
+    }
+    public static byte[] decodeHex(String hexData) throws DecoderException{
+        return Hex.decodeHex(hexData);
+    }
+    //public static byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
+      //  return DigestUtils.sha256(cert.getEncoded());
+    //}
+    public static String toHex(byte[] bytes) {
+        return Hex.encodeHexString(bytes).toUpperCase();
+    }
 
 }
