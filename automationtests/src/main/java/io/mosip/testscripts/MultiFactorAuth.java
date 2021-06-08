@@ -111,13 +111,14 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			identityRequest = req.get("identityRequest").toString();
 			req.remove("identityRequest");
 		}
+		if(identityRequest.contains("$DATETIME$"))
+			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
 		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		identityRequest.toString().replace("$DATETIME$",AdminTestUtil.generateCurrentUTCTimeStamp());  
 		String identyEnryptRequest = updateTimestampOtp(identityRequest);
 		String encryptedIdentityReq=null;
 		try {

@@ -861,6 +861,7 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		if(jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
+		
 		if(jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if(jsonString.contains("$REMOVE$")) 
