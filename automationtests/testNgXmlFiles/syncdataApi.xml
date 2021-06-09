@@ -560,27 +560,21 @@
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test> -->
-	<!-- <test name="GetApplicationConfigs">
+	<test name="GetApplicationConfigs">
 		<parameter name="ymlFile"
 			value="masterdata/GetApplicationConfigs/getApplicationConfigs.yml"/>
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test> -->
-	<!-- <test name="GetConfigs">
-		<parameter name="ymlFile"
-			value="masterdata/GetConfigs/getConfigs.yml"/>
-		<classes>
-			<class name="io.mosip.testscripts.GetWithQueryParam" />
-		</classes>
-	</test> -->
+	</test>
 	<test name="GetConfigs">
 		<parameter name="ymlFile"
-			value="masterdata/GetConfigs/getConfigs.yml"/>
+			value="syncdata/GetConfigs/getConfigs.yml"/>
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
+
 
 
 </suite>

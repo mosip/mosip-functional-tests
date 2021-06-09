@@ -3,11 +3,11 @@ BulkUpload:
       endPoint: /v1/admin/bulkupload
       role: admin
       restMethod: post
-      inputTemplate: admin/BulkUpload/bulkUpload
-      outputTemplate: admin/BulkUpload/bulkUploadResult
+      inputTemplate: masterdata/BulkUpload/bulkUpload
+      outputTemplate: masterdata/BulkUpload/bulkUploadResult
       input: '{
-   "category":"masterData",
-    "files":["admin/BulkUpload/FilesToUpload/gender.csv"],
+   "category":"masterdata",
+    "files":["masterdata/BulkUpload/FilesToUpload/gender.csv"],
     "operation":"insert",
     "tableName":"gender"
   }'
@@ -20,11 +20,11 @@ BulkUpload:
       endPoint: /v1/admin/bulkupload
       role: admin
       restMethod: post
-      inputTemplate: admin/BulkUpload/bulkUpload
-      outputTemplate: admin/BulkUpload/bulkUploadResult
+      inputTemplate: masterdata/BulkUpload/bulkUpload
+      outputTemplate: masterdata/BulkUpload/bulkUploadResult
       input: '{
    "category":"masterData",
-    "files":["admin/BulkUpload/FilesToUpload/updateGender.csv"],
+    "files":["masterdata/BulkUpload/FilesToUpload/updateGender.csv"],
     "operation":"update",
     "tableName":"gender"
   }'
