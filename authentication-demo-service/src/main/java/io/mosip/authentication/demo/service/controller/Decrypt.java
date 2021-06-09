@@ -8,36 +8,17 @@ import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
-import java.security.KeyStore.PrivateKeyEntry;
-import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.MGF1ParameterSpec;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource.PSpecified;
-import javax.crypto.spec.SecretKeySpec;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
-import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -61,13 +42,16 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.authentication.core.logger.IdaLogger;
 import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.CryptomanagerRequestDto;
-import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
-import io.mosip.authentication.demo.service.helper.PartnerTypes;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -83,7 +67,6 @@ import io.swagger.annotations.Api;;
 @Api(tags = { "Decrypt" })
 public class Decrypt {
 
-	private static final int TAG_LENGTH = 128;
 	@Autowired
 	private Environment env;
 	
@@ -107,16 +90,10 @@ public class Decrypt {
 	@Value("${" +IdAuthConfigKeyConstants.KEY_SPLITTER+ "}")
 	private String keySplitter;
 	
-	@Autowired
-	KeyMgrUtil keyMgrUtil;
-
-	@Autowired
-	Encrypt encrypt;
 	
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Decrypt.class);
-	
-	private static final String TEMP_DIR = System.getProperty("java.io.tmpdir") + "/IDA";
+
 	/**
 	 * Decrypt.
 	 *
@@ -381,41 +358,5 @@ public class Decrypt {
     	return request;
     }
 	
-	@PostMapping(path = "/decryptEkycData", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String decryptEkycData(
-			@RequestBody Map<String, String> requestData) throws CertificateException, IOException, 
-			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, 
-			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-				
-		String certificateThumbprint = requestData.get("thumbprint");
-		String identity = requestData.get("identity");
-		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(TEMP_DIR, PartnerTypes.EKYC);
-		
-		SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
-		byte[] encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
-		byte[] encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
-		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
-		
-		
-	     
-	    Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
-	    byte[] nonce = Arrays.copyOfRange(encKycData, encKycData.length - cipher.getBlockSize(), encKycData.length);
-	    byte[] encryptedKycData = Arrays.copyOf(encKycData, encKycData.length - cipher.getBlockSize());
-		
-		SecretKey secretKey =  new SecretKeySpec(decSecKey, 0, decSecKey.length, "AES");
-		GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(TAG_LENGTH, nonce); 
-		cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
-
-		return new String(cipher.doFinal(encryptedKycData));
-	}
-
-	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 
-			InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-		Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING"); 
-		OAEPParameterSpec oaepParams = new OAEPParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256,
-				PSpecified.DEFAULT);
-	     cipher.init(Cipher.DECRYPT_MODE, privKey, oaepParams);
-	     return cipher.doFinal(encKey, 0, encKey.length);
-	}
 
 }

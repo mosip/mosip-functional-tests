@@ -4,12 +4,8 @@ import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAUL
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAULT_SALT_LAST_BYTES_NUM;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
@@ -64,7 +60,6 @@ import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -74,9 +69,7 @@ import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.dto.CryptomanagerRequestDto;
 import io.mosip.authentication.demo.service.dto.EncryptionRequestDto;
 import io.mosip.authentication.demo.service.dto.EncryptionResponseDto;
-import io.mosip.authentication.demo.service.helper.CertificateTypes;
 import io.mosip.authentication.demo.service.helper.CryptoUtility;
-import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -109,9 +102,6 @@ public class Encrypt {
 	/** The obj mapper. */
 	@Autowired
 	private ObjectMapper objMapper;
-
-	@Autowired
-	KeyMgrUtil keyMgrUtil;
 
 	/** KeySplitter. */
 	@Value("${" + IdAuthConfigKeyConstants.KEY_SPLITTER + "}")
@@ -477,76 +467,4 @@ public class Encrypt {
 		private String thumbprint;
 		private String encryptedData;
 	}
-
-	public EncryptionResponseDto encrypt(EncryptionRequestDto encryptionRequestDto, boolean isInternal, String dirPath) throws CertificateException, IOException, 
-		InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-			X509Certificate x509Cert = isInternal ? getCertificate(dirPath, CertificateTypes.INTERNAL.getFileName()) :
-						getCertificate(dirPath, CertificateTypes.PARTNER.getFileName());
-
-		return kernelEncrypt(encryptionRequestDto, x509Cert);
-	}
-
-	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, X509Certificate x509Cert) throws JsonProcessingException, NoSuchAlgorithmException, 
-		InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException	 {
-		String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
-		SecretKey secretKey = cryptoUtil.genSecKey();
-		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
-		byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8),
-				secretKey);
-		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
-		PublicKey publicKey = x509Cert.getPublicKey();
-		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
-		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
-		byte[] byteArr = cryptoUtil.symmetricEncrypt(Encrypt
-				.digestAsPlainText(HMACUtils2.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(),
-				secretKey);
-		encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
-		return encryptionResponseDto;
-	}
-
-	private X509Certificate getCertificate(String dirPath, String fileName) throws CertificateException, IOException {
-		Path path = Paths.get(dirPath + "/" + fileName);
-        if (!Files.exists(path)){
-			throw new FileNotFoundException("Certificate File Not found in temp directory. FileName: " + fileName);
-		}
-		String certificateData = Files.readString(path);
-		return (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
-	}	
-
-	public SplittedEncryptedData encryptBio(String bioValue, String timestamp, String transactionId, boolean isInternal, String dirPath)
-			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			InvalidKeySpecException, CertificateException {
-		
-		X509Certificate x509Cert = isInternal ? getCertificate(dirPath, CertificateTypes.INTERNAL.getFileName()) :
-								getCertificate(dirPath, CertificateTypes.IDA_FIR.getFileName());
-
-		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
-		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
-				IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
-		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
-				IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
-
-		SecretKey secretKey = cryptoUtil.genSecKey();
-		byte[] encryptedBioBlock = cryptoUtil.symmetricEncrypt(CryptoUtil.decodeBase64(bioValue),
-				secretKey, saltLastBytes, aadLastBytes);
-
-		PublicKey publicKey = x509Cert.getPublicKey();
-		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt(secretKey.getEncoded(), publicKey);
-		return new SplittedEncryptedData(CryptoUtil.encodeBase64(encryptedSessionKeyByte), CryptoUtil.encodeBase64(encryptedBioBlock));
-	
-	}
-
-	public X509Certificate getCertificate(boolean isInternal, String dirPath) throws CertificateException, IOException {
-
-		return isInternal ? getCertificate(dirPath, CertificateTypes.INTERNAL.getFileName()) :
-						getCertificate(dirPath, CertificateTypes.PARTNER.getFileName());
-	}
-
-	public X509Certificate getBioCertificate(boolean isInternal, String dirPath) throws CertificateException, IOException {
-
-		return isInternal ? getCertificate(dirPath, CertificateTypes.INTERNAL.getFileName()) :
-						getCertificate(dirPath, CertificateTypes.IDA_FIR.getFileName());
-	}
-
 }

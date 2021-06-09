@@ -8,20 +8,14 @@ import java.io.UnsupportedEncodingException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
 import java.security.UnrecoverableEntryException;
-import java.security.KeyStore.PrivateKeyEntry;
 import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import javax.ws.rs.core.MediaType;
 
-import org.bouncycastle.operator.OperatorCreationException;
-import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.lang.JoseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,8 +39,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
-import io.mosip.authentication.demo.service.helper.PartnerTypes;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.http.ResponseWrapper;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -84,11 +76,6 @@ public class JWSSignAndVerifyController {
 	@Autowired
 	private Environment env;
 
-	private static final String SIGN_ALGO = "RS256";
-
-	@Autowired
-	KeyMgrUtil keyMgrUtil;
-	
 	/**
 	 * Sign.
 	 *
@@ -311,38 +298,5 @@ public class JWSSignAndVerifyController {
 		private String status;
 		private String payload;
 
-	}
-
-	public String sign(String dataToSign, boolean includePayload,
-			boolean includeCertificate, boolean includeCertHash, String certificateUrl, String dirPath, 
-			PartnerTypes partnerType) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, 
-			KeyStoreException, CertificateException, IOException, OperatorCreationException {
-
-		JsonWebSignature jwSign = new JsonWebSignature();
-		PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerType);
-		if (Objects.isNull(keyEntry)) {
-			throw new KeyStoreException("Key file not available for partner type: " + partnerType.toString());
-		}
-		
-		PrivateKey privateKey = keyEntry.getPrivateKey();
-		X509Certificate x509Certificate = (X509Certificate) keyEntry.getCertificate();
-		if (includeCertificate)
-			jwSign.setCertificateChainHeaderValue(new X509Certificate[] { x509Certificate });
-
-		if (includeCertHash)
-			jwSign.setX509CertSha256ThumbprintHeaderValue(x509Certificate);
-
-		if (Objects.nonNull(certificateUrl))
-			jwSign.setHeader("x5u", certificateUrl);
-
-		jwSign.setPayload(dataToSign);
-		jwSign.setAlgorithmHeaderValue(SIGN_ALGO);
-		jwSign.setKey(privateKey);
-		jwSign.setDoKeyValidation(false);
-		if (includePayload)
-			return jwSign.getCompactSerialization();
-
-		return jwSign.getDetachedContentCompactSerialization();
-		
 	}
 }
