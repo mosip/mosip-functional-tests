@@ -81,6 +81,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
+		if(identityRequest.contains("$DATETIME$"))
+			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
