@@ -1,0 +1,160 @@
+FetchDevice:
+   MasterData_FetchDevice_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/devices/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "$REMOVE$",
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+			"name": "$IGNORE$",
+			"serialNum": "$IGNORE$",
+			"deviceSpecId": "$IGNORE$",
+			"macAddress": "$IGNORE$",
+			"langCode": "eng",
+			"isActive": true,
+			"deviceTypeCode": "$IGNORE$",
+			"zoneCode": "$IGNORE$",
+			"regCenterId": "$IGNORE$"
+		}]
+}'       
+   MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+			"name": "$IGNORE$",
+			"serialNum": "$IGNORE$",
+			"deviceSpecId": "$IGNORE$",
+			"macAddress": "$IGNORE$",
+			"langCode": "eng",
+			"isActive": true,
+			"deviceTypeCode": "IRS",
+			"zoneCode": "$IGNORE$",
+			"regCenterId": "$IGNORE$"
+		}]
+}'
+   MasterData_FetchDevice_allValid_smoke_with_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceByCenterResult
+      input: '{
+  "regCenterId": "10005",
+  "deviceType": "$REMOVE$",
+  "languagecode": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+			"isActive": true
+		}]
+}'
+   MasterData_FetchDevice_invalid_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "regCenterId": "100@@345",
+  "deviceType": "$REMOVE$",
+  "languagecode": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-441",
+      "message": "Registration Center and Device Not Found"
+    }
+  ]
+}'       
+   MasterData_FetchDevice_invalid_deviceType_unexisting:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "deviceType": "notInDB",
+  "languagecode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       
+   MasterData_FetchDevice_invalid_languagecode_blank_with_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": "",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       
+   MasterData_FetchDevice_invalid_languagecode_unexisting:
+      endPoint: /v1/masterdata/devices/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "deviceType": "$REMOVE$",
+  "languagecode": "ENGR",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'
+   MasterData_FetchDevice_invalid_languagecode_unexisting_with_deviceType:
+      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "deviceType": "IRS",
+  "languagecode": "ENGR",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       
