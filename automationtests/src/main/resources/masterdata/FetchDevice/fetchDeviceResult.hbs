@@ -1,0 +1,24 @@
+{
+"responsetime": "$IGNORE$",	
+"response": {
+  "devices": [
+  {{#each devices}}
+    {
+			"id": "$IGNORE$",
+			"name": "{{name}}",
+			"serialNum": "{{serialNum}}",
+			"deviceSpecId": "{{deviceSpecId}}",
+			"macAddress": "{{macAddress}}",
+			"ipAddress": "$IGNORE$",
+			"langCode": "{{langCode}}",
+			"isActive": {{isActive}},
+			"validityDateTime": "$IGNORE$",
+            "deviceTypeCode": "{{deviceTypeCode}}",
+			"zoneCode": "{{zoneCode}}",
+			"regCenterId": "{{regCenterId}}"
+		}
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+}
+}

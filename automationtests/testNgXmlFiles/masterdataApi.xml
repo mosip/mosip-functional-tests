@@ -8,8 +8,6 @@
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-
-
 	
 	 <test name="BulkUpload">
 		<parameter name="ymlFile"
@@ -17,15 +15,22 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithFormDataAndFile" />
 		</classes>
-	</test> 
+	</test>
 	 <test name="GetTxnDetailBulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/GetTxnDetailBulkUpload/TxnDetailByTxnId.yml"/>
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
+			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test> 
-	
+	<test name="GetAllTxnDetailBulkUpload">
+		<parameter name="ymlFile"
+			value="masterdata/GetAllTxnDetailBulkUpload/allTxnDetails.yml"/>
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParam" />
+		</classes>
+	</test>
+
 	 <test name="GetApplicationConfigs">
 		<parameter name="ymlFile"
 			value="masterdata/GetApplicationConfigs/getApplicationConfigs.yml"/>
@@ -33,7 +38,6 @@
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test> 
-	
 	<test name="GetConfigs">
 		<parameter name="ymlFile"
 			value="masterdata/GetConfigs/getConfigs.yml"/>
@@ -41,6 +45,9 @@
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
+	
+	
+	
 	
 	<test name="CreateBlackListedWords">
 		<parameter name="ymlFile"
@@ -56,15 +63,13 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	
 	<test name="UpdateBlackListedWordDetails">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateBlackListedWordDetails/UpdateBlackListedWordDetails.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
+			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	
 	<test name="FetchAllBlackListedWord">
 		<parameter name="ymlFile"
 			value="masterdata/FetchAllBlackListedWord/FetchAllBlackListedWord.yml" />
@@ -72,8 +77,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
-	
 	<test name="DeleteBlackListedWords">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteBlackListedWords/DeleteBlackListedWords.yml" />
@@ -81,6 +84,54 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-
-
+	
+	<test name="CreateDevice">
+		<parameter name="ymlFile"
+			value="masterdata/Device/CreateDevice.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateDevice">
+		<parameter name="ymlFile"
+			value="masterdata/Device/UpdateDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchDevice">
+		<parameter name="ymlFile" value="masterdata/FetchDevice/FetchDevice.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeviceFilter">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceFilter/DeviceFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceSearch">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSearch/DeviceSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeleteDevice">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDevice/deleteDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="DecommisionDevice">
+		<parameter name="ymlFile"
+			value="masterdata/DecommisionDevice/decommisionDevice.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
 </suite>
