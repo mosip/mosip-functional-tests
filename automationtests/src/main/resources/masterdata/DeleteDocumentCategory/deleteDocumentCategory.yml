@@ -1,0 +1,30 @@
+DeleteDocumentCategory:
+   MasterData_DeleteDocumentCategory_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/documentcategories/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteDocumentCategory/deleteDocumentCategory
+      outputTemplate: masterdata/DeleteDocumentCategory/deleteDocumentCategoryResult
+      input: '{
+    "code": "DocTestCode123"
+	}'
+      output: '{
+    "code": "DocTestCode123"
+}'
+   MasterData_DeleteDocumentCategory_Invalid_ID: 
+      endPoint: /v1/masterdata/documentcategories/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteDocumentCategory/deleteDocumentCategory
+      outputTemplate: masterdata/error
+      input: '{
+      "code": "DocTestCode123"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-014",
+      "message": "Document Category not found"
+    }
+  ]
+}'
