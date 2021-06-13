@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	<!--<test name="BulkUpload">
+	<test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -133,9 +133,8 @@
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
-	</test>-->
-	
-	
+	</test>
+
 	<test name="CreateDocumentCategory">
 		<parameter name="ymlFile"
 			value="masterdata/DocumentCategory/CreateDocumentCategory.yml" />
