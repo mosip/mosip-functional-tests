@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	<test name="BulkUpload">
+	 <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -180,6 +180,57 @@
 	<test name="DeleteDocumentCategory">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteDocumentCategory/deleteDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> 
+	
+	
+	 <test name="CreateDocumentType">
+		<parameter name="ymlFile"
+			value="masterdata/DocumentType/CreateDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDocumentType">
+		<parameter name="ymlFile"
+			value="masterdata/DocumentType/UpdateDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchDocumentTypes">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDocumentTypes/fetchDocumentTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllDocumentTypes">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllDocumentTypes/FetchAllDocumentTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FilterDocumentType">
+		<parameter name="ymlFile"
+			value="masterdata/FilterDocumentType/FilterDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchDocumentType">
+		<parameter name="ymlFile"
+			value="masterdata/SearchDocumentType/SearchDocumentType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeleteDocumentType">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDocumentType/DeleteDocumentType.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
