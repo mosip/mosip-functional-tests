@@ -7,7 +7,7 @@ CreateBlackListedWords:
       outputTemplate: masterdata/BlackListedWords/blackListedWordsResult
       input: '{
     "description": "wrong word",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "eng",
 	"word": "dumbo6",
 	"requesttime": "$TIMESTAMP$"
@@ -24,7 +24,7 @@ CreateBlackListedWords:
       outputTemplate: masterdata/BlackListedWords/blackListedWordsResult
       input: '{
     "description": "$REMOVE$",
-	"isActive": false,
+	"isActive": true,
 	"langCode": "ara",
 	"word": "dumbo6",
 	"requesttime": "$TIMESTAMP$"

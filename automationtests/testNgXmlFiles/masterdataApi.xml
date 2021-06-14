@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	 <test name="BulkUpload">
+	<!-- <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -44,7 +44,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>
+	</test>-->
 	
 	
 	
@@ -108,7 +108,7 @@
 		</classes>
 	</test>
 	
-	<test name="CreateDevice">
+	<!--<test name="CreateDevice">
 		<parameter name="ymlFile"
 			value="masterdata/Device/CreateDevice.yml" />
 			<parameter name="idKeyName"	value="id" />
@@ -257,5 +257,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>
+	</test>-->
 </suite>
