@@ -67,7 +67,7 @@
 		<parameter name="ymlFile"
 			value="masterdata/UpdateBlackListedWordDetails/UpdateBlackListedWordDetails.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
+			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
 	<test name="FetchAllBlackListedWord">
@@ -77,11 +77,34 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	<test name="SearchBlackListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/SearchBlackListedWords/SearchBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterBlackListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/FilterBlackListedWords/FilterBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="DeleteBlackListedWords">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteBlackListedWords/DeleteBlackListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	
+	<test name="BlackListedWordValidation">
+		<parameter name="ymlFile"
+			value="masterdata/BlackListedWordValidation/BlackListedWordValidation.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	
