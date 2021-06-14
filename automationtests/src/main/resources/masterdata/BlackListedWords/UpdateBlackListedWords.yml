@@ -10,11 +10,11 @@ UpdateBlackListedWords:
 	"isActive": true,
 	"langCode": "eng",
 	"oldWord": "dumbo6",	
-	"word": "dumbupd",
+	"word": "dumbo7",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbupd",
+	"word": "dumbo7",
 	"langCode": "eng"
 }'
    Admin_UpdateBlackListedWords_Valid_OnlyMandatoryFields_DB_ara:
@@ -28,11 +28,11 @@ UpdateBlackListedWords:
 	"isActive": true,
 	"langCode": "ara",
 	"oldWord": "dumbo6",	
-	"word": "dumbupd",
+	"word": "dumbo7",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbupd",
+	"word": "dumbo7",
 	"langCode": "ara"
 }'
    Admin_UpdateBlackListedWords_Valid_WordLength128:
@@ -53,7 +53,7 @@ UpdateBlackListedWords:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.word: Should not be blank or size must be between 1 and 128"
+      "message": "$IGNORE$"
     }
   ]
 }'

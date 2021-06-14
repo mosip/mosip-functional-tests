@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	 <test name="BulkUpload">
+	<!-- <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -44,7 +44,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>
+	</test>-->
 	
 	
 	
@@ -67,7 +67,7 @@
 		<parameter name="ymlFile"
 			value="masterdata/UpdateBlackListedWordDetails/UpdateBlackListedWordDetails.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
+			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
 	<test name="FetchAllBlackListedWord">
@@ -75,6 +75,21 @@
 			value="masterdata/FetchAllBlackListedWord/FetchAllBlackListedWord.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="SearchBlackListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/SearchBlackListedWords/SearchBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterBlackListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/FilterBlackListedWords/FilterBlackListedWords.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="DeleteBlackListedWords">
@@ -85,7 +100,15 @@
 		</classes>
 	</test>
 	
-	<test name="CreateDevice">
+	<test name="BlackListedWordValidation">
+		<parameter name="ymlFile"
+			value="masterdata/BlackListedWordValidation/BlackListedWordValidation.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<!--<test name="CreateDevice">
 		<parameter name="ymlFile"
 			value="masterdata/Device/CreateDevice.yml" />
 			<parameter name="idKeyName"	value="id" />
@@ -234,5 +257,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>
+	</test>-->
 </suite>
