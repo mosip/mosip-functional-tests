@@ -9,7 +9,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	 <test name="BulkUpload">
+	<test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -132,6 +132,56 @@
 			value="masterdata/DecommisionDevice/decommisionDevice.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+
+	<test name="CreateDocumentCategory">
+		<parameter name="ymlFile"
+			value="masterdata/DocumentCategory/CreateDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDocumentCategory">
+		<parameter name="ymlFile"
+			value="masterdata/DocumentCategory/UpdateDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchDocumentCategories">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDocumentCategories/FetchDocumentCategories.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllDocumentCategories">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllDocumentCategories/FetchAllDocumentCategories.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FilterDocCategory">
+		<parameter name="ymlFile"
+			value="masterdata/FilterDocCategory/FilterDocCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchDocCategories">
+		<parameter name="ymlFile"
+			value="masterdata/SearchDocCategories/SearchDocCategories.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeleteDocumentCategory">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDocumentCategory/deleteDocumentCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 </suite>
