@@ -1,0 +1,13 @@
+FetchAllDeviceSpec:
+   MasterData_FetchAllDeviceSpec_valid_smoke_langcodeandCode:
+      endPoint: /v1/masterdata/devicespecifications/all
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAllDeviceSpec/fetchAllDeviceSpec
+      outputTemplate: masterdata/FetchAllDocumentTypes/fetchAllDeviceSpecResult
+      input: '{
+  
+}'
+      output: '{
+  "pageNo": "$IGNORE$"
+}'
