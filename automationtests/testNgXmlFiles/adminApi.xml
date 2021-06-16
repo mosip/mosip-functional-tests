@@ -10,14 +10,7 @@
 	</listeners>
 
 
-	<test name="CreateIndividualType">
-		<parameter name="ymlFile"
-			value="admin/IndividualType/CreateIndividualType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="IndividualTypeSearch">
+  <test name="IndividualTypeSearch">
 		<parameter name="ymlFile"
 			value="admin/IndividualTypeSearch/IndividualTypeSearch.yml" />
 		<classes>
@@ -539,7 +532,4 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-
-
-
 </suite>

@@ -1,0 +1,105 @@
+FetchDeviceSpec:
+   MasterData_FetchDeviceSpec_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "$REMOVE$",
+  "langcode": "eng"
+}'
+      output: '{
+"devicespecifications": [{
+            "langCode": "eng",
+            "isActive": true
+        }]
+}'
+   MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": "eng"
+}'
+      output: '{
+"devicespecifications": [{
+            "langCode": "eng",
+            "isActive": true
+        }]
+}'
+   MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/error
+      input: '{
+  "devicetypecode": "notInDB",
+  "langcode": "eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   MasterData_FetchDeviceSpec_invalid_langcode_blank_with_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/error
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   MasterData_FetchDeviceSpec_invalid_langcode_unexisting:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/error
+      input: '{
+  "devicetypecode": "$REMOVE$",
+  "langcode": "@@dddhdshsgblablala"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'
+   MasterData_FetchDeviceSpec_invalid_langcode_unexisting_with_deviceType:
+      endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/error
+      input: '{
+  "devicetypecode": "CMR",
+  "langcode": "ENGR"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}'

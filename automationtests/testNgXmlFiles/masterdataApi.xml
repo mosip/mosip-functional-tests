@@ -9,7 +9,10 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 	
-	<!-- <test name="BulkUpload">
+
+	
+
+	 <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -44,7 +47,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
-	</test>-->
+	</test>
 	
 	
 	
@@ -99,7 +102,6 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	
 	<test name="BlackListedWordValidation">
 		<parameter name="ymlFile"
 			value="masterdata/BlackListedWordValidation/BlackListedWordValidation.yml" />
@@ -108,7 +110,8 @@
 		</classes>
 	</test>
 	
-	<!--<test name="CreateDevice">
+	
+	<test name="CreateDevice">
 		<parameter name="ymlFile"
 			value="masterdata/Device/CreateDevice.yml" />
 			<parameter name="idKeyName"	value="id" />
@@ -257,5 +260,95 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>-->
+	</test> 
+	
+	
+
+	<test name="CreateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecification/CreateDeviceSpecification.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecification/UpdateDeviceSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchDeviceSpec">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDeviceSpec/FetchDeviceSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	 <test name="FetchAllDeviceSpec">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllDeviceSpec/FetchAllDeviceSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="DeviceSpecFilter">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecFilter/DeviceSpecFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceSpecSearch">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecSearch/DeviceSpecSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	 <test name="DeleteDeviceSpec">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDeviceSpec/deleteDeviceSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> 
+	
+	
+	 <test name="CreateDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceType/CreateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceType/UpdateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	 <test name="FetchAllDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllDeviceType/FetchAllDeviceTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeviceTypeFilter">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceTypeFilter/DeviceTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceTypeSearch">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceTypeSearch/deviceTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
 </suite>
