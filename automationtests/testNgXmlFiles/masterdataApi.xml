@@ -351,4 +351,64 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	
+	<test name="CreateMachine">
+		<parameter name="ymlFile"
+			value="masterdata/Machine/CreateMachine.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="UpdateMachine">
+		<parameter name="ymlFile"
+			value="masterdata/Machine/UpdateMachine.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="UpdateMachineStatus">
+		<parameter name="ymlFile" value="masterdata/UpdateMachineStatus/UpdateMachineStatus.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
+	
+	<test name="SearchMachine">
+		<parameter name="ymlFile"
+			value="masterdata/SearchMachine/SearchMachine.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterMachines">
+		<parameter name="ymlFile"
+			value="masterdata/FilterMachines/FilterMachines.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="FetchMachine">
+		<parameter name="ymlFile" value="masterdata/FetchMachine/FetchMachine.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="DeleteMachine">
+		<parameter name="ymlFile" value="masterdata/DeleteMachine/DeleteMachine.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	
+	<test name="DecommisionMachine">
+		<parameter name="ymlFile" value="masterdata/DecommisionMachine/DecommisionMachine.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
 </suite>
