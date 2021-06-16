@@ -12,7 +12,7 @@
 
 	
 
-	<test name="BulkUpload">
+	 <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -260,7 +260,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>
+	</test> 
 	
 	
 
@@ -312,6 +312,43 @@
 			value="masterdata/DeleteDeviceSpec/deleteDeviceSpec.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> 
+	
+	
+	 <test name="CreateDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceType/CreateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceType/UpdateDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	 <test name="FetchAllDeviceType">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllDeviceType/FetchAllDeviceTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeviceTypeFilter">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceTypeFilter/DeviceTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceTypeSearch">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceTypeSearch/deviceTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
 </suite>
