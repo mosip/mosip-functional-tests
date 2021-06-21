@@ -231,13 +231,25 @@ public class Decrypt {
 				}
 				segmentMap.put("data", bioDataMap);
 				
+				String digitalIdStr = (String) bioDataMap.get("digitalId");
+				if(!isInternal && digitalIdStr != null) {
+					Map<String, Object> bioDigitalIdMap = objMapper.readValue(CryptoUtil.decodeBase64(digitalIdStr.split("\\.")[1]), Map.class);
+					bioDataMap.put("digitalId", bioDigitalIdMap);
+				}
+				
 				String encryptedBioValue = (String) bioDataMap.get("bioValue");
 				String timestamp = (String) bioDataMap.get("timestamp");
 				String transactionId = (String) bioDataMap.get("transactionId");
 				String bioSessionKey = (String) segmentMap.get("sessionKey");
+				String thumbprint = (String) segmentMap.get("thumbprint");
 				
-				String combinedEncryptedBioValue = combine(encryptedBioValue, bioSessionKey);
-				String decryptBiometrics = this.decryptBiometrics(combinedEncryptedBioValue, timestamp, transactionId, isInternal);
+				byte[] bytesFromThumbprint = getBytesFromThumbprint(thumbprint);
+
+				
+				byte[] data = combineToByteArray(encryptedBioValue, bioSessionKey);
+				data = ArrayUtils.addAll(bytesFromThumbprint, data);
+
+				String decryptBiometrics = this.decryptBiometrics(CryptoUtil.encodeBase64(data), timestamp, transactionId, isInternal);
 				
 				bioDataMap.put("bioValue", decryptBiometrics);
 			}
