@@ -1,0 +1,30 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "pageNo": "$IGNORE$",
+    "totalPages": "$IGNORE$",
+    "totalItems": "$IGNORE$",
+    "data": [
+	{{#each data}}
+      {
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": $IGNORE$,
+        "deletedDateTime": null,
+        "code": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
+      }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}
