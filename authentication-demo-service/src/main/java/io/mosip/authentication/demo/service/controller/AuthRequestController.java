@@ -543,7 +543,7 @@ public class AuthRequestController {
 			break;
 		case "mosip.identity.auth.internal":
 			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
-			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/authenticate" : "/idauthentication/v1/internal/auth";
+			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/authentication" : "/idauthentication/v1/internal/auth";
 			isInternal = true;
 			break;
 		default:
