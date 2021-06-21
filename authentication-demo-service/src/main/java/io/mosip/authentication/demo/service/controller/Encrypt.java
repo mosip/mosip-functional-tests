@@ -438,15 +438,23 @@ public class Encrypt {
 	public static class SplittedEncryptedData {
 		private String encryptedSessionKey;
 		private String encryptedData;
+		private String thumbprint;
 
 		public SplittedEncryptedData() {
 			super();
 		}
-
+		
 		public SplittedEncryptedData(String encryptedSessionKey, String encryptedData) {
 			super();
 			this.encryptedData = encryptedData;
 			this.encryptedSessionKey = encryptedSessionKey;
+		}
+
+		public SplittedEncryptedData(String encryptedSessionKey, String encryptedData, String thumbprint) {
+			super();
+			this.encryptedData = encryptedData;
+			this.encryptedSessionKey = encryptedSessionKey;
+			this.thumbprint = thumbprint;
 		}
 
 		public String getEncryptedData() {
@@ -463,6 +471,14 @@ public class Encrypt {
 
 		public void setEncryptedSessionKey(String encryptedSessionKey) {
 			this.encryptedSessionKey = encryptedSessionKey;
+		}
+		
+		public String getThumbprint() {
+			return thumbprint;
+		}
+		
+		public void setThumbprint(String thumbprint) {
+			this.thumbprint = thumbprint;
 		}
 	}
 

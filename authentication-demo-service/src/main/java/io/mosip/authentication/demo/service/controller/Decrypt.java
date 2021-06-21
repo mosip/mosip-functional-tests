@@ -32,11 +32,9 @@ import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource.PSpecified;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang.ArrayUtils;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +59,14 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
+import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
+import io.mosip.authentication.core.exception.IdAuthUncheckedException;
 import io.mosip.authentication.core.logger.IdaLogger;
 import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
@@ -149,12 +154,33 @@ public class Decrypt {
 			@RequestParam(name="salt",required=false) @Nullable String salt,
 			@RequestParam(name="aad",required=false) @Nullable String aad)
 			throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, KeyManagementException {
-		String data = combine(splittedData.getEncryptedData(), splittedData.getEncryptedSessionKey());
+		byte[] data = combineToByteArray(splittedData.getEncryptedData(), splittedData.getEncryptedSessionKey());
 		if (refId == null) {
 			refId = getRefId(isInternal, isBiometrics);
 		}
-		return kernelDecrypt(data, refId, salt, aad);
+		byte[] bytesFromThumbprint = getBytesFromThumbprint(splittedData.getThumbprint());
+
+		data = ArrayUtils.addAll(bytesFromThumbprint, data);
+		return kernelDecrypt(CryptoUtil.encodeBase64(data), refId, salt, aad);
 	}
+	
+	public static byte[] getBytesFromThumbprint(String thumbprint) {
+		try {
+			//First try decoding with hex
+			return decodeHex(thumbprint);
+		} catch (DecoderException e) {
+			try {
+				//Then try decoding with base64
+				return CryptoUtil.decodeBase64(thumbprint);
+			} catch (Exception ex) {
+				throw new IdAuthUncheckedException(IdAuthenticationErrorConstants.UNABLE_TO_PROCESS, ex);
+			}
+		}
+	}
+	
+	public static byte[] decodeHex(String hexData) throws DecoderException{
+        return Hex.decodeHex(hexData);
+    }
 	
 	@PostMapping(path = "/authRequest/decryptAuthRequest", produces = MediaType.APPLICATION_JSON_VALUE) 
 	public String decryptAuthRequest(@RequestBody Map<String, Object> authRequestMap)
@@ -164,8 +190,9 @@ public class Decrypt {
 		Map<String, Object> outputAuthRequestMap = new LinkedHashMap<>(authRequestMap);
 		String request = (String) outputAuthRequestMap.get("request");
 		String reqSessionKey = (String) outputAuthRequestMap.get("requestSessionKey");
+		String thumbprint = (String) outputAuthRequestMap.get("thumbprint");
 		
-		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request), null, isInternal, false, null, null);
+		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request, thumbprint), null, isInternal, false, null, null);
 		Map<String, Object> requestMap = objMapper.readValue(decryptSplittedData.getBytes("UTF-8"), Map.class);
 		outputAuthRequestMap.put("request", requestMap);
 		
@@ -285,12 +312,15 @@ public class Decrypt {
 		}
 		return refId;
 	}
-
-	private String combine(String request, String requestSessionKey) {
+	
+	private byte[] combineToByteArray(String request, String requestSessionKey) {
 		byte[] encryptedRequest = CryptoUtil.decodeBase64(request);
 		byte[] encryptedSessionKey = CryptoUtil.decodeBase64(requestSessionKey);
-		return CryptoUtil.encodeBase64(
-				CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter));
+		return CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter);
+	}
+
+	private String combine(String request, String requestSessionKey) {
+		return CryptoUtil.encodeBase64(combineToByteArray(request, requestSessionKey));
 	}
 
 	/**
