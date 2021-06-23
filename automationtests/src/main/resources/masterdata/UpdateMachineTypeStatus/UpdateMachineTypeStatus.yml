@@ -1,0 +1,14 @@
+UpdateMachineTypeStatus:
+   MasterData_UpdateMachineTypeStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/machinetypes
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateMachineTypeStatus/updateMachineTypeStatus
+      outputTemplate: masterdata/UpdateMachineTypeStatus/updateMachineTypeStatusStatusResult
+      input: '{
+	"code": "Laptop-2",
+	"isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for machineType"
+}'

@@ -1,0 +1,39 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "pageNo": "$IGNORE$",
+    "pageSize": "$IGNORE$",
+    "sort": {
+      "unsorted": "$IGNORE$",
+      "sorted": "$IGNORE$"
+    },
+    "totalItems": "$IGNORE$",
+    "totalPages": "$IGNORE$",
+    "data": [
+  {{#each data}}
+    {
+        "isActive": {{isActive}},
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "regCentId": "$IGNORE$",
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "serialNum": "$IGNORE$",
+        "machineSpecId": "$IGNORE$",
+        "macAddress": "$IGNORE$",
+        "ipAddress": "$IGNORE$",
+        "langCode": "$IGNORE$"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "errors": "$IGNORE$"
+}
