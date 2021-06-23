@@ -1,0 +1,30 @@
+DecommissionRegCenter:
+   MasterData_DecommissionRegCenter_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/registrationcenters/decommission/{regCenterID}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
+      outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult
+      input: '{
+    "regCenterID": "10000"
+	}'
+      output: '{
+    "id": "10000"
+}'
+   MasterData_DecommissionRegCenter_Invalid_ID: 
+      endPoint: /v1/masterdata/registrationcenters/decommission/{regCenterID}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
+      outputTemplate: masterdata/error
+      input: '{
+      "regCenterID": "10000"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-042",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
