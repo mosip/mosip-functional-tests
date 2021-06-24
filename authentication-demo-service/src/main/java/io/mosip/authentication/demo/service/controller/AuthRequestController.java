@@ -628,7 +628,7 @@ public class AuthRequestController {
 
 				dataMap.put(TIMESTAMP, timestamp);
 				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
-				dataMap.put(ENV, environment.getProperty(MOSIP_BASE_URL));
+				dataMap.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 				dataMap.put(SPEC_VERSION, "1.0");
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
 				if (txnIdObj == null) {
