@@ -12,7 +12,7 @@
 
 	
 
-	 <test name="BulkUpload">
+	 <!-- <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -546,6 +546,57 @@
 			value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam"/>
+		</classes>
+	</test> -->
+	
+	
+	<test name="CreateRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterType/CreateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/SearchRegCenterType/SearchRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterType/UpdateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/FilterRegCenterType/FilterRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchAllRegCenterType">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllRegCenterType/FetchAllRegCenterType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchMissingRegCenterTypeDetails">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchMissingRegCenterTypeDetails/FetchMissingRegCenterTypeDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteRegCenterType/DeleteRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 </suite>
