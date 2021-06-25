@@ -103,6 +103,8 @@ import io.swagger.annotations.Api;
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
 
+	private static final String MOSIP_ENV = "mosip.env";
+
 	private static final String REQ_ID = "reqId";
 
 	private static final String PROP_PARTNER_URL_SUFFIX = "partnerUrlSuffix";
@@ -231,6 +233,7 @@ public class AuthRequestController {
 			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestBody Map<String, Object> request) throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
@@ -238,9 +241,13 @@ public class AuthRequestController {
 		reqValues.put(DEMO, false);
 		reqValues.put(BIO, false);
 		reqValues.put(PIN, false);
-		reqValues.put("thumbprint",
-				CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(isInternal, TEMP_DIR))));
+		boolean needsEncryption = !isInternal || !isNewInternalAuth;
 
+		if(needsEncryption) {
+			reqValues.put("thumbprint",
+					CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(isInternal, TEMP_DIR))));
+		}
+		
 		if (requestTime == null) {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
@@ -255,15 +262,17 @@ public class AuthRequestController {
 		applyRecursively(request, TIMESTAMP, requestTime);
 		applyRecursively(request, TRANSACTION_ID, transactionId);
 
-		if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
-			Object bioObj = request.get(BIOMETRICS);
-			if (bioObj instanceof List) {
-				List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
-						transactionId, (List<Map<String, Object>>) bioObj);
-				request.put(BIOMETRICS, encipheredBiometrics);
+		if(needsEncryption) {
+			if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
+				Object bioObj = request.get(BIOMETRICS);
+				if (bioObj instanceof List) {
+					List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
+							transactionId, (List<Map<String, Object>>) bioObj);
+					request.put(BIOMETRICS, encipheredBiometrics);
+				}
 			}
-		}
-		encryptValuesMap(request, reqValues, isInternal);
+			encryptValuesMap(request, reqValues, isInternal);
+		} 
 
 		StringWriter writer = new StringWriter();
 		InputStream templateValue;
@@ -274,12 +283,22 @@ public class AuthRequestController {
 			if (templateValue != null) {
 				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
 				String res = writer.toString();
+				if(!needsEncryption) {
+					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+					resMap.put("request", request);
+					resMap.put("requestHMAC", null);
+					resMap.put("requestSessionKey", null);
+					resMap.put("thumbprint", null);
+					
+					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+				}
 				if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
 					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
 				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
+				
 				HttpHeaders httpHeaders = new HttpHeaders();
 				String responseStr = response.toString();
 				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
@@ -327,8 +346,9 @@ public class AuthRequestController {
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestBody Map<String, Object> request) throws Exception {
-		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, request);
+		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, request);
 		String reqBody = authRequest.getBody();
 		String reqSignature = authRequest.getHeaders().get("signature").get(0);
 		
@@ -340,7 +360,7 @@ public class AuthRequestController {
 		httpHeaders.add("Content-Type", "application/json");
 		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
 		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
-		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix, isNewInternalAuth);
 		
 		Map<String, Object> respMap = new LinkedHashMap<>();
 		
@@ -506,7 +526,7 @@ public class AuthRequestController {
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
 	}
 	
-	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix) {
+	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix, boolean isNewInternalAuth) {
 		String baseUrl;
 		String urlSuffix;
 		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
@@ -523,7 +543,7 @@ public class AuthRequestController {
 			break;
 		case "mosip.identity.auth.internal":
 			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
-			urlSuffix = "/idauthentication/v1/internal/auth";
+			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity" : "/idauthentication/v1/internal/auth";
 			isInternal = true;
 			break;
 		default:
@@ -608,7 +628,7 @@ public class AuthRequestController {
 
 				dataMap.put(TIMESTAMP, timestamp);
 				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
-				dataMap.put(ENV, environment.getProperty(MOSIP_BASE_URL));
+				dataMap.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 				dataMap.put(SPEC_VERSION, "1.0");
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
 				if (txnIdObj == null) {
@@ -820,7 +840,7 @@ public class AuthRequestController {
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
 		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
-		reqValues.put(ENV, environment.getProperty(MOSIP_BASE_URL));
+		reqValues.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 	}
 
 	@PostMapping(path = "/uploadIDACertificate", produces = MediaType.TEXT_PLAIN_VALUE)

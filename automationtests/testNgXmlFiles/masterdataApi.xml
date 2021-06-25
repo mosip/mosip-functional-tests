@@ -12,7 +12,7 @@
 
 	
 
-	 <test name="BulkUpload">
+	 <!-- <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -351,7 +351,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
-	
+
 	<test name="CreateMachine">
 		<parameter name="ymlFile"
 			value="masterdata/Machine/CreateMachine.yml" />
@@ -360,7 +360,6 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	
 	<test name="UpdateMachine">
 		<parameter name="ymlFile"
 			value="masterdata/Machine/UpdateMachine.yml" />
@@ -368,14 +367,12 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	
 	<test name="UpdateMachineStatus">
 		<parameter name="ymlFile" value="masterdata/UpdateMachineStatus/UpdateMachineStatus.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.PatchWithQueryParam" />
 		</classes>
 	</test>
-	
 	<test name="SearchMachine">
 		<parameter name="ymlFile"
 			value="masterdata/SearchMachine/SearchMachine.yml" />
@@ -390,27 +387,25 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="FetchMachine">
 		<parameter name="ymlFile" value="masterdata/FetchMachine/FetchMachine.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="DeleteMachine">
 		<parameter name="ymlFile" value="masterdata/DeleteMachine/DeleteMachine.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	
 	<test name="DecommisionMachine">
 		<parameter name="ymlFile" value="masterdata/DecommisionMachine/DecommisionMachine.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
+	
 	
 	<test name="CreateMachineSpecification">
 		<parameter name="ymlFile"
@@ -420,15 +415,12 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	
 	<test name="UpdateMachineSpecificationStatus">
 		<parameter name="ymlFile" value="masterdata/UpdateMachineSpecificationStatus/UpdateMachineSpecificationStatus.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.PatchWithQueryParam" />
 		</classes>
 	</test>
-	
-	
 	<test name="SearchMachineSpec">
 		<parameter name="ymlFile"
 			value="masterdata/SearchMachineSpec/SearchMachineSpec.yml" />
@@ -450,20 +442,19 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="FetchAllMachineSpecification">
 		<parameter name="ymlFile" value="masterdata/FetchAllMachineSpecification/FetchAllMachineSpecification.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="DeleteMachineSpec">
 		<parameter name="ymlFile" value="masterdata/DeleteMachineSpec/DeleteMachineSpec.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
+	
 	
 	<test name="CreateMachineType">
 		<parameter name="ymlFile"
@@ -472,7 +463,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="UpdateMachineTypeStatus">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateMachineTypeStatus/UpdateMachineTypeStatus.yml" />
@@ -480,8 +470,6 @@
 			<class name="io.mosip.testscripts.PatchWithQueryParam" />
 		</classes>
 	</test>
-	
-
 	<test name="MachineTypeSearch">
 		<parameter name="ymlFile"
 			value="masterdata/MachineTypeSearch/MachineTypeSearch.yml" />
@@ -489,7 +477,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-
 	<test name="UpdateMachineType">
 		<parameter name="ymlFile"
 			value="masterdata/MachineType/UpdateMachineType.yml" />
@@ -497,7 +484,6 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	
 	<test name="FilterMachineType">
 		<parameter name="ymlFile"
 			value="masterdata/FilterMachineType/FilterMachineType.yml" />
@@ -505,7 +491,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="FetchAllMachineType">
 		<parameter name="ymlFile" value="masterdata/FetchAllMachineType/FetchAllMachineType.yml"/>  
 		<classes>
@@ -514,6 +499,104 @@
 	</test>
 	
 	
+	<test name="CreateRegistrationCenter">
+		<parameter name="ymlFile"
+			value="masterdata/RegistrationCenter/CreateRegistrationCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateRegistrationCenter">
+		<parameter name="ymlFile"
+			value="masterdata/RegistrationCenter/UpdateRegistrationCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchRegCent">
+		<parameter name="ymlFile"
+			value="masterdata/FetchRegCent/FetchRegCent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="RegCenterFilter">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterFilter/RegCenterFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="RegCenterSearch">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterSearch/RegCenterSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeleteRegCenter">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteRegCenter/DeleteRegCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="DecommissionRegCenter">
+		<parameter name="ymlFile"
+			value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam"/>
+		</classes>
+	</test> -->
 	
 	
+	<test name="CreateRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterType/CreateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/SearchRegCenterType/SearchRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/RegCenterType/UpdateRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/FilterRegCenterType/FilterRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchAllRegCenterType">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllRegCenterType/FetchAllRegCenterType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchMissingRegCenterTypeDetails">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchMissingRegCenterTypeDetails/FetchMissingRegCenterTypeDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteRegCenterType">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteRegCenterType/DeleteRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 </suite>
