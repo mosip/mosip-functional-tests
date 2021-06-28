@@ -550,7 +550,7 @@
 	</test> -->
 	
 	
-	<test name="CreateRegCenterType">
+	<!-- <test name="CreateRegCenterType">
 		<parameter name="ymlFile"
 			value="masterdata/RegCenterType/CreateRegCenterType.yml" />
 		<classes>
@@ -595,6 +595,58 @@
 	<test name="DeleteRegCenterType">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteRegCenterType/DeleteRegCenterType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> -->
+	
+	
+	
+	<test name="CreateHoliday">
+		<parameter name="ymlFile"
+			value="masterdata/Holiday/CreateHoliday.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="HolidaySearch">
+		<parameter name="ymlFile"
+			value="masterdata/HolidaySearch/HolidaySearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateHoliday">
+		<parameter name="ymlFile"
+			value="masterdata/Holiday/UpdateHoliday.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchHolidays">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchHolidays/FetchHoliday.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllHoliday">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllHolidays/FetchAllHoliday.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FilterHolidays">
+		<parameter name="ymlFile"
+			value="masterdata/FilterHolidays/FilterHolidays.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeleteHoliday">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteHoliday/deleteHoliday.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
