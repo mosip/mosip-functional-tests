@@ -104,6 +104,8 @@ import io.swagger.annotations.Api;
 public class AuthRequestController {
 
 	private static final String MOSIP_ENV = "mosip.env";
+	
+	private static final String MOSIP_DOMAINURI= "mosip.domainUri";
 
 	private static final String REQ_ID = "reqId";
 
@@ -626,8 +628,8 @@ public class AuthRequestController {
 					timestamp = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 				}
 
-				dataMap.put(TIMESTAMP, timestamp);
-				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
+				dataMap.put(TIMESTAMP, timestamp);				
+				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI,MOSIP_BASE_URL));
 				dataMap.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 				dataMap.put(SPEC_VERSION, "1.0");
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
@@ -838,8 +840,8 @@ public class AuthRequestController {
 		
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
-		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
-		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_BASE_URL));
+		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));		
+		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI, MOSIP_BASE_URL));
 		reqValues.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 	}
 
