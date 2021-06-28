@@ -629,7 +629,7 @@ public class AuthRequestController {
 				}
 
 				dataMap.put(TIMESTAMP, timestamp);				
-				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI,MOSIP_BASE_URL));
+				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI,environment.getProperty(MOSIP_BASE_URL)));
 				dataMap.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 				dataMap.put(SPEC_VERSION, "1.0");
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
@@ -841,7 +841,7 @@ public class AuthRequestController {
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));		
-		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI, MOSIP_BASE_URL));
+		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI, environment.getProperty(MOSIP_BASE_URL)));
 		reqValues.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 	}
 
