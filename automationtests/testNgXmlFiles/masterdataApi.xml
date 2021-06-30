@@ -12,7 +12,7 @@
 
 	
 
-	<!--  <test name="BulkUpload">
+	 <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -650,9 +650,9 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	
-	<!-- <test name="CreateLocationData">
+	<test name="CreateLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/LocationData/CreateLocationData.yml" />
 		<classes>
@@ -697,13 +697,6 @@
 	<test name="FetchMissingLocation">
 		<parameter name="ymlFile" 
 			value="masterdata/FetchMissingLocation/FetchMissingLocation.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> -->
-	<test name="FetchLocation">
-		<parameter name="ymlFile" 
-			value="masterdata/FetchLocation/FetchLocation.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
