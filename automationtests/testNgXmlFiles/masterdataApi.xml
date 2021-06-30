@@ -651,4 +651,49 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
+	
+	<test name="CreateGender">
+		<parameter name="ymlFile"
+			value="masterdata/Gender/CreateGender.yml" />
+		<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenderFilter">
+		<parameter name="ymlFile"
+			value="masterdata/GenderFilter/GenderFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GenderSearch">
+		<parameter name="ymlFile"
+			value="masterdata/GenderSearch/GenderSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateGender">
+		<parameter name="ymlFile"
+			value="masterdata/Gender/UpdateGender.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="FetchGenderType">
+		<parameter name="ymlFile" value="masterdata/FetchGenderType/FetchGenderType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="DeleteGenderType">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteGenderType/DeleteGenderType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 </suite>
