@@ -1,0 +1,22 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "holidays": [
+      {{#each holidays}}  
+      {
+        "locationCode": "$IGNORE$",
+        "holidayDate": "$IGNORE$",
+        "holidayName": "$IGNORE$",
+        "holidayDesc": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}}
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

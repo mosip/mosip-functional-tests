@@ -1,0 +1,36 @@
+DeleteHoliday:
+   MasterData_DeleteHoliday_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteHoliday/deleteHoliday
+      outputTemplate: masterdata/DeleteRegCenterType/deleteHolidayResult
+      input: '{
+    "holidayDate": "2021-10-13",
+    "holidayName": "Test_Holiday10294",
+    "locationCode": "RSK"
+  }'
+      output: '{
+    "locationCode": "RSK",
+    "holidayDate": "2021-10-13",
+    "holidayName": "Test_Holiday10294"
+  }'
+   MasterData_DeleteHoliday_Invalid_CODE: 
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteHoliday/deleteHoliday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2021-10-13",
+    "holidayName": "Test_Holiday10294",
+    "locationCode": "RSK"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}'
