@@ -12,7 +12,7 @@
 
 	
 
-	 <test name="BulkUpload">
+	<!--  <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -649,6 +649,63 @@
 			value="masterdata/DeleteHoliday/deleteHoliday.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> -->
+	
+	<!-- <test name="CreateLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/LocationData/CreateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/LocationData/UpdateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="SearchLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/SearchLocationData/SearchLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/FilterLocationData/FilterLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchLocation">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchLocation/FetchLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchAllLocation">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllLocation/FetchAllLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchMissingLocation">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchMissingLocation/FetchMissingLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
+	<test name="FetchLocation">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchLocation/FetchLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 </suite>
