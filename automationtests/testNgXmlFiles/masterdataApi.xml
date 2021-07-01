@@ -12,7 +12,7 @@
 
 	
 
-	<!--  <test name="BulkUpload">
+  <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -650,9 +650,10 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test> -->
+	</test> 
 	
-	<!-- <test name="CreateLocationData">
+    
+    <test name="CreateLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/LocationData/CreateLocationData.yml" />
 		<classes>
@@ -700,8 +701,9 @@
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> -->
+	</test> 
 	
+	 
 	 <test name="CreateTemplate">
 		<parameter name="ymlFile"
 			value="masterdata/Template/CreateTemplate.yml" />
