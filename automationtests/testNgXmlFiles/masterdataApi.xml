@@ -12,7 +12,7 @@
 
 	
 
-	 <test name="BulkUpload">
+  <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -650,9 +650,10 @@
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>
+	</test> 
 	
-	<test name="CreateLocationData">
+    
+    <test name="CreateLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/LocationData/CreateLocationData.yml" />
 		<classes>
@@ -699,6 +700,57 @@
 			value="masterdata/FetchMissingLocation/FetchMissingLocation.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	 
+	 <test name="CreateTemplate">
+		<parameter name="ymlFile"
+			value="masterdata/Template/CreateTemplate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchTemplateDetails">
+		<parameter name="ymlFile"
+			value="masterdata/SearchTemplateDetails/SearchTemplateDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterTemplateDetails">
+		<parameter name="ymlFile"
+			value="masterdata/FilterTemplateDetails/FilterTemplateDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTemplate">
+		<parameter name="ymlFile"
+			value="masterdata/Template/UpdateTemplate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchTemplate">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchTemplate/FetchTemplate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="UpdateTemplateStatus">
+		<parameter name="ymlFile" 
+			value="masterdata/UpdateTemplateStatus/UpdateTemplateStatus.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
+	<test name="DeleteTemplate">
+		<parameter name="ymlFile" 
+			value="masterdata/DeleteTemplate/DeleteTemplate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 </suite>
