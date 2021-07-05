@@ -12,7 +12,7 @@
 
 	
 
-  <!-- <test name="BulkUpload">
+  <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -752,7 +752,7 @@
 		<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	
 	
 	<test name="CreateTitle">
