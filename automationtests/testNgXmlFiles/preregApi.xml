@@ -72,7 +72,7 @@
 		</classes>
 	</test>-->
 	
-	<!-- <test name="SendOtp">
+	 <test name="SendOtp">
 		<parameter name="ymlFile"
 			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
 		<classes>
@@ -215,10 +215,10 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test> -->
+	</test> 
 	
 	
-	<test name="SendOtp">
+	<!--<test name="SendOtp">
 		<parameter name="ymlFile"
 			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
 		<classes>
@@ -308,7 +308,7 @@
 	</test>
 	 <test name="BookAppointment">
 		<parameter name="ymlFile"
-			value="preReg/bookAppointment/bookAppointment.yml" />
+			value="preReg/Pre-RegQA/bookAppointment/bookAppointment.yml" />
 		<parameter name="pathParams" value="preRegistrationId" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
@@ -316,14 +316,14 @@
 	</test>
 	<test name="GetAppointmentDetails">
 		<parameter name="ymlFile"
-			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
+			value="preReg/Pre-RegQA/GetAppointmentDetails/GetAppointmentDetails.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
 	<test name="GetAvailableSlotForRegCentreId">
 		<parameter name="ymlFile"
-			value="preReg/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
+			value="preReg/Pre-RegQA/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -331,35 +331,35 @@
 	
 	<test name="GetPRIDForRegCent">
 		<parameter name="ymlFile"
-			value="preReg/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
+			value="preReg/Pre-RegQA/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="DeletePreRegistration">
 		<parameter name="ymlFile"
-			value="preReg/DeletePreRegistration/DeletePreRegistration.yml" />
+			value="preReg/Pre-RegQA/DeletePreRegistration/DeletePreRegistration.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 	<test name="DeleteSpecificDocForaPRID">
 		<parameter name="ymlFile"
-			value="preReg/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
+			value="preReg/Pre-RegQA/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 	<test name="DeleteAllDocForaPRID">
 		<parameter name="ymlFile"
-			value="preReg/DeleteAllDocForaPRID/DeleteAllDocForaPRID.yml" />
+			value="preReg/Pre-RegQA/DeleteAllDocForaPRID/DeleteAllDocForaPRID.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 	<test name="CancelAppointment">
 		<parameter name="ymlFile"
-			value="preReg/CancelAppointment/CancelAppointment.yml" />
+			value="preReg/Pre-RegQA/CancelAppointment/CancelAppointment.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
@@ -371,5 +371,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test>-->
 </suite>
