@@ -11,6 +11,8 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -51,6 +53,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.KernelDataBaseAccess;
+import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
@@ -1190,5 +1193,35 @@ public static void copyResidentTestResource() {
 	} catch (Exception e) {
 		logger.error("Exception occured while copying the file: "+e.getMessage());
 	}
+}
+public static ArrayList<JSONObject> getTestCase(TestCaseDTO testCaseDTO) {
+	String[] templateFields = testCaseDTO.getTemplateFields();
+	String input = testCaseDTO.getInput();
+	JSONObject json = new JSONObject(input);
+
+	//get all template fields for which translation is required
+	ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
+	ArrayList<String> list = new ArrayList<>();
+	Arrays.stream(templateFields).forEach(field -> list.add(field));
+	//iterate on all required languages
+			for (String language : BaseTestCase.languageList) {
+				JSONObject langjson = new JSONObject(input);
+				for (String fieldToConvert : list) {
+					String valueToConvert = json.getString(fieldToConvert);
+					String translatedValue = valueToConvert;
+					langjson.remove(fieldToConvert);
+					if (!language.equalsIgnoreCase("eng")) {
+						translatedValue = Translator.translate(language, valueToConvert);
+					}
+					System.out.println("valueToConvert" + valueToConvert + "-----" + translatedValue);
+					langjson.put(fieldToConvert, translatedValue);
+				}
+				langjson.remove("langCode");
+				langjson.put("langCode", language);
+				System.out.println(langjson.toString());
+				listofjsonObject.add(langjson);
+			}
+			
+		return listofjsonObject;	
 }
 }
