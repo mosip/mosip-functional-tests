@@ -1,0 +1,20 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "genderType": [
+      {{#each genderType}}  
+      {
+        "code": "$IGNORE$",
+        "genderName": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": "{{isActive}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -21,7 +23,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.fw.util.PMPDataManager;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.pmp.fw.util.PartnerTestUtil;
@@ -92,6 +93,8 @@ public class BaseTestCase {
 	public static String adminRegProcAuthToken;
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
+	public static List<String> languageList = new ArrayList<>();
+	//public static HashMap<String, String> langcode = new HashMap<>();
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -125,6 +128,10 @@ public class BaseTestCase {
 		logger.info("Application URI ======" + ApplnURI);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
+		languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+		
+		//langcode = System.getProperty("env.langcode");
+		logger.info("Test Level ======" + languageList);
 
 		logger.info("Configs from properties file are set.");
 
