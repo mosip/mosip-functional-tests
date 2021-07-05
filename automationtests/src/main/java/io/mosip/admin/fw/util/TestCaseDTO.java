@@ -7,6 +7,7 @@ public class TestCaseDTO {
 	private String testCaseName;
 	private String endPoint;
 	private String role;
+	private String[] templateFields;
 	private String input;
 	private String output;
 	private String inputTemplate;
