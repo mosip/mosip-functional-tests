@@ -1,0 +1,18 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "filters": [
+     {{#each filters}}
+      {
+        "fieldID": "{{fieldID}}",
+        "fieldValue": "{{fieldValue}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": []
+}

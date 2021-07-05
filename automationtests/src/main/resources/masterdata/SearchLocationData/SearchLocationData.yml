@@ -1,0 +1,38 @@
+SearchLocationData:
+   MasterData_SearchLocationData_Valid_Smoke:
+      endPoint: /v1/masterdata/locations/search
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/SearchLocationData/searchLocationData
+      outputTemplate: masterdata/SearchLocationData/searchLocationDataResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "Region",
+        "type": "equals",
+        "value": "Rabat Sale Kenitra",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "Region",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "isActive": false,
+        "region": "INDIA",
+        "city": "{{city}}",
+        "province": "{{province}}",
+        "zone": "{{zone}}",
+        "postalCode": "{{postalCode}}" 
+      }'
