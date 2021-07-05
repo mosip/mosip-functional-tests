@@ -1,0 +1,28 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+      {{#each data}}
+          {
+            "isActive": "{{isActive}}",
+			       "createdBy": "$IGNORE$",
+            "createdDateTime": "$IGNORE$",
+            "updatedBy": "$IGNORE$",
+            "updatedDateTime": "$IGNORE$",
+            "isDeleted": "$IGNORE$",
+            "deletedDateTime": "$IGNORE$",
+			      "code": "{{code}}",
+            "titleName": "{{titleName}}",
+            "titleDescription": "{{titleDescription}}",
+            "langCode": "{{langCode}}"
+          }
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

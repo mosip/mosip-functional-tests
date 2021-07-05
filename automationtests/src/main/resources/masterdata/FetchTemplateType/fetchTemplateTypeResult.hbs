@@ -1,0 +1,20 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "templateTypes": [
+    {{#each templateTypes}}
+      {
+        "code": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "description": "$IGNORE$",
+        "isActive": "{{isActive}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

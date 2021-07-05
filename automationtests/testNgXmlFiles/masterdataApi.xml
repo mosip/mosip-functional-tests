@@ -12,7 +12,7 @@
 
 	
 
-  <test name="BulkUpload">
+  <!-- <test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
@@ -751,6 +751,58 @@
 			value="masterdata/DeleteTemplate/DeleteTemplate.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> -->
+	
+	
+	<test name="CreateTitle">
+		<parameter name="ymlFile"
+			value="masterdata/Title/CreateTitle.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="TitleSearch">
+		<parameter name="ymlFile"
+			value="masterdata/TitleSearch/TitleSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="TitleFilter">
+		<parameter name="ymlFile"
+			value="masterdata/TitleFilter/TitleFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateTitle">
+		<parameter name="ymlFile"
+			value="masterdata/Title/UpdateTitle.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchTitle">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchTitle/FetchTitle.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="CreateTemplateType">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateType/CreateTemplateType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchTemplateType">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchTemplateType/FetchTemplateType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 </suite>
