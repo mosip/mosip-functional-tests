@@ -1194,34 +1194,87 @@ public static void copyResidentTestResource() {
 		logger.error("Exception occured while copying the file: "+e.getMessage());
 	}
 }
-public static ArrayList<JSONObject> getTestCase(TestCaseDTO testCaseDTO) {
+
+/*
+ * public static ArrayList<JSONObject> getTestCase(TestCaseDTO testCaseDTO) {
+ * String[] templateFields = testCaseDTO.getTemplateFields(); String input =
+ * testCaseDTO.getInput(); String output = testCaseDTO.getOutput(); JSONObject
+ * json = new JSONObject(input); JSONObject jsonop = new JSONObject(output);
+ * 
+ * // get all template fields for which translation is required
+ * ArrayList<JSONObject> listofjsonObject = new ArrayList<>(); ArrayList<String>
+ * list = new ArrayList<>(); Arrays.stream(templateFields).forEach(field ->
+ * list.add(field)); // iterate on all required languages
+ * 
+ * for (String language : BaseTestCase.languageList) { JSONObject langjson = new
+ * JSONObject(input); for (String fieldToConvert : list) { String valueToConvert
+ * = json.getString(fieldToConvert); String translatedValue = valueToConvert;
+ * langjson.remove(fieldToConvert); if (!language.equalsIgnoreCase("eng")) {
+ * translatedValue = Translator.translate(language, valueToConvert); }
+ * System.out.println("valueToConvert" + valueToConvert + "-----" +
+ * translatedValue); langjson.put(fieldToConvert, translatedValue); }
+ * langjson.remove("langCode"); langjson.put("langCode", language);
+ * System.out.println(langjson.toString()); listofjsonObject.add(langjson); }
+ * 
+ * return listofjsonObject; }
+ */
+ 
+
+public static ArrayList<JSONObject> getInputTestCase(TestCaseDTO testCaseDTO) {
 	String[] templateFields = testCaseDTO.getTemplateFields();
 	String input = testCaseDTO.getInput();
-	JSONObject json = new JSONObject(input);
+	ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
+	listofjsonObject = inputJsonConversion(input, templateFields);
+	//listofjsonObject = outputJsonConversion(output, templateFields);
+	return listofjsonObject;
+}
 
-	//get all template fields for which translation is required
+public static ArrayList<JSONObject> getOutputTestCase(TestCaseDTO testCaseDTO) {
+	String[] templateFields = testCaseDTO.getTemplateFields();
+	String output = testCaseDTO.getOutput();
+	ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
+	listofjsonObject = outputJsonConversion(output, templateFields);
+	return listofjsonObject;
+}
+public static ArrayList<JSONObject> inputJsonConversion(String input, String[] templateFields) {
+	JSONObject inputJson = new JSONObject(input);
+	return convertJson(templateFields, input, inputJson);
+}
+public static ArrayList<JSONObject> outputJsonConversion(String output, String[] templateFields) {
+	JSONObject outputJson = new JSONObject(output);
+	return convertJson(templateFields, output, outputJson);
+}
+private static ArrayList<JSONObject> convertJson(String[] templateFields, String template, JSONObject jsonObject) {
+	// get all template fields for which translation is required
 	ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
 	ArrayList<String> list = new ArrayList<>();
 	Arrays.stream(templateFields).forEach(field -> list.add(field));
-	//iterate on all required languages
-			for (String language : BaseTestCase.languageList) {
-				JSONObject langjson = new JSONObject(input);
-				for (String fieldToConvert : list) {
-					String valueToConvert = json.getString(fieldToConvert);
-					String translatedValue = valueToConvert;
-					langjson.remove(fieldToConvert);
-					if (!language.equalsIgnoreCase("eng")) {
-						translatedValue = Translator.translate(language, valueToConvert);
-					}
-					System.out.println("valueToConvert" + valueToConvert + "-----" + translatedValue);
-					langjson.put(fieldToConvert, translatedValue);
-				}
-				langjson.remove("langCode");
-				langjson.put("langCode", language);
-				System.out.println(langjson.toString());
-				listofjsonObject.add(langjson);
+	// iterate on all required languages
+	for (String language : BaseTestCase.languageList) {
+		JSONObject langjson = new JSONObject(template);
+		for (String fieldToConvert : list) {
+			String valueToConvert = null;
+			String translatedValue = null;
+			if(jsonObject.has(fieldToConvert)) {
+				 valueToConvert = jsonObject.getString(fieldToConvert);
+				 translatedValue = valueToConvert;
 			}
 			
-		return listofjsonObject;	
+			//langjson.remove(fieldToConvert);
+			if (!language.equalsIgnoreCase("eng") && valueToConvert!=null) {
+				translatedValue = Translator.translate(language, valueToConvert);
+			}
+			System.out.println("valueToConvert" + valueToConvert + "-----" + translatedValue);
+			//put that translated value if and only if that field is present in template(input/output)
+			if(!langjson.isNull(fieldToConvert) || translatedValue!=null )
+			langjson.put(fieldToConvert, translatedValue);
+		}
+		langjson.remove("langCode");
+		langjson.put("langCode", language);
+		System.out.println(langjson.toString());
+		listofjsonObject.add(langjson);
+	}
+	return listofjsonObject;
 }
+
 }

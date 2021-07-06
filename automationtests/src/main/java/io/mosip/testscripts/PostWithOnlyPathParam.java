@@ -1,10 +1,12 @@
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -59,17 +61,41 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+		testCaseName = testCaseDTO.getTestCaseName();
+		String[] templateFields = testCaseDTO.getTemplateFields();
 		
-		response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
+		if (templateFields != null && templateFields.length > 0) {
+			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
+			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
+			
+			for (JSONObject langInputjson : inputtestCases) {
+				response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(langInputjson.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				for (JSONObject langOutputjson : outputtestcase) {
+					
+				
+				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+						response.asString(),
+						getJsonFromTemplate(langOutputjson.toString(), testCaseDTO.getOutputTemplate()));
+				Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
+				if (!OutputValidationUtil.publishOutputResult(ouputValid))
+
+					throw new AdminTestException("Failed at output validation");
+
+			}
+			}
+		}
+		
+		else {
+			response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			
+			if (!OutputValidationUtil.publishOutputResult(ouputValid))
+				throw new AdminTestException("Failed at output validation");
+		}
 	}
 
 	/**
