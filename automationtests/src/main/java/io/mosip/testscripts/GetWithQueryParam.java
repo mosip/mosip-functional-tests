@@ -2,6 +2,7 @@ package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -65,28 +66,29 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
-		if (templateFields != null && templateFields.length > 0) {
+		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			
-			for (JSONObject langInputjson : inputtestCases) {
-				response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-						getJsonFromTemplate(langInputjson.toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-				for (JSONObject langOutputjson : outputtestcase) {
-					
-				
-				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-						response.asString(),
-						getJsonFromTemplate(langOutputjson.toString(), testCaseDTO.getOutputTemplate()));
-				Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-
-				if (!OutputValidationUtil.publishOutputResult(ouputValid))
-
-					throw new AdminTestException("Failed at output validation");
-
-			}
-			}
+			//adding...
+			List<String> languageList = new ArrayList<>();
+			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			 for (int i=0; i<languageList.size(); i++) {
+		        	Innerloop:
+		            for (int j=i; j <languageList.size();) {
+		            	response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
+		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		            	
+		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+								response.asString(),
+								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+						
+						if (!OutputValidationUtil.publishOutputResult(ouputValid))
+							throw new AdminTestException("Failed at output validation");
+		                    break Innerloop;
+		            }
+		        }
 		}  
 		
 		else {
