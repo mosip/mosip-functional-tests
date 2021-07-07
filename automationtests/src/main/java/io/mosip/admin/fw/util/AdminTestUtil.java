@@ -1259,7 +1259,6 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 				 valueToConvert = jsonObject.getString(fieldToConvert);
 				 translatedValue = valueToConvert;
 			}
-			
 			//langjson.remove(fieldToConvert);
 			if (!language.equalsIgnoreCase("eng") && valueToConvert!=null) {
 				translatedValue = Translator.translate(language, valueToConvert);
@@ -1276,5 +1275,4 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 	}
 	return listofjsonObject;
 }
-
 }
