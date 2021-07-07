@@ -45,10 +45,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.xml.bind.DatatypeConverter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -72,12 +68,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
 import io.mosip.authentication.core.exception.IdAuthenticationAppException;
 import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
 import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
+import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
 import io.mosip.authentication.demo.service.dto.EncryptionRequestDto;
 import io.mosip.authentication.demo.service.dto.EncryptionResponseDto;
 import io.mosip.authentication.demo.service.helper.CertificateTypes;
@@ -90,7 +91,6 @@ import io.mosip.kernel.core.templatemanager.spi.TemplateManagerBuilder;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
 import io.swagger.annotations.Api;
 
 /**
@@ -183,7 +183,6 @@ public class AuthRequestController {
 	private static final String BEGIN_CERTIFICATE = "-----BEGIN CERTIFICATE-----";
 	private static final String END_CERTIFICATE = "-----END CERTIFICATE-----";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-	private static final String TEMP_DIR = System.getProperty("java.io.tmpdir") + "/IDA";
 
 	@Autowired
 	private Encrypt encrypt;
@@ -243,11 +242,17 @@ public class AuthRequestController {
 		reqValues.put(DEMO, false);
 		reqValues.put(BIO, false);
 		reqValues.put(PIN, false);
+		
+		if(isNewInternalAuth) {
+			isInternal  = true;
+		}
+		
 		boolean needsEncryption = !isInternal || !isNewInternalAuth;
+		String keysDirPath = keyMgrUtil.getKeysDirPath();
 
 		if(needsEncryption) {
 			reqValues.put("thumbprint",
-					CryptoUtil.encodeBase64(getCertificateThumbprint(encrypt.getCertificate(isInternal, TEMP_DIR))));
+					digest(getCertificateThumbprint(encrypt.getCertificate(isInternal, keysDirPath))));
 		}
 		
 		if (requestTime == null) {
@@ -307,7 +312,7 @@ public class AuthRequestController {
 				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
 
 				String rpSignature = jWSSignAndVerifyController.sign(responseStr, false, 
-					true, false, null, TEMP_DIR, partnerTypes);
+					true, false, null, keysDirPath, partnerTypes);
 				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
@@ -381,7 +386,8 @@ public class AuthRequestController {
 			respBody = authResponse.getBody();
 			List<ServiceError> serviceErrorList = ExceptionUtils.getServiceErrorList(mapper.writeValueAsString(respBody));
 			if(serviceErrorList.isEmpty()) {
-				respSignature = authResponse.getHeaders().get("response-signature").get(0);
+				List<String> signatureHeaders = authResponse.getHeaders().get("response-signature");
+				respSignature = signatureHeaders != null ? authResponse.getHeaders().get("response-signature").get(0) : null;
 				authRespBody.put("signature", respSignature);
 			}
 		} catch (RestClientException e) {
@@ -558,6 +564,9 @@ public class AuthRequestController {
 		
 		if(!isInternal) {
 			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX) : partnerUrlSuffix;
+			if(partnerSuffix == null) {
+				throw new NullPointerException("partnerUrlSuffix is not specified");
+			}
 			url += "/" + partnerSuffix;
 		}
 		return URI.create(url);
@@ -637,15 +646,16 @@ public class AuthRequestController {
 					dataMap.put(TRANSACTION_ID, transactionIdArg == null ? "1234567890" : transactionIdArg);
 				}
 				String transactionId = String.valueOf(dataMap.get(TRANSACTION_ID));
+				String keysDirPath = keyMgrUtil.getKeysDirPath();
 
 				//SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp,
 				//		transactionId, isInternal);
 				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBio(bioValue, timestamp,
-						transactionId, isInternal, TEMP_DIR);
+						transactionId, isInternal, keysDirPath);
 
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
-				bioMap.put("thumbprint", digest(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, TEMP_DIR))));
+				bioMap.put("thumbprint", digest(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, keysDirPath))));
 
 				Object digitalId = dataMap.get(DIGITAL_ID);
 				if (digitalId instanceof Map) {
@@ -655,7 +665,7 @@ public class AuthRequestController {
 					if(!isInternal) {
 						//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
 						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
-								false, null, TEMP_DIR, PartnerTypes.FTM);
+								false, null, keysDirPath, PartnerTypes.FTM);
 					} else {
 						signedDititalId = CryptoUtil.encodeBase64(digitalIdStr.getBytes());
 					}
@@ -670,7 +680,7 @@ public class AuthRequestController {
 				} else {
 					//dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
 					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, 
-						false, null, TEMP_DIR, PartnerTypes.DEVICE);
+						false, null, keysDirPath, PartnerTypes.DEVICE);
 				}
 				bioMap.put(DATA, dataStr);
 				
@@ -767,7 +777,7 @@ public class AuthRequestController {
 		EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
 		encodeBioData(identity);
 		encryptionRequestDto.setIdentityRequest(identity);
-		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal, TEMP_DIR);
+		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal, keyMgrUtil.getKeysDirPath());
 		reqValues.put("encHmac", encryptionResponse.getRequestHMAC());
 		reqValues.put("encSessionKey", encryptionResponse.getEncryptedSessionKey());
 		reqValues.put("encRequest", encryptionResponse.getEncryptedIdentity());
@@ -867,13 +877,15 @@ public class AuthRequestController {
 		strBuilder.append(END_CERTIFICATE);
 		String certificateStr = strBuilder.toString();
 		
-		Path parentPath = Paths.get(TEMP_DIR + "/" + fileName).getParent();
+		String keysDirPath = keyMgrUtil.getKeysDirPath();
+
+		Path parentPath = Paths.get(keysDirPath + "/" + fileName).getParent();
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
         }
 
 		boolean isErrored = false;
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(TEMP_DIR + "/" + fileName ))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(keysDirPath + "/" + fileName ))) {
 			writer.write(certificateStr);
 			writer.flush();
 		} catch (Exception e) {
@@ -893,7 +905,7 @@ public class AuthRequestController {
 		
 		String filePrepend = partnerType.getFilePrepend();
 
-		return keyMgrUtil.getPartnerCertificates(filePrepend, TEMP_DIR, partnerName);
+		return keyMgrUtil.getPartnerCertificates(filePrepend, keyMgrUtil.getKeysDirPath(), partnerName);
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)
@@ -908,7 +920,7 @@ public class AuthRequestController {
 		X509Certificate x509Cert = (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
 		System.out.println("certificateType: " + partnerType.toString());
 		System.out.println("filePrepend: " + filePrepend);
-		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, TEMP_DIR);
+		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, keyMgrUtil.getKeysDirPath());
 		return isUpdated ? "Update Success" : "Update Failed"; 
 	}
 

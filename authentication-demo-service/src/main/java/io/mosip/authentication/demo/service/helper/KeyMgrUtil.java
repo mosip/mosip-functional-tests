@@ -1,6 +1,7 @@
 package io.mosip.authentication.demo.service.helper;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -56,6 +57,8 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
@@ -63,7 +66,9 @@ import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
 @Component
 public class KeyMgrUtil {
     
-    private static final String CERTIFICATE_TYPE = "X.509";
+    private static final String DOMAIN_URL = "mosip.base.url";
+
+	private static final String CERTIFICATE_TYPE = "X.509";
 
     private static final String CA_P12_FILE_NAME = "-ca.p12";
 	private static final String INTER_P12_FILE_NAME = "-inter.p12";
@@ -79,7 +84,8 @@ public class KeyMgrUtil {
     private static final String DEVICE_SPECIFIC_KEY = "-dsk";
     private static final String CHIP_SPECIFIC_KEY = "-csk";
 
-	private static final String DEFAULT_ORGANIZATION = "IDA-QA-TEST";
+	@Autowired
+	private Environment environment;
 
     public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
 		StringReader strReader = new StringReader(certData);
@@ -310,5 +316,10 @@ public class KeyMgrUtil {
             return true;
         }
         return false;
+    }
+    
+    public String getKeysDirPath() {
+    	String domain = environment.getProperty("mosip.base.url", "localhost").replace("https://", "").replace("http://", "").replace("/", "");
+		return System.getProperty("java.io.tmpdir") + File.separator + "IDA-" + domain;
     }
 }

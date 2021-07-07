@@ -121,7 +121,6 @@ public class Decrypt {
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Decrypt.class);
 	
-	private static final String TEMP_DIR = System.getProperty("java.io.tmpdir") + "/IDA";
 	/**
 	 * Decrypt.
 	 *
@@ -331,10 +330,6 @@ public class Decrypt {
 		return CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter);
 	}
 
-	private String combine(String request, String requestSessionKey) {
-		return CryptoUtil.encodeBase64(combineToByteArray(request, requestSessionKey));
-	}
-
 	/**
 	 * This method is used to call the kernel decrypt api for decryption.
 	 *
@@ -429,16 +424,13 @@ public class Decrypt {
 			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, 
 			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 				
-		String certificateThumbprint = requestData.get("thumbprint");
 		String identity = requestData.get("identity");
-		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(TEMP_DIR, PartnerTypes.EKYC);
+		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(), PartnerTypes.EKYC);
 		
 		SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
 		byte[] encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
 		byte[] encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
 		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
-		
-		
 	     
 	    Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
 	    byte[] nonce = Arrays.copyOfRange(encKycData, encKycData.length - cipher.getBlockSize(), encKycData.length);
