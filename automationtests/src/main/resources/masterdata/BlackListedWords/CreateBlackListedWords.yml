@@ -2,6 +2,7 @@ CreateBlackListedWords:
    Admin_CreateBlackListedWords_All_Valid_Smoke:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
+      templateFields: ["description","word"]
       restMethod: post
       inputTemplate: masterdata/BlackListedWords/blackListedWords
       outputTemplate: masterdata/BlackListedWords/blackListedWordsResult
@@ -16,26 +17,10 @@ CreateBlackListedWords:
 	"word": "dumbo6",
 	"langCode": "eng"
 }'
-   Admin_CreateBlackListedWords_Valid_OnlyMandatoryFields_DB_ara:
-      endPoint: /v1/masterdata/blacklistedwords
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/BlackListedWords/blackListedWords
-      outputTemplate: masterdata/BlackListedWords/blackListedWordsResult
-      input: '{
-    "description": "$REMOVE$",
-	"isActive": true,
-	"langCode": "ara",
-	"word": "dumbo6",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"word": "dumbo6",
-	"langCode": "ara"
-}'
    Admin_CreateBlackListedWords_Invalid_BlacklistedWordsLength129:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/BlackListedWords/blackListedWords
       outputTemplate: masterdata/error
@@ -57,6 +42,7 @@ CreateBlackListedWords:
    Admin_CreateBlackListedWords_Invalid_DescriptionLength257:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
+      templateFields: ["word"]
       restMethod: post
       inputTemplate: masterdata/BlackListedWords/blackListedWords
       outputTemplate: masterdata/error
@@ -75,51 +61,10 @@ CreateBlackListedWords:
     }
   ]
 }'
-   Admin_CreateBlackListedWords_InvalidLangCode:
-      endPoint: /v1/masterdata/blacklistedwords
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/BlackListedWords/blackListedWords
-      outputTemplate: masterdata/error
-      input: '{
-    "description": "bad words",
-	"isActive": true,
-	"langCode": "engr",
-	"word": "bull word",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Admin_CreateBlackListedWords_InvalidLangCode_blank:
-      endPoint: /v1/masterdata/blacklistedwords
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/BlackListedWords/blackListedWords
-      outputTemplate: masterdata/error
-      input: '{
-    "description": "bad words",
-	"isActive": true,
-	"langCode": "",
-	"word": "bull word",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Admin_CreateBlackListedWords_Invalid_EmptyWord:
       endPoint: /v1/masterdata/blacklistedwords
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/BlackListedWords/blackListedWords
       outputTemplate: masterdata/error
