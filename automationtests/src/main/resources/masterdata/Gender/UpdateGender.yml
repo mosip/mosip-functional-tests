@@ -2,6 +2,7 @@ UpdateGender:
    Masterdata_UpdateGender_Valid_Smoke:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: ["genderName"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/Gender/genderResult
@@ -15,44 +16,11 @@ UpdateGender:
       output: '{
 	"code": "Genderdummy",
 	"langCode": "eng"
-}'
-   Masterdata_UpdateGender_All_Valid_Mandatory_Fields:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/Gender/genderResult
-      input: '{
-	"code": "Genderdummy-1",
-	"genderName": "Genderdummy-1 updated",
-	"isActive": true,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "Genderdummy-1",
-	"langCode": "eng"
-}'
-   Masterdata_UpdateGender_valid_sec_lang_ara_SameDataAsVldScnrio:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "Genderdummy",
-	"genderName": "TestGenderName updated",
-	"isActive": true,
-	"langCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "Genderdummy",
-	"langCode": "ara"
 }'
    Masterdata_UpdateGender_Invalid_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: ["genderName"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -74,6 +42,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_Code_Empty:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: ["genderName"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -95,6 +64,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_Missing:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: []
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -116,6 +86,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_Empty:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: []
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -137,6 +108,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_AboveMaxLen64:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: []
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -155,93 +127,10 @@ UpdateGender:
     }
   ]
 }'
-   Masterdata_UpdateGender_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "Genderdummy",
-	"genderName": "TestGenderName",
-	"isActive": false,
-	"langCode": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Masterdata_UpdateGender_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "Genderdummy",
-	"genderName": "TestGenderName",
-	"isActive": false,
-	"langCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Masterdata_UpdateGender_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "Genderdummy",
-	"genderName": "TestGenderName",
-	"isActive": false,
-	"langCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Masterdata_UpdateGender_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/gendertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Gender/gender
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "Genderdummy",
-	"genderName": "TestGenderName",
-	"isActive": false,
-	"langCode": "GER",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Masterdata_UpdateGender_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/gendertypes
       role: admin
+      templateFields: ["genderName"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error

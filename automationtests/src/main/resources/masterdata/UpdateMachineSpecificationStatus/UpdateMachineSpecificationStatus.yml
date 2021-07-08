@@ -2,6 +2,7 @@ UpdateMachineSpecificationStatus:
    MasterData_UpdateMachineSpecification_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machinespecifications
       role: admin
+      templateFields: []
       restMethod: patch
       inputTemplate: masterdata/UpdateMachineSpecificationStatus/updateMachineSpecificationStatus
       outputTemplate: masterdata/UpdateMachineSpecificationStatus/updateteMachineSpecificationStatusResult

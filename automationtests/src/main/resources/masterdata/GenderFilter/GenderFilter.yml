@@ -2,6 +2,7 @@ GenderFilter:
    Masterdata_GenderFilter_Valid_col_name_withText:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -25,6 +26,7 @@ GenderFilter:
    Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -48,6 +50,7 @@ GenderFilter:
    Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -71,6 +74,7 @@ GenderFilter:
    Masterdata_GenderFilter_ValidTextAsEmpty_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error
@@ -94,6 +98,7 @@ GenderFilter:
    Masterdata_GenderFilter_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -109,32 +114,10 @@ GenderFilter:
       output: '{
     "filters": []
   }'
-   Masterdata_GenderFilter_ValidLangCodeAs_ara_Smoke:
-      endPoint: /v1/masterdata/gendertypes/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderFilter/genderFilter
-      outputTemplate: masterdata/GenderFilter/genderFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "genderName",
-		"type": "All",
-		"text": "TestGenderName"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "genderName",
-        "fieldValue": "TestGenderName"
-      }
-    ]
-  }'
    Masterdata_GenderFilter_InValidColumnNameAsEmpty:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error
@@ -158,6 +141,7 @@ GenderFilter:
    Masterdata_GenderFilter_InValidColumnNameAsNonExistingValue:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error
@@ -181,6 +165,7 @@ GenderFilter:
    Masterdata_GenderFilter_InValidTypeAsNonExisting:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error
@@ -204,6 +189,7 @@ GenderFilter:
    Masterdata_GenderFilter_InValidTextAsNonExisting:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -222,6 +208,7 @@ GenderFilter:
    Masterdata_GenderFilter_InValidRequestTimeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error
@@ -245,6 +232,7 @@ GenderFilter:
    Masterdata_GenderFilter_InValidTypeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/error

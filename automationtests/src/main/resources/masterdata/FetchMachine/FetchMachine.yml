@@ -18,6 +18,7 @@ FetchMachine:
    Masterdata_FetchMachine_allValid_smoke_with_id_lang:
       endPoint: /v1/masterdata/machines/{id}/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
       outputTemplate: masterdata/FetchMachine/fetchMachineResult
@@ -50,31 +51,13 @@ FetchMachine:
    Masterdata_FetchMachine_inValid_id:
       endPoint: /v1/masterdata/machines/{id}/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
       outputTemplate: masterdata/error
       input: '{
   "id": "10@@ed1",
-  "langcode": "ara",
-  "regCenterId": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-030",
-      "message": "Machine not Found"
-    }
-  ]
-}'
-   Masterdata_FetchMachine_inValid_langcode:
-      endPoint: /v1/masterdata/machines/{id}/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchMachine/fetchMachine
-      outputTemplate: masterdata/error
-      input: '{
-  "id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
-  "langcode": "a",
+  "langcode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
@@ -88,37 +71,19 @@ FetchMachine:
    Masterdata_FetchMachine_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/machines/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
       outputTemplate: masterdata/FetchMachine/fetchMachineResult
       input: '{
   "id": "$REMOVE$",
-  "langcode": "ara",
+  "langcode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
 "machines": [{
 			"isActive": true
 		}]
-}'
-   Masterdata_FetchMachine_inValid_langcode:
-      endPoint: /v1/masterdata/machines/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchMachine/fetchMachine
-      outputTemplate: masterdata/error
-      input: '{
-  "id": "$REMOVE$",
-  "langcode": "a",
-  "regCenterId": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-030",
-      "message": "Machine not Found"
-    }
-  ]
 }'
    Masterdata_FetchMachine_allValid_smoke_with_regCenterId:
       endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}

@@ -2,6 +2,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_smoke:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -27,7 +28,7 @@ SearchTemplateDetails:
       output: '{
    "data": [
      {
-        "isActive": false,
+        "isActive": "$IGNORE$",
         "id": "$IGNORE$",
         "name": "Test-template",
         "description": "test template",
@@ -44,6 +45,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_ara:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -69,7 +71,7 @@ SearchTemplateDetails:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "id": "test-03",
         "name": "Test-template",
         "description": "نموذج الاختبار",
@@ -86,6 +88,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -111,7 +114,7 @@ SearchTemplateDetails:
       output: '{
    "data": [
      {
-        "isActive": false,
+        "isActive": "$IGNORE$",
         "id": "$IGNORE$",
         "name": "Test-template",
         "description": "test template",
@@ -128,6 +131,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_null:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -161,6 +165,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_null:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -194,6 +199,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -222,6 +228,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -250,6 +257,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contains_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
@@ -278,6 +286,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_Empty_FilterType:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -311,6 +320,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_Empty_ColumnName:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -344,6 +354,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_Empty_FilterValue:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -377,6 +388,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_columnName:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -410,6 +422,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_pageFetch_lessThan1:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -443,6 +456,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_inavlid_paginationValue:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
       outputTemplate: masterdata/error
@@ -470,72 +484,6 @@ SearchTemplateDetails:
     {
       "errorCode": "KER-MSD-999",
       "message": "Invalid Format in field : pagination"
-    }
-  ]
-}'
-   MasterData_SearchTemplateDetails_invalid_LangCode:
-      endPoint: /v1/masterdata/templates/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "Test-template"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_SearchTemplateDetails_invalid_LangCode_empty:
-      endPoint: /v1/masterdata/templates/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "Test-template"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'

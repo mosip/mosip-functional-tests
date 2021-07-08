@@ -2,6 +2,7 @@ CreateTemplate:
    MasterData_CreateTemplate_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/Template/templateResult
@@ -23,57 +24,10 @@ CreateTemplate:
 	"id": "test-03",
 	"langCode": "eng"
 }'
-   MasterData_CreateTemplate_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/Template/templateResult
-      input: '{
-        "description": "نموذج الاختبار",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": true,
-        "langCode": "ara",
-        "model": "$REMOVE$",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"id": "test-03",
-	"langCode": "ara"
-}'
-   MasterData_CreateTemplate_All_Valid_fra:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/Template/templateResult
-      input: '{
-        "description": "modèle de test",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": true,
-        "langCode": "fra",
-        "model": "$REMOVE$",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"id": "test-03",
-	"langCode": "fra"
-}'
    MasterData_CreateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -102,6 +56,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -130,6 +85,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_Name_AboveMaxLen128:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -158,6 +114,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_FileFormatCode_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -186,6 +143,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_FileFormatCode_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -214,6 +172,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -242,6 +201,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_ModuleName_AboveMaxLen128:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -270,6 +230,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_TemplateTypeCode_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -298,6 +259,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_TemplateTypeCode_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -326,6 +288,7 @@ CreateTemplate:
    MasterData_CreateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -351,116 +314,3 @@ CreateTemplate:
     }
   ]
 }'
-   MasterData_CreateTemplate_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "$REMOVE$",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplate_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplate_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "engr",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplate_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "GER",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-  

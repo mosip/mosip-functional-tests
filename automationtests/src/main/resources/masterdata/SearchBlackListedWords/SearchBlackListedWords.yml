@@ -2,6 +2,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Valid_Request_Smoke:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWordsResult
@@ -39,6 +40,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Valid_FilterTypeContains:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWordsResult
@@ -76,6 +78,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Valid_FilterTypeStartsWith:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWordsResult
@@ -113,6 +116,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Invalid_ColumnName:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/error
@@ -148,6 +152,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Valid_SortFieldDESC:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWordsResult
@@ -185,6 +190,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Invalid_SortField:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/error
@@ -220,6 +226,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Invalid_EmptyFilterType:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/error
@@ -252,79 +259,10 @@ SearchBlackListedWords:
     }
   ]
 }'
-   Admin_SearchBlackListedWords_Invalid_EmptyLangCode:
-      endPoint: /v1/masterdata/blacklistedwords/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "dumb upd",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Admin_SearchBlackListedWords_Invalid_LangCode:
-      endPoint: /v1/masterdata/blacklistedwords/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "dumb upd",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Admin_SearchBlackListedWords_Invalid_EmptyColumn:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/error
@@ -360,6 +298,7 @@ SearchBlackListedWords:
    Admin_SearchBlackListedWords_Invalid_PageStart:
       endPoint: /v1/masterdata/blacklistedwords/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchBlackListedWords/searchBlackListedWords
       outputTemplate: masterdata/error

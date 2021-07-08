@@ -2,6 +2,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_All_Valid_Smoke:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
@@ -22,31 +23,10 @@ UpdateDeviceSpecification:
       "langCode": "eng"
       }'
       
-   MasterData_UpdateDeviceSpecification_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
-      input: '{
-      "brand": "Technoforte TFUpd",
-      "description": "$REMOVE$",
-      "deviceTypeCode": "CMR",
-      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
-      "isActive": true,
-      "langCode": "ara",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Face scanner",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-      "id": "&IGNORE&",
-      "langCode": "ara"
-      }'
    MasterData_UpdateDeviceSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -73,6 +53,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -99,6 +80,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -125,6 +107,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Brand_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -151,6 +134,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Brand_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -177,6 +161,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -203,6 +188,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Model_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -229,6 +215,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Model_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -255,6 +242,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -281,6 +269,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -307,6 +296,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -333,6 +323,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -359,6 +350,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Invalid_DeviceTypeCode:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -385,6 +377,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_MinDriverversion_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -411,6 +404,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_MinDriverversion_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -437,6 +431,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -463,6 +458,7 @@ UpdateDeviceSpecification:
    MasterData_UpdateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name"]
       restMethod: put
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -483,136 +479,6 @@ UpdateDeviceSpecification:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.description: size must be between 0 and 256"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceSpecification_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "$REMOVE$",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceSpecification_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceSpecification_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "engr",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceSpecification_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "GER",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceSpecification_InputParameter_isActive_Missing:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": "$REMOVE$",
-      "langCode": "eng",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request.isActive: must not be null"
     }
   ]
 }'

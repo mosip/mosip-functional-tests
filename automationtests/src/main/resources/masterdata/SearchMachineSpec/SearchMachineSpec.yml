@@ -2,6 +2,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -39,47 +40,10 @@ SearchMachineSpec:
 	"isActive": $IGNORE$
 	}]
 }'
-   Masterdata_SearchMachineSpec_Valid_languageCode_ara:
-      endPoint: /v1/masterdata/machinespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
-      outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "HP",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [{
-        "sortField": "name",
-        "sortType": "ASC"
-      }],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "HP",
-	"brand": "HP",
-	"model": "1234",
-	"machineTypeCode": "$IGNORE$",
-	"minDriverversion": "3.2",
-	"description": "$IGNORE$",
-	"langCode": "ara",
-	"isActive": $IGNORE$
-	}]
-}'
    Masterdata_SearchMachineSpec_Valid_sortType_DESC:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -118,6 +82,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Valid_col_as_Model:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -153,47 +118,10 @@ SearchMachineSpec:
 	"isActive": $IGNORE$
 	}]
 }'
-   Masterdata_SearchMachineSpec_Valid_col_as_Brand_lang_ara:
-      endPoint: /v1/masterdata/machinespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
-      outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "brand",
-        "type": "equals",
-        "value": "HP",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [{
-        "sortField": "brand",
-        "sortType": "ASC"
-      }],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "HP",
-	"brand": "HP",
-	"model": "1234",
-	"machineTypeCode": "$IGNORE$",
-	"minDriverversion": "3.2",
-	"description": "$IGNORE$",
-	"langCode": "ara",
-	"isActive": $IGNORE$
-	}]
-}'
    Masterdata_SearchMachineSpec_Valid_col_as_Brand:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -232,6 +160,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Valid_col_as_isActive:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -270,6 +199,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_startsWith:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -308,6 +238,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_contains:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/SearchMachineSpec/searchMachineSpecResult
@@ -346,6 +277,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_columnName_blank:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -379,6 +311,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_columnName:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -412,6 +345,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_filter_value:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -445,6 +379,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_filter_value_blank:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -475,75 +410,10 @@ SearchMachineSpec:
     }
   ]
 }'
-   Masterdata_SearchMachineSpec_inValid_langCode:
-      endPoint: /v1/masterdata/machinespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "isActive",
-        "type": "equals",
-        "value": "true",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [{
-        "sortField": "name",
-        "sortType": "ASC"
-      }],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Masterdata_SearchMachineSpec_inValid_langCode_blank:
-      endPoint: /v1/masterdata/machinespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "isActive",
-        "type": "equals",
-        "value": "true",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [{
-        "sortField": "name",
-        "sortType": "ASC"
-      }],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Masterdata_SearchMachineSpec_inValid_sortField:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -577,6 +447,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_sortType:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -610,6 +481,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_sortField_blank:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -643,6 +515,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_sortType_blank:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -676,6 +549,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_pagesize:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -709,6 +583,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_filterType_blank:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -742,6 +617,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_filterType:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -775,6 +651,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_requestTime_format:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -808,6 +685,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_typeFilter_contains:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error
@@ -841,6 +719,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_inValid_typeFilter_startsWith:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
       outputTemplate: masterdata/error

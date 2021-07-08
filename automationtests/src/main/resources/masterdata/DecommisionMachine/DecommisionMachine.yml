@@ -2,6 +2,7 @@ DecommisionMachine:
    MasterData_DecommisionMachine_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machines/decommission/{id}
       role: admin
+      templateFields: []
       restMethod: put
       inputTemplate: masterdata/DecommisionMachine/decommisionMachine
       outputTemplate: masterdata/DecommisionMachine/decommisionMachineResult
@@ -14,6 +15,7 @@ DecommisionMachine:
    MasterData_DeleteMachine_Invalid_ID: 
       endPoint: /v1/masterdata/machines/decommission/{id}
       role: admin
+      templateFields: []
       restMethod: put
       inputTemplate: masterdata/DecommisionMachine/decommisionMachine
       outputTemplate: masterdata/error

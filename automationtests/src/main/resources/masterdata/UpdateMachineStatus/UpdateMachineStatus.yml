@@ -2,24 +2,12 @@ UpdateMachineStatus:
    MasterData_UpdateMachineStatus_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machines
       role: admin
+      templateFields: []
       restMethod: patch
       inputTemplate: masterdata/UpdateMachineStatus/updateMachineStatus
       outputTemplate: masterdata/UpdateMachineStatus/updateteMachineStatusResult
       input: '{
 	"id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
-	"isActive": "true"
-}'
-      output: '{
-    "status": "Status updated successfully for machine"
-}'
-   MasterData_UpdateMachineStatus_ara_Smoke_sid:  
-      endPoint: /v1/masterdata/machines
-      role: admin
-      restMethod: patch
-      inputTemplate: masterdata/UpdateMachineStatus/updateMachineStatus
-      outputTemplate: masterdata/UpdateMachineStatus/updateteMachineStatusResult
-      input: '{
-	"id": "$ID:CreateMachine_All_Valid_smoke_ara_sid_id$",
 	"isActive": "true"
 }'
       output: '{

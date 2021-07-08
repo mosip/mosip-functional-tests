@@ -2,6 +2,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -29,7 +30,7 @@ DeviceTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "GST3",
         "langCode": "eng",
@@ -38,48 +39,10 @@ DeviceTypeSearch:
       }
     ]
 }'
-   MasterData_DeviceTypeSearch_Equals_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicetypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
-      outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "GST",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$",
-        "code": "GST3",
-        "langCode": "ara",
-        "name": "GST",
-        "description": "test 1.0.8"
-      }
-    ]
-}'
    MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -114,7 +77,7 @@ DeviceTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
@@ -126,6 +89,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Contains_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -153,49 +117,10 @@ DeviceTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
-        "name": "GST",
-        "description": "$IGNORE$"
-      }
-    ]
-}'
-   MasterData_DeviceTypeSearch_Contains_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicetypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
-      outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "contains",
-        "value": "GST",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "ara",
         "name": "GST",
         "description": "$IGNORE$"
       }
@@ -204,6 +129,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -231,7 +157,7 @@ DeviceTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
@@ -240,48 +166,10 @@ DeviceTypeSearch:
       }
     ]
 }'
-   MasterData_DeviceTypeSearch_startsWith_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicetypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
-      outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "startsWith",
-        "value": "GST",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "ara",
-        "name": "GST",
-        "description": "$IGNORE$"
-      }
-    ]
-}'
    MasterData_DeviceTypeSearch_Invalid_Value_Name_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -312,6 +200,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Invalid_ColumnName_neg:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/error
@@ -341,41 +230,6 @@ DeviceTypeSearch:
     {
       "errorCode": "KER-MSD-317",
       "message": "$IGNORE$"
-    }
-  ]
-}'
-   MasterData_DeviceTypeSearch_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/devicetypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "GST",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'
