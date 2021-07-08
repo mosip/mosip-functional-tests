@@ -2,6 +2,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_All_Valid_Smoke:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetailsResult
@@ -33,6 +34,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_FilterType_all:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetailsResult
@@ -61,63 +63,10 @@ FilterTemplateDetails:
       }
     ]
   }'
-   MasterData_FilterTemplateDetails_FilterType_all_LangCode_ara:
-      endPoint: /v1/masterdata/templates/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
-      outputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetailsResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "التخويل"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "قالب لمحتوى التخويل"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "قالب لموضوع التخويل"
-      }
-    ]
-  }'
-   MasterData_FilterTemplateDetails_FilterType_unique_LangCode_ara:
-      endPoint: /v1/masterdata/templates/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
-      outputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetailsResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "التخويل"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "قالب لمحتوى التخويل"
-      },
-      {
-        "fieldID": "name",
-        "fieldValue": "قالب لموضوع التخويل"
-      }
-    ]
-  }'
    MasterData_FilterTemplateDetails_Invalid_filterType:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/error
@@ -141,6 +90,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_invalid_text:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetailsResult
@@ -159,6 +109,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_empty_filterType:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/error
@@ -182,6 +133,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_empty_columnName:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/error
@@ -205,6 +157,7 @@ FilterTemplateDetails:
    MasterData_FilterTemplateDetails_invalid_columnName:
       endPoint: /v1/masterdata/templates/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
       outputTemplate: masterdata/error
@@ -224,50 +177,4 @@ FilterTemplateDetails:
       "message": "$IGNORE$"
     }
   ]
-}'
-   MasterData_FilterTemplateDetails_invalid_langCode:
-      endPoint: /v1/masterdata/templates/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Template for authorization"
-	}],
-	"languageCode": "fy",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_FilterTemplateDetails_empty_langCode:
-      endPoint: /v1/masterdata/templates/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterTemplateDetails/filterTemplateDetails
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Template for authorization"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'         
+}'        

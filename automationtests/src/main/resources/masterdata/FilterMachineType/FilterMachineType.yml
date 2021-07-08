@@ -2,6 +2,7 @@ FilterMachineType:
    Masterdata_FilterMachineType_Valid_Smoke:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/FilterMachineType/filterMachineTypeResult
@@ -20,6 +21,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_Valid_col_as_name_filterType_all:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -39,6 +41,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_inValid_filterType_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -62,6 +65,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -82,32 +86,10 @@ FilterMachineType:
     }
   ]
 }'  
-   Masterdata_FilterMachineSpec_inValid_langCode_blank:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "Laptop-2"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Masterdata_FilterMachineSpec_inValid_RequestTime_format:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -131,6 +113,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_inValid_filterColumnName:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -154,6 +137,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_inValid_filterType:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -177,6 +161,7 @@ FilterMachineType:
    Masterdata_FilterMachineSpec_inValid_FilterText:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -192,26 +177,3 @@ FilterMachineType:
       output: '{
     "filters": []
   }'
-   Masterdata_FilterMachineSpec_inValid_langCode:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "Laptop-2"
-	}],
-	"languageCode": "fbheafg",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'  

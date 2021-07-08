@@ -2,6 +2,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -12,29 +13,6 @@ DeviceTypeFilter:
 		"text": "GST"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "GST updated"
-      }
-    ]
-  }'
-   MasterData_DeviceTypeFilter_Unique_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicetypes/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
-      outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "GST"
-	}],
-	"languageCode": "ara",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -48,6 +26,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_All_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -67,33 +46,11 @@ DeviceTypeFilter:
         "fieldValue": "GST updated"
       }
     ]
-  }'  
-   MasterData_DeviceTypeFilter_All_Name_ara_smoke:
+  }'    
+   MasterData_DeviceTypeFilter_isActive_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
-      outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "GST"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "GST updated"
-      }
-    ]
-  }'  
-   MasterData_DeviceTypeFilter_isActive__eng_smoke:
-      endPoint: /v1/masterdata/devicetypes/filtervalues
-      role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -117,6 +74,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -140,6 +98,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -158,6 +117,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -177,56 +137,11 @@ DeviceTypeFilter:
       "message": "$IGNORE$"
     }
   ]
-}'    
-   MasterData_DeviceTypeFilter_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/devicetypes/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "GST"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
-   MasterData_DeviceTypeFilter_Invalid_LangCode_neg:
-      endPoint: /v1/masterdata/devicetypes/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "GST"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
+}'   
    MasterData_DeviceTypeFilter_inValid_blank_FilterType_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -250,6 +165,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_inValid_columnName:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error

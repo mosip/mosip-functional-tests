@@ -2,6 +2,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -36,54 +37,14 @@ DeviceSpecSearch:
 	"minDriverversion": "1.0",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
-   MasterData_DeviceSpecSearch_Equals_Name_ara:
+   MasterData_DeviceSpecSearch_Equals_Brand:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "Face scanner",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "Technoforte TFUpd",
-	"model": "2020",
-	"deviceTypeCode": "CMR",
-	"minDriverversion": "1.0",
-	"description": "$IGNORE$",
-	"langCode": "ara",
-	"isActive": $IGNORE$,
-	"deviceTypeName": "$IGNORE$"
-	}]
-}'
-   MasterData_DeviceSpecSearch_Equals_Brand_eng:
-      endPoint: /v1/masterdata/devicespecifications/search
-      role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -118,54 +79,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
-	"deviceTypeName": "$IGNORE$"
-	}]
-}'
-   MasterData_DeviceSpecSearch_Equals_Brand_ara:
-      endPoint: /v1/masterdata/devicespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "brand",
-        "type": "equals",
-        "value": "Technoforte TFUpd",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "brand",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "$IGNORE$",
-	"brand": "Technoforte TFUpd",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "ara",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_Equals_Model:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -200,13 +121,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_Equals_DeviceTypeName:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -241,13 +163,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "Camera"
 	}]
 }'
    MasterData_DeviceSpecSearch_Invalid_Value_Name:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -278,6 +201,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_InvalidPageFetch:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -305,9 +229,10 @@ DeviceSpecSearch:
       output: '{
 	"data": []
 }'
-   MasterData_DeviceSpecSearch_InvalidPageStart_smoke:
+   MasterData_DeviceSpecSearch_InvalidPageStart:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -343,6 +268,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_ASC_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -377,13 +303,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_DESC_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -418,13 +345,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_Invalid_FilterType:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -460,6 +388,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Invalid_SortType:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -492,79 +421,10 @@ DeviceSpecSearch:
     }
   ]
 }'
-   MasterData_DeviceSpecSearch_Invalid_LangCode:
-      endPoint: /v1/masterdata/devicespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equal",
-        "value": "Camera",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_DeviceSpecSearch_Blank_LangCode:
-      endPoint: /v1/masterdata/devicespecifications/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equal",
-        "value": "Camera",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    MasterData_DeviceSpecSearch_Invalid_ColumnName:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -600,6 +460,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Invalid_RequestTime:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -635,6 +496,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Contains_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -669,13 +531,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_TwoValueSearch_pos:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -717,13 +580,14 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
    MasterData_DeviceSpecSearch_StartsWith_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -758,7 +622,7 @@ DeviceSpecSearch:
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'

@@ -2,6 +2,7 @@ UpdateMachineTypeStatus:
    MasterData_UpdateMachineTypeStatus_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machinetypes
       role: admin
+      templateFields: []
       restMethod: patch
       inputTemplate: masterdata/UpdateMachineTypeStatus/updateMachineTypeStatus
       outputTemplate: masterdata/UpdateMachineTypeStatus/updateMachineTypeStatusStatusResult

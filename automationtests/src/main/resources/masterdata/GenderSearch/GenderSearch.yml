@@ -2,6 +2,7 @@ GenderSearch:
    Masterdata_GenderSearch_Valid_Smoke:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -31,6 +32,7 @@ GenderSearch:
    Masterdata_GenderSearch_valid_lang:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -64,127 +66,10 @@ GenderSearch:
       }
     ]
 }'
-   Masterdata_GenderSearch_ValidSortTypeAsDesc_ara:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/GenderSearch/searchResult
-      input: '{      
-    "filters": [   
-    ],
-    "sort": [
-      {
-        "sortField": "genderName",
-        "sortType": "DESC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 10,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-    "data": [
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "MLE",
-        "genderName": "الذكر",
-        "langCode": "ara"
-      },
-      {
-        "isActive": false,
-        "createdBy": "superadmin",
-        "code": "OTH",
-        "genderName": "الآخرين",
-        "langCode": "ara"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "FLE",
-        "genderName": "أنثى",
-        "langCode": "ara"
-      }
-    ]
-  }'    
-   Masterdata_GenderSearch_ValidLangCodeAs_fra:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/GenderSearch/searchResult
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "genderName",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-     {
-        "code": "OTH",
-        "genderName": "Dautres",
-        "langCode": "fra",
-        "isActive": false,
-        "createdBy": "superadmin"
-      },
-      {
-        "code": "FLE",
-        "genderName": "Femelle",
-        "langCode": "fra",
-        "isActive": true,
-        "createdBy": "superadmin"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "MLE",
-        "genderName": "Mâle",
-        "langCode": "fra"
-      }
-    ]
-}'
-   Masterdata_GenderSearch_ValidLangCodeAs_ara:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/GenderSearch/searchResult
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "genderName",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
-}'
    Masterdata_GenderSearch_Valid_langCodeAsEng_sortBy_code:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -211,136 +96,10 @@ GenderSearch:
       }
     ]
 }'
-   Masterdata_GenderSearch_Valid_langCodeAs_fra_sortBy_code:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/GenderSearch/searchResult
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "code",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "FLE",
-        "genderName": "Femelle",
-        "langCode": "fra"
-      },
-      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "MLE",
-        "genderName": "Mâle",
-        "langCode": "fra"
-      },
-      {
-        "isActive": false,
-        "createdBy": "superadmin",
-        "code": "OTH",
-        "genderName": "Dautres",
-        "langCode": "fra"
-      }
-    ]
-}'
-   Masterdata_GenderSearch_Valid_langCodeAs_ara_sortBy_code:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/GenderSearch/searchResult
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "code",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-      {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
-}'
-   Masterdata_GenderSearch_InvalidLangCodeAsEmpty:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/error
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "code",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Masterdata_GenderSearch_InvalidLangCodeAsNonExisting:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/error
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "code",
-		"sortType": "ASC"
-	}],
-
-	"pageStart": 0,
-	"pageFetch": 10,
-	"languageCode": "lt",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Masterdata_GenderSearch_InvalidSortFieldAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -368,6 +127,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidSortFieldAsNonExisting:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -395,6 +155,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidSortTypeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -422,6 +183,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidPageFetchAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -449,6 +211,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidRequestTimeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -476,6 +239,7 @@ GenderSearch:
    Masterdata_GenderSearch_Valid_Searchby_code_FLE:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
+      templateFields: []
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult

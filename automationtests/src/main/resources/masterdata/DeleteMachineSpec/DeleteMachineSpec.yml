@@ -2,6 +2,7 @@ DeleteMachineSpec:
    MasterData_DeleteMachineSpec_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machinespecifications/{id}
       role: admin
+      templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteMachineSpec/deleteMachineSpec
       outputTemplate: masterdata/DeleteMachineSpec/deleteMachineSpecResult

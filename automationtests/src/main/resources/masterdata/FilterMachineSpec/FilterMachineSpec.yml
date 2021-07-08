@@ -2,6 +2,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_Smoke:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -25,6 +26,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_col_as_name_filterType_all:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -48,6 +50,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_name_tro_filterType_all:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -71,6 +74,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_name_tro_filterType_unique:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -91,9 +95,10 @@ FilterMachineSpec:
       }
     ]
   }'
-   Masterdata_FilterMachineSpec_Valid_col_brand_eng:
+   Masterdata_FilterMachineSpec_Valid_col_brand:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -114,9 +119,10 @@ FilterMachineSpec:
       }
     ]
   }'
-   Masterdata_FilterMachineSpec_Valid_col_model_eng:
+   Masterdata_FilterMachineSpec_Valid_col_model:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -137,9 +143,10 @@ FilterMachineSpec:
       }
     ]
   }'
-   Masterdata_FilterMachineSpec_Valid_col_nameAndisActive_filterType_unique_eng:
+   Masterdata_FilterMachineSpec_Valid_col_nameAndisActive_filterType_unique:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -173,6 +180,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_filterText_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -212,6 +220,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_filterType_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -235,6 +244,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -255,32 +265,10 @@ FilterMachineSpec:
     }
   ]
 }'  
-   Masterdata_FilterMachineSpec_inValid_langCode_blank:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "POA"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Masterdata_FilterMachineSpec_inValid_RequestTime_format:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -304,6 +292,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_filterColumnName:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -327,6 +316,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_filterType:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/error
@@ -350,6 +340,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_FilterText:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
       outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
@@ -364,27 +355,4 @@ FilterMachineSpec:
 }'
       output: '{
     "filters": []
-  }'
-   Masterdata_FilterMachineSpec_inValid_langCode:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "fbheafg",
-		"text": "POA"
-	}],
-	"languageCode": "fbheafg",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'  
+ }'
