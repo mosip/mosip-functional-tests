@@ -2,6 +2,7 @@ CreateDevice:
    MasterData_CreateDevice_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/Device/createDeviceResult
@@ -29,40 +30,11 @@ CreateDevice:
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
 }'
-   MasterData_CreateDevice_Valid_Act_Prim_Lang_WithSecon_Language_ara:
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/Device/createDeviceResult
-      input: '{
-      "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "ara",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "ara",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-}'
+   
    MasterData_CreateDevice_Second_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/Device/createDeviceResult
@@ -90,67 +62,11 @@ CreateDevice:
   "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c9",
   "requesttime": "$TIMESTAMP$"
 }'
-   MasterData_CreateDevice_second_Valid_Act_Prim_Lang_WithSecon_Language_ara: 
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/Device/createDeviceResult
-      input: '{
-      "id": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy",
-  "deviceSpecId": "736",
-  "ipAddress": "172.23.174.114",
-  "isActive": true,
-  "langCode": "ara",
-  "macAddress": "D4-3D-7E-C0-8C-5A",
-  "zoneCode": "CST",
-  "validityDateTime": "$TIMESTAMP$",
-  "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-  "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-    "name": "testDevicedummy",
-  "deviceSpecId": "736",
-  "ipAddress": "172.23.174.114",
-  "isActive": true,
-  "langCode": "ara",
-  "macAddress": "D4-3D-7E-C0-8C-5A",
-  "zoneCode": "CST",
-  "validityDateTime": "$TIMESTAMP$",
-  "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-  "requesttime": "$TIMESTAMP$"
-}'
-   MasterData_CreateDevice_Valid_fra_Language:
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/error
-      input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "fra",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-382",
-      "message": "Received language code fra is not a configured language"
-    }
-  ]
-}'
+   
    MasterData_CreateDevice_Invalid_InputParameterInvalid_Format:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -160,7 +76,7 @@ CreateDevice:
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
-	"langCode": "ara",
+	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"zoneCode": "CST",
 	"validityDateTime": "2018-12-24T05",
@@ -178,6 +94,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_Device_Zone_notPresentInDB:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -187,7 +104,7 @@ CreateDevice:
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
-	"langCode": "ara",
+	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"zoneCode": "BOM",
 	"validityDateTime": "$TIMESTAMP$",
@@ -202,87 +119,7 @@ CreateDevice:
     }
   ]
 }'
-   MasterData_CreateDevice_Invalid_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/error
-      input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy_1",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "$REMOVE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDevice_Invalid_Language_Code_Blank:
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/error
-      input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy_1",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDevice_Invalid_Language_Code:
-      endPoint: /v1/masterdata/devices
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Device/createDevice
-      outputTemplate: masterdata/error
-      input: '{
-     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
-    "name": "testDevicedummy_1",
-	"deviceSpecId": "736",
-	"ipAddress": "172.23.174.113",
-	"isActive": true,
-	"langCode": "GER",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
-	"validityDateTime": "$TIMESTAMP$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
-	"requesttime": "$TIMESTAMP$"
-	}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_CreateDevice_Invalid_Machine_Name_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
@@ -313,6 +150,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_DeviceName_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -340,6 +178,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_Zone_Code_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -367,6 +206,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_MAC_Address_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -394,6 +234,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_MacAddress_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -421,6 +262,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_Serial_Number_Blank:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -448,6 +290,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_SerialNumber_AboveMaxLen64:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -475,6 +318,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_IPAddress_AboveMaxLen17:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error
@@ -502,6 +346,7 @@ CreateDevice:
    MasterData_CreateDevice_Invalid_DSpecID_AboveMaxLen36:
       endPoint: /v1/masterdata/devices
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/error

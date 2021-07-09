@@ -1259,7 +1259,6 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 				 valueToConvert = jsonObject.getString(fieldToConvert);
 				 translatedValue = valueToConvert;
 			}
-			
 			//langjson.remove(fieldToConvert);
 			if (!language.equalsIgnoreCase("eng") && valueToConvert!=null) {
 				translatedValue = Translator.translate(language, valueToConvert);
@@ -1269,12 +1268,18 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 			if(!langjson.isNull(fieldToConvert) || translatedValue!=null )
 			langjson.put(fieldToConvert, translatedValue);
 		}
-		langjson.remove("langCode");
-		langjson.put("langCode", language);
+		if(langjson.has("langCode"))
+		{
+			langjson.remove("langCode");
+			langjson.put("langCode", language);
+		}else {
+			langjson.remove("languageCode");
+			langjson.put("languageCode", language);
+		}
+		
 		System.out.println(langjson.toString());
 		listofjsonObject.add(langjson);
 	}
 	return listofjsonObject;
 }
-
 }

@@ -2,6 +2,7 @@ SearchLocationData:
    MasterData_SearchLocationData_Valid_Smoke:
       endPoint: /v1/masterdata/locations/search
       role: admin
+      templateFields: ["columnName","value"]
       restMethod: post
       inputTemplate: masterdata/SearchLocationData/searchLocationData
       outputTemplate: masterdata/SearchLocationData/searchLocationDataResult

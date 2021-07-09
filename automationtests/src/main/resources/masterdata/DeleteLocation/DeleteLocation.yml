@@ -19,7 +19,7 @@ DeleteLocation:
       inputTemplate: masterdata/DeleteLocation/deleteLocation
       outputTemplate: masterdata/error
       input: '{
-      "locationcode": "TST"
+      "locationcode": "ahdkh"
 	}'
       output: '{
    "errors": [

@@ -2,6 +2,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/RegCenterFilter/regCenterFilterResult
@@ -25,6 +26,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/RegCenterFilter/regCenterFilterResult
@@ -45,55 +47,11 @@ RegCenterFilter:
       }
     ]
   }'    
-   MasterData_RegCenterFilter_Invalid_LangCode:
-      endPoint: /v1/masterdata/registrationcenters/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterFilter/regCenterFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Center Mehdia"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
-   MasterData_RegCenterFilter_Blank_LangCode:
-      endPoint: /v1/masterdata/registrationcenters/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterFilter/regCenterFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Center Mehdia"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
+      
    MasterData_RegCenterFilter_Invalid_RequestTime:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error
@@ -117,6 +75,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Invalid_filterType_blank:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error
@@ -140,6 +99,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_inValid_columnName:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error

@@ -2,6 +2,7 @@ CreateRegCenterType:
    MasterData_CreateRegCenterType_All_Valid_Smoke:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/RegCenterType/regCenterTypeResult
@@ -17,51 +18,18 @@ CreateRegCenterType:
 	"code": "ALT-3",
 	"langCode": "eng"
 }'
-   MasterData_CreateRegCenterType_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
-      input: '{
-    "code": "ALT-3",
-    "langCode": "ara",
-    "name": "alternate",
-    "descr": "$REMOVE$",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"code": "ALT-3",
-	"langCode": "ara"
-}'
-   MasterData_CreateRegCenterType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
-      input: '{
-    "code": "ALT-5",
-    "langCode": "ara",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-    "code": "ALT-5",
-    "langCode": "ara"
-  }'
+   
+   
    MasterData_CreateRegCenterType_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-5",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "$REMOVE$",
     "descr": "alternate center",
     "isActive":true,
@@ -78,12 +46,13 @@ CreateRegCenterType:
    MasterData_CreateRegCenterType_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-5",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "",
     "descr": "alternate center",
     "isActive":true,
@@ -100,12 +69,13 @@ CreateRegCenterType:
    MasterData_CreateRegCenterType_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-5",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
     "descr": "alternate center",
     "isActive":true,
@@ -122,12 +92,13 @@ CreateRegCenterType:
    MasterData_CreateRegCenterType_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-5",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "alternate",
     "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
     "isActive":true,
@@ -141,97 +112,12 @@ CreateRegCenterType:
     }
   ]
 }'
-   MasterData_CreateRegCenterType_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "$REMOVE$",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateRegCenterType_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateRegCenterType_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "engr",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateRegCenterType_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "GER",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
+   
    MasterData_CreateRegCenterType_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: post
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
