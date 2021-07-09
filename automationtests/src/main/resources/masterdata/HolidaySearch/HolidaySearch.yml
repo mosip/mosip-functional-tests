@@ -2,6 +2,7 @@ HolidaySearch:
    MasterData_HolidaySearch_equals_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/HolidaySearch/holidaySearchResult
@@ -40,6 +41,7 @@ HolidaySearch:
    MasterData_HolidaySearch_equals_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/HolidaySearch/holidaySearchResult
@@ -78,6 +80,7 @@ HolidaySearch:
    MasterData_HolidaySearch_startsWith_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/HolidaySearch/holidaySearchResult
@@ -116,6 +119,7 @@ HolidaySearch:
    MasterData_HolidaySearch_startsWith_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/HolidaySearch/holidaySearchResult
@@ -154,6 +158,7 @@ HolidaySearch:
    MasterData_HolidaySearch_contains_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/HolidaySearch/holidaySearchResult
@@ -189,92 +194,12 @@ HolidaySearch:
 		"langCode": "eng"
 	}]
 }'
-   MasterData_HolidaySearch_contains_holidayName_ara_pos:
-      endPoint: /v1/masterdata/holidays/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/HolidaySearch/holidaySearch
-      outputTemplate: masterdata/HolidaySearch/holidaySearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "holidayName",
-        "type": "contains",
-        "value": "AutoTest user",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "holidayName",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-		"isActive": $IGNORE$,
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Ara",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "ara"
-	}]
-}'
-   MasterData_HolidaySearch_equals_isActive_pos_ara:
-      endPoint: /v1/masterdata/holidays/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/HolidaySearch/holidaySearch
-      outputTemplate: masterdata/HolidaySearch/holidaySearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "isActive",
-        "type": "equals",
-        "value": "true",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      },
-      {
-        "columnName": "holidayName",
-        "type": "equals",
-        "value": "AutoTest user Eng",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "isActive",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "eng",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"data": [{
-		"isActive": $IGNORE$,
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Eng",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "eng"
-	}]
-}'
+   
+   
    MasterData_HolidaySearch_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/error
@@ -307,79 +232,12 @@ HolidaySearch:
     }
   ]
 }'
-   MasterData_HolidaySearch_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/holidays/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/HolidaySearch/holidaySearch
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "holidayName",
-        "type": "equals",
-        "value": "AutoTest user",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "holidayName",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_HolidaySearch_Invalid_LangCode_neg:
-      endPoint: /v1/masterdata/holidays/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/HolidaySearch/holidaySearch
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "holidayName",
-        "type": "equals",
-        "value": "AutoTest user",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "holidayName",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
+   
    MasterData_HolidaySearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/error
@@ -415,6 +273,7 @@ HolidaySearch:
    MasterData_HolidaySearch_Invalid_SortField_neg:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/error
@@ -450,6 +309,7 @@ HolidaySearch:
    MasterData_HolidaySearch_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
       outputTemplate: masterdata/error

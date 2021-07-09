@@ -2,6 +2,7 @@ SearchDocumentType:
    MasterData_SearchDocumnetType_Valid_Smoke:
       endPoint: /v1/masterdata/documenttypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
@@ -40,6 +41,7 @@ SearchDocumentType:
    MasterData_SearchDocumnetType_Valid_FilterTypeContains:
       endPoint: /v1/masterdata/documenttypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
@@ -78,6 +80,7 @@ SearchDocumentType:
    MasterData_SearchDocumnetType_Valid_FilterTypeStartsWith:
       endPoint: /v1/masterdata/documenttypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
@@ -116,6 +119,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_columnName_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -151,6 +155,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_columnName:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -186,6 +191,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_filter_value:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -248,79 +254,11 @@ SearchDocumentType:
     }
   ]
 }'
-   MasterData_SearchDocumentType_inValid_langCode:
-      endPoint: /v1/masterdata/documentcategories/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "TestDocType0010 Card",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_SearchDocumentType_inValid_langCode_blank:
-      endPoint: /v1/masterdata/documentcategories/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "TestDocType0010 Card",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_SearchDocumentType_inValid_sortField:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -356,6 +294,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_sortType:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -391,6 +330,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_sortField_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -426,6 +366,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_sortType_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -461,6 +402,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_pagesize:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -496,6 +438,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_filterType_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -531,6 +474,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_filterType:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error

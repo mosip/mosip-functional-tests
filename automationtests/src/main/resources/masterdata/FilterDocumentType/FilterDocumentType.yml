@@ -2,6 +2,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_Valid_Smoke:
       endPoint: /v1/masterdata/documenttypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/FilterDocumentType/filterDocumentTypeResult
@@ -25,6 +26,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_Valid_TypeAll:
       endPoint: /v1/masterdata/documenttypes/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/FilterDocumentType/filterDocumentTypeResult
@@ -48,6 +50,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_Valid_column_code_filterType_all:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/FilterDocumentType/filterDocumentTypeResult
@@ -66,6 +69,7 @@ FilterDocumentType:
    MasterData_FilterDocCatTypMapping_inValid_filterType_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/error
@@ -89,6 +93,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/error
@@ -109,55 +114,11 @@ FilterDocumentType:
     }
   ]
 }'
-   MasterData_FilterDocumentType_inValid_langCode_blank:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterDocumentType/filterDocumentType
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "All",
-		"text": "TestDocType0010"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_FilterDocumentType_inValid_langCode_invalid:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterDocumentType/filterDocumentType
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "All",
-		"text": "TestDocType0010"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_FilterDocumentType_inValid_RequestTime_format:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/error
@@ -181,6 +142,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_inValid_filterColumnName:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/error
@@ -204,6 +166,7 @@ FilterDocumentType:
    MasterData_FilterDocumentType_inValid_filterType:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocumentType/filterDocumentType
       outputTemplate: masterdata/error

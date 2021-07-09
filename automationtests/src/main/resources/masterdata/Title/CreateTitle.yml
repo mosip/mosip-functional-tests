@@ -2,70 +2,38 @@ CreateTitle:
    MasterData_CreateTitle_All_Valid_Smoke:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName","titleDescription"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/Title/titleResult
       input: '{
     "code": "TEST0011",
     "titleName": "TEST0011",
-	"titleDescription": "TEST0011",
-	"isActive": true,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "TEST0011",
+	  "isActive": true,
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
 	"code": "TEST0011",
 	"langCode": "eng"
 }'
-   MasterData_CreateTitle_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/Title/titleResult
-      input: '{
-    "code": "TEST0011",
-    "titleName": "TEST0011",
-	"titleDescription": "$REMOVE$",
-	"isActive": true,
-	"langCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "TEST0011",
-	"langCode": "ara"
-}'
-   MasterData_CreateTitle_Sec_Data_Present_but_No_Data_Prim_lang_ara:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/Title/titleResult
-      input: '{
-    "code": "TEST5",
-    "titleName": "TEST5",
-	"titleDescription": "TEST5",
-	"isActive": false,
-	"langCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-  "code": "TEST5",
-  "langCode": "ara"
-}'
+   
+   
    MasterData_CreateTitle_Invalid_InputParameter_TitleName_Missing:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
       input: '{
     "code": "TEST0011",
     "titleName": "$REMOVE$",
-	"titleDescription": "TEST0011",
-	"isActive": false,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "TEST0011",
+	  "isActive": false,
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -78,16 +46,17 @@ CreateTitle:
    MasterData_CreateTitle_Invalid_InputParameter_TitleName_Empty:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
       input: '{
     "code": "TEST0011",
     "titleName": "",
-	"titleDescription": "TEST0011",
-	"isActive": false,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "TEST0011",
+	  "isActive": false,
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -100,16 +69,17 @@ CreateTitle:
    MasterData_CreateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
       input: '{
     "code": "TEST0011",
     "titleName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
-	"titleDescription": "TEST0011",
-	"isActive": false,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "TEST0011",
+	  "isActive": false,
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -122,16 +92,17 @@ CreateTitle:
    MasterData_CreateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
       input: '{
     "code": "TEST001",
     "titleName": "TEST001",
-	"titleDescription": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
-	"isActive": false,
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	  "isActive": false,
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -144,110 +115,23 @@ CreateTitle:
    MasterData_CreateTitle_Invalid_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName","titleDescription"]
       restMethod: post
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
       input: '{
     "code": "TEST002",
     "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": "$REMOVE$",
-	"langCode": "eng",
-	"requesttime": "$TIMESTAMP$"
+	  "titleDescription": "TEST002",
+	  "isActive": "$REMOVE$",
+	  "langCode": "eng",
+	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
     {
       "errorCode": "KER-MSD-999",
       "message": "request.isActive: must not be null"
-    }
-  ]
-}'
-   MasterData_CreateTitle_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTitle_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTitle_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTitle_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "GER",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'

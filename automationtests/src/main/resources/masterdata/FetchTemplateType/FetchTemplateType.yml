@@ -32,24 +32,7 @@ FetchTemplateType:
     }
   ]
 }'
-   MasterData_FetchTemplateType_inValid_langcode:
-      endPoint: /v1/masterdata/templatetypes/{code}/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
-      outputTemplate: masterdata/error
-      input: '{
-  "langcode": "enegd3662yu2bg",
-  "code": "auth-email-content"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-398",
-      "message": "Template Type not Found"
-    }
-  ]
-}'
+   
    MasterData_FetchTemplateType_allValid_smoke_langcode:
       endPoint: /v1/masterdata/templatetypes/{langcode}
       role: admin
@@ -65,21 +48,4 @@ FetchTemplateType:
 			"isActive": true
 		}]
 }'
-   MasterData_FetchTemplateType_INValid_langcode:
-      endPoint: /v1/masterdata/templatetypes/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
-      outputTemplate: masterdata/error
-      input: '{
-  "langcode": "ehsjsshsjshng",
-  "code": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-398",
-      "message": "Template Type not Found"
-    }
-  ]
-}'
+  

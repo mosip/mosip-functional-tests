@@ -2,6 +2,7 @@ CreateTemplateType:
    MasterData_CreateTemplateType_All_Valid_Smoke:
       endPoint: /v1/masterdata/templatetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/TemplateType/templateType
       outputTemplate: masterdata/TemplateType/templateTypeResult
@@ -16,43 +17,12 @@ CreateTemplateType:
 	"code": "Test-info-Template-auto",
 	"langCode": "eng"
 }'
-   MasterData_CreateTemplateType_Act_primary_lang_withSec_lang_ara:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/TemplateType/templateTypeResult
-      input: '{
-     "code": "Test-info-Template-auto-ara",
-    "description": "وصف تلقائي لمعلومات نموذج الاختبار",
-    "isActive":true,
-    "langCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "Test-info-Template-auto-ara",
-	"langCode": "ara"
-}'
-   MasterData_CreateTemplateType_valid_fra:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/TemplateType/templateTypeResult
-      input: '{
-     "code": "Test-info-Template-auto-fra",
-    "description": "Description automatique du test-info-modèle",
-    "isActive":true,
-    "langCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "Test-info-Template-auto-fra",
-	"langCode": "fra"
-}'
+   
+   
    MasterData_CreateTemplateType_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/templatetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/TemplateType/templateType
       outputTemplate: masterdata/error
@@ -74,6 +44,7 @@ CreateTemplateType:
    MasterData_CreateTemplateType_InputParameter_Code_AboveMaxLen36:
       endPoint: /v1/masterdata/templatetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/TemplateType/templateType
       outputTemplate: masterdata/error
@@ -92,93 +63,12 @@ CreateTemplateType:
     }
   ]
 }'
-   MasterData_CreateTemplateType_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/error
-      input: '{
-     "code": "Test-info-Template-missing-langcode",
-    "description": "Test-info-Template desc",
-    "isActive":true,
-    "langCode": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplateType_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/error
-      input: '{
-     "code": "Test-info-Template-empty-langcode",
-    "description": "Test-info-Template desc",
-    "isActive":true,
-    "langCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplateType_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/error
-      input: '{
-     "code": "Test-info-Template-max-langcode",
-    "description": "Test-info-Template desc",
-    "isActive":true,
-    "langCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateTemplateType_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/templatetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TemplateType/templateType
-      outputTemplate: masterdata/error
-      input: '{
-     "code": "Test-info-Template-inv-langcode",
-    "description": "Test-info-Template desc",
-    "isActive":true,
-    "langCode": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
+
    MasterData_CreateTemplateType_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/templatetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/TemplateType/templateType
       outputTemplate: masterdata/error

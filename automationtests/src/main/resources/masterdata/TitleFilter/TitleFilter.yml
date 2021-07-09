@@ -2,6 +2,7 @@ TitleFilter:
    MasterData_TitleFilter_Unique_Name_eng_smoke:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/TitleFilter/titleFilterResult
@@ -9,7 +10,7 @@ TitleFilter:
 	"filters": [{
 		"columnName": "titleName",
 		"type": "unique",
-		"text": "TEST0011"
+		"text": "Miss"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,36 +19,15 @@ TitleFilter:
     "filters": [
       {
         "fieldID": "titleName",
-        "fieldValue": "TEST0011"
+        "fieldValue": "Miss"
       }
     ]
   }'
-   MasterData_TitleFilter_Unique_Name_ara_smoke:
-      endPoint: /v1/masterdata/title/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TitleFilter/titleFilter
-      outputTemplate: masterdata/TitleFilter/titleFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "titleName",
-		"type": "unique",
-		"text": "TEST0011"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "titleName",
-        "fieldValue": "TEST0011"
-      }
-    ]
-  }'
+   
    MasterData_TitleFilter_isActive__eng_smoke:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/TitleFilter/titleFilterResult
@@ -63,14 +43,15 @@ TitleFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "titleName",
-        "fieldValue": "TEST0011"
+        "fieldID": "isActive",
+        "fieldValue": "true"
       }
     ]
   }'
    MasterData_TitleFilter_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/error
@@ -94,6 +75,7 @@ TitleFilter:
    MasterData_TitleFilter_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/TitleFilter/titleFilterResult
@@ -112,6 +94,7 @@ TitleFilter:
    MasterData_TitleFilter_isActive__eng_smoke:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/error
@@ -132,55 +115,11 @@ TitleFilter:
     }
   ]
 }'
-   MasterData_TitleFilter_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/title/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TitleFilter/titleFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "titleName",
-		"type": "unique",
-		"text": "TEST0011"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_TitleFilter_Invalid_LangCode_neg:
-      endPoint: /v1/masterdata/title/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TitleFilter/titleFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "titleName",
-		"type": "unique",
-		"text": "TEST0011"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_TitleFilter_inValid_FilterType_blank:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/error
@@ -204,6 +143,7 @@ TitleFilter:
    MasterData_TitleFilter_inValid_columnName:
       endPoint: /v1/masterdata/title/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/TitleFilter/titleFilter
       outputTemplate: masterdata/error

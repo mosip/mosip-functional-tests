@@ -2,6 +2,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -24,34 +25,11 @@ UpdateLocationData:
 "parentLocCode": "KNT",
 "langCode": "eng"
 }'
-   MasterData_UpdateLocationData_Valid_scondaryLang_ara_isActive_true:
-      endPoint: /v1/masterdata/locations
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/LocationData/locationData
-      outputTemplate: masterdata/LocationData/locationDataResult
-      input: '{
-    "code": "TST",
-    "name": "Test_Loc_A_2 updated",
-    "hierarchyLevel":"3",
-    "hierarchyName":"مدينة",
-    "parentLocCode":"KNT",    
-    "langCode": "ara",
-    "isActive": true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-"isActive": $IGNORE$,
-"code": "TST",
-"name": "Test_Loc_A_2 updated",
-"hierarchyLevel":"3",
-"hierarchyName": "مدينة",
-"parentLocCode": "KNT",
-"langCode": "ara"
-}'
+   
    MasterData_UpdateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -74,9 +52,10 @@ UpdateLocationData:
 "parentLocCode": "$IGNORE$",
 "langCode": "eng"
 }'
-   MasterData_UpdateLocationData_Invalid_code_for_SecondaryLang_ara:
+   MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -86,7 +65,7 @@ UpdateLocationData:
     "hierarchyLevel":"4",
     "hierarchyName":"TestZone",
     "parentLocCode":"KNT",    
-    "langCode": "ara",
+    "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
   }'
@@ -98,7 +77,7 @@ UpdateLocationData:
     }
   ]
 }'
-   MasterData_UpdateLocationData_Invalid_EmptyCode_SecondaryLang_ara:
+   MasterData_UpdateLocationData_Invalid_EmptyCode_PrimaryLang_eng:
       endPoint: /v1/masterdata/locations
       role: admin
       restMethod: put
@@ -110,7 +89,7 @@ UpdateLocationData:
     "hierarchyLevel":"4",
     "hierarchyName":"TestZone",
     "parentLocCode":"KNT",    
-    "langCode": "ara",
+    "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
   }'
@@ -125,6 +104,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_Invalid_NameLength129:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -149,6 +129,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_Invalid_EmptyName:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -173,6 +154,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_Invalid_HierarchyLevel_LongInt:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -197,6 +179,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_inValid_hierLevel_locHierCombo:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -221,6 +204,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_inValid_HierarchyName65:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -245,6 +229,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_Invalid_EmptyHierarchyName:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -269,6 +254,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_inValid_parentLocCode_nonExisting_inDB:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error
@@ -290,57 +276,12 @@ UpdateLocationData:
     }
   ]
 }'
-   MasterData_UpdateLocationData_InvalidLangCode:
-      endPoint: /v1/masterdata/locations
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/LocationData/locationData
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "NST",
-    "name": "NDATA",
-    "hierarchyLevel":"3",
-    "hierarchyName":"City",
-    "parentLocCode":"KNT",    
-    "langCode": "engr",
-    "isActive": false,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateLocationData_Invalid_EmptyLangCode:
-      endPoint: /v1/masterdata/locations
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/LocationData/locationData
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "NST",
-    "name": "NDATA",
-    "hierarchyLevel":"3",
-    "hierarchyName":"City",
-    "parentLocCode":"KNT",    
-    "langCode": "",
-    "isActive": false,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
+   
    MasterData_UpdateLocationData_Invalid_requestTime_format:
       endPoint: /v1/masterdata/locations
       role: admin
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/error

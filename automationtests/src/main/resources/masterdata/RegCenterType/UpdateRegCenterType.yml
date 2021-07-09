@@ -2,6 +2,7 @@ UpdateRegCenterType:
    MasterData_UpdateRegCenterType_All_Valid_Smoke:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/RegCenterType/regCenterTypeResult
@@ -17,33 +18,17 @@ UpdateRegCenterType:
 	"code": "ALT-3",
 	"langCode": "eng"
 }'
-   MasterData_UpdateRegCenterType_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
-      input: '{
-    "code": "ALT-3",
-    "langCode": "ara",
-    "name": "alternate updated",
-    "descr": "$REMOVE$",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-	"code": "ALT-3",
-	"langCode": "ara"
-}'
+   
    MasterData_UpdateRegCenterType_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-3",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "$REMOVE$",
     "descr": "alternate center updated",
     "isActive":true,
@@ -60,12 +45,13 @@ UpdateRegCenterType:
    MasterData_UpdateRegCenterType_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-3",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "",
     "descr": "alternate center updated",
     "isActive":true,
@@ -82,6 +68,7 @@ UpdateRegCenterType:
    MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
@@ -104,12 +91,13 @@ UpdateRegCenterType:
    MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error
       input: '{
     "code": "ALT-5",
-    "langCode": "ara",
+    "langCode": "eng",
     "name": "alternate",
     "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
     "isActive":true,
@@ -123,97 +111,11 @@ UpdateRegCenterType:
     }
   ]
 }'
-   MasterData_UpdateRegCenterType_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "$REMOVE$",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateRegCenterType_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateRegCenterType_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "engr",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateRegCenterType_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "ALT-5",
-    "langCode": "GER",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_UpdateRegCenterType_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
+      templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/error

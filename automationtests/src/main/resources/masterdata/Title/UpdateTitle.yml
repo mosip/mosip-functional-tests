@@ -2,6 +2,7 @@ UpdateTitle:
    MasterData_UpdateTitle_All_Valid_Smoke:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName","titleDescription"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/Title/titleResult
@@ -17,27 +18,11 @@ UpdateTitle:
 	"code": "TEST0011",
 	"langCode": "eng"
 }'
-   MasterData_UpdateTitle_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/Title/titleResult
-      input: '{
-    "code": "TEST0011",
-    "titleName": "TEST0011 updated",
-	"titleDescription": "$REMOVE$",
-	"isActive": true,
-	"langCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "TEST0011",
-	"langCode": "ara"
-}'
+   
    MasterData_UpdateTitle_Invalid_InputParameter_TitleName_Missing:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
@@ -60,6 +45,7 @@ UpdateTitle:
    MasterData_UpdateTitle_Invalid_InputParameter_TitleName_Empty:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
@@ -82,6 +68,7 @@ UpdateTitle:
    MasterData_UpdateTitle_Invalid_InputParameter_TitleName_AboveMaxLen64:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleDescription"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
@@ -104,6 +91,7 @@ UpdateTitle:
    MasterData_UpdateTitle_Invalid_InputParameter_TitleDescription_AboveMaxLen128:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
@@ -126,6 +114,7 @@ UpdateTitle:
    MasterData_UpdateTitle_Invalid_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/title
       role: admin
+      templateFields: ["titleName","titleDescription"]
       restMethod: put
       inputTemplate: masterdata/Title/title
       outputTemplate: masterdata/error
@@ -142,94 +131,6 @@ UpdateTitle:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.isActive: must not be null"
-    }
-  ]
-}'
-   MasterData_UpdateTitle_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTitle_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTitle_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTitle_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/title
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Title/title
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "TEST002",
-    "titleName": "TEST002",
-	"titleDescription": "TEST002",
-	"isActive": false,
-	"langCode": "GER",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'
