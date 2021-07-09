@@ -2,6 +2,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_All_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
@@ -20,6 +21,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
@@ -35,49 +37,10 @@ CreateDeviceType:
 	"code": "GST4",
 	"langCode": "eng"
 }'
-   MasterData_CreateDeviceType_valid_secondarylang_ara_SameDataAsVldScnrio:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/DeviceType/deviceTypeResult
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": true,
-	"langCode": "ara",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "GST3",
-	"langCode": "ara"
-}'
-   MasterData_CreateDeviceType_Sec_Data_ara_Present_but_No_Data_Prim_lang:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST00",
-    "description": "test 1.0.8",
-	"isActive": true,
-	"langCode": "ara",
-	"name": "GST00",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Cannot create data in secondary language as data does not exist in primary language"
-    }
-  ]
-}'
    MasterData_CreateDeviceType_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -100,6 +63,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -122,6 +86,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -144,6 +109,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_InputParameter_Description_AboveMaxLen128:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -160,94 +126,6 @@ CreateDeviceType:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.description: size must be between 0 and 128"
-    }
-  ]
-}'
-   MasterData_CreateDeviceType_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "$REMOVE$",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceType_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceType_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "engr",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceType_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "GER",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'

@@ -2,6 +2,7 @@ UpdateBlackListedWordDetails:
    Admin_UpdateBlackListedWordDetails_eng_All_Valid_Smoke:
       endPoint: /v1/masterdata/blacklistedwords/details
       role: admin
+      templateFields: ["description","word"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
       outputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetailsResult
@@ -16,26 +17,10 @@ UpdateBlackListedWordDetails:
 	"word": "dumbo7",
 	"langCode": "eng"
 }'
-   Admin_UpdateBlackListedWordDetails_ara_All_Valid_Smoke:
-      endPoint: /v1/masterdata/blacklistedwords/details
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
-      outputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetailsResult
-      input: '{
-    "description": "wrong word updated again",
-	"isActive": true,
-	"langCode": "ara",
-	"word": "dumbo7",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"word": "dumbo7",
-	"langCode": "ara"
-}'
    Admin_CreateBlackListedWords_Invalid_BlacklistedWordsLength129:
       endPoint: /v1/masterdata/blacklistedwords/details
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
       outputTemplate: masterdata/error
@@ -57,6 +42,7 @@ UpdateBlackListedWordDetails:
    Admin_UpdateBlackListedWords_inValid_descriptionBlank:
       endPoint: /v1/masterdata/blacklistedwords/details
       role: admin
+      templateFields: ["word"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
       outputTemplate: masterdata/error
@@ -74,6 +60,7 @@ UpdateBlackListedWordDetails:
    Admin_CreateBlackListedWords_Invalid_DescriptionLength257:
       endPoint: /v1/masterdata/blacklistedwords/details
       role: admin
+      templateFields: ["word"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
       outputTemplate: masterdata/error
@@ -92,51 +79,10 @@ UpdateBlackListedWordDetails:
     }
   ]
 }'
-   Admin_CreateBlackListedWords_InvalidLangCode:
-      endPoint: /v1/masterdata/blacklistedwords/details
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
-      outputTemplate: masterdata/error
-      input: '{
-    "description": "bad words",
-	"isActive": true,
-	"langCode": "engr",
-	"word": "bull word",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   Admin_CreateBlackListedWords_InvalidLangCode_blank:
-      endPoint: /v1/masterdata/blacklistedwords/details
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
-      outputTemplate: masterdata/error
-      input: '{
-    "description": "bad words",
-	"isActive": true,
-	"langCode": "",
-	"word": "bull word",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    Admin_CreateBlackListedWords_Invalid_EmptyWord:
       endPoint: /v1/masterdata/blacklistedwords/details
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlackListedWordDetails/updateBlackListedWordDetails
       outputTemplate: masterdata/error

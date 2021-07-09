@@ -2,6 +2,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_All_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
@@ -35,27 +36,10 @@ UpdateDeviceType:
 	"code": "GST4",
 	"langCode": "eng"
 }'
-   MasterData_UpdateDeviceType_valid_secondarylang_ara_SameDataAsVldScnrio:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/DeviceType/deviceTypeResult
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": true,
-	"langCode": "ara",
-	"name": "GST updated",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "GST3",
-	"langCode": "ara"
-}'
    MasterData_UpdateDeviceType_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -78,6 +62,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Code_Empty:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -100,6 +85,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -122,6 +108,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -144,6 +131,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -166,6 +154,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -188,6 +177,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["name"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -204,116 +194,6 @@ UpdateDeviceType:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.description: size must be between 0 and 128"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceType_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "$REMOVE$",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceType_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceType_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "engr",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceType_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": false,
-	"langCode": "GER",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDeviceType_InputParameter_isActive_Missing:
-      endPoint: /v1/masterdata/devicetypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DeviceType/deviceType
-      outputTemplate: masterdata/error
-      input: '{
-    "code": "GST3",
-    "description": "test 1.0.8",
-	"isActive": "$REMOVE$",
-	"langCode": "eng",
-	"name": "GST",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request.isActive: must not be null"
     }
   ]
 }'

@@ -2,6 +2,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
@@ -22,57 +23,10 @@ CreateDeviceSpecification:
       "langCode": "eng"
       }'
       
-   MasterData_CreateDeviceSpecification_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
-      input: '{
-      "brand": "Technoforte",
-      "description": "$REMOVE$",
-      "deviceTypeCode": "CMR",
-      "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
-      "isActive": true,
-      "langCode": "ara",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Face scanner",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-      "id": "743",
-      "langCode": "ara"
-      }'
-   MasterData_CreateDeviceSpecification_Sec_Data_ara_Present_but_No_Data_Prim_lang:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "ara",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Face scanner",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Cannot create data in secondary language as data does not exist in primary language"
-    }
-  ]
-}'
    MasterData_CreateDeviceSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -99,6 +53,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -125,6 +80,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -151,6 +107,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Brand_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -177,6 +134,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Brand_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -203,6 +161,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -229,6 +188,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Model_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -255,6 +215,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Model_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -281,6 +242,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -307,6 +269,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -333,6 +296,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -359,6 +323,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -385,6 +350,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Invalid_DeviceTypeCode:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -411,6 +377,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -437,6 +404,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_Empty:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -463,6 +431,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -489,6 +458,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error
@@ -512,113 +482,10 @@ CreateDeviceSpecification:
     }
   ]
 }'
-   MasterData_CreateDeviceSpecification_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "$REMOVE$",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceSpecification_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceSpecification_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "engr",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_CreateDeviceSpecification_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/devicespecifications
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
-      outputTemplate: masterdata/error
-      input: '{
-      "brand": "Techno",
-      "description": "Techno DeviceSpec",
-      "deviceTypeCode": "CMR",
-      "id": "744",
-      "isActive": true,
-      "langCode": "GER",
-      "minDriverversion": "1.0",
-      "model": "2020",
-      "name": "Cam",
-      "requesttime": "$TIMESTAMP$"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    MasterData_CreateDeviceSpecification_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/error

@@ -2,6 +2,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_All_Valid_Smoke:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/Template/templateResult
@@ -23,33 +24,10 @@ UpdateTemplate:
 	"id": "$IGNORE$",
 	"langCode": "eng"
 }'
-   MasterData_UpdateTemplate_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/Template/templateResult
-      input: '{
-        "description": "تم تحديث نموذج الاختبار",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": true,
-        "langCode": "ara",
-        "model": "$REMOVE$",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"id": "test-03",
-	"langCode": "ara"
-}'
    MasterData_UpdateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -78,6 +56,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_Name_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -106,6 +85,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_Name_AboveMaxLen128:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -134,6 +114,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_FileFormatCode_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -162,6 +143,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_FileFormatCode_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -190,6 +172,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -218,6 +201,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_ModuleName_AboveMaxLen128:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -246,6 +230,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_Missing:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -274,6 +259,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_Empty:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -302,6 +288,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
       outputTemplate: masterdata/error
@@ -324,118 +311,6 @@ UpdateTemplate:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
-    }
-  ]
-}'
-   MasterData_UpdateTemplate_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "$REMOVE$",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTemplate_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTemplate_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "engr",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateTemplate_InputParameter_Invalid_LangCode:
-      endPoint: /v1/masterdata/templates
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Template/template
-      outputTemplate: masterdata/error
-      input: '{
-        "description": "test template",
-        "fileFormatCode": "Doc",
-        "fileText": "abc",
-        "id": "test-03",
-        "isActive": false,
-        "langCode": "GER",
-        "model": "model-1",
-        "moduleId": "10001",
-        "moduleName": "Pre-Registration",
-        "name": "Test-template",
-        "templateTypeCode": "Test-info-Template-auto",
-	    "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
     }
   ]
 }'

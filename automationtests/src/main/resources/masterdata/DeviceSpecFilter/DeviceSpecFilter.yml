@@ -2,6 +2,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Unique_Name_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -12,29 +13,6 @@ DeviceSpecFilter:
 		"text": "Face scanner"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Face scanner"
-      }
-    ]
-  }'
-   MasterData_DeviceSpecFilter_Unique_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Face scanner"
-	}],
-	"languageCode": "ara",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -48,6 +26,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_All_Name_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -58,29 +37,6 @@ DeviceSpecFilter:
 		"text": "Face scanner"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Face scanner"
-      }
-    ]
-  }'
-   MasterData_DeviceSpecFilter_All_Name_ara_smoke:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "Face scanner"
-	}],
-	"languageCode": "ara",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -94,6 +50,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Unique_Brand_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -111,35 +68,13 @@ DeviceSpecFilter:
       {
         "fieldID": "brand",
         "fieldValue": "Technoforte"
-      }
-    ]
-  }'
-   MasterData_DeviceSpecFilter_Unique_Brand_ara_smoke:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "brand",
-		"type": "unique",
-		"text": "Technoforte"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "brand",
-        "fieldValue": "Technoforte TFUpd"
       }
     ]
   }'
    MasterData_DeviceSpecFilter_All_Brand_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -160,32 +95,10 @@ DeviceSpecFilter:
       }
     ]
   }'
-   MasterData_DeviceSpecFilter_All_Brand_ara_smoke:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "brand",
-		"type": "all",
-		"text": "Technoforte"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "brand",
-        "fieldValue": "Technoforte TFUpd"
-      }
-    ]
-  }'
    MasterData_DeviceSpecFilter_Unique_Model_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -209,6 +122,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Unique_IsActive_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -229,55 +143,10 @@ DeviceSpecFilter:
       }
     ]
   }'
-   MasterData_DeviceSpecFilter_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Cam"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_DeviceSpecFilter_Invalid_LangCode_neg:
-      endPoint: /v1/masterdata/devicespecifications/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "Cam"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
    MasterData_DeviceSpecFilter_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/error
@@ -301,6 +170,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
@@ -319,6 +189,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/error
@@ -342,6 +213,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_inValid_blank_FilterType_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/error
@@ -365,6 +237,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_inValid_columnName:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
       outputTemplate: masterdata/error

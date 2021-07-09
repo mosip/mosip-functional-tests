@@ -2,6 +2,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_smoke_Get:
       endPoint: /v1/masterdata/templates
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -19,6 +20,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/templates/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -36,6 +38,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_smoke_with_lang_and_templatetypecode:
       endPoint: /v1/masterdata/templates/{langcode}/{templatetypecode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -50,66 +53,10 @@ FetchTemplate:
 				"isActive": true
 			}]
 }'
-   MasterData_FetchTemplate_invalid_langcode_blank_with_templatetypecode:
-      endPoint: /v1/masterdata/templates/{langcode}/{templatetypecode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplate/fetchTemplate
-      outputTemplate: masterdata/error
-      input: '{
-      "langcode": "@SSDWQ!!@W",
-      "code": "$REMOVE$",
-"templatetypecode": "OTP-sms-template"  
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-046",
-      "message": "Template not found."
-    }
-  ]
-}'
-   MasterData_FetchTemplate_invalid_langcode_unexisting:
-      endPoint: /v1/masterdata/templates/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplate/fetchTemplate
-      outputTemplate: masterdata/error
-      input: '{
-      "langcode": "GER",
-      "code": "$REMOVE$",
-"templatetypecode": "$REMOVE$"  
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-046",
-      "message": "Template not found."
-    }
-  ]
-}'
-   MasterData_FetchTemplate_invalid_langcode_unexisting_with_templatetypecode:
-      endPoint: /v1/masterdata/templates/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplate/fetchTemplate
-      outputTemplate: masterdata/error
-      input: '{
-      "langcode": "GE@@@432R",
-      "code": "$REMOVE$",
-"templatetypecode": "$REMOVE$"  
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-046",
-      "message": "Template not found."
-    }
-  ]
-}'
    MasterData_FetchTemplate_invalid_templatetypecode_unexisting:
       endPoint: /v1/masterdata/templates/{langcode}/{templatetypecode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/error
@@ -129,6 +76,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_smoke_with_code:
       endPoint: /v1/masterdata/templates/templatetypecodes/{code}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -146,6 +94,7 @@ FetchTemplate:
    MasterData_FetchTemplate_invalid_code:
       endPoint: /v1/masterdata/templates/templatetypecodes/{code}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/error
