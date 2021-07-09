@@ -2,6 +2,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -25,6 +26,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -45,98 +47,7 @@ DeviceFilter:
       }
     ]
   }'    
-   MasterData_DeviceFilter_Name_ara_Unique_smoke:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/DeviceFilter/deviceFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "testDevicedummy"
-      }
-    ]
-  }'    
-   MasterData_DeviceFilter_Name_ara_All_smoke:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/DeviceFilter/deviceFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "testDevicedummy"
-      }
-    ]
-  }'    
-   MasterData_DeviceFilter_Name_fra_Unique_smoke:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/DeviceFilter/deviceFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
-  }'    
-   MasterData_DeviceFilter_Name_fra_All_smoke:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/DeviceFilter/deviceFilterResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "fra",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
-  }'    
+       
    MasterData_DeviceFilter_MacAddress_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
@@ -206,55 +117,11 @@ DeviceFilter:
       }
     ]
   }'    
-   MasterData_DeviceFilter_Invalid_LangCode:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
-   MasterData_DeviceFilter_Blank_LangCode:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "testDevicedummy"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'    
+       
    MasterData_DeviceFilter_Invalid_RequestTime:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/error
@@ -278,6 +145,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Invalid_filterType_blank:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/error

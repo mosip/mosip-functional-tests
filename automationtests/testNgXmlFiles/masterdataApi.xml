@@ -12,14 +12,14 @@
 
 	
 
-  <test name="BulkUpload">
+  	<test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithFormDataAndFile" />
 		</classes>
 	</test>
-	 <test name="GetTxnDetailBulkUpload">
+	<test name="GetTxnDetailBulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/GetTxnDetailBulkUpload/TxnDetailByTxnId.yml"/>
 		<classes>
@@ -80,7 +80,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="SearchBlackListedWords">
 		<parameter name="ymlFile"
 			value="masterdata/SearchBlackListedWords/SearchBlackListedWords.yml" />
@@ -701,8 +700,29 @@
 		<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
+	</test>
+	<test name="UpdateLocationStatus">
+		<parameter name="ymlFile" 
+			value="masterdata/UpdateLocationStatus/UpdateLocationStatus.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test> 
+	<test name="DeleteLocation">
+		<parameter name="ymlFile" 
+			value="masterdata/DeleteLocation/DeleteLocation.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
 	</test> 
 	
+	<test name="FetchLocationHierarchy">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchLocationHierarchy/FetchLocationHierarchy.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	 
 	 <test name="CreateTemplate">
 		<parameter name="ymlFile"
@@ -751,42 +771,6 @@
 			value="masterdata/DeleteTemplate/DeleteTemplate.yml"/>  
 		<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	
-	
-	<test name="CreateTitle">
-		<parameter name="ymlFile"
-			value="masterdata/Title/CreateTitle.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="TitleSearch">
-		<parameter name="ymlFile"
-			value="masterdata/TitleSearch/TitleSearch.yml" />
-			<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="TitleFilter">
-		<parameter name="ymlFile"
-			value="masterdata/TitleFilter/TitleFilter.yml" />
-			<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateTitle">
-		<parameter name="ymlFile"
-			value="masterdata/Title/UpdateTitle.yml" />
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="FetchTitle">
-		<parameter name="ymlFile" 
-			value="masterdata/FetchTitle/FetchTitle.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	

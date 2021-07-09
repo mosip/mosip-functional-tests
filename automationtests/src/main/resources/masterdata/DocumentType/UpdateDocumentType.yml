@@ -2,6 +2,7 @@ UpdateDocumentType:
    MasterData_UpdateDocumentType_Valid_Smoke:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/DocumentType/documentTypeResult
@@ -20,72 +21,11 @@ UpdateDocumentType:
 	"langCode": "eng",
 	"name": "TestDocType0010 Card"
 }'
-   MasterData_UpdateDocumentType_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/DocumentType/documentTypeResult
-      input: '{
-	"code": "TestDocType0020",
-	"description": "TestDocType0020 updated",
-	"isActive": true,
-	"langCode": "ara",
-	"name": "TestDocType0020 Card",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "TestDocType0020",
-	"description": "TestDocType0020 updated",
-	"isActive": $IGNORE$,
-	"langCode": "ara",
-	"name": "TestDocType0020 Card"
-}'
-   MasterData_UpdateDocumentType_Validz_PrimLang_True_DeAct_SeconLang_ara:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/DocumentType/documentTypeResult
-      input: '{
-	"code": "TestDocType0020",
-	"description": "$REMOVE$",
-	"isActive": false,
-	"langCode": "ara",
-	"name": "TestDocType0020 Card",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "TestDocType0020",
-	"description": "$IGNORE$",
-	"isActive": $IGNORE$,
-	"langCode": "ara",
-	"name": "TestDocType0020 Card"
-}'
-   MasterData_UpdateDocumentType_Valid_PrimLang_False_Act_SeconLang_ara:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/DocumentType/documentTypeResult
-      input: '{
-	"code": "TestDocType0010",
-	"description": "TestDocType0010 Card Holder updated",
-	"isActive": true,
-	"langCode": "ara",
-	"name": "TestDocType0010 Card",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-	"code": "TestDocType0010",
-	"description": "TestDocType0010 Card Holder updated",
-	"isActive": $IGNORE$,
-	"langCode": "ara",
-	"name": "TestDocType0010 Card"
-}'
+   
    MasterData_UpdateDocumentType_Invalid_Code_Char37:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
@@ -108,6 +48,7 @@ UpdateDocumentType:
    MasterData_UpdateDocumentType_Invalid_Name_Char65:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
@@ -131,6 +72,7 @@ UpdateDocumentType:
       endPoint: /v1/masterdata/documenttypes
       role: admin
       restMethod: put
+      templateFields: ["name","description"]
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
       input: '{
@@ -149,53 +91,11 @@ UpdateDocumentType:
     }
   ]
 }'
-   MasterData_UpdateDocumentType_Invalid_LangCode_Char4:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "GSD",
-	"description": "GSD Holder card",
-	"isActive": false,
-	"langCode": "engr",
-	"name": "GSD",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateDocumentType_Invalid_LangCode_Blank:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "GSD",
-	"description": "GSD Holder card",
-	"isActive": false,
-	"langCode": "",
-	"name": "GSD",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_UpdateDocumentType_Invalid_Name_Blank:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
@@ -218,6 +118,7 @@ UpdateDocumentType:
    MasterData_UpdateDocumentType_Invalid_Code_Blank:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["name","description"]
       restMethod: put
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
@@ -234,28 +135,6 @@ UpdateDocumentType:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.code: Should not be blank or size must be between 1 and 36"
-    }
-  ]
-}'
-   MasterData_UpdateDocumentType_Invalid_IsActive_Blank:
-      endPoint: /v1/masterdata/documenttypes
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/DocumentType/documentType
-      outputTemplate: masterdata/error
-      input: '{
-	"code": "GSD",
-	"description": "GSD Holder card",
-	"isActive": "$REMOVE$",
-	"langCode": "eng",
-	"name": "GSD",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request.isActive: must not be null"
     }
   ]
 }'

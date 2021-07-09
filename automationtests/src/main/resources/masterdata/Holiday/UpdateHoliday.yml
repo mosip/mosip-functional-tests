@@ -2,6 +2,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_All_Valid_Smoke:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/Holiday/holidayResult
@@ -22,32 +23,11 @@ UpdateHoliday:
         "holidayName": "AutoTest user",
         "langCode": "eng"
     }'
-   MasterData_UpdateHoliday_All_Valid_Mandatory_Fields_ara:
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Holiday/holiday
-      outputTemplate: masterdata/Holiday/holidayResult
-      input: '{
-    "holidayDate": "2020-08-15",
-    "holidayDesc": "AutoTest user Holiday updated",
-    "holidayName": "AutoTest user updated",
-    "holidayId": 2000076,
-    "isActive": true,
-    "langCode": "ara",
-    "locationCode": "KTA",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-        "holidayId": $IGNORE$,
-        "locationCode": "KTA",
-        "holidayDate": "2020-08-15",
-        "holidayName": "AutoTest user",
-        "langCode": "ara"
-    }'
+   
    MasterData_UpdateHoliday_Invalid_InputParameter_HolidayDate_Missing:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -72,6 +52,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_HolidayDate_Empty:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -96,6 +77,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_HolidayDate_Format:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -120,6 +102,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_HolidayName_Missing:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -144,6 +127,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_HolidayName_AboveMaxLen64:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -168,6 +152,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_LocationCode_Missing:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -192,6 +177,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_LocationCode_NotInDB:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -216,6 +202,7 @@ UpdateHoliday:
    MasterData_UpdateHoliday_Invalid_InputParameter_LocationCode_AboveMaxLen128:
       endPoint: /v1/masterdata/holidays
       role: admin
+      templateFields: ["holidayDesc","holidayName"]
       restMethod: put
       inputTemplate: masterdata/Holiday/holiday
       outputTemplate: masterdata/error
@@ -237,100 +224,3 @@ UpdateHoliday:
     }
   ]
 }'
-   MasterData_UpdateHoliday_Invalid_InputParameter_LangCode_Missing:
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Holiday/holiday
-      outputTemplate: masterdata/error
-      input: '{
-    "holidayDate": "2020-08-15",
-    "holidayDesc": "AutoTest user Holiday",
-    "holidayName": "AutoTest user",
-    "holidayId": 2000075,
-    "isActive": false,
-    "langCode": "$REMOVE$",
-    "locationCode": "KTA",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "One or more input parameter(s) is missing"
-    }
-  ]
-}'
-   MasterData_UpdateHoliday_Invalid_InputParameter_LangCode:
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Holiday/holiday
-      outputTemplate: masterdata/error
-      input: '{
-    "holidayDate": "2020-08-15",
-    "holidayDesc": "AutoTest user Holiday",
-    "holidayName": "AutoTest user",
-    "holidayId": 2000075,
-    "isActive": false,
-    "langCode": "xyz",
-    "locationCode": "KTA",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_UpdateHoliday_Invalid_InputParameter_LangCode_Empty:
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Holiday/holiday
-      outputTemplate: masterdata/error
-      input: '{
-    "holidayDate": "2020-08-15",
-    "holidayDesc": "AutoTest user Holiday",
-    "holidayName": "AutoTest user",
-    "holidayId": 2000075,
-    "isActive": false,
-    "langCode": "",
-    "locationCode": "KTA",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "One or more input parameter(s) is missing"
-    }
-  ]
-}'
-   MasterData_UpdateHoliday_Invalid_InputParameter_LangCode_AboveMaxLen3:
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: put
-      inputTemplate: masterdata/Holiday/holiday
-      outputTemplate: masterdata/error
-      input: '{
-    "holidayDate": "2020-08-15",
-    "holidayDesc": "AutoTest user Holiday",
-    "holidayName": "AutoTest user",
-    "holidayId": 2000075,
-    "isActive": false,
-    "langCode": "engr",
-    "locationCode": "KTA",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "lang_code size must be between 1 and 3"
-    }
-  ]
-}'
-   

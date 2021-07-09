@@ -114,52 +114,7 @@ FilterDocCategory:
     }
   ]
 }'
-   MasterData_FilterDocCategory_inValid_langCode_blank:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "All",
-		"text": "DocTestCode01"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_FilterDocCategory_inValid_langCode_invalid:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "All",
-		"text": "DocTestCode01"
-	}],
-	"languageCode": "engr",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_FilterDocCategory_inValid_RequestTime_format:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin

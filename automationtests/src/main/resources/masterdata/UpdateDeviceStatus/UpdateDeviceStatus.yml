@@ -1,0 +1,29 @@
+UpdateDeviceStatus:
+   MasterData_UpdateDeviceStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/devices
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDeviceStatus/updateDeviceStatus
+      outputTemplate: masterdata/UpdateDeviceStatus/updateDeviceStatusResult
+      input: '{
+  "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+  "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Devices"
+}'
+
+MasterData_UpdateDeviceStatus_Second_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/devices
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDeviceStatus/updateDeviceStatus
+      outputTemplate: masterdata/UpdateDeviceStatus/updateDeviceStatusResult
+      input: '{
+  "id": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$",
+  "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Devices"
+}'
+   

@@ -2,6 +2,7 @@ FilterHolidays:
    MasterData_FilterHolidays_Valid_Smoke:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
@@ -22,29 +23,7 @@ FilterHolidays:
       }
     ]
   }'
-   MasterData_FilterHolidays_Valid_col_holidayName_lang_ara:
-      endPoint: /v1/masterdata/holidays/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
-      input: '{
-	"filters": [{
-		"columnName": "holidayName",
-		"type": "unique",
-		"text": "AutoTest user Ara"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "holidayName",
-        "fieldValue": "AutoTest user Ara"
-      }
-    ]
-  }'
+   
    MasterData_FilterHolidays_inValid_filterText:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
@@ -66,6 +45,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_filterType_blank:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/error
@@ -75,7 +55,7 @@ FilterHolidays:
 		"type": "",
 		"text": "AutoTest user"
 	}],
-	"languageCode": "ara",
+	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -89,6 +69,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/error
@@ -109,29 +90,7 @@ FilterHolidays:
     }
   ]
 }'  
-   MasterData_FilterHolidays_inValid_langCode_blank:
-      endPoint: /v1/masterdata/holidays/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "holidayName",
-		"type": "unique",
-		"text": "AutoTest user"
-	}],
-	"languageCode": "",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'  
+     
    MasterData_FilterHolidays_inValid_langCode:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
@@ -158,6 +117,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_RequestTime_format:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/error
@@ -181,6 +141,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_filterColumnName:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/error
@@ -204,6 +165,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_filterType:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/error
@@ -227,6 +189,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_FilterText:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/FilterHolidays/filterHolidaysResult

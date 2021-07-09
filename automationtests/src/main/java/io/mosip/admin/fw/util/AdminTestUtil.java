@@ -1268,8 +1268,15 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 			if(!langjson.isNull(fieldToConvert) || translatedValue!=null )
 			langjson.put(fieldToConvert, translatedValue);
 		}
-		langjson.remove("langCode");
-		langjson.put("langCode", language);
+		if(langjson.has("langCode"))
+		{
+			langjson.remove("langCode");
+			langjson.put("langCode", language);
+		}else {
+			langjson.remove("languageCode");
+			langjson.put("languageCode", language);
+		}
+		
 		System.out.println(langjson.toString());
 		listofjsonObject.add(langjson);
 	}

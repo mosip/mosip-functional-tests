@@ -2,6 +2,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_allValid_somke:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -35,45 +36,11 @@ SearchRegCenterType:
       }
     ]
 }'
-   MasterData_SearchRegCenterType_valid_col_name_lang_ara:
-      endPoint: /v1/masterdata/registrationcentertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
-      outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "alternate"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "ALT-3",
-        "name": "alternate",
-        "descr": "$IGNORE$",
-        "langCode": "ara"
-      }
-    ]
-}'
+   
    MasterData_SearchRegCenterType_valid_col_isActive_true:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -110,6 +77,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_valid_typeFilter_contains:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -146,6 +114,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_valid_typeFilter_startsWith:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -182,6 +151,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_columnName_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -215,6 +185,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_columnName:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -248,6 +219,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_filter_value:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -276,6 +248,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_filter_value_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -306,75 +279,11 @@ SearchRegCenterType:
     }
   ]
 }'
-   MasterData_SearchRegCenterType_inValid_langCode:
-      endPoint: /v1/masterdata/registrationcentertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "alternate"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_SearchRegCenterType_inValid_langCode_blank:
-      endPoint: /v1/masterdata/registrationcentertypes/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "alternate"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_SearchRegCenterType_inValid_sortField:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -408,6 +317,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_sortType:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -441,6 +351,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_sortField_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -474,6 +385,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_sortType_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -507,6 +419,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_filterType_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -540,6 +453,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_filterType:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error
@@ -573,6 +487,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_inValid_requestTime_format:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/error

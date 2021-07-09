@@ -26,6 +26,7 @@ TitleSearch:
    MasterData_TitleSearch_Valid_lang:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -56,6 +57,7 @@ TitleSearch:
    MasterData_TitleSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -92,6 +94,7 @@ TitleSearch:
    MasterData_TitleSearch_Equals_Name_ara_smoke:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -128,6 +131,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -156,6 +160,7 @@ TitleSearch:
    MasterData_TitleSearch_InvalidPageFetch_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -189,6 +194,7 @@ TitleSearch:
    MasterData_TitleSearch_InvalidPageStart_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -222,6 +228,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -255,6 +262,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -288,6 +296,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_SortField_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -318,75 +327,11 @@ TitleSearch:
     }
   ]
 }'
-   MasterData_TitleSearch_Invalid_LangCode_neg:
-      endPoint: /v1/masterdata/title/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TitleSearch/titleSearch
-      outputTemplate: masterdata/TitleSearch/titleSearchResult
-      input: '{
-    "filters": [{
-        "columnName": "titleName",
-        "type": "equals",
-        "value": "TEST0011"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "titleName",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_TitleSearch_Blank_LangCode_neg:
-      endPoint: /v1/masterdata/title/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/TitleSearch/titleSearch
-      outputTemplate: masterdata/TitleSearch/titleSearchResult
-      input: '{
-    "filters": [{
-        "columnName": "titleName",
-        "type": "equals",
-        "value": "TEST0011"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "titleName",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_TitleSearch_Blank_SortField_pos:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -420,6 +365,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_ColumnName_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -453,6 +399,7 @@ TitleSearch:
    MasterData_TitleSearch_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -486,6 +433,7 @@ TitleSearch:
    MasterData_TitleSearch_Contains_Name_eng_pos:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
@@ -522,6 +470,7 @@ TitleSearch:
    MasterData_TitleSearch_StartsWith_Name_eng_pos:
       endPoint: /v1/masterdata/title/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/TitleSearch/titleSearch
       outputTemplate: masterdata/TitleSearch/titleSearchResult
