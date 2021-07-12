@@ -10,78 +10,18 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	<!--<test name="PreReg Tests">
-		<classes>
-		    <class name="io.mosip.preregistration.tests.BatchJob" />
-			<class name="io.mosip.preregistration.tests.Audit" />
-			<class
-				name="io.mosip.preregistration.tests.RetrivePreRegistration" />
-			<class name="io.mosip.preregistration.tests.BookingAppointment" />
-			<class
-				name="io.mosip.preregistration.tests.CancelAnBookedAppointment" />
-			<class
-				name="io.mosip.preregistration.tests.CopyUploadedDocument" />
-			<class
-				name="io.mosip.preregistration.tests.CreatePreRegistration" />
-			<class
-				name="io.mosip.preregistration.tests.DeleteAllDocumentsByPreRegID" />
-			<class
-				name="io.mosip.preregistration.tests.DeleteDocumentByDocId" />
-			<class name="io.mosip.preregistration.tests.DiscardIndividual" />
-			<class name="io.mosip.preregistration.tests.DocumentUpload" />
-			<class
-				name="io.mosip.preregistration.tests.FetchAllApplicationCreatedByUser" />
-			<class
-				name="io.mosip.preregistration.tests.FetchAllPreRegistrationIds" />
-			<class
-				name="io.mosip.preregistration.tests.FetchAppointmentDetails" />
-			<class
-				name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
-			<class
-				name="io.mosip.preregistration.tests.FetchAvailabilityDataOfRegistrationCenters" />
-			<class
-				name="io.mosip.preregistration.tests.FetchTheStatusOfApplication" />
-			<class
-				name="io.mosip.preregistration.tests.GetAllDocumentForDocId" />
-			<class
-				name="io.mosip.preregistration.tests.GetAllDocumentForPreRegId" />
-			<class
-				name="io.mosip.preregistration.tests.GetPreRegistartionData" />
-			<class
-				name="io.mosip.preregistration.tests.IntegrationScenarios" />
-			<class name="io.mosip.preregistration.tests.InvalidateToken" />
-			<class
-				name="io.mosip.preregistration.tests.MultipleBookingAppointment" />
-			<class name="io.mosip.preregistration.tests.QRCode" />
-			<class name="io.mosip.preregistration.tests.Pagination" />
-			<class
-				name="io.mosip.preregistration.tests.RetriveAllPreRegIdByRegCenterId" />
-			<class
-				name="io.mosip.preregistration.tests.RetrivePreRegistration" />
-			<class name="io.mosip.preregistration.tests.SendOtp" />
-			<class name="io.mosip.preregistration.tests.Translitration" />
-			<class
-				name="io.mosip.preregistration.tests.TriggerNotification" />
-			<class
-				name="io.mosip.preregistration.tests.UpdateDemographicDetails" />
-			<class name="io.mosip.preregistration.tests.ValidateOtp" />
-			<class
-				name="io.mosip.preregistration.tests.OperationWithDifferentToken" />
-			<class name="io.mosip.preregistration.tests.ConsumedTestCase" />
-			<class name="io.mosip.preregistration.tests.ExpiredTestCase" />
-		</classes>
-	</test>-->
+	
 	
 	 <test name="SendOtp">
 		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
+			value="preReg/SendOtp/SendOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="ValidateOtp">
 		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/ValidateOtp/ValidateOtp.yml" />
+			value="preReg/ValidateOtp/ValidateOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -102,13 +42,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="GetApplicationWithPrId">
+	<!-- <test name="GetApplicationWithPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetApplicationWithPrId/GetApplicationWithPrId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="GetApplicationStatusWithPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetApplicationStatusWithPrId/GetApplicationStatusWithPrId.yml" />
@@ -131,6 +71,17 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test> 
+	
+	<test name="UpdatePreRegStatus">
+		<parameter name="ymlFile"
+			value="preReg/UpdatePreRegStatus/updatePreRegStatus.yml" />
+			<parameter name="pathParams"	value="preRegistrationId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+	
+	
 	<test name="GetAllDocForPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetAllDocForPrId/GetAllDocForPrId.yml" />
@@ -167,6 +118,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
+	
 	<test name="GetAvailableSlotForRegCentreId">
 		<parameter name="ymlFile"
 			value="preReg/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
@@ -174,6 +126,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
 	<test name="GetPRIDForRegCent">
 		<parameter name="ymlFile"
 			value="preReg/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
@@ -211,165 +164,11 @@
 	</test>
 	<test name="InvalidateToken">
 		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/InvalidateToken/InvalidateToken.yml" />
+			value="preReg/InvalidateToken/InvalidateToken.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
 	
 	
-	<!--<test name="SendOtp">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/SendOtp/SendOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="ValidateOtp">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/ValidateOtp/ValidateOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	
-	
-	
-	<test name="CreatePreregistration">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/createPrereg/createPrereg.yml" />
-			<parameter name="idKeyName"	value="preRegistrationId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	
-	<test name="UpdatePreregistration">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/UpdatePreregistration/UpdatePreregistration.yml" />
-			<parameter name="pathParams" value="preRegistrationId" />
-		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
-		</classes>
-	</test>
-	
-	<test name="GetApplicationWithPrId">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetApplicationWithPrId/GetApplicationWithPrId.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GetApplicationStatusWithPrId">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetApplicationStatusWithPrId/GetApplicationStatusWithPrId.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
-	
-	<test name="Uploaddocument">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/uploadDocument/uploadDocument.yml" />
-			<parameter name="idKeyName"	value="docId" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
-		</classes>
-	</test>
-	
-	<test name="CopyDocument">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/CopyDocument/CopyDocument.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParam" />
-		</classes>
-	</test> 
-	<test name="GetAllDocForPrId">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetAllDocForPrId/GetAllDocForPrId.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
-	
-	<test name="GetSpecificDocumentforaPRID">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetSpecificDocumentforaPRID/GetSpecificDocumentforaPRID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GetPRIDByDateRange">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetPRIDByDateRange/GetPRIDByDateRange.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	 <test name="BookAppointment">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/bookAppointment/bookAppointment.yml" />
-		<parameter name="pathParams" value="preRegistrationId" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
-		</classes>
-	</test>
-	<test name="GetAppointmentDetails">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetAppointmentDetails/GetAppointmentDetails.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
-	<test name="GetAvailableSlotForRegCentreId">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	
-	<test name="GetPRIDForRegCent">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="DeletePreRegistration">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/DeletePreRegistration/DeletePreRegistration.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	<test name="DeleteSpecificDocForaPRID">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	<test name="DeleteAllDocForaPRID">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/DeleteAllDocForaPRID/DeleteAllDocForaPRID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	<test name="CancelAppointment">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/CancelAppointment/CancelAppointment.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParam" />
-		</classes>
-	</test>
-	
-	<test name="InvalidateToken">
-		<parameter name="ymlFile"
-			value="preReg/Pre-RegQA/InvalidateToken/InvalidateToken.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>-->
 </suite>
