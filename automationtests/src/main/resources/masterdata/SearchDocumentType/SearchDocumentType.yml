@@ -30,7 +30,7 @@ SearchDocumentType:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
@@ -69,7 +69,7 @@ SearchDocumentType:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
@@ -108,7 +108,7 @@ SearchDocumentType:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
