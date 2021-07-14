@@ -1246,6 +1246,7 @@ public static ArrayList<JSONObject> outputJsonConversion(String output, String[]
 }
 private static ArrayList<JSONObject> convertJson(String[] templateFields, String template, JSONObject jsonObject) {
 	// get all template fields for which translation is required
+	
 	ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
 	ArrayList<String> list = new ArrayList<>();
 	Arrays.stream(templateFields).forEach(field -> list.add(field));
@@ -1253,19 +1254,43 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 	for (String language : BaseTestCase.languageList) {
 		JSONObject langjson = new JSONObject(template);
 		for (String fieldToConvert : list) {
+			Boolean isFilterRequired = false;
 			String valueToConvert = null;
 			String translatedValue = null;
 			if(jsonObject.has(fieldToConvert)) {
 				 valueToConvert = jsonObject.getString(fieldToConvert);
 				 translatedValue = valueToConvert;
 			}
+			else if(jsonObject.has("filters") && jsonObject.getJSONArray("filters").length()>=1) {
+				 String filterValueToConvert = jsonObject.getJSONArray("filters").get(0).toString();
+				 JSONObject filtervalue = new JSONObject(filterValueToConvert);
+				 if(filtervalue.has(fieldToConvert)) {
+					 valueToConvert= filtervalue.getString(fieldToConvert);
+					 translatedValue = valueToConvert; 
+					 isFilterRequired = true;
+				 }
+			}
+			
 			//langjson.remove(fieldToConvert);
 			if (!language.equalsIgnoreCase("eng") && valueToConvert!=null) {
 				translatedValue = Translator.translate(language, valueToConvert);
 			}
-			System.out.println("valueToConvert" + valueToConvert + "-----" + translatedValue);
+			if(isFilterRequired) {
+				String filterValueToConvert = jsonObject.getJSONArray("filters").get(0).toString();
+				 JSONObject filtervalue = new JSONObject(filterValueToConvert);
+				 String filtervalue1 = filtervalue.toString().replace(valueToConvert, translatedValue);
+				 JSONObject filteredvalue = new JSONObject(filtervalue1);
+				 JSONArray filtertransvalue = new JSONArray();
+				 filtertransvalue.put(filteredvalue);
+				 //JSONArray a = abc.toJSONArray(new JSONArray(filtervalue1));
+				// JSONArray a = new JSONArray(filtervalue1);
+				 langjson.remove("filters");
+				 langjson.put("filters", filtertransvalue);
+				 
+			}
+			//System.out.println("valueToConvert" + valueToConvert + "-----" + translatedValue);
 			//put that translated value if and only if that field is present in template(input/output)
-			if(!langjson.isNull(fieldToConvert) || translatedValue!=null )
+			else if(!isFilterRequired && !langjson.isNull(fieldToConvert) || translatedValue!=null )
 			langjson.put(fieldToConvert, translatedValue);
 		}
 		if(langjson.has("langCode"))

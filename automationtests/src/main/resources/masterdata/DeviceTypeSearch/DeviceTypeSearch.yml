@@ -121,7 +121,7 @@ DeviceTypeSearch:
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
-        "name": "GST",
+        "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
     ]
@@ -161,7 +161,7 @@ DeviceTypeSearch:
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "eng",
-        "name": "GST",
+        "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
     ]

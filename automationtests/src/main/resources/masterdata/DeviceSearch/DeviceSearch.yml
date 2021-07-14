@@ -37,7 +37,7 @@ DeviceSearch:
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
 }'
@@ -79,7 +79,7 @@ DeviceSearch:
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
 }'
@@ -120,7 +120,7 @@ DeviceSearch:
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
 }'
@@ -162,7 +162,7 @@ DeviceSearch:
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
 }'
@@ -205,7 +205,7 @@ DeviceSearch:
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
 	"langCode": "eng",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
 }'

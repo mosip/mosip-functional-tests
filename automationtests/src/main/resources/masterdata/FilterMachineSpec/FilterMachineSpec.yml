@@ -196,17 +196,17 @@ FilterMachineSpec:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
+        "fieldID": "$IGNORE$",
         "fieldValue": "$IGNORE$",
         "fieldCode": "HP04"
       },
       {
-        "fieldID": "name",
+        "fieldID": "$IGNORE$",
         "fieldValue": "$IGNORE$",
         "fieldCode": "0"
       },
       {
-        "fieldID": "name",
+        "fieldID": "$IGNORE$",
         "fieldValue": "$IGNORE$",
         "fieldCode": "123"
       },

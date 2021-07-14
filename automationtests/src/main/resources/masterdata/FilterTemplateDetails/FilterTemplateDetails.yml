@@ -19,7 +19,7 @@ FilterTemplateDetails:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Template for authorization Content"
+        "fieldValue": "Template for authorization content"
       },
       {
         "fieldID": "name",
@@ -51,7 +51,7 @@ FilterTemplateDetails:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Template for authorization Content"
+        "fieldValue": "Template for authorization content"
       },
       {
         "fieldID": "name",
@@ -74,7 +74,7 @@ FilterTemplateDetails:
 	"filters": [{
 		"columnName": "name",
 		"type": "ghji",
-		"text": "التخويل"
+		"text": "authorization"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

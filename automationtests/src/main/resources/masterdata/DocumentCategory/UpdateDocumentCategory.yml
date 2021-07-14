@@ -199,28 +199,3 @@ UpdateDocumentCategory:
     }
   ]
 }'
-   
-   
-   MasterData_UpdateDocumentCategory_InputParameter_isActive_Missing:
-      endPoint: /v1/masterdata/documentcategories
-      role: admin
-      templateFields: ["name","description"]
-      restMethod: put
-      inputTemplate: masterdata/DocumentCategory/documentCategory
-      outputTemplate: masterdata/error
-      input: '{
-     "code": "DocTestCode123",
-    "description": "Testing positive Doc",
-    "isActive": "$REMOVE$",
-    "langCode": "eng",
-    "name": "DocCat",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "request.isActive: must not be null"
-    }
-  ]
-}'
