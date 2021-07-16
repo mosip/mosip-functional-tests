@@ -1,0 +1,33 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "documentcategories": [
+	{{#each documentcategories}}
+	{
+        "code": "{{code}}",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": "$IGNORE$",
+        "documenttypes": [
+	{{#each documenttypes}}
+	{
+            "code": "$IGNORE$",
+            "name": "$IGNORE$",
+            "description": "$IGNORE$",
+            "langCode": "$IGNORE$",
+            "isActive": "$IGNORE$"
+          }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+	]
+      }
+{{#unless @last}},{{/unless}}
+      	{{/each}}
+	]
+      },
+  "errors": "$IGNORE$"
+}
