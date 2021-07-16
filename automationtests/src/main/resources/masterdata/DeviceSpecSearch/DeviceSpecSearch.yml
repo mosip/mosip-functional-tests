@@ -452,7 +452,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
+      "errorCode": "KER-MSD-317",
       "message": "$IGNORE$"
     }
   ]

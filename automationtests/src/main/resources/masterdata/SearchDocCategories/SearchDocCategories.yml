@@ -36,51 +36,6 @@ SearchDocCategories:
       output: '{
    "data": []
 }'
-   MasterData_SearchDocCategories_Valid_languageCode_ara_:
-      endPoint: /v1/masterdata/documentcategories/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchDocCategories/searchDocCategories
-      outputTemplate: masterdata/SearchDocCategories/searchDocCategoriesResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "isActive",
-        "type": "equals",
-        "value": "true",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      },
-      {
-        "columnName": "code",
-        "type": "equals",
-        "value": "DocTestCode123",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "isActive",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "ara",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "data": [
-     {
-        "isActive": true,
-        "description": "$IGNORE$",
-        "code": "DocTestCode123",
-        "langCode": "ara",
-        "name": "DocCat"
-      }
-    ]
-}'
    MasterData_SearchDocCategories_Valid_sortBy_code:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
@@ -111,7 +66,7 @@ SearchDocCategories:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
         "code": "DocTestCode123",
         "langCode": "eng",
@@ -149,7 +104,7 @@ SearchDocCategories:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
         "code": "DocTestCode123",
         "langCode": "eng",

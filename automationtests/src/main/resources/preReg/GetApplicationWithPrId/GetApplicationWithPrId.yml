@@ -9,7 +9,8 @@ GetApplicationWithPrId:
   "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$"
 }'
       output: '{
-  "langCode": "eng"
+  "langCode": "eng",
+  "statusCode": "Application_Incomplete",
 }'
    Prereg_GetApplicationWithPrId_inValid_preRegistrationId:
       endPoint: /preregistration/v1/applications/{preRegistrationId}

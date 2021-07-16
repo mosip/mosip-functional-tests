@@ -1,0 +1,33 @@
+SendOtp:
+   Prereg_SendOtp_All_Valid_Smoke_Phone_sid:
+      endPoint: /preregistration/v1/login/sendOtp/langcode
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendOtp/sendotp
+      outputTemplate: preReg/SendOtp/sendotpResult
+      input: '{
+  "version": "1.0",
+  "requesttime": "$TIMESTAMP$",
+  "userId": "8249742850",
+  "id": "mosip.pre-registration.login.sendotp"
+}'
+      output: '{
+  "message": "Sms Request Sent",
+  "status": "success"
+}'
+   Prereg_SendOtp_All_Valid_Smoke_email_sid:
+      endPoint: /preregistration/v1/login/sendOtp/langcode
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendOtp/sendotp
+      outputTemplate: preReg/SendOtp/sendotpResult
+      input: '{
+  "version": "1.0",
+  "requesttime": "$TIMESTAMP$",
+  "userId": "sohan.dey@technoforte.co.in",
+  "id": "mosip.pre-registration.login.sendotp"
+}'
+      output: '{
+  "message": "Email Request submitted",
+  "status": "success"
+}'
