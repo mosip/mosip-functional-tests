@@ -1,7 +1,6 @@
 DeleteLocation:
    MasterData_DeleteLocation_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/locations/{locationcode}
-
       role: admin
       restMethod: delete
       inputTemplate: masterdata/DeleteLocation/deleteLocation
