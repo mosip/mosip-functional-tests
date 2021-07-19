@@ -29,13 +29,7 @@
 		</classes>
 	</test>  --> 
 	
-	<test name="SendOTP">
-		<parameter name="ymlFile"
-			value="resident/SendOTP/SendOTP.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
+	
 	
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
@@ -44,6 +38,15 @@
 		<class name="io.mosip.testscripts.AddIdentity" />
 	</classes>
 </test>
+
+<test name="SendOTP">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/SendOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
