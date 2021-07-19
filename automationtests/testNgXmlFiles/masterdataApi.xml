@@ -833,4 +833,47 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
+	
+	 <test name="FetchAllUserDetails">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllUserDetails/FetchAllUserDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="DeleteUserDetails">
+		<parameter name="ymlFile" 
+			value="masterdata/DeleteUserDetails/DeleteUserDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="FetchValidDocuments">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchValidDocuments/FetchValidDocuments.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchAllValidDocuments">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllValidDocuments/FetchAllValidDocuments.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="DeleteValidDocument">
+		<parameter name="ymlFile" 
+			value="masterdata/DeleteValidDocument/DeleteValidDocument.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchWorkingDays">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchWorkingDays/FetchWorkingDays.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 </suite>

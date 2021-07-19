@@ -1,0 +1,33 @@
+DeleteValidDocument:
+   MasterData_DeleteValidDocument_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{doctypecode}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteValidDocument/deleteValidDocument
+      outputTemplate: masterdata/DeleteValidDocument/deleteValidDocumentResult
+      input: '{
+    "doccategorycode": "POE",
+    "doctypecode": "EOP"
+  }'
+      output: '{
+    "docCategoryCode": "POE",
+    "docTypeCode": "$IGNORE$"
+}'
+   MasterData_DeleteValidDocument_Invalid_ID: 
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{doctypecode}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteValidDocument/deleteValidDocument
+      outputTemplate: masterdata/error
+      input: '{
+    "doccategorycode": "POE",
+    "doctypecode": "EOP"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-016",
+      "message": "Valid document not found"
+    }
+  ]
+}'

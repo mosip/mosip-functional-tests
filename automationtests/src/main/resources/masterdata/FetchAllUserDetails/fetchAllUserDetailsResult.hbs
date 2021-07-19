@@ -1,0 +1,25 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "mosipUserDtoList": [
+	{{#each mosipUserDtoList}}
+      {
+        "userId": "$IGNORE$",
+        "mobile": "$IGNORE$",
+        "mail": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "userPassword": "$IGNORE$",
+        "name": "$IGNORE$ ",
+        "role": "$IGNORE$",
+        "token": "$IGNORE$",
+        "rid": "$IGNORE$"
+      }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}
