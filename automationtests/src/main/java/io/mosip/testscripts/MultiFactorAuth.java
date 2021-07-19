@@ -145,6 +145,10 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
 				
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
@@ -158,8 +162,11 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc"))
-		encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
+		/*
+		 * if(testCaseName.toLowerCase().contains("kyc"))
+		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
+		 * testCaseDTO.getEndPoint());
+		 */
 		
 		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
 			//throw new AdminTestException("Failed at Signature validation");

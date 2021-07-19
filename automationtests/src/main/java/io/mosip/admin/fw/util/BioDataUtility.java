@@ -1,5 +1,8 @@
 package io.mosip.admin.fw.util;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -92,12 +95,15 @@ public class BioDataUtility extends AdminTestUtil {
 					AdminTestUtil.generateCurrentUTCTimeStamp(), biometricsMapper + ".data.timestamp");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
 					biometricsMapper + ".data.domainUri");
-			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
-					biometricsMapper + ".data.env");
+			/*
+			 * identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
+			 * BaseTestCase.ApplnURI, biometricsMapper + ".data.env");
+			 */
 
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
 			String bioValue = JsonPrecondtion.getValueFromJson(data, "bioValue");
 
+			//storeValue(bioValue);
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
 			String transactionId = JsonPrecondtion.getValueFromJson(data, "transactionId");
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
@@ -118,7 +124,7 @@ public class BioDataUtility extends AdminTestUtil {
 						EncryptionDecrptionUtil.internalThumbPrint, biometricsMapper + ".thumbprint");
 			}
 
-			// String signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
+			//String signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
 			if (testcaseName.toLowerCase().contains("without".toLowerCase())
 					&& testcaseName.toLowerCase().contains("signature".toLowerCase())
 					&& testcaseName.toLowerCase().contains("_neg".toLowerCase()))
@@ -127,8 +133,11 @@ public class BioDataUtility extends AdminTestUtil {
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
+			//System.out.println(identityRequest);
 			//instead of BioData, bioValue (before encrytion in case of Capture response) is used for computing the hash.
-	        byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
+	        //byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
+	        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
+	       
 	        // Here Byte Array
 	        byte[] currentBioDataHash = generateHash (currentDataByteArr);
 	        byte[] finalBioDataHash = new byte[currentBioDataHash.length + previousBioDataHash.length];
@@ -187,5 +196,11 @@ public class BioDataUtility extends AdminTestUtil {
     public static String toHex(byte[] bytes) {
         return Hex.encodeHexString(bytes).toUpperCase();
     }
+    
+	/*
+	 * private static void storeValue(String biovalue) { try { BufferedWriter out =
+	 * new BufferedWriter(new FileWriter("BioValue.txt")); out.write(biovalue);
+	 * out.close(); } catch (IOException e) { System.out.println("Exception "); } }
+	 */
 
 }
