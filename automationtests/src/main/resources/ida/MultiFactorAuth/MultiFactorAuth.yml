@@ -19,7 +19,7 @@ MultiFactorAuth:
 	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
 	"individualIdType": "UIN",
 	"sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839,
+	"sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
 	},
 		"identityRequest":{
           "bioSubType": "UNKNOWN",
