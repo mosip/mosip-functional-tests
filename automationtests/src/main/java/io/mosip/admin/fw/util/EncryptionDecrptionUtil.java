@@ -50,7 +50,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	static {
 		if(EncryptUtilBaseUrl==null)
 			EncryptUtilBaseUrl = getEncryptUtilBaseUrl();
-		//getThumbprints();
+		getThumbprints();
 	}
 	public static void getThumbprints() {
 		String appId = props.getProperty("appIdForCertificate");

@@ -1,24 +1,31 @@
 {
-    "id": "mosip.id.create",
-    "request": {
-        "registrationId": "{{registrationId}}",
-        "identity": {
-            "residenceStatus": [
-                {
-                    "language": "eng",
-                    "value": "FR"
-                }
-            ],
-            "IDSchemaVersion": 0.1,
-            "UIN": "{{UIN}}",
-            "fullName": [
-                {
-                    "language": "{{language}}",
-                    "value": "TestQA"
-                }
-            ],
-            "dateOfBirth": "{{dateOfBirth}}",
-            "gender": [
+  "id": "mosip.id.create",
+  "request": {
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "23452353",
+    "identity": {
+      "residenceStatus": [
+        {
+          "language": "eng",
+          "value": "FR"       }
+      ],
+      "IDSchemaVersion": 0.3,
+      "UIN": "{{UIN}}",
+      "fullName": [      {
+          "language": "{{language}}",
+          "value": "TestQA"
+        },
+        {
+          "language": "ara",
+          "value": "TestQA"
+        },
+        {
+          "language": "fra",
+          "value": "TestQA"
+        }
+      ],
+      "dateOfBirth": "{{dateOfBirth}}",
+      "gender": [
                 {
                     "language": "eng",
                     "value": "Male"
@@ -29,109 +36,134 @@
                 }
             ],
             "addressLine1": [
-                {
-                    "language": "eng",
-                    "value": "exemple d'adresse ligne 1"
-                }
-            ],
-            "addressLine2": [
-                {
-                    "language": "eng",
-                    "value": "exemple d'adresse ligne 2"
-                }
-            ],
-            "addressLine3": [
-                {
-                    "language": "eng",
-                    "value": "exemple d'adresse ligne 2"
-                }
-            ],
-            "region": [
-                {
-                    "language": "eng",
-                    "value": "RSK"
-                }
-            ],
-            "province": [
-                {
-                    "language": "eng",
-                    "value": "Kenitra"
-                }
-            ],
-            "city": [
-                {
-                    "language": "eng",
-                    "value": "Kenitra"
-                }
-            ],
-            "postalCode": "14022",
-            "phone": "{{phone}}",
-            "email": "{{email}}",
-            "referenceIdentityNumber": "6789545678878",
-            "zone": [
-                {
-                    "language": "eng",
-                    "value": "QRHS"
-                }
-            ],
-            "parentOrGuardianRID": "212124324784879",
-            "parentOrGuardianUIN": "212124324784879",
-            "parentOrGuardianName": [
-                {
-                    "language": "ara",
-                    "value": "سلمى"
-                },
-                {
-                    "language": "eng",
-                    "value": "salma"
-                }
-            ],
-            "proofOfAddress": {
-                "format": "pdf",
-                "type": "RNC",
-                "value": "fileReferenceID"
-            },
-            "proofOfIdentity": {
-                "format": "txt",
-                "type": "DOC001",
-                "value": "fileReferenceID"
-            },
-            "proofOfRelationship": {
-                "format": "pdf",
-                "type": "DOC001",
-                "value": "fileReferenceID"
-            },
-            "proofOfDateOfBirth": {
-                "format": "pdf",
-                "type": "passport",
-                "value": "fileReferenceID"
-            },
-            "individualBiometrics": {
-                "format": "cbeff",
-                "version": 1,
-                "value": "fileReferenceID"
-            },
-            "parentOrGuardianBiometrics": {
-                "format": "cbeff",
-                "version": 1.1,
-                "value": "fileReferenceID"
-            }
+        {
+          "language": "eng",
+          "value": "exemple d'adresse ligne 1"
         },
-        "documents": [
-            {
-                "category": "individualBiometrics",
-                "value": "{{value}}"
-            },
-            {
-                "category": "proofOfRelationship",
-                "value": "dGVzdA"
-            },
-            {
-                "category": "proofOfDateOfBirth",
-                "value": "dGVzdA"
-            }
-        ]
+        {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 1"
+        },
+        {
+         "language": "fra",
+         "value": "exemple d'adresse ligne 1"
+        }
+
+      ],
+      "addressLine2": [
+        {
+          "language": "eng",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "eng",
+          "value": "exemple d'adresse ligne 2"
+        },
+         {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "region": [
+        {
+          "language": "eng",
+          "value": "RSK"
+        }
+      ],
+      "province": [
+        {
+          "language": "eng",
+          "value": "Kenitra"
+        }
+      ],
+      "city": [
+        {
+          "language": "eng",
+          "value": "Kenitra"
+        }
+      ],
+      "postalCode": "14022",
+      "email": "{{email}}",
+	  "phone": "{{phone}}",
+      "referenceIdentityNumber": "6789545678878",
+      "zone": [
+        {
+          "language": "eng",
+          "value": "QRHS"
+        }
+      ],
+      "introducerRID": "212124324784879",
+      "introducerUIN": "212124324784879",
+      "introducerName": [
+        {
+          "language": "ara",
+          "value": "سلمى"
+        },
+        {
+          "language": "eng",
+          "value": "salma"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "pdf",
+        "type": "RNC",
+        "value": "fileReferenceID"
+      },
+      "proofOfIdentity": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "introducerBiometrics": {
+        "format": "cbeff",
+        "version": 1.1,
+        "value": "fileReferenceID"
+      }
     },
-    "requesttime": "2020-08-10T10:42:07.825Z",
-    "version": "{{version}}"
+    "documents": [
+      {
+        "value": "{{value}}",
+        "category": "individualBiometrics"
+      },
+      {
+        "category": "proofOfRelationship",
+        "value": "dGVzdA"
+      },
+      {
+        "category": "proofOfDateOfBirth",
+        "value": "dGVzdA"
+      }
+    ]
+  },
+  "requesttime": "2019-01-28T13:07:13.152Z",
+  "version": "{{version}}"
 }
