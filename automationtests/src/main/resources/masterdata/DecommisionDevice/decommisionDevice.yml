@@ -6,10 +6,10 @@ DecommisionDevice:
       inputTemplate: masterdata/DecommisionDevice/decommisionDevice
       outputTemplate: masterdata/DecommisionDevice/decommisionDeviceResult
       input: '{
-    "deviceId": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$"
+    "deviceId": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$"
 	}'
       output: '{
-    "deviceId": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$"
+    "id": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$"
 }'
    MasterData_DecommisionDevice_Invalid_ID: 
       endPoint: /v1/masterdata/devices/decommission/{deviceId}
@@ -18,7 +18,7 @@ DecommisionDevice:
       inputTemplate: masterdata/DecommisionDevice/decommisionDevice
       outputTemplate: masterdata/error
       input: '{
-      "deviceId": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$"
+      "deviceId": "shshdhhdh343GGhddnh"
 	}'
       output: '{
    "errors": [

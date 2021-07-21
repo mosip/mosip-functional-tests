@@ -575,8 +575,8 @@ SearchMachineSpec:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+      "errorCode": "$IGNORE$",
+      "message": "$IGNORE$"
     }
   ]
 }'

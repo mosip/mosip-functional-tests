@@ -19,7 +19,7 @@ FilterDocumentType:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "TestDocType0010 Card"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -43,7 +43,7 @@ FilterDocumentType:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "TestDocType0010 Card"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

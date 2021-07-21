@@ -31,8 +31,7 @@ UpdateDevice:
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
 }'
-   
-   MasterData_UpdateDevice_Second_All_Valid_Smoke_sid:
+   MasterData_UpdateDevice_Valid_Smoke_decommison_sid:
       endPoint: /v1/masterdata/devices
       role: admin
       templateFields: ["name"]
@@ -40,32 +39,30 @@ UpdateDevice:
       inputTemplate: masterdata/Device/createDevice
       outputTemplate: masterdata/Device/createDeviceResult
       input: '{
-     "id": "$ID:CreateDevice_Second_All_Valid_Smoke_sid_id$",
+     "id": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$",
     "name": "testDevicedummy updated",
-  "deviceSpecId": "736",
-  "ipAddress": "172.23.174.114",
-  "isActive": true,
-  "langCode": "eng",
-  "macAddress": "D4-3D-7E-C0-8C-5A",
-  "zoneCode": "CST",
-  "validityDateTime": "$TIMESTAMP$",
-  "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c9",
-  "requesttime": "$TIMESTAMP$"
-  }'
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
       output: '{
     "name": "$IGNORE$",
-  "deviceSpecId": "736",
-  "ipAddress": "172.23.174.114",
-  "isActive": $IGNORE$,
-  "langCode": "eng",
-  "macAddress": "D4-3D-7E-C0-8C-5A",
-  "zoneCode": "CST",
-  "validityDateTime": "$TIMESTAMP$",
-  "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c9",
-  "requesttime": "$TIMESTAMP$"
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": $IGNORE$,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "CST",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
 }'
-   
-   
    MasterData_UpdateDevice_Invalid_InputParameterInvalid_Format:
       endPoint: /v1/masterdata/devices
       role: admin
@@ -122,7 +119,6 @@ UpdateDevice:
     }
   ]
 }'
-   
    MasterData_UpdateDevice_Invalid_Machine_Name_Blank:
       endPoint: /v1/masterdata/devices
       role: admin

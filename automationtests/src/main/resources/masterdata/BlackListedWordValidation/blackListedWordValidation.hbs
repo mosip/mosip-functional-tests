@@ -2,8 +2,8 @@
   "id": "string",
   "metadata": {},
   "request": {
-    "blacklistedwords": [
-      {{#each blacklistedwords}}
+    "blocklistedwords": [
+      {{#each blocklistedwords}}
             "{{word}}"
           {{#unless @last}},{{/unless}}
       	{{/each}}

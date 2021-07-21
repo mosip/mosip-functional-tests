@@ -6,7 +6,7 @@ FetchMissingLocation:
       inputTemplate: masterdata/FetchMissingLocation/fetchMissingLocation
       outputTemplate: masterdata/FetchMissingLocation/fetchMissingLocationResult
       input: '{
-  "langcode": "ara"
+  "langcode": "eng"
 }'
       output: '{
   "response": "$IGNORE$"

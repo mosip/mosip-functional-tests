@@ -10,7 +10,7 @@ DeviceSearch:
     "filters": [
       {
         "columnName": "name",
-        "type": "equals",
+        "type": "startswith",
         "value": "testDevicedummy",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
@@ -30,13 +30,13 @@ DeviceSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "testDevicedummy",
+	"name": "$IGNORE$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"description": "$IGNORE$",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -78,7 +78,7 @@ DeviceSearch:
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -119,7 +119,7 @@ DeviceSearch:
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -155,13 +155,13 @@ DeviceSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "testDevicedummy",
+	"name": "$IGNORE$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"description": "$IGNORE$",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -204,7 +204,7 @@ DeviceSearch:
 	"macAddress": "D4-3D-7E-C0-8C-4A",
 	"ipAddress": "172.23.174.113",
 	"deviceSpecId": "736",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
