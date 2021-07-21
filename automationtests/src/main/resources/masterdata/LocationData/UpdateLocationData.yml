@@ -17,7 +17,7 @@ UpdateLocationData:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": $IGNORE$,
+"isActive": "$IGNORE$",
 "code": "TST",
 "name": "Test_Loc_A_2 updated",
 "hierarchyLevel":"3",
@@ -25,7 +25,6 @@ UpdateLocationData:
 "parentLocCode": "KNT",
 "langCode": "eng"
 }'
-   
    MasterData_UpdateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
@@ -44,7 +43,7 @@ UpdateLocationData:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": $IGNORE$,
+"isActive": "$IGNORE$",
 "code": "IND",
 "name": "INDIA updated",
 "hierarchyLevel":"0",

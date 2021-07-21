@@ -6,10 +6,9 @@ FetchAllHoliday:
       inputTemplate: masterdata/FetchAllHoliday/fetchAllHoliday
       outputTemplate: masterdata/FetchAllHoliday/fetchAllHolidayResult
       input: '{
-  
 }'
       output: '{
 "data": [{
-       
+        "isDeleted": $IGNORE$
       }]
 }'

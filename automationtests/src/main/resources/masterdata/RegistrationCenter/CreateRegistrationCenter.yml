@@ -66,9 +66,9 @@ CreateRegistrationCenter:
 		"lunchStartTime": "13:00:00",
 		"lunchEndTime": "14:00:00",
 		"zoneCode": "STT",
-		"isActive": true,
+		"isActive": "$IGNORE$",
 		"workingNonWorkingDays": {
-			"fri": true,
+			"fri": "$IGNORE$",
 			"mon": true,
 			"sat": true,
 			"sun": false,

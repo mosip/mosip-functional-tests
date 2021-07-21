@@ -34,7 +34,7 @@ SearchDocumentType:
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
-        "name": "TestDocType0010 Card"
+        "name": "$IGNORE$"
       }
     ]
 }'  
@@ -73,7 +73,7 @@ SearchDocumentType:
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
-        "name": "TestDocType0010 Card"
+        "name": "$IGNORE$"
       }
     ]
 }'
@@ -112,7 +112,7 @@ SearchDocumentType:
         "description": "$IGNORE$",
         "code": "TestDocType0010",
         "langCode": "eng",
-        "name": "TestDocType0010 Card"
+        "name": "$IGNORE$"
       }
     ]
 }'

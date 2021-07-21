@@ -7,12 +7,12 @@ DecommisionMachine:
       inputTemplate: masterdata/DecommisionMachine/decommisionMachine
       outputTemplate: masterdata/DecommisionMachine/decommisionMachineResult
       input: '{
-    "id": "$ID:CreateMachine_All_Valid_smoke_ara_sid_id$"
+    "id": "$ID:CreateMachine_Valid_Smoke_decommision_sid_id$"
 	}'
       output: '{
     "id": "$IGNORE$"
 }'
-   MasterData_DeleteMachine_Invalid_ID: 
+   MasterData_DecommisionMachine_Invalid_ID: 
       endPoint: /v1/masterdata/machines/decommission/{id}
       role: admin
       templateFields: []

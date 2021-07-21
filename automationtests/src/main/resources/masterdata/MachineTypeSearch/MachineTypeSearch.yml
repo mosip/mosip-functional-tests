@@ -39,46 +39,6 @@ MachineTypeSearch:
       }
     ]
 }'
-   Masterdata_MachineTypeSearch_searchBy_langCode:
-      endPoint: /v1/masterdata/machinetypes/search
-      role: admin
-      templateFields: ["value"]
-      restMethod: post
-      inputTemplate: masterdata/MachineTypeSearch/machineTypeSearch
-      outputTemplate: masterdata/MachineTypeSearch/machineTypeSearchResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "eng",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "data": [
-     {
-        "isActive": true,
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "eng",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$"
-      }
-    ]
-}'
    Masterdata_MachineTypeSearch_withoutfilterValue_eng:
       endPoint: /v1/masterdata/machinetypes/search
       role: admin

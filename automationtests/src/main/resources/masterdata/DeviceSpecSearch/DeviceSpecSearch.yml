@@ -36,7 +36,7 @@ DeviceSpecSearch:
 	"deviceTypeCode": "CMR",
 	"minDriverversion": "1.0",
 	"description": "$IGNORE$",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
@@ -78,7 +78,7 @@ DeviceSpecSearch:
 	"deviceTypeCode": "$IGNORE$",
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
@@ -120,7 +120,7 @@ DeviceSpecSearch:
 	"deviceTypeCode": "$IGNORE$",
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
@@ -162,7 +162,7 @@ DeviceSpecSearch:
 	"deviceTypeCode": "$IGNORE$",
 	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
-	"langCode": "eng",
+	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"deviceTypeName": "Camera"
 	}]

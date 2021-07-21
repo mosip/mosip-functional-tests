@@ -11,9 +11,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
 "id":"mosip.pre-registration.document.upload",
@@ -34,9 +34,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
 "id":"mosip.pre-registration.document.upload",
@@ -57,9 +57,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
 "id":"mosip.pre-registration.document.upload",
@@ -80,9 +80,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
 "id":"mosip.pre-registration.document.upload",
@@ -103,9 +103,9 @@ UploadDocument:
     "docTypCode" : "address",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -127,9 +127,9 @@ UploadDocument:
     "docTypCode" : "",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -151,9 +151,9 @@ UploadDocument:
     "docTypCode" : "$REMOVE$",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -175,9 +175,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -199,9 +199,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -223,9 +223,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -247,9 +247,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fdjdikdjda",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -271,9 +271,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "$REMOVE$",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -295,9 +295,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -319,9 +319,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -343,9 +343,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -367,9 +367,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$TIMESTAMP$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -391,9 +391,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "2018-04-01T07:22:57.086Z",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -415,9 +415,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "2018-0snsuuhnsju01T07:22:57.086Z",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [
@@ -439,9 +439,9 @@ UploadDocument:
     "docTypCode" : "RNC",
     "langCode" : "fra",
     "requesttime" : "$REMOVE$",
-	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-	"filePath": "preReg/uploadDocument/doc_POA.pdf",
-	"fileKeyName": "file"
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POA.pdf",
+    "fileKeyName": "file"
 }'
       output: '{
    "errors": [

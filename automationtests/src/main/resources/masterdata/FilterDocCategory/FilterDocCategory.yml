@@ -15,35 +15,7 @@ FilterDocCategory:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "code",
-        "fieldValue": "DocTestCode01"
-      }
-    ]
-  }'
-   MasterData_FilterDocCategory_Valid_lang_ara_column_code_unique:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
-      outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "unique",
-		"text": "DocTestCode01"
-	}],
-	"languageCode": "ara",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "code",
-        "fieldValue": "DocTestCode01"
-      }
-    ]
+    "filters": []
   }'
    MasterData_FilterDocCategory_Valid_column_code_filterType_all:
       endPoint: /v1/masterdata/documentcategories/filtervalues
@@ -61,12 +33,7 @@ FilterDocCategory:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "code",
-        "fieldValue": "DocTestCode01"
-      }
-    ]
+    "filters": []
   }'
    MasterData_FilterDocCatTypMapping_inValid_filterType_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
