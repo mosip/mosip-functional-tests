@@ -501,7 +501,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -539,7 +539,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -577,7 +577,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -615,7 +615,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -653,7 +653,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -691,7 +691,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -729,7 +729,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -767,7 +767,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -805,7 +805,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -843,7 +843,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -881,7 +881,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -919,7 +919,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
@@ -957,7 +957,7 @@ EkycBio:
       outputTemplate: ida/EkycBio/ekycBioResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_VID$",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
         "transactionId": "1234567890",
         "individualIdType": "VID",
         "bio": true,
