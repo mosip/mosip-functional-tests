@@ -2,17 +2,26 @@
   "id": "mosip.id.create",
   "request": {
      "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "23452353",
     "identity": {
       "residenceStatus": [
         {
           "language": "eng",
           "value": "FR"       }
       ],
-      "IDSchemaVersion": 0.1,
+      "IDSchemaVersion": 0.3,
       "UIN": "{{UIN}}",
       "fullName": [      {
           "language": "eng",
-          "value": "TestQA8"
+          "value": "TestQA"
+        },
+        {
+          "language": "ara",
+          "value": "TestQA"
+        },
+        {
+          "language": "fra",
+          "value": "TestQA"
         }
       ],
       "dateOfBirth": "{{dateOfBirth}}",
@@ -30,17 +39,42 @@
         {
           "language": "eng",
           "value": "exemple d'adresse ligne 1"
+        },
+        {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 1"
+        },
+        {
+         "language": "fra",
+         "value": "exemple d'adresse ligne 1"
         }
+
       ],
       "addressLine2": [
         {
           "language": "eng",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "fra",
           "value": "exemple d'adresse ligne 2"
         }
       ],
       "addressLine3": [
         {
           "language": "eng",
+          "value": "exemple d'adresse ligne 2"
+        },
+         {
+          "language": "ara",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "fra",
           "value": "exemple d'adresse ligne 2"
         }
       ],
@@ -63,8 +97,8 @@
         }
       ],
       "postalCode": "14022",
-      "phone": "8249742850",
       "email": "{{email}}",
+	  "phone": "8249742850",
       "referenceIdentityNumber": "6789545678878",
       "zone": [
         {
@@ -72,9 +106,9 @@
           "value": "QRHS"
         }
       ],
-      "parentOrGuardianRID": "212124324784879",
-      "parentOrGuardianUIN": "212124324784879",
-      "parentOrGuardianName": [
+      "introducerRID": "212124324784879",
+      "introducerUIN": "212124324784879",
+      "introducerName": [
         {
           "language": "ara",
           "value": "سلمى"
@@ -109,7 +143,7 @@
         "version": 1,
         "value": "fileReferenceID"
       },
-      "parentOrGuardianBiometrics": {
+      "introducerBiometrics": {
         "format": "cbeff",
         "version": 1.1,
         "value": "fileReferenceID"

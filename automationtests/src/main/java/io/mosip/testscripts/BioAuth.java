@@ -1,8 +1,14 @@
 package io.mosip.testscripts;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -99,11 +105,17 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		}
 		
 		Map<String, String> bioAuthTempMap = (isInternal)? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq) : encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
+		//storeValue(bioAuthTempMap);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
+		//storeValue(authRequest,"authRequest");
 				
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
 		
@@ -116,13 +128,14 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc")) {
-			String error = null;
-			if(response.getBody().asString().contains("errors"))
-				error = JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
-			if(error.equalsIgnoreCase("null"))
-			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
-		}
+		/*
+		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
+		 * if(response.getBody().asString().contains("errors")) error =
+		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
+		 * if(error.equalsIgnoreCase("null"))
+		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
+		 * testCaseDTO.getEndPoint()); }
+		 */
 		
 		
 		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
@@ -155,4 +168,14 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		logger.info("Terminating authpartner demo application...");
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
+	
+	/*
+	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
+	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry
+	 * : bioAuthTempMap.entrySet()) { properties.put(entry.getKey(),
+	 * entry.getValue()); } try { properties.store(new
+	 * FileOutputStream("data.properties"), null); } catch (FileNotFoundException e)
+	 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
+	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
+	 */
 }

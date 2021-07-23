@@ -143,40 +143,6 @@ FilterMachineSpec:
       }
     ]
   }'
-   Masterdata_FilterMachineSpec_Valid_col_nameAndisActive_filterType_unique:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
-      role: admin
-      templateFields: ["text"]
-      restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "all",
-		"text": "Vostro"
-	},
-	{
-		"columnName": "isActive",
-		"type": "all",
-		"text": "true"
-	}
-	],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Vostro"
-      },
-      {
-        "fieldID": "isActive",
-        "fieldValue": "true"
-      }
-    ]
-  }' 
    Masterdata_FilterMachineSpec_Valid_filterText_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin

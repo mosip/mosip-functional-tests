@@ -1,6 +1,6 @@
 CreateBlackListedWords:
    Admin_CreateBlackListedWords_All_Valid_Smoke:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description","word"]
       restMethod: post
@@ -18,7 +18,7 @@ CreateBlackListedWords:
 	"langCode": "eng"
 }'
    Admin_CreateBlackListedWords_Invalid_BlacklistedWordsLength129:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: post
@@ -40,7 +40,7 @@ CreateBlackListedWords:
   ]
 }'
    Admin_CreateBlackListedWords_Invalid_DescriptionLength257:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["word"]
       restMethod: post
@@ -62,7 +62,7 @@ CreateBlackListedWords:
   ]
 }'
    Admin_CreateBlackListedWords_Invalid_EmptyWord:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: post

@@ -1,6 +1,6 @@
 FetchAllBlackListedWord:
    Kernel_FetchAllBlackListedWord_valid_smoke:
-      endPoint: /v1/masterdata/blacklistedwords/all
+      endPoint: /v1/masterdata/blocklistedwords/all
       role: admin
       templateFields: []
       restMethod: get

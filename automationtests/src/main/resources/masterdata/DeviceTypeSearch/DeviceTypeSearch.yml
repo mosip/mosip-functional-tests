@@ -11,7 +11,7 @@ DeviceTypeSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "GST",
+        "value": "GST4",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -32,10 +32,10 @@ DeviceTypeSearch:
      {
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
-        "code": "GST3",
+        "code": "GST4",
         "langCode": "eng",
-        "name": "GST",
-        "description": "test 1.0.8"
+        "name": "$IGNORE$",
+        "description": "$IGNORE$"
       }
     ]
 }'

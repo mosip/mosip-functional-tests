@@ -1,6 +1,6 @@
 UpdateBlackListedWords:
    Admin_UpdateBlackListedWords_All_Valid_Smoke:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description","word","oldWord"]
       restMethod: put
@@ -8,7 +8,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/BlackListedWords/blackListedWordsResult
       input: '{
     "description": "wrong word updated",
-	"isActive": true,
+	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "dumbo6",	
 	"word": "dumbo7",
@@ -19,7 +19,7 @@ UpdateBlackListedWords:
 	"langCode": "eng"
 }'
    Admin_UpdateBlackListedWords_Valid_WordLength128:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put
@@ -27,7 +27,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/error
       input: '{
     "description": "dummy data updated",
-	"isActive": true,
+	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "defdefghijklmnopqrstuvddwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",	
 	"word": "defdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx upd",
@@ -42,7 +42,7 @@ UpdateBlackListedWords:
   ]
 }'
    Admin_UpdateBlackListedWords_Invalid_BlacklistedWordsLength129:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put
@@ -50,7 +50,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/error
       input: '{
     "description": "dummy data",
-	"isActive": true,
+	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "dumb",	
 	"word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
@@ -65,7 +65,7 @@ UpdateBlackListedWords:
   ]
 }'
    Admin_UpdateBlackListedWords_inValid_descriptionBlank:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["word"]
       restMethod: put
@@ -73,7 +73,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/error
       input: '{
     "description": "",
-	"isActive": true,
+	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "bull word",	
 	"word": "bull word upd",
@@ -84,7 +84,7 @@ UpdateBlackListedWords:
 	"langCode": "eng"
 }'
    Admin_UpdateBlackListedWords_Invalid_DescriptionLength257:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["word"]
       restMethod: put
@@ -92,7 +92,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/error
       input: '{
     "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
-	"isActive": true,
+	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "bull word",	
 	"word": "bull word",
@@ -107,7 +107,7 @@ UpdateBlackListedWords:
   ]
 }'
    Admin_UpdateBlackListedWords_Invalid_EmptyWord:
-      endPoint: /v1/masterdata/blacklistedwords
+      endPoint: /v1/masterdata/blocklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put
@@ -115,7 +115,7 @@ UpdateBlackListedWords:
       outputTemplate: masterdata/error
       input: '{
     "description": "bad words",
-	"isActive": true,
+	"isActive": "true",
 	"oldWord": "bull word",	
 	"langCode": "eng",
 	"word": "",

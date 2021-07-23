@@ -1,6 +1,6 @@
 SearchBlackListedWords:
    Admin_SearchBlackListedWords_Valid_Request_Smoke:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -38,7 +38,7 @@ SearchBlackListedWords:
     ]
 }'
    Admin_SearchBlackListedWords_Valid_FilterTypeContains:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -76,7 +76,7 @@ SearchBlackListedWords:
     ]
 }'
    Admin_SearchBlackListedWords_Valid_FilterTypeStartsWith:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -114,7 +114,7 @@ SearchBlackListedWords:
     ]
 }'
    Admin_SearchBlackListedWords_Invalid_ColumnName:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -150,7 +150,7 @@ SearchBlackListedWords:
   ]
 }'
    Admin_SearchBlackListedWords_Valid_SortFieldDESC:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -188,7 +188,7 @@ SearchBlackListedWords:
     ]
 }'
    Admin_SearchBlackListedWords_Invalid_SortField:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -224,7 +224,7 @@ SearchBlackListedWords:
   ]
 }'
    Admin_SearchBlackListedWords_Invalid_EmptyFilterType:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -260,7 +260,7 @@ SearchBlackListedWords:
   ]
 }'
    Admin_SearchBlackListedWords_Invalid_EmptyColumn:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -296,7 +296,7 @@ SearchBlackListedWords:
   ]
 }'
    Admin_SearchBlackListedWords_Invalid_PageStart:
-      endPoint: /v1/masterdata/blacklistedwords/search
+      endPoint: /v1/masterdata/blocklistedwords/search
       role: admin
       templateFields: ["value"]
       restMethod: post

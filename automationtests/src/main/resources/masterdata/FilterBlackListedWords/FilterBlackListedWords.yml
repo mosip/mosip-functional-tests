@@ -1,8 +1,8 @@
 FilterBlackListedWords:
    Admin_FilterBlackListedWords_Valid_Request_Smoke:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["text","fieldValue"]
       restMethod: post
       inputTemplate: masterdata/FilterBlackListedWords/filterBlackListedWords
       outputTemplate: masterdata/FilterBlackListedWords/filterBlackListedWordsResult
@@ -24,9 +24,9 @@ FilterBlackListedWords:
     ]
   }'
    Admin_FilterBlackListedWords_Valid_TypeAll:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["text","fieldValue"]
       restMethod: post
       inputTemplate: masterdata/FilterBlackListedWords/filterBlackListedWords
       outputTemplate: masterdata/FilterBlackListedWords/filterBlackListedWordsResult
@@ -48,7 +48,7 @@ FilterBlackListedWords:
     ]
   }'
    Admin_FilterBlackListedWords_Invalid_EmptyColumnName:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -72,7 +72,7 @@ FilterBlackListedWords:
   ]
 }'  
    Admin_FilterBlackListedWords_Invalid_EmptyFilterType:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -96,7 +96,7 @@ FilterBlackListedWords:
   ]
 }'  
    Admin_FilterBlackListedWords_Invalid_ColumnName:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -120,7 +120,7 @@ FilterBlackListedWords:
   ]
 }'  
    Admin_FilterBlackListedWords_Invalid_FilterType:
-      endPoint: /v1/masterdata/blacklistedwords/filtervalues
+      endPoint: /v1/masterdata/blocklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post

@@ -17,7 +17,7 @@ CreateLocationData:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": $IGNORE$,
+"isActive": "$IGNORE$",
 "code": "TST",
 "name": "Test_Loc_A_2",
 "hierarchyLevel":"4",
@@ -25,8 +25,6 @@ CreateLocationData:
 "parentLocCode": "KNT",
 "langCode": "eng"
 }'
-   
-   
    MasterData_CreateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
@@ -45,7 +43,7 @@ CreateLocationData:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-"isActive": $IGNORE$,
+"isActive": "$IGNORE$",
 "code": "IND",
 "name": "INDIA",
 "hierarchyLevel":"4",
@@ -53,8 +51,6 @@ CreateLocationData:
 "parentLocCode": "$IGNORE$",
 "langCode": "eng"
 }'
-   
-
    MasterData_CreateLocationData_Invalid_EmptyCode_SecondaryLang_eng:
       endPoint: /v1/masterdata/locations
       role: admin

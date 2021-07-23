@@ -1,6 +1,6 @@
 DeleteBlackListedWords:
    Kernel_DeleteBlackListedWords_valid_smoke:
-      endPoint: /v1/masterdata/blacklistedwords/{word}
+      endPoint: /v1/masterdata/blocklistedwords/{word}
       role: admin
       templateFields: []
       restMethod: get
