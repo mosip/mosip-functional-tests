@@ -32,6 +32,7 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class AddIdentity extends AdminTestUtil implements ITest {
@@ -76,9 +77,22 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		
+		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
+		
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil

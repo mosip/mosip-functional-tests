@@ -79,6 +79,18 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
+		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));	
+		 
+		 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
@@ -135,16 +147,4 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
-	@AfterClass(alwaysRun = true)
-	public void waittime() {
-		try 
-		{logger.info("waiting for 2Minutes after VID Generation In RESIDENT SERVICES");
-			Thread.sleep(120000);
-		} catch (Exception e) {
-			logger.error("Exception : " + e.getMessage());
-		}
-		
-	}
-
 }
