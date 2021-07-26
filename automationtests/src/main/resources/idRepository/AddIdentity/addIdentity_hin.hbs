@@ -1,0 +1,173 @@
+{
+  "id": "mosip.id.create",
+  "request": {
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "23452353",
+    "identity": {
+      "residenceStatus": [
+        {
+          "language": "hin",
+          "value": "FR"       }
+      ],
+      "IDSchemaVersion": 0.1,
+      "UIN": "{{UIN}}",
+      "fullName": [      {
+          "language": "{{language}}",
+          "value": "TestQA"
+        },
+        {
+          "language": "kan",
+          "value": "TestQA"
+        },
+        {
+          "language": "tam",
+          "value": "TestQA"
+        }
+      ],
+      "dateOfBirth": "{{dateOfBirth}}",
+      "gender": [
+                {
+                    "language": "hin",
+                    "value": "Male"
+                },
+                {
+                    "language": "kan",
+                    "value": "الذكر"
+                },
+				{
+                    "language": "tam",
+                    "value": "الذكر"
+                }
+            ],
+            "addressLine1": [
+        {
+          "language": "hin",
+          "value": "exemple d'adresse ligne 1"
+        },
+        {
+          "language": "kan",
+          "value": "exemple d'adresse ligne 1"
+        },
+        {
+         "language": "tam",
+         "value": "exemple d'adresse ligne 1"
+        }
+
+      ],
+      "addressLine2": [
+        {
+          "language": "hin",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "kan",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "tam",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "hin",
+          "value": "exemple d'adresse ligne 2"
+        },
+         {
+          "language": "kan",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "tam",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "region": [
+        {
+          "language": "hin",
+          "value": "RSK"
+        }
+      ],
+      "province": [
+        {
+          "language": "hin",
+          "value": "Kenitra"
+        }
+      ],
+      "city": [
+        {
+          "language": "hin",
+          "value": "Kenitra"
+        }
+      ],
+      "postalCode": "14022",
+      "email": "{{email}}",
+	  "phone": "{{phone}}",
+      "referenceIdentityNumber": "6789545678878",
+      "zone": [
+        {
+          "language": "hin",
+          "value": "QRHS"
+        }
+      ],
+      "introducerRID": "212124324784879",
+      "introducerUIN": "212124324784879",
+      "introducerName": [
+        {
+          "language": "hin",
+          "value": "سلمى"
+        },
+        {
+          "language": "kan",
+          "value": "salma"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "pdf",
+        "type": "RNC",
+        "value": "fileReferenceID"
+      },
+      "proofOfIdentity": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "introducerBiometrics": {
+        "format": "cbeff",
+        "version": 1.1,
+        "value": "fileReferenceID"
+      }
+    },
+    "documents": [
+      {
+        "value": "{{value}}",
+        "category": "individualBiometrics"
+      },
+      {
+        "category": "proofOfRelationship",
+        "value": "dGVzdA"
+      },
+      {
+        "category": "proofOfDateOfBirth",
+        "value": "dGVzdA"
+      }
+    ]
+  },
+  "requesttime": "2019-01-28T13:07:13.152Z",
+  "version": "{{version}}"
+}
