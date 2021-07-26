@@ -876,4 +876,96 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	<test name="FetchUISpec">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchUISpec/FetchUISpec.yml"/>
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchAllUISpec">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllUISpec/FetchAllUISpec.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="UpdateUISpec">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateUISpec/UpdateUISpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> 
+	<test name="FetchAllIdschema">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAllIdschema/FetchAllIdschema.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="UpdateIdSchema">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateIdSchema/UpdateIdSchema.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> 
+	<test name="FetchIdSchema">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchIdSchema/FetchIdSchema.yml"/>
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchModule">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchModule/FetchModule.yml"/>
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="FetchAppConfig">
+		<parameter name="ymlFile" 
+			value="masterdata/FetchAppConfig/FetchAppConfig.yml"/>
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="DeleteZoneUser">
+		<parameter name="ymlFile" 
+			value="masterdata/DeleteZoneUser/DeleteZoneUser.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test> 
+	<test name="RejectionReason">
+		<parameter name="ymlFile"
+			value="masterdata/RejectionReason/RejectionReason.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="RejectionList">
+		<parameter name="ymlFile"
+			value="masterdata/RejectionList/RejectionList.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="UpdateRegistrationCenter">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegistrationCenter/UpdateRegistrationCenter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test> 
+	<test name="GetIndividualType">
+		<parameter name="ymlFile" 
+			value="masterdata/GetIndividualType/GetIndividualType.yml"/>
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 </suite>

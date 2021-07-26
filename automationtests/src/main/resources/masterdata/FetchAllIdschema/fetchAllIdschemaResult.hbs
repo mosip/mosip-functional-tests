@@ -1,0 +1,30 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "pageNo": "$IGNORE$",
+    "totalPages": "$IGNORE$",
+    "totalItems": "$IGNORE$",
+    "data":  [
+	{{#each data}}
+      {
+        "id": "$IGNORE$",
+        "idVersion": $IGNORE$,
+        "title": "$IGNORE$",
+        "description": "$IGNORE$",
+        "schemaJson": "$IGNORE$",
+        "status": "$IGNORE$",
+        "effectiveFrom": "$IGNORE$",
+        "createdBy": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "createdOn": "$IGNORE$",
+        "updatedOn": "$IGNORE$"
+      }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+      },
+  "errors": "$IGNORE$"
+}

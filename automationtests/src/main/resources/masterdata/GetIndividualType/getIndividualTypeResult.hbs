@@ -1,0 +1,26 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "data": [
+    {{#each data}}
+      {
+      	"createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": $IGNORE$,
+        "deletedDateTime": "$IGNORE$",
+        "code": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$",
+        "isActive": $IGNORE$
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}
