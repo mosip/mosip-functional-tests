@@ -1,12 +1,23 @@
 {
-  "id": "mosip.pre-registration.demographic.create",
-  "version": "1.0",
-  "responsetime": "$IGNORE$",
-  "response": {
-    "preRegistrationId": "$IGNORE$",
-    "createdDateTime": "$IGNORE$",
-    "statusCode": "Application_Incomplete",
+  "id": "{{id}}",
+  "preRegistrationId": "{{preRegistrationId}}",
+  "request": {
     "langCode": "{{langCode}}",
+    "requiredFields": [
+      "IDSchemaVersion",
+      "fullName",
+      "dateOfBirth",
+      "gender",
+      "residenceStatus",
+      "addressLine1",
+      "region",
+      "province",
+      "city",
+      "zone",
+      "postalCode",
+      "phone",
+      "email"
+    ],
     "demographicDetails": {
       "identity": {
         "IDSchemaVersion": 0.1,
@@ -24,7 +35,7 @@
             "value": "சோதனை புத்தக நியமனம்"
           }
         ],
-        "dateOfBirth": "1996/01/01",
+        "dateOfBirth": "{{dateOfBirth}}",
         "gender": [
           {
             "language": "hin",
@@ -125,8 +136,10 @@
         ],
         "postalCode": "14022",
         "phone": "8249742850",
-        "email": "sohan.dey@technoforte.co.in"
+        "email": "{{email}}"
       }
     }
-  }
+  },
+  "version": "{{version}}",
+  "requesttime": "{{requesttime}}"
 }

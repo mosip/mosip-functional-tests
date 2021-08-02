@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
@@ -66,6 +67,17 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
+		
+		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
