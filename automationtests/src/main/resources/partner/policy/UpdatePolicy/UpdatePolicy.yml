@@ -81,7 +81,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "desc must not be null request.desc"
+      "message": "Policy desc should not be blank. request.desc"
     }
   ]
 }'
@@ -169,7 +169,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy group name must not be null request.policyGroupName"
+      "message": "Policy group name should not be empty request.policyGroupName"
     }
   ]
 }'

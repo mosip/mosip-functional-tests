@@ -15,7 +15,7 @@ createSignedRegisteredDevice:
     }'
 
    Partner_SignedRegisteredDevice_Missing_InputParameter_deviceData:
-      endPoint: /partnermanagement/v1/partners/devicedetail
+      endPoint: /v1/partnermanager/registereddevices
       role: partner
       restMethod: post
       inputTemplate: partner/device/registration/registereDevice
@@ -28,8 +28,8 @@ createSignedRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Missing Input Parameter"
+      "errorCode": "PMS_AUT_015",
+      "message": "Serial no and Device detail already exist"
     }
   ]
 }'
