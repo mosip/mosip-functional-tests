@@ -4,9 +4,9 @@ RetrieveIdentity:
       role: regproc
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
-      outputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUinResult
+      outputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUinResult_$PRIMARYLANG$
       input: '{
-    "UIN": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+    "UIN": "8706453257"
 }'
       output: '{
     "status": "ACTIVATED",
@@ -24,8 +24,8 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
     }
   ]
 }'

@@ -6,29 +6,29 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/UpdateUIN/UpdateUinResult
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
   "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -39,23 +39,23 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
-		"otp": "",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -65,7 +65,7 @@ UpdateUIN:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -76,23 +76,23 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-		"transactionID": "",
-		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -102,7 +102,7 @@ UpdateUIN:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
