@@ -4,9 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
@@ -14,6 +17,8 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
+import org.bouncycastle.operator.OperatorCreationException;
+import org.jose4j.lang.JoseException;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
@@ -87,7 +92,7 @@ public class BioDataUtility extends AdminTestUtil {
 			if (!isInternal) {
 				String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 						biometricsMapper + ".data.digitalId");
-				digitalId = getSignedData(digitalId);
+				digitalId = getSignedBiometrics(digitalId,"ftm");
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 						biometricsMapper + ".data.digitalId");
 			}
@@ -115,7 +120,7 @@ public class BioDataUtility extends AdminTestUtil {
 			String latestData = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
 			String signedData = "";
 			if (isInternal == false) {
-				signedData = getSignedData(latestData);
+				signedData = getSignedBiometrics(latestData,"device");
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 						EncryptionDecrptionUtil.idaFirThumbPrint, biometricsMapper + ".thumbprint");
 			} else if (isInternal == true) {
@@ -154,10 +159,11 @@ public class BioDataUtility extends AdminTestUtil {
 
 		return identityRequest;
 	}
+	
+	//header
+	private String getSignedData(String identityDataBlock, String partnerId) {
 
-	private String getSignedData(String identityDataBlock) {
-
-		return generateSignatureWithRequest(identityDataBlock, "BOOLEAN:true");
+		return generateSignatureWithRequest(identityDataBlock, "BOOLEAN:true", partnerId);
 		/*
 		 * try { // Extract Certificate String resourcePath = getResourcePath();
 		 * FileInputStream pkeyfis = new FileInputStream(resourcePath +
@@ -182,6 +188,26 @@ public class BioDataUtility extends AdminTestUtil {
 		 */
 	}
 	
+	//Bio-metriv data(device) and digitalID(ftm)
+	private String getSignedBiometrics(String identityDataBlock, String key) {
+
+		return generateSignatureWithBioMetric(identityDataBlock, "BOOLEAN:true", key);
+		
+	}
+	
+	private String generateSignatureWithBioMetric(String identityDataBlock, String string, String key) {
+		
+		String singResponse = null;
+		//call sing() 
+		try {
+		 singResponse =  sign(identityDataBlock, true, true, false, null, getKeysDirPath(), key);
+		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
+				| OperatorCreationException | JoseException | IOException e) {
+			e.printStackTrace();
+		}
+		return singResponse;
+	}
+
 	private static final String HASH_ALGORITHM_NAME = "SHA-256";
     public static byte[] generateHash(final byte[] bytes) throws NoSuchAlgorithmException{
         MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM_NAME);
