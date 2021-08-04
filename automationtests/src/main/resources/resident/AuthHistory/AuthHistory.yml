@@ -6,27 +6,27 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -37,27 +37,27 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -68,22 +68,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$RE7654f",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$RE7654f",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -93,7 +93,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -104,22 +104,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$REMOVE$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$REMOVE$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -129,7 +129,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -140,22 +140,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "@@ddjddndjbddjdbdhb",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "@@ddjddndjbddjdbdhb",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -165,7 +165,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -176,22 +176,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "$REMOVE$",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "$REMOVE$",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -201,7 +201,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -212,22 +212,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "1@@@@11",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "1@@@@11",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -237,7 +237,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -248,22 +248,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "$REMOVE$",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "$REMOVE$",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -273,7 +273,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -284,22 +284,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234890",
-		"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -309,7 +309,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -320,22 +320,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mos@@3345istory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -345,7 +345,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -356,22 +356,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -381,7 +381,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -392,22 +392,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "v@@@@@@@@@@@3333331",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -417,7 +417,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -428,22 +428,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authhistory",
         "version": "$REMOVE$",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -453,7 +453,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -464,22 +464,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "@@3333434444",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "@@3333434444",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -489,7 +489,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -500,22 +500,22 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-		"individualIdType": "UIN",
-		"requesttime": "$REMOVE$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$REMOVE$",
         "id": "mosip.resident.authhistory",
         "version": "v1",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -525,7 +525,7 @@ AuthHistory:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
