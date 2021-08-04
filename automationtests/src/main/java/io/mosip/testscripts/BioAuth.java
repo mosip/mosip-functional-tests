@@ -40,13 +40,13 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-	
+
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
 		AuthPartnerProcessor.startProcess();
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -64,7 +64,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		isInternal = Boolean.parseBoolean(context.getCurrentXmlTest().getLocalParameters().get("isInternal"));
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -78,16 +78,17 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		// testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$",
+		// props.getProperty("partnerKey")));
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if(request.has("identityRequest")) {
+		if (request.has("identityRequest")) {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
-		if(identityRequest.contains("$DATETIME$"))
+		if (identityRequest.contains("$DATETIME$"))
 			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
@@ -95,39 +96,44 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		
-		String encryptedIdentityReq=null;
+
+		String encryptedIdentityReq = null;
 		try {
-			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
+					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		Map<String, String> bioAuthTempMap = (isInternal)? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq) : encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
-		//storeValue(bioAuthTempMap);
+
+		Map<String, String> bioAuthTempMap = (isInternal)
+				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq)
+				: encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
+		// storeValue(bioAuthTempMap);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
-		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		authRequest = modifyRequest(authRequest, bioAuthTempMap,
+				getResourcePath() + props.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
 		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
-		//storeValue(authRequest,"authRequest");
-				
-		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
-		
-		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+		// storeValue(authRequest,"authRequest");
+
+		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
+
+		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
+
 		/*
 		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
 		 * if(response.getBody().asString().contains("errors")) error =
@@ -136,10 +142,10 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
 		 * testCaseDTO.getEndPoint()); }
 		 */
-		
-		
-		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
-			//	throw new AdminTestException("Failed at Signature validation");
+
+		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
+		// response.getHeader(props.getProperty("signatureheaderKey"))))
+		// throw new AdminTestException("Failed at Signature validation");
 
 	}
 
@@ -162,13 +168,13 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
-	
+
 	/*
 	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
 	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry

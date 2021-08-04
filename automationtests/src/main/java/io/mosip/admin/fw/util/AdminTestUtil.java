@@ -10,10 +10,16 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.KeyStore.PrivateKeyEntry;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,6 +27,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
@@ -31,9 +38,13 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.bouncycastle.operator.OperatorCreationException;
+import org.jose4j.jws.JsonWebSignature;
+import org.jose4j.lang.JoseException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Reporter;
 import org.yaml.snakeyaml.Yaml;
 
@@ -48,7 +59,6 @@ import com.opencsv.CSVWriter;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
@@ -89,6 +99,9 @@ public class AdminTestUtil extends BaseTestCase{
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	
+	/** The Constant SIGN_ALGO. */
+	private static final String SIGN_ALGO = "RS256";
+	
 	
 	/**
 	 * This method will hit post request and return the response
@@ -117,10 +130,12 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	protected Response postRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
+		String uriParts[] = url.split("/");
+		String partnerId = uriParts[uriParts.length-2];
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -140,7 +155,7 @@ public class AdminTestUtil extends BaseTestCase{
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, null));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Patch request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -159,7 +174,7 @@ public class AdminTestUtil extends BaseTestCase{
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, null));
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
@@ -1120,26 +1135,37 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		return prop;
 	}
-public String generateSignatureWithRequest(String Request, String payload) {
+public String generateSignatureWithRequest(String Request, String payload, String partnerId) {
+	String singResponse = null;
+	//call sing() 
+	try {
+	 singResponse =  sign(Request, false, true, false, null, getKeysDirPath(), partnerId);
+	} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
+			| OperatorCreationException | JoseException | IOException e) {
+		e.printStackTrace();
+	}
+	return singResponse;
 	
 	
-		String signUrl = ApplnURI+props.getProperty("internalSignEndpoint");
-		String token = kernelAuthLib.getTokenByRole("regproc");
-		String encodedrequest = Base64.getEncoder().encodeToString(Request.getBytes());
-		String signJsonPath = MosipTestRunner.getGlobalResourcePath() + "/"+props.getProperty("signJsonPath");
-		String reqJsonString = FileUtil.readInput(signJsonPath);
-		if(payload != null)
-		reqJsonString = JsonPrecondtion.parseAndReturnJsonContent(reqJsonString, payload, "request.includePayload");
-		reqJsonString = reqJsonString.replace("$DATA$", encodedrequest);
-		Response response=RestClient.postRequestWithCookie(signUrl, reqJsonString, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, token);
-		JSONObject res = new JSONObject(response.asString());
-		JSONObject responseJson = new JSONObject(res.get("response").toString());
-		if(responseJson.has("jwtSignedData"))
-		return responseJson.get("jwtSignedData").toString();
-		else
-			logger.error("No able to get the Signature from: "+signUrl+" with request: "+reqJsonString);
-		return "Not able to Get Signature";
-		
+		/*
+		 * String signUrl = ApplnURI+props.getProperty("internalSignEndpoint"); String
+		 * token = kernelAuthLib.getTokenByRole("regproc"); String encodedrequest =
+		 * Base64.getEncoder().encodeToString(Request.getBytes()); String signJsonPath =
+		 * MosipTestRunner.getGlobalResourcePath() +
+		 * "/"+props.getProperty("signJsonPath"); String reqJsonString =
+		 * FileUtil.readInput(signJsonPath); if(payload != null) reqJsonString =
+		 * JsonPrecondtion.parseAndReturnJsonContent(reqJsonString, payload,
+		 * "request.includePayload"); reqJsonString = reqJsonString.replace("$DATA$",
+		 * encodedrequest); Response response=RestClient.postRequestWithCookie(signUrl,
+		 * reqJsonString, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+		 * COOKIENAME, token); JSONObject res = new JSONObject(response.asString());
+		 * JSONObject responseJson = new JSONObject(res.get("response").toString());
+		 * if(responseJson.has("jwtSignedData")) return
+		 * responseJson.get("jwtSignedData").toString(); else
+		 * logger.error("No able to get the Signature from: "+signUrl+" with request: "
+		 * +reqJsonString); return "Not able to Get Signature";
+		 */
+	
 	}
 	
 /**
@@ -1307,4 +1333,48 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 	}
 	return listofjsonObject;
 }
+
+public String sign(String dataToSign, boolean includePayload,
+		boolean includeCertificate, boolean includeCertHash, String certificateUrl, String dirPath, String partnerId) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, 
+		KeyStoreException, CertificateException, IOException, OperatorCreationException {
+	KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+	JsonWebSignature jwSign = new JsonWebSignature();
+	PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerId);
+	if (Objects.isNull(keyEntry)) {
+		throw new KeyStoreException("Key file not available for partner type: " + partnerId);
+	}
+
+	PrivateKey privateKey = keyEntry.getPrivateKey();
+
+	X509Certificate x509Certificate = keyMgrUtil.getCertificateEntry(dirPath, partnerId);
+
+	if(x509Certificate == null) {
+		x509Certificate = (X509Certificate) keyEntry.getCertificate();
+	}
+
+	if (includeCertificate)
+		jwSign.setCertificateChainHeaderValue(new X509Certificate[] { x509Certificate });
+
+	if (includeCertHash)
+		jwSign.setX509CertSha256ThumbprintHeaderValue(x509Certificate);
+
+	if (Objects.nonNull(certificateUrl))
+		jwSign.setHeader("x5u", certificateUrl);
+
+	jwSign.setPayload(dataToSign);
+	jwSign.setAlgorithmHeaderValue(SIGN_ALGO);
+	jwSign.setKey(privateKey);
+	jwSign.setDoKeyValidation(false);
+	if (includePayload)
+		return jwSign.getCompactSerialization();
+
+	return jwSign.getDetachedContentCompactSerialization();
+
+}
+
+public String getKeysDirPath() {
+	String path = props.getProperty("getCertificatePath");
+	return new File(path).getAbsolutePath();
+}
+
 }
