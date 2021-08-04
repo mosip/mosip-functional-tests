@@ -1,6 +1,6 @@
 updatePartnerDetails:
    Partner_UpdatePartnerDetails_All_Valid_Smoke:
-      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      endPoint: /v1/partnermanager/partners/Tech-123  
       role: partner
       restMethod: put
       inputTemplate: partner/authPartner/UpdatePartner/updatePartner
@@ -12,11 +12,11 @@ updatePartnerDetails:
   }'
       output: ' {
         "partnerId": "Tech-123",
-        "status": "Active"
+        "status": "approved"
     }'
 
    Partner_UpdatePartnerDetails_Missing_InputParameter_Address:
-      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      endPoint: /v1/partnermanager/partners/Tech-123
       role: partner
       restMethod: put
       inputTemplate: partner/authPartner/UpdatePartner/updatePartner
@@ -30,13 +30,13 @@ updatePartnerDetails:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Missing Input Parameter"
+      "message": "Please provide address  request.address"
     }
   ]
 }'
 
    Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber:
-      endPoint: /partnermanagement/v1/partners/partners/Tech-123
+      endPoint: /v1/partnermanager/partners/Tech-123
       role: partner
       restMethod: put
       inputTemplate: partner/authPartner/UpdatePartner/updatePartner
@@ -50,7 +50,7 @@ updatePartnerDetails:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Missing Input Parameter"
+      "message": "Please provide contactNumber  request.contactNumber"
     }
   ]
 }'
