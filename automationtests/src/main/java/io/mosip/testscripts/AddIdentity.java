@@ -72,7 +72,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		String uin = JsonPrecondtion
-				.getValueFromJson(RestClient.getRequestWithCookieForUin(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
+				.getValueFromJson(RestClient.getRequestWithCookie(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());

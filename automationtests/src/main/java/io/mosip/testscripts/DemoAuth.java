@@ -27,6 +27,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class DemoAuth extends AdminTestUtil implements ITest {
@@ -38,7 +39,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -80,6 +81,10 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
+		
+		if (identityRequest.contains("$PRIMARYLANG$"))
+			identityRequest = identityRequest.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
+		
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
@@ -132,6 +137,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }
