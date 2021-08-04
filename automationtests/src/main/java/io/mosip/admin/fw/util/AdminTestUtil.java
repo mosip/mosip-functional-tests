@@ -96,6 +96,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static final String authHeaderValue="Some String";
 	public static final String SIGNATURE_HEADERNAME="signature";
 	public static Properties props = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/application.properties");
+	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	
@@ -1396,6 +1397,39 @@ public String sign(String dataToSign, boolean includePayload,
 public String getKeysDirPath() {
 	String path = props.getProperty("getCertificatePath");
 	return new File(path).getAbsolutePath();
+}
+
+public static String buildIdentityRequest(String identityRequest) {
+	if (identityRequest.contains("$DATETIME$"))
+		identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
+	
+	if(identityRequest.contains("$FACE$"))
+		identityRequest = identityRequest.replace("$FACE$", propsBio.getProperty("FaceBioValue"));
+	if(identityRequest.contains("$RIGHTIRIS$"))
+		identityRequest = identityRequest.replace("$RIGHTIRIS$", propsBio.getProperty("RightIrisBioValue"));
+	if(identityRequest.contains("$LEFTIRIS$"))
+		identityRequest = identityRequest.replace("$LEFTIRIS$", propsBio.getProperty("LeftIrisBioValue"));
+	if(identityRequest.contains("$RIGHTTHUMB$"))
+		identityRequest = identityRequest.replace("$RIGHTTHUMB$", propsBio.getProperty("RightThumbBioValue"));
+	if(identityRequest.contains("$LEFTTHUMB$"))
+		identityRequest = identityRequest.replace("$LEFTTHUMB$", propsBio.getProperty("LeftThumbBioValue"));
+	if(identityRequest.contains("$RIGHTLITTLEFINGER$"))
+		identityRequest = identityRequest.replace("$RIGHTLITTLEFINGER$", propsBio.getProperty("RightLittleFingerBioValue"));
+	if(identityRequest.contains("$RIGHTMIDDLEFINGER$"))
+		identityRequest = identityRequest.replace("$RIGHTMIDDLEFINGER$", propsBio.getProperty("RightMiddleFinger"));
+	if(identityRequest.contains("$RIGHTRINGFINGER$"))
+		identityRequest = identityRequest.replace("$RIGHTRINGFINGER$", propsBio.getProperty("RightRingFingerBioValue"));
+	if(identityRequest.contains("$RIGHTINDEXFINGER$"))
+		identityRequest = identityRequest.replace("$RIGHTINDEXFINGER$", propsBio.getProperty("RightIndexFingerBioValue"));
+	if(identityRequest.contains("$LEFTLITTLEFINGER$"))
+		identityRequest = identityRequest.replace("$LEFTLITTLEFINGER$", propsBio.getProperty("LeftLittleFingerBioValue"));
+	if(identityRequest.contains("$LEFTINDEXFINGER$"))
+		identityRequest = identityRequest.replace("$LEFTINDEXFINGER$", propsBio.getProperty("LeftIndexFingerBioValue"));
+	if(identityRequest.contains("$LEFTMIDDLEFINGER$"))
+		identityRequest = identityRequest.replace("$LEFTMIDDLEFINGER$", propsBio.getProperty("LeftMiddleFingerBioValue"));
+	if(identityRequest.contains("$LEFTRINGFINGER$"))
+		identityRequest = identityRequest.replace("$LEFTRINGFINGER$", propsBio.getProperty("LeftRingFingerBioValue"));
+	return identityRequest;
 }
 
 }

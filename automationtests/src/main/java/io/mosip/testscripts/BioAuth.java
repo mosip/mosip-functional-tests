@@ -44,7 +44,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
-		if (identityRequest.contains("$DATETIME$"))
-			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
+		identityRequest = buildIdentityRequest(identityRequest);
+		
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
@@ -148,6 +148,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		// throw new AdminTestException("Failed at Signature validation");
 
 	}
+
+	
 
 	/**
 	 * The method ser current test name to result

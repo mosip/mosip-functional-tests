@@ -38,7 +38,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -111,6 +111,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			identityRequest = req.get("identityRequest").toString();
 			req.remove("identityRequest");
 		}
+		identityRequest = buildIdentityRequest(identityRequest);
+		
 		if(identityRequest.contains("$DATETIME$"))
 			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);
@@ -196,6 +198,6 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }
