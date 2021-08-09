@@ -2,7 +2,7 @@ DeviceSearch:
    MasterData_DeviceSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/devices/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
       outputTemplate: masterdata/DeviceSearch/deviceSearchResult
@@ -11,7 +11,7 @@ DeviceSearch:
       {
         "columnName": "name",
         "type": "startswith",
-        "value": "testDevicedummy",
+        "value": "Mock IRIS Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -31,11 +31,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"serialNum": "3456789012",
 	"description": "$IGNORE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"ipAddress": "172.23.174.113",
-	"deviceSpecId": "736",
+	"macAddress": "85-BB-97-4B-14-05",
+	"ipAddress": "$IGNORE$",
+	"deviceSpecId": "327",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
@@ -45,6 +45,7 @@ DeviceSearch:
    MasterData_DeviceSearch_Equals_SerialNo_smoke:
       endPoint: /v1/masterdata/devices/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
       outputTemplate: masterdata/DeviceSearch/deviceSearchResult
@@ -53,7 +54,7 @@ DeviceSearch:
       {
         "columnName": "serialNum",
         "type": "equals",
-        "value": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+        "value": "3456789012",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -73,11 +74,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"serialNum": "3456789012",
 	"description": "$IGNORE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"ipAddress": "172.23.174.113",
-	"deviceSpecId": "736",
+	"macAddress": "85-BB-97-4B-14-05",
+	"ipAddress": "$IGNORE$",
+	"deviceSpecId": "327",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
@@ -86,6 +87,7 @@ DeviceSearch:
    MasterData_DeviceSearch_Equals_MacAddress_smoke:
       endPoint: /v1/masterdata/devices/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
       outputTemplate: masterdata/DeviceSearch/deviceSearchResult
@@ -94,7 +96,7 @@ DeviceSearch:
       {
         "columnName": "macAddress",
         "type": "equals",
-        "value": "D4-3D-7E-C0-8C-4A",
+        "value": "85-BB-97-4B-14-05",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -114,11 +116,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"serialNum": "3456789012",
 	"description": "$IGNORE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"ipAddress": "172.23.174.113",
-	"deviceSpecId": "736",
+	"macAddress": "85-BB-97-4B-14-05",
+	"ipAddress": "$IGNORE$",
+	"deviceSpecId": "327",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
@@ -127,7 +129,7 @@ DeviceSearch:
    MasterData_DeviceSearch_ASC_Name_eng_pos:
       endPoint: /v1/masterdata/devices/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
       outputTemplate: masterdata/DeviceSearch/deviceSearchResult
@@ -136,7 +138,7 @@ DeviceSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "testDevicedummy",
+        "value": "Mock IRIS Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -156,11 +158,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"serialNum": "3456789012",
 	"description": "$IGNORE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"ipAddress": "172.23.174.113",
-	"deviceSpecId": "736",
+	"macAddress": "85-BB-97-4B-14-05",
+	"ipAddress": "$IGNORE$",
+	"deviceSpecId": "327",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
@@ -170,7 +172,7 @@ DeviceSearch:
    MasterData_DeviceSearch_DESC_Name_eng_pos:
       endPoint: /v1/masterdata/devices/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
       outputTemplate: masterdata/DeviceSearch/deviceSearchResult
@@ -179,7 +181,7 @@ DeviceSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "testDevicedummy",
+        "value": "Mock IRIS Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -199,11 +201,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"serialNum": "3456789012",
 	"description": "$IGNORE$",
-	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"ipAddress": "172.23.174.113",
-	"deviceSpecId": "736",
+	"macAddress": "85-BB-97-4B-14-05",
+	"ipAddress": "$IGNORE$",
+	"deviceSpecId": "327",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"

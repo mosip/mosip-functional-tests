@@ -12,8 +12,8 @@ FetchDeviceSpec:
 }'
       output: '{
 "devicespecifications": [{
-            "langCode": "eng",
-            "isActive": true
+            "langCode": "$IGNORE$",
+            "isActive": $IGNORE$
         }]
 }'
    MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
@@ -29,8 +29,8 @@ FetchDeviceSpec:
 }'
       output: '{
 "devicespecifications": [{
-            "langCode": "eng",
-            "isActive": true
+            "langCode": "$IGNORE$",
+            "isActive": $IGNORE$
         }]
 }'
    MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting:

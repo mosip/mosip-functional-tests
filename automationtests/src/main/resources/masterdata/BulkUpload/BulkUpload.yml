@@ -12,7 +12,7 @@ BulkUpload:
     "tableName":"gender"
   }'
       output: '{
-     "transcationId": "",
+     "transcationId": "$IGNORE$",
      "tableName": "gender",
      "operation": "insert"
 }'
@@ -29,7 +29,7 @@ BulkUpload:
     "tableName":"gender"
   }'
       output: '{
-     "transcationId": "",
+     "transcationId": "$IGNORE$",
      "tableName": "gender",
      "operation": "update"
 }'

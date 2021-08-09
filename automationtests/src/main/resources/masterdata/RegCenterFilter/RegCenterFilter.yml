@@ -2,7 +2,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
-      templateFields: ["name"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/RegCenterFilter/regCenterFilterResult
@@ -10,7 +10,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Center Mehdia"
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -26,7 +26,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
-      templateFields: ["name"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/RegCenterFilter/regCenterFilterResult
@@ -34,7 +34,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "Center Mehdia"
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -51,7 +51,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Invalid_RequestTime:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
-      templateFields: ["name"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error
@@ -59,7 +59,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Center Mehdia"
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "2019-7-3T05:22:35.845"
@@ -75,7 +75,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Invalid_filterType_blank:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
-      templateFields: ["name"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error
@@ -83,7 +83,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "",
-		"text": "Center Mehdia"
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -99,7 +99,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_inValid_columnName:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
-      templateFields: ["name"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
       outputTemplate: masterdata/error
@@ -107,7 +107,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "fbheafg",
 		"type": "unique",
-		"text": "Center Mehdia"
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

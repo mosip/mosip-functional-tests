@@ -11,7 +11,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "TestDocType0010 Card",
+        "value": "संदर्भ पहचान पत्र",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -32,8 +32,8 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "TestDocType0010",
-        "langCode": "eng",
+        "code": "CIN",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
     ]
@@ -50,7 +50,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "TestDocType0010 Card",
+        "value": "संदर्भ पहचान पत्र",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -71,8 +71,8 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "TestDocType0010",
-        "langCode": "eng",
+        "code": "CIN",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
     ]
@@ -89,7 +89,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "TestDocType0010",
+        "value": "संदर्भ पहचान पत्र",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -110,8 +110,8 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "TestDocType0010",
-        "langCode": "eng",
+        "code": "CIN",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
     ]
@@ -222,6 +222,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_filter_value_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -510,6 +511,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_requestTime_format:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -545,6 +547,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_typeFilter_contains:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error
@@ -580,6 +583,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_typeFilter_startsWith:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType
       outputTemplate: masterdata/error

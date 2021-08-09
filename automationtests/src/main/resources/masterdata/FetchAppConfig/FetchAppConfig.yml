@@ -17,5 +17,5 @@ FetchAppConfig:
     "rightToLeftOrientation": "$IGNORE$",
     "version": "$IGNORE$",
     "optionalLanguages": "$IGNORE$",
-    "mandatoryLanguages": "eng"
+    "mandatoryLanguages": "$IGNORE$"
 }'

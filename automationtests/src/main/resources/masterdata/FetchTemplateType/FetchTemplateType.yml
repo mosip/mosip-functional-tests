@@ -2,6 +2,7 @@ FetchTemplateType:
    MasterData_FetchTemplateType_allValid_smoke:
       endPoint: /v1/masterdata/templatetypes/{code}/{langcode}
       role: admin
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
       outputTemplate: masterdata/FetchTemplateType/fetchTemplateTypeResult
@@ -11,7 +12,7 @@ FetchTemplateType:
 }'
       output: '{
 "templateTypes": [{
-			"isActive": true
+			"isActive": $IGNORE$
 		}]
 }'
    MasterData_FetchTemplateType_inValid_code:
@@ -36,6 +37,7 @@ FetchTemplateType:
    MasterData_FetchTemplateType_allValid_smoke_langcode:
       endPoint: /v1/masterdata/templatetypes/{langcode}
       role: admin
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
       outputTemplate: masterdata/FetchTemplateType/fetchTemplateTypeResult
@@ -45,7 +47,7 @@ FetchTemplateType:
 }'
       output: '{
 "templateTypes": [{
-			"isActive": true
+			"isActive": $IGNORE$
 		}]
 }'
   

@@ -2,7 +2,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -10,7 +10,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "testDevicedummy"
+		"text": "Mock IRIS Scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,14 +19,14 @@ DeviceFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "testDevicedummy"
+        "fieldValue": "Mock IRIS Scanner"
       }
     ]
   }'    
    MasterData_DeviceFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -34,7 +34,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "testDevicedummy"
+		"text": "Mock IRIS Scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,7 +43,7 @@ DeviceFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "testDevicedummy"
+        "fieldValue": "Mock IRIS Scanner"
       }
     ]
   }'    
@@ -51,6 +51,7 @@ DeviceFilter:
    MasterData_DeviceFilter_MacAddress_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -74,6 +75,7 @@ DeviceFilter:
    MasterData_DeviceFilter_MacAddress_All_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -97,6 +99,7 @@ DeviceFilter:
    MasterData_DeviceFilter_SerialNum_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/DeviceFilter/deviceFilterResult
@@ -104,7 +107,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "serialNum",
 		"type": "unique",
-		"text": "ceec5f62-77b7-46f3-816b-3e734305a9c8"
+		"text": "12.68498.96"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -112,8 +115,8 @@ DeviceFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "serialNum",
-        "fieldValue": "ceec5f62-77b7-46f3-816b-3e734305a9c8"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'    
@@ -121,7 +124,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Invalid_RequestTime:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/error
@@ -129,7 +132,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "testDevicedummy"
+		"text": "Mock IRIS Scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "2019-7-3T05:22:35.845"
@@ -145,7 +148,7 @@ DeviceFilter:
    MasterData_DeviceFilter_Invalid_filterType_blank:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/error
@@ -153,7 +156,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "",
-		"text": "testDevicedummy"
+		"text": "Mock IRIS Scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -169,6 +172,7 @@ DeviceFilter:
    MasterData_DeviceFilter_inValid_columnName:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
       outputTemplate: masterdata/error
@@ -176,7 +180,7 @@ DeviceFilter:
 	"filters": [{
 		"columnName": "fbheafg",
 		"type": "unique",
-		"text": "testDevicedummy"
+		"text": "Mock IRIS Scanner"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

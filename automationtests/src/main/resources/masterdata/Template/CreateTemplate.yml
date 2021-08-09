@@ -8,9 +8,9 @@ CreateTemplate:
       outputTemplate: masterdata/Template/templateResult
       input: '{
         "description": "test template",
-        "fileFormatCode": "Doc",
+        "fileFormatCode": "json",
         "fileText": "abc",
-        "id": "test-03",
+        "id": "9999",
         "isActive": false,
         "langCode": "eng",
         "model": "model-1",
@@ -21,8 +21,8 @@ CreateTemplate:
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"id": "test-03",
-	"langCode": "eng"
+	"id": "9999",
+	"langCode": "$IGNORE$"
 }'
    MasterData_CreateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates

@@ -2,7 +2,7 @@ FilterHolidays:
    MasterData_FilterHolidays_Valid_Smoke:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
@@ -10,7 +10,7 @@ FilterHolidays:
 	"filters": [{
 		"columnName": "holidayName",
 		"type": "unique",
-		"text": "AutoTest user Eng"
+		"text": "नए साल का दिन"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterHolidays:
     "filters": [
       {
         "fieldID": "holidayName",
-        "fieldValue": "AutoTest user Eng"
+        "fieldValue": "नए साल का दिन"
       }
     ]
   }'

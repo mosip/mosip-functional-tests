@@ -6,31 +6,12 @@ DeleteHoliday:
       inputTemplate: masterdata/DeleteHoliday/deleteHoliday
       outputTemplate: masterdata/DeleteHoliday/deleteHolidayResult
       input: '{
-    "holidayDate": "2021-10-13",
-    "holidayName": "Test_Holiday10294",
-    "locationCode": "RSK"
+    "holidayDate": "2019-01-01",
+    "holidayName": "नए साल का दिन",
+    "locationCode": "KTA"
   }'
       output: '{
-    "locationCode": "RSK",
-    "holidayDate": "2021-10-13",
-    "holidayName": "Test_Holiday10294"
+    "locationCode": "KTA",
+    "holidayDate": "2019-01-01",
+    "holidayName": "नए साल का दिन"
   }'
-   MasterData_DeleteHoliday_Invalid_CODE: 
-      endPoint: /v1/masterdata/holidays
-      role: admin
-      restMethod: delete
-      inputTemplate: masterdata/DeleteHoliday/deleteHoliday
-      outputTemplate: masterdata/error
-      input: '{
-    "holidayDate": "2021-10-13",
-    "holidayName": "Test_Holiday10294",
-    "locationCode": "RSK"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-020",
-      "message": "Holiday not found"
-    }
-  ]
-}'

@@ -2,15 +2,15 @@ CreateLocationData:
    MasterData_CreateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["hierarchyName"]
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
       input: '{
-    "code": "TST",
+    "code": "TST123",
     "name": "Test_Loc_A_2",
-    "hierarchyLevel":"4",
-    "hierarchyName":"Zone",
+    "hierarchyLevel":"0",
+    "hierarchyName":"विश्व",
     "parentLocCode":"KNT",    
     "langCode": "eng",
     "isActive": true,
@@ -18,25 +18,25 @@ CreateLocationData:
   }'
       output: '{
 "isActive": "$IGNORE$",
-"code": "TST",
+"code": "TST123",
 "name": "Test_Loc_A_2",
-"hierarchyLevel":"4",
-"hierarchyName": "Zone",
+"hierarchyLevel":"0",
+"hierarchyName": "$IGNORE$",
 "parentLocCode": "KNT",
-"langCode": "eng"
+"langCode": "$IGNORE$"
 }'
    MasterData_CreateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["hierarchyName"]
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
       input: '{
     "code": "IND",
     "name": "INDIA",
-    "hierarchyLevel":"4",
-    "hierarchyName":"Zone",
+    "hierarchyLevel":"0",
+    "hierarchyName":"विश्व",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
     "isActive": false,
@@ -46,10 +46,10 @@ CreateLocationData:
 "isActive": "$IGNORE$",
 "code": "IND",
 "name": "INDIA",
-"hierarchyLevel":"4",
-"hierarchyName": "Zone",
+"hierarchyLevel":"$IGNORE$",
+"hierarchyName": "$IGNORE$",
 "parentLocCode": "$IGNORE$",
-"langCode": "eng"
+"langCode": "$IGNORE$"
 }'
    MasterData_CreateLocationData_Invalid_EmptyCode_SecondaryLang_eng:
       endPoint: /v1/masterdata/locations

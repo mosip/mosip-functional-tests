@@ -9,7 +9,7 @@ GetTxnDetailBulkUpload:
    "transcationId":"$ID:BulkUpload_Smoke_sid_transcationId$"
   }'
       output: '{
-    "entityName": "Gender",
-    "operation": "Insert",
-    "category": "masterdata"
+    "entityName": "$IGNORE$",
+    "operation": "$IGNORE$",
+    "category": "$IGNORE$"
 }'

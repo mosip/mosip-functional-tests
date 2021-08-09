@@ -9,6 +9,6 @@ FetchAllHoliday:
 }'
       output: '{
 "data": [{
-        "isDeleted": $IGNORE$
+        
       }]
 }'

@@ -11,8 +11,8 @@ FetchHolidays:
       }'
       output: '{
 "holidays": [{
-        "langCode": "eng",
-        "isActive": true
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
       }]
 }'
   
@@ -28,8 +28,8 @@ FetchHolidays:
       }'
       output: '{
 "holidays": [{
-        "langCode": "eng",
-        "isActive": true
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
       }]
 }'        
    MasterData_FetchHolidays_allValid_smoke_with Id and langCode:
@@ -44,8 +44,8 @@ FetchHolidays:
       }'
       output: '{
 "holidays": [{
-        "langCode": "eng",
-        "isActive": true
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
       }
     ]
   }'        
