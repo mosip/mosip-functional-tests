@@ -16,5 +16,5 @@ uploadCACert:
   	"version": "string"
   }'
       output: ' {
-        "status": "Upload Success."
-}'   
+      "status": "Upload Success."
+      }'   

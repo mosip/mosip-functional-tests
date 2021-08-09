@@ -74,7 +74,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
@@ -111,6 +111,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			identityRequest = req.get("identityRequest").toString();
 			req.remove("identityRequest");
 		}
+		identityRequest = buildIdentityRequest(identityRequest);
+		
 		if(identityRequest.contains("$DATETIME$"))
 			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);

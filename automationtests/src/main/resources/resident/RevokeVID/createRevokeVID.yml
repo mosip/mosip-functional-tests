@@ -6,28 +6,28 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -38,23 +38,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "m@@@333dstus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -64,7 +64,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -75,23 +75,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -101,7 +101,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -112,23 +112,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "$REMOVE$",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "$REMOVE$",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -138,7 +138,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -149,23 +149,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "@344432ffff",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "@344432ffff",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -175,7 +175,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -186,23 +186,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "@234rff",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "@234rff",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -212,7 +212,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -223,23 +223,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$REMOVE$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$REMOVE$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -249,7 +249,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -260,23 +260,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$REMOVE$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$REMOVE$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -286,7 +286,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -297,23 +297,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "@22222ggdhh",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "@22222ggdhh",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -323,7 +323,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -334,23 +334,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "@@223333243333####3",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -360,7 +360,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -371,23 +371,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "$REMOVE$",
         "vidStatus": "REVOKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -397,7 +397,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -408,23 +408,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "$REMOVE$",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -434,7 +434,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
@@ -445,23 +445,23 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-		"transactionID": "1234567890",
-		"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-		"individualIdType": "VID",
-		"requesttime": "$TIMESTAMP$",
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "R@223344hKED",
-		"otp": "111111",
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-	"sendOtpEndPoint": "/resident/v1/req/otp"
-	}
-	}'
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -471,7 +471,7 @@ RevokeVID:
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX2850",
-		"sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'

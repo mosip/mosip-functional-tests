@@ -209,7 +209,7 @@ createSearchPolicy:
       }
     ]
 }'
-   Partner_SearchPolicy_with_invalid_value_containts:
+   Partner_SearchPolicy_with_invalid_value_contains:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -219,7 +219,7 @@ createSearchPolicy:
     "filters": [
       {
         "columnName": "name",
-        "type": "containts",
+        "type": "contains",
         "value": ")()()****$$$$$$$$$$)))"
       }
     ],
@@ -341,7 +341,7 @@ createSearchPolicy:
    "errors": [
     {
       "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received:n@@@@@343e"
+      "message": "Invalid column received : n@@@@@343e"
     }
   ]
 }'

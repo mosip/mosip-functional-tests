@@ -88,8 +88,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
-		if (identityRequest.contains("$DATETIME$"))
-			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
+		identityRequest = buildIdentityRequest(identityRequest);
+		
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
@@ -149,6 +149,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 
 	}
 
+	
+
 	/**
 	 * The method ser current test name to result
 	 * 
@@ -172,7 +174,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 
 	/*
