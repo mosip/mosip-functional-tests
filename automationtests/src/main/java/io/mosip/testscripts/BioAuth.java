@@ -44,7 +44,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		//AuthPartnerProcessor.startProcess();
+		AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 
 	/*
