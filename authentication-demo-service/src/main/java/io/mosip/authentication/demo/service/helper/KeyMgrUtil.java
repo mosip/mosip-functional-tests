@@ -319,7 +319,7 @@ public class KeyMgrUtil {
     }
     
     public String getKeysDirPath() {
-    	String domain = environment.getProperty("mosip.base.url", "localhost").replace("https://", "").replace("http://", "").replace("/", "");
+    	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
 		return System.getProperty("java.io.tmpdir") + File.separator + "IDA-" + domain;
     }
 }
