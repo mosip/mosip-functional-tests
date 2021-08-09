@@ -545,7 +545,7 @@ AuthLock:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-009",
+      "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- id"
     }
   ],
