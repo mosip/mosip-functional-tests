@@ -65,6 +65,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -391,7 +392,7 @@ public class AuthRequestController {
 				authRespBody.put("signature", respSignature);
 			}
 		} catch (RestClientException e) {
-			respBody = e;
+			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException)e).getResponseBodyAsString() : ExceptionUtils.getStackTrace(e);
 		}
 		
 		authRespBody.put("body", respBody);
@@ -458,7 +459,7 @@ public class AuthRequestController {
 			respSignature = authResponse.getHeaders().get("response-signature").get(0);
 			otpRespBody.put("signature", respSignature);
 		} catch (RestClientException e) {
-			respBody = e;
+			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException)e).getResponseBodyAsString() : ExceptionUtils.getStackTrace(e);
 		}
 		
 		otpRespBody.put("body", respBody);
@@ -477,7 +478,7 @@ public class AuthRequestController {
 			@RequestParam(name = ID, required = true) @NonNull String id, 
 			@RequestParam(name = ID_TYPE, required = false) @Nullable  String idType, 
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId, 
-			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException {
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, JoseException {
 		String otpReqTemplate = environment.getProperty("otpRequestTemplate", DEFAULT_OTP_REQ_TEMPLATE);
 		
 		Map<String, Object> reqValues = new HashMap<>();
@@ -505,7 +506,8 @@ public class AuthRequestController {
 			ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 			HttpHeaders httpHeaders = new HttpHeaders();
 			String responseStr = response.toString();
-			httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+			httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false, 
+					true, false, null, keyMgrUtil.getKeysDirPath(), PartnerTypes.RELYING_PARTY));
 			return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 		} else {
 			throw new IdAuthenticationBusinessException(
