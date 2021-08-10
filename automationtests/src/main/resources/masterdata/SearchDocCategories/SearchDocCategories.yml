@@ -2,6 +2,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_Valid_Request_Smoke:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/SearchDocCategories/searchDocCategoriesResult
@@ -39,6 +40,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_Valid_sortBy_code:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/SearchDocCategories/searchDocCategoriesResult
@@ -47,7 +49,7 @@ SearchDocCategories:
       {
         "columnName": "code",
         "type": "equals",
-        "value": "DocTestCode123",
+        "value": "POA",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -68,15 +70,16 @@ SearchDocCategories:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "DocTestCode123",
-        "langCode": "eng",
-        "name": "DocCat"
+        "code": "POA",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$"
       }
     ]
 }'
    MasterData_SearchDocCategories_Valid_sortType_DESC:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/SearchDocCategories/searchDocCategoriesResult
@@ -85,7 +88,7 @@ SearchDocCategories:
       {
         "columnName": "code",
         "type": "equals",
-        "value": "DocTestCode123",
+        "value": "POA",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -106,15 +109,16 @@ SearchDocCategories:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "DocTestCode123",
-        "langCode": "eng",
-        "name": "DocCat"
+        "code": "POA",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$"
       }
     ]
 }'
    MasterData_SearchDocCategories_inValid_columnName_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -150,6 +154,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_columnName:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -185,6 +190,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_filter_value:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -215,6 +221,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_filter_value_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -247,79 +254,11 @@ SearchDocCategories:
     }
   ]
 }'
-   MasterData_SearchDocCategories_inValid_langCode:
-      endPoint: /v1/masterdata/documentcategories/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchDocCategories/searchDocCategories
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "code",
-        "type": "equals",
-        "value": "DocTestCode01",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "engr",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
-   MasterData_SearchDocCategories_inValid_langCode_blank:
-      endPoint: /v1/masterdata/documentcategories/search
-      role: admin
-      restMethod: post
-      inputTemplate: masterdata/SearchDocCategories/searchDocCategories
-      outputTemplate: masterdata/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "code",
-        "type": "equals",
-        "value": "DocTestCode123",
-        "fromValue": "$REMOVE$",
-        "toValue": "$REMOVE$"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "ASC"
-      }
-    ],
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-999",
-      "message": "Language Code is Invalid"
-    }
-  ]
-}'
+   
    MasterData_SearchDocCategories_inValid_sortField:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -355,6 +294,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_sortType:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -390,6 +330,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_sortField_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -425,6 +366,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_sortType_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -460,6 +402,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_pagesize:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -468,7 +411,7 @@ SearchDocCategories:
       {
         "columnName": "code",
         "type": "equals",
-        "value": "DocTestCode123",
+        "value": "POA",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -495,6 +438,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_filterType_blank:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -530,6 +474,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_filterType:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -565,6 +510,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_requestTime_format:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -600,6 +546,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_typeFilter_contains:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error
@@ -635,6 +582,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_typeFilter_startsWith:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/error

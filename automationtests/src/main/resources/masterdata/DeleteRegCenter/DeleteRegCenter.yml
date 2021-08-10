@@ -6,10 +6,10 @@ DeleteRegCenter:
       inputTemplate: masterdata/DeleteRegCenter/deleteRegCenter
       outputTemplate: masterdata/DeleteRegCenter/deleteRegCenterResult
       input: '{
-    "registrationCenterId": "10000"
+    "registrationCenterId": "11066"
 	}'
       output: '{
-    "id": "10000"
+    "id": "11066"
 }'
    MasterData_DeleteRegCenter_Invalid_ID: 
       endPoint: /v1/masterdata/registrationcenters/{registrationCenterId}

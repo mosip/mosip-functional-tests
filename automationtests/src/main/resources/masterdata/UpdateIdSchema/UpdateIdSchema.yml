@@ -26,7 +26,7 @@ UpdateIdSchema:
       inputTemplate: masterdata/UpdateIdSchema/updateIdSchema
       outputTemplate: masterdata/error
       input: '{
-  "effectiveFrom": "2021-07-29T12:25:54.886Z",
+  "effectiveFrom": "2052-07-29T12:25:54.886Z",
   "id": "1001",
   "requesttime": "$TIMESTAMP$"
 }'

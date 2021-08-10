@@ -11,20 +11,3 @@ DeleteDevice:
       output: '{
     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$"
 }'
-   MasterData_DeleteDevice_Invalid_ID: 
-      endPoint: /v1/masterdata/devices/{id}
-      role: admin
-      restMethod: delete
-      inputTemplate: masterdata/DeleteDevice/deleteDevice
-      outputTemplate: masterdata/error
-      input: '{
-      "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$"
-	}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-010",
-      "message": "Device not Found"
-    }
-  ]
-}'

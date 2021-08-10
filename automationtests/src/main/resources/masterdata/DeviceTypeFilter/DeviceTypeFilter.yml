@@ -2,7 +2,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -10,7 +10,7 @@ DeviceTypeFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "GST"
+		"text": "Printer"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,14 +19,14 @@ DeviceTypeFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "GST updated"
+        "fieldValue": "Printer"
       }
     ]
   }'  
    MasterData_DeviceTypeFilter_All_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -34,7 +34,7 @@ DeviceTypeFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "GST"
+		"text": "Printer"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,14 +43,14 @@ DeviceTypeFilter:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "GST updated"
+        "fieldValue": "Printer"
       }
     ]
   }'    
    MasterData_DeviceTypeFilter_isActive_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -74,7 +74,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_RequestTime_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -82,7 +82,7 @@ DeviceTypeFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "GST"
+		"text": "Printer"
 	}],
 	"languageCode": "eng",
 	"requesttime": "2019-7-3T05:22:35.845"
@@ -98,7 +98,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
@@ -117,7 +117,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -125,7 +125,7 @@ DeviceTypeFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "equal",
-		"text": "GST"
+		"text": "Printer"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -141,7 +141,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_inValid_blank_FilterType_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -165,7 +165,7 @@ DeviceTypeFilter:
    MasterData_DeviceTypeFilter_inValid_columnName:
       endPoint: /v1/masterdata/devicetypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
       outputTemplate: masterdata/error
@@ -173,7 +173,7 @@ DeviceTypeFilter:
 	"filters": [{
 		"columnName": "adfdfd",
 		"type": "unique",
-		"text": "GST"
+		"text": "Printer"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

@@ -65,7 +65,7 @@ MachineTypeSearch:
         "isActive": true,
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
-        "langCode": "eng",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }

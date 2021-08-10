@@ -47,6 +47,7 @@ CreateDocumentType:
    MasterData_CreateDocumentType_Invalid_Code_Char37:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error
@@ -116,6 +117,7 @@ CreateDocumentType:
    MasterData_CreateDocumentType_Invalid_Name_Blank:
       endPoint: /v1/masterdata/documenttypes
       role: admin
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DocumentType/documentType
       outputTemplate: masterdata/error

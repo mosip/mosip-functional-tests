@@ -7,7 +7,7 @@ UpdateTemplateStatus:
       inputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatus
       outputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatusResult
       input: '{
-  "id": "test-03",
+  "id": "1101",
   "isActive": "true"
 }'
       output: '{

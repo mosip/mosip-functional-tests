@@ -2,7 +2,7 @@ GenderFilter:
    Masterdata_GenderFilter_Valid_col_name_withText:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
-      templateFields: ["text","fieldValue"]
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -19,14 +19,14 @@ GenderFilter:
     "filters": [
       {
         "fieldID": "genderName",
-        "fieldValue": "TestGenderName"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
    Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
-      templateFields: ["text","fieldValue"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult
@@ -50,7 +50,7 @@ GenderFilter:
    Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke:
       endPoint: /v1/masterdata/gendertypes/filtervalues
       role: admin
-      templateFields: ["text","fieldValue"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderFilter/genderFilter
       outputTemplate: masterdata/GenderFilter/genderFilterResult

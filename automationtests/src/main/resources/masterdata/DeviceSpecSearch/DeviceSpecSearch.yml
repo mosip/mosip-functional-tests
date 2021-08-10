@@ -2,7 +2,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -11,7 +11,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -30,21 +30,22 @@ DeviceSpecSearch:
       output: '{
 	"data": [{
 	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "Technoforte",
-	"model": "2020",
+	"name": "Webcam",
+	"brand": "Logitech",
+	"model": "C270",
 	"deviceTypeCode": "CMR",
-	"minDriverversion": "1.0",
+	"minDriverversion": "2.086",
 	"description": "$IGNORE$",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
+  
    MasterData_DeviceSpecSearch_Equals_Brand:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -53,7 +54,7 @@ DeviceSpecSearch:
       {
         "columnName": "brand",
         "type": "equals",
-        "value": "Technoforte",
+        "value": "Logitech",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -70,23 +71,24 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "$IGNORE$",
-	"brand": "Technoforte",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "$IGNORE$",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "$IGNORE$",
+  "brand": "Logitech",
+  "model": "$IGNORE$",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
+  
    MasterData_DeviceSpecSearch_Equals_Model:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -95,7 +97,7 @@ DeviceSpecSearch:
       {
         "columnName": "model",
         "type": "equals",
-        "value": "2020",
+        "value": "C270",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -112,23 +114,23 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "$IGNORE$",
-	"brand": "$IGNORE$",
-	"model": "2020",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "$IGNORE$",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "$IGNORE$",
+  "brand": "$IGNORE$",
+  "model": "C270",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
    MasterData_DeviceSpecSearch_Equals_DeviceTypeName:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -154,18 +156,18 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "$IGNORE$",
-	"brand": "$IGNORE$",
-	"model": "2020",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "$IGNORE$",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "Camera"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "$IGNORE$",
+  "brand": "$IGNORE$",
+  "model": "$IGNORE$",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "Camera"
+  }]
 }'
    MasterData_DeviceSpecSearch_Invalid_Value_Name:
       endPoint: /v1/masterdata/devicespecifications/search
@@ -196,12 +198,12 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": []
+  "data": []
 }'
    MasterData_DeviceSpecSearch_InvalidPageFetch:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -227,12 +229,12 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": []
+  "data": []
 }'
    MasterData_DeviceSpecSearch_InvalidPageStart:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -241,7 +243,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -268,7 +270,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_ASC_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -277,7 +279,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -294,23 +296,23 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "$IGNORE$",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "eng",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "Webcam",
+  "brand": "Logitech",
+  "model": "C270",
+  "deviceTypeCode": "CMR",
+  "minDriverversion": "2.086",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
    MasterData_DeviceSpecSearch_DESC_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -319,7 +321,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -336,23 +338,23 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "$IGNORE$",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "eng",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "Webcam",
+  "brand": "$IGNORE$",
+  "model": "$IGNORE$",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
    MasterData_DeviceSpecSearch_Invalid_FilterType:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -388,7 +390,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Invalid_SortType:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -424,7 +426,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Invalid_ColumnName:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -460,7 +462,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Invalid_RequestTime:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/error
@@ -496,7 +498,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_Contains_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -505,7 +507,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -522,23 +524,23 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "$IGNORE$",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "eng",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "Webcam",
+  "brand": "Logitech",
+  "model": "C270",
+  "deviceTypeCode": "CMR",
+  "minDriverversion": "2.086",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
    MasterData_DeviceSpecSearch_TwoValueSearch_pos:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -547,7 +549,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       },
@@ -571,23 +573,23 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "$IGNORE$",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "eng",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "$IGNORE$",
+  "brand": "$IGNORE$",
+  "model": "$IGNORE$",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'
    MasterData_DeviceSpecSearch_StartsWith_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -596,7 +598,7 @@ DeviceSpecSearch:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "Face scanner",
+        "value": "Webcam",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -613,16 +615,16 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "Face scanner",
-	"brand": "$IGNORE$",
-	"model": "$IGNORE$",
-	"deviceTypeCode": "$IGNORE$",
-	"minDriverversion": "$IGNORE$",
-	"description": "$IGNORE$",
-	"langCode": "eng",
-	"isActive": "$IGNORE$",
-	"deviceTypeName": "$IGNORE$"
-	}]
+  "data": [{
+  "id": "$IGNORE$",
+  "name": "Webcam",
+  "brand": "$IGNORE$",
+  "model": "$IGNORE$",
+  "deviceTypeCode": "$IGNORE$",
+  "minDriverversion": "$IGNORE$",
+  "description": "$IGNORE$",
+  "langCode": "$IGNORE$",
+  "isActive": "$IGNORE$",
+  "deviceTypeName": "$IGNORE$"
+  }]
 }'

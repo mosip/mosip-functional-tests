@@ -8,9 +8,9 @@ UpdateTemplate:
       outputTemplate: masterdata/Template/templateResult
       input: '{
         "description": "test template updated",
-        "fileFormatCode": "Doc",
+        "fileFormatCode": "json",
         "fileText": "abc",
-        "id": "test-03",
+        "id": "1101",
         "isActive": true,
         "langCode": "eng",
         "model": "model-1",
@@ -22,7 +22,7 @@ UpdateTemplate:
 }'
       output: '{
 	"id": "$IGNORE$",
-	"langCode": "eng"
+	"langCode": "$IGNORE$"
 }'
    MasterData_UpdateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates

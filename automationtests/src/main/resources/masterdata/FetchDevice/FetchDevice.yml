@@ -7,7 +7,7 @@ FetchDevice:
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "$REMOVE$",
-  "languagecode": "eng",
+  "languagecode": "hin",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
@@ -16,7 +16,7 @@ FetchDevice:
 			"serialNum": "$IGNORE$",
 			"deviceSpecId": "$IGNORE$",
 			"macAddress": "$IGNORE$",
-			"langCode": "eng",
+			"langCode": "hin",
 			"isActive": true,
 			"deviceTypeCode": "$IGNORE$",
 			"zoneCode": "$IGNORE$",
@@ -31,7 +31,7 @@ FetchDevice:
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "IRS",
-  "languagecode": "eng",
+  "languagecode": "hin",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
@@ -40,7 +40,7 @@ FetchDevice:
 			"serialNum": "$IGNORE$",
 			"deviceSpecId": "$IGNORE$",
 			"macAddress": "$IGNORE$",
-			"langCode": "eng",
+			"langCode": "hin",
 			"isActive": true,
 			"deviceTypeCode": "IRS",
 			"zoneCode": "$IGNORE$",
@@ -90,7 +90,7 @@ FetchDevice:
       outputTemplate: masterdata/error
       input: '{
   "deviceType": "notInDB",
-  "languagecode": "eng",
+  "languagecode": "hin",
   "regCenterId": "$REMOVE$"
 }'
       output: '{

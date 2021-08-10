@@ -1341,11 +1341,22 @@ private static ArrayList<JSONObject> convertJson(String[] templateFields, String
 			else if(!isFilterRequired && !langjson.isNull(fieldToConvert) || translatedValue!=null )
 			langjson.put(fieldToConvert, translatedValue);
 		}
-		if(langjson.has("langCode"))
-		{
+		
+		/*if(langjson.has("data")) {
+			JSONObject rmLanCode = new JSONObject(langjson.getJSONArray("data").get(0).toString());
+			rmLanCode.remove("langCode");
+			rmLanCode.put("langCode", language);
+			langjson.put("data", rmLanCode);
+		}*/
+		if(langjson.has("langCode")){
 			langjson.remove("langCode");
 			langjson.put("langCode", language);
-		}else {
+		}
+		else if(langjson.has("langcode")) {
+			langjson.remove("langcode");
+			langjson.put("langcode", language);
+		}
+		else {
 			langjson.remove("languageCode");
 			langjson.put("languageCode", language);
 		}

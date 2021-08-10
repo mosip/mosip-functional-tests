@@ -2,16 +2,16 @@ SearchLocationData:
    MasterData_SearchLocationData_Valid_Smoke:
       endPoint: /v1/masterdata/locations/search
       role: admin
-      templateFields: ["columnName","value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchLocationData/searchLocationData
       outputTemplate: masterdata/SearchLocationData/searchLocationDataResult
       input: '{
     "filters": [
       {
-        "columnName": "Region",
+        "columnName": "name",
         "type": "equals",
-        "value": "Rabat Sale Kenitra",
+        "value": "विश्व",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -30,10 +30,10 @@ SearchLocationData:
       output: '{
         "createdBy": "$IGNORE$",
         "createdDateTime": "$IGNORE$",
-        "isActive": false,
-        "region": "INDIA",
-        "city": "{{city}}",
-        "province": "{{province}}",
-        "zone": "{{zone}}",
-        "postalCode": "{{postalCode}}" 
+        "isActive": $IGNORE$,
+        "region": "$IGNORE$",
+        "city": "$IGNORE$",
+        "province": "$IGNORE$",
+        "zone": "$IGNORE$",
+        "postalCode": "$IGNORE$" 
       }'

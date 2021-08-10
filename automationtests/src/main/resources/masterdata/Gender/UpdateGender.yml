@@ -2,7 +2,7 @@ UpdateGender:
    Masterdata_UpdateGender_Valid_Smoke:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: ["genderName"]
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/Gender/genderResult
@@ -20,7 +20,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: ["genderName"]
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -42,7 +42,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_Code_Empty:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: ["genderName"]
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -64,7 +64,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_Missing:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: []
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -86,7 +86,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_Empty:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: []
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error
@@ -108,7 +108,7 @@ UpdateGender:
    Masterdata_UpdateGender_Invalid_InputParameter_GenderName_AboveMaxLen64:
       endPoint: /v1/masterdata/gendertypes
       role: admin
-      templateFields: []
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/Gender/gender
       outputTemplate: masterdata/error

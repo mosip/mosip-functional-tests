@@ -12,26 +12,10 @@ FetchGenderType:
       output: '{
 "genderType": [{
       "langCode": "$IGNORE$",
-      "isActive": true
+      "isActive": $IGNORE$
     }]
 }'
-   Masterdata_FetchGenderType_allValid_smoke_lang:
-      endPoint: /v1/masterdata/gendertypes/{langcode}
-      role: admin
-      templateFields: []
-      restMethod: get
-      inputTemplate: masterdata/FetchGenderType/fetchGenderType
-      outputTemplate: masterdata/FetchGenderType/fetchGenderTypeResult
-      input: '{
-   "langcode":"eng",
-   "gendername":"$REMOVE$"
-}'
-      output: '{
-"genderType": [{
-      "langCode": "eng",
-      "isActive": true
-    }]
-}'
+   
    Masterdata_FetchGenderType_Validate_gender_name_smoke:
       endPoint: /v1/masterdata/gendertypes/validate/{gendername}
       role: admin
@@ -44,7 +28,7 @@ FetchGenderType:
    "gendername":"Male"
 }'
       output: '{
-	"status": "Valid"
+	"status": "$IGNORE$"
 }'
    Masterdata_FetchGenderType_Validate_gender_name_invalid:
       endPoint: /v1/masterdata/gendertypes/validate/{gendername}

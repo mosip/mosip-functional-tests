@@ -2,7 +2,7 @@ GenderSearch:
    Masterdata_GenderSearch_Valid_Smoke:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -32,7 +32,7 @@ GenderSearch:
    Masterdata_GenderSearch_valid_lang:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -58,18 +58,18 @@ GenderSearch:
       output: '{
    "data": [
      {
-        "isActive": true,
-        "createdBy": "superadmin",
-        "code": "FLE",
-        "genderName": "Female",
-        "langCode": "eng"
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$",
+        "code": "$IGNORE$",
+        "genderName": "$IGNORE$",
+        "langCode": "$IGNORE$"
       }
     ]
 }'
    Masterdata_GenderSearch_Valid_langCodeAsEng_sortBy_code:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -99,7 +99,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidSortFieldAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -127,7 +127,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidSortFieldAsNonExisting:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -155,7 +155,7 @@ GenderSearch:
    Masterdata_GenderSearch_InvalidSortTypeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -180,38 +180,11 @@ GenderSearch:
     }
   ]
 }'
-   Masterdata_GenderSearch_InvalidPageFetchAsEmpty:
-      endPoint: /v1/masterdata/gendertypes/search
-      role: admin
-      templateFields: []
-      restMethod: post
-      inputTemplate: masterdata/GenderSearch/search
-      outputTemplate: masterdata/error
-      input: '{
-
-	"filters": [],
-	"sort": [{
-		"sortField": "genderName",
-		"sortType": "ASC"
-	}],
-
-	"pageStart":0,
-	"pageFetch":0,
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
-    }
-  ]
-}'
+   
    Masterdata_GenderSearch_InvalidRequestTimeAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/error
@@ -239,7 +212,7 @@ GenderSearch:
    Masterdata_GenderSearch_Valid_Searchby_code_FLE:
       endPoint: /v1/masterdata/gendertypes/search
       role: admin
-      templateFields: []
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/GenderSearch/search
       outputTemplate: masterdata/GenderSearch/searchResult
@@ -262,11 +235,11 @@ GenderSearch:
       output: '{
    "data": [
      {
-        "code": "FLE",
-        "genderName": "Female",
-        "langCode": "eng",
-        "isActive": true,
-        "createdBy": "superadmin"
+        "code": "$IGNORE$",
+        "genderName": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$"
       }
     ]
 }'

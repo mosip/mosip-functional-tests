@@ -2,7 +2,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Equals_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -11,7 +11,7 @@ DeviceTypeSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "GST4",
+        "value": "Finger Print Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -32,8 +32,8 @@ DeviceTypeSearch:
      {
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
-        "code": "GST4",
-        "langCode": "eng",
+        "code": "FRS",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
@@ -42,7 +42,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -80,7 +80,7 @@ DeviceTypeSearch:
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
-        "langCode": "eng",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
@@ -89,7 +89,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Contains_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -98,7 +98,7 @@ DeviceTypeSearch:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "GST",
+        "value": "Finger Print Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -119,8 +119,8 @@ DeviceTypeSearch:
      {
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "eng",
+        "code": "FRS",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
@@ -129,7 +129,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
       outputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearchResult
@@ -138,7 +138,7 @@ DeviceTypeSearch:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "GST",
+        "value": "Finger Print Scanner",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -160,7 +160,7 @@ DeviceTypeSearch:
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
-        "langCode": "eng",
+        "langCode": "$IGNORE$",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
