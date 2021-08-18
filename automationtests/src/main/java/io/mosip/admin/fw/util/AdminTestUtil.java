@@ -839,10 +839,13 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	public static void copyMasterDataTestResource() {
 		try {
-			File source = new File(getGlobalResourcePath() + "/masterdata");
-			File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			//File source = new File(getGlobalResourcePath() + "/masterdata");
+			//File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/masterdata");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
-			logger.info("Copied the admin test resource successfully");
+			logger.info("Copied the Masterdata test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: "+e.getMessage());
 		}
@@ -850,14 +853,15 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	public static void copySyncDataTestResource() {
 		try {
-			File source = new File(getGlobalResourcePath() + "/syncdata");
-			File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/syncdata");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
 			logger.info("Copied the admin test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: "+e.getMessage());
 		}
 	}
+	
 	public static void initiateKernelTest()
 	{
 		try {
