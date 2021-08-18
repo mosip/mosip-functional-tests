@@ -2,7 +2,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_allValid_somke:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -10,7 +10,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "equals",
-        "value": "alternate"
+        "value": "Center for municipality and the research center at dubai center"
       }
     ],
     "sort": [
@@ -29,10 +29,10 @@ SearchRegCenterType:
    "data": [
      {
         "isActive": $IGNORE$,
-        "code": "ALT-3",
-        "name": "alternate",
+        "code": "$IGNORE$",
+        "name": "Center for municipality and the research center at dubai center",
         "descr": "$IGNORE$",
-        "langCode": "eng"
+        "langCode": "$IGNORE$"
       }
     ]
 }'
@@ -40,7 +40,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_valid_col_isActive_true:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -70,14 +70,14 @@ SearchRegCenterType:
         "code": "$IGNORE$",
         "name": "$IGNORE$",
         "descr": "$IGNORE$",
-        "langCode": "eng"
+        "langCode": "$IGNORE$"
       }
     ]
 }'
    MasterData_SearchRegCenterType_valid_typeFilter_contains:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -85,7 +85,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "contains",
-        "value": "alternate"
+        "value": "Center for municipality and the research center at abu dhabi "
       }
     ],
     "sort": [
@@ -104,17 +104,17 @@ SearchRegCenterType:
    "data": [
      {
         "isActive": $IGNORE$,
-        "code": "ALT-3",
-        "name": "alternate",
+        "code": "$IGNORE$",
+        "name": "Center for municipality and the research center at abu dhabi ",
         "descr": "$IGNORE$",
-        "langCode": "eng"
+        "langCode": "$IGNORE$"
       }
     ]
 }'
    MasterData_SearchRegCenterType_valid_typeFilter_startsWith:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
       outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
@@ -122,7 +122,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "startsWith",
-        "value": "alter"
+        "value": "Center for municipality and the research center at abu dhabi "
       }
     ],
     "sort": [
@@ -141,10 +141,10 @@ SearchRegCenterType:
    "data": [
      {
         "isActive": $IGNORE$,
-        "code": "ALT-3",
-        "name": "alternate",
+        "code": "$IGNORE$",
+        "name": "Center for municipality and the research center at abu dhabi ",
         "descr": "$IGNORE$",
-        "langCode": "eng"
+        "langCode": "$IGNORE$"
       }
     ]
 }'

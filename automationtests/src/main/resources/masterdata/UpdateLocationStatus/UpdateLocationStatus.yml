@@ -6,7 +6,7 @@ UpdateLocationStatus:
       inputTemplate: masterdata/UpdateLocationStatus/updateLocationStatus
       outputTemplate: masterdata/UpdateLocationStatus/updateLocationStatusResult
       input: '{
-  "code": "TST",
+  "code": "10114",
   "isActive": "true"
 }'
       output: '{

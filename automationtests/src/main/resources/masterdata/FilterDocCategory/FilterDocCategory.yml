@@ -2,6 +2,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_Valid_Request_Smoke:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
@@ -20,6 +21,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_Valid_column_code_filterType_all:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
@@ -38,6 +40,7 @@ FilterDocCategory:
    MasterData_FilterDocCatTypMapping_inValid_filterType_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/error
@@ -61,6 +64,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/error
@@ -85,6 +89,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_inValid_RequestTime_format:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/error
@@ -108,6 +113,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_inValid_filterColumnName:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/error
@@ -131,6 +137,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_inValid_filterType:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/error
@@ -154,6 +161,7 @@ FilterDocCategory:
    MasterData_FilterDocCategory_inValid_FilterText:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin
+      templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterDocCategory/filterDocCategory
       outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult

@@ -13,32 +13,15 @@ FetchTemplate:
 }'
       output: '{
 "templates": [{
-				"langCode": "eng",
-				"isActive": true
+				"langCode": "$IGNORE$",
+				"isActive": $IGNORE$
 			}]
 }'
-   MasterData_FetchTemplate_allValid_smoke_with_lang:
-      endPoint: /v1/masterdata/templates/{langcode}
-      role: admin
-      templateFields: []
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplate/fetchTemplate
-      outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
-      input: '{
-      "langcode": "eng",
-      "code": "$REMOVE$",
-"templatetypecode": "$REMOVE$"  
-}'
-      output: '{
-"templates": [{
-				"langCode": "eng",
-				"isActive": true
-			}]
-}'
+   
    MasterData_FetchTemplate_allValid_smoke_with_lang_and_templatetypecode:
       endPoint: /v1/masterdata/templates/{langcode}/{templatetypecode}
       role: admin
-      templateFields: []
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -49,7 +32,7 @@ FetchTemplate:
 }'
       output: '{
 "templates": [{
-				"langCode": "eng",
+				"langCode": "$IGNORE$",
 				"isActive": true
 			}]
 }'
@@ -73,24 +56,7 @@ FetchTemplate:
     }
   ]
 }'
-   MasterData_FetchTemplate_allValid_smoke_with_code:
-      endPoint: /v1/masterdata/templates/templatetypecodes/{code}
-      role: admin
-      templateFields: []
-      restMethod: get
-      inputTemplate: masterdata/FetchTemplate/fetchTemplate
-      outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
-      input: '{
-      "langcode": "$REMOVE$",
-      "code": "RPR_DUP_UIN_SMS",
-"templatetypecode": "$REMOVE$"  
-}'
-      output: '{
-"templates": [{
-				"langCode": "eng",
-				"isActive": true
-			}]
-}'
+   
    MasterData_FetchTemplate_invalid_code:
       endPoint: /v1/masterdata/templates/templatetypecodes/{code}
       role: admin

@@ -9,7 +9,7 @@ GetAllTxnDetailBulkUpload:
          "category":"masterdata"
       }'
       output: '{
-         "entityName": "UserDetails",
-         "operation": "Insert",
-         "category": "masterdata"
+         "entityName": "$IGNORE$",
+         "operation": "$IGNORE$",
+         "category": "$IGNORE$"
       }'

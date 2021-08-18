@@ -2,7 +2,7 @@ RejectionReason:
    MasterData_RejectionReason_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/packetrejectionreasons/reasoncategory
       role: admin
-      templateFields: ["name","description"]
+      templateFields: ["langCode","description"]
       restMethod: post
       inputTemplate: masterdata/RejectionReason/rejectionReason
       outputTemplate: masterdata/RejectionReason/rejectionReasonResult
@@ -16,6 +16,6 @@ RejectionReason:
 	}'
       output: '{
      "code": "ABC",
-    "langCode": "eng",
-	  "requesttime": "$TIMESTAMP$"
+    "langCode": "$IGNORE$",
+	  "requesttime": "$IGNORE$"
 }'

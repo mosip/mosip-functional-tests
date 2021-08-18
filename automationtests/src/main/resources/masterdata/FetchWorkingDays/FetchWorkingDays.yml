@@ -2,7 +2,7 @@ FetchWorkingDays:
    MasterData_FetchWorkingDays_allValid_smoke:
       endPoint: /v1/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: admin
-      templateFields: ["name"]
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
       outputTemplate: masterdata/FetchWorkingDays/fetchWorkingDaysResult
@@ -15,7 +15,7 @@ FetchWorkingDays:
 			  "code": "$IGNORE$",
         "name": "$IGNORE$",
         "order": $IGNORE$,
-        "languageCode": "eng"
+        "languageCode": "$IGNORE$"
 		}]
 }'
 
@@ -41,6 +41,7 @@ FetchWorkingDays:
    MasterData_FetchWorkingDays_InvalidValid_registrationCenterID_smoke:
       endPoint: /v1/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
       outputTemplate: masterdata/error

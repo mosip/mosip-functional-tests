@@ -26,7 +26,7 @@ UpdateUISpec:
       inputTemplate: masterdata/UpdateUISpec/updateUISpec
       outputTemplate: masterdata/error
       input: '{
-  "effectiveFrom": "2021-07-29T12:25:54.886Z",
+  "effectiveFrom": "2052-07-29T12:25:54.886Z",
   "id": "ff8df956-f529-45b6-9242-abe61bb02df9",
   "requesttime": "$TIMESTAMP$"
 }'

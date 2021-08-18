@@ -1,23 +1,8 @@
 FetchDocumentCategories:
-   MasterData_FetchDocumentCategories_valid_smoke_langcodeandCode:
-      endPoint: /v1/masterdata/documentcategories/{code}/{langcode}
-      role: admin
-      restMethod: get
-      inputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategories
-      outputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategoriesResult
-      input: '{
-  "code":"POI",
-  "langcode":"eng"
-}'
-      output: '{
-"documentcategories": [{
-        "langCode": "eng",
-        "isActive": true
-      }]
-}'
    MasterData_FetchDocumentCategories_invalid_code_notpresent:
       endPoint: /v1/masterdata/documentcategories/{code}/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: masterdata/error
@@ -36,6 +21,7 @@ FetchDocumentCategories:
    MasterData_FetchDocumentCategories_invalid_langcode:
       endPoint: /v1/masterdata/documentcategories/{langcode}
       role: admin
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: masterdata/error
@@ -54,6 +40,7 @@ FetchDocumentCategories:
    MasterData_FetchDocumentCategories_valid_smoke_langcode:
       endPoint: /v1/masterdata/documentcategories/{langcode}
       role: admin
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategories
       outputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategoriesResult
@@ -63,7 +50,7 @@ FetchDocumentCategories:
 }'
       output: '{
 "documentcategories": [{
-        "langCode": "eng",
-        "isActive": true
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
       }]
 }'

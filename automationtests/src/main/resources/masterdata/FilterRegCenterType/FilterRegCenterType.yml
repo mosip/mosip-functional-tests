@@ -2,15 +2,15 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_Valid_Smoke:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/FilterRegCenterType/filterRegCenterTypeResult
       input: '{
 	"filters": [{
 		"columnName": "name",
-		"type": "unique",
-		"text": "alternate"
+		"type": "all",
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,24 +18,24 @@ FilterRegCenterType:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "alternate",
-        "fieldCode": "ALT-3"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "$IGNORE$"
       }
     ]
   }'
    MasterData_FilterRegCenterType_Valid_col_name_withText:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/FilterRegCenterType/filterRegCenterTypeResult
       input: '{
 	"filters": [{
 		"columnName": "name",
-		"type": "unique",
-		"text": "lar"
+		"type": "all",
+		"text": "केंद्र एक बेन मंसूर"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,7 +43,7 @@ FilterRegCenterType:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
+        "fieldID": "$IGNORE$",
         "fieldValue": "$IGNORE$",
         "fieldCode":"$IGNORE$"
       }
@@ -52,7 +52,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_Valid_col_code:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/FilterRegCenterType/filterRegCenterTypeResult
@@ -92,7 +92,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_Valid_col_isActive:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/FilterRegCenterType/filterRegCenterTypeResult
@@ -109,12 +109,12 @@ FilterRegCenterType:
     "filters": [
       {
         "fieldID": "isActive",
-        "fieldValue": "true",
+        "fieldValue": "$IGNORE$",
         "fieldCode":""
       },
       {
         "fieldID": "isActive",
-        "fieldValue": "false",
+        "fieldValue": "$IGNORE$",
         "fieldCode":""
       }
     ]
@@ -122,7 +122,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_filterText:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/FilterRegCenterType/filterRegCenterTypeResult
@@ -141,7 +141,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_filterType_blank:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/error
@@ -165,7 +165,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/error
@@ -190,7 +190,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_RequestTime_format:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/error
@@ -214,7 +214,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_filterColumnName:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/error
@@ -238,7 +238,7 @@ FilterRegCenterType:
    MasterData_FilterRegCenterType_inValid_filterType:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin
-      templateFields: ["text"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
       outputTemplate: masterdata/error
