@@ -246,7 +246,12 @@ public class Decrypt {
 
 				
 				byte[] data = combineToByteArray(encryptedBioValue, bioSessionKey);
-				data = ArrayUtils.addAll(bytesFromThumbprint, data);
+				//Check if the data contains thumbprint already
+				byte[] tpBytes = new byte[bytesFromThumbprint.length];
+				System.arraycopy(data, 0, tpBytes, 0, bytesFromThumbprint.length);
+				if(Arrays.compare(tpBytes, bytesFromThumbprint) != 0) {
+					data = ArrayUtils.addAll(bytesFromThumbprint, data);
+				}
 
 				String decryptBiometrics = this.decryptBiometrics(CryptoUtil.encodeBase64(data), timestamp, transactionId, isInternal);
 				
@@ -300,8 +305,10 @@ public class Decrypt {
 		ResponseEntity<Map> response = restTemplate.exchange(decryptURL, HttpMethod.POST, httpEntity, Map.class);
 		
 		if(response.getStatusCode() == HttpStatus.OK) {
-			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
-			return responseData;
+			Map<String, Object> responseMap = (Map<String, Object>) response.getBody().get("response");
+			if(responseMap != null) {
+				return (String) responseMap.get("data");
+			}
 		}
 		return null ;
 	}
