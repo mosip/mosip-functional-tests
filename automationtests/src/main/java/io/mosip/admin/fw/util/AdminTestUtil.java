@@ -172,10 +172,12 @@ public class AdminTestUtil extends BaseTestCase{
 	}
 	protected Response postRequestWithAuthHeaderAndSignature(String url, String jsonInput, String testCaseName) {
 		Response response=null;
+		String uriParts[] = url.split("/");
+		String partnerId = uriParts[uriParts.length-2];
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
@@ -1396,6 +1398,7 @@ public String sign(String dataToSign, boolean includePayload,
 
 public String getKeysDirPath() {
 	String path = props.getProperty("getCertificatePath");
+	//String path = System.getProperty("java.io.tmpdir")+props.getProperty("getCertificateFileName");
 	return new File(path).getAbsolutePath();
 }
 
