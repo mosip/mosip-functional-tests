@@ -2,7 +2,7 @@ CreateLocationData:
    MasterData_CreateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["name"]
+      templateFields: ["name","hierarchyName"]
       restMethod: post
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -10,7 +10,7 @@ CreateLocationData:
     "code": "TST123",
     "name": "Test_Loc_A_2",
     "hierarchyLevel":"0",
-    "hierarchyName":"विश्व",
+    "hierarchyName":"Country",
     "parentLocCode":"KNT",    
     "langCode": "eng",
     "isActive": true,
@@ -28,7 +28,7 @@ CreateLocationData:
    MasterData_CreateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["name"]
+      templateFields: ["name","hierarchyName"]
       restMethod: post
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -36,7 +36,7 @@ CreateLocationData:
     "code": "IND",
     "name": "INDIA",
     "hierarchyLevel":"0",
-    "hierarchyName":"विश्व",
+    "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
     "isActive": false,
