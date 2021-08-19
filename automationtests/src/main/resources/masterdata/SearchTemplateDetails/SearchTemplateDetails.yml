@@ -42,49 +42,6 @@ SearchTemplateDetails:
       }
     ]
 }'
-   MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_ara:
-      endPoint: /v1/masterdata/templates/search
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
-      outputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetailsResult
-      input: '{
-    "filters": [{
-        "columnName": "name",
-        "type": "equals",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
-      }
-    ],
-    "sort": [
-      {
-			        "sortField": "name",
-			        "sortType": "ASC"
-			      }
-    ],
-  
-      "pageStart": 0,
-      "pageFetch": 1,
-    "languageCode": "eng",
-  "requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "प्राधिकरण एसएमएस के लिए खाका",
-        "fileFormatCode": "$IGNORE$",        
-        "model": "$IGNORE$",        
-        "fileText": "$IGNORE$",        
-        "moduleId": "10004",        
-        "moduleName": "$IGNORE$",        
-        "templateTypeCode": "$IGNORE$",        
-        "langCode": "$IGNORE$"        
-      }
-    ]
-}'
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
       endPoint: /v1/masterdata/templates/search
       role: admin

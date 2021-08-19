@@ -2,7 +2,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["name"]
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -10,7 +10,7 @@ UpdateLocationData:
     "code": "TST123",
     "name": "Test_Loc_A_2 updated",
     "hierarchyLevel":"1",
-    "hierarchyName":"देश",
+    "hierarchyName":"Country",
     "parentLocCode":"KNT",    
     "langCode": "eng",
     "isActive": true,
@@ -28,7 +28,7 @@ UpdateLocationData:
    MasterData_UpdateLocationData_Valid_OnlyMandatoryFields:
       endPoint: /v1/masterdata/locations
       role: admin
-      templateFields: ["name"]
+      templateFields: ["hierarchyName"]
       restMethod: put
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
@@ -36,7 +36,7 @@ UpdateLocationData:
     "code": "IND",
     "name": "INDIA updated",
     "hierarchyLevel":"1",
-    "hierarchyName":"देश",
+    "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
     "isActive": true,

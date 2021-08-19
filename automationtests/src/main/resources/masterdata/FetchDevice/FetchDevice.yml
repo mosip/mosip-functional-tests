@@ -7,21 +7,21 @@ FetchDevice:
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "$REMOVE$",
-  "languagecode": "hin",
+  "languagecode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
 "devices": [{
-			"name": "$IGNORE$",
-			"serialNum": "$IGNORE$",
-			"deviceSpecId": "$IGNORE$",
-			"macAddress": "$IGNORE$",
-			"langCode": "hin",
-			"isActive": true,
-			"deviceTypeCode": "$IGNORE$",
-			"zoneCode": "$IGNORE$",
-			"regCenterId": "$IGNORE$"
-		}]
+            "name": "$IGNORE$",
+            "serialNum": "$IGNORE$",
+            "deviceSpecId": "$IGNORE$",
+            "macAddress": "$IGNORE$",
+            "langCode": "$IGNORE$",
+            "isActive": true,
+            "deviceTypeCode": "$IGNORE$",
+            "zoneCode": "$IGNORE$",
+            "regCenterId": "$IGNORE$"
+        }]
 }'       
    MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
       endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
@@ -31,21 +31,21 @@ FetchDevice:
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "IRS",
-  "languagecode": "hin",
+  "languagecode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
 "devices": [{
-			"name": "$IGNORE$",
-			"serialNum": "$IGNORE$",
-			"deviceSpecId": "$IGNORE$",
-			"macAddress": "$IGNORE$",
-			"langCode": "hin",
-			"isActive": true,
-			"deviceTypeCode": "IRS",
-			"zoneCode": "$IGNORE$",
-			"regCenterId": "$IGNORE$"
-		}]
+            "name": "$IGNORE$",
+            "serialNum": "$IGNORE$",
+            "deviceSpecId": "$IGNORE$",
+            "macAddress": "$IGNORE$",
+            "langCode": "$IGNORE$",
+            "isActive": true,
+            "deviceTypeCode": "IRS",
+            "zoneCode": "$IGNORE$",
+            "regCenterId": "$IGNORE$"
+        }]
 }'
    MasterData_FetchDevice_allValid_smoke_with_regCentre:
       endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
@@ -60,8 +60,8 @@ FetchDevice:
 }'
       output: '{
 "devices": [{
-			"isActive": true
-		}]
+            "isActive": true
+        }]
 }'
    MasterData_FetchDevice_invalid_regCentre:
       endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
@@ -90,7 +90,7 @@ FetchDevice:
       outputTemplate: masterdata/error
       input: '{
   "deviceType": "notInDB",
-  "languagecode": "hin",
+  "languagecode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
