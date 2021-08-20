@@ -1,0 +1,26 @@
+GetAllPolicyGroup:
+   partner_GetAllPolicyGroup_allValid_smoke:
+      endPoint: /v1/policymanager/policies/group/all
+      role: partner
+      restMethod: get
+      inputTemplate: partner/GetAllPolicyGroup/getAllPolicyGroup
+      outputTemplate: partner/GetAllPolicyGroup/getAllPolicyGroupResult
+      input: '{
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+      "policyGroup": {
+        "id": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": "$IGNORE$",
+        "desc": "$IGNORE$",
+        "isActive": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "name": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "userId": "$IGNORE$"
+      },
+      "policies": "$IGNORE$"
+    } '

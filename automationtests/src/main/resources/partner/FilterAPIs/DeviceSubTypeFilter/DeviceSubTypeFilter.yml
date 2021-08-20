@@ -1,0 +1,50 @@
+DeviceSubTypeFilter:
+   partner_DeviceSubTypeFilter_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "code",
+    "type": "unique",
+    "text": "Single"
+  }],
+  "optionalFilters": "$IGNORE$",
+   "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Single",
+        "fieldCode": "Single"
+      }
+    ]
+}'
+   partner_DeviceSubTypeFilter_Invalid_EmptyFilterType:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "",
+		"text": "Single"
+	}],
+	"optionalFilters": "$IGNORE$",
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'

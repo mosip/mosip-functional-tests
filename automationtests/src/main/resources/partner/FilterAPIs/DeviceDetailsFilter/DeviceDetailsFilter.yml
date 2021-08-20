@@ -1,0 +1,50 @@
+DeviceDetailsFilter:
+   partner_DeviceDetailsFilter_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "code",
+    "type": "unique",
+    "text": "Finger"
+  }],
+  "optionalFilters": "$IGNORE$",
+   "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Finger",
+        "fieldCode": "Finger"
+      }
+    ]
+}'
+   partner_DeviceDetailsFilter_Invalid_EmptyFilterType:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "",
+		"text": "Finger"
+	}],
+	"optionalFilters": "$IGNORE$",
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'

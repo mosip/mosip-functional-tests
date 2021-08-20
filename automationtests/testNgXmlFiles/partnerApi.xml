@@ -396,7 +396,7 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<!-- <test name="SaveFTPChipDetail">
+	<test name="SaveFTPChipDetail">
 		<parameter name="ymlFile"
 			value="partner/device/ftmChipDetails/create/CreateFTPChipDetail.yml" />
 			<parameter name="idKeyName" value="id"></parameter>
@@ -418,7 +418,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<test name="SignedRegisteredDevice">
 		<parameter name="ymlFile"
@@ -435,4 +435,107 @@
 			<class name="io.mosip.testscripts.SimplePostForDeRegisterDevice" />
 		</classes>
 	</test>
+	
+	
+	 <test name="GetMISPLicense">
+		<parameter name="ymlFile"
+			value="partner/GetMISPLicense/GetMISPLicense.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetPartnersPolicy">
+		<parameter name="ymlFile"
+			value="partner/GetPartnersPolicy/GetPartnersPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetAllPolicyGroup">
+		<parameter name="ymlFile"
+			value="partner/GetAllPolicyGroup/GetAllPolicyGroup.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="createSearchPolicyGroup">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="PolicyGroupFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/PolicyGroupFilter/PolicyGroupFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="GetValueForConfigKey">
+		<parameter name="ymlFile"
+			value="partner/GetValueForConfigKey/GetValueForConfigKey.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="PartnerFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/PartnerFilter/PartnerFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="SearchPartnerApiKey">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchPartnerApiKey/SearchPartnerApiKey.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="SearchPartnerApiRequestKey">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchPartnerApiRequestKey/SearchPartnerApiRequestKey.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="PartnerApiKeyRequestFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/PartnerApiKeyRequestFilter/PartnerApiKeyRequestFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="createSearchPartnerType">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchPartnerType/createSearchPartnerType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>  
+	<test name="DeviceSubTypeFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceSubTypeFilter/DeviceSubTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceDetailsFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceDetailsFilter/DeviceDetailsFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name="DeviceTypeFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceTypeFilter/DeviceTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
 </suite>
+
+

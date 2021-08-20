@@ -1,0 +1,15 @@
+GetValueForConfigKey:
+   partner_GetValueForConfigKey_allValid_smoke:
+      endPoint: /v1/policymanager/policies/config/{key}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/GetValueForConfigKey/getValueForConfigKey
+      outputTemplate: partner/GetValueForConfigKey/getValueForConfigKeyResult
+      input: '{
+      "key": "pmp.datashare.policy.schema",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "key": "pmp.datashare.policy.schema",
+    "value": "http://config-server.default:80/config/partner-management/mz/qa-triple-lang/data-share-policy-schema.json"
+  } '

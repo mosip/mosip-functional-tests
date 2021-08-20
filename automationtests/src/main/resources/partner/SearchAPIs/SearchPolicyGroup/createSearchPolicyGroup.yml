@@ -1,10 +1,10 @@
 createSearchPolicyGroup:
    Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -27,16 +27,16 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "$IGNORE$"
       }
     ]
 }'
    Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -59,16 +59,17 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "$IGNORE$",
+        "isDeleted": "$IGNORE$"
       }
     ]
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -91,16 +92,17 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "true",
+        "isDeleted":"false"
       }
     ]
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -123,16 +125,17 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "true",
+        "isDeleted":"false"
       }
     ]
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -155,16 +158,17 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "true",
+        "isDeleted":"false"
       }
     ]
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
@@ -187,22 +191,23 @@ createSearchPolicyGroup:
       output: '{
    "data": [
      {
-        "isActive": "true"
+        "isActive": "true",
+        "isDeleted": "false"
       }
     ]
 }'
    Partner_SearchPolicyGroup_columnname_id_desc_smoke:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
         "columnName": "id",
         "type": "contains",
-        "value": "372358"
+        "value": "mpolicygroup-default-auth"
       }
     ],
     "sort": [
@@ -224,17 +229,17 @@ createSearchPolicyGroup:
     ]
 }'
    Partner_SearchPolicyGroup_columnname_id_asc_smoke:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
+      outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
       input: '{
     "filters": [
       {
         "columnName": "id",
         "type": "contains",
-        "value": "372358"
+        "value": "mpolicygroup-default-auth"
       }
     ],
     "sort": [
@@ -255,207 +260,12 @@ createSearchPolicyGroup:
       }
     ]
 }'
-   Partner_SearchPolicyGroup_columnname_descr_asc_smoke:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "contains",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "isActive": "true"
-      }
-    ]
-}'
-   Partner_SearchPolicyGroup_columnname_descr_desc_smoke:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroupResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "contains",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "isActive": "true"
-      }
-    ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_value_containts:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "contains",
-        "value": "D@@@@##3334FFFGare"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_value_equals:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "equals",
-        "value": "D@@@@##3334FFFGare"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_value_startswith:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "startswith",
-        "value": "D@@@@##3334FFFGare"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_columnName:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "D@@@@##3334FFFGare",
-        "type": "startswith",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-310",
-      "message": "Invalid column received:D@@@@##3334FFFGare"
-    }
-  ]
-}'
+   
    Partner_SearchPolicyGroup_with_missing_columnName:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
+      endPoint: /v1/policymanager/policies/group/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
+      inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -481,171 +291,6 @@ createSearchPolicyGroup:
     {
       "errorCode": "PMS-MSD-311",
       "message": "Column is missing in request"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_missing_type:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "$REMOVE$",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_sort_type:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "startswith",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "dc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_missing_sort_type:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "startswith",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "descr",
-        "sortType": "$REMOVE$"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_invalid_sort_field:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "startswith",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "d@@@@33344$$r",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field d@@@@33344$$r"
-    }
-  ]
-}'
-   Partner_SearchPolicyGroup_with_missing_sort_field:
-      endPoint: /partnermanagement/v1/policies/policyGroup/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPolicyGroup/createSearchPolicyGroup
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "descr",
-        "type": "startswith",
-        "value": "Data Share"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "$REMOVE$",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
     }
   ]
 }'

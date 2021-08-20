@@ -1,0 +1,55 @@
+{
+"id": "$IGNORE$",
+"version": "$IGNORE$",
+"responsetime": "$IGNORE$",	
+"response": {
+   "policyGroupId": "{{policyGroupId}}",
+    "policyGroupName": "{{policyGroupName}}",
+    "policyGroupDesc": "$IGNORE$",
+    "policyGroupStatus": $IGNORE$,
+    "policyGroup_cr_by": "$IGNORE$",
+    "policyGroup_cr_dtimes": "$IGNORE$",
+    "policyGroup_up_by": "$IGNORE$",
+    "policyGroup_upd_dtimes": "$IGNORE$",
+    "policyId": "policyId",
+    "policyName": "policyName",
+    "policyDesc": "$IGNORE$",
+    "policyType": "$IGNORE$",
+    "publishDate": "$IGNORE$",
+    "validTill": "$IGNORE$",
+    "status": "{{status}}",
+    "version": "$IGNORE$",
+    "schema": "$IGNORE$",
+    "is_Active": $IGNORE$,
+    "cr_by": "$IGNORE$",
+    "cr_dtimes": "$IGNORE$",
+    "up_by": "$IGNORE$",
+    "upd_dtimes": "$IGNORE$",
+     
+     "policies": {
+      "shareableAttributes": [
+      {{#each policies}}
+        {
+          "encrypted": $IGNORE$,
+          "attributeName": "$IGNORE$",
+          "source": [
+            {
+              "attribute": "$IGNORE$"
+            }
+          ]
+        }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+	],
+      "dataSharePolicies": {
+        "typeOfShare": "$IGNORE$",
+        "transactionsAllowed": "$IGNORE$",
+        "shareDomain": "$IGNORE$",
+        "encryptionType": "$IGNORE$",
+        "source": "$IGNORE$",
+        "validForInMinutes": "$IGNORE$"
+      }
+    }
+},
+  "errors": "$IGNORE$"
+}
