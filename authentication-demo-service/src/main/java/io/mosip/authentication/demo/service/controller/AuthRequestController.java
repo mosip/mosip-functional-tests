@@ -905,9 +905,7 @@ public class AuthRequestController {
 			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, OperatorCreationException {
 		
-		String filePrepend = partnerType.getFilePrepend();
-
-		return keyMgrUtil.getPartnerCertificates(filePrepend, keyMgrUtil.getKeysDirPath(), partnerName);
+		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName);
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)
