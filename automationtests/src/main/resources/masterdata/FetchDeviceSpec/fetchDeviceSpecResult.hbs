@@ -1,0 +1,25 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "devicespecifications": [
+      {{#each devicespecifications}}  
+      {
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "brand": "$IGNORE$",
+        "model": "$IGNORE$",
+        "deviceTypeCode": "$IGNORE$",
+        "minDriverversion": "$IGNORE$",
+        "description": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}}
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

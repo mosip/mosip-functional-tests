@@ -1,0 +1,15 @@
+GetAllTxnDetailBulkUpload:
+   master_GetAllTxnDetailBulkUpload_Smoke:
+      endPoint: /v1/admin/bulkupload/getAllTransactions
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetAllTxnDetailBulkUpload/allTxnDetails
+      outputTemplate: masterdata/GetAllTxnDetailBulkUpload/allTxnDetailsResult
+      input: '{
+         "category":"masterdata"
+      }'
+      output: '{
+         "entityName": "$IGNORE$",
+         "operation": "$IGNORE$",
+         "category": "$IGNORE$"
+      }'

@@ -1,0 +1,14 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "blocklistedwords": [
+      {{#each blocklistedwords}}
+            "{{word}}"
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  },
+  "requesttime": "{{requesttime}}",
+  "version": "{{version}}"
+}

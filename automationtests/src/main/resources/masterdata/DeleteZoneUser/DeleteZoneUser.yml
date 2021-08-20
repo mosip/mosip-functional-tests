@@ -1,0 +1,14 @@
+DeleteZoneUser:
+   MasterData_DeleteZoneUser_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/zoneuser/{userid}/{zonecode}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteZoneUser/deleteZoneUser
+      outputTemplate: masterdata/DeleteZoneUser/deleteZoneUserResult
+      input: '{
+    "userid": "admin1",
+    "zonecode": "STT"
+  }'
+      output: '{
+    "id": "admin1"
+}'

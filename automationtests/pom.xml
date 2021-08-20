@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
-	<version>1.0.10</version>
+	<version>1.2.0-SNAPSHOT</version>
 
 	<properties>
 		<!-- kernel versions -->
@@ -162,17 +162,26 @@
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
 	</properties>
-		<dependencies>
-	
+	<dependencies>
+
 		<!-- https://mvnrepository.com/artifact/net.sf.opencsv/opencsv -->
+		<!-- <dependency> <groupId>net.sf.opencsv</groupId> <artifactId>opencsv</artifactId> 
+			<version>2.3</version> </dependency> -->
 		<dependency>
-			<groupId>net.sf.opencsv</groupId>
+			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
-			<version>2.3</version>
+			<version>4.1</version>
 		</dependency>
-		
-	
-	
+
+		<!-- for translation -->
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>68.1</version>
+		</dependency>
+
+
+
 		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 		<dependency>
 			<groupId>org.javassist</groupId>
@@ -180,7 +189,8 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 		<dependency>
-		<!-- keep the version of this 3 or below 3 else it will convert = to  &#x3D; ref: https://github.com/handlebars-lang/handlebars.js/issues/1489 -->
+			<!-- keep the version of this 3 or below 3 else it will convert = to &#x3D; 
+				ref: https://github.com/handlebars-lang/handlebars.js/issues/1489 -->
 			<groupId>com.github.jknack</groupId>
 			<artifactId>handlebars</artifactId>
 			<version>3.0.0</version>
@@ -481,19 +491,18 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-	<dependency>
-		<groupId>org.apache.httpcomponents</groupId>
-		<artifactId>httpmime</artifactId>
-		<version>4.5.2</version>
-	</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>4.5.2</version>
+			</dependency>
 
-	<dependency>
-		<groupId>commons-codec</groupId>
-		<artifactId>commons-codec</artifactId>
-		<version>1.15</version>
-	</dependency>
-
-</dependencies>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.15</version>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 	<build>

@@ -1,0 +1,105 @@
+FetchHolidays:
+   MasterData_FetchHolidays_allValid_smoke_get:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
+      input: '{
+      "holidayid":"$REMOVE$",
+      "langcode": "$REMOVE$"
+      }'
+      output: '{
+"holidays": [{
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
+      }]
+}'
+  
+   MasterData_FetchHolidays_allValid_smoke_with Id:
+      endPoint: /v1/masterdata/holidays/{holidayid}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
+      input: '{
+      "holidayid":"2000001",
+      "langcode":"$REMOVE$"
+      }'
+      output: '{
+"holidays": [{
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
+      }]
+}'        
+   MasterData_FetchHolidays_allValid_smoke_with Id and langCode:
+      endPoint: /v1/masterdata/holidays/{holidayid}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
+      input: '{
+      "holidayid":"2000001",
+      "langcode":"eng"
+      }'
+      output: '{
+"holidays": [{
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
+      }
+    ]
+  }'        
+   MasterData_FetchHolidays_invalid_holidayid_unexisting:
+      endPoint: /v1/masterdata/holidays/{holidayid}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/error
+      input: '{
+      "holidayid":"2450001",
+      "langcode":"$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}'        
+   MasterData_FetchHolidays_invalid_holidayid_unexisting with langCode:
+      endPoint: /v1/masterdata/holidays/{holidayid}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/error
+      input: '{
+      "holidayid":"2450001",
+      "langcode":"eng"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}'        
+   MasterData_FetchHolidays_invalid_langcode_unexisting:
+      endPoint: /v1/masterdata/holidays/{holidayid}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchHolidays/fetchHoliday
+      outputTemplate: masterdata/error
+      input: '{
+      "holidayid":"2450001",
+      "langcode":"GER"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}'        

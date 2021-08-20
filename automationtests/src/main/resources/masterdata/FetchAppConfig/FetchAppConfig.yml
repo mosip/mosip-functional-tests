@@ -1,0 +1,21 @@
+FetchAppConfig:
+   MasterData_FetchAppConfig_allValid_smoke:
+      endPoint: /v1/masterdata/configs
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAppConfig/fetchAppConfig
+      outputTemplate: masterdata/FetchAppConfig/fetchAppConfigResult
+      input: '{
+}'
+      output: '{
+    "primaryLangCode": "$IGNORE$",
+    "secondaryLangCode": "$IGNORE$",
+    "supportedLanguages": "$IGNORE$",
+    "leftToRightOrientation": "$IGNORE$",
+    "countryCode": "$IGNORE$",
+    "locationHierarchyLevel": "$IGNORE$",
+    "rightToLeftOrientation": "$IGNORE$",
+    "version": "$IGNORE$",
+    "optionalLanguages": "$IGNORE$",
+    "mandatoryLanguages": "$IGNORE$"
+}'

@@ -38,12 +38,29 @@
 		<class name="io.mosip.testscripts.AddIdentity" />
 	</classes>
 </test>
+
+<test name="SendOTP">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/SendOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	
+	<test name="UpdateUIN">
+		<parameter name="ymlFile"
+			value="resident/UpdateUIN/UpdateUIN.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthHistory">
@@ -62,13 +79,7 @@
 		</classes>
 	</test>
 	
-	<test name="UpdateUIN">
-		<parameter name="ymlFile"
-			value="resident/UpdateUIN/UpdateUIN.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
-		</classes>
-	</test>
+
 	<test name="RidCheckStatus">
 		<parameter name="ymlFile"
 			value="resident/RidCheckStatus/createRidCheckStatus.yml" />
@@ -137,12 +148,6 @@
 		</classes>
 	</test> 
 	
-	<test name="SendOTP">
-		<parameter name="ymlFile"
-			value="resident/SendOTP/SendOTP.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
+	
 	
 </suite>

@@ -1,6 +1,7 @@
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -22,9 +23,9 @@ import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
@@ -70,10 +71,10 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
@@ -110,22 +111,46 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			identityRequest = req.get("identityRequest").toString();
 			req.remove("identityRequest");
 		}
+		identityRequest = buildIdentityRequest(identityRequest);
+		
+		if(identityRequest.contains("$DATETIME$"))
+			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
 		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		
 		String identyEnryptRequest = updateTimestampOtp(identityRequest);
+		String encryptedIdentityReq=null;
+		try {
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		String encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest, getResourcePath()+props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
 		
+		if(Arrays.asList(testCaseDTO.getTestCaseName().split("_")).contains("MultiFactorAuth")) {
+			String demographicsMapper = "identityRequest.(demographics)";
+			JSONObject jsonObject = new JSONObject(identityReqJson.toString());
+			JSONObject jsonBioHbs = new JSONObject(encryptedIdentityReq);
+			if(jsonObject.has("key") && jsonObject.has("value")) {
+				JSONObject jsonHbs = new JSONObject(jsonBioHbs.get("identityRequest").toString());
+				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq.toString(), jsonObject.get("value").toString(),
+											demographicsMapper+jsonObject.get("key").toString());
+			}
+			
+		}
 		Map<String, String> bioAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
 				
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
@@ -139,8 +164,11 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc"))
-		encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
+		/*
+		 * if(testCaseName.toLowerCase().contains("kyc"))
+		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
+		 * testCaseDTO.getEndPoint());
+		 */
 		
 		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
 			//throw new AdminTestException("Failed at Signature validation");

@@ -1,94 +1,94 @@
 EkycOtp:
-  Ida_EkycOtp_Auth_With_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "1234567890",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/EkycOtp/EkycotpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/EkycOtp/EkycotpIdentityEncrypt.json"
+    }
+    }'
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
     }
 }'
-  Ida_OTP_Auth_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "6053189263576413",
-		"transactionId": "1234567890",
-	    "individualIdType": "VID",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "6053189263576413",
-	"individualIdType": "VID",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_VID$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Invalid_individualId_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "@@###cndjdhe77473838",
-		"transactionId": "1234567890",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "@@###cndjdhe77473838",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -99,34 +99,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Blank_individualId_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "",
-		"transactionId": "1234567890",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -137,34 +137,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Missing_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Missing_individualId_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$REMOVE$",
-		"transactionId": "1234567890",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$REMOVE$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -175,34 +175,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Invalid_transactionId_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "76544ddffgg@@@3444",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "76544ddffgg@@@3444",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -213,34 +213,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Blank_transactionId_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "",
-	    "individualIdType": "UIN",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -251,34 +251,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Invalid_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Invalid_individualIdType_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "1234567890",
-	    "individualIdType": "ndjshswhw3277272",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "ndjshswhw3277272",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -289,34 +289,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Blank_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Blank_individualIdType_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "1234567890",
-	    "individualIdType": "",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -327,34 +327,34 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'
-  Ida_OTP_Auth_With_Missing_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959
+  auth_EkycOtp_With_Missing_individualIdType_neg:
+      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
       input: '{
-		"requestTime": "$TIMESTAMP$",
-		"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-		"transactionId": "1234567890",
-	    "individualIdType": "$REMOVE$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "$REMOVE$",
         "bio": false,
         "demo": false,
         "otp": true,
-		"sendOtp":{
-	"transactionID": "1234567890",
-	"requestTime": "$TIMESTAMP$",
-	"individualId": "$ID:AddIdentity_EKYCOTP_PRE_smoke_UIN$",
-	"individualIdType": "UIN",
-	"sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-	"sendOtpEndPoint": "/idauthentication/v1/otp/Kc0w35WMYCTqlnaKqmnW5uu3Z3hrDS0tYHAnSw47a5H6NTs6Bm/4810/212959",
-	"otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-	}
-	}'
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
+    }
+    }'
       output: '{
    "errors": [
     {
@@ -365,7 +365,7 @@ EkycOtp:
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "XXXXXX8538",
-		"sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-		"maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
 }'

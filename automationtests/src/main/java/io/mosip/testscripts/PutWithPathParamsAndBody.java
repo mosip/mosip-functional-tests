@@ -1,10 +1,13 @@
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -22,6 +25,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
@@ -61,16 +65,53 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+		testCaseName = testCaseDTO.getTestCaseName();
+		String[] templateFields = testCaseDTO.getTemplateFields();
 		
-		response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
 		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
+			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
+			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
+			//adding...
+			List<String> languageList = new ArrayList<>();
+			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			 for (int i=0; i<languageList.size(); i++) {
+		        	Innerloop:
+		            for (int j=i; j <languageList.size();) {
+		            	response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+		            	
+		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+								response.asString(),
+								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+						
+						if (!OutputValidationUtil.publishOutputResult(ouputValid))
+							throw new AdminTestException("Failed at output validation");
+		                    break Innerloop;
+		            }
+		        }
+		}  
 		
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
+		else {
+			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			
+			if (!OutputValidationUtil.publishOutputResult(ouputValid))
+				throw new AdminTestException("Failed at output validation");
+		}
 
 	}
 

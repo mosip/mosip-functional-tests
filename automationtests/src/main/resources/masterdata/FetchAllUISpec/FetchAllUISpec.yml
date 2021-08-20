@@ -1,0 +1,16 @@
+FetchAllUISpec:
+   MasterData_FetchAllUISpec_valid_smoke:
+      endPoint: /v1/masterdata/uispec/all
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAllUISpec/fetchAllUISpec
+      outputTemplate: masterdata/FetchAllUISpec/fetchAllUISpecResult
+      input: '{
+  
+}'
+      output: '{
+   "jsonSpec": [{
+          "type": "$IGNORE$",
+          "spec": "$IGNORE$"
+        }]
+}'

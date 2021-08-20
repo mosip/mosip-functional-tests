@@ -1,0 +1,15 @@
+FetchAllValidDocuments:
+   MasterData_FetchAllValidDocuments_valid_smoke:
+      endPoint: /v1/masterdata/validdocuments/all
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAllValidDocuments/fetchAllValidDocuments
+      outputTemplate: masterdata/FetchAllValidDocuments/fetchAllValidDocumentsResult
+      input: '{
+  
+}'
+      output: '{
+"data": [
+        
+      ]
+}'

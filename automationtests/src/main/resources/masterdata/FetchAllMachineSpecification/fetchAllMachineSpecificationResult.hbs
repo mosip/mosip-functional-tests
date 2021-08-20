@@ -1,0 +1,35 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "pageNo": "$IGNORE$",
+    "totalPages": "$IGNORE$",
+    "totalItems": "$IGNORE$",
+    "data": [
+	{{#each data}}
+      {
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": $IGNORE$,
+        "deletedDateTime": null,
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "brand": "$IGNORE$",
+        "model": "$IGNORE$",
+        "machineTypeCode": "$IGNORE$",
+        "minDriverversion": "$IGNORE$",
+        "description": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "machineTypeName": null
+      }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": "$IGNORE$"
+}

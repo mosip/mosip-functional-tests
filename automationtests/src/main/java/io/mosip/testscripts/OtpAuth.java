@@ -75,7 +75,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
@@ -135,13 +135,14 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc")) {
-			String error = null;
-			if(response.getBody().asString().contains("errors"))
-				error = JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
-			if(error.equalsIgnoreCase("null"))
-			encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());	
-		}
+		/*
+		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
+		 * if(response.getBody().asString().contains("errors")) error =
+		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
+		 * if(error.equalsIgnoreCase("null"))
+		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
+		 * testCaseDTO.getEndPoint()); }
+		 */
 		
 		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
 			//throw new AdminTestException("Failed at Signature validation");

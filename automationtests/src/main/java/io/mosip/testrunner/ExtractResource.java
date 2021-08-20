@@ -26,6 +26,8 @@ public class ExtractResource {
 	public static void extractResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
+		getListOfFilesFromJarAndCopyToExternalResource("masterdata/");
+		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
 		getListOfFilesFromJarAndCopyToExternalResource("ida/");
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
 		getListOfFilesFromJarAndCopyToExternalResource("preReg/");

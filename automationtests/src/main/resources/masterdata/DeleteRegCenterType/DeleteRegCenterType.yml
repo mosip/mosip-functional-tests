@@ -1,0 +1,30 @@
+DeleteRegCenterType:
+   MasterData_DeleteRegCenterType_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/registrationcentertypes/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteRegCenterType/deleteRegCenterType
+      outputTemplate: masterdata/DeleteRegCenterType/deleteRegCenterTypeResult
+      input: '{
+    "code": "ALT-3"
+	}'
+      output: '{
+    "code": "ALT-3"
+}'
+   MasterData_DeleteRegCenterType_Invalid_CODE: 
+      endPoint: /v1/masterdata/registrationcentertypes/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteRegCenterType/deleteRegCenterType
+      outputTemplate: masterdata/error
+      input: '{
+      "code": "ALT-3"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-120",
+      "message": "Registration Center Type not found"
+    }
+  ]
+}'

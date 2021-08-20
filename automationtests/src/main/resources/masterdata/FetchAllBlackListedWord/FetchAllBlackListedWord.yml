@@ -1,0 +1,15 @@
+FetchAllBlackListedWord:
+   Kernel_FetchAllBlackListedWord_valid_smoke:
+      endPoint: /v1/masterdata/blocklistedwords/all
+      role: admin
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchAllBlackListedWord/fetchAllBlackListedWord
+      outputTemplate: masterdata/FetchAllBlackListedWord/fetchAllBlackListedWordResult
+      input: '{
+}'
+      output: '{
+"data": [{
+        "isDeleted": $IGNORE$
+      }]
+}' 

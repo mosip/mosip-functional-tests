@@ -9,7 +9,7 @@ GetApplicationStatusWithPrId:
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
-  "statusCode": "Pending_Appointment"
+  "statusCode": "Application_Incomplete"
 }'
    Prereg_GetApplicationStatusWithPrId_inValid_PRID_sid:
       endPoint: /preregistration/v1/applications/status/{preRegistrationId}

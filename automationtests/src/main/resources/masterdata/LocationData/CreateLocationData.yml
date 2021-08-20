@@ -1,0 +1,280 @@
+CreateLocationData:
+   MasterData_CreateLocationData_All_Valid_Smoke:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["name","hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/LocationData/locationDataResult
+      input: '{
+    "code": "TST123",
+    "name": "Test_Loc_A_2",
+    "hierarchyLevel":"0",
+    "hierarchyName":"Country",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+"isActive": "$IGNORE$",
+"code": "TST123",
+"name": "Test_Loc_A_2",
+"hierarchyLevel":"0",
+"hierarchyName": "$IGNORE$",
+"parentLocCode": "KNT",
+"langCode": "$IGNORE$"
+}'
+   MasterData_CreateLocationData_Valid_OnlyMandatoryFields:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["name","hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/LocationData/locationDataResult
+      input: '{
+    "code": "IND",
+    "name": "INDIA",
+    "hierarchyLevel":"0",
+    "hierarchyName":"Country",
+    "parentLocCode":"$REMOVE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+"isActive": "$IGNORE$",
+"code": "IND",
+"name": "INDIA",
+"hierarchyLevel":"$IGNORE$",
+"hierarchyName": "$IGNORE$",
+"parentLocCode": "$IGNORE$",
+"langCode": "$IGNORE$"
+}'
+   MasterData_CreateLocationData_Invalid_EmptyCode_SecondaryLang_eng:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "name": "Test_Loc_1_A",
+    "hierarchyLevel":"4",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_Invalid_NameLength129:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "hierarchyLevel":"4",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_Invalid_EmptyName:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "",
+    "hierarchyLevel":"4",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_Invalid_HierarchyLevel_LongInt:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"2147483647",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : hierarchyLevel"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_inValid_hierLevel_locHierCombo:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"11",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-391",
+      "message": "Location hierarchy is invalid"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_inValid_HierarchyName65:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"3",
+    "hierarchyName":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_Invalid_EmptyHierarchyName:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"3",
+    "hierarchyName":"",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateLocationData_inValid_parentLocCode_nonExisting_inDB:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"4",
+    "hierarchyName":"TestZone",
+    "parentLocCode":"fbheafg",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-389",
+      "message": "Parent location not found"
+    }
+  ]
+}'
+   
+   
+   MasterData_CreateLocationData_Invalid_requestTime_format:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: post
+      inputTemplate: masterdata/LocationData/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"3",
+    "hierarchyName":"City",
+    "parentLocCode":"KNT",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "2019/12/20"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'

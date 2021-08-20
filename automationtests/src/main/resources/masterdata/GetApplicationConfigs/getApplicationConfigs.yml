@@ -1,0 +1,15 @@
+GetCredentialTypes:
+   master_GetApplicationConfigs_smoke:
+      endPoint: /v1/masterdata/applicationconfigs
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationConfigs/getApplicationConfigs
+      outputTemplate: masterdata/GetApplicationConfigs/getApplicationConfigsResult
+      input: '{
+      }'
+      output: '{
+          "response": {
+               "primaryLangCode": "eng",
+               "secondaryLangCode": "ara"
+          }
+      }'

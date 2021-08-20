@@ -1,0 +1,13 @@
+DecommissionRegCenter:
+   MasterData_DecommissionRegCenter_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/registrationcenters/decommission/{regCenterID}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
+      outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult
+      input: '{
+    "regCenterID": "10021"
+	}'
+      output: '{
+    "id": "10021"
+}'

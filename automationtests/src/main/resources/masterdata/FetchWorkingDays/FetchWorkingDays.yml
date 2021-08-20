@@ -1,0 +1,59 @@
+FetchWorkingDays:
+   MasterData_FetchWorkingDays_allValid_smoke:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
+      outputTemplate: masterdata/FetchWorkingDays/fetchWorkingDaysResult
+      input: '{
+  "langCode": "eng",
+  "registrationCenterID": "10011"
+}'
+      output: '{
+"workingdays": [{
+			  "code": "$IGNORE$",
+        "name": "$IGNORE$",
+        "order": $IGNORE$,
+        "languageCode": "$IGNORE$"
+		}]
+}'
+
+   MasterData_FetchWorkingDays_InvalidValid_langCode_smoke:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
+      outputTemplate: masterdata/error
+      input: '{
+  "langCode": "eng1",
+  "registrationCenterID": "10011"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+
+   MasterData_FetchWorkingDays_InvalidValid_registrationCenterID_smoke:
+      endPoint: /v1/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
+      outputTemplate: masterdata/error
+      input: '{
+  "langCode": "eng",
+  "registrationCenterID": "1001112"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-802",
+      "message": "Center ID is invalid"
+    }
+  ]
+}'

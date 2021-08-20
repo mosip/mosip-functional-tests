@@ -1,0 +1,29 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "pageNo": "$IGNORE$",
+    "totalPages": "$IGNORE$",
+    "totalItems": "$IGNORE$",
+    "data":  [
+	{{#each data}}
+      {
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "isDeleted": "{{isDeleted}}",
+        "holidayId": $IGNORE$,
+        "locationCode": "$IGNORE$",
+        "holidayDate": "$IGNORE$",
+        "holidayName": "$IGNORE$",
+        "holidayDesc": "$IGNORE$",
+        "langCode": "$IGNORE$"
+      }
+	{{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+      },
+  "errors": "$IGNORE$"
+}

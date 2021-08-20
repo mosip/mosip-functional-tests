@@ -1,0 +1,48 @@
+FetchBlackListedWordByLangcode:
+   Kernel_FetchBlackListedWordByLangcode_valid_eng_smoke:
+      endPoint: /v1/masterdata/blacklistedwords/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchBlackListedWordByLangcode/fetchBlackListedWordByLangcode
+      outputTemplate: masterdata/FetchBlackListedWordByLangcode/fetchBlackListedWordByLangcodeResult
+      input: '{
+      "langcode": "eng"
+      }'
+      output: '{
+"blacklistedwords": [{
+        "langCode":"eng",
+        "isActive":true
+      }]
+}'
+   Kernel_FetchBlackListedWord_valid_ara_smoke:
+      endPoint: /v1/masterdata/blacklistedwords/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchBlackListedWordByLangcode/fetchBlackListedWordByLangcode
+      outputTemplate: masterdata/FetchBlackListedWordByLangcode/fetchBlackListedWordByLangcodeResult
+      input: '{
+      "langcode": "ara"
+      }'
+      output: '{
+"blacklistedwords": [{
+        "langCode":"ara",
+        "isActive":true
+      }]
+}' 
+   Kernel_FetchBlackListedWord_invalid_langcode:
+      endPoint: /v1/masterdata/blacklistedwords/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchBlackListedWordByLangcode/fetchBlackListedWordByLangcode
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "GER"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "Blacklisted word not found"
+    }
+  ]
+}'    

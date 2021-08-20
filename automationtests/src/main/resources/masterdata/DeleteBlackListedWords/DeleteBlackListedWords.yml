@@ -1,0 +1,14 @@
+DeleteBlackListedWords:
+   Kernel_DeleteBlackListedWords_valid_smoke:
+      endPoint: /v1/masterdata/blocklistedwords/{word}
+      role: admin
+      templateFields: ["word","code"]
+      restMethod: get
+      inputTemplate: masterdata/DeleteBlackListedWords/deleteBlackListedWords
+      outputTemplate: masterdata/DeleteBlackListedWords/deleteBlackListedWordsResult
+      input: '{
+      "word": "dumbo7"
+      }'
+      output: '{
+  "code":"dumbo7"
+}'

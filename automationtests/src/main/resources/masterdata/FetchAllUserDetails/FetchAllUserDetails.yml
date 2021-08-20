@@ -1,0 +1,15 @@
+FetchAllUserDetails:
+   MasterData_FetchAllUserDetails_valid_smoke:
+      endPoint: /v1/masterdata/usersdetails
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAllUserDetails/fetchAllUserDetails
+      outputTemplate: masterdata/FetchAllUserDetails/fetchAllUserDetailsResult
+      input: '{
+  
+}'
+      output: '{
+"mosipUserDtoList": [
+        
+      ]
+}'

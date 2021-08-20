@@ -1,0 +1,34 @@
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+      {{#each data}}
+          {
+            "isActive": "{{isActive}}",
+			       "createdBy": "$IGNORE$",
+            "createdDateTime": "$IGNORE$",
+			      "updatedBy": "$IGNORE$",
+            "updatedDateTime": "$IGNORE$",
+            "isDeleted": "$IGNORE$",
+            "deletedDateTime": "$IGNORE$",
+            "id": "{{id}}",
+			      "name": "{{name}}",
+            "description": "{{description}}",
+			      "fileFormatCode": "{{fileFormatCode}}",
+            "model": "{{model}}",
+            "fileText": "{{fileText}}",
+            "moduleId": "{{moduleId}}",
+			      "moduleName": "{{moduleName}}",
+            "templateTypeCode": "{{templateTypeCode}}",
+            "langCode": "{{langCode}}"                        
+          }
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

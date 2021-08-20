@@ -1,0 +1,17 @@
+DeleteHoliday:
+   MasterData_DeleteHoliday_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteHoliday/deleteHoliday
+      outputTemplate: masterdata/DeleteHoliday/deleteHolidayResult
+      input: '{
+    "holidayDate": "2019-01-01",
+    "holidayName": "नए साल का दिन",
+    "locationCode": "KTA"
+  }'
+      output: '{
+    "locationCode": "KTA",
+    "holidayDate": "2019-01-01",
+    "holidayName": "नए साल का दिन"
+  }'

@@ -6,9 +6,9 @@ DownloadCredential:
       inputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqid
       outputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
       input: '{
-		"requestId": "$ID:RequestCredentials_euin_All_Valid_Smoke_sid_requestId$",
-		"requesttime": "$TIMESTAMP$"
-	}'
+        "requestId": "$ID:RequestCredentials_euin_All_Valid_Smoke_sid_requestId$",
+        "requesttime": "$TIMESTAMP$"
+    }'
       output: ' {
         "Content-Type": "application/pdf",
         "filename": "$IGNORE$"
@@ -20,9 +20,9 @@ DownloadCredential:
       inputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqid
       outputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
       input: '{
-		"requestId": "$ID:RequestCredentials_Qrcode_All_Valid_Smoke_sid_requestId$",
-		"requesttime": "$TIMESTAMP$"
-	}'
+        "requestId": "$ID:RequestCredentials_Qrcode_All_Valid_Smoke_sid_requestId$",
+        "requesttime": "$TIMESTAMP$"
+    }'
       output: ' {
         "Content-Type": "application/pdf",
         "filename": "$IGNORE$"

@@ -8,17 +8,34 @@ import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
+import java.security.KeyStore.PrivateKeyEntry;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource.PSpecified;
+import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang.ArrayUtils;
+import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,10 +65,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
+import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
+import io.mosip.authentication.core.exception.IdAuthUncheckedException;
 import io.mosip.authentication.core.logger.IdaLogger;
 import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.CryptomanagerRequestDto;
+import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
+import io.mosip.authentication.demo.service.helper.PartnerTypes;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.logger.spi.Logger;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -67,6 +88,7 @@ import io.swagger.annotations.Api;;
 @Api(tags = { "Decrypt" })
 public class Decrypt {
 
+	private static final int TAG_LENGTH = 128;
 	@Autowired
 	private Environment env;
 	
@@ -90,10 +112,15 @@ public class Decrypt {
 	@Value("${" +IdAuthConfigKeyConstants.KEY_SPLITTER+ "}")
 	private String keySplitter;
 	
+	@Autowired
+	KeyMgrUtil keyMgrUtil;
+
+	@Autowired
+	Encrypt encrypt;
 	
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Decrypt.class);
-
+	
 	/**
 	 * Decrypt.
 	 *
@@ -126,12 +153,33 @@ public class Decrypt {
 			@RequestParam(name="salt",required=false) @Nullable String salt,
 			@RequestParam(name="aad",required=false) @Nullable String aad)
 			throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, KeyManagementException {
-		String data = combine(splittedData.getEncryptedData(), splittedData.getEncryptedSessionKey());
+		byte[] data = combineToByteArray(splittedData.getEncryptedData(), splittedData.getEncryptedSessionKey());
 		if (refId == null) {
 			refId = getRefId(isInternal, isBiometrics);
 		}
-		return kernelDecrypt(data, refId, salt, aad);
+		byte[] bytesFromThumbprint = getBytesFromThumbprint(splittedData.getThumbprint());
+
+		data = ArrayUtils.addAll(bytesFromThumbprint, data);
+		return kernelDecrypt(CryptoUtil.encodeBase64(data), refId, salt, aad);
 	}
+	
+	public static byte[] getBytesFromThumbprint(String thumbprint) {
+		try {
+			//First try decoding with hex
+			return decodeHex(thumbprint);
+		} catch (DecoderException e) {
+			try {
+				//Then try decoding with base64
+				return CryptoUtil.decodeBase64(thumbprint);
+			} catch (Exception ex) {
+				throw new IdAuthUncheckedException(IdAuthenticationErrorConstants.UNABLE_TO_PROCESS, ex);
+			}
+		}
+	}
+	
+	public static byte[] decodeHex(String hexData) throws DecoderException{
+        return Hex.decodeHex(hexData);
+    }
 	
 	@PostMapping(path = "/authRequest/decryptAuthRequest", produces = MediaType.APPLICATION_JSON_VALUE) 
 	public String decryptAuthRequest(@RequestBody Map<String, Object> authRequestMap)
@@ -141,8 +189,9 @@ public class Decrypt {
 		Map<String, Object> outputAuthRequestMap = new LinkedHashMap<>(authRequestMap);
 		String request = (String) outputAuthRequestMap.get("request");
 		String reqSessionKey = (String) outputAuthRequestMap.get("requestSessionKey");
+		String thumbprint = (String) outputAuthRequestMap.get("thumbprint");
 		
-		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request), null, isInternal, false, null, null);
+		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request, thumbprint), null, isInternal, false, null, null);
 		Map<String, Object> requestMap = objMapper.readValue(decryptSplittedData.getBytes("UTF-8"), Map.class);
 		outputAuthRequestMap.put("request", requestMap);
 		
@@ -181,13 +230,30 @@ public class Decrypt {
 				}
 				segmentMap.put("data", bioDataMap);
 				
+				String digitalIdStr = (String) bioDataMap.get("digitalId");
+				if(!isInternal && digitalIdStr != null) {
+					Map<String, Object> bioDigitalIdMap = objMapper.readValue(CryptoUtil.decodeBase64(digitalIdStr.split("\\.")[1]), Map.class);
+					bioDataMap.put("digitalId", bioDigitalIdMap);
+				}
+				
 				String encryptedBioValue = (String) bioDataMap.get("bioValue");
 				String timestamp = (String) bioDataMap.get("timestamp");
 				String transactionId = (String) bioDataMap.get("transactionId");
 				String bioSessionKey = (String) segmentMap.get("sessionKey");
+				String thumbprint = (String) segmentMap.get("thumbprint");
 				
-				String combinedEncryptedBioValue = combine(encryptedBioValue, bioSessionKey);
-				String decryptBiometrics = this.decryptBiometrics(combinedEncryptedBioValue, timestamp, transactionId, isInternal);
+				byte[] bytesFromThumbprint = getBytesFromThumbprint(thumbprint);
+
+				
+				byte[] data = combineToByteArray(encryptedBioValue, bioSessionKey);
+				//Check if the data contains thumbprint already
+				byte[] tpBytes = new byte[bytesFromThumbprint.length];
+				System.arraycopy(data, 0, tpBytes, 0, bytesFromThumbprint.length);
+				if(Arrays.compare(tpBytes, bytesFromThumbprint) != 0) {
+					data = ArrayUtils.addAll(bytesFromThumbprint, data);
+				}
+
+				String decryptBiometrics = this.decryptBiometrics(CryptoUtil.encodeBase64(data), timestamp, transactionId, isInternal);
 				
 				bioDataMap.put("bioValue", decryptBiometrics);
 			}
@@ -239,8 +305,10 @@ public class Decrypt {
 		ResponseEntity<Map> response = restTemplate.exchange(decryptURL, HttpMethod.POST, httpEntity, Map.class);
 		
 		if(response.getStatusCode() == HttpStatus.OK) {
-			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
-			return responseData;
+			Map<String, Object> responseMap = (Map<String, Object>) response.getBody().get("response");
+			if(responseMap != null) {
+				return (String) responseMap.get("data");
+			}
 		}
 		return null ;
 	}
@@ -262,12 +330,11 @@ public class Decrypt {
 		}
 		return refId;
 	}
-
-	private String combine(String request, String requestSessionKey) {
+	
+	private byte[] combineToByteArray(String request, String requestSessionKey) {
 		byte[] encryptedRequest = CryptoUtil.decodeBase64(request);
 		byte[] encryptedSessionKey = CryptoUtil.decodeBase64(requestSessionKey);
-		return CryptoUtil.encodeBase64(
-				CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter));
+		return CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter);
 	}
 
 	/**
@@ -358,5 +425,38 @@ public class Decrypt {
     	return request;
     }
 	
+	@PostMapping(path = "/decryptEkycData", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String decryptEkycData(
+			@RequestBody Map<String, String> requestData) throws CertificateException, IOException, 
+			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, 
+			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+				
+		String identity = requestData.get("identity");
+		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(), PartnerTypes.EKYC);
+		
+		SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
+		byte[] encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
+		byte[] encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
+		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
+	     
+	    Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
+	    byte[] nonce = Arrays.copyOfRange(encKycData, encKycData.length - cipher.getBlockSize(), encKycData.length);
+	    byte[] encryptedKycData = Arrays.copyOf(encKycData, encKycData.length - cipher.getBlockSize());
+		
+		SecretKey secretKey =  new SecretKeySpec(decSecKey, 0, decSecKey.length, "AES");
+		GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(TAG_LENGTH, nonce); 
+		cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
+
+		return new String(cipher.doFinal(encryptedKycData));
+	}
+
+	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 
+			InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+		Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING"); 
+		OAEPParameterSpec oaepParams = new OAEPParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256,
+				PSpecified.DEFAULT);
+	     cipher.init(Cipher.DECRYPT_MODE, privKey, oaepParams);
+	     return cipher.doFinal(encKey, 0, encKey.length);
+	}
 
 }

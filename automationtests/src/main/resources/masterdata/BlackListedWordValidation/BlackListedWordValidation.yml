@@ -1,0 +1,15 @@
+BlackListedWordValidation:
+   Admin_BlackListedWordValidation_eng_All_Valid_Smoke:
+      endPoint: /v1/masterdata/blocklistedwords/words
+      role: admin
+      templateFields: []
+      restMethod: post
+      inputTemplate: masterdata/BlackListedWordValidation/blackListedWordValidation
+      outputTemplate: masterdata/BlackListedWordValidation/blackListedWordValidationResult
+      input: '{
+    "blocklistedwords": [{word: "dumbo7"}],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"code": "Valid"
+	}'
