@@ -1,10 +1,10 @@
 createSearchPartnerType:
    Partner_SearchPartnerType_type_contains_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -21,7 +21,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -33,11 +32,11 @@ createSearchPartnerType:
     ]
 }'
    Partner_SearchPartnerType_type_contains_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -54,7 +53,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -66,11 +64,11 @@ createSearchPartnerType:
     ]
 }'
    Partner_SearchPartnerType_type_equals_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -87,7 +85,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -99,11 +96,11 @@ createSearchPartnerType:
     ]
 }'
    Partner_SearchPartnerType_type_equals_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -120,7 +117,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -132,11 +128,11 @@ createSearchPartnerType:
     ]
 }'
    Partner_SearchPartnerType_type_startswith_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -153,7 +149,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -165,11 +160,11 @@ createSearchPartnerType:
     ]
 }'
    Partner_SearchPartnerType_type_startswith_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/Search/SearchPartnerType/createSearchPartnerTypeResult
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -186,7 +181,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -197,45 +191,12 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_with_invalid_value_containts:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "code",
-        "type": "containts",
-        "value": "a@@@334455667788s"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the a@@@334455667788s Receivedd"
-    }
-  ]
-}'
+   
    Partner_SearchPartnerType_with_invalid_value_equals:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -253,23 +214,22 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the a@@@334455667788s Receivedd"
+      "errorCode": "PMS-MSD-316",
+      "message": "Invalid value present for the given column"
     }
   ]
 }'
    Partner_SearchPartnerType_with_invalid_value_startswith:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -287,23 +247,22 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the a@@@334455667788s Receivedd"
+      "errorCode": "PMS-MSD-316",
+      "message": "Invalid value present for the given column"
     }
   ]
 }'
    Partner_SearchPartnerType_with_invalid_columnName:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -321,23 +280,22 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-310",
-      "message": "Invalid column received:co@@@@@343455666###4$$%%de"
+      "errorCode": "PMS-MSD-310",
+      "message": "Invalid column received : co@@@@@343455666###4$$%%de"
     }
   ]
 }'
    Partner_SearchPartnerType_with_missing_columnName:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -355,7 +313,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -368,10 +325,10 @@ createSearchPartnerType:
   ]
 }'
    Partner_SearchPartnerType_with_missing_type:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -389,7 +346,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -402,10 +358,10 @@ createSearchPartnerType:
   ]
 }'
    Partner_SearchPartnerType_with_invalid_sort_type:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -423,7 +379,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -436,10 +391,10 @@ createSearchPartnerType:
   ]
 }'
    Partner_SearchPartnerType_with_missing_sort_type:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -457,7 +412,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
@@ -470,10 +424,10 @@ createSearchPartnerType:
   ]
 }'
    Partner_SearchPartnerType_with_invalid_sort_field:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -491,23 +445,22 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field mo@@@del"
+      "errorCode": "PMS-MSD-358",
+      "message": "Sort type mo@@@del is not supported"
     }
   ]
 }'
    Partner_SearchPartnerType_with_missing_sort_field:
-      endPoint: /partnermanagement/v1/partners/partners/partnerType/search
+      endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartnerType/createSearchPartnerType
+      inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -525,7 +478,6 @@ createSearchPartnerType:
     ],
   "pageFetch": "10",
   "pageStart": "0",
-  "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$",
   "version": "v1"
 }'

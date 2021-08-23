@@ -53,7 +53,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy name should not be empty. request.name"
+      "message": "name must not be null request.name"
     }
   ]
 }'
@@ -81,7 +81,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy desc should not be blank. request.desc"
+      "message": "desc must not be null request.desc"
     }
   ]
 }'

@@ -2,6 +2,7 @@
   "id": null,
   "version": null,
   "responsetime": "$IGNORE$",
+  "metadata": null,
   "response": {
     "fromRecord": "$IGNORE$",
     "toRecord": "$IGNORE$",
@@ -9,17 +10,18 @@
     "data": [
      {{#each data}}
       {
-        "id": "$IGNORE$",
+        "policyApiKey": "{{policyApiKey}}",
         "crBy": "$IGNORE$",
         "crDtimes": "$IGNORE$",
         "delDtimes": null,
-        "descr": "$IGNORE$",
-        "isActive": "{{isActive}}",
-        "isDeleted": $IGNORE$,
-        "name": "$IGNORE$",
-        "updBy": "$IGNORE$",
-        "updDtimes": "$IGNORE$",
-        "userId": "$IGNORE$"
+        "isActive": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "policyId": "$IGNORE$",
+        "updBy": null,
+        "updDtimes": null,
+        "validFromDatetime": "$IGNORE$",
+        "validToDatetime": "$IGNORE$",
+        "partnerId": "$IGNORE$"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}

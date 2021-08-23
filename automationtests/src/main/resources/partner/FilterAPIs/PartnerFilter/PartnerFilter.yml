@@ -1,0 +1,48 @@
+PartnerFilter:
+   partner_PartnerFilter_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "id",
+    "type": "unique",
+    "text": "mpartner-default-abis"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner-default-abis",
+        "fieldCode": "mpartner-default-abis"
+      }
+    ]
+}'
+   partner_PartnerFilter_Invalid_EmptyFilterType:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "id",
+		"type": "",
+		"text": "mpartner-default-abis"
+	}],
+	"optionalFilters": "$IGNORE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'

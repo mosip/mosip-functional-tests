@@ -1,0 +1,33 @@
+SearchPartnerApiKey:
+   Partner_SearchPartnerApiKey_type_contains_Smoke_asc_sid:
+      endPoint: /v1/partnermanager/partners/apikey/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
+      outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "policyApiKey",
+        "type": "unique",
+        "value": "mpolicy_part_auth_api"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "policyApiKey",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "1",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "policyApiKey": "0983222"
+      }
+    ]
+}'
