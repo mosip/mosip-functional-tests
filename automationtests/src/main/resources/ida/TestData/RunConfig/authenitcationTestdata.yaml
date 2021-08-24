@@ -278,7 +278,7 @@ CNIENumber_valid:
       - 6789545678913
       - 6789545678914
 emailId_valid:
-      - Ravi.Kant2@mindtree.com
+      - sohan.dey@technoforte.co.in
       - Loganathan.Sekar@mindtree.com
 age_valid:
       - LONG:32
