@@ -1,0 +1,48 @@
+PartnerApiKeyRequestFilter:
+   partner_PartnerApiKeyRequestFilter_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "id",
+    "type": "unique",
+    "text": "mpartner_policy_auth_req"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner_policy_auth_req",
+        "fieldCode": "mpartner_policy_auth_req"
+      }
+    ]
+}'
+   partner_PartnerApiKeyRequestFilter_Invalid_EmptyFilterType:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "id",
+		"type": "",
+		"text": "mpartner_policy_auth_req"
+	}],
+	"optionalFilters": "$IGNORE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
