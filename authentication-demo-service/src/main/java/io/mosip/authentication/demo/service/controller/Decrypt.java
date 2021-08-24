@@ -434,9 +434,19 @@ public class Decrypt {
 		String identity = requestData.get("identity");
 		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(), PartnerTypes.EKYC);
 		
-		SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
-		byte[] encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
-		byte[] encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
+		String sessionKey = requestData.get("sessionKey");
+		
+		byte[] encSecKey;
+		byte[] encKycData;
+		if(sessionKey == null) {
+			SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
+			encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
+			encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
+		} else {
+			encSecKey = CryptoUtil.decodeBase64(sessionKey);
+			encKycData = CryptoUtil.decodeBase64(identity);
+		}
+		
 		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
 	     
 	    Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
