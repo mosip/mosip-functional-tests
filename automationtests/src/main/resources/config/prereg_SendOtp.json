@@ -3,7 +3,7 @@
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
   "request": {
-    "langCode": "hin",
+    "langCode": "$PRIMARYLANG$",
     "userId": "mosipuser123@mailinator.com"
   }
 }

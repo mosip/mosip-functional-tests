@@ -8,7 +8,7 @@ definePolicyGroup:
       input: '{
     "desc": "desc mosip policy group",
     "name": "mosip policy group",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
         "id": "162549",
@@ -30,7 +30,7 @@ definePolicyGroup:
       input: '{
     "desc": "$REMOVE$",
     "name": "mosip policy group",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
@@ -50,7 +50,7 @@ definePolicyGroup:
       input: '{
     "desc": "desc mosip policy group",
     "name": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
