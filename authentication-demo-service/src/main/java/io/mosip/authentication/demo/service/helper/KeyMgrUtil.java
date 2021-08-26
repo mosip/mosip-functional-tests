@@ -97,35 +97,42 @@ public class KeyMgrUtil {
 		return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
 	}
 
-    public CertificateChainResponseDto getPartnerCertificates(String partnerType, String dirPath, String organization) throws 
+    public CertificateChainResponseDto getPartnerCertificates(PartnerTypes partnerType, String dirPath, String organization) throws 
         NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, IOException, CertificateException, OperatorCreationException {
-
-        String caFilePath = dirPath + '/' + partnerType + CA_P12_FILE_NAME;
+    	String filePrepend = partnerType.getFilePrepend();
+        String caFilePath = dirPath + '/' + filePrepend + CA_P12_FILE_NAME;
         LocalDateTime dateTime = LocalDateTime.now(); 
         LocalDateTime dateTimeExp = dateTime.plusYears(1);
         PrivateKeyEntry caPrivKeyEntry = getPrivateKeyEntry(caFilePath);
         KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
         if (Objects.isNull(caPrivKeyEntry)) {
-            caPrivKeyEntry = generateKeys(null, "CA-" + partnerType, "CA-" + partnerType, caFilePath, keyUsage, dateTime, dateTimeExp, organization);
+            caPrivKeyEntry = generateKeys(null, "CA-" + filePrepend, "CA-" + filePrepend, caFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         String caCertificate = getCertificate(caPrivKeyEntry);
 
-        String interFilePath = dirPath + '/' + partnerType + INTER_P12_FILE_NAME;
+        String interFilePath = dirPath + '/' + filePrepend + INTER_P12_FILE_NAME;
         PrivateKeyEntry interPrivKeyEntry = getPrivateKeyEntry(interFilePath);
         if (Objects.isNull(interPrivKeyEntry)) {
-            interPrivKeyEntry = generateKeys(caPrivKeyEntry.getPrivateKey(), "CA-" + partnerType, "INTER-" + partnerType, interFilePath, keyUsage, dateTime, dateTimeExp, organization);
+            interPrivKeyEntry = generateKeys(caPrivKeyEntry.getPrivateKey(), "CA-" + filePrepend, "INTER-" + filePrepend, interFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         String interCertificate = getCertificate(interPrivKeyEntry);
 
-        String partnerFilePath = dirPath + '/' + partnerType + PARTNER_P12_FILE_NAME;
+        String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
         PrivateKeyEntry partnerPrivKeyEntry = getPrivateKeyEntry(partnerFilePath);
         if (Objects.isNull(partnerPrivKeyEntry)) {
-            if (partnerType.equalsIgnoreCase("EKYC")){
+            if (filePrepend.equalsIgnoreCase(PartnerTypes.EKYC.name())){
                 keyUsage = new KeyUsage(KeyUsage.keyEncipherment | KeyUsage.encipherOnly | KeyUsage.decipherOnly);
             }
-            partnerPrivKeyEntry = generateKeys(interPrivKeyEntry.getPrivateKey(), "INTER-" + partnerType, "PARTNER-" + partnerType, 
+            partnerPrivKeyEntry = generateKeys(interPrivKeyEntry.getPrivateKey(), "INTER-" + filePrepend, "PARTNER-" + filePrepend, 
                         partnerFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
+        
+        //Invoke getKey entry for DEVICE and FTM partner type to automatically generate DSK and CSK certificates
+        if(partnerType.equals(PartnerTypes.DEVICE) || partnerType.equals(PartnerTypes.FTM)) {
+        	getKeyEntry(dirPath, partnerType);
+        }
+        
+        
         String partnerCertificate = getCertificate(partnerPrivKeyEntry);
         CertificateChainResponseDto responseDto = new CertificateChainResponseDto();
         responseDto.setCaCertificate(caCertificate);
@@ -221,10 +228,21 @@ public class KeyMgrUtil {
 
     public PrivateKeyEntry getKeyEntry(String dirPath, PartnerTypes partnerType) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
-        String filePrepend = partnerType.getFilePrepend();
 
-        if (partnerType == PartnerTypes.RELYING_PARTY || partnerType == PartnerTypes.EKYC) {
-            String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
+        if (partnerType == PartnerTypes.EKYC) {
+            String partnerFilePath = dirPath + '/' + PartnerTypes.EKYC.getFilePrepend() + PARTNER_P12_FILE_NAME;
+            PrivateKeyEntry privateKeyEntry = getPrivateKeyEntry(partnerFilePath);
+            //If ekyc key is not present, use relying partner key
+            if(privateKeyEntry == null) {
+            	partnerFilePath = dirPath + '/' + PartnerTypes.RELYING_PARTY.getFilePrepend() + PARTNER_P12_FILE_NAME;
+                privateKeyEntry = getPrivateKeyEntry(partnerFilePath);
+            }
+			return privateKeyEntry;
+        }
+        
+        String filePrepend = partnerType.getFilePrepend();
+        if (partnerType == PartnerTypes.RELYING_PARTY) {
+            String partnerFilePath = dirPath + '/' + partnerType.getFilePrepend() + PARTNER_P12_FILE_NAME;
             return getPrivateKeyEntry(partnerFilePath);
         }
         
