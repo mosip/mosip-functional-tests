@@ -1,81 +1,28 @@
 {
   "id": "mosip.id.create",
   "request": {
-     "registrationId": "{{registrationId}}",
-      "biometricReferenceId": "23452353",
+    "registrationId": "{{registrationId}}",
+    "biometricReferenceId": "23452353",
     "identity": {
       "residenceStatus": [
         {
           "language": "eng",
-          "value": "FR"       }
+          "value": "FR"
+        }
       ],
-      "IDSchemaVersion": 0.1,
+      "IDSchemaVersion": 0.3,
       "UIN": "{{UIN}}",
-      "fullName": [      {
+      "fullName": [
+        {
           "language": "{{language}}",
-          "value": "TestQA"
-        },
-        {
-          "language": "ara",
-          "value": "TestQA"
-        },
-        {
-          "language": "fra",
           "value": "TestQA"
         }
       ],
       "dateOfBirth": "{{dateOfBirth}}",
       "gender": [
-                {
-                    "language": "eng",
-                    "value": "Male"
-                },
-                {
-                    "language": "ara",
-                    "value": "الذكر"
-                }
-            ],
-            "addressLine1": [
         {
           "language": "eng",
-          "value": "exemple d'adresse ligne 1"
-        },
-        {
-          "language": "ara",
-          "value": "exemple d'adresse ligne 1"
-        },
-        {
-         "language": "fra",
-         "value": "exemple d'adresse ligne 1"
-        }
-
-      ],
-      "addressLine2": [
-        {
-          "language": "eng",
-          "value": "exemple d'adresse ligne 2"
-        },
-        {
-          "language": "ara",
-          "value": "exemple d'adresse ligne 2"
-        },
-        {
-          "language": "fra",
-          "value": "exemple d'adresse ligne 2"
-        }
-      ],
-      "addressLine3": [
-        {
-          "language": "eng",
-          "value": "exemple d'adresse ligne 2"
-        },
-         {
-          "language": "ara",
-          "value": "exemple d'adresse ligne 2"
-        },
-        {
-          "language": "fra",
-          "value": "exemple d'adresse ligne 2"
+          "value": "Male"
         }
       ],
       "region": [
@@ -99,7 +46,6 @@
       "postalCode": "14022",
       "email": "{{email}}",
 	  "phone": "{{phone}}",
-      "referenceIdentityNumber": "6789545678878",
       "zone": [
         {
           "language": "eng",
@@ -110,19 +56,10 @@
       "introducerUIN": "212124324784879",
       "introducerName": [
         {
-          "language": "ara",
-          "value": "سلمى"
-        },
-        {
           "language": "eng",
           "value": "salma"
         }
       ],
-      "proofOfAddress": {
-        "format": "pdf",
-        "type": "RNC",
-        "value": "fileReferenceID"
-      },
       "proofOfIdentity": {
         "format": "txt",
         "type": "DOC001",

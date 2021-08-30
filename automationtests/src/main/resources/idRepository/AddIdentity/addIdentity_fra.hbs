@@ -1,0 +1,129 @@
+{
+  "id": "mosip.id.create",
+  "request": {
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "23452353",
+    "identity": {
+      "residenceStatus": [
+        {
+          "language": "fra",
+          "value": "FR"       }
+      ],
+      "IDSchemaVersion": 0.1,
+      "UIN": "{{UIN}}",
+      "fullName": [      {
+          "language": "{{language}}",
+          "value": "TestQA"
+        }
+      ],
+      "dateOfBirth": "{{dateOfBirth}}",
+      "gender": [
+                {
+                    "language": "fra",
+                    "value": "Male"
+                }
+            ],
+            "addressLine1": [
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 1"
+        }
+
+      ],
+      "addressLine2": [
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 2"
+         }
+      ],
+      "region": [
+        {
+          "language": "fra",
+          "value": "RSK"
+        }
+      ],
+      "province": [
+        {
+          "language": "fra",
+          "value": "Kenitra"
+        }
+      ],
+      "city": [
+        {
+          "language": "fra",
+          "value": "Kenitra"
+        }
+      ],
+      "postalCode": "14022",
+      "email": "{{email}}",
+	  "phone": "{{phone}}",
+      "referenceIdentityNumber": "6789545678878",
+      "zone": [
+        {
+          "language": "fra",
+          "value": "QRHS"
+        }
+      ],
+      "introducerRID": "212124324784879",
+      "introducerUIN": "212124324784879",
+      "introducerName": [
+        {
+          "language": "fra",
+          "value": "salma"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "pdf",
+        "type": "RNC",
+        "value": "fileReferenceID"
+      },
+      "proofOfIdentity": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "introducerBiometrics": {
+        "format": "cbeff",
+        "version": 1.1,
+        "value": "fileReferenceID"
+      }
+    },
+    "documents": [
+      {
+        "value": "{{value}}",
+        "category": "individualBiometrics"
+      },
+      {
+        "category": "proofOfRelationship",
+        "value": "dGVzdA"
+      },
+      {
+        "category": "proofOfDateOfBirth",
+        "value": "dGVzdA"
+      }
+    ]
+  },
+  "requesttime": "2019-01-28T13:07:13.152Z",
+  "version": "{{version}}"
+}
