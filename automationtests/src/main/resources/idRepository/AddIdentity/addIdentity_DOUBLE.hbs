@@ -1,44 +1,70 @@
 {
   "id": "mosip.id.create",
   "request": {
-     "registrationId": "{{registrationId}}",
-      "biometricReferenceId": "23452353",
+    "registrationId": "{{registrationId}}",
+    "biometricReferenceId": "23452353",
     "identity": {
       "residenceStatus": [
         {
-          "language": "hin",
-          "value": "FR"       }
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
       ],
-      "IDSchemaVersion": 0.3,
+      "IDSchemaVersion": $SCHEMAVERSION$,
       "UIN": "{{UIN}}",
-      "fullName": [      {
-          "language": "{{language}}",
-          "value": "TestQA"
+      "fullName": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "dateOfBirth": "{{dateOfBirth}}",
       "gender": [
-                {
-                    "language": "hin",
-                    "value": "Male"
-                }
-            ],
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
       "region": [
         {
-          "language": "hin",
-          "value": "RSK"
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "province": [
         {
-          "language": "hin",
-          "value": "Kenitra"
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "city": [
         {
-          "language": "hin",
-          "value": "Kenitra"
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "postalCode": "14022",
@@ -46,16 +72,24 @@
 	  "phone": "{{phone}}",
       "zone": [
         {
-          "language": "hin",
-          "value": "QRHS"
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "introducerRID": "212124324784879",
       "introducerUIN": "212124324784879",
       "introducerName": [
         {
-          "language": "hin",
-          "value": "salma"
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
         }
       ],
       "proofOfIdentity": {
