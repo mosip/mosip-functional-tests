@@ -1,6 +1,6 @@
 BioAuth:
   auth_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -38,7 +38,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -76,7 +76,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -114,7 +114,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -152,7 +152,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -190,7 +190,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -228,7 +228,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -266,7 +266,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -304,7 +304,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -342,7 +342,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -380,7 +380,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -418,7 +418,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -456,7 +456,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -494,7 +494,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -532,7 +532,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -570,7 +570,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftMiddleFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -608,7 +608,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -646,7 +646,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -684,7 +684,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -722,7 +722,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -760,7 +760,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -798,7 +798,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightLittleFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -836,7 +836,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftThumb_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -874,7 +874,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -912,7 +912,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -950,7 +950,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -988,7 +988,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_inValid_transactionID:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1032,7 +1032,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_blank_transactionID:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1076,7 +1076,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_inValid_individualIdType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1120,7 +1120,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1164,7 +1164,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Missing_Optional_Field_individualIdType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1202,7 +1202,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1246,7 +1246,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1290,7 +1290,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Blank_bioType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1334,7 +1334,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Missing_bioType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1378,7 +1378,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Invalid_bioType:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1422,7 +1422,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_invalid_biovalue:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1466,7 +1466,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Face_With_FingerBio_Invalid:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1510,7 +1510,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Iris_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
@@ -1554,7 +1554,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Finger_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth

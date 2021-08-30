@@ -25,9 +25,9 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
@@ -58,9 +58,9 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }
@@ -91,9 +91,9 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
     }

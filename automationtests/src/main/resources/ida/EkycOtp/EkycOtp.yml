@@ -1,6 +1,6 @@
 EkycOtp:
   auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -19,7 +19,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/EkycOtp/EkycotpIdentityEncrypt.json"
     }
     }'
@@ -33,7 +33,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -52,7 +52,7 @@ EkycOtp:
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_VID$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -66,7 +66,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Invalid_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -85,7 +85,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -104,7 +104,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -123,7 +123,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -142,7 +142,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Missing_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -161,7 +161,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -180,7 +180,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Invalid_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -199,7 +199,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -218,7 +218,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -237,7 +237,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -256,7 +256,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Invalid_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -275,7 +275,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -294,7 +294,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -313,7 +313,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -332,7 +332,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Missing_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -351,7 +351,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/8YFn1jCfDGAhubkSquedoxVPgUD9kXWyyg0wkzzdGW3s3h6WJz/1629810398715/238478",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
