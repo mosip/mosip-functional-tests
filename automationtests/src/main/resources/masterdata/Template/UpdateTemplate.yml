@@ -10,7 +10,7 @@ UpdateTemplate:
         "description": "test template updated",
         "fileFormatCode": "json",
         "fileText": "abc",
-        "id": "1101",
+        "id": "9999",
         "isActive": true,
         "langCode": "eng",
         "model": "model-1",

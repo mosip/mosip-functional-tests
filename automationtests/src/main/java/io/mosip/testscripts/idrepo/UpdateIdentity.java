@@ -88,6 +88,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		
 		inputJson = inputJson.replace("$RID$", genRid);
+		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
 		
 		Response response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		

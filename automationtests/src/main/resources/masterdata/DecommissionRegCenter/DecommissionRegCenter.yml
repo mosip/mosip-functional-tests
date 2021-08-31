@@ -6,8 +6,8 @@ DecommissionRegCenter:
       inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
       outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult
       input: '{
-    "regCenterID": "10021"
+    "regCenterID": "96875"
 	}'
       output: '{
-    "id": "10021"
+    "id": "96875"
 }'

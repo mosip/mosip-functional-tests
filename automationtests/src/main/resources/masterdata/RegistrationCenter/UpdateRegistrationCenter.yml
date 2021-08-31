@@ -46,7 +46,7 @@ UpdateRegistrationCenter:
       output: '{
 		"langCode": "$IGNORE$"
 }'
-   MasterData_CreateRegCenter_allValid_Secondary_language_eng_isActive_true:
+   MasterData_CreateRegCenter_allValid_smoke_decommision:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
       templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
@@ -64,7 +64,7 @@ UpdateRegistrationCenter:
     "contactPhone": "9663089998",
     "holidayLocationCode": "RBT",
     "isActive": true,
-    "langCode": "ara",
+    "langCode": "eng",
     "latitude": "33.995612",
     "locationCode": "WOR",
     "longitude": "-6.815281",
@@ -75,7 +75,7 @@ UpdateRegistrationCenter:
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
     "zoneCode":"STT",
-    "id": "96874",
+    "id": "96875",
     "workingNonWorkingDays": {
       "fri": true,
       "mon": true,
@@ -91,7 +91,7 @@ UpdateRegistrationCenter:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "langCode": "$IGNORE$"
+		"langCode": "$IGNORE$"
 }'
    MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng:
       endPoint: /v1/masterdata/registrationcenters

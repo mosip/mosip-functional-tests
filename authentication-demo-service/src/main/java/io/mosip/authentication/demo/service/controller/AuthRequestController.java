@@ -104,6 +104,8 @@ import io.swagger.annotations.Api;
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
 
+	private static final String DATE_TIME = "dateTime";
+
 	private static final String MOSIP_ENV = "mosip.env";
 	
 	private static final String MOSIP_DOMAINURI= "mosip.domainUri";
@@ -268,6 +270,7 @@ public class AuthRequestController {
 		idValuesMap(id, idType, isKyc, isInternal, reqValues, transactionId, requestTime);
 		getAuthTypeMap(reqAuth, reqValues, request);
 		applyRecursively(request, TIMESTAMP, requestTime);
+		applyRecursively(request, DATE_TIME, requestTime);
 		applyRecursively(request, TRANSACTION_ID, transactionId);
 
 		if(needsEncryption) {
@@ -544,20 +547,20 @@ public class AuthRequestController {
 		boolean isInternal = false;
 		switch(reqId) {
 		case "mosip.identity.auth":
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		case "mosip.identity.kyc":
-			baseUrl = isLocal ? "http://localhost:8091" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("kyc.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/kyc";
 			break;
 		case "mosip.identity.auth.internal":
-			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" +  environment.getProperty("internal.port", "8093"): envBaseUrl;
 			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity" : "/idauthentication/v1/internal/auth";
 			isInternal = true;
 			break;
 		default:
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		}
@@ -582,11 +585,11 @@ public class AuthRequestController {
 		boolean isInternal = false;
 		switch(reqId) {
 		case "mosip.identity.otp":
-			baseUrl = isLocal ? "http://localhost:8092" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("otp.port", "8092") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/otp";
 			break;
 		case "mosip.identity.otp.internal":
-			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("internal.port", "8093") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/internal/otp";
 			isInternal = true;
 			break;
@@ -905,9 +908,7 @@ public class AuthRequestController {
 			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, OperatorCreationException {
 		
-		String filePrepend = partnerType.getFilePrepend();
-
-		return keyMgrUtil.getPartnerCertificates(filePrepend, keyMgrUtil.getKeysDirPath(), partnerName);
+		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName);
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)

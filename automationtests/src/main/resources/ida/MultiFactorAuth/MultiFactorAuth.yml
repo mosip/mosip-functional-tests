@@ -1,6 +1,6 @@
 MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -19,7 +19,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "UNKNOWN",
@@ -54,7 +54,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -73,7 +73,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left RingFinger",
@@ -108,7 +108,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -127,7 +127,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left MiddleFinger",
@@ -162,7 +162,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -181,7 +181,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left IndexFinger",
@@ -216,7 +216,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -235,7 +235,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left LittleFinger",
@@ -270,7 +270,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -289,7 +289,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right IndexFinger",
@@ -324,7 +324,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -343,7 +343,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right RingFinger",
@@ -378,7 +378,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -397,7 +397,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right MiddleFinger",
@@ -432,7 +432,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -451,7 +451,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right LittleFinger",
@@ -486,7 +486,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -505,7 +505,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left Thumb",
@@ -540,7 +540,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -559,7 +559,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right Thumb",
@@ -594,7 +594,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -613,7 +613,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Right",
@@ -648,7 +648,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736
+      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
       role: ida
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
@@ -667,7 +667,7 @@ MultiFactorAuth:
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/M7zio9k6SXBUAZuqGpVJ8C4Jlw4XrxBpjwZilxXZEO3qVaDpNL/704/291736",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894",
     },
         "identityRequest":{
           "bioSubType": "Left",

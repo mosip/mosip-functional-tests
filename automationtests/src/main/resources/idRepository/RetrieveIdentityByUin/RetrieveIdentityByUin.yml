@@ -6,7 +6,7 @@ RetrieveIdentity:
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
       outputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUinResult_$PRIMARYLANG$
       input: '{
-    "UIN": "8706453257"
+    "UIN": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$"
 }'
       output: '{
     "status": "ACTIVATED",
