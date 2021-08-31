@@ -25,3 +25,81 @@ defineDataSharePolicy:
     "cr_by": "110124",
     "cr_dtimes": "2021-02-19T10:59:07.388+0000"        
     }'
+    
+   Partner_DefineDataSharePolicy_duplicate_policy_name:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "Auth policy exists with name : mosip data share policy"
+    }
+  ]
+}'
+   
+   Partner_DefineDataSharePolicy_invalid_policy_grp_name:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "abcd",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_019",
+      "message": "Policy group name does not exist"
+    }
+  ]
+}'
+
+   Partner_DefineDataSharePolicy_invalid_policy_type:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group",
+    "policyType": "abcd",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_023",
+      "message": "Given policy type is not allowed "
+    }
+  ]
+}'

@@ -15,3 +15,21 @@ getPartnerCert:
     	"contactNumber": "9553967572",
     	"emailId": "deviceprovider@gmail.com"
   }'
+  
+   Partner_GetPartner_invalid_partner:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/devicePartner/GetPartner/getPartner
+      outputTemplate: partner/error
+      input: '{
+    "partnerId": "ABCD"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}'

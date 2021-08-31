@@ -14,6 +14,26 @@ updatePartnerDetails:
         "partnerId": "Tech-123",
         "status": "approved"
     }'
+    
+   Partner_UpdatePartnerDetails_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/Tech-1231234
+      role: partner
+      restMethod: put
+      inputTemplate: partner/authPartner/UpdatePartner/updatePartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore Ind",
+    "contactNumber": "8553967576",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}'
 
    Partner_UpdatePartnerDetails_Missing_InputParameter_Address:
       endPoint: /v1/partnermanager/partners/Tech-123
