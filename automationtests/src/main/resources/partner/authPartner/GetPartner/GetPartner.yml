@@ -19,3 +19,21 @@ getPartnerCert:
   },
   "errors": null
 }'
+
+   Partner_GetPartnerCert_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/{partnerId}/certificate
+      role: partner
+      restMethod: get
+      inputTemplate: partner/authPartner/GetPartner/getPartner
+      outputTemplate: partner/error
+      input: '{
+    "partnerId": "Tech-1231234"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}'

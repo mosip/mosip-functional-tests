@@ -18,3 +18,23 @@ GetPartnersPolicy:
     "status": "PUBLISHED",
     "policies": "$IGNORE$"
 }'
+
+   partner_GetPartnersPolicy_invalid_partnerId:
+      endPoint: /v1/policymanager/policies/{policyId}/partner/{partnerId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/GetPartnersPolicy/getPartnersPolicy
+      outputTemplate: partner/error
+      input: '{
+    "partnerId": "abcd",
+    "policyId": "mpolicy-default-auth",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_POL_017",
+      "message": "No policy available for given partner"
+    }
+  ]
+}'

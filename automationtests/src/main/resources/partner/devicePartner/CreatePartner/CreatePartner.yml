@@ -18,4 +18,4 @@ createPartnerSelfRegistration:
       output: ' {
         "partnerId": "DPP",
         "status": "InProgress"
-    }'
+    }' 
