@@ -1,4 +1,4 @@
-﻿ISO 639-2 Code,English Name,English-to-Language-TransID
+ISO 639-2 Code,English Name,English-to-Language-TransID
 aar,Afar,Any-ar
 abk,Abkhazian,
 ace,Achinese,
@@ -139,7 +139,7 @@ eka,Ekajuk,
 gre (B),"Greek, Modern (1453-)",
 ell (T),,
 elx,Elamite,
-eng,English,
+eng,English,eng,
 enm,"English, Middle (1100-1500)",
 epo,Esperanto,
 est,Estonian,
@@ -204,6 +204,8 @@ her,Herero,
 hil,Hiligaynon,
 him,Himachali languages; Western Pahari languages,
 hin,Hindi,Any-Devanagari
+kan,Kannada,Any-Kannada
+tam,Tamil,Any-Tamil
 hit,Hittite,
 hmn,Hmong; Mong,
 hmo,Hiri Motu,
