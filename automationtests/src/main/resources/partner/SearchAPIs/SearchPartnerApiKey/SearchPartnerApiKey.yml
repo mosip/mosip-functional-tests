@@ -27,7 +27,143 @@ SearchPartnerApiKey:
       output: '{
    "data": [
      {
-        "policyApiKey": "0983222"
+        "policyApiKey": "$IGNORE$"
       }
     ]
+}'
+
+   Partner_SearchPartnerApiKey_type_contains_invalid_pagination:
+      endPoint: /v1/partnermanager/partners/apikey/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "policyApiKey",
+        "type": "contains",
+        "value": "mpolicy_part_auth_api"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "policyApiKey",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "0",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-313",
+      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+    }
+  ]
+}'
+
+   Partner_SearchPartnerApiKey_type_contains_invalid_sortField:
+      endPoint: /v1/partnermanager/partners/apikey/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "policyApiKey",
+        "type": "contains",
+        "value": "mpolicy_part_auth_api"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "abcd",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "0",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-357",
+      "message": "Invalid sort field abcd"
+    }
+  ]
+}'
+
+   Partner_SearchPartnerApiKey_type_contains_invalid_sortType:
+      endPoint: /v1/partnermanager/partners/apikey/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "policyApiKey",
+        "type": "contains",
+        "value": "mpolicy_part_auth_api"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "policyApiKey",
+        "sortType": "abcd"
+      }
+    ],
+  "pageFetch": "0",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-358",
+      "message": "Sort type abcd is not supported"
+    }
+  ]
+}'
+
+   Partner_SearchPartnerApiKey_type_contains_columnName:
+      endPoint: /v1/partnermanager/partners/apikey/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "abcd",
+        "type": "contains",
+        "value": "mpolicy_part_auth_api"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "policyApiKey",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "0",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-310",
+      "message": "Invalid column received : abcd"
+    }
+  ]
 }'

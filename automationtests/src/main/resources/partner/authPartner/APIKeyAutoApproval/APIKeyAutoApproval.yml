@@ -15,3 +15,23 @@ requetAPIKey:
         "message": "PartnerAPIKeyRequest successfully submitted and approved.",
 		"apikeyId": "254785"
     }'
+    
+   Partner_SubmitPartnerApiKeyRequest_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/ABCD/apikey/request
+      role: partner
+      restMethod: patch 
+      inputTemplate: partner/authPartner/APIKeyAutoApproval/apiKeyAutoApproval
+      outputTemplate: partner/error
+      input: '{
+        "policyName": "mosip policy",
+        "useCaseDescription": "Need to submit the payment",
+    "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}'    

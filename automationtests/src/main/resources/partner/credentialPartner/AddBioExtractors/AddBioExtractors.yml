@@ -11,3 +11,43 @@ addBioExtractors:
 	"requesttime": "$TIMESTAMP$"
   }'
       output: '{"message":"Extractors added successfully."}'
+      
+   Partner_AddBioExtractors_invalid_policyId:
+      endPoint: /v1/partnermanager/partners/MOVP/bioextractors/abcd
+      role: partner
+      restMethod: post
+      inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
+      outputTemplate: partner/error
+      input: '{
+  "partnerId":"MOVP",
+  "policyId":"abcd",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_061",
+      "message": "Partner policy mapping not exists."
+    }
+  ]
+}'
+
+   Partner_AddBioExtractors_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/abcd/bioextractors/MDSP
+      role: partner
+      restMethod: post
+      inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
+      outputTemplate: partner/error
+      input: '{
+  "partnerId":"abcd",
+  "policyId":"MDSP",
+  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_061",
+      "message": "Partner policy mapping not exists."
+    }
+  ]
+}'    
