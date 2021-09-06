@@ -196,7 +196,8 @@ public class KernelAuthentication extends BaseTestCase{
 	public String getPreRegToken() {	
 		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
-        actualRequest_generation.put("requesttime", clib.getCurrentUTCTime()); 
+        actualRequest_generation.put("requesttime", clib.getCurrentUTCTime());
+        ((JSONObject)actualRequest_generation.get("request")).put("langCode", languageList.get(0));
         //Getting the userId from request
         String key=((JSONObject)actualRequest_generation.get("request")).get("userId").toString();
         // getting request and expected response jsondata from json files.
@@ -207,7 +208,7 @@ public class KernelAuthentication extends BaseTestCase{
         		if (proxy)
         			otp = "111111";
         		else {
-        //Getting the status of the UIN 
+        //Getting the status of the UIN
         String query="SELECT o.otp FROM kernel.otp_transaction o where id='"+key+"'";
         List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
         otp=status_list.get(0);

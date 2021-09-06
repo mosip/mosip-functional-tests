@@ -1,6 +1,6 @@
 DemoAuth:
   auth_DemoAuth_DOB_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -23,7 +23,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_DOB_InValid_Dateofbirth:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -52,7 +52,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_Email_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -75,7 +75,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_Email_InValid_Email:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -104,7 +104,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_gender_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -131,7 +131,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_Name_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -158,7 +158,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_age_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -181,7 +181,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_PhoneNumber_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -204,7 +204,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_PhoneNumber_InValid_PhoneNumber:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -233,7 +233,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_InValid_individualId:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -262,7 +262,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Missing_individualId:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -291,7 +291,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Blank_individualId:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -320,7 +320,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Invalid_individualIdType:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -349,7 +349,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -378,7 +378,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Missing_ Optional_Field_individualIdType:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -401,7 +401,7 @@ DemoAuth:
   "authStatus": "true"
 }'
   auth_DemoAuth_DOB_Invalid_transactionId:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
@@ -430,7 +430,7 @@ DemoAuth:
   ]
 }'
   auth_DemoAuth_DOB_Blank_transactionId:
-      endPoint: /idauthentication/v1/auth/ORRq1czBd4kv0nakfEIbxwky5pGv1ezDDzpfGebxYVvnSFVGeK/556/210894
+      endPoint: /idauthentication/v1/auth/yGaiwYGReeVAjKdaiHYsJq9GMXILGgQqc3CHaydiaBF5zEdT3P/982/579705
       role: ida
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
