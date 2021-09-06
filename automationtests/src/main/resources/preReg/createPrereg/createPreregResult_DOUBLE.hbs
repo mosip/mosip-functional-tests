@@ -1,112 +1,100 @@
 {
-  "id": "{{id}}",
-  "request": {
+  "id": "mosip.pre-registration.demographic.create",
+  "version": "1.0",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "preRegistrationId": "$IGNORE$",
+    "createdDateTime": "$IGNORE$",
+    "statusCode": "Application_Incomplete",
     "langCode": "{{langCode}}",
-    "requiredFields": [
-      "IDSchemaVersion",
-      "fullName",
-      "dateOfBirth",
-      "gender",
-      "residenceStatus",
-      "addressLine1",
-      "region",
-      "province",
-      "city",
-      "zone",
-      "postalCode",
-      "phone",
-      "email"
-    ],
     "demographicDetails": {
       "identity": {
         "IDSchemaVersion": 0.1,
         "fullName": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "Test Book appointment"
           },
           {
-            "language": "ara",
-            "value": "پُجَ تهَكُر"
+            "language": "$2NDLANG$",
+            "value": "Test Book appointment"
           }
         ],
-        "dateOfBirth": "{{dateOfBirth}}",
+        "dateOfBirth": "1996/01/01",
         "gender": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "MLE"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "MLE"
           }
         ],
         "residenceStatus": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "NFR"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "NFR"
           }
         ],
         "addressLine1": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "line1"
           },
           {
-            "language": "ara",
-            "value": "لِنِ١"
+            "language": "$2NDLANG$",
+            "value": "line1"
           }
         ],
         "region": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "RSK"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "RSK"
           }
         ],
         "province": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "KTA"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "KTA"
           }
         ],
         "city": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "KNT"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "KNT"
           }
         ],
         "zone": [
           {
-            "language": "eng",
+            "language": "$1STLANG$",
             "value": "BNMR"
           },
           {
-            "language": "ara",
+            "language": "$2NDLANG$",
             "value": "BNMR"
           }
         ],
         "postalCode": "14022",
         "phone": "8249742850",
-        "email": "{{email}}"
+        "email": "sohan.dey@technoforte.co.in"
       }
     }
-  },
-  "version": "{{version}}",
-  "requesttime": "{{requesttime}}"
+  }
 }

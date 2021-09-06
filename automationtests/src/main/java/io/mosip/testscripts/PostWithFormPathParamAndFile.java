@@ -64,18 +64,16 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
-		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+
+		if (inputJson.contains("$1STLANG$"))
+			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (inputJson.contains("$2NDLANG$"))
+			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (inputJson.contains("$3RDLANG$"))
+			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
 		
-		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

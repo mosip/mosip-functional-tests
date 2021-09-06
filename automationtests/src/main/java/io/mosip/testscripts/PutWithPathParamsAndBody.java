@@ -68,16 +68,9 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
-		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+		filterHbs(testCaseDTO);
+		String inputJson = filterInputHbs(testCaseDTO);
+		String outputJson = filterOutputHbs(testCaseDTO);
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
@@ -103,16 +96,71 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+					.doJsonOutputValidation(response.asString(), outputJson);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}
 
+	}
+	
+	private String filterOutputHbs(TestCaseDTO testCaseDTO) {
+		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+		if (outputJson.contains("$1STLANG$"))
+			outputJson = outputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (outputJson.contains("$2NDLANG$"))
+			outputJson = outputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (outputJson.contains("$3RDLANG$"))
+			outputJson = outputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		return outputJson;
+	}
+
+	private String filterInputHbs(TestCaseDTO testCaseDTO) {
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+
+		if (inputJson.contains("$1STLANG$"))
+			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (inputJson.contains("$2NDLANG$"))
+			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (inputJson.contains("$3RDLANG$"))
+			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		
+		
+		return inputJson;
+	}
+	
+
+	private void filterHbs(TestCaseDTO testCaseDTO) {
+		if(BaseTestCase.languageList.size()==2) {
+			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setInputTemplate(
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setOutputTemplate(
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+		}
+		
+		else if(BaseTestCase.languageList.size()==3) {
+			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setInputTemplate(
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
+			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setOutputTemplate(
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
+		}
+		else {
+			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setInputTemplate(
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setOutputTemplate(
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+		}
 	}
 
 	/**

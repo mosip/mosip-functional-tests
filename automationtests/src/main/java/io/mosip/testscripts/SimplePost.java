@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
@@ -66,6 +67,17 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
+		
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+
+		if (inputJson.contains("$1STLANG$"))
+			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (inputJson.contains("$2NDLANG$"))
+			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (inputJson.contains("$3RDLANG$"))
+			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		
+		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
@@ -93,7 +105,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 
 		else {
 			response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					inputJson, COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
