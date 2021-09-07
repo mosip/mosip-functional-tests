@@ -134,10 +134,10 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		else {
 			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
 				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
 			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
 				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
 		}
 	}
 

@@ -34,7 +34,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="UpdatePreregistration">
+	 <test name="UpdatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/UpdatePreregistration/UpdatePreregistration.yml" />
 			<parameter name="pathParams"	value="preRegistrationId" />
@@ -42,13 +42,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<!-- <test name="GetApplicationWithPrId">
+	<test name="GetApplicationWithPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetApplicationWithPrId/GetApplicationWithPrId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	<test name="GetApplicationStatusWithPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetApplicationStatusWithPrId/GetApplicationStatusWithPrId.yml" />
