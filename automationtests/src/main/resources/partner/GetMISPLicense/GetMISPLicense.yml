@@ -6,12 +6,12 @@ GetMISPLicense:
       inputTemplate: partner/GetMISPLicense/getMISPLicense
       outputTemplate: partner/GetMISPLicense/getMISPLicenseResult
       input: '{
-    "mispId": "1629810361199",
+    "mispId": "1630648932936",
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "providerId": "1629810361199",
-    "licenseKey": "8AZVagSRqyRgnY4e7x2D96ZvSjxPfjScpKcugPM4uxr56Esldu",
+    "providerId": "1630648932936",
+    "licenseKey": "PB65nwNTWQFW1ZEmPP8wUuQ42ghuBLsJtK4eXb6vr6DPE89it6",
     "licenseKeyStatus": "$IGNORE$",
     "licenseKeyExpiry": "$IGNORE$"
     }'

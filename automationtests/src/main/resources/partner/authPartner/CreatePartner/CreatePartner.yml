@@ -40,7 +40,7 @@ createPartnerSelfRegistration:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "partnerId must not be null  request.partnerId"
+      "message": "partnerId must not be empty  request.partnerId"
     }
   ]
 }'
@@ -92,7 +92,7 @@ createPartnerSelfRegistration:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "contactNumber must not be null request.contactNumber"
+      "message": "contactNumber must not be null  request.contactNumber"
     }
   ]
 }'
