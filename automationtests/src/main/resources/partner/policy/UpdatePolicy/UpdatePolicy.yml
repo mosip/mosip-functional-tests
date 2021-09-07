@@ -24,7 +24,7 @@ createUpdatePolicy:
         "policyGroupName": "mosip policy group",
         "name": "mosip policy",
         "desc": "desc mosip policy",
-        "is_Active": true
+        "is_Active": $IGNORE$
     }'
 
 
@@ -53,7 +53,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy name should not be empty. request.name"
+      "message": "name should not be empty. request.name"
     }
   ]
 }'
@@ -81,7 +81,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy desc should not be blank. request.desc"
+      "message": "desc must not be null request.desc"
     }
   ]
 }'
@@ -169,7 +169,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "  Policy group name must not be null request.policyGroupName"
+      "message": "Policy group name should not be empty request.policyGroupName"
     }
   ]
 }'
