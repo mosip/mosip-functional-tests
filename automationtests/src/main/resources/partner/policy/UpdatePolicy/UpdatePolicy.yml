@@ -53,7 +53,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "name should not be empty. request.name"
+      "message": "Invalid request parameter - value is empty or null :request.name"
     }
   ]
 }'
@@ -81,7 +81,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "desc must not be null request.desc"
+      "message": "Invalid request parameter - value is empty or null :request.desc"
     }
   ]
 }'
@@ -169,7 +169,7 @@ createUpdatePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy group name should not be empty request.policyGroupName"
+      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
     }
   ]
 }'

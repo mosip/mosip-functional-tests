@@ -65,7 +65,7 @@ PolicyGroupFilter:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be blank request.filters[0].columnName"
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
     }
   ]
 }'

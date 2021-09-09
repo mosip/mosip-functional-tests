@@ -41,7 +41,7 @@ createUpdateSecureBiometricInterface:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.id"
+      "message": "Invalid request parameter - value is empty or null :request.id"
     }
   ]
 }'
@@ -67,7 +67,7 @@ createUpdateSecureBiometricInterface:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.deviceDetailId"
+      "message": "Invalid request parameter - value is empty or null :request.deviceDetailId"
     }
   ]
 }'
