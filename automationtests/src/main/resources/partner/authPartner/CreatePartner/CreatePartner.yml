@@ -40,7 +40,7 @@ createPartnerSelfRegistration:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "partnerId must not be empty  request.partnerId"
+      "message": "Invalid request parameter - value is empty or null :request.partnerId"
     }
   ]
 }'
@@ -92,7 +92,7 @@ createPartnerSelfRegistration:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "contactNumber must not be null  request.contactNumber"
+      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
     }
   ]
 }'
@@ -142,7 +142,7 @@ createPartnerSelfRegistration:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "partnerType must not be empty  request.partnerType"
+      "message": "Invalid request parameter - value is empty or null :request.partnerType"
     }
   ]
 }'

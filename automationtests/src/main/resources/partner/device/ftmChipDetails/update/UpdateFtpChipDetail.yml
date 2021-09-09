@@ -35,7 +35,7 @@ createUpdateFtpChipDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.ftpChipDetailId"
+      "message": "Invalid request parameter - value is empty or null :request.ftpChipDetailId"
     }
   ]
 }'
@@ -58,7 +58,7 @@ createUpdateFtpChipDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message":  "must not be null  request.ftpProviderId"
+      "message":  "Invalid request parameter - value is empty or null :request.ftpProviderId"
     }
   ]
 }'

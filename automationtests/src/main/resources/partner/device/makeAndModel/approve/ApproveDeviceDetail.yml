@@ -31,7 +31,7 @@ createApproveRejectDeviceDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.approvalStatus"
+      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
     }
   ]
 }'
@@ -53,7 +53,7 @@ createApproveRejectDeviceDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.id"
+      "message": "Invalid request parameter - value is empty or null :request.id"
     }
   ]
 }'
