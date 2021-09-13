@@ -36,7 +36,7 @@ definePolicyGroup:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Group desc should not be blank. request.desc"
+      "message": "Invalid request parameter - value is empty or null :request.desc"
     }
   ]
 }'
@@ -56,7 +56,7 @@ definePolicyGroup:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Group name should not be empty. request.name"
+      "message": "Invalid request parameter - value is empty or null :request.name"
     }
   ]
 }'
