@@ -10,98 +10,83 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-	
-	<test name="AddIdentity">
-	<parameter name="ymlFile"
-		value="ida\AddIdentity\AddIdentity.yml" />
-	<classes>
-		<class name="io.mosip.testscripts.AddIdentity" />
-	</classes>
-</test>  
 
-<test name="GenerateVID">
+	<test name="AddIdentity">
+		<parameter name="ymlFile"
+			value="ida\AddIdentity\AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AddIdentity" />
+		</classes>
+	</test>
+
+	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
-			<parameter name="idKeyName"	value="vid" />
+		<parameter name="idKeyName" value="vid" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class
+				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	
+
 	<test name="BioAuth">
-		<parameter name="ymlFile"
-			value="ida/BioAuth/BioAuth.yml" />	
-		<parameter name="isInternal"	value="false" />
+		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
+		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
-	
+
 	<test name="EkycBio">
-	<parameter name="ymlFile"
-			value="ida/EkycBio/EkycBio.yml" />
-		<parameter name="isInternal"	value="false" />
+		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
+		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
-	
+
 	<test name="OtpAuth">
-		<parameter name="ymlFile"
-			value="ida/OtpAuth/OtpAuth.yml" />	
-		<parameter name="isInternal"	value="false" />
+		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuth.yml" />
+		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
 	</test>
-	
+
 	<test name="EkycOtp">
-	<parameter name="ymlFile"
-			value="ida/EkycOtp/EkycOtp.yml" />
-		<parameter name="isInternal"	value="false" />
+		<parameter name="ymlFile" value="ida/EkycOtp/EkycOtp.yml" />
+		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
-	</test> 
-	
+	</test>
+
 	<test name="DemoAuth">
-		<parameter name="ymlFile"
-			value="ida/DemoAuth/DemoAuth.yml" />	
+		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
-	
+
 	<test name="MultiFactorAuth">
 		<parameter name="ymlFile"
-			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />	
+			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.MultiFactorAuth" />
 		</classes>
-	</test> 
-	
-	
-	
-	
-	
-	<!-- <test name="BioInternalAuth">
-		<parameter name="ymlFile"
-			value="ida/BioInternalAuth/BioInternalAuth.yml" />
-		<parameter name="isInternal"	value="true" />	
-		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
-		</classes>
 	</test>
-	
-	<test name="OtpInternalAuth">
-		<parameter name="ymlFile"
-			value="ida/OtpInternalAuth/OtpInternalAuth.yml" />	
-		<parameter name="isInternal"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.OtpAuth" />
-		</classes>
-	</test> -->
-	
-	
-	
+
+
+
+
+
+	<!-- <test name="BioInternalAuth"> <parameter name="ymlFile" value="ida/BioInternalAuth/BioInternalAuth.yml" 
+		/> <parameter name="isInternal" value="true" /> <classes> <class name="io.mosip.testscripts.BioAuth" 
+		/> </classes> </test> <test name="OtpInternalAuth"> <parameter name="ymlFile" 
+		value="ida/OtpInternalAuth/OtpInternalAuth.yml" /> <parameter name="isInternal" 
+		value="true" /> <classes> <class name="io.mosip.testscripts.OtpAuth" /> </classes> 
+		</test> -->
+
+
+
 </suite>
