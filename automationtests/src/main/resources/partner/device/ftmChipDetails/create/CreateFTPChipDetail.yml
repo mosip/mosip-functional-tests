@@ -35,7 +35,7 @@ createSaveFTPChipDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.make"
+      "message": "Invalid request parameter - value is empty or null :request.make"
     }
   ]
 }'
@@ -58,7 +58,7 @@ createSaveFTPChipDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.ftpProviderId"
+      "message": "Invalid request parameter - value is empty or null :request.ftpProviderId"
     }
   ]
 }'

@@ -67,7 +67,7 @@ createServiceToSaveDeviceDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.deviceProviderId"
+      "message": "Invalid request parameter - value is empty or null :request.deviceProviderId"
     }
   ]
 }'
@@ -93,7 +93,7 @@ createServiceToSaveDeviceDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.deviceSubTypeCode"
+      "message": "Invalid request parameter - value is empty or null :request.deviceSubTypeCode"
     }
   ]
 }'
@@ -119,7 +119,7 @@ createServiceToSaveDeviceDetail:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.deviceTypeCode"
+      "message": "Invalid request parameter - value is empty or null :request.deviceTypeCode"
     }
   ]
 }'

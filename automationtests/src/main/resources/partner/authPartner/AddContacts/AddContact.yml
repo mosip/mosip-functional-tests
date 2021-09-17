@@ -33,7 +33,7 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide address  request.address"
+      "message": "Invalid request parameter - value is empty or null :request.address"
     }
   ]
 }'
@@ -55,7 +55,7 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide contactNumber  request.contactNumber"
+      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
     }
   ]
 }'
@@ -76,7 +76,7 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide emailId  request.emailId"
+      "message": "Invalid request parameter - value is empty or null :request.emailId"
     }
   ]
 }'

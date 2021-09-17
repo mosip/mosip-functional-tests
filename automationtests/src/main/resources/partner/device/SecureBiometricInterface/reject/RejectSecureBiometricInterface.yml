@@ -31,7 +31,7 @@ RejectSecureBiometricInterface:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.approvalStatus"
+      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
     }
   ]
 }'
@@ -52,7 +52,7 @@ RejectSecureBiometricInterface:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.isItForRegistrationDevice"
+      "message": "Invalid request parameter - value is empty or null :request.isItForRegistrationDevice"
     }
   ]
 }'

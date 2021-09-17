@@ -26,7 +26,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="UpdatePolicyGroup">
+ 	<test name="UpdatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/UpdatePolicyGroup/UpdatePolicyGroup.yml" />
 		<parameter name="pathParams" value="policyGroupId" />
@@ -34,7 +34,7 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
- 	<test name="DefinePolicy">
+  	<test name="DefinePolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/DefinePolicy/DefinePolicy.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -94,7 +94,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	 <test name="CreatePartner">
+    <test name="CreatePartner">
 		<parameter name="ymlFile"
 			value="partner/authPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
@@ -183,7 +183,7 @@
 			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
 		</classes>
 	</test>
-     <test name="CreatePartner_Online_Verification_Partner">
+    <test name="CreatePartner_Online_Verification_Partner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
@@ -266,7 +266,7 @@
 			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
 		</classes>
 	</test>
-	<test name="CreatePartner_Device_Provider">
+	 <test name="CreatePartner_Device_Provider">
 		<parameter name="ymlFile"
 			value="partner/devicePartner/CreatePartner/CreatePartner.yml" />
 		<classes>
