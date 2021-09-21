@@ -88,11 +88,13 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		
+		
+		otpReqJson.remove("sendOtpEndPoint");
+		
 		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
 		{
-			sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
 		}
-		otpReqJson.remove("sendOtpEndPoint");
 		
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
 		
