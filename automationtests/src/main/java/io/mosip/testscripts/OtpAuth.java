@@ -90,13 +90,15 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		
-		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
-		{
-			sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
-		}
+		
 		otpReqJson.remove("sendOtpEndPoint");
 		otpIdentyEnryptRequestPath = otpReqJson.getString("otpIdentyEnryptRequestPath");
 		otpReqJson.remove("otpIdentyEnryptRequestPath");
+		
+		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+		{
+			sendOtpEndPoint= sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+		}
 		
 		Response otpResponse = null;
 		if(isInternal)
