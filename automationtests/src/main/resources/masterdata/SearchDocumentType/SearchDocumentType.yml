@@ -11,7 +11,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "संदर्भ पहचान पत्र",
+        "value": "Reference Identity Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -50,7 +50,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "संदर्भ पहचान पत्र",
+        "value": "Reference Identity Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -89,7 +89,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "संदर्भ पहचान पत्र",
+        "value": "Reference Identity Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -117,7 +117,7 @@ SearchDocumentType:
     ]
 }'
    MasterData_SearchDocumentType_inValid_columnName_blank:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -153,7 +153,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_columnName:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -189,7 +189,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_filter_value:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -220,7 +220,7 @@ SearchDocumentType:
    "data": []
 }'
    MasterData_SearchDocumentType_inValid_filter_value_blank:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -257,7 +257,7 @@ SearchDocumentType:
 }'
    
    MasterData_SearchDocumentType_inValid_sortField:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -293,7 +293,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_sortType:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -329,7 +329,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_sortField_blank:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -365,7 +365,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_sortType_blank:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -401,7 +401,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_pagesize:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -437,7 +437,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_filterType_blank:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -473,7 +473,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_filterType:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -509,7 +509,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_requestTime_format:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -545,7 +545,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_typeFilter_contains:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
@@ -581,7 +581,7 @@ SearchDocumentType:
   ]
 }'
    MasterData_SearchDocumentType_inValid_typeFilter_startsWith:
-      endPoint: /v1/masterdata/documentcategories/search
+      endPoint: /v1/masterdata/documenttypes/search
       role: admin
       templateFields: ["value"]
       restMethod: post
