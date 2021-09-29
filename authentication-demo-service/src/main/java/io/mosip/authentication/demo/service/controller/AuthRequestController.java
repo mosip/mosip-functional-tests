@@ -545,7 +545,7 @@ public class AuthRequestController {
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		case "mosip.identity.kyc":
-			baseUrl = isLocal ? "http://localhost:" + 8091/*environment.getProperty("kyc.port", "8090")*/ : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("kyc.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/kyc";
 			break;
 		case "mosip.identity.auth.internal":
