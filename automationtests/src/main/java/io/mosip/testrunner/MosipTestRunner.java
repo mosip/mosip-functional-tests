@@ -100,6 +100,19 @@ public class MosipTestRunner {
 		}
 		return "Global Resource File Path Not Found";
 	}
+	
+	public static String getResourcePath() {
+		if (checkRunType().equalsIgnoreCase("JAR")) {
+			return new File(jarUrl).getParentFile().getAbsolutePath();
+		} else if (checkRunType().equalsIgnoreCase("IDE")) {
+			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+					.toString();
+			if(path.contains("test-classes"))
+				path = path.replace("test-classes", "classes");
+			return path;
+		}
+		return "Global Resource File Path Not Found";
+	}
 
 	/**
 	 * The method will return mode of application started either from jar or eclipse

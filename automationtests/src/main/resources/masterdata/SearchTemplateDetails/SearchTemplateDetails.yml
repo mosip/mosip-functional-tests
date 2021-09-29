@@ -10,7 +10,7 @@ SearchTemplateDetails:
     "filters": [{
         "columnName": "name",
         "type": "equals",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
+        "value": "test template"
       }
     ],
     "sort": [
@@ -31,7 +31,7 @@ SearchTemplateDetails:
         "isActive": "$IGNORE$",
         "id": "$IGNORE$",
         "name": "$IGNORE$",
-        "description": "प्राधिकरण एसएमएस के लिए खाका",
+        "description": "test template",
         "fileFormatCode": "$IGNORE$",        
         "model": "$IGNORE$",        
         "fileText": "$IGNORE$",        
@@ -53,7 +53,7 @@ SearchTemplateDetails:
     "filters": [{
         "columnName": "name",
         "type": "contains",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
+        "value": "test template"
       }
     ],
     "sort": [
@@ -74,7 +74,7 @@ SearchTemplateDetails:
         "isActive": "$IGNORE$",
         "id": "$IGNORE$",
         "name": "$IGNORE$",
-        "description": "प्राधिकरण एसएमएस के लिए खाका",
+        "description": "test template",
         "fileFormatCode": "$IGNORE$",        
         "model": "$IGNORE$",        
         "fileText": "$IGNORE$",        
