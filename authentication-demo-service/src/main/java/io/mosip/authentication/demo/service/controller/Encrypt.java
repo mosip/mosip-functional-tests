@@ -544,12 +544,12 @@ public class Encrypt {
 				IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
 
 		SecretKey secretKey = cryptoUtil.genSecKey();
-		byte[] encryptedBioBlock = cryptoUtil.symmetricEncrypt(CryptoUtil.decodeBase64(bioValue),
+		byte[] encryptedBioBlock = cryptoUtil.symmetricEncrypt(CryptoUtil.decodePlainBase64(bioValue),
 				secretKey, saltLastBytes, aadLastBytes);
 
 		PublicKey publicKey = x509Cert.getPublicKey();
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt(secretKey.getEncoded(), publicKey);
-		return new SplittedEncryptedData(CryptoUtil.encodeBase64(encryptedSessionKeyByte), CryptoUtil.encodeBase64(encryptedBioBlock));
+		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(encryptedSessionKeyByte), CryptoUtil.encodeToURLSafeBase64(encryptedBioBlock));
 	
 	}
 
