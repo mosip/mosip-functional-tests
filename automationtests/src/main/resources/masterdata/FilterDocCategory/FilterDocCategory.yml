@@ -37,30 +37,7 @@ FilterDocCategory:
       output: '{
     "filters": []
   }'
-   MasterData_FilterDocCatTypMapping_inValid_filterType_blank:
-      endPoint: /v1/masterdata/documentcategories/filtervalues
-      role: admin
-      templateFields: ["text"]
-      restMethod: post
-      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "code",
-		"type": "",
-		"text": "DocTestCode01"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-322",
-      "message": "Filter Type cannot be empty or null"
-    }
-  ]
-}'
+   
    MasterData_FilterDocCategory_inValid_filterColumnName_blank:
       endPoint: /v1/masterdata/documentcategories/filtervalues
       role: admin

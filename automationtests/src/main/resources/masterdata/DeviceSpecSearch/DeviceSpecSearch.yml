@@ -41,7 +41,6 @@ DeviceSpecSearch:
 	"deviceTypeName": "$IGNORE$"
 	}]
 }'
-  
    MasterData_DeviceSpecSearch_Equals_Brand:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin

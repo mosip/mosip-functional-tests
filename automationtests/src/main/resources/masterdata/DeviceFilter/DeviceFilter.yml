@@ -145,30 +145,7 @@ DeviceFilter:
     }
   ]
 }'    
-   MasterData_DeviceFilter_Invalid_filterType_blank:
-      endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/DeviceFilter/deviceFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "",
-		"text": "Mock IRIS Scanner"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-322",
-      "message": "Filter Type cannot be empty or null"
-    }
-  ]
-}'    
+       
    MasterData_DeviceFilter_inValid_columnName:
       endPoint: /v1/masterdata/devices/filtervalues
       role: admin
