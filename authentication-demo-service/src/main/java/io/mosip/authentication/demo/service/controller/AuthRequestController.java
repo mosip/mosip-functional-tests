@@ -174,7 +174,6 @@ public class AuthRequestController {
 	private static final String DEFAULT_OTP_REQ_TEMPLATE = "{\r\n"
 			+ "  \"id\": \"${reqId}\",\r\n"
 			+ "  \"individualId\": \"${id}\",\r\n"
-			+ "  \"individualIdType\": \"${idType}\",\r\n"
 			+ "  \"otpChannel\": [\r\n"
 			+ "    \"email\"\r\n"
 			+ "  ],\r\n"
