@@ -10,7 +10,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "केंद्र एक बेन मंसूर"
+		"text": "Center A Ben Mansour"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -34,7 +34,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "केंद्र एक बेन मंसूर"
+		"text": "Center A Ben Mansour"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -59,7 +59,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "केंद्र एक बेन मंसूर"
+		"text": "Center A Ben Mansour"
 	}],
 	"languageCode": "eng",
 	"requesttime": "2019-7-3T05:22:35.845"
@@ -72,30 +72,7 @@ RegCenterFilter:
     }
   ]
 }'    
-   MasterData_RegCenterFilter_Invalid_filterType_blank:
-      endPoint: /v1/masterdata/registrationcenters/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/RegCenterFilter/regCenterFilter
-      outputTemplate: masterdata/error
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "",
-		"text": "केंद्र एक बेन मंसूर"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-322",
-      "message": "Filter Type cannot be empty or null"
-    }
-  ]
-}'    
+       
    MasterData_RegCenterFilter_inValid_columnName:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
@@ -107,7 +84,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "fbheafg",
 		"type": "unique",
-		"text": "केंद्र एक बेन मंसूर"
+		"text": "Center A Ben Mansour"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

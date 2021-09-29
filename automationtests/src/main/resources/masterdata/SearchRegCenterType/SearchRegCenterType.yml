@@ -10,7 +10,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "equals",
-        "value": "Center for municipality and the research center at dubai center"
+        "value": "Center A Ben Mansour"
       }
     ],
     "sort": [
@@ -30,7 +30,7 @@ SearchRegCenterType:
      {
         "isActive": $IGNORE$,
         "code": "$IGNORE$",
-        "name": "Center for municipality and the research center at dubai center",
+        "name": "$IGNORE$",
         "descr": "$IGNORE$",
         "langCode": "$IGNORE$"
       }
@@ -85,7 +85,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "contains",
-        "value": "Center for municipality and the research center at abu dhabi "
+        "value": "Center A Ben Mansour"
       }
     ],
     "sort": [
@@ -105,7 +105,7 @@ SearchRegCenterType:
      {
         "isActive": $IGNORE$,
         "code": "$IGNORE$",
-        "name": "Center for municipality and the research center at abu dhabi ",
+        "name": "$IGNORE$",
         "descr": "$IGNORE$",
         "langCode": "$IGNORE$"
       }
@@ -122,7 +122,7 @@ SearchRegCenterType:
     "filters": [{
         "columnName": "name",
         "type": "startsWith",
-        "value": "Center for municipality and the research center at abu dhabi "
+        "value": "Center A Ben Mansour"
       }
     ],
     "sort": [
@@ -142,7 +142,7 @@ SearchRegCenterType:
      {
         "isActive": $IGNORE$,
         "code": "$IGNORE$",
-        "name": "Center for municipality and the research center at abu dhabi ",
+        "name": "$IGNORE$",
         "descr": "$IGNORE$",
         "langCode": "$IGNORE$"
       }

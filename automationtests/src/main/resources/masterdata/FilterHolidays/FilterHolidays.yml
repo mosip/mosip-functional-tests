@@ -10,7 +10,7 @@ FilterHolidays:
 	"filters": [{
 		"columnName": "holidayName",
 		"type": "unique",
-		"text": "नए साल का दिन"
+		"text": "Anniversary of the Independence Manifesto"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterHolidays:
     "filters": [
       {
         "fieldID": "holidayName",
-        "fieldValue": "नए साल का दिन"
+        "fieldValue": "Anniversary of the Independence Manifesto"
       }
     ]
   }'
