@@ -1,0 +1,23 @@
+{
+  "version": "string",
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "zoneCode": "{{zoneCode}}",
+        "userId": "{{userId}}",
+        "langCode": "{{langCode}}",
+        "userName": "{{userName}}",
+        "zoneName": "{{zoneName}}" 
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}
