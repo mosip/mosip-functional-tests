@@ -936,5 +936,40 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-
+	
+	<test name="GetSubZoneByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetSubZoneByLangCode/GetSubZoneByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetLeafZonesByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetLeafZonesByLangCode/GetLeafZonesByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetLeafsByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetLeafsByLangCode/GetLeafsByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetZoneHierarchyByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetZoneHierarchyByLangCode/GetZoneHierarchyByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FilterZoneDetails">
+		<parameter name="ymlFile"
+			value="masterdata/FilterZoneDetails/FilterZoneDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>
