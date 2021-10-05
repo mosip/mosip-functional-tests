@@ -1,0 +1,16 @@
+UpdateZoneUser:
+   MasterData_UpdateZoneUser_All_Valid_Smoke:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/ZoneUser/updateZoneUser
+      outputTemplate: masterdata/ZoneUser/zoneUserResult
+      input: '{
+    "zoneCode": "BSN",
+    "userId": "func_auto_test_user",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        "zoneCode": "BSN",
+        "userId": "func_auto_test_user"
+    }'

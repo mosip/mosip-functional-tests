@@ -6,9 +6,9 @@ DeleteZoneUser:
       inputTemplate: masterdata/DeleteZoneUser/deleteZoneUser
       outputTemplate: masterdata/DeleteZoneUser/deleteZoneUserResult
       input: '{
-    "userid": "admin1",
-    "zonecode": "STT"
+    "userid": "func_auto_test_user",
+    "zonecode": "CST"
   }'
       output: '{
-    "id": "admin1"
+    "id": "func_auto_test_user"
 }'
