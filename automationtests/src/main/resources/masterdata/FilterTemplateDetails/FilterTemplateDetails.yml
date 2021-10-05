@@ -18,8 +18,8 @@ FilterTemplateDetails:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "test template"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -42,8 +42,8 @@ FilterTemplateDetails:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "test template"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

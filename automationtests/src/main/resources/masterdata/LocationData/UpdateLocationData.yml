@@ -9,7 +9,7 @@ UpdateLocationData:
       input: '{
     "code": "TST123",
     "name": "Test_Loc_A_2 updated",
-    "hierarchyLevel":"1",
+    "hierarchyLevel":"0",
     "hierarchyName":"Country",
     "parentLocCode":"KNT",    
     "langCode": "eng",
@@ -35,7 +35,7 @@ UpdateLocationData:
       input: '{
     "code": "IND",
     "name": "INDIA updated",
-    "hierarchyLevel":"1",
+    "hierarchyLevel":"0",
     "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
