@@ -1,0 +1,21 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+  "weekdays": [
+    {{#each weekdays}}
+      {
+      	"name": "$IGNORE$",
+        "dayCode": "$IGNORE$",
+        "languageCode": "{{languageCode}}",
+        "working": $IGNORE$,
+        "globalWorking": $IGNORE$
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": $IGNORE$
+}

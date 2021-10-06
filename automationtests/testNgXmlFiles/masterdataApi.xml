@@ -972,4 +972,48 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	
+	<test name="GetWorkingDay">
+		<parameter name="ymlFile"
+			value="masterdata/GetWorkingDay/GetWorkingDay.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetWeekDay">
+		<parameter name="ymlFile"
+			value="masterdata/GetWeekDay/GetWeekDay.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="CreateValidDocument">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocument/CreateValidDocument.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="GetValidDocument">
+		<parameter name="ymlFile"
+			value="masterdata/GetValidDocument/GetValidDocument.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="ValidDocumentUnMap">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocumentUnMap/ValidDocumentUnMap.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+	<test name="ValidDocumentMap">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocumentMap/ValidDocumentMap.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
 </suite>

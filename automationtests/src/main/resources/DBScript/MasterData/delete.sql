@@ -27,3 +27,5 @@ update master.location set is_active='true', is_deleted='false' where code='1011
 update master.template set is_active='true', is_deleted='false' where id='1101';
 delete from master.location where code in('TST123','IND');
 delete from master.template where id='9999';
+
+delete from master.valid_document where cr_by='110005';
