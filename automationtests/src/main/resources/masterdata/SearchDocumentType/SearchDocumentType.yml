@@ -431,7 +431,7 @@ SearchDocumentType:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-318",
+      "errorCode": "KER-MSD-313",
       "message": "$IGNORE$"
     }
   ]
