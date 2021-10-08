@@ -1016,4 +1016,28 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
+	
+	<test name="UserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name="UpdateUserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UpdateUserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="GetUserDetailsById">
+		<parameter name="ymlFile"
+			value="masterdata/GetUserDetailsById/GetUserDetailsById.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 </suite>
