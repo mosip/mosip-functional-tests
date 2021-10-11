@@ -1,0 +1,27 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "templates": [
+    {{#each templates}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "description": "{{description}}",
+        "fileFormatCode": "{{fileFormatCode}}",
+        "model": "{{model}}",
+        "fileText": "{{fileText}}",
+        "moduleId": "{{moduleId}}",
+        "moduleName": "ID Authentication",
+        "templateTypeCode": "{{templateTypeCode}}",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

@@ -29,3 +29,6 @@ delete from master.location where code in('TST123','IND');
 delete from master.template where id='9999';
 
 delete from master.valid_document where cr_by='110005';
+delete from master.user_detail where cr_by='110005';
+delete from master.template_type where cr_by='110005';
+delete from master.template_file_format where cr_by='110005';
