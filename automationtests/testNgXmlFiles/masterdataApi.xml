@@ -1040,4 +1040,37 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	<test name="GetTemplates">
+		<parameter name="ymlFile"
+			value="masterdata/GetTemplates/GetTemplates.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="GetTemplatesByCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetTemplatesByCode/GetTemplatesByCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="TemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/TemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="DeleteTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteTemplateFileFormat/DeleteTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	
 </suite>
