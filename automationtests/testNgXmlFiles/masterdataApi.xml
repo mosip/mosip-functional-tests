@@ -1073,4 +1073,30 @@
 		</classes>
 	</test>
 	
+	
+	
+	<test name="FetchRegCent">
+		<parameter name="ymlFile"
+			value="masterdata/FetchRegCent/FetchRegCent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="FetchMissingRegCenterDetails">
+		<parameter name="ymlFile"
+			value="masterdata/FetchMissingRegCenterDetails/FetchMissingRegCenterDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="FetchRegCentDeviceHistory">
+		<parameter name="ymlFile"
+			value="masterdata/FetchRegCentDeviceHistory/FetchRegCentDeviceHistory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
 </suite>
