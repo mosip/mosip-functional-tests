@@ -22,6 +22,75 @@ UploadDocument:
 "docTypCode":"RNC",
 "docFileFormat":"pdf"
 }'
+   Prereg_UploadDocument_All_Valid_Smoke_POI_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POI",
+    "docTypCode" : "CIN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POI.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POI.pdf",
+"docCatCode":"POI",
+"docTypCode":"CIN",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_All_Valid_Smoke_POB_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POB",
+    "docTypCode" : "COB",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POB.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POB.pdf",
+"docCatCode":"POB",
+"docTypCode":"COB",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_All_Valid_Smoke_POR_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POR",
+    "docTypCode" : "CRN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POR.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POR.pdf",
+"docCatCode":"POR",
+"docTypCode":"CRN",
+"docFileFormat":"pdf"
+}'
    Prereg_UploadDocument_Valid_Smoke_sid:
       endPoint: /preregistration/v1/documents/{preRegistrationId}
       role: batch
@@ -43,6 +112,75 @@ UploadDocument:
 "docName":"doc_POA.pdf",
 "docCatCode":"POA",
 "docTypCode":"RNC",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Valid_Smoke_POI_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POI",
+    "docTypCode" : "CIN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POI.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POI.pdf",
+"docCatCode":"POI",
+"docTypCode":"CIN",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Valid_POB_Smoke_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POB",
+    "docTypCode" : "COB",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POB.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POB.pdf",
+"docCatCode":"POB",
+"docTypCode":"COB",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Valid_POR_Smoke_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POR",
+    "docTypCode" : "CRN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POR.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POR.pdf",
+"docCatCode":"POR",
+"docTypCode":"CRN",
 "docFileFormat":"pdf"
 }'
    Prereg_UploadDocument_Smoke_alldel_sid:
@@ -68,6 +206,75 @@ UploadDocument:
 "docTypCode":"RNC",
 "docFileFormat":"pdf"
 }'
+   Prereg_UploadDocument_Smoke_POI_alldel_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POI",
+    "docTypCode" : "CIN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POI.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POI.pdf",
+"docCatCode":"POI",
+"docTypCode":"CIN",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Smoke_POB_alldel_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POB",
+    "docTypCode" : "COB",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POB.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POB.pdf",
+"docCatCode":"POB",
+"docTypCode":"COB",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Smoke_POR_alldel_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POR",
+    "docTypCode" : "CRN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POR.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POR.pdf",
+"docCatCode":"POR",
+"docTypCode":"CRN",
+"docFileFormat":"pdf"
+}'
    Prereg_UploadDocument_Smoke_cancellappointment_sid:
       endPoint: /preregistration/v1/documents/{preRegistrationId}
       role: batch
@@ -89,6 +296,75 @@ UploadDocument:
 "docName":"doc_POA.pdf",
 "docCatCode":"POA",
 "docTypCode":"RNC",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Smoke_cancellappointment_POI_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POI",
+    "docTypCode" : "CIN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POI.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POI.pdf",
+"docCatCode":"POI",
+"docTypCode":"CIN",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Smoke_cancellappointment_POB_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POB",
+    "docTypCode" : "COB",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POB.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POB.pdf",
+"docCatCode":"POB",
+"docTypCode":"COB",
+"docFileFormat":"pdf"
+}'
+   Prereg_UploadDocument_Smoke_cancellappointment_POR_sid:
+      endPoint: /preregistration/v1/documents/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/uploadDocument/uploadDocument
+      outputTemplate: preReg/uploadDocument/uploadDocumentResult
+      input: '{
+    "id": "mosip.pre-registration.document.upload",
+    "docCatCode" : "POR",
+    "docTypCode" : "CRN",
+    "langCode" : "$1STLANG$",
+    "requesttime" : "$TIMESTAMP$",
+    "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
+    "filePath": "preReg/uploadDocument/doc_POR.pdf",
+    "fileKeyName": "file"
+}'
+      output: '{
+"id":"mosip.pre-registration.document.upload",
+"docName":"doc_POR.pdf",
+"docCatCode":"POR",
+"docTypCode":"CRN",
 "docFileFormat":"pdf"
 }'
    Prereg_UploadDocument_inValid_docTypCode_sid:
@@ -352,102 +628,6 @@ UploadDocument:
     {
       "errorCode": "PRG_PAM_CORE_001",
       "message": "Request id is invalid"
-    }
-  ]
-}'
-   Prereg_UploadDocument_missing_id_sid:
-      endPoint: /preregistration/v1/documents/{preRegistrationId}
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/uploadDocument/uploadDocument
-      outputTemplate: preReg/error
-      input: '{
-    "id": "$REMOVE$",
-    "docCatCode" : "POA",
-    "docTypCode" : "RNC",
-    "langCode" : "$1STLANG$",
-    "requesttime" : "$TIMESTAMP$",
-    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-    "filePath": "preReg/uploadDocument/doc_POA.pdf",
-    "fileKeyName": "file"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
-    }
-  ]
-}'
-   Prereg_UploadDocument_Previous_Date_id_sid:
-      endPoint: /preregistration/v1/documents/{preRegistrationId}
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/uploadDocument/uploadDocument
-      outputTemplate: preReg/error
-      input: '{
-    "id": "$REMOVE$",
-    "docCatCode" : "POA",
-    "docTypCode" : "RNC",
-    "langCode" : "$1STLANG$",
-    "requesttime" : "2018-04-01T07:22:57.086Z",
-    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-    "filePath": "preReg/uploadDocument/doc_POA.pdf",
-    "fileKeyName": "file"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PRG_CORE_REQ_013",
-      "message": "Request date should be current date"
-    }
-  ]
-}'
-   Prereg_UploadDocument_Invalid_requesttime_id_sid:
-      endPoint: /preregistration/v1/documents/{preRegistrationId}
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/uploadDocument/uploadDocument
-      outputTemplate: preReg/error
-      input: '{
-    "id": "$REMOVE$",
-    "docCatCode" : "POA",
-    "docTypCode" : "RNC",
-    "langCode" : "$1STLANG$",
-    "requesttime" : "2018-0snsuuhnsju01T07:22:57.086Z",
-    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-    "filePath": "preReg/uploadDocument/doc_POA.pdf",
-    "fileKeyName": "file"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
-    }
-  ]
-}'
-   Prereg_UploadDocument_Missing_requesttime_id_sid:
-      endPoint: /preregistration/v1/documents/{preRegistrationId}
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/uploadDocument/uploadDocument
-      outputTemplate: preReg/error
-      input: '{
-    "id": "$REMOVE$",
-    "docCatCode" : "POA",
-    "docTypCode" : "RNC",
-    "langCode" : "$1STLANG$",
-    "requesttime" : "$REMOVE$",
-    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-    "filePath": "preReg/uploadDocument/doc_POA.pdf",
-    "fileKeyName": "file"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
     }
   ]
 }'
