@@ -32,7 +32,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 		try {
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dmosip.base.url="+ApplnURI,
-							"-Dserver.port="+encryptUtilPort, "-jar", getDemoAppJarPath() });
+							"-Dserver.port="+encryptUtilPort, "-Dauth-token-generator.rest.clientId="+"mosip-ida-client", "-Dauth-token-generator.rest.secretKey="+props.getProperty("idaSecretKey"), "-Dauth-token-generator.rest.appId="+"ida", "-jar", getDemoAppJarPath() });
 			Runnable startDemoAppTask = () -> {
 				try (InputStream inputStream = authPartherProcessor.getInputStream();
 						BufferedReader bis = new BufferedReader(new InputStreamReader(inputStream));) {

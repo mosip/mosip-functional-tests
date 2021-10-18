@@ -1,8 +1,8 @@
 {
   "id": "mosip.id.create",
   "request": {
-    "registrationId": "{{registrationId}}",
-    "biometricReferenceId": "23452353",
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "23452353",
     "identity": {
       "residenceStatus": [
         {
@@ -14,7 +14,7 @@
           "value": "FR"
         }
       ],
-      "IDSchemaVersion": 0.2,
+      "IDSchemaVersion": 0.1,
       "UIN": "{{UIN}}",
       "fullName": [
         {
@@ -35,6 +35,36 @@
         {
           "language": "$2NDLANG$",
           "value": "Male"
+        }
+      ],
+            "addressLine1": [
+        {
+          "language": "$1STLANG$",
+          "value": "exemple d'adresse ligne 1"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "addressLine2": [
+        {
+          "language": "$1STLANG$",
+          "value": "exemple d'adresse ligne 2"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "$1STLANG$",
+          "value": "exemple d'adresse ligne 2"
+        },
+         {
+          "language": "$2NDLANG$",
+          "value": "exemple d'adresse ligne 2"
         }
       ],
       "region": [
@@ -70,28 +100,22 @@
       "postalCode": "14022",
       "email": "{{email}}",
 	  "phone": "8249742850",
+      "referenceIdentityNumber": "6789545678878",
       "zone": [
         {
           "language": "$1STLANG$",
-          "value": "QRHS"
+          "value": "FR"
         },
         {
           "language": "$2NDLANG$",
-          "value": "QRHS"
+          "value": "FR"
         }
       ],
-      "introducerRID": "212124324784879",
-      "introducerUIN": "212124324784879",
-      "introducerName": [
-        {
-          "language": "$1STLANG$",
-          "value": "salma"
-        },
-        {
-          "language": "$2NDLANG$",
-          "value": "salma"
-        }
-      ],
+      "proofOfAddress": {
+        "format": "pdf",
+        "type": "RNC",
+        "value": "fileReferenceID"
+      },
       "proofOfIdentity": {
         "format": "txt",
         "type": "DOC001",
@@ -110,11 +134,6 @@
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1,
-        "value": "fileReferenceID"
-      },
-      "introducerBiometrics": {
-        "format": "cbeff",
-        "version": 1.1,
         "value": "fileReferenceID"
       }
     },

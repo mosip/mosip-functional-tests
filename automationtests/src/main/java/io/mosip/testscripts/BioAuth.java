@@ -137,18 +137,22 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			throw new AdminTestException("Failed at output validation");
 
 		
-		if (testCaseName.toLowerCase().contains("kyc")) {
-			String error = null;
-			if (response.getBody().asString().contains("errors"))
-				error = JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(), "errors");
-			if (error.equalsIgnoreCase("null"))
-				encryptDecryptUtil.validateThumbPrintAndIdentity(response, testCaseDTO.getEndPoint());
-		}
+		/*
+		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
+		 * (response.getBody().asString().contains("errors")) error =
+		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),
+		 * "errors"); if (error.equalsIgnoreCase("null"))
+		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
+		 * testCaseDTO.getEndPoint()); }
+		 */
 		 
 
-		if (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-				response.getHeader(props.getProperty("signatureheaderKey"))))
-			throw new AdminTestException("Failed at Signature validation");
+		/*
+		 * if
+		 * (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
+		 * response.getHeader(props.getProperty("signatureheaderKey")))) throw new
+		 * AdminTestException("Failed at Signature validation");
+		 */
 
 	}
 
