@@ -160,7 +160,7 @@ public class Decrypt {
 		byte[] bytesFromThumbprint = getBytesFromThumbprint(splittedData.getThumbprint());
 
 		data = ArrayUtils.addAll(bytesFromThumbprint, data);
-		return kernelDecrypt(CryptoUtil.encodeBase64(data), refId, salt, aad);
+		return kernelDecrypt(CryptoUtil.encodeToURLSafeBase64(data), refId, salt, aad);
 	}
 	
 	public static byte[] getBytesFromThumbprint(String thumbprint) {
@@ -170,7 +170,7 @@ public class Decrypt {
 		} catch (DecoderException e) {
 			try {
 				//Then try decoding with base64
-				return CryptoUtil.decodeBase64(thumbprint);
+				return CryptoUtil.decodeURLSafeBase64(thumbprint);
 			} catch (Exception ex) {
 				throw new IdAuthUncheckedException(IdAuthenticationErrorConstants.UNABLE_TO_PROCESS, ex);
 			}
@@ -192,6 +192,7 @@ public class Decrypt {
 		String thumbprint = (String) outputAuthRequestMap.get("thumbprint");
 		
 		String decryptSplittedData = this.decryptSplittedData(new SplittedEncryptedData(reqSessionKey, request, thumbprint), null, isInternal, false, null, null);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> requestMap = objMapper.readValue(decryptSplittedData.getBytes("UTF-8"), Map.class);
 		outputAuthRequestMap.put("request", requestMap);
 		
@@ -200,6 +201,7 @@ public class Decrypt {
 		return objMapper.writeValueAsString(outputAuthRequestMap);
 	}
 
+	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/authRequest/decryptBiometricsInRequestBlock", produces = MediaType.APPLICATION_JSON_VALUE) 
 	private Map<String, Object> decryptBiometricsInRequestBlock(
 			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
@@ -212,6 +214,7 @@ public class Decrypt {
 		return requestMap;
 	}
 
+	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/authRequest/decryptBiometricsListOfAuthRequest", produces = MediaType.APPLICATION_JSON_VALUE) 
 	private List<Map<String, Object>> decryptBiometricsListOfAuthRequest(
 			@RequestParam(name="isInternal",required=false) @Nullable boolean isInternal,
@@ -224,15 +227,15 @@ public class Decrypt {
 				String biometricDataStr = (String) segmentMap.get("data");
 				Map<String, Object> bioDataMap;
 				if(isInternal) {
-					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr), Map.class);
+					bioDataMap = objMapper.readValue(CryptoUtil.decodeURLSafeBase64(biometricDataStr), Map.class);
 				} else {
-					bioDataMap = objMapper.readValue(CryptoUtil.decodeBase64(biometricDataStr.split("\\.")[1]), Map.class);
+					bioDataMap = objMapper.readValue(CryptoUtil.decodeURLSafeBase64(biometricDataStr.split("\\.")[1]), Map.class);
 				}
 				segmentMap.put("data", bioDataMap);
 				
 				String digitalIdStr = (String) bioDataMap.get("digitalId");
 				if(!isInternal && digitalIdStr != null) {
-					Map<String, Object> bioDigitalIdMap = objMapper.readValue(CryptoUtil.decodeBase64(digitalIdStr.split("\\.")[1]), Map.class);
+					Map<String, Object> bioDigitalIdMap = objMapper.readValue(CryptoUtil.decodeURLSafeBase64(digitalIdStr.split("\\.")[1]), Map.class);
 					bioDataMap.put("digitalId", bioDigitalIdMap);
 				}
 				
@@ -253,7 +256,7 @@ public class Decrypt {
 					data = ArrayUtils.addAll(bytesFromThumbprint, data);
 				}
 
-				String decryptBiometrics = this.decryptBiometrics(CryptoUtil.encodeBase64(data), timestamp, transactionId, isInternal);
+				String decryptBiometrics = this.decryptBiometrics(CryptoUtil.encodeToURLSafeBase64(data), timestamp, transactionId, isInternal);
 				
 				bioDataMap.put("bioValue", decryptBiometrics);
 			}
@@ -261,6 +264,7 @@ public class Decrypt {
 		return biometricsMap;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PostMapping(path = "/decryptBiometricValue")
 	public String decryptBiometrics(@RequestBody String encryptedBioValue, 
 			@RequestParam(name="timestamp",required=false) @Nullable String timestamp, 
@@ -289,9 +293,9 @@ public class Decrypt {
 		
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
 		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
-		String salt = CryptoUtil.encodeBase64(saltLastBytes);
+		String salt = CryptoUtil.encodeToURLSafeBase64(saltLastBytes);
 		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
-		String aad = CryptoUtil.encodeBase64(aadLastBytes);
+		String aad = CryptoUtil.encodeToURLSafeBase64(aadLastBytes);
 
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
 		request.setApplicationId(appID);
@@ -332,8 +336,8 @@ public class Decrypt {
 	}
 	
 	private byte[] combineToByteArray(String request, String requestSessionKey) {
-		byte[] encryptedRequest = CryptoUtil.decodeBase64(request);
-		byte[] encryptedSessionKey = CryptoUtil.decodeBase64(requestSessionKey);
+		byte[] encryptedRequest = CryptoUtil.decodeURLSafeBase64(request);
+		byte[] encryptedSessionKey = CryptoUtil.decodeURLSafeBase64(requestSessionKey);
 		return CryptoUtil.combineByteArray(encryptedRequest, encryptedSessionKey, keySplitter);
 	}
 
@@ -380,7 +384,7 @@ public class Decrypt {
 		
 		if(response.getStatusCode() == HttpStatus.OK) {
 			String responseData = (String) ((Map<String, Object>) response.getBody().get("response")).get("data");
-			return new String (CryptoUtil.decodeBase64(responseData), StandardCharsets.UTF_8);
+			return new String (CryptoUtil.decodeURLSafeBase64(responseData), StandardCharsets.UTF_8);
 		}
 		return null;
 	}
@@ -440,11 +444,11 @@ public class Decrypt {
 		byte[] encKycData;
 		if(sessionKey == null) {
 			SplittedEncryptedData encryptedData = encrypt.splitEncryptedData(identity);
-			encSecKey = CryptoUtil.decodeBase64(encryptedData.getEncryptedSessionKey());
-			encKycData = CryptoUtil.decodeBase64(encryptedData.getEncryptedData());
+			encSecKey = CryptoUtil.decodeURLSafeBase64(encryptedData.getEncryptedSessionKey());
+			encKycData = CryptoUtil.decodeURLSafeBase64(encryptedData.getEncryptedData());
 		} else {
-			encSecKey = CryptoUtil.decodeBase64(sessionKey);
-			encKycData = CryptoUtil.decodeBase64(identity);
+			encSecKey = CryptoUtil.decodeURLSafeBase64(sessionKey);
+			encKycData = CryptoUtil.decodeURLSafeBase64(identity);
 		}
 		
 		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
@@ -457,7 +461,7 @@ public class Decrypt {
 		GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(TAG_LENGTH, nonce); 
 		cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
 
-		return new String(cipher.doFinal(encryptedKycData));
+		return new String(cipher.doFinal(encryptedKycData), "UTF-8");
 	}
 
 	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 

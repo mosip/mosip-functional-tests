@@ -2,7 +2,6 @@ package io.mosip.authentication.demo.service.controller;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;

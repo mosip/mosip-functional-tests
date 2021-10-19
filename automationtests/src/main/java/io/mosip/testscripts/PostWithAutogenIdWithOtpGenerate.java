@@ -132,7 +132,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public void waittime() {
 		try 
 		{logger.info("waiting for 2Minutes after VID Generation In RESIDENT SERVICES");
-			Thread.sleep(120000);
+			Thread.sleep(60000);
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
