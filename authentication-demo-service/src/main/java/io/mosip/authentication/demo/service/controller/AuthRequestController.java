@@ -141,8 +141,6 @@ public class AuthRequestController {
 	/** The Constant TEMPLATE. */
 	private static final String TEMPLATE = "Template";
 
-	private static final String PIN = "pin";
-
 	private static final String BIO = "bio";
 
 	private static final String DEMO = "demo";
@@ -158,10 +156,6 @@ public class AuthRequestController {
 	private static final String IDA_API_VERSION = "ida.api.version";
 
 	private static final String AUTH_TYPE = "authType";
-
-	private static final String UIN = "UIN";
-
-	private static final String ID_TYPE = "idType";
 
 	private static final String IDA_AUTH_REQUEST_TEMPLATE = "ida.authRequest.template";
 
@@ -794,7 +788,7 @@ public class AuthRequestController {
 			Map<String, Object> dataMap = map.get(DATA) instanceof Map ? (Map<String, Object>) map.get(DATA) : null;
 			try {
 				if (Objects.nonNull(dataMap)) {
-					Object value = CryptoUtil.encodeBase64(mapper.writeValueAsBytes(dataMap));
+					Object value = CryptoUtil.encodeToURLSafeBase64(mapper.writeValueAsBytes(dataMap));
 					map.replace(DATA, value);
 				}
 			} catch (JsonProcessingException e) {
