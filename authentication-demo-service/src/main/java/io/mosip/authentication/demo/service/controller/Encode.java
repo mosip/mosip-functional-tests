@@ -3,8 +3,6 @@ package io.mosip.authentication.demo.service.controller;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import org.apache.commons.codec.binary.Base64;
-
 //import java.util.Base64;
 
 import org.springframework.http.MediaType;
