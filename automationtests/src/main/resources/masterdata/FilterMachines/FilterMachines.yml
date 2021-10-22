@@ -1,52 +1,4 @@
 FilterMachines:
-   Masterdata_FilterMachines_Valid_Smoke:
-      endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/FilterMachines/filterMachines
-      outputTemplate: masterdata/FilterMachines/filterMachinesResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "unique",
-		"text": "a2ml30846"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "a2ml30846"
-      }
-    ]
-  }'
-   Masterdata_FilterMachines_Valid_TypeAll:
-      endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/FilterMachines/filterMachines
-      outputTemplate: masterdata/FilterMachines/filterMachinesResult
-      input: '{
-	"filters": [{
-		"columnName": "name",
-		"type": "All",
-		"text": "a2ml30846"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "a2ml30846"
-      }
-    ]
-  }'
    Masterdata_FilterMachines_Valid_ColumnStatus:
       endPoint: /v1/masterdata/machines/filtervalues
       role: admin
@@ -68,54 +20,6 @@ FilterMachines:
       {
         "fieldID": "isActive",
         "fieldValue": "true"
-      }
-    ]
-  }'
-   Masterdata_FilterMachines_Valid_ColumnMacAddress:
-      endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/FilterMachines/filterMachines
-      outputTemplate: masterdata/FilterMachines/filterMachinesResult
-      input: '{
-	"filters": [{
-		"columnName": "macAddress",
-		"type": "All",
-		"text": "E8-6A-64-1F-27-E6"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "macAddress",
-        "fieldValue": "E8-6A-64-1F-27-E6"
-      }
-    ]
-  }'
-   Masterdata_FilterMachines_Valid_ColumnSerialNumber:
-      endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
-      templateFields: ["languageCode"]
-      restMethod: post
-      inputTemplate: masterdata/FilterMachines/filterMachines
-      outputTemplate: masterdata/FilterMachines/filterMachinesResult
-      input: '{
-	"filters": [{
-		"columnName": "serialNum",
-		"type": "All",
-		"text": "NM5328114630"
-	}],
-	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: '{
-    "filters": [
-      {
-        "fieldID": "serialNum",
-        "fieldValue": "NM5328114630"
       }
     ]
   }'

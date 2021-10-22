@@ -121,7 +121,7 @@ DemoAuth:
     "gender": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Male"
+      "value": "FR"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptGender"
@@ -148,7 +148,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "TestQA"
+      "value": "FR"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"

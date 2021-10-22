@@ -29,7 +29,7 @@ FetchModule:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-398",
+      "errorCode": "KER-MSD-248",
       "message": "Module not Found"
     }
   ]

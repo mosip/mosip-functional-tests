@@ -170,8 +170,8 @@ CreateLocationData:
   }'
       output: '{
    "errors": [
-    {
-      "errorCode": "KER-MSD-391",
+     {
+      "errorCode": "KER-MSD-244",
       "message": "Location hierarchy is invalid"
     }
   ]
@@ -246,7 +246,7 @@ CreateLocationData:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-389",
+      "errorCode": "KER-MSD-243",
       "message": "Parent location not found"
     }
   ]
