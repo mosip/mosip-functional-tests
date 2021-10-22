@@ -1,6 +1,6 @@
 BookAppointment:
    Prereg_BookAppointment_All_Valid_Smoke:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -19,7 +19,7 @@ BookAppointment:
   "langCode": "eng"
 }'
    Prereg_BookAppointment_CA_Smoke:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -38,7 +38,7 @@ BookAppointment:
   "langCode": "eng"
 }'
    Prereg_BookAppointment_inValid_preRegistrationId:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -62,7 +62,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_blank_preRegistrationId:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -86,7 +86,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_Id:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -110,7 +110,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_Id:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -134,7 +134,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_version:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -158,7 +158,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Missing_version:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -182,7 +182,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_version:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -206,7 +206,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_registration_center_id:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -230,7 +230,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Missing_registration_center_id:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -254,7 +254,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_registration_center_id:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -278,7 +278,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_appointment_date:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -302,7 +302,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Missing_appointment_date:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -326,7 +326,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_appointment_date:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -350,7 +350,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_time_slot_to:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -374,7 +374,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Missing_time_slot_to:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -398,7 +398,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_time_slot_from:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -422,7 +422,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_time_slot_to:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -446,7 +446,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_time_slot_from:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -470,7 +470,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_time_slot_from:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -494,7 +494,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_missing_time_slot_from:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -518,7 +518,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_missing_requesttime:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -542,7 +542,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Invalid_requesttime:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -566,7 +566,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_Blank_requesttime:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment
@@ -590,7 +590,7 @@ BookAppointment:
   ]
 }'
    Prereg_BookAppointment_previous_date:
-      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
       role: batch
       restMethod: post
       inputTemplate: preReg/bookAppointment/bookAppointment

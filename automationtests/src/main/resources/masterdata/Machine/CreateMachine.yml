@@ -92,7 +92,7 @@ CreateMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-353",
+      "errorCode": "KER-MSD-257",
       "message": "Invalid public key provided"
     }
   ]
@@ -152,7 +152,7 @@ CreateMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-436",
+      "errorCode": "KER-MSD-255",
       "message": "Admin not authorized to access this Machine for this Zone"
     }
   ]
@@ -242,7 +242,7 @@ CreateMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-436",
+      "errorCode": "KER-MSD-255",
       "message": "Admin not authorized to access this Machine for this Zone"
     }
   ]
