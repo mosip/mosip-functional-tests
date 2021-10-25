@@ -1,0 +1,49 @@
+GetMappedMachinesByRegCentID:
+   Admin_GetMappedMachinesByRegCentID_allValid_smoke:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentID
+      outputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentIDResult
+      input: '{
+      "regCenterId":"10005"
+}'
+      output: '{
+    "data": [
+      {
+        "isActive": $IGNORE$,
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": $IGNORE$,
+        "deletedDateTime": "$IGNORE$",
+        "regCentId": "10005",
+        "id": "10005",
+        "name": "$IGNORE$",
+        "serialNum": "$IGNORE$",
+        "macAddress": "$IGNORE$",
+        "ipAddress": "$IGNORE$",
+        "machineSpecId": "$IGNORE$",
+        "langCode": "$IGNORE$"
+      }
+    ]
+}'
+
+   Admin_GetMappedMachinesByRegCentID_Invalid_Invalid_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentID
+      outputTemplate: masterdata/error
+      input: '{
+      "regCenterId":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}' 
