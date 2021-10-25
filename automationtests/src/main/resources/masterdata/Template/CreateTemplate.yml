@@ -10,7 +10,7 @@ CreateTemplate:
         "description": "test template",
         "fileFormatCode": "json",
         "fileText": "abc",
-        "id": "9999",
+        "id": "445566777",
         "isActive": false,
         "langCode": "eng",
         "model": "model-1",
@@ -21,7 +21,7 @@ CreateTemplate:
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"id": "9999",
+	"id": "445566777",
 	"langCode": "$IGNORE$"
 }'
    MasterData_CreateTemplate_InputParameter_Name_Missing:

@@ -71,7 +71,7 @@ UpdateLocationData:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-391",
+      "errorCode": "KER-MSD-244",
       "message": "Location hierarchy is invalid"
     }
   ]
@@ -196,7 +196,7 @@ UpdateLocationData:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-391",
+      "errorCode": "KER-MSD-244",
       "message": "Location hierarchy is invalid"
     }
   ]
