@@ -1,0 +1,30 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "machines": [
+	
+    {{#each machines}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "serialNum": "{{serialNum}}",
+        "macAddress": "{{macAddress}}",
+        "ipAddress": "{{ipAddress}}",
+        "machineSpecId": "{{machineSpecId}}",
+        "regCenterId": "{{regCenterId}}",
+        "langCode": "{{langCode}}",
+        "isActive": {{isActive}},
+        "validityDateTime": "{{validityDateTime}}",
+        "publicKey":"{{publicKey}}",
+        "signPublicKey": "{{signPublicKey}}",
+        "zoneCode": "{{zoneCode}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}
