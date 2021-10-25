@@ -959,4 +959,38 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> -->
+	
+	
+	
+	<test name="GetPossiableValues">
+		<parameter name="ymlFile"
+			value="masterdata/GetPossiableValues/GetPossiableValues.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="GetPacketRejectionReason">
+		<parameter name="ymlFile"
+			value="masterdata/GetPacketRejectionReason/GetPacketRejectionReason.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
+	<test name="PacketRejectionReasonCategory">
+		<parameter name="ymlFile"
+			value="masterdata/PacketRejectionReasonCategory/PacketRejectionReasonCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name="PacketRejectionReasonList">
+		<parameter name="ymlFile"
+			value="masterdata/PacketRejectionReasonList/PacketRejectionReasonList.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
 </suite>

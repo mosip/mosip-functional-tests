@@ -32,3 +32,6 @@ delete from master.valid_document where cr_by='110005';
 delete from master.user_detail where cr_by='110005';
 delete from master.template_type where cr_by='110005';
 delete from master.template_file_format where cr_by='110005';
+delete from master.reason_list where cr_by='110005';
+delete from master.reason_category where cr_by='110005';
+delete from master.language where cr_by='110005';
