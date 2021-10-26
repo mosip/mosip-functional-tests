@@ -1,13 +1,13 @@
 FetchDevice:
    MasterData_FetchDevice_allValid_smoke_with_lang:
-      endPoint: /v1/masterdata/devices/{languagecode}
+      endPoint: /v1/masterdata/devices/{langCode}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "$REMOVE$",
-  "languagecode": "eng",
+  "langCode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
@@ -24,14 +24,14 @@ FetchDevice:
         }]
 }'       
    MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
-      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      endPoint: /v1/masterdata/devices/{langCode}/{deviceType}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
   "deviceType": "IRS",
-  "languagecode": "eng",
+  "langCode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{
@@ -56,7 +56,7 @@ FetchDevice:
       input: '{
   "regCenterId": "10005",
   "deviceType": "$REMOVE$",
-  "languagecode": "$REMOVE$"
+  "langCode": "$REMOVE$"
 }'
       output: '{
 "devices": [{
@@ -72,7 +72,7 @@ FetchDevice:
       input: '{
   "regCenterId": "100@@345",
   "deviceType": "$REMOVE$",
-  "languagecode": "$REMOVE$"
+  "langCode": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -83,14 +83,14 @@ FetchDevice:
   ]
 }'       
    MasterData_FetchDevice_invalid_deviceType_unexisting:
-      endPoint: /v1/masterdata/devices/{languagecode}/{deviceType}
+      endPoint: /v1/masterdata/devices/{langCode}/{deviceType}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/error
       input: '{
   "deviceType": "notInDB",
-  "languagecode": "eng",
+  "langCode": "eng",
   "regCenterId": "$REMOVE$"
 }'
       output: '{

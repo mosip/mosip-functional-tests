@@ -10,7 +10,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Center A Ben Mansour"
+		"text": "HSR Center"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -34,7 +34,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "Center A Ben Mansour"
+		"text": "HSR Center"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
