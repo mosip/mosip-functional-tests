@@ -11,7 +11,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Reference Identity Card",
+        "value": "TestDocType0010 Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -32,7 +32,7 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "CIN",
+        "code": "TestDocType0010",
         "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
@@ -50,7 +50,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Reference Identity Card",
+        "value": "TestDocType0010 Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -71,7 +71,7 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "CIN",
+        "code": "TestDocType0010",
         "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
@@ -89,7 +89,7 @@ SearchDocumentType:
       {
         "columnName": "name",
         "type": "startsWith",
-        "value": "Reference Identity Card",
+        "value": "TestDocType0010 Card",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -110,7 +110,7 @@ SearchDocumentType:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "CIN",
+        "code": "TestDocType0010",
         "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }

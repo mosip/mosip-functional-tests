@@ -7,22 +7,22 @@ UpdateLocationData:
       inputTemplate: masterdata/LocationData/locationData
       outputTemplate: masterdata/LocationData/locationDataResult
       input: '{
-    "code": "TST123",
-    "name": "Test_Loc_A_2 updated",
-    "hierarchyLevel":"0",
-    "hierarchyName":"Country",
-    "parentLocCode":"KNT",    
+    "code": "TST12",
+    "name": "Test_Loc_A_updated",
+    "hierarchyLevel": 5,
+    "hierarchyName": "Zone",
+    "parentLocCode": "KNT",
     "langCode": "eng",
     "isActive": true,
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
 "isActive": "$IGNORE$",
-"code": "TST123",
-"name": "Test_Loc_A_2 updated",
-"hierarchyLevel":"$IGNORE$",
-"hierarchyName": "$IGNORE$",
-"parentLocCode": "$IGNORE$",
+"code": "TST12",
+"name": "Test_Loc_A_updated",
+"hierarchyLevel": 5,
+"hierarchyName": "Zone",
+"parentLocCode": "KNT",
 "langCode": "$IGNORE$"
 }'
    MasterData_UpdateLocationData_Valid_OnlyMandatoryFields:
@@ -35,7 +35,7 @@ UpdateLocationData:
       input: '{
     "code": "IND",
     "name": "INDIA updated",
-    "hierarchyLevel":"0",
+    "hierarchyLevel":5,
     "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",

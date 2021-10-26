@@ -26,7 +26,7 @@ DecommisionMachine:
    "errors": [
     {
       "errorCode": "KER-MSD-214",
-      "message": "Machine ID 1022 does not exist"
+      "message": "Machine ID 1022dddw3456778432wsd does not exist"
     }
   ]
 }'

@@ -17,29 +17,6 @@ UpdateIdentity:
       output: '{
     "status": "ACTIVATED"
 }'
-  IdRepository_UpdateIdentity_with_Invalid_registrationId:
-      endPoint: /idrepository/v1/identity/
-      role: regproc
-      restMethod: patch
-      inputTemplate: idRepository/UpdateIdentity/updateIdentity
-      outputTemplate: idRepository/error
-      input: '{
-      "registrationId":"865",
-      "email": "user@mailinator.com",
-      "phone": "8249742850",
-      "dateOfBirth": "1992/04/15",
-      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-      "requesttime": "$TIMESTAMP$",
-      "version": "v1"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - registrationId"
-    }
-  ]
-}'
   IdRepository_UpdateIdentity_with_Invalid_version:
       endPoint: /idrepository/v1/identity/
       role: regproc
