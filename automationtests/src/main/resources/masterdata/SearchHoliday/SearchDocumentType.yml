@@ -1,0 +1,618 @@
+SearchDocumentType:
+   MasterData_SearchDocumnetType_Valid_Smoke:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "code": "TestDocType0010",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$"
+      }
+    ]
+}'  
+   MasterData_SearchDocumnetType_Valid_FilterTypeContains:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "code": "TestDocType0010",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$"
+      }
+    ]
+}'
+   MasterData_SearchDocumnetType_Valid_FilterTypeStartsWith:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/SearchDocumentType/searchDocumentTypeResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startsWith",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "code": "TestDocType0010",
+        "langCode": "$IGNORE$",
+        "name": "$IGNORE$"
+      }
+    ]
+}'
+   MasterData_SearchDocumentType_inValid_columnName_blank:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "",
+        "type": "equals",
+        "value": "TestDocType0010",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_columnName:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "agshshs",
+        "type": "equals",
+        "value": "TestDocType0010",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_filter_value:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "agshshs",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": []
+}'
+   MasterData_SearchDocumentType_inValid_filter_value_blank:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   
+   MasterData_SearchDocumentType_inValid_sortField:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "fbheafg",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field fbheafg"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_sortType:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "fbheafg"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type fbheafg is not supported"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_sortField_blank:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_sortType_blank:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": ""
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_pagesize:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": -1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.pagination.pageFetch: Should have positive integer value"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_filterType_blank:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_filterType:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "kfdjfkd",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_requestTime_format:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "equals",
+        "value": "TestDocType0010 Card",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "2018-12-10 06:12:52.994Z"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_typeFilter_contains:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "contains",
+        "value": "true",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "isActive",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   MasterData_SearchDocumentType_inValid_typeFilter_startsWith:
+      endPoint: /v1/masterdata/documenttypes/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchDocumentType/searchDocumentType
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "startsWith",
+        "value": "true",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "isActive",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

@@ -35,3 +35,6 @@ delete from master.template_file_format where cr_by='110005';
 delete from master.reason_list where cr_by='110005';
 delete from master.reason_category where cr_by='110005';
 delete from master.language where cr_by='110005';
+delete from master.identity_schema where cr_by='110005';
+
+delete from master.biometric_attribute where cr_by='110005';
