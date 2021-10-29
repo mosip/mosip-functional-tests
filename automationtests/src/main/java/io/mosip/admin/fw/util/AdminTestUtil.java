@@ -1416,8 +1416,9 @@ public String sign(String dataToSign, boolean includePayload,
 public String getKeysDirPath() {
 	//String path = props.getProperty("getCertificatePath");
 	environment = System.getProperty("env.user");
-	String path = System.getProperty("java.io.tmpdir")+"IDA-"+environment+".mosip.net";
-	path=path.replace("\\", "/");
+	String path = "C:/Users/" + System.getProperty("user.name")
+	+ "/.m2" + "/IDA-"+environment+".mosip.net";
+	path=path.replace("////", "\\");
 	return new File(path).getAbsolutePath();
 }
 

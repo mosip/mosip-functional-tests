@@ -181,5 +181,3 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		
 	}
 }
-
-
