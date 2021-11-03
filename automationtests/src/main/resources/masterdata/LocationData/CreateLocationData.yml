@@ -9,7 +9,7 @@ CreateLocationData:
       input: '{
     "code": "TST12",
     "name": "Test_Loc_A_",
-    "hierarchyLevel": 5,
+    "hierarchyLevel": "4",
     "hierarchyName": "Zone",
     "parentLocCode": "KNT",
     "langCode": "eng",
@@ -20,7 +20,7 @@ CreateLocationData:
 "isActive": "$IGNORE$",
 "code": "TST12",
 "name": "Test_Loc_A_",
-"hierarchyLevel": 5,
+"hierarchyLevel": "4",
 "hierarchyName": "$IGNORE$",
 "parentLocCode": "$IGNORE$",
 "langCode": "$IGNORE$"
@@ -35,7 +35,7 @@ CreateLocationData:
       input: '{
     "code": "IND",
     "name": "INDIA",
-    "hierarchyLevel":0,
+    "hierarchyLevel":"0",
     "hierarchyName":"Country",
     "parentLocCode":"$REMOVE$",    
     "langCode": "eng",
