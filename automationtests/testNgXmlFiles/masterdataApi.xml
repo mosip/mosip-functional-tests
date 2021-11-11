@@ -1060,4 +1060,54 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	<test name="GetDocumentTypeByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetDocumentTypeByLangCode/GetDocumentTypeByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetMissingDocumentTypeByLangcode">
+		<parameter name="ymlFile"
+			value="masterdata/GetMissingDocumentTypeByLangcode/GetMissingDocumentTypeByLangcode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="UpdateDocType">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDocType/UpdateDocType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test> 
+	<test name="UpdateDocCategory">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDocCategory/UpdateDocCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test> 
+	<test name="GetDocCategory">
+		<parameter name="ymlFile"
+			value="masterdata/GetDocCategory/GetDocCategory.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetDocCategoryByLangCode">
+		<parameter name="ymlFile"
+			value="masterdata/GetDocCategoryByLangCode/GetDocCategoryByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetMissingDocumentCategoryByLangcode">
+		<parameter name="ymlFile"
+			value="masterdata/GetMissingDocumentCategoryByLangcode/GetMissingDocumentCategoryByLangcode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
 </suite>
