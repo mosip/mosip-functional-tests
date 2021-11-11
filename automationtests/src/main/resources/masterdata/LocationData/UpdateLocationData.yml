@@ -9,7 +9,7 @@ UpdateLocationData:
       input: '{
     "code": "TST12",
     "name": "Test_Loc_A_updated",
-    "hierarchyLevel": 5,
+    "hierarchyLevel": "4",
     "hierarchyName": "Zone",
     "parentLocCode": "KNT",
     "langCode": "eng",
@@ -20,7 +20,7 @@ UpdateLocationData:
 "isActive": "$IGNORE$",
 "code": "TST12",
 "name": "Test_Loc_A_updated",
-"hierarchyLevel": 5,
+"hierarchyLevel": "4",
 "hierarchyName": "Zone",
 "parentLocCode": "KNT",
 "langCode": "$IGNORE$"

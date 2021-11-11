@@ -311,7 +311,8 @@ public class Decrypt {
 		if(response.getStatusCode() == HttpStatus.OK) {
 			Map<String, Object> responseMap = (Map<String, Object>) response.getBody().get("response");
 			if(responseMap != null) {
-				return (String) responseMap.get("data");
+				//Encode biovalue as plain base64 encoding (not url encoded)
+				return CryptoUtil.encodeToPlainBase64(CryptoUtil.decodeURLSafeBase64((String) responseMap.get("data")));
 			}
 		}
 		return null ;

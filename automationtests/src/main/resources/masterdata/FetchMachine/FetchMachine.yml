@@ -33,7 +33,7 @@ FetchMachine:
 		}]
 }'
    Masterdata_FetchMachine_allValid_smoke_with_id:
-      endPoint: /v1/masterdata/machines/id/{id}
+      endPoint: /v1/masterdata/machines/{id}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
