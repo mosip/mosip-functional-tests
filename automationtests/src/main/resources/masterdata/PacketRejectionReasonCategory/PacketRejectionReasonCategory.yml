@@ -2,6 +2,7 @@ PacketRejectionReasonCategory:
    MasterData_PacketRejectionReasonCategory_All_Valid_Smoke:
       endPoint: /v1/masterdata/packetrejectionreasons/reasoncategory
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategory
       outputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategoryResult
@@ -21,6 +22,7 @@ PacketRejectionReasonCategory:
    MasterData_PacketRejectionReasonCategory_Invalid_Invalid_langCode:
       endPoint: /v1/masterdata/packetrejectionreasons/reasoncategory
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategory
       outputTemplate: masterdata/error

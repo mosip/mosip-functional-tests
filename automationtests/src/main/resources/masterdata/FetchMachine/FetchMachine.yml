@@ -51,7 +51,7 @@ FetchMachine:
    Masterdata_FetchMachine_inValid_id:
       endPoint: /v1/masterdata/machines/{id}/{langcode}
       role: admin
-      templateFields: []
+      templateFields: ["value"]
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
       outputTemplate: masterdata/error
@@ -71,7 +71,7 @@ FetchMachine:
    Masterdata_FetchMachine_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/machines/{langcode}
       role: admin
-      templateFields: []
+      templateFields: ["value"]
       restMethod: get
       inputTemplate: masterdata/FetchMachine/fetchMachine
       outputTemplate: masterdata/FetchMachine/fetchMachineResult

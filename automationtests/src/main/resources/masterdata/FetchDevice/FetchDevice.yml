@@ -2,6 +2,7 @@ FetchDevice:
    MasterData_FetchDevice_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/devices/{langCode}
       role: admin
+      templateFields: ["name","description"]
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
@@ -26,6 +27,7 @@ FetchDevice:
    MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
       endPoint: /v1/masterdata/devices/{langCode}/{deviceType}
       role: admin
+      templateFields: ["name","description"]
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult

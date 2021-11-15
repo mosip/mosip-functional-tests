@@ -2,7 +2,6 @@ CreateDynamicField:
    MasterData_CreateDynamicField_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/dynamicfields
       role: admin
-      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/DynamicField/dynamicField
       outputTemplate: masterdata/DynamicField/dynamicFieldResult
@@ -16,8 +15,13 @@ CreateDynamicField:
       output: '{
     "id": "$IGNORE$",
     "name": "Test",
-    "langCode": "$IGNORE$",
+    "langCode": "eng",
     "dataType": "$IGNORE$",
     "description": "Test dynamic field",
-    "requesttime": "$TIMESTAMP$"
+    "fieldVal":"$IGNORE$",
+    "isActive": $IGNORE$,
+    "createdBy": "$IGNORE$",
+    "updatedBy": "$IGNORE$",
+    "createdOn": "$IGNORE$",
+    "updatedOn": "$IGNORE$"
 }'

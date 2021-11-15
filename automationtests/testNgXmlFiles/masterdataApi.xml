@@ -9,9 +9,6 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-
-
-
 	<test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
