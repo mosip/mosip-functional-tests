@@ -1,5 +1,5 @@
 UpdateLanguage:
-   Masterdata_UpdateMachine_All_Valid_Smoke:
+   Masterdata_UpdateLanguage_All_Valid_Smoke:
       endPoint: /v1/masterdata/languages
       role: admin
       restMethod: put
@@ -13,5 +13,5 @@ UpdateLanguage:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "code": "all"
+    "code": "$IGNORE$"
 }'

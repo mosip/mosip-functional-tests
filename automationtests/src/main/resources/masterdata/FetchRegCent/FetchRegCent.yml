@@ -553,7 +553,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_zoneCode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
-      templateFields: ["name"]
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/FetchRegCent/fetchAllRegCentResult
@@ -579,7 +579,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_zoneCode_invalid_invalid_zonecode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
-      templateFields: ["name"]
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/error

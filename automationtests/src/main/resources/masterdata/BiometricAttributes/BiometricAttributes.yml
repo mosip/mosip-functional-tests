@@ -22,6 +22,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_Invalid_empty_biometricTypeCode:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
       outputTemplate: masterdata/error
@@ -46,6 +47,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_Invalid_invalid_biometricTypeCode:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
       outputTemplate: masterdata/error
@@ -118,6 +120,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_Invalid_empty_code:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
       outputTemplate: masterdata/error

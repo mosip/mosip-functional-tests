@@ -18,8 +18,8 @@ FilterHolidays:
       output: '{
     "filters": [
       {
-        "fieldID": "holidayName",
-        "fieldValue": "AutoTest user Eng"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

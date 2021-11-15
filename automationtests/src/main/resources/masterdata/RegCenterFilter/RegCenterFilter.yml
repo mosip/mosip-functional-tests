@@ -10,7 +10,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "HSR Center"
+		"text": "Dynamiccenterstory"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,8 +18,8 @@ RegCenterFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Center Mehdia"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'    
@@ -34,7 +34,7 @@ RegCenterFilter:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "HSR Center"
+		"text": "Dynamiccenterstory"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -42,8 +42,8 @@ RegCenterFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Center Mehdia"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'    
