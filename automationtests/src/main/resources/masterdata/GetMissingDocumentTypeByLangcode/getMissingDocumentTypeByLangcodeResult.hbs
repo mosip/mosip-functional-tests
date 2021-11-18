@@ -3,14 +3,15 @@
   "version": null,
   "responsetime": "$IGNORE$",
   "metadata": null,
-  "response": {[
+  "response": [
     {{#each response}}
       {
-        
-      }
-      {{#unless @last}},{{/unless}}
+      "id": "{{id}}",
+      "fieldValue": null,
+      "langCode": "$IGNORE$"
+    }
+    {{#unless @last}},{{/unless}}
       	{{/each}}
-    ]
-  },
+  ],
   "errors": null
 }

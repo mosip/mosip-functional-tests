@@ -9,25 +9,6 @@ GetMappedMachinesByRegCentID:
       "regCenterId":"10005"
 }'
       output: '{
-    "data": [
-      {
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": "$IGNORE$",
-        "updatedDateTime": "$IGNORE$",
-        "isDeleted": $IGNORE$,
-        "deletedDateTime": "$IGNORE$",
-        "regCentId": "10005",
-        "id": "10005",
-        "name": "$IGNORE$",
-        "serialNum": "$IGNORE$",
-        "macAddress": "$IGNORE$",
-        "ipAddress": "$IGNORE$",
-        "machineSpecId": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
 
    Admin_GetMappedMachinesByRegCentID_Invalid_Invalid_regCenterId:
