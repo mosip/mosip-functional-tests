@@ -2,6 +2,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
       outputTemplate: masterdata/BiometricAttributes/biometricAttributesResult
@@ -145,6 +146,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_Invalid_empty_name:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
       outputTemplate: masterdata/error

@@ -10,7 +10,7 @@ UpdateLocationData:
     "code": "TST12",
     "name": "Test_Loc_A_updated",
     "hierarchyLevel": "4",
-    "hierarchyName": "Zone",
+    "hierarchyName": "City",
     "parentLocCode": "KNT",
     "langCode": "eng",
     "isActive": true,
@@ -23,32 +23,6 @@ UpdateLocationData:
 "hierarchyLevel": "4",
 "hierarchyName": "Zone",
 "parentLocCode": "KNT",
-"langCode": "$IGNORE$"
-}'
-   MasterData_UpdateLocationData_Valid_OnlyMandatoryFields:
-      endPoint: /v1/masterdata/locations
-      role: admin
-      templateFields: ["hierarchyName"]
-      restMethod: put
-      inputTemplate: masterdata/LocationData/locationData
-      outputTemplate: masterdata/LocationData/locationDataResult
-      input: '{
-    "code": "IND",
-    "name": "INDIA updated",
-    "hierarchyLevel":5,
-    "hierarchyName":"Country",
-    "parentLocCode":"$REMOVE$",    
-    "langCode": "eng",
-    "isActive": true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-"isActive": "$IGNORE$",
-"code": "IND",
-"name": "INDIA updated",
-"hierarchyLevel":"$IGNORE$",
-"hierarchyName": "$IGNORE$",
-"parentLocCode": "$IGNORE$",
 "langCode": "$IGNORE$"
 }'
    MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng:

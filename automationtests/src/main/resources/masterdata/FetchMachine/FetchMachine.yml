@@ -15,23 +15,6 @@ FetchMachine:
 			"isActive": true
 		}]
 }'
-   Masterdata_FetchMachine_allValid_smoke_with_id_lang:
-      endPoint: /v1/masterdata/machines/{id}/{langcode}
-      role: admin
-      templateFields: []
-      restMethod: get
-      inputTemplate: masterdata/FetchMachine/fetchMachine
-      outputTemplate: masterdata/FetchMachine/fetchMachineResult
-      input: '{
-  "id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
-  "langcode": "eng",
-  "regCenterId": "$REMOVE$"
-}'
-      output: '{
-"machines": [{
-			"isActive": true
-		}]
-}'
    Masterdata_FetchMachine_allValid_smoke_with_id:
       endPoint: /v1/masterdata/machines/{id}
       role: admin
@@ -47,26 +30,6 @@ FetchMachine:
 "machines": [{
 			"isActive": true
 		}]
-}'
-   Masterdata_FetchMachine_inValid_id:
-      endPoint: /v1/masterdata/machines/{id}/{langcode}
-      role: admin
-      templateFields: ["value"]
-      restMethod: get
-      inputTemplate: masterdata/FetchMachine/fetchMachine
-      outputTemplate: masterdata/error
-      input: '{
-  "id": "10@@ed1",
-  "langcode": "eng",
-  "regCenterId": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-030",
-      "message": "Machine not Found"
-    }
-  ]
 }'
    Masterdata_FetchMachine_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/machines/{langcode}

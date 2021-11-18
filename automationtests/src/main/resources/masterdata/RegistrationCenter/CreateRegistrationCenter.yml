@@ -52,62 +52,7 @@ CreateRegistrationCenter:
 }'
       output: '{
 		"name": "Test123"
-}'
-   MasterData_CreateRegCenter_allValid_smoke_decomminsion:
-      endPoint: /v1/masterdata/registrationcenters
-      role: admin
-      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
-      restMethod: post
-      inputTemplate: masterdata/RegistrationCenter/registrationCenter
-      outputTemplate: masterdata/RegistrationCenter/registrationCenterResult
-      input: '{
-   "id":"string",
-   "metadata":null,
-   "request":{
-      "addressLine1":"sdfg",
-      "addressLine2":"",
-      "addressLine3":"",
-      "centerEndTime":"03:30:00",
-      "centerStartTime":"00:00:00",
-      "centerTypeCode":"REG",
-      "contactPerson":"rtestsd",
-      "contactPhone":"",
-      "holidayLocationCode":"RSK",
-      "langCode":"hin",
-      "latitude":"78.5478",
-      "locationCode":"14080",
-      "longitude":"45.2456",
-      "lunchEndTime":"00:00:00",
-      "lunchStartTime":"00:00:00",
-      "name":"Test123",
-      "perKioskProcessTime":"00:30:00",
-      "timeZone":"(GTM+01:00) CENTRAL EUROPEAN TIME",
-      "workingHours":3.5,
-      "zoneCode":"TTA",
-      "id":"",
-      "isActive":"false",
-      "numberOfKiosks":0,
-      "workingNonWorkingDays":{
-         "103":true,
-         "104":true,
-         "105":true,
-         "106":true
-      },
-      "exceptionalHolidayPutPostDto":[
-         {
-            "exceptionHolidayDate":"2021-11-30",
-            "exceptionHolidayName":"",
-            "exceptionHolidayReson":""
-         }
-      ]
-   },
-   "version":"1.0",
-   "requesttime":"2021-11-12T12:35:10.415Z"
-}'
-      output: '{
-		"name": "Test123"
-}'
-   
+}'   
    MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng:
       endPoint: /v1/masterdata/registrationcenters
       role: admin

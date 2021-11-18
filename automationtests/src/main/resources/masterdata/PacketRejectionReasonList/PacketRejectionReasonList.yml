@@ -24,7 +24,6 @@ PacketRejectionReasonList:
    MasterData_PacketRejectionReasonList_Invalid_Invalid_langCode:
       endPoint: /v1/masterdata/packetrejectionreasons/reasonlist
       role: admin
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/PacketRejectionReasonList/packetRejectionReasonList
       outputTemplate: masterdata/error
@@ -33,7 +32,7 @@ PacketRejectionReasonList:
     "name": "TEST_LIST",
     "description": "test reason list",
     "rsnCatCode": "TEST_CAT_CODE",
-    "langCode": "abc",
+    "langCode": "a@@12bc",
     "isActive": true,
     "requesttime": "$TIMESTAMP$"
 }'
