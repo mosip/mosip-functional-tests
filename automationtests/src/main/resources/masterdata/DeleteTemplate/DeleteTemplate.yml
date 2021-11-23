@@ -7,7 +7,7 @@ DeleteTemplate:
       inputTemplate: masterdata/DeleteTemplate/deleteTemplate
       outputTemplate: masterdata/DeleteTemplate/deleteTemplateResult
       input: '{
-    "id": "9999"
+    "id": "445566777"
 	}'
       output: '{
     "id": "$IGNORE$"

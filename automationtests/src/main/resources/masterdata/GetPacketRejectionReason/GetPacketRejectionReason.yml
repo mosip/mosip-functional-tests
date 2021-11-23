@@ -1,0 +1,68 @@
+GetPacketRejectionReason:
+   Admin_GetPacketRejectionReason_allValid_smoke:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReasonResult
+      input: '{
+  "reasoncategorycode":"MNA",
+  "langcode":"eng"
+}'
+      output: '{
+"reasonCategories": [{
+       "code": "MNA",
+        "name": "Manual Adjudication",
+        "description": "Rejection during Manual Adjudication",
+        "langCode": "eng",
+        "isActive": true,
+        "reasonList": [
+          {
+            "code": "$IGNORE$",
+            "name": "$IGNORE$",
+            "description": "$IGNORE$",
+            "rsnCatCode": "$IGNORE$",
+            "langCode": "$IGNORE$",
+            "isActive": $IGNORE$
+          }]
+    }]
+}'  
+
+   Admin_GetPacketRejectionReason_Invalid_Invalid_reasoncategorycode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/error
+      input: '{
+  "reasoncategorycode":"abc",
+  "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+
+   Admin_GetPacketRejectionReason_Invalid_Invalid_langcode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/error
+      input: '{
+  "reasoncategorycode":"MNA",
+  "langcode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+   

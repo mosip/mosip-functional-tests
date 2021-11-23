@@ -1,0 +1,23 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "registrationCenters": [
+	
+    {{#each registrationCenters}}
+      {
+        "cntrId": "{{cntrId}}",
+        "machineId": "{{machineId}}",
+        "usrId": "{{usrId}}",
+        "isActive": $IGNORE$,
+        "langCode": "$IGNORE$",
+        "effectivetimes": "$IGNORE$"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

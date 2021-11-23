@@ -20,13 +20,13 @@ DecommisionMachine:
       inputTemplate: masterdata/DecommisionMachine/decommisionMachine
       outputTemplate: masterdata/error
       input: '{
-      "id": "1022"
+      "id": "1022dddw3456778432wsd"
 	}'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "Machine ID 1022 does not exist"
+      "errorCode": "KER-MSD-214",
+      "message": "Machine ID 1022dddw3456778432wsd does not exist"
     }
   ]
 }'

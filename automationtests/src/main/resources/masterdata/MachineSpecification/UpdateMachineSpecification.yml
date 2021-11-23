@@ -12,7 +12,7 @@ UpdateMachineSpecification:
     "id": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
     "isActive": true,
     "langCode": "eng",
-    "machineTypeCode": "DKS",
+    "machineTypeCode": "Laptop-2",
     "minDriverversion": "3.2",
     "model": "1234",
     "name": "HP",

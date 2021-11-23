@@ -430,8 +430,8 @@ SearchDocCategories:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+      "errorCode": "KER-MSD-999",
+      "message": "request.pagination.pageFetch: Should have positive integer value"
     }
   ]
 }'

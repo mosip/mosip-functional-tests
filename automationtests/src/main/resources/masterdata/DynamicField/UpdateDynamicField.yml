@@ -1,0 +1,23 @@
+UpdateDynamicField:
+   MasterData_UpdateDynamicField_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/dynamicfields
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/DynamicField/dynamicField
+      outputTemplate: masterdata/DynamicField/dynamicFieldResult
+      input: '{
+    "dataType": "string",
+    "description": "Test dynamic field updated",
+    "langCode": "eng",
+    "name": "Test updated",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "id": "$IGNORE$",
+    "name": "TestUpdated",
+    "langCode": "$IGNORE$",
+    "dataType": "$IGNORE$",
+    "description": "Test dynamic field updated",
+    "requesttime": "$TIMESTAMP$"
+}'

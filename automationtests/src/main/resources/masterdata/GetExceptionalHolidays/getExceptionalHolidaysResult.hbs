@@ -1,0 +1,27 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "exceptionalHolidayList": [
+	
+    {{#each exceptionalHolidayList}}
+      {
+        "holidayDate": "$IGNORE$",
+        "holidayDay": "$IGNORE$",
+        "holidayMonth": "$IGNORE$",
+        "holidayYear": "$IGNORE$",
+        "holidayName": "$IGNORE$",
+        "holidayReason": "$IGNORE$",
+        "registrationCenterID": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

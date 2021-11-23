@@ -1,0 +1,59 @@
+GetModuleByIdLangCode:
+   Admin_GetModuleByIdLangCode_allValid_smoke:
+      endPoint: /v1/masterdata/modules/{id}/{langcode}
+      role: admin
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetModuleByIdLangCode/getModuleByIdLangCode
+      outputTemplate: masterdata/GetModuleByIdLangCode/getModuleByIdLangCodeResult
+      input: '{
+      "id":"10001",
+      "langcode":"eng"
+}'
+      output: '{
+"modules": [{
+       "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "description": "$IGNORE$",
+        "isActive": true
+    }]
+}'
+
+   Admin_GetModuleByIdLangCode_Invalid_Invalid_langcode:
+      endPoint: /v1/masterdata/modules/{id}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetModuleByIdLangCode/getModuleByIdLangCode
+      outputTemplate: masterdata/error
+      input: '{
+      "id":"10001",
+      "langcode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-248",
+      "message": "Module not Found"
+    }
+  ]
+}'
+
+   Admin_GetModuleByIdLangCode_Invalid_Invalid_lD:
+      endPoint: /v1/masterdata/modules/{id}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetModuleByIdLangCode/getModuleByIdLangCode
+      outputTemplate: masterdata/error
+      input: '{
+      "id":"abc",
+      "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-248",
+      "message": "Module not Found"
+    }
+  ]
+}'

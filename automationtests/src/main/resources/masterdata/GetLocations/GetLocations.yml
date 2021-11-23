@@ -1,0 +1,13 @@
+GetLocations:
+   Admin_GetLocations_allValid_smoke:
+      endPoint: /v1/masterdata/locations/all
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetLocations/getLocations
+      outputTemplate: masterdata/GetLocations/getLocationsResult
+      input: '{
+      
+}'
+      output: '{
+"data": "$IGNORE$"
+}'  

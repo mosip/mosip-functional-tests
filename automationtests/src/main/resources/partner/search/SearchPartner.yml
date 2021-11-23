@@ -10,7 +10,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -43,7 +43,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "contains",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -76,7 +76,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -109,7 +109,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -142,7 +142,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "startswith",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -175,7 +175,7 @@ createSearchPartner:
       {
         "columnName": "name",
         "type": "startswith",
-        "value": "Techno"
+        "value": "Airtekiboi"
       }
     ],
     "sort": [
@@ -267,8 +267,8 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
-      outputTemplate: partner/Search/searchPartnerResult
+      inputTemplate: partner/search/searchPartner
+      outputTemplate: partner/search/searchPartnerResult
       input: '{
     "filters": [
       {
@@ -300,8 +300,8 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
-      outputTemplate: partner/Search/searchPartnerResult
+      inputTemplate: partner/search/searchPartner
+      outputTemplate: partner/search/searchPartnerResult
       input: '{
     "filters": [
       {
@@ -329,17 +329,17 @@ createSearchPartner:
       }
     ]
 }'
-   Partner_SearchPartner_with_invalid_value_contains:
+   Partner_SearchPartner_with_invalid_value_containts:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
       {
         "columnName": "address",
-        "type": "contains",
+        "type": "containts",
         "value": "@22333sssdddfghmnjkiouyttrsx76"
       }
     ],
@@ -358,8 +358,8 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
+      "errorCode": "PMS-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
     }
   ]
 }'
@@ -367,7 +367,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -392,8 +392,8 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
+      "errorCode": "PMS-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
     }
   ]
 }'
@@ -401,7 +401,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -426,8 +426,8 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
+      "errorCode": "PMS-MSD-355",
+      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
     }
   ]
 }'
@@ -435,7 +435,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -461,7 +461,7 @@ createSearchPartner:
    "errors": [
     {
       "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : a@@@334455667788s"
+      "message": "Invalid column received:a@@@334455667788s"
     }
   ]
 }'
@@ -469,7 +469,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -503,7 +503,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -537,7 +537,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -571,7 +571,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -605,7 +605,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -639,7 +639,7 @@ createSearchPartner:
       endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/searchPartner
+      inputTemplate: partner/search/searchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [

@@ -1,0 +1,193 @@
+RegistrationCenter:
+   Masterdata_RegistrationCenter_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenterr/registrationCenter
+      outputTemplate: masterdata/RegistrationCenterr/registrationCenterResult
+      input: '{
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "33.9956",
+    "locationCode": "14023",
+    "longitude": "-6.8152",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "HSR Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "NDR",
+    "id": "96874",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "name": "Test123"
+}'
+   MasterData_RegistrationCenter_Invalid_HolidayLocationCode_blank_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenterr/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "33.995612",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "BTM Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"STT",
+    "id": "96874",
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    },
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.holidayLocationCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   
+   MasterData_RegistrationCenter_Invalid_latitude_blank_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenterr/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"STT",
+    "id": "96874",
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    },
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.latitude: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}'
+   MasterData_RegistrationCenter_Invalid_latitude_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenterr/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "fbheafg",
+    "locationCode": "14023",
+    "longitude": "-6.8152",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"STT",
+    "id": "96874",
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    },
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "Latitude or Longitude must have minimum 4 digits after decimal"
+    }
+  ]
+}'
