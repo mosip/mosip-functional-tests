@@ -12,7 +12,7 @@ UpdateMachine:
     "isActive":true,
     "langCode":"eng",
     "macAddress":"61-D3-FD-12-C9-ED",
-    "machineSpecId":"1001",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
     "name":"Mach-Test updated",
     "serialNum":"FB5962911687",
     "validityDateTime":"2021-12-24T05:52:46.758Z",
@@ -24,7 +24,7 @@ UpdateMachine:
       output: '{
     "id":"$IGNORE$", 
     "name": "Mach-Test updated",
-	"machineSpecId": "1001",
+	"machineSpecId": "$IGNORE$",
 	"serialNum":"FB5962911687",
 	"ipAddress": "192.168.0.424",
 	"isActive": "$IGNORE$",
@@ -88,7 +88,7 @@ UpdateMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-436",
+      "errorCode": "KER-MSD-255",
       "message": "Admin not authorized to access this Machine for this Zone"
     }
   ]
@@ -178,7 +178,7 @@ UpdateMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-436",
+      "errorCode": "KER-MSD-255",
       "message": "Admin not authorized to access this Machine for this Zone"
     }
   ]

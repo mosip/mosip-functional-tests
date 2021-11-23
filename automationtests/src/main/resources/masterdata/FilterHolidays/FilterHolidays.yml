@@ -10,7 +10,7 @@ FilterHolidays:
 	"filters": [{
 		"columnName": "holidayName",
 		"type": "unique",
-		"text": "Anniversary of the Independence Manifesto"
+		"text": "AutoTest user Eng"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,8 +18,8 @@ FilterHolidays:
       output: '{
     "filters": [
       {
-        "fieldID": "holidayName",
-        "fieldValue": "Anniversary of the Independence Manifesto"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

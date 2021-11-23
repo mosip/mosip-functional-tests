@@ -49,7 +49,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -77,7 +77,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -131,7 +131,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -185,7 +185,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -268,7 +268,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -297,7 +297,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -376,7 +376,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -459,13 +459,11 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
     }
   ]
 }'
-   
-   
    MasterData_FetchRegCent_By_Pagenation_HierarchyLevel_Text_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
@@ -517,7 +515,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -546,7 +544,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
@@ -555,7 +553,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_zoneCode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
-      templateFields: ["name"]
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/FetchRegCent/fetchAllRegCentResult
@@ -578,41 +576,10 @@ FetchRegCent:
       "langCode": "$IGNORE$"
     }]
 }'
-
-   MasterData_FetchRegCent_By_zoneCode_invalid_invalid_langcode:
-      endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
-      role: admin
-      templateFields: ["name"]
-      restMethod: get
-      inputTemplate: masterdata/FetchRegCent/fetchRegCent
-      outputTemplate: masterdata/error
-      input: '{
-  "longitude": "$REMOVE$",
-  "latitude": "$REMOVE$",
-  "langcode": "abc",
-  "proximitydistance": "$REMOVE$",
-  "locationcode": "$REMOVE$",
-  "registrationcenterid": "$REMOVE$",
-  "year": "$REMOVE$",
-  "id": "$REMOVE$",
-  "hierarchylevel": "$REMOVE$",
-  "name": "$REMOVE$",
-  "zonecode": "RBT",
-  "timestamp": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
-    }
-  ]
-}'
-
    MasterData_FetchRegCent_By_zoneCode_invalid_invalid_zonecode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
-      templateFields: ["name"]
+      templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/error
@@ -633,37 +600,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
-    }
-  ]
-}'
-
-   MasterData_FetchRegCent_getHoliday_all valid_smoke:
-      endPoint: /v1/masterdata/getregistrationcenterholidays/{langcode}/{registrationcenterid}/{year}
-      role: admin
-      templateFields: ["name"]
-      restMethod: get
-      inputTemplate: masterdata/FetchRegCent/fetchRegCent
-      outputTemplate: masterdata/error
-      input: '{
-  "longitude": "$REMOVE$",
-  "latitude": "$REMOVE$",
-  "langcode": "fra",
-  "proximitydistance": "$REMOVE$",
-  "locationcode": "$REMOVE$",
-  "registrationcenterid": "10001",
-  "year": "2021",
-  "id": "$REMOVE$",
-  "hierarchylevel": "$REMOVE$",
-  "name": "$REMOVE$",
-  "zonecode": "$REMOVE$",
-  "timestamp": "$REMOVE$"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]

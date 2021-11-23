@@ -10,7 +10,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Vostro"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "HP"
       }
     ]
   }'

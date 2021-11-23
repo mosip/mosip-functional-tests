@@ -797,6 +797,7 @@ SearchMachine:
    Masterdata_SearchMachine_Invalid_EmptySortField:
       endPoint: /v1/masterdata/machines/search
       role: admin
+      templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
       outputTemplate: masterdata/error
@@ -805,7 +806,7 @@ SearchMachine:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Mach-Test",
+        "value": "a2ml30846",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }

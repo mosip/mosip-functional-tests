@@ -28,7 +28,7 @@ FetchTemplateType:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-398",
+      "errorCode": "KER-MSD-249",
       "message": "Template Type not Found"
     }
   ]

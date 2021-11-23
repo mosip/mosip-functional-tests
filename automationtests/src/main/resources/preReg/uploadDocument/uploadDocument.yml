@@ -559,30 +559,6 @@ UploadDocument:
     }
   ]
 }'
-   Prereg_UploadDocument_Blank_langCode_sid:
-      endPoint: /preregistration/v1/documents/{preRegistrationId}
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/uploadDocument/uploadDocument
-      outputTemplate: preReg/error
-      input: '{
-    "id": "mosip.pre-registration.document.upload",
-    "docCatCode" : "POA",
-    "docTypCode" : "RNC",
-    "langCode" : "",
-    "requesttime" : "$TIMESTAMP$",
-    "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
-    "filePath": "preReg/uploadDocument/doc_POA.pdf",
-    "fileKeyName": "file"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PRG_CORE_REQ_014",
-      "message": "Lang code is invalid"
-    }
-  ]
-}'
    Prereg_UploadDocument_inValid_id_sid:
       endPoint: /preregistration/v1/documents/{preRegistrationId}
       role: batch

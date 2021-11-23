@@ -1,0 +1,49 @@
+UpdateDocCategory:
+   MasterData_UpdateDocCategory_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/documentcategories?isActive=true&code=POA
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocCategory/updateDocCategory
+      outputTemplate: masterdata/UpdateDocCategory/updateDocCategoryResult
+      input: '{
+    
+}'
+      output: '{
+    "status": "Status updated successfully for Document Categories"
+}'
+
+   MasterData_UpdateDocCategory_Invalid_status:  
+      endPoint: /v1/masterdata/documentcategories?isActive=false&code=POA
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocCategory/updateDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+    
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-055",
+      "message": "Mapping exist before deactivating remove the mapping"
+    }
+  ]
+}'
+
+   MasterData_UpdateDocCategory_Invalid_code:  
+      endPoint: /v1/masterdata/documentcategories?isActive=true&code=ABC
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocCategory/updateDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+    
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-014",
+      "message": "Document Category not found"
+    }
+  ]
+}'
