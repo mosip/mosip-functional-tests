@@ -1,6 +1,6 @@
 CreatePrereg:
    Prereg_CreatePrereg_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -17,7 +17,7 @@ CreatePrereg:
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -34,7 +34,7 @@ CreatePrereg:
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_alldel_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -51,7 +51,7 @@ CreatePrereg:
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_CancellAppointment_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -68,7 +68,7 @@ CreatePrereg:
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_in_Valid_id_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -90,7 +90,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_id_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -112,7 +112,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_blank_id_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -134,7 +134,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_langCode_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -156,7 +156,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_langCode_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -178,7 +178,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_dateOfBirth_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -200,7 +200,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_email_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -222,7 +222,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_requesttime_format_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -244,7 +244,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_requesttime_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -266,7 +266,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_previous_date_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -288,7 +288,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_version_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
@@ -310,7 +310,7 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_version_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
       inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$

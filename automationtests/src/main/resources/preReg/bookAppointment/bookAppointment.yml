@@ -56,8 +56,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
+      "errorCode": "PRG_APP_013",
+      "message": "No Records Found"
     }
   ]
 }'

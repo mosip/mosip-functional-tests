@@ -1,6 +1,6 @@
 GetApplicationStatusWithPrId:
    Prereg_GetApplicationStatusWithPrId_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}
       role: batch
       restMethod: get
       inputTemplate: preReg/GetApplicationStatusWithPrId/getApplicationStatusWithPrId
@@ -12,7 +12,7 @@ GetApplicationStatusWithPrId:
   "statusCode": "Application_Incomplete"
 }'
    Prereg_GetApplicationStatusWithPrId_inValid_PRID_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}
       role: batch
       restMethod: get
       inputTemplate: preReg/GetApplicationStatusWithPrId/getApplicationStatusWithPrId
@@ -29,7 +29,7 @@ GetApplicationStatusWithPrId:
   ]
 }'
    Prereg_GetApplicationStatusWithPrId_Blank_PRID_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}
       role: batch
       restMethod: get
       inputTemplate: preReg/GetApplicationStatusWithPrId/getApplicationStatusWithPrId

@@ -1,6 +1,6 @@
 UpdatePreregistration:
    Prereg_UpdatePrereg_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -18,7 +18,7 @@ UpdatePreregistration:
   "langCode": "$1STLANG$"
 }'
    Prereg_UpdatePrereg_inValid_dateOfBirth_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -41,7 +41,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_Version_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -64,7 +64,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_Version_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -87,7 +87,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_email_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -110,7 +110,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_langCode_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -133,7 +133,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_INVALID_langCode_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -156,7 +156,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_INVALID_requesttime_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -179,7 +179,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_Missing_requesttime_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -202,7 +202,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_previous_date_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -225,7 +225,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -248,7 +248,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
@@ -271,7 +271,7 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_blank_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
       inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$

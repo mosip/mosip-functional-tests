@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-	<!-- <test name="AddIdentity">
+	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="ida\AddIdentity\AddIdentity.yml" />
 		<classes>
@@ -74,15 +74,9 @@
 		<classes>
 			<class name="io.mosip.testscripts.MultiFactorAuth" />
 		</classes>
-	</test> -->
-
-<test name="BioAuth">
-		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
-		</classes>
 	</test>
+
+
 
 
 
