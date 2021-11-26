@@ -10,7 +10,7 @@ createSaveSecureBiometricInterface:
     "isItForRegistrationDevice": "true",
     "swBinaryHash": "0",
     "swCreateDateTime": "$TIMESTAMP$",
-    "swExpiryDateTime": "2020-12-30T08:23:57.986Z",
+    "swExpiryDateTime": "2222-12-30T08:23:57.986Z",
     "swVersion": "MO.TD.01",
     "requesttime": "$TIMESTAMP$"
 
