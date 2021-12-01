@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
@@ -104,6 +105,12 @@ import io.swagger.annotations.Api;
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
 
+	private static final String PHONE = "PHONE";
+
+	private static final String EMAIL = "EMAIL";
+
+	private static final String CHANNELS = "channels";
+
 	private static final String DATE_TIME = "dateTime";
 
 	private static final String MOSIP_ENV = "mosip.env";
@@ -169,7 +176,8 @@ public class AuthRequestController {
 			+ "  \"id\": \"${reqId}\",\r\n"
 			+ "  \"individualId\": \"${id}\",\r\n"
 			+ "  \"otpChannel\": [\r\n"
-			+ "    \"email\"\r\n"
+			+ "    \"email\",\r\n"
+			+ "    \"phone\"\r\n"
 			+ "  ],\r\n"
 			+ "  \"requestTime\": \"${timestamp}\",\r\n"
 			+ "  \"transactionID\": \"${txn}\",\r\n"
@@ -410,11 +418,13 @@ public class AuthRequestController {
 	public ResponseEntity<Map<String, Object>> sendOtp(@RequestParam(name = ID, required = true) @Nullable String id,
 			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
+			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws Exception {
 		
-		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, id, transactionId, requestTime);
+		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, isEmail, isPhone, id, transactionId, requestTime);
 		String reqSignature = otpReqEntity.getHeaders().get("signature").get(0);
 		String reqBody = otpReqEntity.getBody();
 		
@@ -462,6 +472,8 @@ public class AuthRequestController {
 			MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> createOtpRequestBody(
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal, 
+			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
+			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
 			@RequestParam(name = ID, required = true) @NonNull String id, 
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId, 
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, JoseException {
@@ -473,7 +485,22 @@ public class AuthRequestController {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
 		}
+		
+		List<String> channels = new ArrayList<String>();
+		if(isEmail) {
+			channels.add(EMAIL);
+		}
+		if(isPhone) {
+			channels.add(PHONE);
+		}
+		
+		if(!isEmail && !isPhone) {
+			channels.add(EMAIL);
+		}
+		
+		String channelStr = channels.stream().collect(Collectors.joining("\",\"", "\"", "\""));
 
+		reqValues.put(CHANNELS, channelStr);
 		idValuesMapForOtpReq(id, isInternal, reqValues, transactionId, requestTime);
 		
 		StringWriter writer = new StringWriter();
