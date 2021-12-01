@@ -164,7 +164,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void waittime() {
 		try 
 		{logger.info("waiting for 2Minutes after UIN Generation In IDREPO");
-			//Thread.sleep(120000);
+			Thread.sleep(120000);
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
