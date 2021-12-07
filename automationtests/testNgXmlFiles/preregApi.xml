@@ -111,6 +111,13 @@
 			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="BookAppointmentByPRID">
+		<parameter name="ymlFile"
+			value="preReg/bookAppointmentByPRID/bookAppointmentByPRID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.BookAppoinmentByPrid" />
+		</classes>
+	</test>
 	<test name="GetAppointmentDetails">
 		<parameter name="ymlFile"
 			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
@@ -169,6 +176,5 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
-	
 	
 </suite>
