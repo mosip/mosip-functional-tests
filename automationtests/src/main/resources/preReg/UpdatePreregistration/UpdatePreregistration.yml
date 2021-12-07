@@ -17,6 +17,24 @@ UpdatePreregistration:
       output: '{
   "langCode": "$1STLANG$"
 }'
+   Prereg_UpdatePrereg_All_Valid_Smoke_BookByPRID_sid:
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
+      outputTemplate: preReg/UpdatePreregistration/updatePreregistrationResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
+}'
    Prereg_UpdatePrereg_inValid_dateOfBirth_sid:
       endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
