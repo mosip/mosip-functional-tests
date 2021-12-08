@@ -176,6 +176,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
+	<test name="DeleteBooking">
+		<parameter name="ymlFile"
+			value="preReg/DeleteBooking/DeleteBooking.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 	<test name="InvalidateToken">
 		<parameter name="ymlFile"
 			value="preReg/InvalidateToken/InvalidateToken.yml" />
