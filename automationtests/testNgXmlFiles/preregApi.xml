@@ -169,6 +169,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
+	<test name="CancelApplicationsAppointment">
+		<parameter name="ymlFile"
+			value="preReg/CancelApplicationsAppointment/CancelApplicationsAppointment.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
 	<test name="InvalidateToken">
 		<parameter name="ymlFile"
 			value="preReg/InvalidateToken/InvalidateToken.yml" />
