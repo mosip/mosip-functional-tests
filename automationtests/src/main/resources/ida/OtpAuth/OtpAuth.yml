@@ -173,7 +173,7 @@ OtpAuth:
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/digitalId/deviceProviderId"
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{
