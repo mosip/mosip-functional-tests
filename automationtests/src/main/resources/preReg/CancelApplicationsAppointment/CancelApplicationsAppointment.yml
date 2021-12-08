@@ -1,0 +1,30 @@
+CancelApplicationsAppointment:
+   Prereg_CancelApplicationsAppointment_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/CancelApplicationsAppointment/cancelApplicationsAppointment
+      outputTemplate: preReg/CancelApplicationsAppointment/cancelApplicationsAppointmentResult
+      input: '{
+	"preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$"
+}'
+      output: '{
+"message": "Appointment for the selected application has been successfully cancelled"
+}'
+   Prereg_CancelApplicationsAppointment_inValid_preRegistrationId_sid:
+      endPoint: /preregistration/v1/applications/appointment/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/CancelApplicationsAppointment/cancelApplicationsAppointment
+      outputTemplate: preReg/error
+      input: '{
+	"preRegistrationId": "36272yhshsgblAppointment_sid_preRegistrati"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_APP_013",
+      "message": "No Records Found"
+    }
+  ]
+}'
