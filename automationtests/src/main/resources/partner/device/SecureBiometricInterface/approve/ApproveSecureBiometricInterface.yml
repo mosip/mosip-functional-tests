@@ -35,24 +35,3 @@ ApproveSecureBiometricInterface:
     }
   ]
 }'
-
-   Partner_ApproveSecureBiometricInterface_Missing_InputParameter_isItForRegistrationDevice:
-      endPoint: /v1/partnermanager/securebiometricinterface
-      role: partner
-      restMethod: patch
-      inputTemplate: partner/device/SecureBiometricInterface/approve/approveSecureBiometricInterface
-      outputTemplate: partner/error
-      input: '{
-    "approvalStatus": "Activate",
-    "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
-    "isItForRegistrationDevice": "$REMOVE$",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.isItForRegistrationDevice"
-    }
-  ]
-}'

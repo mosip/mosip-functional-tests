@@ -71,8 +71,8 @@ createServiceToUpdateDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceProviderId"
+      "errorCode": "PMS_AUT_001",
+      "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types"
     }
   ]
 }'
