@@ -93,9 +93,9 @@ EkycOtp:
   "kycStatus": "true",
  "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_individualId_neg:
@@ -131,9 +131,9 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_individualId_neg:
@@ -169,9 +169,9 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Missing_individualId_neg:
@@ -201,15 +201,15 @@ EkycOtp:
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_transactionId_neg:
@@ -245,9 +245,9 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_transactionId_neg:
@@ -283,9 +283,9 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_individualIdType_neg:
@@ -321,9 +321,9 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_individualIdType_neg:
@@ -359,8 +359,8 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
