@@ -97,9 +97,9 @@ public class KeyMgrUtil {
 		return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
 	}
 
-    public CertificateChainResponseDto getPartnerCertificates(PartnerTypes partnerType, String dirPath, String organization) throws 
+    public CertificateChainResponseDto getPartnerCertificates(PartnerTypes partnerType, String dirPath, String organization, boolean keyFileNameByPartnerName) throws 
         NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, IOException, CertificateException, OperatorCreationException {
-    	String filePrepend = partnerType.getFilePrepend();
+    	String filePrepend = keyFileNameByPartnerName ? partnerType.getFilePrepend() + '-' + organization : partnerType.getFilePrepend();
         String caFilePath = dirPath + '/' + filePrepend + CA_P12_FILE_NAME;
         LocalDateTime dateTime = LocalDateTime.now(); 
         LocalDateTime dateTimeExp = dateTime.plusYears(1);
