@@ -1,0 +1,138 @@
+{
+  "id": "mosip.id.create",
+  "request": {
+    "registrationId": "{{registrationId}}",
+    "biometricReferenceId": "23452353",
+    "identity": {
+      "residenceStatus": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "IDSchemaVersion": 0.2,
+      "UIN": "{{UIN}}",
+      "fullName": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "dateOfBirth": "{{dateOfBirth}}",
+      "gender": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "region": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "province": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "city": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "postalCode": "14022",
+      "email": "{{email}}",
+	  "phone": "{{phone}}",
+      "zone": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "introducerRID": "212124324784879",
+      "introducerUIN": "212124324784879",
+      "introducerName": [
+        {
+          "language": "$1STLANG$",
+          "value": "FR"
+        },
+        {
+          "language": "$2NDLANG$",
+          "value": "FR"
+        }
+      ],
+      "proofOfIdentity": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "introducerBiometrics": {
+        "format": "cbeff",
+        "version": 1.1,
+        "value": "fileReferenceID"
+      }
+    },
+    "documents": [
+      {
+        "value": "{{value}}",
+        "category": "individualBiometrics"
+      },
+      {
+        "category": "proofOfRelationship",
+        "value": "dGVzdA"
+      },
+      {
+        "category": "proofOfDateOfBirth",
+        "value": "dGVzdA"
+      }
+    ]
+  },
+  "requesttime": "$TIMESTAMP$",
+  "version": "{{version}}"
+}

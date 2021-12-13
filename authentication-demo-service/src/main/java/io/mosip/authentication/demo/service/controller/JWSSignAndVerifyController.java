@@ -127,7 +127,7 @@ public class JWSSignAndVerifyController {
 
 		JWTSignatureRequestDto request = new JWTSignatureRequestDto();
 		request.setApplicationId("IDA");
-		request.setDataToSign(CryptoUtil.encodeBase64(data.getBytes("UTF-8")));
+		request.setDataToSign(CryptoUtil.encodeToURLSafeBase64(data.getBytes("UTF-8")));
 		request.setIncludeCertHash(true);
 		request.setIncludeCertificate(true);
 		request.setIncludePayload(isPayloadRequired);
@@ -218,7 +218,7 @@ public class JWSSignAndVerifyController {
 
 	@PostMapping(path = "/getPayloadFromJWS", consumes = MediaType.TEXT_PLAIN, produces = MediaType.TEXT_PLAIN)
 	public String getPayloadFromJwsSingature(@RequestBody String jws) {
-		return new String(CryptoUtil.decodeBase64(getSplittedPayloadSectionFromJwsSingature(jws)));
+		return new String(CryptoUtil.decodeURLSafeBase64(getSplittedPayloadSectionFromJwsSingature(jws)));
 	}
 
 	/**
@@ -313,8 +313,12 @@ public class JWSSignAndVerifyController {
 
 	}
 
-	public String sign(String dataToSign, boolean includePayload,
-			boolean includeCertificate, boolean includeCertHash, String certificateUrl, String dirPath, 
+	public String sign(String dataToSign, 
+			boolean includePayload,
+			boolean includeCertificate, 
+			boolean includeCertHash, 
+			String certificateUrl, 
+			String dirPath, 
 			PartnerTypes partnerType) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, CertificateException, IOException, OperatorCreationException {
 

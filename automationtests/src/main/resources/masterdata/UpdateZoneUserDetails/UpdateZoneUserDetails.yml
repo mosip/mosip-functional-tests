@@ -1,0 +1,16 @@
+UpdateZoneUserDetails:
+   Admin_UpdateZoneUserDetails_eng_All_Valid_Smoke:
+      endPoint: /v1/masterdata/blocklistedwords/details
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateZoneUserDetails/UpdateZoneUserDetails
+      outputTemplate: masterdata/UpdateZoneUserDetails/UpdateZoneUserDetailsResult
+      input: '{
+    "isActive": "wrong word updated again",
+	"userId ": true,
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	
+}'
+  

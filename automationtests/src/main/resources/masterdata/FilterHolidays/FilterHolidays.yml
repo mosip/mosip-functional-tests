@@ -10,7 +10,7 @@ FilterHolidays:
 	"filters": [{
 		"columnName": "holidayName",
 		"type": "unique",
-		"text": "नए साल का दिन"
+		"text": "AutoTest user Eng"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,8 +18,8 @@ FilterHolidays:
       output: '{
     "filters": [
       {
-        "fieldID": "holidayName",
-        "fieldValue": "नए साल का दिन"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

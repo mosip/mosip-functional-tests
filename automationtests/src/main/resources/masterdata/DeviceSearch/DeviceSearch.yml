@@ -116,11 +116,11 @@ DeviceSearch:
 	"data": [{
 	"id": "$IGNORE$",
 	"name": "$IGNORE$",
-	"serialNum": "3456789012",
+	"serialNum": "$IGNORE$",
 	"description": "$IGNORE$",
-	"macAddress": "85-BB-97-4B-14-05",
+	"macAddress": "$IGNORE$",
 	"ipAddress": "$IGNORE$",
-	"deviceSpecId": "327",
+	"deviceSpecId": "$IGNORE$",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"

@@ -1,6 +1,6 @@
 DeletePreRegistration:
    Prereg_DeletePreRegistration_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: delete
       inputTemplate: preReg/DeletePreRegistration/deletePreRegistration
@@ -12,7 +12,7 @@ DeletePreRegistration:
 "deletedBy": "$IGNORE$"
 }'
    Prereg_DeletePreRegistration_inValid_preRegistrationId_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: delete
       inputTemplate: preReg/DeletePreRegistration/deletePreRegistration
@@ -21,10 +21,10 @@ DeletePreRegistration:
 	"preRegistrationId": "nhhh654443@@ffffv"
 }'
       output: '{
-   "errors": [
+   "errors": [ 
     {
       "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
+      "message": "No record found for the requested user id"
     }
   ]
 }'

@@ -8,7 +8,7 @@ definePolicyGroup:
       input: '{
     "desc": "desc mosip policy group",
     "name": "mosip policy group",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
         "id": "162549",
@@ -30,13 +30,13 @@ definePolicyGroup:
       input: '{
     "desc": "$REMOVE$",
     "name": "mosip policy group",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Group desc should not be blank. request.desc"
+      "message": "Invalid request parameter - value is empty or null :request.desc"
     }
   ]
 }'
@@ -50,13 +50,13 @@ definePolicyGroup:
       input: '{
     "desc": "desc mosip policy group",
     "name": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
+    "requesttime": "$TIMESTAMP$"
   }'
       output: '{
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Group name should not be empty. request.name"
+      "message": "Invalid request parameter - value is empty or null :request.name"
     }
   ]
 }'

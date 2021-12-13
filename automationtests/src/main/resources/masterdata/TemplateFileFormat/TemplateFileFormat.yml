@@ -1,0 +1,81 @@
+TemplateFileFormat:
+   MasterData_TemplateFileFormat_All_Valid_Smoke:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "doc",
+    "description": "doc file",
+    "isActive": true,
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        "code": "doc",
+        "langCode": "$IGNORE$"
+    }'
+    
+
+   MasterData_TemplateFileFormat_Invalid_empty_code:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "description": "doc file",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+
+   MasterData_TemplateFileFormat_Invalid_empty_description:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "doc1",
+    "description": "",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+
+   MasterData_TemplateFileFormat_Invalid_InvalidFormat_isActive:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "doc1",
+    "description": "doc file",
+    "isActive": abc,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : "
+    }
+  ]
+}'

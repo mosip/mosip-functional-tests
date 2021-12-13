@@ -74,7 +74,10 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+		}
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
@@ -84,7 +87,14 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
+		
+		
 		otpReqJson.remove("sendOtpEndPoint");
+		
+		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+		{
+			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+		}
 		
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
 		

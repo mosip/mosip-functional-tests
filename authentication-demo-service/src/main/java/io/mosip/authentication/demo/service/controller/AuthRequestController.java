@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
@@ -77,6 +78,7 @@ import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
 import io.mosip.authentication.core.exception.IdAuthenticationAppException;
 import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
+import io.mosip.authentication.core.indauth.dto.IdType;
 import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.CertificateChainResponseDto;
@@ -103,6 +105,14 @@ import io.swagger.annotations.Api;
 @RestController
 @Api(tags = { "Authentication Request Creation" })
 public class AuthRequestController {
+
+	private static final String PHONE = "PHONE";
+
+	private static final String EMAIL = "EMAIL";
+
+	private static final String CHANNELS = "channels";
+
+	private static final String DATE_TIME = "dateTime";
 
 	private static final String MOSIP_ENV = "mosip.env";
 	
@@ -172,9 +182,9 @@ public class AuthRequestController {
 	private static final String DEFAULT_OTP_REQ_TEMPLATE = "{\r\n"
 			+ "  \"id\": \"${reqId}\",\r\n"
 			+ "  \"individualId\": \"${id}\",\r\n"
-			+ "  \"individualIdType\": \"${idType}\",\r\n"
 			+ "  \"otpChannel\": [\r\n"
-			+ "    \"email\"\r\n"
+			+ "    \"email\",\r\n"
+			+ "    \"phone\"\r\n"
 			+ "  ],\r\n"
 			+ "  \"requestTime\": \"${timestamp}\",\r\n"
 			+ "  \"transactionID\": \"${txn}\",\r\n"
@@ -236,13 +246,17 @@ public class AuthRequestController {
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
+			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
 			@RequestBody Map<String, Object> request) throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
-		reqValues.put(OTP, false);
-		reqValues.put(DEMO, false);
-		reqValues.put(BIO, false);
-		reqValues.put(PIN, false);
+		
+		if(isPreLTS) {
+			reqValues.put(OTP, false);
+			reqValues.put(DEMO, false);
+			reqValues.put(BIO, false);
+			reqValues.put(PIN, false);
+		}
 		
 		if(isNewInternalAuth) {
 			isInternal  = true;
@@ -265,9 +279,10 @@ public class AuthRequestController {
 			request.put(TIMESTAMP, "");//Initializing. Setting value is done in further steps.
 		}
 
-		idValuesMap(id, idType, isKyc, isInternal, reqValues, transactionId, requestTime);
+		idValuesMap(id, isKyc, isInternal, reqValues, transactionId, requestTime);
 		getAuthTypeMap(reqAuth, reqValues, request);
 		applyRecursively(request, TIMESTAMP, requestTime);
+		applyRecursively(request, DATE_TIME, requestTime);
 		applyRecursively(request, TRANSACTION_ID, transactionId);
 
 		if(needsEncryption) {
@@ -305,6 +320,25 @@ public class AuthRequestController {
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
+				if(isPreLTS) {
+					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+					Map<String, Object> requestedAuth = new HashMap<>();
+					resMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+					resMap.put("requestedAuth", requestedAuth);
+					if(Boolean.valueOf(String.valueOf(reqValues.get(OTP)))) {
+						requestedAuth.put("otp", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(DEMO)))) {
+						requestedAuth.put("demo", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(BIO)))) {
+						requestedAuth.put("bio", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(PIN)))) {
+						requestedAuth.put("pin", true);
+					}
+					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+				}
 				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 				
 				HttpHeaders httpHeaders = new HttpHeaders();
@@ -312,8 +346,7 @@ public class AuthRequestController {
 				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
 				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
 
-				String rpSignature = jWSSignAndVerifyController.sign(responseStr, false, 
-					true, false, null, keysDirPath, partnerTypes);
+				String rpSignature = signRequest(partnerTypes, responseStr);
 				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
@@ -355,8 +388,9 @@ public class AuthRequestController {
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
+			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
 			@RequestBody Map<String, Object> request) throws Exception {
-		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, request);
+		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, isPreLTS, request);
 		String reqBody = authRequest.getBody();
 		String reqSignature = authRequest.getHeaders().get("signature").get(0);
 		
@@ -423,11 +457,14 @@ public class AuthRequestController {
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
 			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
+			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
+			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws Exception {
 		
-		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, id,idType, transactionId, requestTime);
+		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, idType, isEmail, isPhone, id, transactionId, isPreLTS, requestTime);
 		String reqSignature = otpReqEntity.getHeaders().get("signature").get(0);
 		String reqBody = otpReqEntity.getBody();
 		
@@ -475,9 +512,12 @@ public class AuthRequestController {
 			MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> createOtpRequestBody(
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal, 
+			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
+			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
 			@RequestParam(name = ID, required = true) @NonNull String id, 
-			@RequestParam(name = ID_TYPE, required = false) @Nullable  String idType, 
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId, 
+			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, JoseException {
 		String otpReqTemplate = environment.getProperty("otpRequestTemplate", DEFAULT_OTP_REQ_TEMPLATE);
 		
@@ -487,8 +527,31 @@ public class AuthRequestController {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
 		}
+		if(isPreLTS) {
+			if (null != idType) {
+				reqValues.put(ID_TYPE, idType);
+			} else {
+				reqValues.put(ID_TYPE, UIN);
+			}
+			
+		}
+		
+		List<String> channels = new ArrayList<String>();
+		if(isEmail) {
+			channels.add(EMAIL);
+		}
+		if(isPhone) {
+			channels.add(PHONE);
+		}
+		
+		if(!isEmail && !isPhone) {
+			channels.add(EMAIL);
+		}
+		
+		String channelStr = channels.stream().collect(Collectors.joining("\",\"", "\"", "\""));
 
-		idValuesMapForOtpReq(id, idType, isInternal, reqValues, transactionId, requestTime);
+		reqValues.put(CHANNELS, channelStr);
+		idValuesMapForOtpReq(id, isInternal, reqValues, transactionId, requestTime);
 		
 		StringWriter writer = new StringWriter();
 		InputStream templateValue;
@@ -498,16 +561,15 @@ public class AuthRequestController {
 		if (templateValue != null) {
 			IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
 			String res = writer.toString();
-			if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
+			if(isPreLTS) {
 				Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
-				resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
+				resMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
 				res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 			}
 			ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 			HttpHeaders httpHeaders = new HttpHeaders();
 			String responseStr = response.toString();
-			httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false, 
-					true, false, null, keyMgrUtil.getKeysDirPath(), PartnerTypes.RELYING_PARTY));
+			httpHeaders.add("signature", signRequest(PartnerTypes.RELYING_PARTY, responseStr));
 			return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 		} else {
 			throw new IdAuthenticationBusinessException(
@@ -516,16 +578,21 @@ public class AuthRequestController {
 		}
 
 	}
+
+	@PostMapping(path = "/signRequest", produces = {
+			MediaType.TEXT_PLAIN_VALUE })
+	public String signRequest(
+			@RequestParam(name = "partnerType", required = true, defaultValue = "RELYING_PARTY") @NonNull PartnerTypes partnerType,
+			@RequestBody 	String request)
+			throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException,
+			CertificateException, IOException, OperatorCreationException {
+		return jWSSignAndVerifyController.sign(request, false, 
+				true, false, null, keyMgrUtil.getKeysDirPath(), partnerType);
+	}
 	
-	private void idValuesMapForOtpReq(String id, String idType, boolean isInternal, Map<String, Object> reqValues,
+	private void idValuesMapForOtpReq(String id, boolean isInternal, Map<String, Object> reqValues,
 			String transactionId, String utcCurrentDateTimeString) {
 		reqValues.put(ID, id);
-		if (null != idType) {
-			reqValues.put(ID_TYPE, idType);
-		} else {
-			reqValues.put(ID_TYPE, UIN);
-		}
-		
 		if (isInternal) {
 			reqValues.put(REQ_ID, "mosip.identity.otp.internal");
 		} else {
@@ -544,20 +611,20 @@ public class AuthRequestController {
 		boolean isInternal = false;
 		switch(reqId) {
 		case "mosip.identity.auth":
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		case "mosip.identity.kyc":
-			baseUrl = isLocal ? "http://localhost:8091" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("kyc.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/kyc";
 			break;
 		case "mosip.identity.auth.internal":
-			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" +  environment.getProperty("internal.port", "8093"): envBaseUrl;
 			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity" : "/idauthentication/v1/internal/auth";
 			isInternal = true;
 			break;
 		default:
-			baseUrl = isLocal ? "http://localhost:8090" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		}
@@ -582,11 +649,11 @@ public class AuthRequestController {
 		boolean isInternal = false;
 		switch(reqId) {
 		case "mosip.identity.otp":
-			baseUrl = isLocal ? "http://localhost:8092" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("otp.port", "8092") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/otp";
 			break;
 		case "mosip.identity.otp.internal":
-			baseUrl = isLocal ? "http://localhost:8093" : envBaseUrl;
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("internal.port", "8093") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/internal/otp";
 			isInternal = true;
 			break;
@@ -669,7 +736,7 @@ public class AuthRequestController {
 						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
 								false, null, keysDirPath, PartnerTypes.FTM);
 					} else {
-						signedDititalId = CryptoUtil.encodeBase64(digitalIdStr.getBytes());
+						signedDititalId = CryptoUtil.encodeToURLSafeBase64(digitalIdStr.getBytes());
 					}
 					dataMap.put(DIGITAL_ID, signedDititalId);
 				}
@@ -678,7 +745,7 @@ public class AuthRequestController {
 				
 				String dataStr;
 				if (isInternal) {
-					dataStr = CryptoUtil.encodeBase64(dataStrJson.getBytes());
+					dataStr = CryptoUtil.encodeToURLSafeBase64(dataStrJson.getBytes());
 				} else {
 					//dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
 					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, 
@@ -687,7 +754,7 @@ public class AuthRequestController {
 				bioMap.put(DATA, dataStr);
 				
 				// Updating hash calculation as per latest changes - 29-May-2021
-				byte[] currentHash = getHash(CryptoUtil.decodeBase64(bioValue));
+				byte[] currentHash = getHash(CryptoUtil.decodePlainBase64(bioValue));
 				byte[] finalBioDataBytes = new byte[currentHash.length + previousHash.length];
 				System.arraycopy(previousHash, 0, finalBioDataBytes, 0, previousHash.length);
 				System.arraycopy(currentHash, 0, finalBioDataBytes, previousHash.length, currentHash.length);
@@ -798,7 +865,7 @@ public class AuthRequestController {
 			Map<String, Object> dataMap = map.get(DATA) instanceof Map ? (Map<String, Object>) map.get(DATA) : null;
 			try {
 				if (Objects.nonNull(dataMap)) {
-					Object value = CryptoUtil.encodeBase64(mapper.writeValueAsBytes(dataMap));
+					Object value = CryptoUtil.encodeToURLSafeBase64(mapper.writeValueAsBytes(dataMap));
 					map.replace(DATA, value);
 				}
 			} catch (JsonProcessingException e) {
@@ -830,15 +897,9 @@ public class AuthRequestController {
 		}
 	}
 
-	private void idValuesMap(String id, String idType, boolean isKyc, boolean isInternal, Map<String, Object> reqValues,
+	private void idValuesMap(String id, boolean isKyc, boolean isInternal, Map<String, Object> reqValues,
 			String transactionId, String utcCurrentDateTimeString) {
 		reqValues.put(ID, id);
-		if (null != idType) {
-			reqValues.put(ID_TYPE, idType);
-		} else {
-			reqValues.put(ID_TYPE, UIN);
-		}
-		
 		if (isInternal) {
 			reqValues.put(AUTH_TYPE, "auth.internal");
 		} else {
@@ -901,13 +962,12 @@ public class AuthRequestController {
 	@GetMapping (path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CertificateChainResponseDto generatePartnerKeys(
 			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
-			@RequestParam(name = "partnerName", required = true) String partnerName
+			@RequestParam(name = "partnerName", required = true) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName
 			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, OperatorCreationException {
 		
-		String filePrepend = partnerType.getFilePrepend();
-
-		return keyMgrUtil.getPartnerCertificates(filePrepend, keyMgrUtil.getKeysDirPath(), partnerName);
+		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName, keyFileNameByPartnerName);
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)

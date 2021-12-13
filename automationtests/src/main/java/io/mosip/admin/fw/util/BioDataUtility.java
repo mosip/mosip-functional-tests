@@ -64,12 +64,13 @@ public class BioDataUtility extends AdminTestUtil {
 					"request.referenceId");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
-		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, isoBiovalue, "request.data");
+		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,  CryptoUtil.encodeBase64(CryptoUtil.decodeBase64(isoBiovalue)), "request.data");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "request.timeStamp");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "requesttime");
 		idaCookie = kernelAuthLib.getTokenByRole("ida");
+		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, idaCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");

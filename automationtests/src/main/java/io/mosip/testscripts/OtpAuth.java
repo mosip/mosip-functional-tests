@@ -75,7 +75,10 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		//testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$", props.getProperty("partnerKey")));
+		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
@@ -86,9 +89,16 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
+		
+		
 		otpReqJson.remove("sendOtpEndPoint");
 		otpIdentyEnryptRequestPath = otpReqJson.getString("otpIdentyEnryptRequestPath");
 		otpReqJson.remove("otpIdentyEnryptRequestPath");
+		
+		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+		{
+			sendOtpEndPoint= sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+		}
 		
 		Response otpResponse = null;
 		if(isInternal)

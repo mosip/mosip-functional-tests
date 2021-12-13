@@ -51,7 +51,7 @@ definePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy name should not be empty. request.name"
+      "message": "Invalid request parameter - value is empty or null :request.name"
     }
   ]
 }'
@@ -80,7 +80,7 @@ definePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy desc should not be blank. request.desc"
+      "message": "Invalid request parameter - value is empty or null :request.desc"
     }
   ]
 }'
@@ -196,7 +196,7 @@ definePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy group name should not be empty. request.policyGroupName"
+      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
     }
   ]
 }'
@@ -224,7 +224,7 @@ definePolicy:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Policy type should not be empty. Allowed values Auth/DataShare/CredentialIssuance request.policyType"
+      "message": "Invalid request parameter - value is empty or null. Allowed values Auth/DataShare/CredentialIssuance :request.policyType"
     }
   ]
 }'

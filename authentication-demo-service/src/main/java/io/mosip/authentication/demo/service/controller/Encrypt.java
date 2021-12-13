@@ -196,10 +196,10 @@ public class Encrypt {
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
 		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
 				IdAuthConfigKeyConstants.IDA_SALT_LASTBYTES_NUM, Integer.class, DEFAULT_SALT_LAST_BYTES_NUM));
-		String salt = CryptoUtil.encodeBase64(saltLastBytes);
+		String salt = CryptoUtil.encodeToURLSafeBase64(saltLastBytes);
 		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, env.getProperty(
 				IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
-		String aad = CryptoUtil.encodeBase64(aadLastBytes);
+		String aad = CryptoUtil.encodeToURLSafeBase64(aadLastBytes);
 
 		CryptomanagerRequestDto request = new CryptomanagerRequestDto();
 		request.setApplicationId(appID);
@@ -257,16 +257,16 @@ public class Encrypt {
 
 	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE)
 	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) {
-		byte[] dataBytes = CryptoUtil.decodeBase64(data);
+		byte[] dataBytes = CryptoUtil.decodeURLSafeBase64(data);
 		byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
-		return new SplittedEncryptedData(CryptoUtil.encodeBase64(splits[0]), CryptoUtil.encodeBase64(splits[1]));
+		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(splits[0]), CryptoUtil.encodeToURLSafeBase64(splits[1]));
 	}
 
 	@PostMapping(path = "/combineDataToEncrypt", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String combineDataToEncrypt(@RequestBody SplittedEncryptedData splittedData) {
 		return CryptoUtil
-				.encodeBase64(CryptoUtil.combineByteArray(CryptoUtil.decodeBase64(splittedData.getEncryptedData()),
-						CryptoUtil.decodeBase64(splittedData.getEncryptedSessionKey()), keySplitter));
+				.encodeToURLSafeBase64(CryptoUtil.combineByteArray(CryptoUtil.decodeURLSafeBase64(splittedData.getEncryptedData()),
+						CryptoUtil.decodeURLSafeBase64(splittedData.getEncryptedSessionKey()), keySplitter));
 	}
 
 	private static byte[][] splitAtFirstOccurance(byte[] strBytes, byte[] sepBytes) {
@@ -400,8 +400,8 @@ public class Encrypt {
 	
 	@PostMapping(path = "/prependThumbprintToDecrypt", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String prependThumbprintToDecrypt(@RequestBody SplittedData splittedData) {
-		return CryptoUtil.encodeBase64(
-				ArrayUtils.addAll(CryptoUtil.decodeBase64(splittedData.getThumbprint()), CryptoUtil.decodeBase64(splittedData.getEncryptedData())));
+		return CryptoUtil.encodeToURLSafeBase64(
+				ArrayUtils.addAll(CryptoUtil.decodeURLSafeBase64(splittedData.getThumbprint()), CryptoUtil.decodeURLSafeBase64(splittedData.getEncryptedData())));
 	}
 
 	/**
@@ -544,12 +544,12 @@ public class Encrypt {
 				IdAuthConfigKeyConstants.IDA_AAD_LASTBYTES_NUM, Integer.class, DEFAULT_AAD_LAST_BYTES_NUM));
 
 		SecretKey secretKey = cryptoUtil.genSecKey();
-		byte[] encryptedBioBlock = cryptoUtil.symmetricEncrypt(CryptoUtil.decodeBase64(bioValue),
+		byte[] encryptedBioBlock = cryptoUtil.symmetricEncrypt(CryptoUtil.decodePlainBase64(bioValue),
 				secretKey, saltLastBytes, aadLastBytes);
 
 		PublicKey publicKey = x509Cert.getPublicKey();
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt(secretKey.getEncoded(), publicKey);
-		return new SplittedEncryptedData(CryptoUtil.encodeBase64(encryptedSessionKeyByte), CryptoUtil.encodeBase64(encryptedBioBlock));
+		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(encryptedSessionKeyByte), CryptoUtil.encodeToURLSafeBase64(encryptedBioBlock));
 	
 	}
 

@@ -1,0 +1,71 @@
+PolicyGroupFilter:
+   partner_PolicyGroupFilter_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "name",
+    "type": "unique",
+    "text": "mpolicygroup-default-auth"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "mpolicygroup-default-auth",
+        "fieldCode": "mpolicygroup-default-auth"
+      }
+    ]
+}'
+   partner_PolicyGroupFilter_Invalid_EmptyFilterType:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "mpolicygroup-default-auth"
+	}],
+	"optionalFilters": "$IGNORE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}'
+   partner_PolicyGroupFilter_Invalid_EmptyColumnName:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/error
+      input: '{
+  "filters": [{
+    "columnName": "",
+    "type": "",
+    "text": "mpolicygroup-default-auth"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'

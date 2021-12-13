@@ -1,0 +1,27 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+  "templates": [
+    {{#each templates}}
+    {
+       "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$",
+        "fileFormatCode": "$IGNORE$",
+        "model": "$IGNORE$",
+        "fileText": "$IGNORE$",
+        "moduleId": "$IGNORE$",
+        "moduleName": "$IGNORE$",
+        "templateTypeCode": "{{templateTypeCode}}",
+        "langCode": "$IGNORE$",
+        "isActive": {{isActive}}
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": $IGNORE$
+}

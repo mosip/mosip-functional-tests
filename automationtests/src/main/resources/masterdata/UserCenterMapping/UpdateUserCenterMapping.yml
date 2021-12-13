@@ -1,0 +1,73 @@
+UpdateUserCenterMapping:
+   MasterData_UpdateUserCenterMapping_All_Valid_Smoke:
+      endPoint: /v1/masterdata/usercentermapping
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
+      outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
+      input: '{
+     "id": "auto_test_user",
+     "name": "automationUpdated",
+     "statusCode": "active",
+     "regCenterId": "10005",
+     "langCode": "eng",
+	   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+       "id": "auto_test_user",
+    "langCode": "eng",
+    "name": "automationUpdated",
+    "statusCode": "active",
+    "regCenterId": "10005",
+    "isActive": $IGNORE$,
+    "zoneCode": "BSN",
+    "zoneName": "Benslimane",
+    "regCenterName": "Center Mehdia"
+    }'
+    
+  
+   MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing:
+      endPoint: /v1/masterdata/usercentermapping
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "auto_test_user1",
+     "name": "automation",
+     "statusCode": "active",
+     "regCenterId": "",
+     "langCode": "eng",
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-042",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+
+   MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId:
+      endPoint: /v1/masterdata/usercentermapping
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "auto_test_user1",
+     "name": "automation",
+     "statusCode": "active",
+     "regCenterId": "10006",
+     "langCode": "eng",
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-014",
+      "message": "Admin not authorized to access for this Zone"
+    }
+  ]
+}'

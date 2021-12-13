@@ -1,0 +1,57 @@
+SearchPartnerApiRequestKey:
+   Partner_SearchPartnerApiRequestKey_type_contains_Smoke_asc_sid:
+      endPoint: /v1/partnermanager/partners/apikey/request/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
+      outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "unique",
+        "value": "mpartner_policy_auth_req"
+      }
+    ],
+  "sort": "$IGNORE$",
+  "pageFetch": "1",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "apikeyRequestId": "mpartner_policy_auth_req"
+      }
+    ]
+}'
+
+   Partner_SearchPartnerApiRequestKey_type_contains_invalid_pagination:
+      endPoint: /v1/partnermanager/partners/apikey/request/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
+      outputTemplate: partner/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "unique",
+        "value": "mpartner_policy_auth_req"
+      }
+    ],
+  "sort": "$IGNORE$",
+  "pageFetch": "0",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-313",
+      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+    }
+  ]
+}'

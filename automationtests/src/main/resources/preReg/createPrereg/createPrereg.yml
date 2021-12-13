@@ -1,83 +1,134 @@
 CreatePrereg:
    Prereg_CreatePrereg_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
-      outputTemplate: preReg/createPrereg/createPreregResult_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "langCode": "$PRIMARYLANG$"
+  "langCode": "$1STLANG$"
+}'
+   Prereg_CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
+}'
+   Prereg_CreatePrereg_All_Valid_Smoke_BookByPRID_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
-      outputTemplate: preReg/createPrereg/createPreregResult_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "langCode": "$PRIMARYLANG$"
+  "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_alldel_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
-      outputTemplate: preReg/createPrereg/createPreregResult_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "langCode": "$PRIMARYLANG$"
+  "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_CancellAppointment_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
-      outputTemplate: preReg/createPrereg/createPreregResult_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "langCode": "$PRIMARYLANG$"
+  "langCode": "$1STLANG$"
 }'
-   Prereg_CreatePrereg_in_Valid_id_sid:
-      endPoint: /preregistration/v1/applications
+   Prereg_CreatePrereg_Smoke_CancelApplicationsAppointment_sid:
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
+}'
+   Prereg_CreatePrereg_in_Valid_id_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.prestration.demographic.create"
 }'
@@ -90,16 +141,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_id_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "$REMOVE$"
 }'
@@ -112,16 +163,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_blank_id_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": ""
 }'
@@ -134,10 +185,10 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_langCode_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
@@ -156,10 +207,10 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_langCode_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
@@ -178,16 +229,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_dateOfBirth_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -200,16 +251,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_email_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "aasa@334dc",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -222,16 +273,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_requesttime_format_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "2021dd02-10T04:50:04.812Z",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -244,16 +295,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_requesttime_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$REMOVE$",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -266,16 +317,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_previous_date_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "2019-02-10T04:50:04.812Z",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -288,16 +339,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_invalid_version_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1safag",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
@@ -310,16 +361,16 @@ CreatePrereg:
   ]
 }'
    Prereg_CreatePrereg_missing_version_sid:
-      endPoint: /preregistration/v1/applications
+      endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$PRIMARYLANG$
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "$REMOVE$",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'

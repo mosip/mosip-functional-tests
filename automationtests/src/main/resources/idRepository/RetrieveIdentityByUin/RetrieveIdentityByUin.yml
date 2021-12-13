@@ -1,18 +1,22 @@
 RetrieveIdentity:
-  IdRepository_RetrieveIdentity_With_Activated_UIN:
+  IdRepository_RetrieveIdentity_With_Invalid_UIN:
       endPoint: /idrepository/v1/identity/idvid/{UIN}
       role: regproc
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
-      outputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUinResult_$PRIMARYLANG$
+      outputTemplate: idRepository/error
       input: '{
-    "UIN": "8706453257"
+    "UIN": "UI5654@"
 }'
       output: '{
-    "status": "ACTIVATED",
-    "UIN": "$IGNORE$"
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
 }'
-  IdRepository_RetrieveIdentity_With_Invalid_UIN:
+  IdRepository_RetrieveIdentity_With_blank_UIN:
       endPoint: /idrepository/v1/identity/idvid/{UIN}
       role: regproc
       restMethod: get

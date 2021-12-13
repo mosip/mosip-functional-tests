@@ -33,12 +33,11 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide address  request.address"
+      "message": "Invalid request parameter - value is empty or null :request.address"
     }
   ]
 }'
-
-
+   
    Partner_AddContact_Missing_InputParameter_contactNumber:
       endPoint: /v1/partnermanager/partners/Tech-123/contact/add
       role: partner
@@ -56,11 +55,10 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide contactNumber  request.contactNumber"
+      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
     }
   ]
 }'
-
    Partner_AddContact_Missing_InputParameter_emailId:
       endPoint: /v1/partnermanager/partners/Tech-123/contact/add
       role: partner
@@ -78,7 +76,7 @@ addContact:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "Please provide emailId  request.emailId"
+      "message": "Invalid request parameter - value is empty or null :request.emailId"
     }
   ]
 }'

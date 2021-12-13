@@ -1,0 +1,25 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "userResponseDto": [
+    {{#each userResponseDto}}
+      {
+        "isActive": {{isActive}},
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": $IGNORE$,
+        "deletedDateTime": "$IGNORE$",
+        "zoneCode": "$IGNORE$",
+        "userId": "$IGNORE$"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

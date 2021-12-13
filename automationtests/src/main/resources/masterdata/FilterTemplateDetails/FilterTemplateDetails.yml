@@ -10,7 +10,7 @@ FilterTemplateDetails:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "प्राधिकरण एसएमएस के लिए खाका"
+		"text": "test template"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,8 +18,8 @@ FilterTemplateDetails:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "प्राधिकरण एसएमएस के लिए खाका"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
@@ -34,7 +34,7 @@ FilterTemplateDetails:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "प्राधिकरण एसएमएस के लिए खाका"
+		"text": "test template"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -42,8 +42,8 @@ FilterTemplateDetails:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "प्राधिकरण एसएमएस के लिए खाका"
+        "fieldID": "$IGNORE$",
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'

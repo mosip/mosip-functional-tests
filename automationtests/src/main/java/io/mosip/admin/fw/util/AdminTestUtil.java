@@ -95,7 +95,9 @@ public class AdminTestUtil extends BaseTestCase{
 	public static final String AUTHORIZATHION_HEADERNAME="Authorization";
 	public static final String authHeaderValue="Some String";
 	public static final String SIGNATURE_HEADERNAME="signature";
-	public static Properties props = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/application.properties");
+	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
+	//static String  config = new File(System.getProperty("user.dir")).getParent() + "/config/application.properties";
+	//public static Properties props = getproperty(config);
 	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
@@ -624,14 +626,19 @@ public class AdminTestUtil extends BaseTestCase{
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
-		try {
-			
-			response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, cookieName, token);
+		try {    
+			if(url.contains("{") || url.contains("?")) {
+				response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
+			}
+			else {
+				response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
+			}
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
-			 
+			
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 			return response;
@@ -702,8 +709,8 @@ public class AdminTestUtil extends BaseTestCase{
 	logger.info("******get request to EndPointUrl: " + url + " *******");
 	Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 	try {
-		  response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-		  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+		response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 		return response;
 	} catch (Exception e) {
@@ -711,7 +718,7 @@ public class AdminTestUtil extends BaseTestCase{
 		return response;
 	}
 }
-	
+
 	protected Response PatchWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -1412,8 +1419,11 @@ public String sign(String dataToSign, boolean includePayload,
 }
 
 public String getKeysDirPath() {
-	String path = props.getProperty("getCertificatePath");
-	//String path = System.getProperty("java.io.tmpdir")+props.getProperty("getCertificateFileName");
+	//String path = props.getProperty("getCertificatePath");
+	environment = System.getProperty("env.user");
+	String path = "C:/Users/" + System.getProperty("user.name")
+	+ "/.m2" + "/IDA-"+environment+".mosip.net";
+	path=path.replace("////", "\\");
 	return new File(path).getAbsolutePath();
 }
 

@@ -3,8 +3,6 @@ package io.mosip.authentication.demo.service.controller;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import org.apache.commons.codec.binary.Base64;
-
 //import java.util.Base64;
 
 import org.springframework.http.MediaType;
@@ -32,9 +30,14 @@ public class Encode {
 	 * @param stringToEncode the string to encode
 	 * @return the string
 	 */
-	@PostMapping(path = "/encode", consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
-	public String encode(@RequestBody String stringToEncode) {
-		return Base64.encodeBase64URLSafeString(stringToEncode.getBytes(StandardCharsets.UTF_8));
+	@PostMapping(path = "/encodeBase64UrlSafe", consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public String encodeBase64UrlSafe(@RequestBody String stringToEncode) {
+		return CryptoUtil.encodeToURLSafeBase64(stringToEncode.getBytes(StandardCharsets.UTF_8));
+	}
+	
+	@PostMapping(path = "/encodeBase64Plain", consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public String encodeBase64Plain(@RequestBody String stringToEncode) {
+		return  CryptoUtil.encodeToPlainBase64(stringToEncode.getBytes(StandardCharsets.UTF_8));
 	}
 	
 	/**
@@ -44,8 +47,13 @@ public class Encode {
 	 * @return the string
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	@PostMapping(value = "/encodeFile", produces = MediaType.TEXT_PLAIN_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public String encodeFile(@RequestPart MultipartFile file) throws IOException {
-		return CryptoUtil.encodeBase64(file.getBytes());
+	@PostMapping(value = "/encodeToBase64UrlSafeFromFile", produces = MediaType.TEXT_PLAIN_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public String encodeToBase64UrlSafeFromFile(@RequestPart MultipartFile file) throws IOException {
+		return CryptoUtil.encodeToURLSafeBase64(file.getBytes());
+	}
+	
+	@PostMapping(value = "/encodeToBase64PlainFromFile", produces = MediaType.TEXT_PLAIN_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public String encodeToBase64PlainSafeFromFile(@RequestPart MultipartFile file) throws IOException {
+		return CryptoUtil.encodeToPlainBase64(file.getBytes());
 	}
 }

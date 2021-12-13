@@ -1,0 +1,19 @@
+GetDocCategory:
+   Admin_GetDocCategory_allValid_smoke:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetDocCategory/getDocCategory
+      outputTemplate: masterdata/GetDocCategory/getDocCategoryResult
+      input: '{
+      
+}'
+      output: '{
+"documentcategories": [{
+       "code": "$IGNORE$",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": $IGNORE$
+    }]
+}'  

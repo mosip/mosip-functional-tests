@@ -10,7 +10,7 @@ SearchTemplateDetails:
     "filters": [{
         "columnName": "name",
         "type": "equals",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
+        "value": "test template"
       }
     ],
     "sort": [
@@ -26,21 +26,7 @@ SearchTemplateDetails:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "प्राधिकरण एसएमएस के लिए खाका",
-        "fileFormatCode": "$IGNORE$",        
-        "model": "$IGNORE$",        
-        "fileText": "$IGNORE$",        
-        "moduleId": "10004",        
-        "moduleName": "$IGNORE$",        
-        "templateTypeCode": "$IGNORE$",        
-        "langCode": "$IGNORE$"        
-      }
-    ]
+   "data": []
 }'
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
       endPoint: /v1/masterdata/templates/search
@@ -53,7 +39,7 @@ SearchTemplateDetails:
     "filters": [{
         "columnName": "name",
         "type": "contains",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
+        "value": "test template"
       }
     ],
     "sort": [
@@ -69,21 +55,7 @@ SearchTemplateDetails:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "प्राधिकरण एसएमएस के लिए खाका",
-        "fileFormatCode": "$IGNORE$",        
-        "model": "$IGNORE$",        
-        "fileText": "$IGNORE$",        
-        "moduleId": "10004",        
-        "moduleName": "$IGNORE$",        
-        "templateTypeCode": "$IGNORE$",        
-        "langCode": "$IGNORE$"        
-      }
-    ]
+   "data": []
 }'
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_null:
       endPoint: /v1/masterdata/templates/search
@@ -387,7 +359,7 @@ SearchTemplateDetails:
     "filters": [{
         "columnName": "name",
         "type": "equals",
-        "value": "प्राधिकरण एसएमएस के लिए खाका"
+        "value": "test template"
       }
     ],
     "sort": [
@@ -405,8 +377,8 @@ SearchTemplateDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+      "errorCode": "KER-MSD-999",
+      "message": "request.pagination.pageFetch: Should have positive integer value"
     }
   ]
 }'

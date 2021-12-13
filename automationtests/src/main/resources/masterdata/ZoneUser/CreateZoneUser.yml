@@ -1,0 +1,80 @@
+CreateZoneUser:
+   MasterData_CreateZoneUser_All_Valid_Smoke:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/ZoneUser/zoneUserResult
+      input: '{
+    "zoneCode": "CST",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        "zoneCode": "CST",
+        "userId": "func_auto_test_user"
+    }'
+    
+   MasterData_CreateZoneUser__Empty_UserID_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "CST",
+    "userId": "",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.userId: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+
+   MasterData_CreateZoneUser__Empty_zoneCode_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+
+   MasterData_CreateZoneUser__Invalid_zoneCode_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "CST1",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-014",
+      "message": "Admin not authorized to access for this Zone"
+    }
+  ]
+}'

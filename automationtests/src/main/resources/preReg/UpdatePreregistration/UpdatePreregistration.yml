@@ -1,33 +1,51 @@
 UpdatePreregistration:
    Prereg_UpdatePrereg_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
-      outputTemplate: preReg/UpdatePreregistration/updatePreregistrationResult_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
+      outputTemplate: preReg/UpdatePreregistration/updatePreregistrationResult_$LANGNUMBER$
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
 }'
       output: '{
-  "langCode": "$PRIMARYLANG$"
+  "langCode": "$1STLANG$"
 }'
-   Prereg_UpdatePrereg_inValid_dateOfBirth_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+   Prereg_UpdatePrereg_All_Valid_Smoke_BookByPRID_sid:
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
+      outputTemplate: preReg/UpdatePreregistration/updatePreregistrationResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "id": "mosip.pre-registration.demographic.update"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
+}'
+   Prereg_UpdatePrereg_inValid_dateOfBirth_sid:
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
+      role: batch
+      restMethod: put
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/1",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -41,16 +59,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_Version_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "$REMOVE$",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -64,16 +82,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_Version_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1shsh33@#$",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -87,16 +105,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_email_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "soh#w@Scdfvg",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -110,10 +128,10 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_langCode_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
@@ -133,10 +151,10 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_INVALID_langCode_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
@@ -156,16 +174,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_INVALID_requesttime_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "2021dbhydb-02-10T07:23:34.093Z",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -179,16 +197,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_Missing_requesttime_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$REMOVE$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -202,16 +220,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_previous_date_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "2018-02-10T07:28:57.314Z",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre-registration.demographic.update"
@@ -225,16 +243,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_invalid_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "mosip.pre43DD4@GGGgistration.demographic.update"
@@ -248,16 +266,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_missing_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": "$REMOVE$"
@@ -271,16 +289,16 @@ UpdatePreregistration:
   ]
 }'
    Prereg_UpdatePrereg_blank_id_sid:
-      endPoint: /preregistration/v1/applications/{preRegistrationId}
+      endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
       role: batch
       restMethod: put
-      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$PRIMARYLANG$
+      inputTemplate: preReg/UpdatePreregistration/updatePreregistration_$LANGNUMBER$
       outputTemplate: preReg/error
       input: '{
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$PRIMARYLANG$",
+  "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
   "id": ""

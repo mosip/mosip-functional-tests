@@ -31,28 +31,7 @@ RejectSecureBiometricInterface:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.approvalStatus"
-    }
-  ]
-}'
-
-   Partner_RejectSecureBiometricInterface_Missing_InputParameter_isItForRegistrationDevice:
-      endPoint: /v1/partnermanager/securebiometricinterface
-      role: partner
-      restMethod: patch
-      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
-      outputTemplate: partner/error
-      input: '{
-    "approvalStatus": "Activate",
-    "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$",
-    "isItForRegistrationDevice": "$REMOVE$",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMS_COR_001",
-      "message": "must not be null  request.isItForRegistrationDevice"
+      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
     }
   ]
 }'

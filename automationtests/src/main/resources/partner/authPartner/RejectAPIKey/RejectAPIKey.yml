@@ -29,7 +29,7 @@ RejectAPIKey:
    "errors": [
     {
       "errorCode": "PMS_COR_001",
-      "message": "must not be empty  request.status"
+      "message": "Invalid request parameter - value is empty or null :request.status"
     }
   ]
 }'

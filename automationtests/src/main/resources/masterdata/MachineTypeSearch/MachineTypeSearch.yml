@@ -62,7 +62,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": true,
+        "isActive": $IGNORE$,
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "$IGNORE$",

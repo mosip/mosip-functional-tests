@@ -1,6 +1,6 @@
 EkycOtp:
   auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -19,7 +19,40 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
+    "otpIdentyEnryptRequestPath": "ida/EkycOtp/EkycotpIdentityEncrypt.json"
+    }
+    }'
+      output: '{
+  "kycStatus": "true",
+ "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Missing_individualIdType_smoke:
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      role: ida
+      restMethod: post
+      inputTemplate: ida/EkycOtp/ekycOtp
+      outputTemplate: ida/EkycOtp/ekycOtpResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "$REMOVE$",
+        "bio": false,
+        "demo": false,
+        "otp": true,
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/EkycOtp/EkycotpIdentityEncrypt.json"
     }
     }'
@@ -33,7 +66,7 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -49,10 +82,10 @@ EkycOtp:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_VID$",
+    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -60,13 +93,13 @@ EkycOtp:
   "kycStatus": "true",
  "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -85,26 +118,26 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-002",
+      "errorMessage": "Invalid UIN"
     }
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -123,26 +156,26 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Missing_individualId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -161,26 +194,26 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -199,7 +232,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -212,13 +245,13 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_transactionId_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -237,7 +270,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -250,13 +283,13 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Invalid_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -275,7 +308,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -288,13 +321,13 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_EkycOtp_With_Blank_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
@@ -313,7 +346,7 @@ EkycOtp:
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -326,46 +359,8 @@ EkycOtp:
   ],
   "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
-    }
-}'
-  auth_EkycOtp_With_Missing_individualIdType_neg:
-      endPoint: /idauthentication/v1/kyc/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
-      role: ida
-      restMethod: post
-      inputTemplate: ida/EkycOtp/ekycOtp
-      outputTemplate: ida/EkycOtp/errorCommon
-      input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "$REMOVE$",
-        "bio": false,
-        "demo": false,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
-    "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
-        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'

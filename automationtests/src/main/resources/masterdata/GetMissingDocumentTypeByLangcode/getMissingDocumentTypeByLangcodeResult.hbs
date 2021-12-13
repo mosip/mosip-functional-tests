@@ -1,0 +1,17 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": [
+    {{#each response}}
+      {
+      "id": "{{id}}",
+      "fieldValue": null,
+      "langCode": "$IGNORE$"
+    }
+    {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+  "errors": null
+}

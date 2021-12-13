@@ -15,3 +15,43 @@ requetAPIKey:
         "message": "PartnerAPIKeyRequest successfully submitted.",
 		"apikeyId": null
     }'
+    
+   Partner_SubmitPartnerApiKeyRequest_invalid_policyName:
+      endPoint: /v1/partnermanager/partners/Tech-123/apikey/request
+      role: partner
+      restMethod: patch 
+      inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
+      outputTemplate: partner/error
+      input: '{
+        "policyName": "abc",
+        "useCaseDescription": "Need to submit the payment",
+    "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_098",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Partner_SubmitPartnerApiKeyRequest_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/Tech-1231234/apikey/request
+      role: partner
+      restMethod: patch 
+      inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
+      outputTemplate: partner/error
+      input: '{
+        "policyName": "abc",
+        "useCaseDescription": "Need to submit the payment",
+    "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}'

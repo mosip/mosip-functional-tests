@@ -44,7 +44,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+	AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -80,8 +80,10 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		// testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKey$",
-		// props.getProperty("partnerKey")));
+		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
 		if (request.has("identityRequest")) {
@@ -134,18 +136,23 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
+		
 		/*
-		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
-		 * if(response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
-		 * if(error.equalsIgnoreCase("null"))
+		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
+		 * (response.getBody().asString().contains("errors")) error =
+		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),
+		 * "errors"); if (error.equalsIgnoreCase("null"))
 		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
 		 * testCaseDTO.getEndPoint()); }
 		 */
+		 
 
-		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		// response.getHeader(props.getProperty("signatureheaderKey"))))
-		// throw new AdminTestException("Failed at Signature validation");
+		/*
+		 * if
+		 * (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
+		 * response.getHeader(props.getProperty("signatureheaderKey")))) throw new
+		 * AdminTestException("Failed at Signature validation");
+		 */
 
 	}
 

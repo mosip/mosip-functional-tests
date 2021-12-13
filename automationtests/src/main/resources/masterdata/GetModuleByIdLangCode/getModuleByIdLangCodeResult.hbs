@@ -1,0 +1,22 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "modules": [
+	
+    {{#each modules}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "langCode": "$IGNORE$",
+        "description": "{{description}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

@@ -1,0 +1,37 @@
+GetUserDetailsById:
+   MasterData_GetUserDetailsById_allValid_smoke:
+      endPoint: /v1/masterdata/users/{id}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsById/getUserDetailsById
+      outputTemplate: masterdata/GetUserDetailsById/getUserDetailsByIdResult
+      input: '{
+  "id":"auto_test_user"
+}'
+      output: '{
+      "id": "auto_test_user",
+      "langCode": "eng",
+      "name": "$IGNORE$",
+      "statusCode": "$IGNORE$",
+      "regCenterId": "10005",
+      "isActive": $IGNORE$,
+      "zoneCode": "$IGNORE$"
+}'
+   MasterData_GetUserDetailsById_InValid_InvalidUserID:
+      endPoint: /v1/masterdata/users/{id}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsById/getUserDetailsById
+      outputTemplate: masterdata/error
+      input: '{
+  "id":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-007",
+      "message": "User not found"
+    }
+  ]
+}'
+   

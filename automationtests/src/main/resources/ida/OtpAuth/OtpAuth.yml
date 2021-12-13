@@ -1,6 +1,6 @@
 OtpAuth:
   auth_OTP_Auth_With_Valid_UIN_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -19,7 +19,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -33,7 +33,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -49,10 +49,10 @@ OtpAuth:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_VID$",
+    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -66,7 +66,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -85,7 +85,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -95,6 +95,7 @@ OtpAuth:
     {
       "errorCode": "IDA-MLC-002",
       "errorMessage": "Invalid UIN",
+      "actionMessage": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -105,7 +106,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_individualId_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -124,7 +125,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -144,7 +145,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Missing_individualId_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -163,7 +164,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -172,7 +173,7 @@ OtpAuth:
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/digitalId/deviceProviderId"
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{
@@ -183,7 +184,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_transactionId_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -202,7 +203,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -222,7 +223,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_transactionId_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -241,7 +242,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -261,7 +262,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_individualIdType_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -280,7 +281,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -300,7 +301,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_individualIdType_neg:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -319,7 +320,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
@@ -339,7 +340,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Missing_Optional_Field_individualIdType:
-      endPoint: /idauthentication/v1/auth/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: ida
       restMethod: post
       inputTemplate: ida/OtpAuth/otpAuth
@@ -358,7 +359,7 @@ OtpAuth:
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/XVke6kwstf35HzOhzqxQM5p0kZZIvPYGN2RuUIe8XXgmaqsekN/1236/614839",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
     }
     }'
