@@ -626,14 +626,19 @@ public class AdminTestUtil extends BaseTestCase{
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
-		try {
-			
-			response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, cookieName, token);
+		try {    
+			if(url.contains("{") || url.contains("?")) {
+				response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
+			}
+			else {
+				response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
+			}
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
-			 
+			
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 			return response;
@@ -704,8 +709,8 @@ public class AdminTestUtil extends BaseTestCase{
 	logger.info("******get request to EndPointUrl: " + url + " *******");
 	Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 	try {
-		  response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-		  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+		response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 		return response;
 	} catch (Exception e) {
@@ -713,7 +718,7 @@ public class AdminTestUtil extends BaseTestCase{
 		return response;
 	}
 }
-	
+
 	protected Response PatchWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -929,7 +934,7 @@ public class AdminTestUtil extends BaseTestCase{
 			Handlebars handlebars = new Handlebars();
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
-			Map<String, Object> map = gson.fromJson(input, type);   
+			Map<String, String> map = gson.fromJson(input, type);   
 			String templateJsonString = new String(Files.readAllBytes(Paths.get(getResourcePath()+template+".hbs")), "UTF-8");
 			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
@@ -940,7 +945,7 @@ public class AdminTestUtil extends BaseTestCase{
 		return resultJson;
 	}
 
-	String inputJsonKeyWordHandeler(String jsonString, String testCaseName)
+	public String inputJsonKeyWordHandeler(String jsonString, String testCaseName)
 	{
 		if(jsonString==null)
 		{

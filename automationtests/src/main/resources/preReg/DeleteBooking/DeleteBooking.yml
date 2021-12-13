@@ -6,8 +6,8 @@ DeleteBooking:
       inputTemplate: preReg/DeleteBooking/deleteBooking
       outputTemplate: preReg/DeleteBooking/deleteBookingResult
       input: '{
-  "preRegistrationId" = "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$"
+  "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
-  "deletedBy" = "mosipuser123@mailinator.com"
+  "deletedBy":"mosipuser123@mailinator.com"
 }'   

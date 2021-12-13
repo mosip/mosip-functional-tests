@@ -16,6 +16,23 @@ CreatePrereg:
       output: '{
   "langCode": "$1STLANG$"
 }'
+   Prereg_CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      input: '{
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "email": "sohan.dey@technoforte.co.in",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+  "langCode": "$1STLANG$"
+}'
    Prereg_CreatePrereg_All_Valid_Smoke_BookByPRID_sid:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
