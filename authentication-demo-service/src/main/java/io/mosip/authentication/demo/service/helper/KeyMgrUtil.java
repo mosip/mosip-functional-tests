@@ -147,12 +147,17 @@ public class KeyMgrUtil {
         if (Files.exists(path)){
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
 	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
-	            keyStore.load(p12FileStream, TEMP_P12_PWD);
-	            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (TEMP_P12_PWD));
+	            keyStore.load(p12FileStream, getP12Pass());
+	            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (getP12Pass()));
             }
         }
         return null;
     }
+    
+    private char[] getP12Pass() {
+		String pass = environment.getProperty("p12.password");
+		return  pass == null ? TEMP_P12_PWD : pass.toCharArray();
+	}
 
     private String getCertificate(PrivateKeyEntry keyEntry) throws IOException{
         StringWriter stringWriter = new StringWriter();
@@ -179,14 +184,14 @@ public class KeyMgrUtil {
         PrivateKeyEntry privateKeyEntry = new PrivateKeyEntry(keyPair.getPrivate(), chain);
 
         KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
-        keyStore.load(null, TEMP_P12_PWD);
-        keyStore.setEntry(KEY_ALIAS, privateKeyEntry, new PasswordProtection (TEMP_P12_PWD));
+        keyStore.load(null, getP12Pass());
+        keyStore.setEntry(KEY_ALIAS, privateKeyEntry, new PasswordProtection (getP12Pass()));
         Path parentPath = Paths.get(p12FilePath).getParent();
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
         }
         OutputStream outputStream = new FileOutputStream(p12FilePath);
-        keyStore.store(outputStream, TEMP_P12_PWD);
+        keyStore.store(outputStream, getP12Pass());
         outputStream.flush();
         outputStream.close();
         return new PrivateKeyEntry(keyPair.getPrivate(), chain);
@@ -324,18 +329,18 @@ public class KeyMgrUtil {
             PrivateKeyEntry newPrivateKeyEntry = new PrivateKeyEntry(partnerPrivKeyEntry.getPrivateKey(), chain);
 
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
-            keyStore.load(null, TEMP_P12_PWD);
-            keyStore.setEntry(KEY_ALIAS, newPrivateKeyEntry, new PasswordProtection (TEMP_P12_PWD));
+            keyStore.load(null, getP12Pass());
+            keyStore.setEntry(KEY_ALIAS, newPrivateKeyEntry, new PasswordProtection (getP12Pass()));
             
             OutputStream outputStream = new FileOutputStream(partnerFilePath);
-            keyStore.store(outputStream, TEMP_P12_PWD);
+            keyStore.store(outputStream, getP12Pass());
             outputStream.flush();
             outputStream.close();
             return true;
         }
         return false;
     }
-    
+
     public String getKeysDirPath() {
     	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
 		return System.getProperty("java.io.tmpdir") + File.separator + "IDA-" + domain;
