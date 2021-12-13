@@ -2,6 +2,23 @@
   "id": "$IGNORE$",
   "version": "$IGNORE$",
   "responsetime": "$IGNORE$",
-  "response": "$IGNORE$",
+  "response": { 
+	"allApplications": [
+		{{#each allApplications}}  
+	  	{
+	        "applicationId": "$IGNORE$",
+	        "bookingType": "{{bookingType}}",
+	        "bookingStatusCode": "$IGNORE$",
+	        "applicationStatusCode": "$IGNORE$",
+	        "contactInfo": "$IGNORE$",
+	        "crBy": "$IGNORE$",
+	        "crDtime": "$IGNORE$",
+	        "updBy": "$IGNORE$",
+	        "updDtime": "$IGNORE$"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+  	]
+  },
   "errors": null
 }

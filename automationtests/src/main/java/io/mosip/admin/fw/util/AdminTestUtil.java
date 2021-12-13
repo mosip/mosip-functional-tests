@@ -934,7 +934,7 @@ public class AdminTestUtil extends BaseTestCase{
 			Handlebars handlebars = new Handlebars();
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
-			Map<String, String> map = gson.fromJson(input, type);   
+			Map<String, Object> map = gson.fromJson(input, type);   
 			String templateJsonString = new String(Files.readAllBytes(Paths.get(getResourcePath()+template+".hbs")), "UTF-8");
 			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
@@ -945,7 +945,7 @@ public class AdminTestUtil extends BaseTestCase{
 		return resultJson;
 	}
 
-	public String inputJsonKeyWordHandeler(String jsonString, String testCaseName)
+	String inputJsonKeyWordHandeler(String jsonString, String testCaseName)
 	{
 		if(jsonString==null)
 		{

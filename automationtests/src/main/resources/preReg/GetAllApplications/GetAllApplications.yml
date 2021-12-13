@@ -38,5 +38,20 @@ GetAllApplications:
    "type": "NEW_PREREGISTRATION"
 }'
       output: '{
+  "response": {
+     "allApplications":[
+     {
+        "applicationId": "$IGNORE$",
+        "bookingType": "NEW_PREREGISTRATION",
+        "bookingStatusCode": "$IGNORE$",
+        "applicationStatusCode": "$IGNORE$",
+        "contactInfo": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtime": "$IGNORE$",
+        "updBy": "$IGNORE$",
+        "updDtime": "$IGNORE$"
+        }
+     ]
+  },
   "errors": null
 }'
