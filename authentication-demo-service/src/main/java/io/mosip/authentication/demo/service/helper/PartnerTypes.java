@@ -5,7 +5,8 @@ public enum PartnerTypes {
     DEVICE("device"), 
     RELYING_PARTY("rp"), 
     FTM("ftm"),
-    EKYC("ekyc");
+    EKYC("ekyc"),
+    MISP("misp");
 
     private String filePrepend;
 

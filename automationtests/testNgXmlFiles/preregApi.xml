@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="PreReg Suite">
-	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
+	<!-- Passing Group as parameter using "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
@@ -12,7 +12,7 @@
 	</listeners>
 	
 	
-	 <test name="SendOtp">
+	<test name="SendOtp">
 		<parameter name="ymlFile"
 			value="preReg/SendOtp/SendOtp.yml" />
 		<classes>
@@ -25,7 +25,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test> 
 	  <test name="CreatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/createPrereg/createPrereg.yml" />
@@ -63,7 +63,15 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
 		</classes>
+	</test>
+	<test name="UpdateDocRefID">
+		<parameter name="ymlFile"
+			value="preReg/UpdateDocRefID/UpdateDocRefID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
 	</test> 
+	
 	<test name="CopyDocument">
 		<parameter name="ymlFile"
 			value="preReg/CopyDocument/CopyDocument.yml" />
@@ -80,8 +88,6 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
-	
-	
 	<test name="GetAllDocForPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetAllDocForPrId/GetAllDocForPrId.yml" />
@@ -125,7 +131,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	
 	<test name="GetAvailableSlotForRegCentreId">
 		<parameter name="ymlFile"
 			value="preReg/GetAvailableSlotForRegCentreId/GetAvailableSlotForRegCentreId.yml" />
@@ -133,7 +138,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="GetPRIDForRegCent">
 		<parameter name="ymlFile"
 			value="preReg/GetPRIDForRegCent/GetPRIDForRegCent.yml" />
@@ -176,6 +180,13 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
+	<test name="DeleteBooking">
+		<parameter name="ymlFile"
+			value="preReg/DeleteBooking/DeleteBooking.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 	<test name="InvalidateToken">
 		<parameter name="ymlFile"
 			value="preReg/InvalidateToken/InvalidateToken.yml" />
@@ -183,5 +194,25 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
-	
+	<test name="Transliteration">
+		<parameter name="ymlFile"
+			value="preReg/Transliteration/Translate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="GetAllApplications">
+		<parameter name="ymlFile"
+			value="preReg/GetAllApplications/GetAllApplications.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetUpdatedDateTimeByPrid">
+		<parameter name="ymlFile"
+			value="preReg/GetUpdatedDateTimeByPrid/GetUpdatedDateTimeByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>
