@@ -206,7 +206,7 @@ CreateRegistrationCenter:
    "errors": [
     {
       "errorCode": "KER-MSD-307",
-      "message": "Latitude or Longitude must have minimum 4 digits after decimal"
+      "message": "$IGNORE$"
     }
   ]
 }'
