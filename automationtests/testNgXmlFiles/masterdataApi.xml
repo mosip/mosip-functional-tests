@@ -1010,13 +1010,13 @@
 			<class name="io.mosip.testscripts.PatchWithQueryParam" />
 		</classes>
 	</test>
-	<!-- <test name="DeleteLanguage">
+	<test name="DeleteLanguage">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteLanguage/DeleteLanguage.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<test name="GetMappedMachinesByRegCentID">
 		<parameter name="ymlFile"
@@ -1171,6 +1171,27 @@
 			value="masterdata/GetApplicationTypeByCodeAndLangcode/GetApplicationTypeByCodeAndLangcode.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateIdType">
+		<parameter name="ymlFile"
+			value="masterdata/CreateIdType/CreateIdType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchValidDocumentsByDocCategoryCode">
+		<parameter name="ymlFile"
+			value="masterdata/FetchValidDocumentsByDocCategoryCode/FetchValidDocumentsByDocCategoryCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateValidDocument">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocument/CreateValidDocument.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 </suite>
