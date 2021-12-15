@@ -61,11 +61,10 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException
-	 * @throws AdminTestException
+	 * @throws Exception 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {	
+	public void test(TestCaseDTO testCaseDTO) throws Exception {	
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		 try {
@@ -73,6 +72,11 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 			} catch (IOException e) {
 				Reporter.log("Exception : " + e.getMessage());
 			}
+		 
+		 if(pdf!=null && new String(pdf).contains("errors")) {
+			 throw new Exception("Not able to download UIN Card");
+		 }
+				
 		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
 				+ pdfAsText+ "</pre>");
        

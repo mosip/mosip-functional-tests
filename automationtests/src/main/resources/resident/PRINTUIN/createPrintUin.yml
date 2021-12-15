@@ -254,43 +254,6 @@ PrintUin:
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
-   Resident_PrintUin_Invalid_Missing_IndividualID_Neg:
-      endPoint: /resident/v1/req/print-uin
-      role: resident
-      restMethod: post
-      inputTemplate: resident/PRINTUIN/createPrintUin
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567897",
-        "individualId": "",
-        "individualIdType": "UIN",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.printuin",
-        "version": "v1",
-        "cardType": "UIN",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567897",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
-    }
-}'
    Resident_PrintUin_Invalid_Empty_Otp_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident

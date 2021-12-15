@@ -21,7 +21,7 @@ UpdateLocationData:
 "code": "TST12",
 "name": "Test_Loc_A_updated",
 "hierarchyLevel": "4",
-"hierarchyName": "Zone",
+"hierarchyName": "$IGNORE$",
 "parentLocCode": "KNT",
 "langCode": "$IGNORE$"
 }'
