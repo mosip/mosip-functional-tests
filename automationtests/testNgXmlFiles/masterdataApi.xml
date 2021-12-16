@@ -1165,4 +1165,25 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="FetchALlTitle">
+		<parameter name="ymlFile"
+			value="masterdata/FetchALlTitle/FetchALlTitle.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="ValidDocumentSearch">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocumentSearch/ValidDocumentSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidDocumentFilter">
+		<parameter name="ymlFile"
+			value="masterdata/ValidDocumentFilter/ValidDocumentFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>

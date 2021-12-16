@@ -1,0 +1,36 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+	  {{#each data}}
+	    { 
+	    	"code": "$IGNORE$",
+	        "description": "$IGNORE$",
+	        "documentType": {
+	            "isActive": "$IGNORE$",
+		        "createdBy": "$IGNORE$",
+	            "createdDateTime": "$IGNORE$",
+	            "updatedBy": "$IGNORE$",
+	            "updatedDateTime": "$IGNORE$",
+	            "isDeleted": "$IGNORE$",
+	            "deletedDateTime": "$IGNORE$",
+		        "code": "$IGNORE$",
+	            "name": "$IGNORE$",
+	            "description": "$IGNORE$",
+	            "langCode": "$IGNORE$"
+	          }, 
+	      	"isActive": "$IGNORE$",
+	        "langCode": "$IGNORE$",
+	        "name": "$IGNORE$"
+        }
+        {{#unless @last}},{{/unless}}
+	      	{{/each}}
+    ]
+  },
+  "errors": null
+}
