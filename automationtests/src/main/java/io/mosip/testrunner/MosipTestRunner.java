@@ -7,6 +7,10 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
+import java.security.KeyPair;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
@@ -113,6 +117,19 @@ public class MosipTestRunner {
 		}
 		return "Global Resource File Path Not Found";
 	}
+	
+	public static String generatePulicKey() {
+		String publicKey= null;
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, new SecureRandom());
+			final KeyPair keypair = keyGenerator.generateKeyPair();
+			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return publicKey;
+		}
 
 	/**
 	 * The method will return mode of application started either from jar or eclipse

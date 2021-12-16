@@ -6,11 +6,11 @@ GetApplicationTypeByCodeAndLangcode:
       inputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcode
       outputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcodeResult
       input: '{
-   "code":"AAA",
+   "code":"dumbo",
    "langCode":"eng"
 }'
       output: '{
-   "code":  "AAA",
+   "code":  "dumbo",
    "langCode": "eng"
 }'
    Masterdata_GetApplicationTypeByCodeAndLangcode_InValid_Code:

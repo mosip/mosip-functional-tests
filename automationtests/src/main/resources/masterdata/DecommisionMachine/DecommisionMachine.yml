@@ -1,17 +1,4 @@
 DecommisionMachine:
-   MasterData_DecommisionMachine_All_Valid_Smoke_sid:  
-      endPoint: /v1/masterdata/machines/decommission/{id}
-      role: admin
-      templateFields: []
-      restMethod: put
-      inputTemplate: masterdata/DecommisionMachine/decommisionMachine
-      outputTemplate: masterdata/DecommisionMachine/decommisionMachineResult
-      input: '{
-    "id": "$ID:CreateMachine_Valid_Smoke_decommision_sid_id$"
-	}'
-      output: '{
-    "id": "$IGNORE$"
-}'
    MasterData_DecommisionMachine_Invalid_ID: 
       endPoint: /v1/masterdata/machines/decommission/{id}
       role: admin

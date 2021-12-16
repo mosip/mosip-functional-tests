@@ -6,10 +6,10 @@ DeleteLocation:
       inputTemplate: masterdata/DeleteLocation/deleteLocation
       outputTemplate: masterdata/DeleteLocation/deleteLocationResult
       input: '{
-    "locationcode": "TST12"
+    "locationcode": "10114"
 	}'
       output: '{
-    "code": "TST12"
+    "code": "10114"
 }'
    MasterData_DeleteLocation_Invalid_ID: 
       endPoint: /v1/masterdata/locations/{locationcode}
