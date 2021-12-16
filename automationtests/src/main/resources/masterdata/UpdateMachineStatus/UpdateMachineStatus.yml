@@ -13,17 +13,3 @@ UpdateMachineStatus:
       output: '{
     "status": "Status updated successfully for machine"
 }'
-   MasterData_UpdateMachineStatus_All_Valid_Smoke_decommision_sid:  
-      endPoint: /v1/masterdata/machines
-      role: admin
-      templateFields: []
-      restMethod: patch
-      inputTemplate: masterdata/UpdateMachineStatus/updateMachineStatus
-      outputTemplate: masterdata/UpdateMachineStatus/updateteMachineStatusResult
-      input: '{
-    "id": "$ID:CreateMachine_Valid_Smoke_decommision_sid_id$",
-    "isActive": "true"
-}'
-      output: '{
-    "status": "Status updated successfully for machine"
-}'
