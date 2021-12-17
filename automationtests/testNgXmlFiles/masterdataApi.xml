@@ -1165,9 +1165,9 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FetchALlTitle">
+	<test name="FetchAllTitle">
 		<parameter name="ymlFile"
-			value="masterdata/FetchALlTitle/FetchALlTitle.yml" />
+			value="masterdata/FetchAllTitle/FetchAllTitle.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
