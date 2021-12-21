@@ -2,6 +2,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Valid_Smoke:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/ValidDocumentSearch/validDocumentSearchResult
@@ -22,6 +23,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Valid_Filter_langCode:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/ValidDocumentSearch/validDocumentSearchResult
@@ -46,6 +48,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_NegPageFetch:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -75,6 +78,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_NegPageStart:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -104,6 +108,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -133,6 +138,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -162,7 +168,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_SortField_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["value"]
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -193,6 +199,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Blank_SortField:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -222,6 +229,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_ColumnName:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
@@ -251,6 +259,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_RequestTime:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      templateFields: ["languageCode", "value"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error

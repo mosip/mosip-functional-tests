@@ -6,7 +6,7 @@ UpdateLanguage:
       inputTemplate: masterdata/Language/Updatelanguage
       outputTemplate: masterdata/Language/languageResult
       input: '{
-     "code": "all",
+     "code": "alt",
     "name": "hindi lang updated",
     "family": "hindi",
     "nativeName": "hindi",
