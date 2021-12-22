@@ -1,8 +1,8 @@
 UpdateRegistrationCenter:
-   MasterData_CreateRegCenter_allValid_smoke:
+   MasterData_UpdateRegistrationCenter_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
-      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
       restMethod: put
       inputTemplate: masterdata/RegistrationCenter/registrationCenter
       outputTemplate: masterdata/RegistrationCenter/registrationCenterResult
@@ -18,33 +18,24 @@ UpdateRegistrationCenter:
     "holidayLocationCode": "RBT",
     "isActive": true,
     "langCode": "eng",
-    "latitude": "33.9956",
-    "locationCode": "WOR",
-    "longitude": "-6.8152",
-    "lunchEndTime": "14:00:00",
-    "lunchStartTime": "13:00:00",
+    "latitude":"78.5478",
+    "locationCode":"14080",
+    "longitude":"45.2456",
+    "lunchEndTime":"00:00:00",
+    "lunchStartTime":"00:00:00",
     "name": "HSR Center updated",
     "perKioskProcessTime": "00:15:00",
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"NDR",
-    "id": "96874",
-    "workingNonWorkingDays": {
-      "fri": true,
-      "mon": true,
-      "sat": true,
-      "sun": false,
-      "thu": true,
-      "tue": true,
-      "wed": true
-    },
+    "zoneCode":"CSB",
+    "id": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
     "exceptionHolidayReson": "CenterCreation", 
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"langCode": "$IGNORE$"
+   "name": "HSR Center updated"
 }'
    MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng:
       endPoint: /v1/masterdata/registrationcenters
@@ -75,16 +66,7 @@ UpdateRegistrationCenter:
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
     "zoneCode":"STT",
-    "id": "96874",
-    "workingNonWorkingDays": {
-      "fri": true,
-      "mon": true,
-      "sat": true,
-      "sun": false,
-      "thu": true,
-      "tue": true,
-      "wed": true
-    },
+    "id": "123414",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
     "exceptionHolidayReson": "CenterCreation", 
@@ -129,15 +111,6 @@ UpdateRegistrationCenter:
     "workingHours": "8:00:00",
     "zoneCode":"STT",
     "id": "96874",
-    "workingNonWorkingDays": {
-      "fri": true,
-      "mon": true,
-      "sat": true,
-      "sun": false,
-      "thu": true,
-      "tue": true,
-      "wed": true
-    },
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
     "exceptionHolidayReson": "CenterCreation", 
@@ -181,15 +154,6 @@ UpdateRegistrationCenter:
     "workingHours": "8:00:00",
     "zoneCode":"STT",
     "id": "96874",
-    "workingNonWorkingDays": {
-      "fri": true,
-      "mon": true,
-      "sat": true,
-      "sun": false,
-      "thu": true,
-      "tue": true,
-      "wed": true
-    },
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
     "exceptionHolidayReson": "CenterCreation", 
@@ -199,7 +163,7 @@ UpdateRegistrationCenter:
    "errors": [
     {
       "errorCode": "KER-MSD-307",
-      "message": "Latitude or Longitude must have minimum 4 digits after decimal"
+      "message": "Latitude or Longitude must have maximum 2 digits before and minimum 4 digits after decimal"
     }
   ]
 }'

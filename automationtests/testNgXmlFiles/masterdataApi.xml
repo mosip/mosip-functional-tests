@@ -517,8 +517,9 @@
 	<test name="CreateRegistrationCenter">
 		<parameter name="ymlFile"
 			value="masterdata/RegistrationCenter/CreateRegistrationCenter.yml" />
+		<parameter name="idKeyName" value="id" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="UpdateRegistrationCenter">
@@ -528,11 +529,31 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	<test name="UpdateRegCentStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegCentStatus/UpdateRegCentStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
 	<test name="FetchRegCent">
 		<parameter name="ymlFile"
 			value="masterdata/FetchRegCent/FetchRegCent.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllRegCent">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllRegCent/FetchAllRegCent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchRegCentHistory">
+		<parameter name="ymlFile" value="masterdata/FetchRegCentHistory/FetchRegCentHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="RegCenterFilter">
@@ -548,12 +569,40 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
+	</test>	
+	<test name="UpdateRegistrationCenterLang">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegistrationCenterLang/UpdateRegistrationCenterLang.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
 	</test>
-	<!--<test name="DeleteRegCenter"> <parameter name="ymlFile" value="masterdata/DeleteRegCenter/DeleteRegCenter.yml" 
-		/> <classes> <class name="io.mosip.testscripts.DeleteWithParam" /> </classes> 
-		</test> <test name="DecommissionRegCenter"> <parameter name="ymlFile" value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" 
-		/> <classes> <class name="io.mosip.testscripts.PutWithPathParam"/> </classes> 
-		</test> -->
+	<test name="UpdateRegistrationCenterLangNonLanguage">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegistrationCenterLang/UpdateRegistrationCenterLang.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchMissingRegCenterDetails">
+		<parameter name="ymlFile"
+			value="masterdata/FetchMissingRegCenterDetails/FetchMissingRegCenterDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DecommissionRegCenter"> 
+		<parameter name="ymlFile" value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.PutWithPathParam"/> 
+		</classes> 
+	</test>
+	<test name="DeleteRegCenter"> 
+		<parameter name="ymlFile" value="masterdata/DeleteRegCenter/DeleteRegCenter.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.DeleteWithParam" /> 
+		</classes> 
+	</test>
 
 
 	<test name="CreateRegCenterType">
