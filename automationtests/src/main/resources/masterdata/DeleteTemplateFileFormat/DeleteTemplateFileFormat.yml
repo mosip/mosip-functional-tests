@@ -6,10 +6,10 @@ DeleteTemplateFileFormat:
       inputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormat
       outputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormatResult
       input: '{
-    "code": "doc"
+    "code": "$ID:CreateTemplateFileFormat_All_Valid_Smoke_sid_code$"
 	}'
       output: '{
-    "code": "doc"
+    "code": "Doc"
 }'
    MasterData_DeleteTemplateFileFormat_Invalid_ID: 
       endPoint: /v1/masterdata/templatefileformats/{code}
@@ -18,7 +18,7 @@ DeleteTemplateFileFormat:
       inputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormat
       outputTemplate: masterdata/error
       input: '{
-      "code": "abc"
+      "code": "asdf"
 	}'
       output: '{
    "errors": [

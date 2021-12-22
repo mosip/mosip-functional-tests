@@ -2,15 +2,16 @@ GetApplicationTypeByCodeAndLangcode:
    Masterdata_GetApplicationTypeByCodeAndLangcode_allValid_AAA_smoke:
       endPoint: /v1/masterdata/applicationtypes/{code}/{langCode}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcode
       outputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcodeResult
       input: '{
-   "code":"dumbo",
+   "code":"AAA",
    "langCode":"eng"
 }'
       output: '{
-   "code":  "dumbo",
+   "code":  "AAA",
    "langCode": "eng"
 }'
    Masterdata_GetApplicationTypeByCodeAndLangcode_InValid_Code:

@@ -2,6 +2,7 @@ GetBiometricTypeByCodeAndLangcode:
    Masterdata_GetBiometricTypeByCodeAndLangcode_allValid_FNR_smoke:
       endPoint: /v1/masterdata/biometrictypes/{code}/{langCode}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcode
       outputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcodeResult
@@ -16,6 +17,7 @@ GetBiometricTypeByCodeAndLangcode:
    Masterdata_GetBiometricTypeByCodeAndLangcode_allValid_IRS_smoke:
       endPoint: /v1/masterdata/biometrictypes/{code}/{langCode}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcode
       outputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcodeResult
@@ -30,6 +32,7 @@ GetBiometricTypeByCodeAndLangcode:
    Masterdata_GetBiometricTypeByCodeAndLangcode_allValid_PHT_smoke:
       endPoint: /v1/masterdata/biometrictypes/{code}/{langCode}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcode
       outputTemplate: masterdata/GetBiometricTypeByCodeAndLangcode/getBiometricTypeByCodeAndLangcodeResult

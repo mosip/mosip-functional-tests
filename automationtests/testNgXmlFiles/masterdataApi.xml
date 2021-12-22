@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="MasterData Suite">
+<suite name="Admin Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
@@ -42,58 +42,72 @@
 		</test> -->
 
 
-	<test name="CreateBlackListedWords">
+	<test name="CreateBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWords/CreateBlackListedWords.yml" />
+			value="masterdata/BlockListedWords/CreateBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="UpdateBlackListedWords">
+	<test name="UpdateBlockListedWordStatus">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWords/UpdateBlackListedWords.yml" />
+			value="masterdata/UpdateBlockListedWordStatus/UpdateBlockListedWordStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateBlockListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/BlockListedWords/UpdateBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	<test name="UpdateBlackListedWordDetails">
+	<test name="UpdateBlockListedWordDetails">
 		<parameter name="ymlFile"
-			value="masterdata/UpdateBlackListedWordDetails/UpdateBlackListedWordDetails.yml" />
+			value="masterdata/UpdateBlockListedWordDetails/UpdateBlockListedWordDetails.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	<test name="FetchAllBlackListedWord">
+	<test name="FetchAllBlockListedWord">
 		<parameter name="ymlFile"
-			value="masterdata/FetchAllBlackListedWord/FetchAllBlackListedWord.yml" />
+			value="masterdata/FetchAllBlockListedWord/FetchAllBlockListedWord.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="SearchBlackListedWords">
+	<test name="FetchBlockListedWordByLangcode">
 		<parameter name="ymlFile"
-			value="masterdata/SearchBlackListedWords/SearchBlackListedWords.yml" />
+			value="masterdata/FetchBlockListedWordByLangcode/FetchBlockListedWordByLangcode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="SearchBlockListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/SearchBlockListedWords/SearchBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FilterBlackListedWords">
+	<test name="FilterBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/FilterBlackListedWords/FilterBlackListedWords.yml" />
+			value="masterdata/FilterBlockListedWords/FilterBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="DeleteBlackListedWords">
+	<test name="DeleteBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/DeleteBlackListedWords/DeleteBlackListedWords.yml" />
+			value="masterdata/DeleteBlockListedWords/DeleteBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	<test name="BlackListedWordValidation">
+	<test name="BlockListedWordValidation">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWordValidation/BlackListedWordValidation.yml" />
+			value="masterdata/BlockListedWordValidation/BlockListedWordValidation.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -1165,9 +1179,9 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FetchALlTitle">
+	<test name="FetchAllTitle">
 		<parameter name="ymlFile"
-			value="masterdata/FetchALlTitle/FetchALlTitle.yml" />
+			value="masterdata/FetchAllTitle/FetchAllTitle.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -1184,6 +1198,72 @@
 			value="masterdata/ValidDocumentFilter/ValidDocumentFilter.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>  
+	<test name="GetDocType_DocCatByAppID">
+		<parameter name="ymlFile" value="masterdata/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetDeviceHistory">
+		<parameter name="ymlFile" value="masterdata/GetDeviceHistory/GetDeviceHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchRegCentHistory">
+		<parameter name="ymlFile" value="masterdata/FetchRegCentHistory/FetchRegCentHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetUserDetailsByIdAndEffDate">
+		<parameter name="ymlFile" value="masterdata/GetUserDetailsByIdAndEffDate/GetUserDetailsByIdAndEffDate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/CreateTemplateFileFormat.yml" />
+		<parameter name="idKeyName" value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormatStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateTemplateFileFormatStatus/UpdateTemplateFileFormatStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/UpdateTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DeleteTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteTemplateFileFormat/DeleteTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="GetTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/GetTemplateFileFormat/GetTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 </suite>

@@ -1,0 +1,12 @@
+FetchAllBlockListedWord:
+   Kernel_FetchAllBlockListedWord_valid_smoke:
+      endPoint: /v1/masterdata/blocklistedwords/all
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchAllBlockListedWord/fetchAllBlockListedWord
+      outputTemplate: masterdata/FetchAllBlockListedWord/fetchAllBlockListedWordResult
+      input: '{
+}'
+      output: '{
+   "errors": null
+}' 

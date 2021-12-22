@@ -1,0 +1,85 @@
+CreateBlockListedWords:
+   Masterdata_CreateBlockListedWords_All_Valid_Smoke:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description","word"]
+      restMethod: post
+      inputTemplate: masterdata/BlockListedWords/blockListedWords
+      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      input: '{
+    "description": "wrong word",
+	"isActive": true,
+	"langCode": "eng",
+	"word": "dumbo6",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"word": "dumbo6",
+	"langCode": "eng"
+}'
+   Masterdata_CreateBlockListedWords_Invalid_BlocklistedWordsLength129:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/BlockListedWords/blockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "dummy data",
+	"isActive": true,
+	"langCode": "eng",
+	"word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   Masterdata_CreateBlockListedWords_Invalid_DescriptionLength257:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["word"]
+      restMethod: post
+      inputTemplate: masterdata/BlockListedWords/blockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": true,
+	"langCode": "eng",
+	"word": "bull word",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 256"
+    }
+  ]
+}'
+   Masterdata_CreateBlockListedWords_Invalid_EmptyWord:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/BlockListedWords/blockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "bad words",
+	"isActive": true,
+	"langCode": "eng",
+	"word": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
