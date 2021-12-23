@@ -1364,8 +1364,8 @@ EkycBio:
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-DPM-004",
-      "errorMessage": "Device Type and Biometric Type do not match"
+      "errorCode": "IDA-MLC-011",
+      "errorMessage": "$IGNORE$"
     }
   ]
 }'
@@ -1407,8 +1407,8 @@ EkycBio:
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-DPM-004",
-      "errorMessage": "Device Type and Biometric Type do not match"
+      "errorCode": "IDA-MLC-011",
+      "errorMessage": "$IGNORE$"
     }
   ]
 }'

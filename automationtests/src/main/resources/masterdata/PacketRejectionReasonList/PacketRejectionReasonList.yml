@@ -2,6 +2,7 @@ PacketRejectionReasonList:
    MasterData_PacketRejectionReasonList_All_Valid_Smoke:
       endPoint: /v1/masterdata/packetrejectionreasons/reasonlist
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/PacketRejectionReasonList/packetRejectionReasonList
       outputTemplate: masterdata/PacketRejectionReasonList/packetRejectionReasonListResult
@@ -31,7 +32,7 @@ PacketRejectionReasonList:
     "name": "TEST_LIST",
     "description": "test reason list",
     "rsnCatCode": "TEST_CAT_CODE",
-    "langCode": "abc",
+    "langCode": "a@@12bc",
     "isActive": true,
     "requesttime": "$TIMESTAMP$"
 }'

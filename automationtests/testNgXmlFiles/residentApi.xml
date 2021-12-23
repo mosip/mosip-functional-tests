@@ -115,13 +115,13 @@
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test> 
-	<!--<test name="CancellCredential">
+	<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>-->
+	</test>
 	
 	<test name="GetCredentialTypes">
 		<parameter name="ymlFile"

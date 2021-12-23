@@ -1,6 +1,6 @@
 UpdatePreRegStatus:
    Prereg_UpdatePreRegStatus_All_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}?statusCode={statusCode}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
       role: batch
       restMethod: get
       inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
@@ -12,8 +12,21 @@ UpdatePreRegStatus:
       output: '{
   "response": "STATUS_UPDATED_SUCESSFULLY"
 }'
+   Prereg_UpdatePreRegStatus_All_Valid_Smoke_BookByPRID_sid:
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
+      outputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatusResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "statusCode": "Pending_Appointment"
+}'
+      output: '{
+  "response": "STATUS_UPDATED_SUCESSFULLY"
+}'
    Prereg_UpdatePreRegStatus_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}?statusCode={statusCode}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
       role: batch
       restMethod: get
       inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
@@ -26,7 +39,7 @@ UpdatePreRegStatus:
   "response": "STATUS_UPDATED_SUCESSFULLY"
 }'
    Prereg_UpdatePreRegStatus_CA_Valid_Smoke_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}?statusCode={statusCode}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
       role: batch
       restMethod: get
       inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
@@ -39,7 +52,7 @@ UpdatePreRegStatus:
   "response": "STATUS_UPDATED_SUCESSFULLY"
 }'
    Prereg_UpdatePreRegStatus_Smoke_alldel_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}?statusCode={statusCode}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
       role: batch
       restMethod: get
       inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
@@ -52,13 +65,26 @@ UpdatePreRegStatus:
   "response": "STATUS_UPDATED_SUCESSFULLY"
 }'
    Prereg_UpdatePreRegStatus_Smoke_CancellAppointment_sid:
-      endPoint: /preregistration/v1/applications/status/{preRegistrationId}?statusCode={statusCode}
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
       role: batch
       restMethod: get
       inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
       outputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatusResult
       input: '{
   "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$",
+  "statusCode": "Pending_Appointment"
+}'
+      output: '{
+  "response": "STATUS_UPDATED_SUCESSFULLY"
+}'
+   Prereg_UpdatePreRegStatus_Smoke_CancelApplicationsAppointment_sid:
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
+      outputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatusResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$",
   "statusCode": "Pending_Appointment"
 }'
       output: '{

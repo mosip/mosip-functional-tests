@@ -1,0 +1,36 @@
+FetchValidDocumentsByDocCategoryCode:
+   MasterData_FetchValidDocumentsByDocCategoryCode_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCode
+      outputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCodeResult
+      input: '{
+   "doccategorycode": "POI",
+   "languagecode": "eng"
+}'
+      output: '{
+   "response":[
+      {
+         "docCategoryCode": "POI"
+      }
+   ]
+}'  
+   MasterData_FetchValidDocumentsByDocCategoryCode_inValid_DocCategory:
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{languagecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCode
+      outputTemplate: masterdata/error
+      input: '{
+   "doccategorycode": "POIsdf",
+   "languagecode": "eng"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-016",
+            "message": "Valid document not found"
+        }
+    ]
+}'

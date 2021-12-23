@@ -420,7 +420,7 @@
 		</classes>
 	</test>
 	
-	<test name="SignedRegisteredDevice">
+	<!-- <test name="SignedRegisteredDevice">
 		<parameter name="ymlFile"
 			value="partner/device/registration/RegistereDevice.yml" />
 		<classes>
@@ -434,7 +434,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForDeRegisterDevice" />
 		</classes>
-	</test>
+	</test> -->
 	
 	
 	 <test name="GetMISPLicense">

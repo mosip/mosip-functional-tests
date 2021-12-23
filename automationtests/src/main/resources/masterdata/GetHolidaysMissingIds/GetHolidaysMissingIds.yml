@@ -2,6 +2,7 @@ GetHolidaysMissingIds:
    Admin_GetHolidaysMissingIds_allValid_smoke:
       endPoint: /v1/masterdata/holidays/missingids/{langcode}
       role: admin
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetHolidaysMissingIds/getHolidaysMissingIds
       outputTemplate: masterdata/GetHolidaysMissingIds/getHolidaysMissingIdsResult

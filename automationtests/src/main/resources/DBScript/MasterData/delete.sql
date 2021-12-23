@@ -38,3 +38,8 @@ delete from master.language where cr_by='110005';
 delete from master.identity_schema where cr_by='110005';
 
 delete from master.biometric_attribute where cr_by='110005';
+
+delete from master.biometric_type where cr_by='110005';
+delete from master.appl_form_type where cr_by='110005';
+delete from master.id_type where cr_by='110005';
+

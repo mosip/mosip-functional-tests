@@ -7,8 +7,8 @@ UpdateMachineStatus:
       inputTemplate: masterdata/UpdateMachineStatus/updateMachineStatus
       outputTemplate: masterdata/UpdateMachineStatus/updateteMachineStatusResult
       input: '{
-	"id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
-	"isActive": "true"
+    "id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
+    "isActive": "true"
 }'
       output: '{
     "status": "Status updated successfully for machine"
