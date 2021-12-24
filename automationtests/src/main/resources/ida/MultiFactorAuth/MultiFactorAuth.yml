@@ -1,7 +1,7 @@
 MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_Face_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -55,7 +55,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -109,7 +109,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -163,7 +163,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -217,7 +217,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -271,7 +271,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -325,7 +325,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -379,7 +379,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -433,7 +433,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -487,7 +487,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -541,7 +541,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -595,7 +595,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
@@ -649,7 +649,7 @@ MultiFactorAuth:
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/multiFactorAuth
       outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult

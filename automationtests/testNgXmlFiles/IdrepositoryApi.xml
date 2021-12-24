@@ -19,7 +19,7 @@
 			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
 	</test>-->
-	<test name="AddIdentity">
+	 <test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
 	<classes>
@@ -83,5 +83,28 @@
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
+	</test> 
+	
+	<test name="CreateDraft">
+		<parameter name="ymlFile"	value="idRepository\CreateDraft\CreateDraft.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+	</classes>
 	</test>
+	
+	<test name="GetDraft">
+		<parameter name="ymlFile"	value="idRepository\GetDraft\GetDraft.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	
+	<test name="UpdateDraft">
+		<parameter name="ymlFile"	value="idRepository\UpdateDraft\UpdateDraft.yml" />
+		<parameter name="pathParams"	value="registrationId" />
+	<classes>
+		<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+	</classes>
+	</test>
+	
 </suite>

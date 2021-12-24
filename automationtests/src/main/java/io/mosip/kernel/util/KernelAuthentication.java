@@ -129,11 +129,11 @@ public class KernelAuthentication extends BaseTestCase{
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("admin_appid"));
-		request.put("password", props.get("admin_password"));
-		request.put("userName", props.get("admin_user"));
+		request.put("clientId", props.get("admin_clientId"));
+		request.put("secretKey", props.get("admin_secretKey"));
 		actualrequest.put("request", request);
 		
-		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
@@ -144,11 +144,11 @@ public class KernelAuthentication extends BaseTestCase{
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("partner_appid"));
-		request.put("password", props.get("partner_password"));
-		request.put("userName", props.get("partner_user"));
+		request.put("clientId", props.get("partner_clientId"));
+		request.put("secretKey", props.get("partner_secretKey"));
 		actualrequest.put("request", request);
 		
-		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
@@ -241,12 +241,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ida_appid);
-		request.put("password", ida_password);
-		request.put("userName", ida_userName);
+		request.put("appId", props.get("resident_appid"));
+		request.put("clientId", props.get("resident_clientId"));
+		request.put("secretKey", props.get("resident_secretKey"));
 		actualrequest.put("request", request);
 		
-		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}

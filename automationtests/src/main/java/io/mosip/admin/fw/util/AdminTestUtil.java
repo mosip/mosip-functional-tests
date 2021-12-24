@@ -98,6 +98,7 @@ public class AdminTestUtil extends BaseTestCase{
 	//static String  config = new File(System.getProperty("user.dir")).getParent() + "/config/application.properties";
 	//public static Properties props = getproperty(config);
 	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	
@@ -1457,6 +1458,45 @@ public static String buildIdentityRequest(String identityRequest) {
 	if(identityRequest.contains("$LEFTRINGFINGER$"))
 		identityRequest = identityRequest.replace("$LEFTRINGFINGER$", propsBio.getProperty("LeftRingFingerBioValue"));
 	return identityRequest;
+}
+
+public static TestCaseDTO filterHbs(TestCaseDTO testCaseDTO) {
+	if(BaseTestCase.languageList.size()==2) {
+		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+		if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+	}
+	
+	else if(BaseTestCase.languageList.size()==3) {
+		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
+		if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
+	}
+	
+	else if(BaseTestCase.languageList.size()==1) {
+		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+		if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "SINGLE"));
+	}
+	
+	else {
+		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setInputTemplate(
+					testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
+		if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+			testCaseDTO.setOutputTemplate(
+					testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
+	}
+	return testCaseDTO;
 }
 
 }

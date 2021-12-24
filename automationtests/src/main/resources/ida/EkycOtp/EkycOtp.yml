@@ -1,7 +1,7 @@
 EkycOtp:
   auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
@@ -34,7 +34,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Missing_individualIdType_smoke:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
@@ -67,7 +67,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Valid_VID_Smoke_Pos:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/ekycOtpResult
@@ -100,7 +100,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Invalid_individualId_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -138,7 +138,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Blank_individualId_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -176,7 +176,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Missing_individualId_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -214,7 +214,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Invalid_transactionId_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -252,7 +252,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Blank_transactionId_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -290,7 +290,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Invalid_individualIdType_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon
@@ -328,7 +328,7 @@ EkycOtp:
 }'
   auth_EkycOtp_With_Blank_individualIdType_neg:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/ekycOtp
       outputTemplate: ida/EkycOtp/errorCommon

@@ -76,7 +76,12 @@
 		</classes>
 	</test>
 
-
+<test name="AuthTransaction">
+		<parameter name="ymlFile" value="ida/AuthTransaction/AuthTransaction.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 
 
 

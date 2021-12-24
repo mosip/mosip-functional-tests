@@ -138,7 +138,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualIdType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
