@@ -5,23 +5,23 @@
   "metadata": "$IGNORE$",
   "response": {
   "templates": [
-  {{#each templates}}
-    {
-      "id": "$IGNORE$",
-      "name": "$IGNORE$",
-      "description": "$IGNORE$",
-      "fileFormatCode": "$IGNORE$",
-      "model": "$IGNORE$",
-      "fileText": "$IGNORE$",
-      "moduleId": "$IGNORE$",
-      "moduleName": "$IGNORE$",
-      "templateTypeCode": "$IGNORE$",
-      "langCode": "{{langCode}}",
-      "isActive": {{isActive}}
-    }
-    {{#unless @last}},{{/unless}}
-      	{{/each}}
-  ]
-},
+	  {{#each templates}}
+	    {
+	      "id": "$IGNORE$",
+	      "name": "$IGNORE$",
+	      "description": "$IGNORE$",
+	      "fileFormatCode": "$IGNORE$",
+	      "model": "$IGNORE$",
+	      "fileText": "$IGNORE$",
+	      "moduleId": "$IGNORE$",
+	      "moduleName": "$IGNORE$",
+	      "templateTypeCode": "$IGNORE$",
+	      "langCode": "{{langCode}}",
+	      "isActive": {{isActive}}
+	    }
+	   {{#unless @last}},{{/unless}}
+	   {{/each}}
+   ]
+  },
   "errors": "$IGNORE$"
 }

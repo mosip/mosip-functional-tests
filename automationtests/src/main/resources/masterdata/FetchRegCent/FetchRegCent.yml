@@ -1,4 +1,30 @@
 FetchRegCent:
+   MasterData_FetchRegCent_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+"registrationCenters": [{
+			"langCode": "$IGNORE$"
+		}]
+}'
    MasterData_FetchRegCent_coordinate_specific_allValid_smoke:
       endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: admin

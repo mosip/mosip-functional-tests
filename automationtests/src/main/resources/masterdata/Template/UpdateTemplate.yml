@@ -10,7 +10,7 @@ UpdateTemplate:
         "description": "test template updated",
         "fileFormatCode": "json",
         "fileText": "abc",
-        "id": "445566777",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$",
         "isActive": true,
         "langCode": "eng",
         "model": "model-1",

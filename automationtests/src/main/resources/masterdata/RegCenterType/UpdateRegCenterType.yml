@@ -2,12 +2,12 @@ UpdateRegCenterType:
    MasterData_UpdateRegCenterType_All_Valid_Smoke:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
-      templateFields: ["name","descr"]
+      templateFields: ["name","descr","langCode"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
       outputTemplate: masterdata/RegCenterType/regCenterTypeResult
       input: '{
-    "code": "ALT-3",
+    "code": "$ID:CreateRegCenterType_All_Valid_Smoke_sid_code$",
     "langCode": "eng",
     "name": "alternate",
     "descr": "alternate center updated",

@@ -1,5 +1,5 @@
 CreateRegCenterType:
-   MasterData_CreateRegCenterType_All_Valid_Smoke:
+   MasterData_CreateRegCenterType_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/registrationcentertypes
       role: admin
       templateFields: ["name","descr"]
