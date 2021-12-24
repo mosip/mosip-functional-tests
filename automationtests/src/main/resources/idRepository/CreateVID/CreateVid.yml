@@ -1,7 +1,7 @@
 CreateVID:
   IdRepository_CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -17,7 +17,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -33,7 +33,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_positive_Smoke_Temporary_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -49,7 +49,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_pexp_Smoke_Perpetual_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -65,7 +65,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_pdea_Smoke_Perpetual_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -81,7 +81,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_tdea_Smoke_Temporary_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -97,7 +97,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_pre_Smoke_Perpetual_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -113,7 +113,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withValidParameters_tre_Smoke_Temporary_sid:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/CreateVID/createVidResult
@@ -129,7 +129,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidVersion_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -150,7 +150,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidRequestTime_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -171,7 +171,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidVidType_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -192,7 +192,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidId_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -213,7 +213,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidVersion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -234,7 +234,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidRequest_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -255,7 +255,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalidVidType_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -276,7 +276,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withInvalId_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -297,7 +297,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingVersion_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -318,7 +318,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingRequestTime_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -339,7 +339,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingVidType_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -360,7 +360,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingIdForTemporary:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -381,7 +381,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingVersion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -402,7 +402,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingRequestTime_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -423,7 +423,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingVidType_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
@@ -444,7 +444,7 @@ CreateVID:
 }'
   IdRepository_CreateVID_withMissingId_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid
-      role: regproc
+      role: admin
       restMethod: post
       inputTemplate: idRepository/CreateVID/createVid
       outputTemplate: idRepository/error
