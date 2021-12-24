@@ -28,7 +28,7 @@ FetchTemplate:
       input: '{
       "langcode": "eng",
       "code": "$REMOVE$",
-"templatetypecode": "OTP-sms-template"  
+"templatetypecode": "Test-info-Template-auto"  
 }'
       output: '{
 "templates": [{

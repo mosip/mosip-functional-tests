@@ -6,8 +6,8 @@ DecommissionRegCenter:
       inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
       outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult
       input: '{
-    "regCenterID": "96875"
+    "regCenterID": "$ID:CreateRegCenter_allValid_smoke_sid_id$"
 	}'
       output: '{
-    "id": "96875"
+    "id": "$IGNORE$"
 }'

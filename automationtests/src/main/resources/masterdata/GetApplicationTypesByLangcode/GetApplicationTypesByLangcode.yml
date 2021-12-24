@@ -2,6 +2,7 @@ GetApplicationTypesByLangcode:
    Masterdata_GetApplicationTypesByLangcode_allValid_smoke:
       endPoint: /v1/masterdata/applicationtypes/{langcode}
       role: admin
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcode
       outputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcodeResult

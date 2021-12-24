@@ -6,7 +6,7 @@ CreateLanguage:
       inputTemplate: masterdata/Language/language
       outputTemplate: masterdata/Language/languageResult
       input: '{
-    "code": "all",
+    "code": "hin",
     "name": "Hindi Language",
     "family": "Hindi language",
     "nativeName": "Hindi",
@@ -14,5 +14,5 @@ CreateLanguage:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "code": "all"
+    "code": "hin"
 }'

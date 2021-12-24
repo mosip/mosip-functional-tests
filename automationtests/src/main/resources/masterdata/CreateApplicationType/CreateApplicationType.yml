@@ -2,6 +2,7 @@ CreateApplicationType:
    Masterdata_CreateApplicationType_All_Valid_Smoke:
       endPoint: /v1/masterdata/applicationtypes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/CreateApplicationType/createApplicationType
       outputTemplate: masterdata/CreateApplicationType/createApplicationTypeResult

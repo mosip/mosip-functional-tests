@@ -2,6 +2,7 @@ CreateIdType:
    MasterData_CreateIdType_allValid_smoke:
       endPoint: /v1/masterdata/idtypes
       role: admin
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/CreateIdType/createIdType
       outputTemplate: masterdata/CreateIdType/createIdTypeResult

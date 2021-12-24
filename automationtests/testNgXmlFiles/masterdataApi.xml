@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="MasterData Suite">
+<suite name="Masterdata Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
@@ -42,58 +42,72 @@
 		</test> -->
 
 
-	<test name="CreateBlackListedWords">
+	<test name="CreateBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWords/CreateBlackListedWords.yml" />
+			value="masterdata/BlockListedWords/CreateBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="UpdateBlackListedWords">
+	<test name="UpdateBlockListedWordStatus">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWords/UpdateBlackListedWords.yml" />
+			value="masterdata/UpdateBlockListedWordStatus/UpdateBlockListedWordStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateBlockListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/BlockListedWords/UpdateBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	<test name="UpdateBlackListedWordDetails">
+	<test name="UpdateBlockListedWordDetails">
 		<parameter name="ymlFile"
-			value="masterdata/UpdateBlackListedWordDetails/UpdateBlackListedWordDetails.yml" />
+			value="masterdata/UpdateBlockListedWordDetails/UpdateBlockListedWordDetails.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	<test name="FetchAllBlackListedWord">
+	<test name="FetchAllBlockListedWord">
 		<parameter name="ymlFile"
-			value="masterdata/FetchAllBlackListedWord/FetchAllBlackListedWord.yml" />
+			value="masterdata/FetchAllBlockListedWord/FetchAllBlockListedWord.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="SearchBlackListedWords">
+	<test name="FetchBlockListedWordByLangcode">
 		<parameter name="ymlFile"
-			value="masterdata/SearchBlackListedWords/SearchBlackListedWords.yml" />
+			value="masterdata/FetchBlockListedWordByLangcode/FetchBlockListedWordByLangcode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="SearchBlockListedWords">
+		<parameter name="ymlFile"
+			value="masterdata/SearchBlockListedWords/SearchBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FilterBlackListedWords">
+	<test name="FilterBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/FilterBlackListedWords/FilterBlackListedWords.yml" />
+			value="masterdata/FilterBlockListedWords/FilterBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="DeleteBlackListedWords">
+	<test name="DeleteBlockListedWords">
 		<parameter name="ymlFile"
-			value="masterdata/DeleteBlackListedWords/DeleteBlackListedWords.yml" />
+			value="masterdata/DeleteBlockListedWords/DeleteBlockListedWords.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	<test name="BlackListedWordValidation">
+	<test name="BlockListedWordValidation">
 		<parameter name="ymlFile"
-			value="masterdata/BlackListedWordValidation/BlackListedWordValidation.yml" />
+			value="masterdata/BlockListedWordValidation/BlockListedWordValidation.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -269,6 +283,13 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="UpdateDeviceSpecStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDeviceSpecStatus/UpdateDeviceSpecStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
 	<test name="UpdateDeviceSpecification">
 		<parameter name="ymlFile"
 			value="masterdata/DeviceSpecification/UpdateDeviceSpecification.yml" />
@@ -283,9 +304,12 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<!-- <test name="FetchAllDeviceSpec"> <parameter name="ymlFile" value="masterdata/FetchAllDeviceSpec/FetchAllDeviceSpec.yml" 
-		/> <classes> <class name="io.mosip.testscripts.GetWithParam" /> </classes> 
-		</test> -->
+	<test name="FetchAllDeviceSpec"> 
+		<parameter name="ymlFile" value="masterdata/FetchAllDeviceSpec/FetchAllDeviceSpec.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.GetWithParam" /> 
+		</classes> 
+	</test>
 	<test name="DeviceSpecFilter">
 		<parameter name="ymlFile"
 			value="masterdata/DeviceSpecFilter/DeviceSpecFilter.yml" />
@@ -503,8 +527,9 @@
 	<test name="CreateRegistrationCenter">
 		<parameter name="ymlFile"
 			value="masterdata/RegistrationCenter/CreateRegistrationCenter.yml" />
+		<parameter name="idKeyName" value="id" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="UpdateRegistrationCenter">
@@ -514,11 +539,31 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	<test name="UpdateRegCentStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegCentStatus/UpdateRegCentStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
 	<test name="FetchRegCent">
 		<parameter name="ymlFile"
 			value="masterdata/FetchRegCent/FetchRegCent.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllRegCent">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllRegCent/FetchAllRegCent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchRegCentHistory">
+		<parameter name="ymlFile" value="masterdata/FetchRegCentHistory/FetchRegCentHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="RegCenterFilter">
@@ -534,12 +579,40 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
+	</test>	
+	<test name="UpdateRegistrationCenterLang">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegistrationCenterLang/UpdateRegistrationCenterLang.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
 	</test>
-	<!--<test name="DeleteRegCenter"> <parameter name="ymlFile" value="masterdata/DeleteRegCenter/DeleteRegCenter.yml" 
-		/> <classes> <class name="io.mosip.testscripts.DeleteWithParam" /> </classes> 
-		</test> <test name="DecommissionRegCenter"> <parameter name="ymlFile" value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" 
-		/> <classes> <class name="io.mosip.testscripts.PutWithPathParam"/> </classes> 
-		</test> -->
+	<test name="UpdateRegistrationCenterNonLanguage">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegistrationCenterNonLanguage/UpdateRegistrationCenterNonLanguage.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchMissingRegCenterDetails">
+		<parameter name="ymlFile"
+			value="masterdata/FetchMissingRegCenterDetails/FetchMissingRegCenterDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DecommissionRegCenter"> 
+		<parameter name="ymlFile" value="masterdata/DecommissionRegCenter/DecommissionRegCenter.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.PutWithPathParam"/> 
+		</classes> 
+	</test>
+	<test name="DeleteRegCenter"> 
+		<parameter name="ymlFile" value="masterdata/DeleteRegCenter/DeleteRegCenter.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.DeleteWithParam" /> 
+		</classes> 
+	</test>
 
 
 	<test name="CreateRegCenterType">
@@ -715,6 +788,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="UpdateTemplateStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateTemplateStatus/UpdateTemplateStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
 	<test name="UpdateTemplate">
 		<parameter name="ymlFile"
 			value="masterdata/Template/UpdateTemplate.yml" />
@@ -727,13 +807,6 @@
 			value="masterdata/FetchTemplate/FetchTemplate.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="UpdateTemplateStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateTemplateStatus/UpdateTemplateStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
 		</classes>
 	</test>
 	<test name="DeleteTemplate">
@@ -791,14 +864,6 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	<test name="FetchWorkingDays">
-		<parameter name="ymlFile"
-			value="masterdata/FetchWorkingDays/FetchWorkingDays.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-
 	<test name="FetchUISpec">
 		<parameter name="ymlFile"
 			value="masterdata/FetchUISpec/FetchUISpec.yml" />
@@ -855,25 +920,13 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="DeleteZoneUser">
+	<!-- <test name="DeleteZoneUser">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteZoneUser/DeleteZoneUser.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
-	</test>
-	
-	<test name="UpdateRegistrationCenterLang">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateRegistrationCenterLang/UpdateRegistrationCenterLang.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	
-
-
-
+	</test> -->
 	<test name="GetPossiableValues">
 		<parameter name="ymlFile"
 			value="masterdata/GetPossiableValues/GetPossiableValues.yml" />
@@ -988,6 +1041,13 @@
 			value="masterdata/UpdateLanguage/UpdateLanguageStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
+	<test name="DeleteLanguage">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteLanguage/DeleteLanguage.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 	<test name="GetMappedMachinesByRegCentID">
@@ -1165,9 +1225,9 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FetchALlTitle">
+	<test name="FetchAllTitle">
 		<parameter name="ymlFile"
-			value="masterdata/FetchALlTitle/FetchALlTitle.yml" />
+			value="masterdata/FetchAllTitle/FetchAllTitle.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -1184,6 +1244,159 @@
 			value="masterdata/ValidDocumentFilter/ValidDocumentFilter.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>  
+	<test name="GetDocType_DocCatByAppID">
+		<parameter name="ymlFile" value="masterdata/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetDeviceHistory">
+		<parameter name="ymlFile" value="masterdata/GetDeviceHistory/GetDeviceHistory.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetUserDetailsByIdAndEffDate">
+		<parameter name="ymlFile" value="masterdata/GetUserDetailsByIdAndEffDate/GetUserDetailsByIdAndEffDate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/CreateTemplateFileFormat.yml" />
+		<parameter name="idKeyName" value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormatStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateTemplateFileFormatStatus/UpdateTemplateFileFormatStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/UpdateTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DeleteTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteTemplateFileFormat/DeleteTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="GetTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/GetTemplateFileFormat/GetTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/DynamicField/CreateDynamicField.yml" />
+		<parameter name="idKeyName" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/DynamicField/UpdateDynamicField.yml" />
+			<parameter name="pathParams"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="UpdateDynamicFieldStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDynamicFieldStatus/UpdateDynamicFieldStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="FetchDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDynamicField/FetchDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchDistinctDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDistinctDynamicField/FetchDistinctDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchDistinctDynamicFieldByLangcode">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDistinctDynamicFieldByLangcode/FetchDistinctDynamicFieldByLangcode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDynamicField/DeleteDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="SearchDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/SearchDynamicField/SearchDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/FilterDynamicField/FilterDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchMissingDynamicField">
+		<parameter name="ymlFile"
+			value="masterdata/FetchMissingDynamicField/FetchMissingDynamicField.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchWorkingDays">
+		<parameter name="ymlFile"
+			value="masterdata/FetchWorkingDays/FetchWorkingDays.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="UpdateWorkingDay">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateWorkingDay/UpdateWorkingDay.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="UpdateWorkingDayStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateWorkingDayStatus/UpdateWorkingDayStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
 </suite>
