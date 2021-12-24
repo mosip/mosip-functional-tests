@@ -1,35 +1,33 @@
 {
-  "id": null,
-  "version": null,
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
   "responsetime": "$IGNORE$",
-  "metadata": null,
+  "metadata": "$IGNORE$",
   "response": {
     "reasonCategories": [
-	
-    {{#each reasonCategories}}
-      {
-        "code": "{{code}}",
-        "name": "{{name}}",
-        "description": "{{description}}",
-        "langCode": "{{langCode}}",
-        "isActive": {{langCode}},
-	"reasonList": [
-	
-    {{#each reasonList}}
-      {	    
-	"code": "{{code}}",
-        "name": "{{name}}",
-        "description": "{{description}}",
-        "rsnCatCode": "{{rsnCatCode}}",
-        "langCode": "{{langCode}}",
-        "isActive": {{langCode}}
-      }
-      {{#unless @last}},{{/unless}}
-      	{{/each}}
-    ]
-      }
-      {{#unless @last}},{{/unless}}
-      	{{/each}}
+	    {{#each reasonCategories}}
+	      {
+	        "code": "$IGNORE$",
+	        "name": "$IGNORE$",
+	        "description": "$IGNORE$",
+	        "langCode": "$IGNORE$",
+	        "isActive": "$IGNORE$",
+			"reasonList": [
+			    {{#each reasonList}}
+			      {	    
+					"code": "$IGNORE$",
+			        "name": "$IGNORE$",
+			        "description": "$IGNORE$",
+			        "rsnCatCode": "$IGNORE$",
+			        "langCode": "$IGNORE$",
+			        "isActive": "$IGNORE$"
+			      }
+			     {{#unless @last}},{{/unless}}
+			     {{/each}}
+		    ]
+	      }
+	    {{#unless @last}},{{/unless}}
+	    {{/each}}
     ]
   },
   "errors": null

@@ -1,14 +1,15 @@
 FetchRegCentHistory:
    Masterdata_FetchRegCentHistory_allValid_smoke:
-      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langcode}/{effectiveDate}
+      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langCode}/{effectiveDate}
       role: admin
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCentHistory/fetchRegCentHistory
       outputTemplate: masterdata/FetchRegCentHistory/fetchRegCentHistoryResult
       input: '{
   "registrationCenterId": "10001",
-  "effectiveDate": "$TIMESTAMP$",
-  "langcode": "eng"
+  "effectiveDate": "2021-08-22T06:54:42.068Z",
+  "langCode": "eng"
 }'
       output: '{
 "registrationCentersHistory": [{
@@ -17,7 +18,7 @@ FetchRegCentHistory:
 		}]
 }'
    Masterdata_FetchRegCentHistory_invalid_registrationCenterId:
-      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langcode}/{effectiveDate}
+      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langCode}/{effectiveDate}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchRegCentHistory/fetchRegCentHistory
@@ -25,7 +26,7 @@ FetchRegCentHistory:
       input: '{
   "registrationCenterId": "19098",
   "effectiveDate": "2021-01-21T04:58:42.064Z",
-  "langcode": "eng"
+  "langCode": "eng"
 }'
       output: '{
    "errors": [
@@ -36,7 +37,7 @@ FetchRegCentHistory:
   ]
 }'
    Masterdata_FetchRegCentHistory_invalid_langcode:
-      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langcode}/{effectiveDate}
+      endPoint: /v1/masterdata/registrationcentershistory/{registrationCenterId}/{langCode}/{effectiveDate}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchRegCentHistory/fetchRegCentHistory
@@ -44,7 +45,7 @@ FetchRegCentHistory:
       input: '{
   "registrationCenterId": "10001",
   "effectiveDate": "2021-01-21T04:58:42.064Z",
-  "langcode": "ori"
+  "langCode": "ori"
 }'
       output: '{
    "errors": [

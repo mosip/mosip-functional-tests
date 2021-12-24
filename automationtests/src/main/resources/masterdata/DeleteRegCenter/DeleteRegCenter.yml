@@ -1,16 +1,4 @@
 DeleteRegCenter:
-   MasterData_DeleteRegCenter_All_Valid_Smoke_sid:  
-      endPoint: /v1/masterdata/registrationcenters/{registrationCenterId}
-      role: admin
-      restMethod: delete
-      inputTemplate: masterdata/DeleteRegCenter/deleteRegCenter
-      outputTemplate: masterdata/DeleteRegCenter/deleteRegCenterResult
-      input: '{
-    "registrationCenterId": "96874"
-	}'
-      output: '{
-    "id": "96874"
-}'
    MasterData_DeleteRegCenter_Invalid_ID: 
       endPoint: /v1/masterdata/registrationcenters/{registrationCenterId}
       role: admin
@@ -23,7 +11,7 @@ DeleteRegCenter:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
+      "errorCode": "KER-MSD-215",
       "message": "Registration Center not found"
     }
   ]
