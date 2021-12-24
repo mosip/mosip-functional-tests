@@ -1,0 +1,40 @@
+{
+    "id": "$IGNORE$",
+    "version": "$IGNORE$",
+    "responsetime": "$IGNORE$",
+    "metadata": "$IGNORE$",
+    "response": {
+        "pageNo": "$IGNORE$",
+        "totalPages": "$IGNORE$",
+        "totalItems": "$IGNORE$",
+        "data": [
+           {{#each data}}  
+            {
+                "id": "$IGNORE$",
+                "name": "$IGNORE$",
+                "langCode": "$IGNORE$",
+                "dataType": "$IGNORE$",
+                "description": "$IGNORE$",
+                "fieldVal": [
+	                {{#each fieldVal}}  
+				      {
+				        "code": "$IGNORE$",
+				        "value": "$IGNORE$",
+				        "langCode": "$IGNORE$",
+				        "active": "$IGNORE$"
+				      }
+			       {{#unless @last}},{{/unless}}
+			      	{{/each}}
+                ],
+                "isActive": "$IGNORE$",
+                "createdBy": "$IGNORE$",
+                "updatedBy": "$IGNORE$",
+                "createdOn": "$IGNORE$",
+                "updatedOn": "$IGNORE$"
+            }
+            {{#unless @last}},{{/unless}}
+			{{/each}}
+        ]
+    },
+    "errors": null
+}

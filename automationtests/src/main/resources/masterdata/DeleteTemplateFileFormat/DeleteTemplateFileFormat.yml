@@ -1,5 +1,5 @@
 DeleteTemplateFileFormat:
-   MasterData_DeleteTemplateFileFormat_All_Valid_Smoke_sid:  
+   MasterData_DeleteTemplateFileFormat_All_Valid_Smoke:  
       endPoint: /v1/masterdata/templatefileformats/{code}
       role: admin
       restMethod: delete
@@ -11,7 +11,7 @@ DeleteTemplateFileFormat:
       output: '{
     "code": "Doc"
 }'
-   MasterData_DeleteTemplateFileFormat_Invalid_ID: 
+   MasterData_DeleteTemplateFileFormat_Invalid_code: 
       endPoint: /v1/masterdata/templatefileformats/{code}
       role: admin
       restMethod: delete

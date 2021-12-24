@@ -20,18 +20,18 @@ ValidDocumentSearch:
       output: '{
    "errors": null
 }'
-   MasterData_ValidDocumentSearch_Valid_Filter_langCode:
+   MasterData_ValidDocumentSearch_Valid_Filter_DocCatcode:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/ValidDocumentSearch/validDocumentSearchResult
       input: '{
 	"filters": [{
-		"columnName": "langCode",
-		"type": "equals",
-		"value": "eng"
+		"value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
 	}],
 	"sort": [{
 		"sortField": "createdDateTime",
@@ -48,15 +48,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_NegPageFetch:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "createdDateTime",
@@ -78,15 +78,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_NegPageStart:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "createdDateTime",
@@ -108,15 +108,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "asfgaf",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "asdf"
       }],
     "sort": [{
        "sortField": "createdDateTime",
@@ -138,15 +138,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
    "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "createdDateTime",
@@ -168,15 +168,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_SortField_neg:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "createddDateTime",
@@ -199,15 +199,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Blank_SortField:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "",
@@ -229,15 +229,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_ColumnName:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "lang_code",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCodesfd",
+        "type": "equals"
       }],
     "sort": [{
        "sortField": "createdDateTime",
@@ -259,15 +259,15 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Invalid_RequestTime:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
-      templateFields: ["languageCode", "value"]
+      templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
       outputTemplate: masterdata/error
       input: '{
     "filters": [{
-        "columnName": "langCode",
-        "type": "equals",
-        "value": "eng"
+        "value": "POA",
+        "columnName": "docCategoryCode",
+        "type": "equals"
       }],
     "sort": [{
 		"sortField": "createdDateTime",
