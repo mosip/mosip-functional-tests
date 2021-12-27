@@ -1,0 +1,25 @@
+RetrieveVIDByUIN:
+  IdRepository_RetrieveVIDByUIN_With_Valid Smoke_Temp:
+      endPoint: /idrepository/v1/vid/uin/{UIN}
+      role: idrepo
+      restMethod: get
+      inputTemplate: idRepository/RetrieveVIDByUIN/retrieveVIDByUIN
+      outputTemplate: idRepository/RetrieveVIDByUIN/retrieveVIDByUINResult
+      input: '{
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+      }'
+      output: '{
+    "vidType": "TEMPORARY"
+}'
+  IdRepository_RetrieveVIDByUIN_With_Valid Smoke_Perp:
+      endPoint: /idrepository/v1/vid/uin/{UIN}
+      role: idrepo
+      restMethod: get
+      inputTemplate: idRepository/RetrieveVIDByUIN/retrieveVIDByUIN
+      outputTemplate: idRepository/RetrieveVIDByUIN/retrieveVIDByUINResult
+      input: '{
+      "UIN":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$"
+      }'
+      output: '{
+    "vidType": "PERPETUAL"
+}'

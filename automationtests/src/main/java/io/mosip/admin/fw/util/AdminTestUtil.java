@@ -957,6 +957,10 @@ public class AdminTestUtil extends BaseTestCase{
 		
 		if(jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
+		if(jsonString.contains("$RID$"))
+			jsonString = jsonString.replace("$RID$", genRid);
+		if(jsonString.contains("$PUBLICKEY$"))
+			jsonString = jsonString.replace("$PUBLICKEY$", MosipTestRunner.generatePulicKey());
 		if(jsonString.contains("$REMOVE$")) 
 			jsonString = removeObject(new JSONObject(jsonString));
 		if(jsonString.contains("$ID:")) {
@@ -1235,6 +1239,20 @@ public static void copyPreregTestResource() {
 		logger.error("Exception occured while copying the file: "+e.getMessage());
 	}
 }
+
+public static void copyPrerequisiteTestResource() {
+	try {
+		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/prerequisite");
+		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+		FileUtils.copyDirectoryToDirectory(source, destination);
+		File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+		FileUtils.copyDirectoryToDirectory(config, destination);
+		logger.info("Copied the prerequisite test resource successfully");
+	} catch (Exception e) {
+		logger.error("Exception occured while copying the file: "+e.getMessage());
+	}
+}
+
 public static void copyIdrepoTestResource() {
 	try {
 		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/idRepository");
