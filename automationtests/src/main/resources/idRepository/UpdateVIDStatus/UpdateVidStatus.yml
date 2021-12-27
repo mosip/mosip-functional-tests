@@ -1,7 +1,7 @@
 UpdateVidStatus:
   IdRepository_UpdateVidStatus_withInvalidversion_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -9,8 +9,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "erdfddsss",
-	"requesttime": "$TIMESTAMP$"
+  "version": "erdfddsss",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -22,7 +22,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidRequestTime_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -30,8 +30,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "T@@@*I"
+  "version": "v1",
+  "requesttime": "T@@@*I"
 }'
       output: '{
    "errors": [
@@ -43,7 +43,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidVIDStatus_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -51,8 +51,8 @@ UpdateVidStatus:
     "vidStatus": "ROD@DD45#",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -64,7 +64,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidId_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -72,8 +72,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mo",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -85,7 +85,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingverion_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -93,8 +93,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
+  "version": "$REMOVE$",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -106,7 +106,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingRequestTime_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -114,8 +114,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$REMOVE$"
+  "version": "v1",
+  "requesttime": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -127,7 +127,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingId_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -135,8 +135,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "$REMOVE$",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -148,7 +148,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingVIDStatus_ForVidType_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -156,8 +156,8 @@ UpdateVidStatus:
     "vidStatus": "$REMOVE$",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -169,7 +169,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -177,15 +177,15 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "USED"
 }'
   IdRepository_UpdateVidStatus_withInvalidversion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -193,8 +193,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "6ytfcf",
-	"requesttime": "$TIMESTAMP$"
+  "version": "6ytfcf",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -206,7 +206,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidVIDStatus_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -214,8 +214,8 @@ UpdateVidStatus:
     "vidStatus": "@FFGHY433",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -227,7 +227,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidRequestTime_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -235,8 +235,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "@4564#FGHHH"
+  "version": "v1",
+  "requesttime": "@4564#FGHHH"
 }'
       output: '{
    "errors": [
@@ -248,7 +248,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withInvalidId_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -256,8 +256,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mo@HHJJ",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -269,7 +269,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingverion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -277,8 +277,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "$REMOVE$",
-	"requesttime": "$TIMESTAMP$"
+  "version": "$REMOVE$",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -290,7 +290,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingRequestTime_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -298,8 +298,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$REMOVE$"
+  "version": "v1",
+  "requesttime": "$REMOVE$"
 }'
       output: '{
    "errors": [
@@ -311,7 +311,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingVIDStatus_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -319,8 +319,8 @@ UpdateVidStatus:
     "vidStatus": "$REMOVE$",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -332,7 +332,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_withMissingId_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/error
@@ -340,8 +340,8 @@ UpdateVidStatus:
     "vidStatus": "USED",
     "id": "$REMOVE$",
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -353,7 +353,7 @@ UpdateVidStatus:
 }'
   IdRepository_UpdateVidStatus_EXPIRE_For_Vid_Type_Perpetual_smoke:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
@@ -361,15 +361,15 @@ UpdateVidStatus:
     "vidStatus": "EXPIRED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_pexp_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "EXPIRED"
 }'
   IdRepository_UpdateVidStatus_Deactivated_For_Vid_Type_Perpetual_smoke:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
@@ -377,15 +377,15 @@ UpdateVidStatus:
     "vidStatus": "DEACTIVATED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_pdea_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "DEACTIVATED"
 }'
   IdRepository_UpdateVidStatus_Deactivated_For_Vid_Type_Temporary_smoke:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
@@ -393,15 +393,15 @@ UpdateVidStatus:
     "vidStatus": "DEACTIVATED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_tdea_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "DEACTIVATED"
 }'
   IdRepository_UpdateVidStatus_withVidStatus_REVOKE_for_USED_smokeVID_For_Vid_Type_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
@@ -409,15 +409,15 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_pre_Smoke_Perpetual_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "REVOKED"
 }'
   IdRepository_UpdateVidStatus_withVidStatus_REVOKE_for_USED_smokeVID_For_Vid_Type_Temporary:
       endPoint: /idrepository/v1/vid/{VID}
-      role: regproc
+      role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
       outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
@@ -425,8 +425,8 @@ UpdateVidStatus:
     "vidStatus": "REVOKED",
     "id": "mosip.vid.update",
     "VID": "$ID:CreateVID_withValidParameters_tre_Smoke_Temporary_sid_VID$",
-	"version": "v1",
-	"requesttime": "$TIMESTAMP$"
+    "version": "v1",
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "vidStatus": "REVOKED"
