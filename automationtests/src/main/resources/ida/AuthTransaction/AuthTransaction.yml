@@ -1,0 +1,31 @@
+AuthTransaction:
+   auth_AuthTransaction_allValid_smoke_UIN:
+      endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: ida/AuthTransaction/authTransaction
+      outputTemplate: ida/AuthTransaction/authTransactionResult
+      input: '{
+      "individualId":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$"
+}'
+      output: '{
+"authTransactions": [{
+       "transactionID": "1234567890",
+        "referenceIdType": "UIN"
+    }]
+}'
+   auth_AuthTransaction_allValid_smoke_VID:
+      endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: ida/AuthTransaction/authTransaction
+      outputTemplate: ida/AuthTransaction/authTransactionResult
+      input: '{
+      "individualId":"$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$"
+}'
+      output: '{
+"authTransactions": [{
+       "transactionID": "1234567890",
+        "referenceIdType": "VID"
+    }]
+}'

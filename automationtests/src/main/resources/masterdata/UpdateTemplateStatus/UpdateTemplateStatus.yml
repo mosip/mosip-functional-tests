@@ -7,7 +7,7 @@ UpdateTemplateStatus:
       inputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatus
       outputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatusResult
       input: '{
-  "id": "1101",
+  "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$",
   "isActive": "true"
 }'
       output: '{

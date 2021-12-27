@@ -83,7 +83,9 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		
-		filterHbs(testCaseDTO);
+		//filterHbs(testCaseDTO);
+		
+		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		
 		String inputJson = filterInputHbs(testCaseDTO);
 		String outputJson = filterOutputHbs(testCaseDTO);
@@ -159,33 +161,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 	}
 	
 
-	private void filterHbs(TestCaseDTO testCaseDTO) {
-		if(BaseTestCase.languageList.size()==2) {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
-		}
-		
-		else if(BaseTestCase.languageList.size()==3) {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
-		}
-		else {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "SINGLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "SINGLE"));
-		}
-	}
+
 
 	/**
 	 * The method ser current test name to result

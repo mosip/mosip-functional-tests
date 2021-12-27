@@ -1,0 +1,29 @@
+FetchMissingTemplates:
+   MasterData_FetchMissingTemplates_valid_smoke:
+      endPoint: /v1/masterdata/templates/missingids/{langcode}
+      role: admin
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplates
+      outputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplatesResult
+      input: '{
+  "langcode": "eng",
+  "fieldName": "$IGNORE$"
+}'
+      output: '{
+  "response": "$IGNORE$"
+}'
+   MasterData_FetchMissingTemplates_Allvalid_smoke:
+      endPoint: /v1/masterdata/templates/missingids/{langcode}?fieldName={fieldName}
+      role: admin
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplates
+      outputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplatesResult
+      input: '{
+  "langcode": "eng",
+  "fieldName": "description"
+}'
+      output: '{
+  "response": "$IGNORE$"
+}'

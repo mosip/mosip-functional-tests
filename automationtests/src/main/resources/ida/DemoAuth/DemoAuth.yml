@@ -1,7 +1,7 @@
 DemoAuth:
   auth_DemoAuth_DOB_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -24,7 +24,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_InValid_Dateofbirth:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -53,7 +53,7 @@ DemoAuth:
 }'
   auth_DemoAuth_Email_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -76,7 +76,7 @@ DemoAuth:
 }'
   auth_DemoAuth_Email_InValid_Email:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -105,7 +105,7 @@ DemoAuth:
 }'
   auth_DemoAuth_gender_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -132,7 +132,7 @@ DemoAuth:
 }'
   auth_DemoAuth_Name_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -159,7 +159,7 @@ DemoAuth:
 }'
   auth_DemoAuth_age_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -182,7 +182,7 @@ DemoAuth:
 }'
   auth_DemoAuth_PhoneNumber_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -205,7 +205,7 @@ DemoAuth:
 }'
   auth_DemoAuth_PhoneNumber_InValid_PhoneNumber:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -234,7 +234,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_InValid_individualId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -263,7 +263,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Missing_individualId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -292,7 +292,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Blank_individualId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -321,7 +321,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Invalid_individualIdType:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -350,7 +350,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Blank_individualIdType:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -379,7 +379,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Missing_ Optional_Field_individualIdType:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/demoAuthResult
@@ -402,7 +402,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Invalid_transactionId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error
@@ -431,7 +431,7 @@ DemoAuth:
 }'
   auth_DemoAuth_DOB_Blank_transactionId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: ida
+      role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
       outputTemplate: ida/DemoAuth/error

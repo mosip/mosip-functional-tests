@@ -1,7 +1,7 @@
 RetrieveIdentityByRid:
   IdRepository_RetrieveIdentityByRid_With_Valid Smoke_Rid:
       endPoint: /idrepository/v1/identity/idvid/{RID}
-      role: regproc
+      role: admin
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByRid/retrieveIdentityByRid
       outputTemplate: idRepository/RetrieveIdentityByRid/retrieveIdentityByRidResult

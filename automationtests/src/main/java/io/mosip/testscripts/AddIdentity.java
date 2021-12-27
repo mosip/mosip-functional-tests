@@ -78,7 +78,9 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 		
-		filterHbs(testCaseDTO);
+		//filterHbs(testCaseDTO);
+		
+		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		
 		
 		
@@ -113,43 +115,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			
 	}
 
-	private void filterHbs(TestCaseDTO testCaseDTO) {
-		if(BaseTestCase.languageList.size()==2) {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
-		}
-		
-		else if(BaseTestCase.languageList.size()==3) {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "TRIPLE"));
-		}
-		
-		else if(BaseTestCase.languageList.size()==1) {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "SINGLE"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "SINGLE"));
-		}
-		
-		else {
-			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setInputTemplate(
-						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
-			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-				testCaseDTO.setOutputTemplate(
-						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DEFAULT"));
-		}
-	}
+	
 
 	/**
 	 * The method ser current test name to result

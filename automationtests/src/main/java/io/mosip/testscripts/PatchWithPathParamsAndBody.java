@@ -22,6 +22,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
@@ -63,7 +64,11 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
-		response = patchWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
+		String inputJson = filterInputHbs(testCaseDTO);
+		//String outputJson = filterOutputHbs(testCaseDTO);
+		
+		response = patchWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
@@ -72,6 +77,32 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
+	}
+	
+	private String filterOutputHbs(TestCaseDTO testCaseDTO) {
+		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+		if (outputJson.contains("$1STLANG$"))
+			outputJson = outputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (outputJson.contains("$2NDLANG$"))
+			outputJson = outputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (outputJson.contains("$3RDLANG$"))
+			outputJson = outputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		return outputJson;
+	}
+
+	private String filterInputHbs(TestCaseDTO testCaseDTO) {
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+
+		if (inputJson.contains("$1STLANG$"))
+			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+		if (inputJson.contains("$2NDLANG$"))
+			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+		if (inputJson.contains("$3RDLANG$"))
+			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		
+		
+		return inputJson;
 	}
 
 	/**
