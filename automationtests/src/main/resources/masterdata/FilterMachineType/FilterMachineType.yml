@@ -1,6 +1,6 @@
 FilterMachineType:
    Masterdata_FilterMachineType_Valid_Smoke:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -18,13 +18,13 @@ FilterMachineType:
       output: '{
     "filters": []
   }'
-   Masterdata_FilterMachineSpec_Valid_col_as_name_filterType_all:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_Valid_col_as_name_filterType_all:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
+      outputTemplate: masterdata/FilterMachineType/filterMachineTypeResult
       input: '{
 	"filters": [{
 		"columnName": "name",
@@ -38,12 +38,12 @@ FilterMachineType:
     "filters": []
   }'
   
-   Masterdata_FilterMachineSpec_inValid_filterType_blank:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_filterType_blank:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/error
       input: '{
 	"filters": [{
@@ -62,12 +62,12 @@ FilterMachineType:
     }
   ]
 }'  
-   Masterdata_FilterMachineSpec_inValid_filterColumnName_blank:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_filterColumnName_blank:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/error
       input: '{
 	"filters": [{
@@ -86,12 +86,12 @@ FilterMachineType:
     }
   ]
 }'  
-   Masterdata_FilterMachineSpec_inValid_RequestTime_format:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_RequestTime_format:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/error
       input: '{
 	"filters": [{
@@ -110,12 +110,12 @@ FilterMachineType:
     }
   ]
 }'
-   Masterdata_FilterMachineSpec_inValid_filterColumnName:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_filterColumnName:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/error
       input: '{
 	"filters": [{
@@ -134,12 +134,12 @@ FilterMachineType:
     }
   ]
 }'
-   Masterdata_FilterMachineSpec_inValid_filterType:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_filterType:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
       outputTemplate: masterdata/error
       input: '{
 	"filters": [{
@@ -158,13 +158,13 @@ FilterMachineType:
     }
   ]
 }'
-   Masterdata_FilterMachineSpec_inValid_FilterText:
-      endPoint: /v1/masterdata/machinespecifications/filtervalues
+   Masterdata_FilterMachineType_inValid_FilterText:
+      endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
-      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      inputTemplate: masterdata/FilterMachineType/filterMachineType
+      outputTemplate: masterdata/FilterMachineType/filterMachineTypeResult
       input: '{
 	"filters": [{
 		"columnName": "name",

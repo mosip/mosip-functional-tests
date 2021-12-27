@@ -618,8 +618,16 @@
 	<test name="CreateRegCenterType">
 		<parameter name="ymlFile"
 			value="masterdata/RegCenterType/CreateRegCenterType.yml" />
+		<parameter name="idKeyName" value="code" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateRegCenterTypeStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateRegCenterTypeStatus/UpdateRegCenterTypeStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
 	<test name="SearchRegCenterType">
@@ -770,8 +778,9 @@
 	<test name="CreateTemplate">
 		<parameter name="ymlFile"
 			value="masterdata/Template/CreateTemplate.yml" />
+		<parameter name="idKeyName" value="id" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="SearchTemplateDetails">
@@ -805,6 +814,20 @@
 	<test name="FetchTemplate">
 		<parameter name="ymlFile"
 			value="masterdata/FetchTemplate/FetchTemplate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllTemplates">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllTemplates/FetchAllTemplates.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchMissingTemplates">
+		<parameter name="ymlFile"
+			value="masterdata/FetchMissingTemplates/FetchMissingTemplates.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -920,13 +943,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<!-- <test name="DeleteZoneUser">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteZoneUser/DeleteZoneUser.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test> -->
 	<test name="GetPossiableValues">
 		<parameter name="ymlFile"
 			value="masterdata/GetPossiableValues/GetPossiableValues.yml" />
@@ -1246,12 +1262,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
-	<test name="GetApplicantType">
-		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>  
+	
 	<test name="GetDocType_DocCatByAppID">
 		<parameter name="ymlFile" value="masterdata/GetDocType_DocCatByAppID/GetDocType_DocCatByAppID.yml"/>  
 		<classes>
@@ -1397,6 +1408,13 @@
 			value="masterdata/UpdateWorkingDayStatus/UpdateWorkingDayStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 </suite>

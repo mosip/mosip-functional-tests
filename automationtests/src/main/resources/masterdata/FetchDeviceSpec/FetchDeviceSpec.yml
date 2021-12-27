@@ -16,6 +16,23 @@ FetchDeviceSpec:
             "isActive": $IGNORE$
         }]
 }'
+   MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke:
+      endPoint: /v1/masterdata/devicespecifications/devicetypecode/{devicetypecode}
+      role: admin
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
+      outputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpecResult
+      input: '{
+  "devicetypecode": "FRS",
+  "langcode": "$REMOVE$"
+}'
+      output: '{
+"devicespecifications": [{
+            "langCode": "$IGNORE$",
+            "isActive": $IGNORE$
+        }]
+}'
    MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
       endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
       role: admin

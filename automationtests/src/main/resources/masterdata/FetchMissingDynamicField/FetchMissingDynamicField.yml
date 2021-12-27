@@ -22,7 +22,7 @@ FetchMissingDynamicField:
       outputTemplate: masterdata/FetchMissingDynamicField/fetchMissingDynamicFieldResult
       input: '{
   "langcode": "eng",
-  "fieldName": "bloodType"
+  "fieldName": "description"
 }'
       output: '{
   "response": "$IGNORE$"
