@@ -19,9 +19,7 @@
 			<class name="io.mosip.testscripts.PostWithFormDataAndFile" />
 		</classes>
 	</test>
-	<!-- <test name="GetTxnDetailBulkUpload"> <parameter name="ymlFile" value="masterdata/GetTxnDetailBulkUpload/TxnDetailByTxnId.yml"/> 
-		<classes> <class name="io.mosip.testscripts.GetWithQueryParam" /> </classes> 
-		</test> -->
+	
 	<test name="GetAllTxnDetailBulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/GetAllTxnDetailBulkUpload/allTxnDetails.yml" />
@@ -37,9 +35,7 @@
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
-	<!-- <test name="GetConfigs"> <parameter name="ymlFile" value="masterdata/GetConfigs/getConfigs.yml"/> 
-		<classes> <class name="io.mosip.testscripts.GetWithQueryParam" /> </classes> 
-		</test> -->
+	
 
 
 	<test name="CreateBlockListedWords">
@@ -772,8 +768,7 @@
 		</classes>
 	</test>
 
-	<!-- <test name="FetchLocationHierarchy"> <parameter name="ymlFile" value="masterdata/FetchLocationHierarchy/FetchLocationHierarchy.yml"/> 
-		<classes> <class name="io.mosip.testscripts.GetWithParam" /> </classes> </test> -->
+	
 
 	<test name="CreateTemplate">
 		<parameter name="ymlFile"
@@ -1417,4 +1412,24 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	
+	<test name="UserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="UpdateUserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UpdateUserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	
+	
 </suite>
