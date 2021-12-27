@@ -2,6 +2,7 @@ UserCenterMapping:
    MasterData_UserCenterMapping_All_Valid_Smoke:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
@@ -12,7 +13,7 @@ UserCenterMapping:
      "regCenterId": "10005",
      "isActive": true,
      "langCode": "eng",
-	   "requesttime": "$TIMESTAMP$"
+     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
        "id": "auto_test_user",
@@ -29,6 +30,7 @@ UserCenterMapping:
    MasterData_UserCenterMapping_Invalid_duplicate_entry:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/error
@@ -53,6 +55,7 @@ UserCenterMapping:
    MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/error
@@ -77,6 +80,7 @@ UserCenterMapping:
    MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/error
