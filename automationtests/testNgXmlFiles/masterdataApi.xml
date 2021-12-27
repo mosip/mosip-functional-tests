@@ -1430,6 +1430,13 @@
 		</classes>
 	</test>
 	
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 	
 	
 </suite>
