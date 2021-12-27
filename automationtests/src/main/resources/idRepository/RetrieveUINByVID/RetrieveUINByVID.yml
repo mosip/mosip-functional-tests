@@ -1,7 +1,7 @@
 Retrieve_VID_pos:
   IdRepository_Retrieve_VID_pos_perpetual_Active_smoke:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVIDResult
@@ -14,7 +14,7 @@ Retrieve_VID_pos:
 }'
   IdRepository_Retrieve_VID_pos_perpetual_DEACTIVATED:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/error
@@ -31,7 +31,7 @@ Retrieve_VID_pos:
 }'
   IdRepository_Retrieve_VID_pos_perpetual_Expired:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/error
@@ -48,7 +48,7 @@ Retrieve_VID_pos:
 }'
   IdRepository_Retrieve_VID_pos_perpetual_Revoked:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/error
@@ -65,7 +65,7 @@ Retrieve_VID_pos:
 }'
   IdRepository_Retrieve_VID_pos_Temperory_DEACTIVATED:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/error
@@ -82,7 +82,7 @@ Retrieve_VID_pos:
 }'
   IdRepository_Retrieve_VID_pos_Temperory_Revoked:
       endPoint: /idrepository/v1/vid/{VID}
-      role: admin
+      role: idrepo
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/error

@@ -19,7 +19,7 @@
 			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
 	</test>-->
-	 <test name="AddIdentity">
+	  <test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
 	<classes>
@@ -90,9 +90,9 @@
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
-	</test>
+	</test> 
 	
-	<test name="GetDraft">
+	 <test name="GetDraft">
 		<parameter name="ymlFile"	value="idRepository\GetDraft\GetDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
@@ -104,6 +104,27 @@
 		<parameter name="pathParams"	value="registrationId" />
 	<classes>
 		<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+	</classes>
+	</test> 
+	
+	<test name="PublishDraft">
+		<parameter name="ymlFile"	value="idRepository\PublishDraft\PublishDraft.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	
+	<test name="ExtractBiometrics">
+		<parameter name="ymlFile"	value="idRepository\ExtractBiometrics\ExtractBiometrics.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.PutWithPathParam" />
+	</classes>
+	</test>
+	
+	<test name="DeleteDraft">
+		<parameter name="ymlFile"	value="idRepository\DeleteDraft\DeleteDraft.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.DeleteWithParam" />
 	</classes>
 	</test>
 	

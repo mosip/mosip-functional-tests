@@ -1,12 +1,24 @@
 CreateDraft:
   IdRepository_CreateDraft_Smoke_Pos:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}
-      role: admin
+      role: idrepo
       restMethod: post
       inputTemplate: idRepository/CreateDraft/createDraft
       outputTemplate: idRepository/CreateDraft/createDraftResult
       input: '{
-      "registrationId":"1122333444455"
+      "registrationId":"$RID$"
+      }'
+      output: '{
+    "status": "DRAFTED"
+}'
+  IdRepository_CreateDraft_delete_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/draft/create/{registrationId}
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraft/createDraft
+      outputTemplate: idRepository/CreateDraft/createDraftResult
+      input: '{
+      "registrationId":"1000999888777666555443321"
       }'
       output: '{
     "status": "DRAFTED"

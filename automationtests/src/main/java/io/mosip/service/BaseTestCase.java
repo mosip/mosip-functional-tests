@@ -12,6 +12,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
@@ -53,6 +54,7 @@ public class BaseTestCase {
 
 	public String individualCookie = null;
 	public String idaCookie = null;
+	public String idrepoCookie = null;
 	public String regProcCookie = null;
 	public String regAdminCookie = null;
 	public String registrationOfficerCookie = null;
@@ -94,6 +96,7 @@ public class BaseTestCase {
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
 	public static List<String> languageList = new ArrayList<>();
+	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 
 	public static String getOSType() {
@@ -193,6 +196,10 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
 			AdminTestUtil.copyPreregTestResource();
+			
+		}
+		if (listOfModules.contains("prerequisite")) {
+			AdminTestUtil.copyPrerequisiteTestResource();
 			
 		}
 		

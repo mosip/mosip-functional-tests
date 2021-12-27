@@ -32,6 +32,10 @@ public class KernelAuthentication extends BaseTestCase{
 	private String regProc_password=props.get("regProc_password");
 	private String regProc_userName=props.get("regProc_userName");
 	
+	private String admin_appid=props.get("admin_appid");
+	private String admin_password=props.get("admin_password");
+	private String admin_userName=props.get("admin_userName");
+	
 	private String registrationAdmin_appid=props.get("registrationAdmin_appid");;
 	private String registrationAdmin_password=props.get("registrationAdmin_password");
 	private String registrationAdmin_userName=props.get("registrationAdmin_userName");
@@ -84,6 +88,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(idaCookie))
 				idaCookie = kernelAuthLib.getAuthForIDA();
 			return idaCookie;
+		case "idrepo":
+			if(!kernelCmnLib.isValidToken(idrepoCookie))
+				idrepoCookie = kernelAuthLib.getAuthForIDREPO();
+			return idrepoCookie;
 		case "regproc":
 			if(!kernelCmnLib.isValidToken(regProcCookie))
 				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
@@ -128,12 +136,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", props.get("admin_appid"));
-		request.put("clientId", props.get("admin_clientId"));
-		request.put("secretKey", props.get("admin_secretKey"));
+		request.put("appId", admin_appid);
+		request.put("password", admin_password);
+		request.put("userName", admin_userName);
 		actualrequest.put("request", request);
-		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+	
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
@@ -226,12 +234,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", props.get("admin_appid"));
-		request.put("clientId", props.get("admin_clientId"));
-		request.put("secretKey", props.get("admin_secretKey"));
+		request.put("appId", regProc_appid);
+		request.put("password", regProc_password);
+		request.put("userName", regProc_userName);
 		actualrequest.put("request", request);
-		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+	
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
@@ -244,6 +252,21 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", props.get("resident_appid"));
 		request.put("clientId", props.get("resident_clientId"));
 		request.put("secretKey", props.get("resident_secretKey"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForIDREPO() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("idrepo_appid"));
+		request.put("clientId", props.get("idrepo_clientId"));
+		request.put("secretKey", props.get("idrepo_secretKey"));
 		actualrequest.put("request", request);
 		
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
