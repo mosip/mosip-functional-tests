@@ -331,7 +331,7 @@
 	</test> 
 	<test name="SearchPartner">
 		<parameter name="ymlFile"
-			value="partner/search/SearchPartner.yml" />
+			value="partner/PartnerSearch/partnerSearch.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
