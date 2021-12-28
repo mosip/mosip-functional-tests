@@ -97,6 +97,7 @@ public class BaseTestCase {
 	public static String buildNumber = "";
 	public static List<String> languageList = new ArrayList<>();
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 
 	public static String getOSType() {

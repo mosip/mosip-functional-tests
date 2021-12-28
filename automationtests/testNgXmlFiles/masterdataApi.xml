@@ -1194,34 +1194,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>  
-	<test name="CreateApplicationType">
-		<parameter name="ymlFile"
-			value="masterdata/CreateApplicationType/CreateApplicationType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="GetApplicationTypes">
-		<parameter name="ymlFile"
-			value="masterdata/GetApplicationTypes/GetApplicationTypes.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GetApplicationTypesByLangcode">
-		<parameter name="ymlFile"
-			value="masterdata/GetApplicationTypesByLangcode/GetApplicationTypesByLangcode.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GetApplicationTypeByCodeAndLangcode">
-		<parameter name="ymlFile"
-			value="masterdata/GetApplicationTypeByCodeAndLangcode/GetApplicationTypeByCodeAndLangcode.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
+	
 	<test name="CreateIdType">
 		<parameter name="ymlFile"
 			value="masterdata/CreateIdType/CreateIdType.yml" />

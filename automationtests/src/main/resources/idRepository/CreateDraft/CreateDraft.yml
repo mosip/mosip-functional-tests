@@ -18,7 +18,7 @@ CreateDraft:
       inputTemplate: idRepository/CreateDraft/createDraft
       outputTemplate: idRepository/CreateDraft/createDraftResult
       input: '{
-      "registrationId":"1000999888777666555443321"
+      "registrationId":"$RIDDEL$"
       }'
       output: '{
     "status": "DRAFTED"

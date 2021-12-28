@@ -8,7 +8,7 @@ FetchRegCentHistory:
       outputTemplate: masterdata/FetchRegCentHistory/fetchRegCentHistoryResult
       input: '{
   "registrationCenterId": "10001",
-  "effectiveDate": "2021-08-22T06:54:42.068Z",
+  "effectiveDate": "$TIMESTAMP$",
   "langCode": "eng"
 }'
       output: '{

@@ -21,7 +21,8 @@ FetchWorkingDays:
       inputTemplate: masterdata/FetchWorkingDays/fetchWorkingDays
       outputTemplate: masterdata/FetchWorkingDays/fetchWorkingDaysResult
       input: '{
-  "langCode": "eng"
+  "langCode": "eng",
+  "registrationCenterID": "$REMOVE$"
 }'
       output: '{
    "errors": null

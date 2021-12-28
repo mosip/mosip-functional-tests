@@ -6,8 +6,8 @@ DeleteValidDocument:
       inputTemplate: masterdata/DeleteValidDocument/deleteValidDocument
       outputTemplate: masterdata/error
       input: '{
-    "doccategorycode": "POE",
-    "doctypecode": "EOP"
+    "doccategorycode": "rrtyyuhhgfdds",
+    "doctypecode": "4edfghhys"
   }'
       output: '{
    "errors": [

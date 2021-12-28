@@ -1,0 +1,13 @@
+AuthInternalLock:
+  IdRepository_AuthInternalLock_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraft/createDraft
+      outputTemplate: idRepository/CreateDraft/createDraftResult
+      input: '{
+      "registrationId":"$RID$"
+      }'
+      output: '{
+    "status": "DRAFTED"
+}'
