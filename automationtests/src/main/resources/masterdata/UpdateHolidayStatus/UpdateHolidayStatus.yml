@@ -1,0 +1,15 @@
+UpdateHolidayStatus:
+   MasterData_UpdateHolidayStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/holidays?holidayId={holidayId}&isActive={isActive}
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatus
+      outputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatusResult
+      input: '{
+    "holidayId": "2000070",
+    "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for holiday"
+}'

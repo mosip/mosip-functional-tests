@@ -692,6 +692,13 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	<test name="UpdateHolidayStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateHolidayStatus/UpdateHolidayStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
 	<test name="FetchHolidays">
 		<parameter name="ymlFile"
 			value="masterdata/FetchHolidays/FetchHoliday.yml" />
@@ -1378,8 +1385,33 @@
 			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
-	
-	
+	<test name="CreateZoneUser">
+		<parameter name="ymlFile"
+			value="masterdata/ZoneUser/CreateZoneUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateZoneUser">
+		<parameter name="ymlFile"
+			value="masterdata/ZoneUser/UpdateZoneUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="UpdateZoneUserStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateZoneUserStatus/UpdateZoneUserStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	
 	<test name="UserCenterMapping">
 		<parameter name="ymlFile"
@@ -1397,12 +1429,7 @@
 		</classes>
 	</test>
 	
-	<test name="GetApplicantType">
-		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
+	
 	
 	
 	
