@@ -243,8 +243,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_035",
-      "message": "Registration center id not found"
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
     }
   ]
 }'

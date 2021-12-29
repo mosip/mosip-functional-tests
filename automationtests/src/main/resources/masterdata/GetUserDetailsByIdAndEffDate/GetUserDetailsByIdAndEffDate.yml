@@ -8,7 +8,7 @@ GetUserDetailsByIdAndEffDate:
       outputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDateResult
       input: '{
   "id":"110001",
-  "effDate":"2021-12-10T08:43:46.614Z"
+  "effDate":"2023-12-10T08:43:46.614Z"
 }'
       output: '{
    "id": "110001",

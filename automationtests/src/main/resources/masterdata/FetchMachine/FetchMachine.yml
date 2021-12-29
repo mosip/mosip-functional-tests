@@ -31,23 +31,6 @@ FetchMachine:
 			"isActive": true
 		}]
 }'
-   Masterdata_FetchMachine_allValid_smoke_with_lang:
-      endPoint: /v1/masterdata/machines/{langcode}
-      role: admin
-      templateFields: ["value"]
-      restMethod: get
-      inputTemplate: masterdata/FetchMachine/fetchMachine
-      outputTemplate: masterdata/FetchMachine/fetchMachineResult
-      input: '{
-  "id": "$REMOVE$",
-  "langcode": "eng",
-  "regCenterId": "$REMOVE$"
-}'
-      output: '{
-"machines": [{
-			"isActive": true
-		}]
-}'
    Masterdata_FetchMachine_allValid_smoke_with_regCenterId:
       endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
       role: admin

@@ -8,7 +8,7 @@ FetchMissingTemplates:
       outputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplatesResult
       input: '{
   "langcode": "eng",
-  "fieldName": "$IGNORE$"
+  "fieldName": "$REMOVE$"
 }'
       output: '{
   "response": "$IGNORE$"

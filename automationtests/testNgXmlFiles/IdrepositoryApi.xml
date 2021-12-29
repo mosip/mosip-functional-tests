@@ -19,7 +19,7 @@
 			<class name="io.mosip.testscripts.MassUINGenerator" />
 		</classes>
 	</test>-->
-	  <test name="AddIdentity">
+	   <test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
 	<classes>
@@ -45,6 +45,14 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
+	
+	<test name="RetrieveVIDByUIN">
+		<parameter name="ymlFile"	value="idRepository\RetrieveVIDByUIN\RetrieveVIDByUIN.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
+	
 	<test name="UpdateIdentity">
 		<parameter name="ymlFile"
 			value="idRepository\UpdateIdentity\UpdateIdentity.yml" />
@@ -83,7 +91,7 @@
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
-	</test> 
+	</test>  
 	
 	<test name="CreateDraft">
 		<parameter name="ymlFile"	value="idRepository\CreateDraft\CreateDraft.yml" />
@@ -94,12 +102,21 @@
 	
 	 <test name="GetDraft">
 		<parameter name="ymlFile"	value="idRepository\GetDraft\GetDraft.yml" />
+		<parameter name="idKeyName" value="UIN" />
 	<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
+		<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 	</classes>
-	</test>
+	</test> 
 	
-	<test name="UpdateDraft">
+	 <test name="CreateDraftVID">
+		<parameter name="ymlFile"	value="idRepository\CreateDraftVID\CreateDraftVID.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test> 
+	
+	
+	 <test name="UpdateDraft">
 		<parameter name="ymlFile"	value="idRepository\UpdateDraft\UpdateDraft.yml" />
 		<parameter name="pathParams"	value="registrationId" />
 	<classes>
@@ -126,6 +143,6 @@
 	<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 	</classes>
-	</test>
+	</test>  
 	
 </suite>

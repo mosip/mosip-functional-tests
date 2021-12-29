@@ -1,5 +1,5 @@
 GetDraft:
-  IdRepository_GetDraft_all_valid_smoke:
+  IdRepository_GetDraft_all_valid_smoke_sid:
       endPoint: /idrepository/v1/identity/draft/{registrationId}
       role: idrepo
       restMethod: get

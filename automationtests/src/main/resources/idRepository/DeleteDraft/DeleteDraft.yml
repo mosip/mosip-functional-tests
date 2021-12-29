@@ -6,7 +6,7 @@ DeleteDraft:
       inputTemplate: idRepository/DeleteDraft/deleteDraft
       outputTemplate: idRepository/DeleteDraft/deleteDraftResult
       input: '{
-      "registrationId":"1000999888777666555443321"
+      "registrationId":"$RIDDEL$"
       }'
       output: '{
     "status": "DISCARDED"
