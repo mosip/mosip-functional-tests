@@ -49,6 +49,15 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	<test name="FetchApplicationByPrid">
+		<parameter name="ymlFile"
+			value="preReg/FetchApplicationByPrid/FetchApplicationByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
 	<test name="GetApplicationStatusWithPrId">
 		<parameter name="ymlFile"
 			value="preReg/GetApplicationStatusWithPrId/GetApplicationStatusWithPrId.yml" />
@@ -117,6 +126,15 @@
 			<class name="io.mosip.testscripts.PostWithPathParamsAndBody" />
 		</classes>
 	</test>
+	
+	<test name="FetchAppointmentDetailsByPrid">
+		<parameter name="ymlFile"
+			value="preReg/FetchAppointmentDetailsByPrid/FetchAppointmentDetailsByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
 	<test name="BookAppointmentByPRID">
 		<parameter name="ymlFile"
 			value="preReg/bookAppointmentByPRID/bookAppointmentByPRID.yml" />
