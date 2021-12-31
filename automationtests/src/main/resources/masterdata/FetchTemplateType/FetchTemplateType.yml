@@ -8,7 +8,7 @@ FetchTemplateType:
       outputTemplate: masterdata/FetchTemplateType/fetchTemplateTypeResult
       input: '{
   "langcode": "eng",
-  "code": "Test-info-Template-auto"
+  "code": "auth-email-content"
 }'
       output: '{
 "templateTypes": [{
