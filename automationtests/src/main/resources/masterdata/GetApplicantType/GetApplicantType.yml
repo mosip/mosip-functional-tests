@@ -7,15 +7,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -26,7 +26,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "009"
+      "applicantTypeCode": "002"
 }'
    Masterdata_GetApplicantType_MLE_NFR_CHL_True:
       endPoint: /v1/masterdata/getApplicantType
@@ -36,15 +36,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -55,7 +55,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "011"
+      "applicantTypeCode": "003"
 }'
    Masterdata_GetApplicantType_MLE_NFR_CHL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -65,15 +65,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -94,15 +94,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -113,7 +113,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "012"
+      "applicantTypeCode": "004"
 }'
    Masterdata_GetApplicantType_MLE_NFR_ADL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -123,15 +123,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -152,15 +152,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -181,15 +181,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -200,7 +200,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "010"
+      "applicantTypeCode": "002"
 }'
    Masterdata_GetApplicantType_MLE_FR_ADL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -210,15 +210,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -231,23 +231,23 @@ GetApplicantType:
       output: '{
       "applicantTypeCode": "002"
 }'
-   Masterdata_GetApplicantType_invalid_individualTypeCode:
+   Masterdata_GetApplicantType_invalid_residenceStatus:
       endPoint: /v1/masterdata/getApplicantType
       role: admin
       restMethod: post
       inputTemplate: masterdata/GetApplicantType/getApplicantType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "4564"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -258,30 +258,25 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-147",
-      "message": "Applicant Type data does not exist"
-    }
-  ]
+      "applicantTypeCode": "000"
 }'
-   Masterdata_GetApplicantType_invalid_genderCode:
+   Masterdata_GetApplicantType_invalid_gender:
       endPoint: /v1/masterdata/getApplicantType
       role: admin
       restMethod: post
       inputTemplate: masterdata/GetApplicantType/getApplicantType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "35132"
       },
       {
@@ -292,14 +287,9 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-147",
-      "message": "Applicant Type data does not exist"
-    }
-  ]
+      "applicantTypeCode": "000"
 }'
-   Masterdata_GetApplicantType_invalid_dateofbirth:
+   Masterdata_GetApplicantType_invalid_dateOfBirth:
       endPoint: /v1/masterdata/getApplicantType
       role: admin
       restMethod: post
@@ -307,15 +297,15 @@ GetApplicantType:
       outputTemplate: masterdata/error
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
+        "attribute": "dateOfBirth",
         "value": "2018-01-01 10:00:00.00Z"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -328,8 +318,8 @@ GetApplicantType:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-148",
-      "message": "One or more input parameter is invalid or does not exist"
+      "errorCode": "KER-MSD-147",
+      "message": "Invalid query passed for applicant type"
     }
   ]
 }'
@@ -338,18 +328,18 @@ GetApplicantType:
       role: admin
       restMethod: post
       inputTemplate: masterdata/GetApplicantType/getApplicantType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -360,13 +350,9 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-148",
-      "message": "One or more input parameter is invalid or does not exist"
-    }
-  ]
+      "applicantTypeCode": "002"
 }'
+
    Masterdata_GetApplicantType_Future_date_as_DOB:
       endPoint: /v1/masterdata/getApplicantType
       role: admin
@@ -375,15 +361,15 @@ GetApplicantType:
       outputTemplate: masterdata/error
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2025-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2029/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -396,8 +382,8 @@ GetApplicantType:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-148",
-      "message": "One or more input parameter is invalid or does not exist"
+      "errorCode": "KER-MSD-151",
+      "message": "DOB cannot exceed current date"
     }
   ]
 }'
@@ -409,15 +395,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -428,7 +414,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "015"
+      "applicantTypeCode": "007"
 }'
    Masterdata_GetApplicantType_FLE_NFR_CHL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -438,15 +424,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -467,15 +453,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -486,7 +472,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "016"
+      "applicantTypeCode": "008"
 }'
    Masterdata_GetApplicantType_FLE_NFR_ADL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -496,15 +482,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "NFR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -525,15 +511,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -544,7 +530,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "013"
+      "applicantTypeCode": "005"
 }'
    Masterdata_GetApplicantType_FLE_FR_CHL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -554,15 +540,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -583,15 +569,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -602,7 +588,7 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "014"
+      "applicantTypeCode": "006"
 }'
    Masterdata_GetApplicantType_FLE_FR_ADL_False:
       endPoint: /v1/masterdata/getApplicantType
@@ -612,15 +598,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "1992-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -641,15 +627,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2020-06-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "2021/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "FLE"
       },
       {
@@ -670,15 +656,15 @@ GetApplicantType:
       outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
       input: '{
     "attributes": [{
-        "attribute": "individualTypeCode",
+        "attribute": "residenceStatus",
         "value": "FR"
       },
       {
-        "attribute": "dateofbirth",
-        "value": "2018-01-01T10:00:00.00Z"
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
       },
       {
-        "attribute": "genderCode",
+        "attribute": "gender",
         "value": "MLE"
       },
       {
@@ -689,5 +675,5 @@ GetApplicantType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-      "applicantTypeCode": "009"
+      "applicantTypeCode": "002"
 }'

@@ -2,22 +2,18 @@ UpdateRegistrationCenterNonLanguage:
    MasterData_UpdateRegistrationCenterNonLanguage_Smoke:  
       endPoint: /v1/masterdata/registrationcenters/nonlanguage
       role: admin
-      templateFields: ["addressLine1","addressLine2","addressLine3","contactPerson","name"]
+      templateFields: ["contactPerson","name"]
       restMethod: put
-      inputTemplate: masterdata/UpdateRegistrationCenter/updateRegistrationCenter
-      outputTemplate: masterdata/UpdateRegistrationCenter/updateRegistrationCenterResult
+      inputTemplate: masterdata/UpdateRegistrationCenterNonLanguage/updateRegistrationCenter
+      outputTemplate: masterdata/UpdateRegistrationCenterNonLanguage/updateRegistrationCenterResult
       input: '{
-    "contactPerson": "sudip",
+    "contactPerson": "sudeep",
     "id": "10008",
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "id": "10008",
-    "name": "Center Sidi Allal Tazi Test",
-    "addressLine1": "National Road Test",
-    "addressLine2": "Alla Tazi Test",
-    "addressLine3": "MyCountry Test",
-    "langCode": "eng",
-    "contactPerson": "Cliff Hanger Test"
+    "contactPhone": "9663089998",
+    "centerTypeCode": "REG"
 }'
    
