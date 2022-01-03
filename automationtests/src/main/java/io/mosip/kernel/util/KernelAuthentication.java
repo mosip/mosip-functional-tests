@@ -36,6 +36,10 @@ public class KernelAuthentication extends BaseTestCase{
 	private String admin_password=props.get("admin_password");
 	private String admin_userName=props.get("admin_userName");
 	
+	private String partner_appid=props.get("partner_appid");
+	private String partner_password=props.get("partner_password");
+	private String partner_userName=props.get("partner_userName");
+	
 	private String registrationAdmin_appid=props.get("registrationAdmin_appid");;
 	private String registrationAdmin_password=props.get("registrationAdmin_password");
 	private String registrationAdmin_userName=props.get("registrationAdmin_userName");
@@ -151,12 +155,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", props.get("partner_appid"));
-		request.put("clientId", props.get("partner_clientId"));
-		request.put("secretKey", props.get("partner_secretKey"));
+		request.put("appId", partner_appid);
+		request.put("password", partner_password);
+		request.put("userName", partner_userName);
 		actualrequest.put("request", request);
-		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+	
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
