@@ -396,29 +396,6 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="SaveFTPChipDetail">
-		<parameter name="ymlFile"
-			value="partner/device/ftmChipDetails/create/CreateFTPChipDetail.yml" />
-			<parameter name="idKeyName" value="id"></parameter>
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test> 
-	<test name="ApproveFtpChipDetail">
-		<parameter name="ymlFile"
-			value="partner/device/ftmChipDetails/approve/ApproveFtpChipDetail.yml" />
-			<parameter name="idKeyName" value="id"></parameter>
-		<classes>
-			<class name="io.mosip.testscripts.SimplePatch" />
-		</classes>
-	</test>
-	<test name="UpdateFtpChipDetail">
-		<parameter name="ymlFile"
-			value="partner/device/ftmChipDetails/update/UpdateFtpChipDetail.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
 	
 	<!-- <test name="SignedRegisteredDevice">
 		<parameter name="ymlFile"
@@ -436,14 +413,6 @@
 		</classes>
 	</test> -->
 	
-	
-	 <test name="GetMISPLicense">
-		<parameter name="ymlFile"
-			value="partner/GetMISPLicense/GetMISPLicense.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
 	<test name="GetPartnersPolicy">
 		<parameter name="ymlFile"
 			value="partner/GetPartnersPolicy/GetPartnersPolicy.yml" />
@@ -536,6 +505,90 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	 <test name="SaveFTPChipDetail">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/create/CreateFTPChipDetail.yml" />
+			<parameter name="idKeyName" value="id"></parameter>
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="ApproveFtpChipDetail">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/approve/ApproveFtpChipDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
+	<test name="UpdateFtpChipDetail">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/update/UpdateFtpChipDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="UploadCertificate">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/uploadcert/Uploadcertificate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetFTPChipDetail">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/get/GetFtpChipDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="RejectFtpChipDetail">
+		<parameter name="ymlFile"
+			value="partner/device/ftmChipDetails/reject/RejectFtpChipDetail.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
+	<test name="CreateMispLicense">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/CreateMispLicense/CreateMispLicense.yml" />
+		<parameter name="idKeyName" value="licenseKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetMispLicense">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/GetMispLicense/GetMispLicense.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetMISPLicenseByMispID">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/GetMISPLicenseByMispID/GetMISPLicenseByMispID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="UpdateMispLicense">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/UpdateMispLicense/UpdateMispLicense.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="SearchMispLicense">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/SearchMispLicense/SearchMispLicense.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FilterMispLicense">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/FilterMispLicense/FilterMispLicense.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>
-
-
