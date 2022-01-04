@@ -101,6 +101,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
+	public static String idField=null;
 	
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -577,6 +578,8 @@ public class AdminTestUtil extends BaseTestCase{
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
+			if(testCaseName.toLowerCase().contains("dynamic"))
+				pathParamsMap.put("id", idField);
 			response = RestClient.putWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
 			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
