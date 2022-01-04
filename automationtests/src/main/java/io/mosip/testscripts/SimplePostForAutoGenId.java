@@ -111,7 +111,11 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
 								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
-						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+						if(testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
+							JSONObject json = new JSONObject(response.asString()); 
+							idField=json.getJSONObject("response").get("id").toString();
+						}
+		            	Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
