@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-    <!-- <test name="CreatePolicyGroup">
+     <test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/DefinePolicyGroup/DefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -403,11 +403,11 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>-->
+	</test>
 	
 	
 	
-<!-- 	<test name="CreateSecureBiometricInterface">
+ 	<test name="CreateSecureBiometricInterface">
 		<parameter name="ymlFile"
 			value="partner/device/SecureBiometricInterface/create/CreateSecureBiometricInterface.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -446,7 +446,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>-->
+	</test>
 	
 	<test name="ServiceToFilterSBI">
 		<parameter name="ymlFile"
@@ -475,7 +475,7 @@
 	
 	
 	
-	<!-- <test name="SaveFTPChipDetail">
+	 <test name="SaveFTPChipDetail">
 		<parameter name="ymlFile"
 			value="partner/device/ftmChipDetails/create/CreateFTPChipDetail.yml" />
 			<parameter name="idKeyName" value="id"></parameter>
@@ -576,7 +576,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test> -->  
+	</test>  
 	
 	
 	
