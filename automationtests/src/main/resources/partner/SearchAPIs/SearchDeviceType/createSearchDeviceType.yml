@@ -1,142 +1,10 @@
 createSearchDeviceType:
-   Partner_SearchDeviceType_type_contains_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+   Partner_SearchDeviceType_Smoke_sid:
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "contains",
-        "value": "Face"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "active": "true"
-      }
-    ]
-}'
-   Partner_SearchDeviceType_type_contains_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "contains",
-        "value": "Face"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "active": "true"
-      }
-    ]
-}'
-   Partner_SearchDeviceType_type_equals_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "code",
-        "type": "equals",
-        "value": "Touchless"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "active": "true"
-      }
-    ]
-}'
-   Partner_SearchDeviceType_type_equals_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "code",
-        "type": "equals",
-        "value": "Touchless"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "active": "true"
-      }
-    ]
-}'
-   Partner_SearchDeviceType_type_startswith_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
+      outputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceTypeResult
       input: '{
     "filters": [
       {
@@ -163,181 +31,12 @@ createSearchDeviceType:
         "active": "true"
       }
     ]
-}'
-   Partner_SearchDeviceType_type_startswith_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/Search/SearchDeviceType/createSearchDeviceTypeResult
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "startswith",
-        "value": "t"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "data": [
-     {
-        "active": "true"
-      }
-    ]
-}'
-   Partner_SearchDeviceType_with_invalid_value_containts:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "containts",
-        "value": "2@@@@4$$$5555%%%****"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the 2@@@@4$$$5555%%%**** Receivedd"
-    }
-  ]
-}'
-   Partner_SearchDeviceType_with_invalid_value_equals:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "equals",
-        "value": "2@@@@4$$$5555%%%****"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the 2@@@@4$$$5555%%%**** Receivedd"
-    }
-  ]
-}'
-   Partner_SearchDeviceType_with_invalid_value_startswith:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "name",
-        "type": "startswith",
-        "value": "2@@@@4$$$5555%%%****"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "name",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the 2@@@@4$$$5555%%%**** Receivedd"
-    }
-  ]
-}'
-   Partner_SearchDeviceType_with_invalid_columnName:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "mo@@@@@@@2334412345del",
-        "type": "equals",
-        "value": "Touchless"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "code",
-        "sortType": "asc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "purpose": "REGISTRATION",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-310",
-      "message": "Invalid column received:mo@@@@@@@2334412345del"
-    }
-  ]
 }'
    Partner_SearchDeviceType_with_missing_columnName:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -368,10 +67,10 @@ createSearchDeviceType:
   ]
 }'
    Partner_SearchDeviceType_with_missing_type:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -402,10 +101,10 @@ createSearchDeviceType:
   ]
 }'
    Partner_SearchDeviceType_with_invalid_sort_type:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -436,10 +135,10 @@ createSearchDeviceType:
   ]
 }'
    Partner_SearchDeviceType_with_missing_sort_type:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -470,10 +169,10 @@ createSearchDeviceType:
   ]
 }'
    Partner_SearchDeviceType_with_invalid_sort_field:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -504,10 +203,10 @@ createSearchDeviceType:
   ]
 }'
    Partner_SearchDeviceType_with_missing_sort_field:
-      endPoint: /partnermanagement/v1/partners/devicedetail/deviceType/search
+      endPoint: /v1/partnermanager/devicedetail/deviceType/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchDeviceType/createSearchDeviceType
+      inputTemplate: partner/SearchAPIs/SearchDeviceType/createSearchDeviceType
       outputTemplate: partner/error
       input: '{
     "filters": [
