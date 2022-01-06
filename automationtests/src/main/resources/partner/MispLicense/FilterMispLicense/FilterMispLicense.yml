@@ -1,0 +1,94 @@
+FilterMispLicense:
+   Partner_FilterMispLicense_Valid_Smoke:
+      endPoint: /v1/partnermanager/misps/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/MispLicense/FilterMispLicense/filterMispLicense
+      outputTemplate: partner/MispLicense/FilterMispLicense/filterMispLicenseResult
+      input: '{
+	"filters": [{
+	   "columnName": "isActive",
+        "type": "unique",
+        "text": ""
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "filters": [
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      },
+      {
+        "fieldID": "isActive",
+        "fieldValue": "false"
+      }
+    ],
+    "errors": null
+}'
+   Partner_FilterMispLicense_InValid_FilterType:
+      endPoint: /v1/partnermanager/misps/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/MispLicense/FilterMispLicense/filterMispLicense
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "iSActive",
+		"type": "between",
+		"text": ""
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   Partner_FilterMispLicense_Blank_FilterType:
+      endPoint: /v1/partnermanager/misps/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/MispLicense/FilterMispLicense/filterMispLicense
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "isActive",
+		"type": "",
+		"text": ""
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   Partner_FilterMispLicense_InValid_columnName:
+      endPoint: /v1/partnermanager/misps/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/MispLicense/FilterMispLicense/filterMispLicense
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "lang_code",
+		"type": "unique",
+		"text": ""
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
