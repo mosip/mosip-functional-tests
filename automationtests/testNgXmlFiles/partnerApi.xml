@@ -378,7 +378,50 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-	<test name="CreateSecureBiometricInterface">
+	
+	<test name="DeviceSubTypeFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceSubTypeFilter/DeviceSubTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceDetailsFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceDetailsFilter/DeviceDetailsFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name="DeviceTypeFilter">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/DeviceTypeFilter/DeviceTypeFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	
+	<test name="createSearchDeviceType">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchDeviceType/createSearchDeviceType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name="createSearchDeviceDetails">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	
+	
+ 	<test name="CreateSecureBiometricInterface">
 		<parameter name="ymlFile"
 			value="partner/device/SecureBiometricInterface/create/CreateSecureBiometricInterface.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -409,6 +452,22 @@
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
+	</test>	 
+	
+	<test name="createSearchSecureBiometric">
+		<parameter name="ymlFile"
+			value="partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="ServiceToFilterSBI">
+		<parameter name="ymlFile"
+			value="partner/FilterAPIs/ServiceToFilterSBI/ServiceToFilterSBI.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
 	</test>
 	
 	<!-- <test name="SignedRegisteredDevice">
@@ -427,6 +486,21 @@
 		</classes>
 	</test> -->
 	
+	<test name="MapDeviceWithSBI">
+		<parameter name="ymlFile"
+			value="partner/device/SecureBiometricInterface/MapDeviceWithSBI/MapDeviceWithSBI.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="RemoveMapDeviceWithSBI">
+		<parameter name="ymlFile"
+			value="partner/device/SecureBiometricInterface/RemoveMapDeviceWithSBI/RemoveMapDeviceWithSBI.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
 	<test name="GetPartnersPolicy">
 		<parameter name="ymlFile"
 			value="partner/GetPartnersPolicy/GetPartnersPolicy.yml" />
@@ -497,21 +571,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>  
-	<test name="DeviceSubTypeFilter">
-		<parameter name="ymlFile"
-			value="partner/FilterAPIs/DeviceSubTypeFilter/DeviceSubTypeFilter.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="DeviceDetailsFilter">
-		<parameter name="ymlFile"
-			value="partner/FilterAPIs/DeviceDetailsFilter/DeviceDetailsFilter.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test> 
-	
 	<test name="DeviceTypeFilter">
 		<parameter name="ymlFile"
 			value="partner/FilterAPIs/DeviceTypeFilter/DeviceTypeFilter.yml" />

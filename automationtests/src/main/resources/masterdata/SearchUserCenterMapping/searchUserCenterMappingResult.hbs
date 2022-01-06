@@ -1,0 +1,32 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+   "data": [
+     {{#each data}}
+      {
+        "isActive": "$IGNORE$",
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "isDeleted": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+         "userId": "{{userId}}",
+        "userName": "$IGNORE$",
+        "regCenterName": "$IGNORE$",
+        "zoneName": "{{zoneName}}",
+        "regCenterId": "{{regCenterId}}",
+        "zoneCode": "{{zoneCode}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}

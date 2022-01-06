@@ -1,0 +1,19 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": $IGNORE$,
+  "response": {
+    "filters": [
+     {{#each filters}}
+      {
+        "fieldID": "$IGNORE$",
+        "fieldValue": "{{fieldValue}}",
+        "fieldCode": "$IGNORE$"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": []
+}

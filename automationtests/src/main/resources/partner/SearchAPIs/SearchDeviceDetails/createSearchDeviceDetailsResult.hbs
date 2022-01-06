@@ -1,6 +1,4 @@
 {
-  "id": null,
-  "version": null,
   "responsetime": "$IGNORE$",
   "response": {
     "fromRecord": "$IGNORE$",
@@ -9,18 +7,19 @@
     "data": [
      {{#each data}}
       {
-        "id": "$IGNORE$",
+        "id": "{{id}}",
         "deviceProviderId": "$IGNORE$",
         "deviceTypeCode": "$IGNORE$",
         "deviceSubTypeCode": "$IGNORE$",
         "make": "$IGNORE$",
         "model": "$IGNORE$",
         "partnerOrganizationName": "$IGNORE$",
-        "isItForRegistrationDevice": "{{isItForRegistrationDevice}}"
+        "isActive": "$IGNORE$",
+        "approvalStatus": "$IGNORE$"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
   },
-  "errors": "$IGNORE$"
+  "errors": []
 }

@@ -1,25 +1,19 @@
 {
   "id": "string",
+  "version": "string",
+  "requesttime": "{{requesttime}}",
   "metadata": {},
   "request": {
-    "deviceDetailId": "{{deviceDetailId}}",
     "filters": [
     {{#each filters}}
       {
+        "value": "{{value}}",
         "columnName": "{{columnName}}",
-        "fromValue": "string",
-        "toValue": "string",
-        "type": "{{type}}",
-        "value": "{{value}}"
+        "type": "{{type}}"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ],
-    "pagination": {
-      "pageFetch": "{{pageFetch}}",
-      "pageStart": "{{pageStart}}"
-    },
-	"purpose": "REGISTRATION",
     "sort": [
     	{{#each sort}}
       {
@@ -28,8 +22,11 @@
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
-    ]
-},
-  "requesttime": "{{requesttime}}",
-  "version": "string"
+    ],
+    "pagination": {
+      "pageStart": {{pageStart}},
+      "pageFetch": {{pageFetch}}
+    },
+    "purpose": "string"
+  }
 }

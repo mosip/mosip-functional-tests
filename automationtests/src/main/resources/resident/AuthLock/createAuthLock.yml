@@ -407,43 +407,6 @@ AuthLock:
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
-   Resident_AuthLock_InValid_individualIdType_Neg:
-      endPoint: /resident/v1/req/auth-lock
-      role: resident
-      restMethod: post
-      inputTemplate: resident/AuthLock/createAuthLock
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
-        "individualIdType": "U@@@4N",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
-        "version": "v1",
-        "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
-    }
-}'
    Resident_AuthLock_InValid_OTP_Neg:
       endPoint: /resident/v1/req/auth-lock
       role: resident

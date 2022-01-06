@@ -1,8 +1,5 @@
 {
-  "id": null,
-  "version": null,
   "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
     "fromRecord": "$IGNORE$",
     "toRecord": "$IGNORE$",
@@ -10,16 +7,26 @@
     "data": [
      {{#each data}}
       {
+        "id": "$IGNORE$",
         "swBinaryHash": "$IGNORE$",
         "swVersion": "$IGNORE$",
-        "deviceDetailId": "$IGNORE$",
+        "deviceDetailId": null,
         "swCreateDateTime": "$IGNORE$",
         "swExpiryDateTime": "$IGNORE$",
-        "isItForRegistrationDevice": "{{isItForRegistrationDevice}}"
+        "isActive": "$IGNORE$",
+        "approvalStatus": "$IGNORE$",
+        "providerId": "{{providerId}}",
+        "partnerOrganizationName": "$IGNORE$",
+        "crBy": "$IGNORE$",
+        "crDtimes": "$IGNORE$",
+        "delDtimes": null,
+        "updBy": "$IGNORE$",
+        "updDtimes": "$IGNORE$",
+        "deleted": "$IGNORE$"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
   },
-  "errors": "$IGNORE$"
+  "errors": []
 }
