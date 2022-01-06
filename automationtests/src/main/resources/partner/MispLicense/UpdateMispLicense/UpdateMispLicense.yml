@@ -6,12 +6,12 @@ UpdateMispLicense:
       inputTemplate: partner/MispLicense/UpdateMispLicense/updateMispLicense
       outputTemplate: partner/MispLicense/UpdateMispLicense/updateMispLicenseResult
       input: '{
-   "providerId": "101",
+   "providerId": "MISP",
    "licenseKeyStatus": "De-active",
    "licenseKey": "$ID:CreateMispLicense_allValid_smoke_sid_licenseKey$"
 }'
       output: '{
-   "providerId": "101",
+   "providerId": "MISP",
     "licenseKeyStatus": "de-active"
 }'
    Partner_UpdateMispLicense_InValid_licenseKeyStatus:
@@ -21,7 +21,7 @@ UpdateMispLicense:
       inputTemplate: partner/MispLicense/UpdateMispLicense/updateMispLicense
       outputTemplate: partner/error
       input: '{
-   "providerId": "101",
+   "providerId": "MISP",
     "licenseKeyStatus": "inactive",
     "licenseKey": "adfvad"
 }'

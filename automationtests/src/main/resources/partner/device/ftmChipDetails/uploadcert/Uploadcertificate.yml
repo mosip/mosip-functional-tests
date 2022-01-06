@@ -6,11 +6,11 @@ UploadCertificateOfFtpChip:
       inputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificate
       outputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificateResult
       input: '{
-    "ftpProviderId": "100",
+    "ftpProviderId": "FTP",
     "ftpChipDeatilId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$",
     "isItForRegistrationDevice": true,
-    "organizationName": "AutomationTest",
-    "partnerDomain": "FTM"   
+    "organizationName": "ftp",
+    "partnerDomain": "DEVICE"   
   }'
       output: ' {
   "certificateId": "$IGNORE$"
@@ -25,8 +25,8 @@ UploadCertificateOfFtpChip:
     "ftpProviderId": "asdgfb",
     "ftpChipDeatilId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$",
     "isItForRegistrationDevice": true,
-    "organizationName": "AutomationTest",
-    "partnerDomain": "FTM"
+    "organizationName": "ftp",
+    "partnerDomain": "DEVICE"
   }'
       output: ' {
   "errors": [
@@ -43,11 +43,11 @@ UploadCertificateOfFtpChip:
       inputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificate
       outputTemplate: partner/error
       input: '{
-    "ftpProviderId": "100",
+    "ftpProviderId": "FTP",
     "ftpChipDeatilId": "asdf",
     "isItForRegistrationDevice": true,
-    "organizationName": "AutomationTest",
-    "partnerDomain": "FTM"
+    "organizationName": "ftp",
+    "partnerDomain": "DEVICE"
   }'
       output: ' {
   "errors": [

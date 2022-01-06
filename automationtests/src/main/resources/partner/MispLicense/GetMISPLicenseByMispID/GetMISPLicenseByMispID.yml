@@ -6,10 +6,10 @@ GetMISPLicenseByMispID:
       inputTemplate: partner/MispLicense/GetMISPLicenseByMispID/getMISPLicenseByMispID
       outputTemplate: partner/MispLicense/GetMISPLicenseByMispID/getMISPLicenseByMispIDResult
       input: '{
-    "mispId": "101"
+    "mispId": "MISP"
 }'
       output: '{
-    "providerId": "101"
+    "providerId": "MISP"
     }'
     
    Partner_GetMISPLicenseByMispID_inValid_smoke:

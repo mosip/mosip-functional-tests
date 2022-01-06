@@ -335,7 +335,21 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>	 			
+	</test>	 	
+	<test name="CreatePartner_FTM_Partner">
+		<parameter name="ymlFile"
+			value="partner/FtpPartner/CreatePartner/CreatePartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	 <test name ="UploadPartnerCertificate_FTM_Partner">
+		<parameter name ="ymlFile"
+			value= "partner/FtpPartner/UploadCert/UploadCert.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>		
    	<test name="CreateDeviceDetail">
 		<parameter name="ymlFile"
 			value="partner/device/makeAndModel/create/createDeviceDetail.yml" />
@@ -590,5 +604,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test>	
 </suite>

@@ -6,11 +6,11 @@ CreateMispLicense:
       inputTemplate: partner/MispLicense/CreateMispLicense/createMispLicense
       outputTemplate: partner/MispLicense/CreateMispLicense/createMispLicenseResult
       input: '{
-   "providerId": "101",
+   "providerId": "MISP",
    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "providerId": "101",
+   "providerId": "MISP",
    "licenseKey": "$IGNORE$",
    "licenseKeyStatus": "Active"
 }'
