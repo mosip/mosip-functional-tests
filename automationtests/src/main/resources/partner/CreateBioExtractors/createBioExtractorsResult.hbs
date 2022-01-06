@@ -1,0 +1,22 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": { 
+	  "extractors": [
+	    {{#each extractors}}
+	      {
+	        "attributeName": "$IGNORE$",
+	        "biometric": "$IGNORE$",
+	        "extractor": {
+	          "provider": "$IGNORE$",
+	          "version": "$IGNORE$"
+	        }
+	      }
+	     {{#unless @last}},{{/unless}}
+	     {{/each}}
+	   ]
+  },
+  "errors": "$IGNORE$"
+}
