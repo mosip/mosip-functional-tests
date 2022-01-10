@@ -1,0 +1,19 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": [
+  {{#each response}}
+    {
+      "apiKeyReqID": "$IGNORE$",
+      "apiKeyRequestStatus": "$IGNORE$",
+      "partnerApiKey": "$IGNORE$",
+      "apikeyStatus": "$IGNORE$",
+      "validityTill": "$IGNORE$"
+    }
+	{{#unless @last}},{{/unless}}
+  	{{/each}}
+  ],
+  "errors": "$IGNORE$"
+}

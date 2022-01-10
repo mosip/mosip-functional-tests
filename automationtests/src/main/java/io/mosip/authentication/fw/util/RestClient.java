@@ -423,7 +423,7 @@ public class RestClient {
 	}
 	public static Response postWithPathParamsBodyAndCookie(String url, HashMap<String, String> pathParams, String body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
-		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 		Response postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 				.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 				.post(url).then().log().all().extract().response();

@@ -606,7 +606,7 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		
 		token = kernelAuthLib.getTokenByRole(role);
-		logger.info("******put request Json to EndPointUrl: " + url + " *******");
+		logger.info("******post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
