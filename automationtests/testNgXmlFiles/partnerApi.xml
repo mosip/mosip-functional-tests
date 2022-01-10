@@ -58,6 +58,14 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="UpdatePolicyStatus">
+		<parameter name="ymlFile"
+			value="partner/policy/UpdatePolicyStatus/UpdatePolicyStatus.yml" />
+		<parameter name="pathParams" value="policygroupId,policyId"/>
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+		</classes>
+	</test>
 	<test name="PublishPolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/PublishPolicy/PublishPolicy.yml" />
@@ -70,14 +78,6 @@
 			value="partner/policy/PublishDataSharePolicy/PublishDataSharePolicy.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
-		</classes>
-	</test>
-	<test name="UpdatePolicyStatus">
-		<parameter name="ymlFile"
-			value="partner/policy/UpdatePolicyStatus/UpdatePolicyStatus.yml" />
-		<parameter name="pathParams" value="policygroupId,policyId"/>
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
 	<test name="GetPolicy">

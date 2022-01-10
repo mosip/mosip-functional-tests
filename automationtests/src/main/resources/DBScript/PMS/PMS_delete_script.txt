@@ -14,12 +14,11 @@ delete from pms.misp_license where misp_id='MISP';
 delete from pms.ftp_chip_detail where foundational_trust_provider_id='FTP';
 delete from pms.misp where name='mosip_misp';
 
+delete from pms.secure_biometric_interface where device_detail_id='device-id-123'; 
+delete from pms.device_detail where id='device-id-123';
+
 delete from mosip_keymgr.keymgr.ca_cert_store where cert_subject ='CN=mosiptest.org,O=MOSIPTEST,L=Bangalore,ST=Karantaka,C=IN';
 delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=Techno.com,O=Techno,L=Bangalore,ST=Karnataka,C=IN';
 delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=ftp,OU=ftp,O=ftp,L=BLR,ST=KAR,C=IN';
 delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=misp,OU=misp,O=misp,L=BLR,ST=KAR,C=IN';
 
-delete from regdevice.secure_biometric_interface where device_detail_id='device-id-123'; 
-delete from regdevice.registered_device_master_h where device_detail_id ='device-id-123';
-delete from regdevice.registered_device_master where device_detail_id ='device-id-123';
-delete from regdevice.device_detail where id='device-id-123';
