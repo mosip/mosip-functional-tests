@@ -1,28 +1,28 @@
 ApproveAPIKey:
    Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
-      endPoint: /v1/partnermanager/partners/apikey/{apikey}
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
       role: partner
-      restMethod: patch
+      restMethod: put
       inputTemplate: partner/authPartner/ApproveAPIKey/approveAPIKey
       outputTemplate: partner/authPartner/ApproveAPIKey/approveAPIKeyResult
       input: '{
       "status": "Approved",
-      "apikey": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid_mappingkey$",
 	  "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "message": "Apikey request approved successfully."
+        "response": "Policy mapping approved successfully"
     }'
 
    Partner_ApproveRejectPartnerAPIKeyReq_Missing_InputParameter_status:
-      endPoint: /v1/partnermanager/partners/apikey/{apikey}
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
       role: partner
-      restMethod: patch
+      restMethod: put
       inputTemplate: partner/authPartner/ApproveAPIKey/approveAPIKey
       outputTemplate: partner/error
       input: '{
       "status": "$REMOVE$",
-      "apiKeyReqId": "$ID:SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid_apiRequestId$",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid_mappingkey$",
 	  "requesttime": "$TIMESTAMP$"
   }'
       output: '{
