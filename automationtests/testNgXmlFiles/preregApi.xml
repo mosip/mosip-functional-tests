@@ -233,4 +233,54 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	
+	
+	<!-- <test name="AddUpdateRegistration">
+		<parameter name="ymlFile"
+			value="preReg/AddUpdateRegistration/addUpdateRegistration.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="AddLostUinApplication">
+		<parameter name="ymlFile"
+			value="preReg/AddLostUinApplicationn/AddLostUinApplication.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="DeleteLostUinApplication">
+		<parameter name="ymlFile"
+			value="preReg/DeleteLostUinApplication/DeleteLostUinApplication.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="DeletePreRegistration">
+		<parameter name="ymlFile"
+			value="preReg/DeletePreRegistration/DeletePreRegistration.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	
+	 <test name="GetPreRegInfo">
+		<parameter name="ymlFile"
+			value="preReg/GetPreRegInfoByPrid/GetPreRegInfoByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
+	<test name="GetAllPreRegApplications">
+		<parameter name="ymlFile"
+			value="preReg/GetAllPreRegApplications/GetAllPreRegApplications.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> --> 
+	
+	
 </suite>
