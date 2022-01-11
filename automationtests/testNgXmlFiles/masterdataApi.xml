@@ -713,25 +713,9 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<!-- <test name="DeleteHoliday"> <parameter name="ymlFile" value="masterdata/DeleteHoliday/deleteHoliday.yml" 
-		/> <classes> <class name="io.mosip.testscripts.DeleteWithParam" /> </classes> 
-		</test> -->
 
 
-	<test name="CreateLocationData">
-		<parameter name="ymlFile"
-			value="masterdata/LocationData/CreateLocationData.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateLocationData">
-		<parameter name="ymlFile"
-			value="masterdata/LocationData/UpdateLocationData.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
+	
 	<test name="FilterLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/FilterLocationData/FilterLocationData.yml" />
@@ -1038,34 +1022,6 @@
 			value="masterdata/GetLanguage/GetLanguage.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="CreateLanguage">
-		<parameter name="ymlFile"
-			value="masterdata/Language/CreateLanguage.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateLanguage">
-		<parameter name="ymlFile"
-			value="masterdata/Language/UpdateLanguage.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="UpdateLanguageStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateLanguage/UpdateLanguageStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test>
-	<test name="DeleteLanguage">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteLanguage/DeleteLanguage.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 	<test name="GetMappedMachinesByRegCentID">
