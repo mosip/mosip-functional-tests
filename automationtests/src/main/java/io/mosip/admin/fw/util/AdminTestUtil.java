@@ -98,7 +98,7 @@ public class AdminTestUtil extends BaseTestCase{
 	//static String  config = new File(System.getProperty("user.dir")).getParent() + "/config/application.properties";
 	//public static Properties props = getproperty(config);
 	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
-	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField=null;
