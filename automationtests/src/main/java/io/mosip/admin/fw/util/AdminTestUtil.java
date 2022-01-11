@@ -95,10 +95,8 @@ public class AdminTestUtil extends BaseTestCase{
 	public static final String authHeaderValue="Some String";
 	public static final String SIGNATURE_HEADERNAME="signature";
 	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
-	//static String  config = new File(System.getProperty("user.dir")).getParent() + "/config/application.properties";
-	//public static Properties props = getproperty(config);
 	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
-	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField=null;
@@ -1529,14 +1527,26 @@ public static String buildIdentityRequest(String identityRequest) {
 }
 
 public static TestCaseDTO filterHbs(TestCaseDTO testCaseDTO) {
-	if(BaseTestCase.languageList.size()==2) {
-		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
-			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
-		if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
-			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+if(BaseTestCase.languageList.size()==2) {
+		
+		if (Boolean.parseBoolean(props.getProperty("V3ENV")) == true) {
+			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setInputTemplate(
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE_V3"));
+			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setOutputTemplate(
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE_V3"));
+		} else {
+			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setInputTemplate(
+						testCaseDTO.getInputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+			if (testCaseDTO.getOutputTemplate().contains("$LANGNUMBER$"))
+				testCaseDTO.setOutputTemplate(
+						testCaseDTO.getOutputTemplate().replace("$LANGNUMBER$", "DOUBLE"));
+		}
+		
 	}
+
 	
 	else if(BaseTestCase.languageList.size()==3) {
 		if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))

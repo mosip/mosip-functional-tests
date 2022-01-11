@@ -67,6 +67,7 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		String inputJson = filterInputHbs(testCaseDTO);
 		//String outputJson = filterOutputHbs(testCaseDTO);
+		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
 		
 		response = patchWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		
