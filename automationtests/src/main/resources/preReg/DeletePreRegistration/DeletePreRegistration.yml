@@ -9,7 +9,7 @@ DeletePreRegistration:
 	"preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
-"deletedBy": "$IGNORE$"
+"deletedBy": "mosipuser123@mailinator.com"
 }'
    Prereg_DeletePreRegistration_inValid_preRegistrationId_sid:
       endPoint: /preregistration/v1/applications/prereg/{preRegistrationId}
