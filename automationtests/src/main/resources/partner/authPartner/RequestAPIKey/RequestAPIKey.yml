@@ -1,8 +1,8 @@
-requetAPIKey:
-   Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid:
-      endPoint: /v1/partnermanager/partners/Tech-123/apikey/request
+RequestAPIKeyForAuthPartner:
+   Partner_SubmitPartnerApiKeyRequest_Rejection_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/Tech-123/policy/map
       role: partner
-      restMethod: patch 
+      restMethod: post 
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/authPartner/RequestAPIKey/requestApiKeyResult
       input: '{
@@ -10,16 +10,29 @@ requetAPIKey:
         "useCaseDescription": "Need to submit the payment",
 		"requesttime": "$TIMESTAMP$"
     }'
-      output: ' {
-        "apiRequestId": "254785",
-        "message": "PartnerAPIKeyRequest successfully submitted.",
-		"apikeyId": null
+      output: '{
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
     }'
-    
-   Partner_SubmitPartnerApiKeyRequest_invalid_policyName:
-      endPoint: /v1/partnermanager/partners/Tech-123/apikey/request
+   Partner_SubmitPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/Tech-123/policy/map
       role: partner
-      restMethod: patch 
+      restMethod: post 
+      inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
+      outputTemplate: partner/authPartner/RequestAPIKey/requestApiKeyResult
+      input: '{
+        "policyName": "mosip policy",
+        "useCaseDescription": "Need to submit the payment",
+		"requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
+    }'
+   Partner_SubmitPartnerApiKeyRequest_invalid_policyName:
+      endPoint: /v1/partnermanager/partners/Tech-123/policy/map
+      role: partner
+      restMethod: post 
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/error
       input: '{
@@ -35,11 +48,10 @@ requetAPIKey:
     }
   ]
 }'
-
    Partner_SubmitPartnerApiKeyRequest_invalid_partnerId:
-      endPoint: /v1/partnermanager/partners/Tech-1231234/apikey/request
+      endPoint: /v1/partnermanager/partners/Tech-123wegf/policy/map
       role: partner
-      restMethod: patch 
+      restMethod: post
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/error
       input: '{

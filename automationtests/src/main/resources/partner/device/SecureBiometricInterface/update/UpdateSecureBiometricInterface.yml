@@ -13,7 +13,7 @@ createUpdateSecureBiometricInterface:
     "swBinaryHash": "0",
     "swCreateDateTime": "$TIMESTAMP$",
     "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
-    "swVersion": "MO.TD.011",
+    "swVersion": "MO.TD.100",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{

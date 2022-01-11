@@ -1,4 +1,4 @@
-createUpdateFtpChipDetail:
+UpdateFtpChipDetail:
    Partner_UpdateFtpChipDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/ftpchipdetail
       role: partner
@@ -6,15 +6,13 @@ createUpdateFtpChipDetail:
       inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
       outputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetailResult
       input: '{
-    "ftpChipDetailId": "ftp-001",
-    "ftpProviderId": "Tech-123",
-    "isItForRegistrationDevice": true,
-    "make": "Make123",
+    "ftpChipDetailId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$",
+    "make": "Make123Updated",
     "model": "MODEL-001",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "ftp-001"
+        "id": "$IGNORE$"
     }'
 
    Partner_UpdateFtpChipDetail_Missing_InputParameter_ftpChipDetailId:
@@ -25,8 +23,6 @@ createUpdateFtpChipDetail:
       outputTemplate: partner/error
       input: '{
     "ftpChipDetailId": "$REMOVE$",
-    "ftpProviderId": "Tech-123",
-    "isItForRegistrationDevice": true,
     "make": "Make123",
     "model": "MODEL-001",
     "requesttime": "$TIMESTAMP$"
@@ -36,29 +32,6 @@ createUpdateFtpChipDetail:
     {
       "errorCode": "PMS_COR_001",
       "message": "Invalid request parameter - value is empty or null :request.ftpChipDetailId"
-    }
-  ]
-}'
-
-   Partner_UpdateFtpChipDetail_Missing_InputParameter_ftpProviderId:
-      endPoint: /v1/partnermanager/ftpchipdetail
-      role: partner
-      restMethod: put
-      inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
-      outputTemplate: partner/error
-      input: '{
-    "ftpChipDetailId": "ftp-001",
-    "ftpProviderId": "$REMOVE$",
-    "isItForRegistrationDevice": true,
-    "make": "Make123",
-    "model": "MODEL-001",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "PMP_AUT_031",
-      "message":  "ftp chip id not exists."
     }
   ]
 }'

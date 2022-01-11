@@ -7,12 +7,11 @@ ApproveFtpChipDetail:
       outputTemplate: partner/device/ftmChipDetails/approve/approveFtpChipDetailResult
       input: '{
     "approvalStatus": true,
-    "ftpChipDetailId": "579965",
-    "isItForRegistrationDevice": true,
+    "ftpChipDetailId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Status updated successfully."
+     "id": "Status updated successfully."
     }'
 
    Partner_ApproveFtpChipDetail_Missing_InputParameter_ftpChipDetailId:

@@ -1,0 +1,25 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "metadata": "$IGNORE$",
+  "response": [
+  {{#each response}}
+    {
+      "mispId": "$IGNORE$",
+      "licenseKey": "$IGNORE$",
+      "validFromDate": "$IGNORE$",
+      "validToDate": "$IGNORE$",
+      "isActive": {{isActive}},
+      "createdBy": "$IGNORE$",
+      "createdDateTime": "$IGNORE$",
+      "updatedBy": "$IGNORE$",
+      "updatedDateTime": "$IGNORE$",
+      "isDeleted": "$IGNORE$",
+      "deletedDateTime": "$IGNORE$"
+    }
+    {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ],
+  "errors": "$IGNORE$"
+}

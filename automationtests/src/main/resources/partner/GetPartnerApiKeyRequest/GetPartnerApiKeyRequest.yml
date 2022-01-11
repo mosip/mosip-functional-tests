@@ -1,0 +1,30 @@
+GetPartnerApiKeyRequest:
+   Partner_GetPartnerApiKeyRequest_allValid_smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}/apikey/request
+      role: partner
+      restMethod: get
+      inputTemplate: partner/GetPartnerApiKeyRequest/getPartnerApiKeyRequest
+      outputTemplate: partner/GetPartnerApiKeyRequest/getPartnerApiKeyRequestResult
+      input: '{
+    "partnerId": "Tech-123"
+}'
+      output: '{
+   "errors": "$IGNORE$"      
+}'
+   Partner_GetPartnerApiKeyRequest_InValid_partnerId:
+      endPoint: /v1/partnermanager/partners/{partnerId}/apikey/request
+      role: partner
+      restMethod: get
+      inputTemplate: partner/GetPartnerApiKeyRequest/getPartnerApiKeyRequest
+      outputTemplate: partner/error
+      input: '{
+    "partnerId": "fqgfg"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_006",
+      "message": "No api key req exist"
+    }
+  ]      
+}'

@@ -1,10 +1,10 @@
 createSearchPartner:
    Partner_SearchPartner_type_contains_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -26,18 +26,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_type_contains_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -59,18 +55,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -92,18 +84,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -125,18 +113,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -158,18 +142,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -191,18 +171,14 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
+   "errors": "[]"
 }'
    Partner_SearchPartner_columnname_id_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -228,14 +204,15 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ]
+    ],
+    "errors": "[]"
 }'
    Partner_SearchPartner_columnname_id_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -261,14 +238,15 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ]
+    ],
+    "errors": "[]"
 }'
    Partner_SearchPartner_columnname_address_asc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -294,14 +272,15 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ]
+    ],
+    "errors": "[]"
 }'
    Partner_SearchPartner_columnname_address_desc_sid:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/Search/SearchPartner/createSearchPartnerResult
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
+      outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
       input: '{
     "filters": [
       {
@@ -327,115 +306,14 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ]
-}'
-   Partner_SearchPartner_with_invalid_value_containts:
-      endPoint: /partnermanagement/v1/partners/partners/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "address",
-        "type": "containts",
-        "value": "@22333sssdddfghmnjkiouyttrsx76"
-      }
     ],
-    "sort": [
-      {
-        "sortField": "address",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "partnerType": "all",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
-    }
-  ]
-}'
-   Partner_SearchPartner_with_invalid_value_equals:
-      endPoint: /partnermanagement/v1/partners/partners/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "address",
-        "type": "equals",
-        "value": "@22333sssdddfghmnjkiouyttrsx76"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "address",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "partnerType": "all",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
-    }
-  ]
-}'
-   Partner_SearchPartner_with_invalid_value_startswith:
-      endPoint: /partnermanagement/v1/partners/partners/search
-      role: partner
-      restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
-      outputTemplate: partner/error
-      input: '{
-    "filters": [
-      {
-        "columnName": "address",
-        "type": "startswith",
-        "value": "@22333sssdddfghmnjkiouyttrsx76"
-      }
-    ],
-    "sort": [
-      {
-        "sortField": "address",
-        "sortType": "desc"
-      }
-    ],
-  "pageFetch": "10",
-  "pageStart": "0",
-  "partnerType": "all",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
-    }
-  ]
+    "errors": "[]"
 }'
    Partner_SearchPartner_with_invalid_columnName:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -460,16 +338,16 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-310",
-      "message": "Invalid column received:a@@@334455667788s"
+      "errorCode": "PMS-MSD-310",
+      "message": "Invalid column received : a@@@334455667788s"
     }
   ]
 }'
    Partner_SearchPartner_with_missing_columnName:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -500,10 +378,10 @@ createSearchPartner:
   ]
 }'
    Partner_SearchPartner_with_missing_type:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -534,10 +412,10 @@ createSearchPartner:
   ]
 }'
    Partner_SearchPartner_with_invalid_sort_type:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -568,10 +446,10 @@ createSearchPartner:
   ]
 }'
    Partner_SearchPartner_with_missing_sort_type:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -602,10 +480,10 @@ createSearchPartner:
   ]
 }'
    Partner_SearchPartner_with_invalid_sort_field:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [
@@ -636,10 +514,10 @@ createSearchPartner:
   ]
 }'
    Partner_SearchPartner_with_missing_sort_field:
-      endPoint: /partnermanagement/v1/partners/partners/search
+      endPoint: /v1/partnermanager/partners/search
       role: partner
       restMethod: post
-      inputTemplate: partner/Search/SearchPartner/createSearchPartner
+      inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/error
       input: '{
     "filters": [

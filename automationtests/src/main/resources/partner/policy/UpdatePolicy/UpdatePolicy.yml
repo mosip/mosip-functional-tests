@@ -139,7 +139,7 @@ createUpdatePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-PV-006",
+      "errorCode": "PMS_PV_006",
       "message": "Missing input parameter - authTokenType"
     }
   ]
