@@ -98,7 +98,7 @@ public class AdminTestUtil extends BaseTestCase{
 	//static String  config = new File(System.getProperty("user.dir")).getParent() + "/config/application.properties";
 	//public static Properties props = getproperty(config);
 	public static Properties propsBio = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/bioValue.properties");
-	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField=null;
@@ -606,7 +606,7 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		
 		token = kernelAuthLib.getTokenByRole(role);
-		logger.info("******put request Json to EndPointUrl: " + url + " *******");
+		logger.info("******post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);

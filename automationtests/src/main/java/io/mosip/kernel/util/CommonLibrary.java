@@ -152,6 +152,10 @@ public class CommonLibrary extends BaseTestCase {
 	public String getResourcePath() {
 		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
+	
+	public String getResourcePathForKernel() {
+		return MosipTestRunner.getResourcePath() + "/";
+	}
 
 	/**
 	 * @param path
@@ -185,7 +189,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Map<String, String> readProperty(String propertyFileName) {
 		Properties prop = new Properties();
 		try {
-			File propertyFile = new File(getResourcePath() + "config/" + propertyFileName + ".properties");
+			File propertyFile = new File(getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			prop.load(new FileInputStream(propertyFile));
 
 		} catch (IOException e) {

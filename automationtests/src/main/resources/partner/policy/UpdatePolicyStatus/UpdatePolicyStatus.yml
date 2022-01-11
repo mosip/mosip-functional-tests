@@ -1,5 +1,5 @@
 UpdatePolicyStatus:
-   Partner_UpdatePolicyStatus_All_Valid_Smoke_sid:
+   Partner_UpdatePolicyStatus_DeActive_All_Valid_Smoke:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
       role: partner
       restMethod: patch
@@ -14,8 +14,7 @@ UpdatePolicyStatus:
       output: ' {
        "message": "status updated successfully"
     }'  
-
-   Partner_UpdatePolicyStatus_All_Valid_Smoke_sid:
+   Partner_UpdatePolicyStatus_Active_All_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
       role: partner
       restMethod: patch

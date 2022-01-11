@@ -1,8 +1,8 @@
-requetAPIKey:
-   Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid:
-      endPoint: /v1/partnermanager/partners/MOVP/apikey/request
+RequestAPIKeyCredentialPartner:
+   Partner_CredPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/MOVP/policy/map
       role: partner
-      restMethod: patch 
+      restMethod: post
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKeyResult
       input: '{
@@ -11,7 +11,21 @@ requetAPIKey:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: ' {
-        "apiRequestId": "254785",
-        "message": "PartnerAPIKeyRequest successfully submitted.",
-		"apikeyId": null
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
+    }'
+   Partner_CredPartnerApiKeyRequest_Rejection_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/MOVP/policy/map
+      role: partner
+      restMethod: post
+      inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
+      outputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKeyResult
+      input: '{
+        "policyName": "mosip data share policy",
+        "useCaseDescription": "mosip data share policy",
+		"requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
     }'

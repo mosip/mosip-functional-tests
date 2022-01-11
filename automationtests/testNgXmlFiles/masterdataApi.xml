@@ -1439,5 +1439,13 @@
 	
 	
 	
+			<test name="SearchUserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/SearchUserCenterMapping/SearchUserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 	
 </suite>

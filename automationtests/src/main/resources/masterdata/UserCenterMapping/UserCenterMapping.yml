@@ -46,8 +46,8 @@ UserCenterMapping:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-USR-013",
-      "message": "User already exists"
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
     }
   ]
 }'
@@ -71,8 +71,8 @@ UserCenterMapping:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "Registration Center not found"
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
     }
   ]
 }'
@@ -96,8 +96,8 @@ UserCenterMapping:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-USR-014",
-      "message": "Admin not authorized to access for this Zone"
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
     }
   ]
 }'

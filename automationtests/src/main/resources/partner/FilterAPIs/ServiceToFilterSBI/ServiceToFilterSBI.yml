@@ -1,0 +1,23 @@
+ServiceToFilterSBI:
+   partner_ServiceToFilterSBI_Valid_Smoke:
+      endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBI
+      outputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBIResult
+      input: '{
+  "filters": [{
+    "text": "Tech-123",
+    "columnName": "providerId",
+    "type": "unique"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldValue": "Tech-123"
+      }
+    ]
+}'
