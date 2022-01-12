@@ -101,13 +101,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="GetPartnerDetails">
-		<parameter name="ymlFile"
-			value="partner/authPartner/GetPartner/GetPartner.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
+	
 	 <test name ="UploadCACertificate">
 		<parameter name ="ymlFile"
 			value= "partner/authPartner/UploadCertificate/UploadCertificate.yml" />
@@ -122,9 +116,16 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="GetPartnerDetails">
+		<parameter name="ymlFile"
+			value="partner/authPartner/GetPartner/GetPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name ="GetPartnerCertificate">
 		<parameter name ="ymlFile"
-			value= "partner/authPartner/GetPartner/GetPartner.yml" />
+			value= "partner/authPartner/GetCertificate/GetCert.yml" />
 	<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -167,19 +168,11 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test> 
-	 
     <test name="CreatePartner_Online_Verification_Partner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="GetPartnerDetails_Online_Verification_Partner">
-		<parameter name="ymlFile"
-			value="partner/credentialPartner/GetPartner/GetPartner.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name ="UploadCACertificate_Online_Verification_Partner">
@@ -196,6 +189,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="GetPartnerDetails_Online_Verification_Partner">
+		<parameter name="ymlFile"
+			value="partner/credentialPartner/GetPartner/GetPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name ="GetPartnerCertificate_Online_Verification_Partner">
 		<parameter name ="ymlFile"
 			value= "partner/credentialPartner/GetCertificate/GetCert.yml" />
@@ -203,6 +203,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
   	<test name="RequestAPIKeyCredentialPartner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/RequestAPIKey/RequestAPIKey.yml" />
@@ -235,6 +236,7 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	
 	 <test name="CreatePartner_Device_Provider">
 		<parameter name="ymlFile"
 			value="partner/devicePartner/CreatePartner/CreatePartner.yml" />
@@ -242,13 +244,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="GetPartnerDetails_Device_Provider">
-		<parameter name="ymlFile"
-			value="partner/devicePartner/GetPartner/GetPartner.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
+	
 	<test name ="UploadCACertificate_Device_Provider">
 		<parameter name ="ymlFile"
 			value= "partner/devicePartner/UploadCertificate/UploadCertificate.yml" />
@@ -263,6 +259,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="GetPartnerDetails_Device_Provider">
+		<parameter name="ymlFile"
+			value="partner/devicePartner/GetPartner/GetPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name ="GetPartnerCertificate_Device_Provider">
 		<parameter name ="ymlFile"
 			value= "partner/devicePartner/GetCertificate/GetCert.yml" />
@@ -270,10 +273,25 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
 	<test name="CreatePartner_MISP_Provider">
 		<parameter name="ymlFile"
 			value="partner/mispPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="UploadCACertificate_MISP_Provider">
+		<parameter name ="ymlFile"
+			value= "partner/mispPartner/UploadCertificate/UploadCertificate.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	 <test name ="UploadPartnerCertificate_MISP_Provider">
+		<parameter name ="ymlFile"
+			value= "partner/mispPartner/UploadCert/UploadCert.yml" />
+	<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
@@ -284,13 +302,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	 <test name ="UploadPartnerCertificate_MISP_Provider">
-		<parameter name ="ymlFile"
-			value= "partner/mispPartner/UploadCert/UploadCert.yml" />
-	<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
 	<test name ="GetPartnerCertificate_MISP_Provider">
 		<parameter name ="ymlFile"
 			value= "partner/mispPartner/GetCertificate/GetCert.yml" />
@@ -298,6 +309,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
+	
 	<test name="SearchPartner">
 		<parameter name="ymlFile"
 			value="partner/SearchAPIs/SearchPartner/CreateSearchPartner.yml" />
@@ -312,6 +324,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	 <test name ="UploadCACertificate_FTM_Partner">
+		<parameter name ="ymlFile"
+			value= "partner/FtpPartner/UploadCertificate/UploadCertificate.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>	
 	 <test name ="UploadPartnerCertificate_FTM_Partner">
 		<parameter name ="ymlFile"
 			value= "partner/FtpPartner/UploadCert/UploadCert.yml" />

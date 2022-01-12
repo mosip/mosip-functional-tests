@@ -6,15 +6,11 @@ getPartnerCert:
       inputTemplate: partner/credentialPartner/GetPartner/getPartner
       outputTemplate: partner/credentialPartner/GetPartner/getPartnerResult
       input: '{
-		"partnerId": "MOVP"
+	"partnerId": "MOVP"
 }'
       output: '  {
-    	"partnerID": "MOVP",
-    	"policyGroup": "mosip policy group",
-    	"organizationName": "movp",
-    	"address": "Bangalore",
-    	"contactNumber": "9553967572",
-    	"emailId": "movp@gmail.com"
+    "partnerID": "MOVP",
+    "errors": "[]"
   }'
   
    Partner_GetPartner_invalid_partnerId:
