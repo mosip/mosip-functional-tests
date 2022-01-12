@@ -1,4 +1,4 @@
-getPartnerCert:
+GetPartnerDetails:
    Partner_GetPartner_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
@@ -9,13 +9,8 @@ getPartnerCert:
 		"partnerId": "DPP"
 }'
       output: '  {
-    	"partnerID": "DPP",
-    	"organizationName": "deviceprovider",
-    	"address": "Bangalore",
-    	"contactNumber": "9553967572",
-    	"emailId": "deviceprovider@gmail.com"
+ 	"partnerID": "DPP"
   }'
-  
    Partner_GetPartner_invalid_partner:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner

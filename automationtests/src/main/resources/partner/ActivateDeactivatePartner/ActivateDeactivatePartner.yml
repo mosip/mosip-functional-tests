@@ -1,0 +1,48 @@
+ActivateDeactivatePartner:
+   Partner_ActivateDeactivatePartner_deactivate_allValid_smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
+      outputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartnerResult
+      input: '{
+   "partnerId": "FTP",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+    "message": "Partner de-activated successfully"
+}'
+   Partner_ActivateDeactivatePartner_activate_allValid_smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
+      outputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartnerResult
+      input: '{
+   "partnerId": "MISP",
+   "requesttime": "$TIMESTAMP$",
+   "status": "Active"
+}'
+      output: '{
+    "message": "Partner activated successfully"
+}'
+   Partner_ActivateDeactivatePartner_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
+      outputTemplate: partner/error
+      input: '{
+   "partnerId": "asdfgrwg",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PMP_005",
+      "message": "Partner ID does not exist"
+    }
+  ]
+}'

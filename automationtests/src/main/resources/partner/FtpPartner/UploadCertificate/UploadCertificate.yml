@@ -3,8 +3,8 @@ uploadCert:
       endPoint: /v1/partnermanager/partners/certificate/ca/upload
       role: partner
       restMethod: post
-      inputTemplate: partner/devicePartner/UploadCertificate/uploadCertificate
-      outputTemplate: partner/devicePartner/UploadCertificate/uploadCertificateResult
+      inputTemplate: partner/FtpPartner/UploadCertificate/uploadCertificate
+      outputTemplate: partner/FtpPartner/UploadCertificate/uploadCertificateResult
       input: '{
  	"requesttime": "$TIMESTAMP$"
 }'
@@ -15,8 +15,8 @@ uploadCert:
       endPoint: /v1/partnermanager/partners/certificate/ca/upload
       role: partner
       restMethod: post
-      inputTemplate: partner/devicePartner/UploadCertificate/uploadSUBCACertificate
-      outputTemplate: partner/devicePartner/UploadCertificate/uploadCertificateResult
+      inputTemplate: partner/FtpPartner/UploadCertificate/uploadSUBCACertificate
+      outputTemplate: partner/FtpPartner/UploadCertificate/uploadCertificateResult
       input: '{
  	"requesttime": "$TIMESTAMP$"
 }'

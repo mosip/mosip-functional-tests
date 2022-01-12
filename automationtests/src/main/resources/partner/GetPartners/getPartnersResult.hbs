@@ -1,0 +1,23 @@
+{
+	"id": "$IGNORE$",
+	"version": "$IGNORE$",
+	"responsetime": "$IGNORE$",	
+	"metadata": "$IGNORE$",
+	"response": {
+		"partners":[ 
+	      {{#each policies}}
+	        {
+		        "partnerID": "$IGNORE$",
+		        "status": "$IGNORE$",
+		        "organizationName": "$IGNORE$",
+		        "contactNumber": "$IGNORE$",
+		        "emailId": "$IGNORE$",
+		        "address": "$IGNORE$",
+		        "partnerType": "{{partnerType}}"
+		      }
+	      {{#unless @last}},{{/unless}}
+	      	{{/each}}
+	    ]
+	},
+    "errors": "$IGNORE$"
+}

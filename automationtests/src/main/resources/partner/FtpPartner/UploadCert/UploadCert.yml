@@ -6,7 +6,6 @@ UploadPartnerCert:
       inputTemplate: partner/FtpPartner/UploadCert/uploadCert
       outputTemplate: partner/FtpPartner/UploadCert/uploadCertResult
       input: '{
-  "partnerId": "FTP",
   "requesttime": "$TIMESTAMP$"
 }'
       output: ' {

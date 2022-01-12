@@ -13,9 +13,8 @@ addContact:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "massage": "Contacts details added successfully."
+   "response": "Contacts details added successfully."
     }'
-
    Partner_AddContact_Missing_InputParameter_address:
       endPoint: /v1/partnermanager/partners/Tech-123/contact/add
       role: partner

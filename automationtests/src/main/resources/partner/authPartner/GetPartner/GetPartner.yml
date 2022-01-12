@@ -1,33 +1,25 @@
-getPartnerCert:
-   Partner_GetPartnerCert_All_Valid_Smoke:
-      endPoint: /v1/partnermanager/partners/{partnerId}/certificate
+GetPartnerDetails:
+   Partner_GetPartner_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
       restMethod: get
       inputTemplate: partner/authPartner/GetPartner/getPartner
       outputTemplate: partner/authPartner/GetPartner/getPartnerResult
       input: '{
-		"partnerId": "Tech-123"
+	"partnerId": "Tech-123"
 }'
-      output: ' {
-  "id": null,
-  "version": null,
-  "responsetime": "2021-02-23T10:48:50.219Z",
-  "metadata": null,
-  "response": {
-    "certificateData": "-----BEGIN CERTIFICATE-----\nMIIDfDCCAmSgAwIBAgIICluzl/GW7+owDQYJKoZIhvcNAQELBQAwbTELMAkGA1UE\nBhMCSU4xCzAJBgNVBAgMAktBMRIwEAYDVQQHDAlCQU5HQUxPUkUxDTALBgNVBAoM\nBElJVEIxGjAYBgNVBAsMEU1PU0lQLVRFQ0gtQ0VOVEVSMRIwEAYDVQQDDAlNT1NJ\nUC1QTVMwHhcNMjEwMjIyMTAxMjI2WhcNMjIwMjIzMTAxMjI2WjBbMQswCQYDVQQG\nEwJJTjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUxDzAN\nBgNVBAoMBlRlY2hubzETMBEGA1UEAwwKVGVjaG5vLmNvbTCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAKodBaGG9h4IrUQVSw64LhG71T3SZCdMFAaKQjW2\nwq++Zlctztg4lnGnFz2gWorUi5XP6EBH+x2DnKIkNHWmbfOW30g4Sx6w5l3GGsLM\neQ8Wvt1hu9d8gUlpJp4B864ZSF5Q/YCl/UMmVb58OiUDXpzYfIs0KrLbCDgCvLCk\n+4kCoEj2PWj6MzklJfnWCzfMVscyDJBaR1vr51/YUcQYlDpOf1PrBdSOl1NhhTRs\ngKUv+nePH64FBrcKW6yAmj9CnUTioZvjEw+RFfn7ryKLfHC7RTwwM5nvR5P8DfFn\nC02n1oHRYwiF+EfEp9ioJfXOMGvZQXu97EytBxrZBTmT/KsCAwEAAaMyMDAwDwYD\nVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUZEd1PcRqKHCUfTUQO8S6dgtsCb4wDQYJ\nKoZIhvcNAQELBQADggEBAC3u0NF/tTEtub8SfaWczU8xiZ2kQXjN+S6Az8rs6LUO\nstWdusKvu/4wbJhxFHBlQPhGA38swaK1ydMFMQiNBXrIWmHWEjsMH1lEUP2C07cU\nQ0X3v7rc/hmRWu5J5aqQqaEPi1gBGuvia8o2WV5ckbElrI/g21R6mDM+oSpwyg6P\nMpQrEKJsHPWa76pBETRV06C5Z64XMLKLvRVogoO0iSpSR1iqNzAykF6fvVgSYIsH\ncWkmfkT4HJeAYtIVDLHZSJxknbgc0ezB6ueteuSADNDYrWtS375FtweAOXQxlfM9\niLCRyB9jA/E1OJX45dIOhO+FLmpycEYrBA399OShJhY=\n-----END CERTIFICATE-----\n",
-    "timestamp": "2021-02-23T10:48:50.258503"
-  },
-  "errors": null
-}'
-
-   Partner_GetPartnerCert_invalid_partnerId:
-      endPoint: /v1/partnermanager/partners/{partnerId}/certificate
+      output: '  {
+ 	"partnerID": "Tech-123""
+  }'
+  
+   Partner_GetPartner_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
       restMethod: get
-      inputTemplate: partner/authPartner/GetPartner/getPartner
+      inputTemplate: partner/credentialPartner/GetPartner/getPartner
       outputTemplate: partner/error
       input: '{
-    "partnerId": "Tech-1231234"
+    "partnerId": "abcd"
 }'
       output: '{
    "errors": [
@@ -37,3 +29,4 @@ getPartnerCert:
     }
   ]
 }'
+  
