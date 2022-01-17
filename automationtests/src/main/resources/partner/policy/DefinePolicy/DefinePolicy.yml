@@ -6,28 +6,24 @@ definePolicy:
       inputTemplate: partner/policy/DefinePolicy/definePolicy
       outputTemplate: partner/policy/DefinePolicy/definePolicyResult
       input: '{
-		"desc": "desc mosip policy",
-		"name": "mosip policy",
-		"authSubType": "FINGER",
-		"authType": "bio",
-		"mandatory": true,
-		"attributeName": "string",
-		"authTokenType": "partner",
-		"policyGroupName": "mosip policy group",
-		"policyType": "Auth",
-		"version": "1.0",
-		"requesttime": "$TIMESTAMP$"
+	"desc": "desc mosip policy",
+	"name": "mosip policy",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-        "id": "110203",
-        "policyGroupName": "mosip policy group",
-        "name": "mosip policy",
-        "desc": "desc mosip policy",
-        "is_Active": false,
-        "cr_by": "pm_testuser",
-        "cr_dtimes": "2020-10-20T21:49:13.222758"
-    }'
-
+    "policyGroupName": "mosip policy group",
+    "name": "mosip policy",
+    "desc": "desc mosip policy",
+    "is_Active": false
+}'
    Partner_DefinePolicy_Missing_InputParameter_name:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -55,8 +51,6 @@ definePolicy:
     }
   ]
 }'
-
-
    Partner_DefinePolicy_Missing_InputParameter_desc:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -84,8 +78,6 @@ definePolicy:
     }
   ]
 }'
-
-
    Partner_DefinePolicy_Missing_InputParameter_authSubType:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -113,8 +105,6 @@ definePolicy:
     }
   ]
 }'
-
-
    Partner_DefinePolicy_Missing_InputParameter_authType:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -142,8 +132,6 @@ definePolicy:
     }
   ]
 }'
-
-
    Partner_DefinePolicy_Missing_InputParameter_authTokenType:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -171,8 +159,6 @@ definePolicy:
     }
   ]
 }'
-
-
    Partner_DefinePolicy_Missing_InputParameter_policyGroupName:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -200,7 +186,6 @@ definePolicy:
     }
   ]
 }'
-
    Partner_DefinePolicy_Missing_InputParameter_policyType:
       endPoint: /v1/policymanager/policies
       role: partner

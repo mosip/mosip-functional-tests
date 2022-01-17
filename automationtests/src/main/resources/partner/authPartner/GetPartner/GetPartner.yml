@@ -1,17 +1,4 @@
-GetPartnerDetails:
-   Partner_GetPartner_All_Valid_Smoke:
-      endPoint: /v1/partnermanager/partners/{partnerId}
-      role: partner
-      restMethod: get
-      inputTemplate: partner/authPartner/GetPartner/getPartner
-      outputTemplate: partner/authPartner/GetPartner/getPartnerResult
-      input: '{
-	"partnerId": "Tech-123"
-}'
-      output: '  {
- 	"partnerID": "Tech-123""
-  }'
-  
+GetPartnerDetails: 
    Partner_GetPartner_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
@@ -29,4 +16,16 @@ GetPartnerDetails:
     }
   ]
 }'
+   Partner_GetPartner_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      restMethod: get
+      inputTemplate: partner/authPartner/GetPartner/getPartner
+      outputTemplate: partner/authPartner/GetPartner/getPartnerResult
+      input: '{
+	"partnerId": "Tech-123"
+}'
+      output: '  {
+ 	"partnerID": "Tech-123"
+}' 
   
