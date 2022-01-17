@@ -1,5 +1,5 @@
 createSearchPolicy:
-   Partner_SearchPolicy_type_contains_Smoke_asc_sid:
+   Partner_SearchPolicy_type_contains_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -29,12 +29,12 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
 }'
-   Partner_SearchPolicy_type_contains_Smoke_desc_sid:
+   Partner_SearchPolicy_type_contains_Smoke_desc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -64,12 +64,12 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
 }'
-   Partner_SearchPolicy_type_equals_Smoke_desc_sid:
+   Partner_SearchPolicy_type_equals_Smoke_desc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -99,12 +99,12 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
 }'
-   Partner_SearchPolicy_type_equals_Smoke_asc_sid:
+   Partner_SearchPolicy_type_equals_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -134,12 +134,12 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
 }'
-   Partner_SearchPolicy_type_startswith_Smoke_asc_sid:
+   Partner_SearchPolicy_type_startswith_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -169,12 +169,12 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
 }'
-   Partner_SearchPolicy_type_startswith_Smoke_desc_sid:
+   Partner_SearchPolicy_type_startswith_Smoke_desc:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
@@ -204,7 +204,7 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "Auth",
+        "policyType": "DataShare",
         "schema": "https://schemas.mosip.io/v1/auth-policy"
       }
     ]
@@ -214,7 +214,7 @@ createSearchPolicy:
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/error
+      outputTemplate: partner/policy/Search/searchPolicyResult
       input: '{
     "filters": [
       {
@@ -236,19 +236,14 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_equals:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/error
+      outputTemplate: partner/policy/Search/searchPolicyResult
       input: '{
     "filters": [
       {
@@ -270,19 +265,14 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_startswith:
       endPoint: /v1/policymanager/policies/search
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/error
+      outputTemplate: partner/policy/Search/searchPolicyResult
       input: '{
     "filters": [
       {
@@ -304,12 +294,7 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_columnName:
       endPoint: /v1/policymanager/policies/search
@@ -350,7 +335,7 @@ createSearchPolicy:
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/error
+      outputTemplate: partner/policy/Search/searchPolicyResult
       input: '{
     "filters": [
       {
@@ -372,12 +357,7 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_missing_type:
       endPoint: /v1/policymanager/policies/search

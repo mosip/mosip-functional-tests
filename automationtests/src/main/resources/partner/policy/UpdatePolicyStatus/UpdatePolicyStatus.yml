@@ -14,12 +14,12 @@ UpdatePolicyStatus:
       output: ' {
        "message": "status updated successfully"
     }'  
-   Partner_UpdatePolicyStatus_Active_All_Valid_Smoke_sid:
+   Partner_UpdatePolicyStatus_Active_InValid:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
       role: partner
       restMethod: patch
       inputTemplate: partner/policy/UpdatePolicyStatus/updatePolicyStatus
-      outputTemplate: partner/policy/UpdatePolicyStatus/updatePolicyStatusResult
+      outputTemplate: partner/error
       input: '{		
 		"policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
 		"policygroupId":"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$",
@@ -27,5 +27,10 @@ UpdatePolicyStatus:
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-       "message": "status updated successfully"
+  "errors": [
+    {
+      "errorCode": "PMS_POL_054",
+      "message": "Cannot activate unpublished policy."
+    }
+  ]
     }'  

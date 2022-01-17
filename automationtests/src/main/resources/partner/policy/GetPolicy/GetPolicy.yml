@@ -16,7 +16,6 @@ getPolicy:
         "policyDesc": "desc mosip policy",
         "authTokenType": "partner"
     }'
-
    Partner_GetPolicy_Invalid_InputParameter_policyId:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner

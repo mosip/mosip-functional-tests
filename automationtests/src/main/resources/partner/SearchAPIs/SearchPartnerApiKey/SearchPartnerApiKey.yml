@@ -15,14 +15,13 @@ SearchPartnerApiKey:
     ],
     "sort": [
       {
-        "sortField": "policyApiKey",
+        "sortField": "isActive",
         "sortType": "asc"
       }
     ],
   "pageFetch": "1",
   "pageStart": "0",
-  "requesttime": "$TIMESTAMP$",
-  "version": "v1"
+  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "data": [
@@ -31,7 +30,6 @@ SearchPartnerApiKey:
       }
     ]
 }'
-
    Partner_SearchPartnerApiKey_type_contains_invalid_pagination:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
@@ -65,7 +63,6 @@ SearchPartnerApiKey:
     }
   ]
 }'
-
    Partner_SearchPartnerApiKey_type_contains_invalid_sortField:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
@@ -99,7 +96,6 @@ SearchPartnerApiKey:
     }
   ]
 }'
-
    Partner_SearchPartnerApiKey_type_contains_invalid_sortType:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
@@ -133,8 +129,7 @@ SearchPartnerApiKey:
     }
   ]
 }'
-
-   Partner_SearchPartnerApiKey_type_contains_columnName:
+   Partner_SearchPartnerApiKey_type_contains_invalid_columnName:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
       restMethod: post
