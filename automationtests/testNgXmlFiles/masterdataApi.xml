@@ -674,8 +674,9 @@
 	<test name="CreateHoliday">
 		<parameter name="ymlFile"
 			value="masterdata/Holiday/CreateHoliday.yml" />
+		<parameter name="idKeyName" value="holidayId" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="HolidaySearch">

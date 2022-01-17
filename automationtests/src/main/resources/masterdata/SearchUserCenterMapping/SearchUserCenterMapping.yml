@@ -11,7 +11,7 @@ SearchUserCenterMapping:
       {
         "columnName": "userId",
         "type": "equals",
-        "value": "110126"
+        "value": "110005"
       }
     ],
      "languageCode": "eng",
@@ -19,10 +19,10 @@ SearchUserCenterMapping:
 }'
       output: '{
        "data": [{
-        "userId": "110126",
-        "zoneName": "North",
-        "regCenterId": "10002",
-        "zoneCode": "NTH"
+        "userId": "110005",
+        "zoneName": "Casablanca-Settat",
+        "regCenterId": "10005",
+        "zoneCode": "CST"
        }]
 }'
 
