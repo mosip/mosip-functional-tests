@@ -1,0 +1,142 @@
+{ "identity" : {
+  "proofOfAddress" : "DOC004",
+  "documents" : [ {
+    "documentType" : "DOC004",
+    "documentCategory" : "POI",
+    "documentOwner" : "Applicant",
+    "documentName" : "POI_DOC004"
+  }, {
+    "documentType" : "DOC004",
+    "documentCategory" : "POA",
+    "documentOwner" : "Applicant",
+    "documentName" : "POA_DOC004"
+  }, {
+    "documentType" : "COB",
+    "documentCategory" : "POB",
+    "documentOwner" : "Applicant",
+    "documentName" : "POB_COB"
+  }, {
+    "documentType" : "DOC024",
+    "documentCategory" : "POR",
+    "documentOwner" : "Applicant",
+    "documentName" : "POR_DOC024"
+  } ],
+  "operationsData" : [ {
+    "label" : "officerId",
+    "value" : "110119"
+  }, {
+    "label" : "officerBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorId",
+    "value" : null
+  }, {
+    "label" : "supervisorBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorPassword",
+    "value" : "false"
+  }, {
+    "label" : "officerPassword",
+    "value" : "true"
+  }, {
+    "label" : "supervisorPIN",
+    "value" : null
+  }, {
+    "label" : "officerPIN",
+    "value" : null
+  }, {
+    "label" : "supervisorOTPAuthentication",
+    "value" : "false"
+  }, {
+    "label" : "officerOTPAuthentication",
+    "value" : "false"
+  } ],
+  "creationDate" : "2020-10-15T11:18:06.464Z",
+  "hashSequence2" : [ {
+    "label" : "otherFiles",
+    "value" : [ "audit" ]
+  } ],
+  "hashSequence1" : [ {
+    "label" : "biometricSequence",
+    "value" : [ "individualBiometrics_bio_CBEFF", "parentOrGuardianBiometrics_bio_CBEFF" ]
+  }, {
+    "label" : "demographicSequence",
+    "value" : [ "proofOfAddress", "proofOfDateOfBirth", "proofOfIdentity", "proofOfRelationship", "ID" ]
+  } ],
+  "exceptionBiometrics" : {
+    "introducer" : { },
+    "applicant-auth" : { },
+    "applicant" : { }
+  },
+  "biometrics" : {
+    "introducer" : {
+      "face" : {
+        "numRetry" : 1,
+        "forceCaptured" : false,
+        "birindex" : "e40e87de-496a-4d79-9118-e032799866de"
+      }
+    },
+    "applicant-auth" : { },
+    "applicant" : {
+      "face" : {
+        "numRetry" : 1,
+        "forceCaptured" : false,
+        "birindex" : "f3c6a1a1-0381-45ac-bed9-86dfcbc3bf3a"
+      }
+    }
+  },
+  "metaData" : [ {
+    "label" : "registrationId",
+    "value" : "10002100740000220201015054226"
+  }, {
+    "label" : "creationDate",
+    "value" : "2020-10-15T11:18:06.481Z"
+  }, {
+    "label" : "Registration Client Version Number",
+    "value" : "1.1.2-SNAPSHOT"
+  }, {
+    "label" : "registrationType",
+    "value" : "New"
+  }, {
+    "label" : "preRegistrationId",
+    "value" : null
+  }, {
+    "label" : "machineId",
+    "value" : "10074"
+  }, {
+    "label" : "centerId",
+    "value" : "10002"
+  }, {
+    "label" : "dongleId",
+    "value" : null
+  }, {
+    "label" : "keyIndex",
+    "value" : "49:40:22:0D:2B:CE:93:5D:7D:ED:CD:40:42:D1:10:7F:C7:31:9E:36:FF:22:47:F1:15:D4:A9:76:E8:F1:9D:DC"
+  }, {
+    "label" : "consentOfApplicant",
+    "value" : "Yes"
+  } ],
+  "proofOfIdentity" : "DOC004",
+  "proofOfDateOfBirth" : "COB",
+  "registrationId" : "10002100740000220201015054226",
+  "capturedRegisteredDevices" : [ {
+    "deviceServiceVersion" : "SB.WIN.001",
+    "digitalId" : {
+      "dateTime" : "2020-10-15T11:05:40.733+05:30",
+      "deviceSubType" : "Full face",
+      "model" : "C615",
+      "type" : "Face",
+      "make" : "Logitech",
+      "serialNo" : "535626446",
+      "deviceProviderId" : "SYNCBYTE.LTC165",
+      "deviceProvider" : "SYNCBYTE"
+    },
+    "deviceCode" : "79847aec-b87c-4692-9ae9-43ba203a3411"
+  } ],
+  "checkSum" : {
+    "mosip-client.jar" : "72D28C37B88B2E104CEB48A2B78BB46284FF28A4BC172DF2CF175296D9801848",
+    "mosip-services.jar" : "4249107D822E10E93B9F8D0606127B014FC0E8023E989642B0B325C81FF65EE8"
+  },
+  "proofOfRelationship" : "DOC024"
+} } 

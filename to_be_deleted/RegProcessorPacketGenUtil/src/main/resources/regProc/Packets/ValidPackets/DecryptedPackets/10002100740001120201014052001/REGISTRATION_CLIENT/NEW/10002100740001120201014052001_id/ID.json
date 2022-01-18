@@ -1,0 +1,178 @@
+{
+	"identity": {
+		"lastName": [
+			{
+				"language": "eng",
+				"value": "SSSSS"
+			}
+		],
+		"proofOfAddress": {
+			"value": "proofOfAddress",
+			"type": "DOC005",
+			"format": "jpg"
+		},
+		"gender": [
+			{
+				"language": "eng",
+				"value": "Male"
+			}
+		],
+		"city": [
+			{
+				"language": "eng",
+				"value": "Rabat"
+			}
+		],
+		"modeOfClaim": [
+			{
+				"language": "eng",
+				"value": "Delivery to permanent address"
+			}
+		],
+		"cregion": [
+			{
+				"language": "eng",
+				"value": "Rabat Sale Kenitra"
+			}
+		],
+		"postalCode": "10104",
+		"cprovince": [
+			{
+				"language": "eng",
+				"value": "Rabat"
+			}
+		],
+		"suffix": [
+			{
+				"language": "eng",
+				"value": "SSS"
+			}
+		],
+		"bloodType": "O",
+		"referenceIdentityNumber": "33333333333333333",
+		"individualBiometrics": {
+			"format": "cbeff",
+			"version": 1.0,
+			"value": "individualBiometrics_bio_CBEFF"
+		},
+		"province": [
+			{
+				"language": "eng",
+				"value": "Rabat"
+			}
+		],
+		"caddressLine4": [
+			{
+				"language": "eng",
+				"value": "DDDDDDDDDD"
+			}
+		],
+		"zone": [
+			{
+				"language": "eng",
+				"value": "Hay Riad"
+			}
+		],
+		"caddressLine3": [
+			{
+				"language": "eng",
+				"value": "DDDDDDDDDDDDDDDDDD"
+			}
+		],
+		"caddressLine2": [
+			{
+				"language": "eng",
+				"value": "DDDDDDDDDDDDDDDDDD"
+			}
+		],
+		"caddressLine1": [
+			{
+				"language": "eng",
+				"value": "DDDDD"
+			}
+		],
+		"addressLine1": [
+			{
+				"language": "eng",
+				"value": "WWW"
+			}
+		],
+		"addressLine2": [
+			{
+				"language": "eng",
+				"value": "WWWW"
+			}
+		],
+		"residenceStatus": [
+			{
+				"language": "eng",
+				"value": "Foreigner"
+			}
+		],
+		"addressLine3": [
+			{
+				"language": "eng",
+				"value": "WWWW"
+			}
+		],
+		"addressLine4": [
+			{
+				"language": "eng",
+				"value": "DDDDD"
+			}
+		],
+		"email": "piyush.singh@technoforte.co.in",
+		"czone": [
+			{
+				"language": "eng",
+				"value": "Agdal"
+			}
+		],
+		"dateOfBirth": "1998/01/01",
+		"cpostalCode": "10106",
+		"ccity": [
+			{
+				"language": "eng",
+				"value": "Rabat"
+			}
+		],
+		"firstName": [
+			{
+				"language": "eng",
+				"value": "Piyush S"
+			}
+		],
+		"proofOfIdentity": {
+			"value": "proofOfIdentity",
+			"type": "DOC005",
+			"format": "jpg"
+		},
+		"IDSchemaVersion": 0.2,
+		"phone": "8277417831",
+		"registrationType": [
+			{
+				"language": "eng",
+				"value": "Document-based"
+			}
+		],
+		"middleName": [
+			{
+				"language": "eng",
+				"value": "SSSS"
+			}
+		],
+		"UIN": "null",
+		"region": [
+			{
+				"language": "eng",
+				"value": "Rabat Sale Kenitra"
+			}
+		],
+		"maritalStatus": [
+			{
+				"language": "eng",
+				"value": "Married"
+			}
+		]
+	}
+}
