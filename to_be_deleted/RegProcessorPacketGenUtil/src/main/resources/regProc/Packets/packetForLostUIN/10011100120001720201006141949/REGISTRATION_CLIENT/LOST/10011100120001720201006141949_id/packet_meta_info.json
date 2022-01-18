@@ -1,0 +1,110 @@
+{ "identity" : {
+  "exceptionBiometrics" : {
+    "introducer" : { },
+    "applicant-auth" : { },
+    "applicant" : { }
+  },
+  "biometrics" : {
+    "introducer" : { },
+    "applicant-auth" : {
+      "leftEye" : {
+        "numRetry" : 1,
+        "forceCaptured" : false,
+        "birindex" : "4f6abd17-dfa0-4c2b-833e-0f57859d3eff"
+      },
+      "rightEye" : {
+        "numRetry" : 1,
+        "forceCaptured" : false,
+        "birindex" : "5b4487ef-7192-4438-aa3c-cb109e5e2131"
+      }
+    },
+    "applicant" : { }
+  },
+  "metaData" : [ {
+    "label" : "registrationId",
+    "value" : "10011100120001720201006141949"
+  }, {
+    "label" : "creationDate",
+    "value" : "2020-10-06T19:50:28.566Z"
+  }, {
+    "label" : "Registration Client Version Number",
+    "value" : "1.0.10-SNAPSHOT"
+  }, {
+    "label" : "registrationType",
+    "value" : "Update"
+  }, {
+    "label" : "preRegistrationId",
+    "value" : null
+  }, {
+    "label" : "machineId",
+    "value" : "10012"
+  }, {
+    "label" : "centerId",
+    "value" : "10011"
+  }, {
+    "label" : "dongleId",
+    "value" : "BW4524978011"
+  }, {
+    "label" : "keyIndex",
+    "value" : "D4:91:83:8B:99:C7:C4:25:D7:ED:48:C2:29:BD:37:2E:D9:BD:7E:7C:46:CA:38:2D:02:72:B9:EE:D0:C8:31:8D"
+  }, {
+    "label" : "consentOfApplicant",
+    "value" : "Yes"
+  } ],
+  "proofOfIdentity" : "DOC004",
+  "documents" : [ {
+    "documentType" : "DOC004",
+    "documentCategory" : "POI",
+    "documentOwner" : "Applicant",
+    "documentName" : "POI_DOC004"
+  } ],
+  "registrationId" : "10011100120001720201006141949",
+  "capturedRegisteredDevices" : [ ],
+  "checkSum" : {
+    "mosip-client.jar" : "2C1B4EFDC0BCA5BBF931B0F5499E00851DF8BF9FD88119636CCC965856C75DFA",
+    "mosip-services.jar" : "68485D09A099E241CC836F9EBCA32737A72B77AC307E6A17ACDAB904A96507A3"
+  },
+  "operationsData" : [ {
+    "label" : "officerId",
+    "value" : "110012"
+  }, {
+    "label" : "officerBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorId",
+    "value" : null
+  }, {
+    "label" : "supervisorBiometricFileName",
+    "value" : null
+  }, {
+    "label" : "supervisorPassword",
+    "value" : "false"
+  }, {
+    "label" : "officerPassword",
+    "value" : "true"
+  }, {
+    "label" : "supervisorPIN",
+    "value" : null
+  }, {
+    "label" : "officerPIN",
+    "value" : null
+  }, {
+    "label" : "supervisorOTPAuthentication",
+    "value" : "false"
+  }, {
+    "label" : "officerOTPAuthentication",
+    "value" : "false"
+  } ],
+  "creationDate" : "2020-10-06T19:50:28.326Z",
+  "hashSequence2" : [ {
+    "label" : "otherFiles",
+    "value" : [ "audit" ]
+  } ],
+  "hashSequence1" : [ {
+    "label" : "biometricSequence",
+    "value" : [ "individualBiometrics_bio_CBEFF" ]
+  }, {
+    "label" : "demographicSequence",
+    "value" : [ "ID" ]
+  } ]
+} } 
