@@ -1,0 +1,8 @@
+{ "identity" : {
+  "individualBiometrics" : {
+    "format" : "cbeff",
+    "version" : 1.0,
+    "value" : "individualBiometrics_bio_CBEFF"
+  },
+  "IDSchemaVersion" : 0.2
+} } 

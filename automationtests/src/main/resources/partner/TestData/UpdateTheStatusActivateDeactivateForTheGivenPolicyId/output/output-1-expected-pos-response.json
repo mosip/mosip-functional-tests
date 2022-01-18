@@ -1,9 +1,0 @@
-{
-    "id": "mosip.partnermanagement.policy.update.status",
-    "version": "1.0",
-    "responsetime": "2020-06-22T12:37:43.232Z",
-    "response": {
-        "message": "status updated successfully"
-    },
-    "errors": []
-}
