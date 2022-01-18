@@ -17,8 +17,8 @@ createServiceToSaveDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "id": "device-id-123"
-}'
+        "id": "device-id-123"
+    }'
 
    Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_DeviceId:
       endPoint: /v1/partnermanager/devicedetail
