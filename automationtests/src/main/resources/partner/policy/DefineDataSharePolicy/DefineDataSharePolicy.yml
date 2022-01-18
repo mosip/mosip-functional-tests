@@ -17,15 +17,11 @@ defineDataSharePolicy:
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
- 	"id": "922280",
     "policyGroupName": "mosip policy group",
     "name": "mosip data share policy",
     "desc": "mosip data share policy",
-    "is_Active": false,
-    "cr_by": "110124",
-    "cr_dtimes": "2021-02-19T10:59:07.388+0000"        
+    "is_Active": false      
     }'
-    
    Partner_DefineDataSharePolicy_duplicate_policy_name:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -51,7 +47,6 @@ defineDataSharePolicy:
     }
   ]
 }'
-   
    Partner_DefineDataSharePolicy_invalid_policy_grp_name:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -77,7 +72,6 @@ defineDataSharePolicy:
     }
   ]
 }'
-
    Partner_DefineDataSharePolicy_invalid_policy_type:
       endPoint: /v1/policymanager/policies
       role: partner

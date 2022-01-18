@@ -1,5 +1,5 @@
 createSearchPartnerType:
-   Partner_SearchPartnerType_type_contains_Smoke_asc_sid:
+   Partner_SearchPartnerType_type_contains_Smoke_asc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -31,7 +31,7 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_type_contains_Smoke_desc_sid:
+   Partner_SearchPartnerType_type_contains_Smoke_desc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -63,7 +63,7 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_type_equals_Smoke_desc_sid:
+   Partner_SearchPartnerType_type_equals_Smoke_desc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -95,7 +95,7 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_type_equals_Smoke_asc_sid:
+   Partner_SearchPartnerType_type_equals_Smoke_asc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -127,7 +127,7 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_type_startswith_Smoke_asc_sid:
+   Partner_SearchPartnerType_type_startswith_Smoke_asc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -159,7 +159,7 @@ createSearchPartnerType:
       }
     ]
 }'
-   Partner_SearchPartnerType_type_startswith_Smoke_desc_sid:
+   Partner_SearchPartnerType_type_startswith_Smoke_desc:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
@@ -191,13 +191,12 @@ createSearchPartnerType:
       }
     ]
 }'
-   
    Partner_SearchPartnerType_with_invalid_value_equals:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/error
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -218,19 +217,14 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPartnerType_with_invalid_value_startswith:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/error
+      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
       input: '{
     "filters": [
       {
@@ -251,12 +245,7 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "PMS-MSD-316",
-      "message": "Invalid value present for the given column"
-    }
-  ]
+   "errors": "$IGNORE$"
 }'
    Partner_SearchPartnerType_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/partnertype/search

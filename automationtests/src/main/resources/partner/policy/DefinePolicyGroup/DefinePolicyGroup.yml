@@ -11,16 +11,11 @@ definePolicyGroup:
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-        "id": "162549",
+      "id": "$IGNORE$",
         "name": "mosip policy group",
         "desc": "desc mosip policy group",
-        "is_Active": true,
-        "cr_by": "pm_testuser",
-        "cr_dtimes": "2020-10-20T07:05:34.945894",
-        "up_by": null,
-        "upd_dtimes": null
+        "is_Active": true
     }'
-
    Partner_DefinePolicyGroup_Missing_InputParameter_desc:
       endPoint: /v1/policymanager/policies/group/new
       role: partner
@@ -40,7 +35,6 @@ definePolicyGroup:
     }
   ]
 }'
-
    Partner_DefinePolicyGroup_Missing_InputParameter_name:
       endPoint: /v1/policymanager/policies/group/new
       role: partner

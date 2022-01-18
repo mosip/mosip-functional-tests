@@ -6,7 +6,7 @@ createUpdatePolicy:
       inputTemplate: partner/policy/UpdatePolicy/updatePolicy
       outputTemplate: partner/policy/UpdatePolicy/updatePolicyResult
       input: '{
-		"desc": "desc mosip policy",
+		"desc": "desc mosip policy updated",
 		"name": "mosip policy",
 		"policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
 		"authSubType": "FINGER",
@@ -20,15 +20,11 @@ createUpdatePolicy:
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-        "id": "110203",
         "policyGroupName": "mosip policy group",
         "name": "mosip policy",
-        "desc": "desc mosip policy",
-        "is_Active": $IGNORE$
+        "desc": "desc mosip policy updated",
+        "is_Active": false
     }'
-
-
-
    Partner_UpdatePolicy_Missing_InputParameter_name:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner
@@ -85,7 +81,6 @@ createUpdatePolicy:
     }
   ]
 }'
-
    Partner_UpdatePolicy_Invalid_InputParameter_policyID:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner
@@ -114,8 +109,6 @@ createUpdatePolicy:
     }
   ]
 }'
-
-
    Partner_UpdatePolicy_Missing_InputParameter_authTokenType:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner
@@ -144,7 +137,6 @@ createUpdatePolicy:
     }
   ]
 }'
-
    Partner_UpdatePolicy_Missing_InputParameter_policyGroupName:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner

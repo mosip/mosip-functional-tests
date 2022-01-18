@@ -6,13 +6,8 @@ getPartnerCert:
       inputTemplate: partner/mispPartner/GetPartner/getPartner
       outputTemplate: partner/mispPartner/GetPartner/getPartnerResult
       input: '{
-		"partnerId": "MISP"
+	"partnerId": "MISP"
 }'
       output: '  {
-    	"partnerID": "MISP",
-    	"policyGroup": null,
-    	"organizationName": "misp",
-    	"address": "Bangalore",
-    	"contactNumber": "9553967572",
-    	"emailId": "misp@gmail.com"
+ 	"partnerID": "MISP"
   }'

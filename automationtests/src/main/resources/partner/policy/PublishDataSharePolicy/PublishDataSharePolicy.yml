@@ -12,7 +12,7 @@ createPublishPolicy:
 }'
       output: '{
         "policyGroupName": "mosip policy group",
-        "policyGroupDesc": "desc mosip policy group",
+        "policyGroupDesc": "desc mosip policy group updated",
         "policyGroupStatus": true,
         "policyName": "mosip data share policy",
         "policyDesc": "mosip data share policy",

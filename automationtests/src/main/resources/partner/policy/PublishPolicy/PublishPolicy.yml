@@ -12,10 +12,10 @@ createPublishPolicy:
 }'
       output: '{
         "policyGroupName": "mosip policy group",
-        "policyGroupDesc": "desc mosip policy group",
+        "policyGroupDesc": "desc mosip policy group updated",
         "policyGroupStatus": true,
         "policyName": "mosip policy",
-        "policyDesc": "desc mosip policy",
+        "policyDesc": "desc mosip policy updated",
         "policyType": "Auth",
         "status": "PUBLISHED",
         "is_Active": true,
