@@ -803,7 +803,7 @@ public class AdminTestUtil extends BaseTestCase{
 				if (responseJson != null) {
 					String identifierKeyName = getAutogenIdKeyName(testCaseName, filedName);
 					if (responseJson.has(filedName))
-						props.put(identifierKeyName, responseJson.get(filedName));
+						props.put(identifierKeyName, responseJson.get(filedName).toString());
 					else
 						props.put(identifierKeyName, responseJson.getJSONObject("identity").get(filedName));
 				} else {

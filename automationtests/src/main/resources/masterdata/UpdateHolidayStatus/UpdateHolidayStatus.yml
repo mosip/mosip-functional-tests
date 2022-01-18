@@ -7,7 +7,7 @@ UpdateHolidayStatus:
       inputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatus
       outputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatusResult
       input: '{
-    "holidayId": "2000070",
+    "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": "true"
 }'
       output: '{
