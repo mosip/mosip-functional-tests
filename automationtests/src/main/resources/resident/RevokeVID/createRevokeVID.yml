@@ -73,43 +73,6 @@ RevokeVID:
         "maskedEmail": "XXhXX.XXy@technoforte.co.in"
     }
 }'
-   Resident_RevokeVID_Missing_IdType:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
-      role: resident
-      restMethod: patch
-      inputTemplate: resident/RevokeVID/createRevokeVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "individualIdType": "$REMOVE$",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vidstatus",
-        "version": "v1",
-        "vidStatus": "REVOKED",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
-    }
-}'
    Resident_RevokeVID_Invalid_IdType:
       endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
       role: resident

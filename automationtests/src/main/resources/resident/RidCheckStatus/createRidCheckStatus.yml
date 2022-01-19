@@ -34,8 +34,8 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
     }
   ]
 }'
