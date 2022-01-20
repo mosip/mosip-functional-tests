@@ -3,27 +3,26 @@ GenerateApiKeysforApprovedPolicies:
       endPoint: /v1/partnermanager/partners/{partnerId}/generate/apikey
       role: partner
       restMethod: patch
-      inputTemplate: partner/GenerateApiKeysforApprovedPolicies/generateApiKeysforApprovedPolicies
-      outputTemplate: partner/GenerateApiKeysforApprovedPolicies/generateApiKeysforApprovedPoliciesResult
+      inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
+      outputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKeyResult
       input: '{
-    "partnerId": "mpartner-default-auth",
-    "policyName": "mpolicy-default-auth",
+    "partnerId": "110124",
+    "policyName": "mosip policy",
     "label": "string",
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "partnerId": "mpartner-default-print",
-    "policyName": "mpolicy-default-auth",
+   "partnerId": "110124",
     "label": "string"    
 }'
    Partner_GenerateApiKeysforApprovedPolicies_InValid_policy:
       endPoint: /v1/partnermanager/partners/{partnerId}/generate/apikey
       role: partner
       restMethod: patch
-      inputTemplate: partner/GenerateApiKeysforApprovedPolicies/generateApiKeysforApprovedPolicies
+      inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
       outputTemplate: partner/error
       input: '{
-    "partnerId": "mpartner-default-auth",
+    "partnerId": "110124",
     "policyName": "dfbgafb",
     "label": "string",
     "requesttime": "$TIMESTAMP$"

@@ -1,0 +1,21 @@
+createPartnerSelfRegistration:
+   Partner_PartnerSelfRegistration_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/GenerateApiKeyForApprovedPolicies/CreatePartner/createPartner
+      outputTemplate: partner/GenerateApiKeyForApprovedPolicies/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "123456789",
+    "emailId": "mosip@cred.com",
+    "organizationName": "Techno",
+    "partnerId": "110124",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "110124",
+        "status": "InProgress"
+    }'

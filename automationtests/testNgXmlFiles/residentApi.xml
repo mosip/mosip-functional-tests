@@ -54,13 +54,13 @@
 		</classes>
 	</test>
 	
-	<test name="PrintUin">
+	<!-- <test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test>
+	</test> -->
 	
 
 	<test name="RidCheckStatus">
@@ -101,6 +101,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<!-- <test name="CancellCredential">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
 	<test name="CredentialCheckStatus">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
@@ -115,17 +122,16 @@
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test> 
-	<test name="CancellCredential">
-		<parameter name="ymlFile"
-			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	
 	<test name="GetCredentialTypes">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/GetCredentialTypes/GetCredentialTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	<test name="GetPolicyforMappedPartnerAndCredentialtype">
+		<parameter name="ymlFile"
+			value="resident/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

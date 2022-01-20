@@ -663,14 +663,6 @@
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
 	</test>
-	<test name="GenerateApiKeysforApprovedPolicies">
-		<parameter name="ymlFile"
-			value="partner/GenerateApiKeysforApprovedPolicies/GenerateApiKeysforApprovedPolicies.yml" />
-		<parameter name="pathParams"	value="partnerId" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
-		</classes>
-	</test>
 	<test name="GetRoles">
 		<parameter name="ymlFile"
 			value="partner/GetRoles/GetRoles.yml" />
@@ -707,6 +699,53 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	 <test name="CreatePartner_for_generateApiKey">
+		<parameter name="ymlFile"
+			value="partner/GenerateApiKeyForApprovedPolicies/CreatePartner/CreatePartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<!-- <test name ="UploadCACertificate_for_generateApiKey">
+		<parameter name ="ymlFile"
+			value= "partner/GenerateApiKeyForApprovedPolicies/UploadCertificate/UploadCertificate.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> -->
+	 <test name ="UploadPartnerCertificate_for_generateApiKey">
+		<parameter name ="ymlFile"
+			value= "partner/GenerateApiKeyForApprovedPolicies/UploadCert/UploadCert.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+  	<test name="RequestAPIKey_for_generateApiKey">
+		<parameter name="ymlFile"
+			value="partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/RequestAPIKey.yml" />
+		<parameter name="idKeyName" value="mappingkey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="ApproveAPIKey__for_generateApiKey">
+		<parameter name="ymlFile"
+			value="partner/GenerateApiKeyForApprovedPolicies/ApproveAPIKey/ApproveAPIKey.yml" />
+		<parameter name="pathParams" value="mappingkey" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="GenerateApiKey">
+		<parameter name="ymlFile"
+			value="partner/GenerateApiKeyforApprovedPolicies/GenerateApiKey/GenerateApiKey.yml" />
+		<parameter name="pathParams"	value="partnerId" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+		</classes>
+	</test>
+	
 </suite>
 
 
