@@ -13,7 +13,6 @@ import org.json.simple.parser.JSONParser;
 
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
-import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
 
 /**
@@ -212,8 +211,8 @@ public class KernelAuthentication extends BaseTestCase{
         		else {
         //Getting the status of the UIN 
         String query="SELECT o.otp FROM kernel.otp_transaction o where id='"+key+"'";
-        List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
-        otp=status_list.get(0);
+        //List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
+        //otp=status_list.get(0);
         		}
         ((JSONObject)actualRequest_validation.get("request")).put("otp", otp);
         Response otpValidate=appl.postWithJson(useridOTP, actualRequest_validation);
@@ -238,8 +237,8 @@ public class KernelAuthentication extends BaseTestCase{
         		else {
         //Getting the status of the UIN
         String query="SELECT o.otp FROM kernel.otp_transaction o where id='"+key+"'";
-        List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
-        otp=status_list.get(0);
+        //List<String> status_list = new KernelDataBaseAccess().getDbData( query,"kernel");
+        //otp=status_list.get(0);
         		}
         ((JSONObject)actualRequest_validation.get("request")).put("otp", otp);
         actualRequest_validation.put("requesttime", clib.getCurrentUTCTime());

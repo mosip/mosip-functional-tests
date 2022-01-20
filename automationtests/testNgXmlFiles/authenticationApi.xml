@@ -19,7 +19,7 @@
 		</classes>
 	</test>
 
-	<test name="GenerateVID">
+	 <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
 		<parameter name="idKeyName" value="vid" />
@@ -81,7 +81,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test> 
 
 
 

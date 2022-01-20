@@ -57,7 +57,7 @@
 		<parameter name="ymlFile"
 			value="idRepository\UpdateIdentity\UpdateIdentity.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.idrepo.UpdateIdentity" />
+			<class name="io.mosip.testscripts.UpdateIdentity" />
 		</classes>
 	</test>
 	<test name="UpdateVIDStatus">

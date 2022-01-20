@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
@@ -55,10 +54,10 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, isoBiovalue, "request.data");
-		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				IdaKeywordUtil.generateTimeStampWithZTimeZone(), "request.timeStamp");
-		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				IdaKeywordUtil.generateTimeStampWithZTimeZone(), "requesttime");
+		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
+				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "request.timeStamp");
+		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
+				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "requesttime");
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);

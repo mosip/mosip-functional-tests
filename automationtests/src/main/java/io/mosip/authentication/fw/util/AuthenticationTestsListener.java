@@ -8,8 +8,6 @@ import java.util.regex.Pattern;
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 
-import io.mosip.authentication.idRepository.fw.util.IdRepoTestsUtil;
-
 /**
  * Authentication Tests Listener class
  * 
@@ -31,10 +29,13 @@ public class AuthenticationTestsListener extends AuthTestsUtil implements IAnnot
 			annotation.setInvocationCount(
 					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
 							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
-		else if (testMethod.toString().contains(".idRepository.tests"))
-			annotation.setInvocationCount(
-					Integer.parseInt(getPropertyAsMap(new File(IdRepoTestsUtil.getIdRepoRunConfigFile()).getAbsolutePath().toString())
-							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
+		/*
+		 * else if (testMethod.toString().contains(".idRepository.tests"))
+		 * annotation.setInvocationCount( Integer.parseInt(getPropertyAsMap(new
+		 * File(IdRepoTestsUtil.getIdRepoRunConfigFile()).getAbsolutePath().toString())
+		 * .get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) +
+		 * ".invocationCount")));
+		 */
 	}
 	
 	/**

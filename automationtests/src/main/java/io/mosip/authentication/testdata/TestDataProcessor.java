@@ -15,7 +15,6 @@ import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.authentication.tests.BiometricAuthentication;
 import io.mosip.testDataDTO.YamlDTO;
 
 /**
