@@ -1,12 +1,11 @@
 GenerateApiKeysforApprovedPolicies:
-   Partner_GenerateApiKeysforApprovedPolicies_AllValid_smoke:
-      endPoint: /v1/partnermanager/partners/{partnerId}/generate/apikey
+   Partner_GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid:
+      endPoint: /v1/partnermanager/partners/110124/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
       outputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKeyResult
       input: '{
-    "partnerId": "110124",
     "policyName": "mosip policy",
     "label": "string",
     "requesttime": "$TIMESTAMP$"
@@ -16,13 +15,12 @@ GenerateApiKeysforApprovedPolicies:
     "label": "string"    
 }'
    Partner_GenerateApiKeysforApprovedPolicies_InValid_policy:
-      endPoint: /v1/partnermanager/partners/{partnerId}/generate/apikey
+      endPoint: /v1/partnermanager/partners/110124/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
       outputTemplate: partner/error
       input: '{
-    "partnerId": "110124",
     "policyName": "dfbgafb",
     "label": "string",
     "requesttime": "$TIMESTAMP$"

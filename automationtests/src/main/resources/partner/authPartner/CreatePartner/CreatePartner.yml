@@ -19,7 +19,26 @@ createPartnerSelfRegistration:
         "partnerId": "Tech-123",
         "status": "InProgress"
     }'
-
+   Partner_PartnerSelfRegistration_UpdatePolicyGroupForPartner_AllValid_Smoke:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/authPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "update@gmail.com",
+    "organizationName": "Test",
+    "partnerId": "updatepolicy",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "updatepolicy",
+        "status": "InProgress"
+    }'
    Partner_PartnerSelfRegistration_Missing_InputParameter_PartnerId:
       endPoint: /v1/partnermanager/partners
       role: partner
