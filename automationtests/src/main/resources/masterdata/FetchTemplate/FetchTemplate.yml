@@ -17,7 +17,7 @@ FetchTemplate:
 			}]
 }'
    MasterData_FetchTemplate_allValid_ByLangcode_smoke:
-      endPoint: /v1/masterdata/templates
+      endPoint: /v1/masterdata/templates/{langcode}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
@@ -71,7 +71,6 @@ FetchTemplate:
     }
   ]
 }'
-   
    MasterData_FetchTemplate_invalid_code:
       endPoint: /v1/masterdata/templates/templatetypecodes/{code}
       role: admin

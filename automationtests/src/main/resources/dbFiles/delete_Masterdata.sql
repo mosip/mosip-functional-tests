@@ -43,3 +43,4 @@ delete from master.biometric_type where cr_by='110005';
 delete from master.appl_form_type where cr_by='110005';
 delete from master.id_type where cr_by='110005';
 delete from master.dynamic_field where cr_by='110005';
+delete from master.zone_user where cr_by='110005';

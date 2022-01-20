@@ -9,6 +9,7 @@ CreateZoneUser:
     "zoneCode": "CST",
     "userId": "func_auto_test_user",
     "isActive": true,
+    "langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -26,6 +27,7 @@ CreateZoneUser:
     "zoneCode": "CST",
     "userId": "",
     "isActive": true,
+    "langCode": "eng",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -47,6 +49,7 @@ CreateZoneUser:
     "zoneCode": "",
     "userId": "func_auto_test_user",
     "isActive": true,
+    "langCode": "eng",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -68,6 +71,7 @@ CreateZoneUser:
     "zoneCode": "CST1",
     "userId": "func_auto_test_user",
     "isActive": true,
+    "langCode": "eng",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
