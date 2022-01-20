@@ -37,13 +37,12 @@ import org.testng.Reporter;
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
-import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.kernel.util.KernelDataBaseAccess;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
  
@@ -959,29 +958,23 @@ public class AuthTestsUtil extends BaseTestCase {
 		//IdRepoTestsUtil.copyIdrepoTestResource();
 		//ResidentTestUtil.initiateResidentTest();
 	}
-	static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	public static void createDeviceManagementData()
-	{
-		String crtQuerKeys[] = queries.get("crtAuthDevicesData").toString().split(",");
-		List<String> crtQueries = new LinkedList<String>();
-		for(String queryKeys: crtQuerKeys)
-			crtQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(crtQueries, "authdevice"))
-			logger.info("created device management data for automation");
-		else
-			logger.info("not able to create device management data, IDA authentications will fail");
-	}
-	public static void deleteDeviceManagementData()
-	{
-		String dltQueryKeys[] = queries.get("dltAuthDevicesData").toString().split(",");
-		List<String> dltQueries = new LinkedList<String>();
-		for(String queryKeys: dltQueryKeys)
-			dltQueries.add(queries.get(queryKeys).toString());
-		if (masterDB.executeQueries(dltQueries, "authdevice"))
-			logger.info("deleted created device management data for automation");
-		else
-			logger.info("not able to delete device management data");
-		}
+	//static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
+	/*
+	 * public static void createDeviceManagementData() { String crtQuerKeys[] =
+	 * queries.get("crtAuthDevicesData").toString().split(","); List<String>
+	 * crtQueries = new LinkedList<String>(); for(String queryKeys: crtQuerKeys)
+	 * crtQueries.add(queries.get(queryKeys).toString()); if
+	 * (masterDB.executeQueries(crtQueries, "authdevice"))
+	 * logger.info("created device management data for automation"); else logger.
+	 * info("not able to create device management data, IDA authentications will fail"
+	 * ); } public static void deleteDeviceManagementData() { String dltQueryKeys[]
+	 * = queries.get("dltAuthDevicesData").toString().split(","); List<String>
+	 * dltQueries = new LinkedList<String>(); for(String queryKeys: dltQueryKeys)
+	 * dltQueries.add(queries.get(queryKeys).toString()); if
+	 * (masterDB.executeQueries(dltQueries, "authdevice"))
+	 * logger.info("deleted created device management data for automation"); else
+	 * logger.info("not able to delete device management data"); }
+	 */
 
 	/**
 	 * The method will create bat or sh file to run demoApp jar in windows or linux OS respectively
@@ -1198,7 +1191,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		JSONObject objectData = null;
 		try {
 			String json = getContentFromFile(new File(filename));
-			json=json.replace("$TIMESTAMPZ$", IdaKeywordUtil.generateTimeStampWithZTimeZone());
+			json=json.replace("$TIMESTAMPZ$", AdminTestUtil.generateCurrentUTCTimeStamp());
 			objectData = (JSONObject) new JSONParser().parse(json);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception Occured :" + e.getMessage());
@@ -1544,19 +1537,19 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	public static boolean verifyAuthStatusTypeInDB(String uin,String type, String authType,String status) {
-		if(type.equals("VID"))
-			uin=UINUtil.getUinForVid(uin);
-		String query = "select * from ida.uin_auth_lock where uin = '" + uin + "' and auth_type_code = '" + authType
-				+ "' order by cr_dtimes desc limit 1";
-		Map<String, String> actualRecord = DbConnection.getDataForQuery(query, "IDA");
-		if (actualRecord==null || !actualRecord.get("status_code").equals(status)) {
-			IDASCRIPT_LOGGER.error("No Data Found in DB with query: "+query);
-			IDASCRIPT_LOGGER.error("Result of the query: "+actualRecord);
-			return false;
-		}
-		return true;
-	}
+	/*
+	 * public static boolean verifyAuthStatusTypeInDB(String uin,String type, String
+	 * authType,String status) { if(type.equals("VID"))
+	 * uin=UINUtil.getUinForVid(uin); String query =
+	 * "select * from ida.uin_auth_lock where uin = '" + uin +
+	 * "' and auth_type_code = '" + authType + "' order by cr_dtimes desc limit 1";
+	 * Map<String, String> actualRecord = DbConnection.getDataForQuery(query,
+	 * "IDA"); if (actualRecord==null ||
+	 * !actualRecord.get("status_code").equals(status)) {
+	 * IDASCRIPT_LOGGER.error("No Data Found in DB with query: "+query);
+	 * IDASCRIPT_LOGGER.error("Result of the query: "+actualRecord); return false; }
+	 * return true; }
+	 */
 	
 	protected Response deleteRequestWithPathParm(String filename, String url,String cookieName, String cookieValue) {
 		try {

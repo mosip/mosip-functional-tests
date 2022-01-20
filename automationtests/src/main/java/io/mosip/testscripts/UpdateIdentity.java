@@ -1,4 +1,4 @@
-package io.mosip.testscripts.idrepo;
+package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.text.DateFormat;

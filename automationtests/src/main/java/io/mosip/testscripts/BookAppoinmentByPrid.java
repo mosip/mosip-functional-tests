@@ -24,7 +24,6 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.util.PreRegistrationLibrary;
 import io.restassured.response.Response;
 
 public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
@@ -69,8 +68,8 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		String timeSlotTo = null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
-		PreRegistrationLibrary liberary= new PreRegistrationLibrary();
-		List<String> appointmentDetails = liberary.getAppointmentDetails(slotAvailabilityResponse);
+		//PreRegistrationLibrary liberary= new PreRegistrationLibrary();
+		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
 		if(appointmentDetails.size()>=4) {
 			try {
 				regCenterId = appointmentDetails.get(0);

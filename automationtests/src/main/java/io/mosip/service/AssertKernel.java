@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flipkart.zjsonpatch.JsonDiff;
 
-import io.mosip.kernel.tests.AuditLog;
 import io.restassured.response.Response;
 
 /**

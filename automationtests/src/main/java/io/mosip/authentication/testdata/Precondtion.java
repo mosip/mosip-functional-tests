@@ -14,7 +14,6 @@ import org.apache.log4j.Logger;
 import org.testng.Reporter;
 
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.testdata.keywords.IdaKeywordUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
 
 /**
@@ -131,7 +130,7 @@ public class Precondtion {
 	 */
 	public static KeywordUtil getKeywordObject(String moduleName) {
 		KeywordUtil objKeywordUtil = null;
-			objKeywordUtil = new IdaKeywordUtil();
+			//objKeywordUtil = new IdaKeywordUtil();
 		return objKeywordUtil;
 	}
 

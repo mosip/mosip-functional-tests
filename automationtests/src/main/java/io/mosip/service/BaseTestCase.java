@@ -26,9 +26,7 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.pmp.fw.util.PartnerTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
-import io.mosip.util.PreRegistrationLibrary;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
 
@@ -76,7 +74,7 @@ public class BaseTestCase {
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
-	static PreRegistrationLibrary lib = new PreRegistrationLibrary();
+	//static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map residentQueries;
 	public static Map partnerQueries;
 	public static boolean insertDevicedata = false;
@@ -187,7 +185,7 @@ public class BaseTestCase {
 			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
-			PartnerTestUtil.initiatePartnerTest();
+			AdminTestUtil.copyPartnerTestResource();
 		}
 		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
 			AdminTestUtil.initiateKernelTest();
@@ -205,11 +203,11 @@ public class BaseTestCase {
 		}
 		
 		//inserting device management data
-		if(insertDevicedata) {
-			AuthTestsUtil.deleteDeviceManagementData();
-			logger.info("Inserting device management data");
-			AuthTestsUtil.createDeviceManagementData();
-		}
+		/*
+		 * if(insertDevicedata) { AuthTestsUtil.deleteDeviceManagementData();
+		 * logger.info("Inserting device management data");
+		 * AuthTestsUtil.createDeviceManagementData(); }
+		 */
 
 	} 
 

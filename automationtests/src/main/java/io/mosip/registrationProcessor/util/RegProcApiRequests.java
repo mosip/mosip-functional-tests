@@ -21,8 +21,6 @@ import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.mosip.dbaccess.RegProcTransactionDb;
-import io.mosip.dbdto.AbisDeleteDto;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -280,24 +278,20 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	}
 
-	public JSONObject getAbisDeleteRequest(String rid) {
-		RegProcTransactionDb transaction = new RegProcTransactionDb();
-		Date date = new Date();
-		AbisDeleteDto deleteDto = new AbisDeleteDto();
-		deleteDto.setEncounter_id(transaction.getRef_Id(rid));
-		deleteDto.setTid(date.getTime());
-		deleteDto.setFaceThreshold("0.0");
-		deleteDto.setFingerThreshold("0.0");
-		deleteDto.setMaxResults("0");
-		deleteDto.setIrisThreshold("0.0");
-		deleteDto.setRequest_type("Delete");
-		JSONObject deleteRequest = new JSONObject();
-		ObjectMapper mapper = new ObjectMapper();
-		Map deleteMap = mapper.convertValue(deleteDto, Map.class);
-		deleteRequest.putAll(deleteMap);
-		return deleteRequest;
-
-	}
+	/*
+	 * public JSONObject getAbisDeleteRequest(String rid) { RegProcTransactionDb
+	 * transaction = new RegProcTransactionDb(); Date date = new Date();
+	 * AbisDeleteDto deleteDto = new AbisDeleteDto();
+	 * deleteDto.setEncounter_id(transaction.getRef_Id(rid));
+	 * deleteDto.setTid(date.getTime()); deleteDto.setFaceThreshold("0.0");
+	 * deleteDto.setFingerThreshold("0.0"); deleteDto.setMaxResults("0");
+	 * deleteDto.setIrisThreshold("0.0"); deleteDto.setRequest_type("Delete");
+	 * JSONObject deleteRequest = new JSONObject(); ObjectMapper mapper = new
+	 * ObjectMapper(); Map deleteMap = mapper.convertValue(deleteDto, Map.class);
+	 * deleteRequest.putAll(deleteMap); return deleteRequest;
+	 * 
+	 * }
+	 */
 
 	public void deleteFromAbis(JSONObject deleteRequest) {
 		String url = "https://qa.mosip.io/T5CloudService/1.0/processRequest";
