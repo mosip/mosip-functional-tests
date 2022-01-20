@@ -1,0 +1,96 @@
+ActivateDeactivatePartnerApiKey:
+   Partner_ActivateDeactivatePartnerApiKey_deactivate_allValid_smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
+      input: '{
+   "partnerId": "110124",
+   "policyId": "MDSP",
+   "label": "string",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+    "response": "Partner apikey de-activated successfully."
+}'
+   Partner_ActivateDeactivatePartnerApiKey_activate_allValid_smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
+      input: '{
+   "partnerId": "110124",
+   "policyId": "MDSP",
+   "label": "string",
+   "requesttime": "$TIMESTAMP$",
+   "status": "Active"
+}'
+      output: '{
+    "response": "Partner apikey activated successfully."
+}'
+   Partner_ActivateDeactivatePartnerApiKey_invalid_partnerId:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+   "partnerId": "asdfgrwg",
+   "policyId": "MDSP",
+   "label": "string",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_111",
+      "message": "API key not exists for the given combination"
+    }
+  ]
+}'
+   Partner_ActivateDeactivatePartnerApiKey_invalid_policyId:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+   "partnerId": "110124",
+   "policyId": "asfv",
+   "label": "string",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_111",
+      "message": "API key not exists for the given combination"
+    }
+  ]
+}'
+   Partner_ActivateDeactivatePartnerApiKey_invalid_label:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/error
+      input: '{
+   "partnerId": "110124",
+   "policyId": "MDSP",
+   "label": "asdfsad",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_PRT_111",
+      "message": "API key not exists for the given combination"
+    }
+  ]
+}'

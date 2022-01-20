@@ -649,13 +649,6 @@
 			<class name="io.mosip.testscripts.PostWithBodyAndPathParams" />
 		</classes>
 	</test>
-	<test name="GetPolicyforMappedPartnerAndCredentialtype">
-		<parameter name="ymlFile"
-			value="partner/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
 	<test name="MapPartnerAndPolicytoCredentialType">
 		<parameter name="ymlFile"
 			value="partner/MapPartnerAndPolicytoCredentialType/MapPartnerAndPolicytoCredentialType.yml" />
@@ -663,6 +656,13 @@
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
 	</test>
+	<test name="GetPolicyforMappedPartnerAndCredentialtype">
+		<parameter name="ymlFile"
+			value="partner/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
 	<test name="GetRoles">
 		<parameter name="ymlFile"
 			value="partner/GetRoles/GetRoles.yml" />
@@ -707,13 +707,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<!-- <test name ="UploadCACertificate_for_generateApiKey">
-		<parameter name ="ymlFile"
-			value= "partner/GenerateApiKeyForApprovedPolicies/UploadCertificate/UploadCertificate.yml" />
-	<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test> -->
 	 <test name ="UploadPartnerCertificate_for_generateApiKey">
 		<parameter name ="ymlFile"
 			value= "partner/GenerateApiKeyForApprovedPolicies/UploadCert/UploadCert.yml" />
@@ -740,12 +733,42 @@
 	<test name="GenerateApiKey">
 		<parameter name="ymlFile"
 			value="partner/GenerateApiKeyforApprovedPolicies/GenerateApiKey/GenerateApiKey.yml" />
-		<parameter name="pathParams"	value="partnerId" />
+		<parameter name="idKeyName"	value="apiKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetPolicyForApiKey">
+		<parameter name="ymlFile"
+			value="partner/GetPolicyForApiKey/GetPolicyForApiKey.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="UpdatePolicyAgainstApiKey">
+		<parameter name="ymlFile"
+			value="partner/UpdatePolicyAgainstApiKey/UpdatePolicyAgainstApiKey.yml" />
+		<parameter name="pathParams"	value="partnerId,apiKey" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="ActivateDeactivatePartnerApiKey">
+		<parameter name="ymlFile"
+			value="partner/ActivateDeactivatePartnerApiKey/ActivateDeactivatePartnerApiKey.yml" />
+			<parameter name="pathParams"	value="partnerId,policyId" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
-	
+	<test name="UpdatePolicyGroupForPartner">
+		<parameter name="ymlFile"
+			value="partner/UpdatePolicyGroupForPartner/UpdatePolicyGroupForPartner.yml" />
+		<parameter name="pathParams"	value="partnerId,policygroupName" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
 </suite>
 
 
