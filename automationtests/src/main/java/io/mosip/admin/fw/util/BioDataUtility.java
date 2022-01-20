@@ -69,10 +69,10 @@ public class BioDataUtility extends AdminTestUtil {
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "request.timeStamp");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "requesttime");
-		idaCookie = kernelAuthLib.getTokenByRole("ida");
+		residentCookie = kernelAuthLib.getTokenByRole("resident");
 		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, COOKIENAME, idaCookie).asString();
+				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
 		return EncryptionDecrptionUtil.splitEncryptedData(data);
 	}

@@ -3,11 +3,16 @@ AuthInternalLock:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
       restMethod: post
-      inputTemplate: idRepository/CreateDraft/createDraft
-      outputTemplate: idRepository/CreateDraft/createDraftResult
+      inputTemplate: idRepository/AuthInternalLock/authInternalLock
+      outputTemplate: idRepository/AuthInternalLock/authInternalLockResult
       input: '{
-      "registrationId":"$RID$"
-      }'
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Bio",
+    "authSubType": "Iris",
+    "locked": false,
+    "unlockForSeconds": 0
+}'
       output: '{
-    "status": "DRAFTED"
+    "responsetime": "$IGNORE$"
 }'
