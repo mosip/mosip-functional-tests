@@ -1,0 +1,15 @@
+RetrieveAuthTypeStatus:
+  IdRepository_RetrieveAuthTypeStatus_Active_smoke:
+      endPoint: /idrepository/v1/identity/authtypes/status/{ID}
+      role: idrepo
+      restMethod: get
+      inputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatus
+      outputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatusResult
+      input: '{
+    "ID": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+}'
+      output: '{
+"authTypes": [{
+       
+      }]
+}'

@@ -12,13 +12,7 @@
 	</listeners>
 	
 	
-	<!--<test name="GenerateUIN">
-		<parameter name="ymlFile"
-			value="idRepository\IAddIdentity\AddIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.MassUINGenerator" />
-		</classes>
-	</test>-->
+	
 	   <test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="idRepository\AddIdentity\AddIdentity.yml" />
@@ -144,5 +138,19 @@
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 	</classes>
 	</test>  
+	
+	<test name="AuthInternalLock">
+		<parameter name="ymlFile"	value="idRepository\AuthInternalLock\AuthInternalLock.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+	</test>
+	
+	<test name="RetrieveAuthTypeStatus">
+		<parameter name="ymlFile"	value="idRepository\RetrieveAuthTypeStatus\RetrieveAuthTypeStatus.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+	</classes>
+	</test>
 	
 </suite>
