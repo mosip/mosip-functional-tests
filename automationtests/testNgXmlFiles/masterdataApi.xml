@@ -744,23 +744,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
-	<!-- <test name="UpdateLocationStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateLocationStatus/UpdateLocationStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test>
-	<test name="DeleteLocation">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteLocation/DeleteLocation.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test> -->
-
-	
+	</test>	
 
 	<test name="CreateTemplate">
 		<parameter name="ymlFile"
@@ -1418,8 +1402,16 @@
 		<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
-	
-	
-	
+	<test name="SearchPacketWorkflow">
+		<parameter name="ymlFile" value="masterdata/SearchPacketWorkflow/SearchPacket.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ResumePacketWorkflow">
+		<parameter name="ymlFile" value="masterdata/ResumePacketWorkflow/ResumePacket.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>
