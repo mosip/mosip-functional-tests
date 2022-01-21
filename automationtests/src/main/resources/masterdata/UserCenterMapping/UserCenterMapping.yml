@@ -7,7 +7,7 @@ UserCenterMapping:
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
       input: '{
-     "id": "auto_test_user",
+     "id": "func_auto_test_user",
      "name": "automation",
      "statusCode": "active",
      "regCenterId": "10005",
@@ -16,7 +16,7 @@ UserCenterMapping:
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-       "id": "auto_test_user",
+       "id": "func_auto_test_user",
     "langCode": "eng",
     "name": "automation",
     "statusCode": "active",
@@ -26,7 +26,6 @@ UserCenterMapping:
     "zoneName": "Benslimane",
     "regCenterName": "Center Mehdia"
     }'
-    
    MasterData_UserCenterMapping_Invalid_duplicate_entry:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
@@ -51,7 +50,6 @@ UserCenterMapping:
     }
   ]
 }'
-  
    MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
@@ -76,7 +74,6 @@ UserCenterMapping:
     }
   ]
 }'
-
    MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId:
       endPoint: /v1/masterdata/usercentermapping
       role: admin

@@ -6,7 +6,7 @@ UpdateUserCenterMapping:
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
       input: '{
-     "id": "auto_test_user",
+     "id": "func_auto_test_user",
      "name": "automationUpdated",
      "statusCode": "active",
      "regCenterId": "10005",
@@ -14,7 +14,7 @@ UpdateUserCenterMapping:
 	   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-       "id": "auto_test_user",
+       "id": "func_auto_test_user",
     "langCode": "eng",
     "name": "automationUpdated",
     "statusCode": "active",
@@ -24,8 +24,6 @@ UpdateUserCenterMapping:
     "zoneName": "Benslimane",
     "regCenterName": "Center Mehdia"
     }'
-    
-  
    MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
@@ -33,7 +31,7 @@ UpdateUserCenterMapping:
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/error
       input: '{
-     "id": "auto_test_user1",
+     "id": "func_auto_test_user",
      "name": "automation",
      "statusCode": "active",
      "regCenterId": "",
@@ -43,12 +41,11 @@ UpdateUserCenterMapping:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-USR-008",
-      "message": "Zone user mapping not exists or not active"
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
     }
   ]
 }'
-
    MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
@@ -56,18 +53,18 @@ UpdateUserCenterMapping:
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/error
       input: '{
-     "id": "auto_test_user1",
+     "id": "func_auto_test_user",
      "name": "automation",
      "statusCode": "active",
-     "regCenterId": "10006",
+     "regCenterId": "124213",
      "langCode": "eng",
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-USR-008",
-      "message": "Zone user mapping not exists or not active"
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
     }
   ]
 }'

@@ -744,23 +744,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
-	<test name="UpdateLocationStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateLocationStatus/UpdateLocationStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test>
-	<test name="DeleteLocation">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteLocation/DeleteLocation.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-
-	
+	</test>	
 
 	<test name="CreateTemplate">
 		<parameter name="ymlFile"
@@ -1363,20 +1347,6 @@
 			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
-	<test name="DeleteZoneUser">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteZoneUser/DeleteZoneUser.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	<test name="GetApplicantType">
-		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	
 	<test name="UserCenterMapping">
 		<parameter name="ymlFile"
 			value="masterdata/UserCenterMapping/UserCenterMapping.yml" />
@@ -1391,18 +1361,57 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
+	</test>	
+	<test name="UpdateUserCenterMappingStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateUserCenterMappingStatus/UpdateUserCenterMappingStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>	
+	<test name="DeleteUserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteUserCenterMapping/DeleteUserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
 	</test>
-	
-	
-	
-	
-			<test name="SearchUserCenterMapping">
+	<test name="GetUserDetails">
+		<parameter name="ymlFile" value="masterdata/GetUserDetails/GetUserDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="SearchUserCenterMapping">
 		<parameter name="ymlFile"
 			value="masterdata/SearchUserCenterMapping/SearchUserCenterMapping.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
-	
+	<test name="DeleteZoneUser">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteZoneUser/DeleteZoneUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="GetApplicantType">
+		<parameter name="ymlFile" value="masterdata/GetApplicantType/GetApplicantType.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="SearchPacketWorkflow">
+		<parameter name="ymlFile" value="masterdata/SearchPacketWorkflow/SearchPacket.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ResumePacketWorkflow">
+		<parameter name="ymlFile" value="masterdata/ResumePacketWorkflow/ResumePacket.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 </suite>
