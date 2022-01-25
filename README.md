@@ -27,22 +27,24 @@ Only external API endpoints are covered.
 2.	`settings.xml` needs to be present in one place in `.\m2`.
   
 ### For Linux
-1.	settings.xml file needs to be present in two places
-    o	regular maven conf folder
-    o	copy the same settings.xml under /usr/local/maven/conf
+1. `settings.xml` file needs to be present in two places:
+    * regular maven conf folder
+    * copy the same settings.xml under /usr/local/maven/conf
 
-1. Access Test Automation Code
- From Browser:
-  •	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip
-  •	Unzip the contents
-  •	Continue with below steps from a terminal (Linux) or command prompt (Windows)
- From Git Bash:
+1. Access test automation code
+From Browser:
+  *	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip
+  *  Unzip the contents
+  *	 Continue with below steps from a terminal (Linux) or command prompt (Windows)
+From Git Bash:
   •	Copy the git link i.e "https://github.com/mosip/mosip-functional-tests"
   •	On your local sytem, gitbash at any location
   •	Run the "git clone https://github.com/mosip/mosip-functional-tests" command
 
-  Command to use:
-    cd automationtests
+Command to use:
+```
+cd automationtests
+```
 
 2. Build Test Automation Code
   Command to use:
@@ -52,13 +54,12 @@ Only external API endpoints are covered.
 3. Execute Test Automation Suite
     Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
   
-  Command to use:
-    cd target/
-    
-    java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.langcode=eng,ara,fra -Denv.testLevel=smokeAndRegression automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
-
+Command to use:
+```
+cd target/
+java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.langcode=eng,ara,fra -Denv.testLevel=smokeAndRegression automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
+```
 ## Details of the arguments used
-
 env.user = user of the env on which you will run the jar file. 
 env.endpoint = env where the application under test is deployed. Change the env hostname from <base_env> to any env that you will work on
 env.testlevel = this parameter has to be ‘smoke’ to run only smoke test cases, and it has to be ‘smokeandRegression’ to run all tests of all modules
