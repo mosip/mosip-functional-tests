@@ -23,7 +23,7 @@ Only external API endpoints are covered.
 2.	Lombok should be configured. Ref. https://projectlombok.org/
   
 ### For Windows
-1.	Git bash (2.18.0.windows.1)
+1.  Git bash (2.18.0.windows.1)
 2.	`settings.xml` needs to be present in one place in `.\m2`.
   
 ### For Linux
@@ -31,31 +31,32 @@ Only external API endpoints are covered.
     * regular maven conf folder
     * copy the same settings.xml under /usr/local/maven/conf
 
-1. Access test automation code
-From Browser:
-  *	‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip
-  *  Unzip the contents
-  *	 Continue with below steps from a terminal (Linux) or command prompt (Windows)
-From Git Bash:
-  •	Copy the git link i.e "https://github.com/mosip/mosip-functional-tests"
-  •	On your local sytem, gitbash at any location
-  •	Run the "git clone https://github.com/mosip/mosip-functional-tests" command
+## Access test automation code
+1.  From Browser:
+   *  ‘Clone or download’ https://github.com/mosip/mosip-functional-tests as zip
+   *  Unzip the contents
+   *  Continue with below steps from a terminal (Linux) or command prompt (Windows)
+    
+2.  From Git Bash:
+  *  Copy the git link i.e "https://github.com/mosip/mosip-functional-tests"
+  *	 On your local sytem, gitbash at any location
+  *	 Run the "git clone https://github.com/mosip/mosip-functional-tests" command
 
 ```
 cd automationtests
 ```
 
-2. Build Test Automation Code
+## Build Test Automation Code
 
 ```
 mvn clean install  
 ```
 This creates the jar file in the ‘target’ folder
 
-3. Execute Test Automation Suite
+## Execute Test Automation Suite
     Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
   
-Command to use:
+*Command to use:
 ```
 cd target/
 java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.langcode=eng,ara,fra -Denv.testLevel=smokeAndRegression automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
