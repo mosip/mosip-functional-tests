@@ -60,12 +60,12 @@ cd target/
 java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.langcode=eng,ara,fra -Denv.testLevel=smokeAndRegression automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 ## Details of the arguments used
-env.user = user of the env on which you will run the jar file. 
-env.endpoint = env where the application under test is deployed. Change the env hostname from <base_env> to any env that you will work on
-env.testlevel = this parameter has to be ‘smoke’ to run only smoke test cases, and it has to be ‘smokeandRegression’ to run all tests of all modules
-env.langcode = languages which are configured in the env.
-jar = specify the jar file to be executed
-The version of the jar file name changes as per development code version.
+* env.user = user of the env on which you will run the jar file. 
+* env.endpoint = env where the application under test is deployed. Change the env hostname from <base_env> to any env that you will work on
+* env.testlevel = this parameter has to be ‘smoke’ to run only smoke test cases, and it has to be ‘smokeandRegression’ to run all tests of all modules
+* env.langcode = languages which are configured in the env.
+* jar = specify the jar file to be executed
+* The version of the jar file name changes as per development code version.
 Example: Current version of Dev Code Base is 1.2.0 so the jar name will be automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
 
 ## Build and run
