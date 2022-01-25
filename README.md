@@ -41,16 +41,16 @@ From Git Bash:
   •	On your local sytem, gitbash at any location
   •	Run the "git clone https://github.com/mosip/mosip-functional-tests" command
 
-Command to use:
 ```
 cd automationtests
 ```
 
 2. Build Test Automation Code
-  Command to use:
-    mvn clean install
-    This creates the jar file in the ‘target’ folder
 
+```
+mvn clean install  
+```
+This creates the jar file in the ‘target’ folder
 3. Execute Test Automation Suite
     Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
   
