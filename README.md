@@ -54,9 +54,10 @@ mvn clean install
 This creates the jar file in the ‘target’ folder
 
 ## Execute Test Automation Suite
-    Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
   
-*Command to use:
+  Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
+  
+  Command to use:
 ```
 cd target/
 java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.langcode=eng,ara,fra -Denv.testLevel=smokeAndRegression automationtests-1.2.0-SNAPSHOT-jar-with-dependencies.jar
