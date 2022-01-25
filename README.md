@@ -51,6 +51,7 @@ cd automationtests
 mvn clean install  
 ```
 This creates the jar file in the ‘target’ folder
+
 3. Execute Test Automation Suite
     Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
   
