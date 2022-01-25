@@ -22,12 +22,11 @@ Only external API endpoints are covered.
 1.	Java 11 and Maven (3.6.0) software should be installed on the machine from where the automation tests will be executed
 2.	Lombok should be configured. Ref. https://projectlombok.org/
   
-  # For Windows
+### For Windows
 1.	Git bash (2.18.0.windows.1)
-2.	settings.xml needs to be present in one place
-    o	regular maven conf folder
+2.	`settings.xml` needs to be present in one place in `.\m2`.
   
-   #For Linux
+### For Linux
 1.	settings.xml file needs to be present in two places
     o	regular maven conf folder
     o	copy the same settings.xml under /usr/local/maven/conf
