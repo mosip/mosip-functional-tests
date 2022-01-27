@@ -164,13 +164,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="DeletePreRegistration">
-		<parameter name="ymlFile"
-			value="preReg/DeletePreRegistration/DeletePreRegistration.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
 	<test name="DeleteSpecificDocForaPRID">
 		<parameter name="ymlFile"
 			value="preReg/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
@@ -237,7 +230,7 @@
 	
 	
 	
-	<!-- <test name="AddUpdateRegistration">
+	<test name="AddUpdateRegistration">
 		<parameter name="ymlFile"
 			value="preReg/AddUpdateRegistration/addUpdateRegistration.yml" />
 		<classes>
@@ -246,7 +239,7 @@
 	</test>
 	<test name="AddLostUinApplication">
 		<parameter name="ymlFile"
-			value="preReg/AddLostUinApplicationn/AddLostUinApplication.yml" />
+			value="preReg/AddLostUinApplication/AddLostUinApplication.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -281,7 +274,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	<test name="SendNotifications">
 		<parameter name="ymlFile"
 			value="preReg/SendNotifications/SendNotifications.yml" />
@@ -289,6 +282,5 @@
 			<class name="io.mosip.testscripts.PostWithFormDataAndFileForNotificationAPI" />
 		</classes>
 	</test>
-	
 	
 </suite>
