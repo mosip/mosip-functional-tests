@@ -1,0 +1,31 @@
+{
+  "id": "$IGNORE$",
+  "version": "$IGNORE$",
+  "responsetime": "$IGNORE$",
+  "response": {
+    "fromRecord": "$IGNORE$",
+    "toRecord": "$IGNORE$",
+    "totalRecord": "$IGNORE$",
+    "data": [
+     {{#each data}}
+      {
+        "workflowId": "$IGNORE$",
+        "statusCode": "{{statusCode}}",
+        "statusComment": "$IGNORE$",
+        "createdBy": "$IGNORE$",
+        "createDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "workflowType": "$IGNORE$",
+        "updateDateTime": "$IGNORE$",
+        "currentStageName": "$IGNORE$",
+        "resumeTimestamp": "$IGNORE$",
+        "defaultResumeAction": "$IGNORE$",
+        "pauseRuleIds": "$IGNORE$",
+        "lastSuccessStageName": "$IGNORE$"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}
