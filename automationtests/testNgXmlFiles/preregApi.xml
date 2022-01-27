@@ -145,8 +145,9 @@
 	<test name="GetAppointmentDetails">
 		<parameter name="ymlFile"
 			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
+		<parameter name="idKeyName" value="appointment_date,time_slot_from" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />  
 		</classes>
 	</test> 
 	<test name="GetAvailableSlotForRegCentreId">
@@ -280,7 +281,14 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> --> 
+	</test> -->
+	<test name="SendNotifications">
+		<parameter name="ymlFile"
+			value="preReg/SendNotifications/SendNotifications.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormDataAndFileForNotificationAPI" />
+		</classes>
+	</test>
 	
 	
 </suite>
