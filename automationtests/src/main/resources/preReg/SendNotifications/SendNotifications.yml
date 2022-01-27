@@ -1,0 +1,98 @@
+SendNotifications:
+   Prereg_SendNotifications_All_Valid_Smoke:
+      endPoint: /preregistration/v1/notification
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendNotifications/sendNotifications_$LANGNUMBER$
+      outputTemplate: preReg/SendNotifications/sendNotificationsResult
+      input: '{ 
+    "id":"mosip.pre-registration.notification.notify",
+    "version":"1.0",
+    "requesttime":"$TIMESTAMP$",
+	"name":"Test Book appointment",
+	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+	"mobNum":"8249742850",
+	"emailID":"mosipuser123@mailinator.com",
+	"additionalRecipient":false,
+	"isBatch":false      	   
+}'
+      output: '{
+  "message": "Email and sms request successfully submitted"
+}'
+   Prereg_SendNotifications_Notify_All_Valid_Smoke:
+      endPoint: /preregistration/v1/notification/notify
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendNotifications/sendNotificationsNotify
+      outputTemplate: preReg/SendNotifications/sendNotificationsResult
+      input: '{ 
+    "id":"mosip.pre-registration.notification.notify",
+    "version":"1.0",
+    "requesttime":"$TIMESTAMP$",
+	"name":"Test Book appointment",
+	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+	"mobNum":"8249742850",
+	"emailID":"mosipuser123@mailinator.com",
+	"isBatch":true      	   
+}'
+      output: '{
+  "message": "Email and sms request successfully submitted"
+}'
+   Prereg_SendNotifications_InValid_id:
+      endPoint: /preregistration/v1/notification
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendNotifications/sendNotifications_$LANGNUMBER$
+      outputTemplate: preReg/error
+      input: '{ 
+    "id":"mosip.pre-registration.notification.notifyasdf",
+    "version":"1.0",
+    "requesttime":"$TIMESTAMP$",
+	"name":"Test Book appointment",
+	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+	"mobNum":"8249742850",
+	"emailID":"mosipuser123@mailinator.com",
+	"additionalRecipient":false,
+	"isBatch":false      	   
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}'
+   Prereg_SendNotifications_InValid_preRegId:
+      endPoint: /preregistration/v1/notification
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/SendNotifications/sendNotifications_$LANGNUMBER$
+      outputTemplate: preReg/error
+      input: '{ 
+    "id":"mosip.pre-registration.notification.notify",
+    "version":"1.0",
+    "requesttime":"$TIMESTAMP$",
+	"name":"Test Book appointment",
+	"preRegistrationId":"sadgf",
+	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+	"mobNum":"8249742850",
+	"emailID":"mosipuser123@mailinator.com",
+	"additionalRecipient":false,
+	"isBatch":false      	   
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}'

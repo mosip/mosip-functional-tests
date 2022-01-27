@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
@@ -94,6 +95,40 @@ public class RestClient {
 				.multiPart("operation", formParams.get("operation"))
 				.multiPart("category", formParams.get("category"))
 				.expect().when().post(url).then().log().all().extract().response();
+		// log then response
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
+		return postResponse;
+	}
+	public static Response postWithMultipartFormDataAndFile(String url, HashMap<String, String> formParams, /*File[] filePath,*/
+			 String contentHeader, String cookie){
+		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
+		//RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
+		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		/*
+		 * Response postResponse =
+		 * given().cookie(builder.build()).relaxedHTTPSValidation()
+		 * .contentType(contentHeader) .multiPart("files", filePath[0])
+		 * .multiPart("files", filePath[1]) .multiPart("tableName",
+		 * formParams.get("tableName")) .multiPart("operation",
+		 * formParams.get("operation")) .multiPart("category",
+		 * formParams.get("category"))
+		 * .expect().when().post(url).then().log().all().extract().response();
+		 */
+		
+		
+		RequestSpecification requestSpecification = given().cookie(builder.build()).relaxedHTTPSValidation()
+		.contentType(contentHeader);
+		/*
+		 * for (int i=0;i<filePath.length;i++) { requestSpecification.multiPart("files",
+		 * filePath[i]); }
+		 */
+		for(Map.Entry<String, String> entry: formParams.entrySet()) {
+			requestSpecification.multiPart(entry.getKey(), entry.getValue());
+		}
+		
+		Response postResponse =requestSpecification.expect().when().post(url).then().log().all().extract().response();
+		
 		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());

@@ -1,5 +1,17 @@
 GetAppointmentDetails:
-   Prereg_GetAppointmentDetails_All_Valid_Smoke_sid:
+   Prereg_GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/appointment/{preRegistrationId}
+      role: batch
+      restMethod: get
+      inputTemplate: preReg/GetAppointmentDetails/getAppointmentDetails
+      outputTemplate: preReg/GetAppointmentDetails/getAppointmentDetailsResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$"
+}'
+      output: '{
+  "registration_center_id": "10003"
+}'
+   Prereg_GetAppointmentDetails_AllValid_Smoke_sid:
       endPoint: /preregistration/v1/appointment/{preRegistrationId}
       role: batch
       restMethod: get
@@ -11,7 +23,7 @@ GetAppointmentDetails:
       output: '{
   "registration_center_id": "10003"
 }'
-   Prereg_GetAppointmentDetails_inValid_preRegistrationId_sid:
+   Prereg_GetAppointmentDetails_inValid_preRegistrationId:
       endPoint: /preregistration/v1/appointment/{preRegistrationId}
       role: batch
       restMethod: get
