@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -26,6 +27,7 @@ import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
@@ -135,7 +137,20 @@ public class BioAuth extends AdminTestUtil implements ITest {
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-
+		
+		if(testCaseName.toLowerCase().contains("kyc")) {
+			JSONObject resJsonObject = new JSONObject(response.asString());
+			String res="";
+			try {
+				res = resJsonObject.get("response").toString();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
+			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+		}
 		
 		/*
 		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
@@ -176,12 +191,14 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
+		
+		
 	}
 
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		//AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 
 	/*
