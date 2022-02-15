@@ -91,7 +91,7 @@ public class EncodeTest {
 			@Override
 			public byte[] getBytes() throws IOException {
 				// TODO Auto-generated method stub
-				return null;
+				return new byte[0];
 			}
 		});
 
