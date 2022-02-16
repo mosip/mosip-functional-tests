@@ -131,6 +131,23 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 	}
 	
+	protected Response postWithBodyAcceptTextPlainAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
+		Response response=null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			  response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN, cookieName, token);
+			  Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
 	protected Response postRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		String uriParts[] = url.split("/");
