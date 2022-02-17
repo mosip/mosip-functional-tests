@@ -1,9 +1,8 @@
 {
-  "id": "mosip.pre-registration.login.sendotp",
-  "version": "1.0",
-  "requesttime": "$TIMESTAMP$",
-  "request": {
-    "langCode": "$PRIMARYLANG$",
-    "userId": "mosipuser123@mailinator.com"
-  }
+	"id": "mosip.pre-registration.login.sendotp",
+	"request": {
+		"userId": "mayura.deshmukh@gmail.com"
+	},
+	"version": "1.0",
+	"requesttime": "2022-02-17T08:12:26.861Z"
 }

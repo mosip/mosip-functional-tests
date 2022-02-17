@@ -1,0 +1,26 @@
+CreateIdSchema:
+   MasterData_CreateIdSchema_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/idschema
+      role: admin
+      restMethod: post
+      inputTemplate: prerequisite/IdSchema/createIdSchema
+      outputTemplate: prerequisite/IdSchema/createIdSchemaResult
+      input: '{
+    "title": "test-schema",
+    "description": "Testing purpose",
+    "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+    "id": "$IGNORE$",
+    "idVersion": $IGNORE$,
+    "title": "test-schema",
+    "description": "Testing purpose",
+    "schemaJson": "$IGNORE$"
+    "status": "$IGNORE$",
+    "effectiveFrom": "$IGNORE$",
+    "createdBy": "$IGNORE$",
+    "updatedBy": "$IGNORE$",
+    "createdOn": "$IGNORE$",
+    "updatedOn": "$IGNORE$",
+    "requesttime": "$TIMESTAMP$"
+}'

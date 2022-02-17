@@ -65,9 +65,11 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 			DEMOAPP_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
 			String mavenPath = RunConfigUtil.getLinuxMavenPath();
 			String settingXmlPath = mavenPath + "/conf/settings.xml";
-			String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
-			return repoPath + "/io/mosip/authentication/authentication-demo-service/" + demoAppVersion
-					+ "/authentication-demo-service-" + demoAppVersion + ".jar";
+			//String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
+			//return repoPath + "/io/mosip/authentication/authentication-demo-service/" + demoAppVersion
+				//	+ "/authentication-demo-service-" + demoAppVersion + ".jar";
+			
+			return "./authentication-demo-service-" + demoAppVersion + ".jar";
 		}
 	}
 	

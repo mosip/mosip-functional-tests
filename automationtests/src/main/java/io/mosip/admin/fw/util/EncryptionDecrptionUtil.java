@@ -334,7 +334,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
     }
 	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
-		String token = kernelAuthLib.getTokenByRole("resident");
+		String token = kernelAuthLib.getTokenByRole("regproc");
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
