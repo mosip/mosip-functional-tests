@@ -1,112 +1,103 @@
 {
-  "id": "mosip.id.create",
+  "id": "{{id}}",
   "request": {
-    "registrationId": "{{registrationId}}",
-    "biometricReferenceId": "23452353",
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "{{biometricReferenceId}}",
     "identity": {
       "residenceStatus": [
+       {{#each residenceStatus}}
         {
-          "language": "$1STLANG$",
-          "value": "FR"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
-      "IDSchemaVersion": 0.4,
+      "IDSchemaVersion": {{IDSchemaVersion}},
       "UIN": "{{UIN}}",
-      "firstName": [
+      "fullName": [
+        {{#each fullName}}
         {
-          "language": "$1STLANG$",
-          "value": "TestQA"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
-      ],
-      "lastName": [
-        {
-          "language": "$1STLANG$",
-          "value": "TestQA"
-        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
       "dateOfBirth": "{{dateOfBirth}}",
       "gender": [
+        {{#each gender}}
         {
-          "language": "$1STLANG$",
-          "value": "Male"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
       "region": [
+        {{#each region}}
         {
-          "language": "$1STLANG$",
-          "value": "RSK"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
       "province": [
+        {{#each province}}
         {
-          "language": "$1STLANG$",
-          "value": "Kenitra"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
       "city": [
+        {{#each city}}
         {
-          "language": "$1STLANG$",
-          "value": "Kenitra"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
-      "postalCode": "14022",
+      "postalCode": "{{postalCode}}",
       "email": "{{email}}",
-	  "phone": "7019878538",
+	  "phone": "{{phone}}",
+      "referenceIdentityNumber": "{{referenceIdentityNumber}}",
       "zone": [
+        {{#each zone}}
         {
-          "language": "$1STLANG$",
-          "value": "QRHS"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
-      "introducerRID": "212124324784879",
-      "introducerUIN": "212124324784879",
+      "introducerRID": "{{introducerRID}}",
+      "introducerUIN": "{{introducerUIN}}",
       "introducerName": [
+        {{#each introducerName}}
         {
-          "language": "$1STLANG$",
-          "value": "salma"
+          "language": "{{language}}",
+          "value": "{{value}}"
         }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
       ],
-      "proofOfIdentity": {
-        "format": "txt",
-        "type": "DOC001",
-        "value": "fileReferenceID"
-      },
-      "proofOfRelationship": {
-        "format": "pdf",
-        "type": "DOC001",
-        "value": "fileReferenceID"
-      },
-      "proofOfDateOfBirth": {
-        "format": "pdf",
-        "type": "passport",
-        "value": "fileReferenceID"
-      },
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1,
-        "value": "fileReferenceID"
-      },
-      "introducerBiometrics": {
-        "format": "cbeff",
-        "version": 1.1,
         "value": "fileReferenceID"
       }
     },
     "documents": [
       {
         "value": "{{value}}",
-        "category": "individualBiometrics"
-      },
-      {
-        "category": "proofOfRelationship",
-        "value": "dGVzdA"
-      },
-      {
-        "category": "proofOfDateOfBirth",
-        "value": "dGVzdA"
+        "category": "{{category}}"
       }
     ]
   },
-  "requesttime": "2019-01-28T13:07:13.152Z",
+  "requesttime": "{{requesttime}}",
   "version": "{{version}}"
 }
