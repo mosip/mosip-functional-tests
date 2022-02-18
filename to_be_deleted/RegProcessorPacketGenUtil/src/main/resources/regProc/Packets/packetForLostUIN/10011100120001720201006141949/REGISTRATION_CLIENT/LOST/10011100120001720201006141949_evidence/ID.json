@@ -1,8 +1,0 @@
-{ "identity" : {
-  "IDSchemaVersion" : 0.2,
-  "proofOfException" : {
-    "value" : "proofOfException",
-    "type" : "EOP",
-    "format" : "jpg"
-  }
-} } 
