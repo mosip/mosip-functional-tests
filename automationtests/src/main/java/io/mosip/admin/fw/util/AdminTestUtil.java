@@ -1619,7 +1619,6 @@ public static String buildIdentityRequest(String identityRequest) {
 
 public static TestCaseDTO filterHbs(TestCaseDTO testCaseDTO) {
 if(BaseTestCase.languageList.size()==2) {
-		
 		if (Boolean.parseBoolean(props.getProperty("V3ENV")) == true) {
 			if (testCaseDTO.getInputTemplate().contains("$LANGNUMBER$"))
 				testCaseDTO.setInputTemplate(
@@ -1698,6 +1697,13 @@ public static List<String> getAppointmentDetails(Response fetchCenterResponse) {
 		break;
 	}
 	return appointmentDetails;
+}
+
+public static String modifyIdSchemaInputJson(String inputJson) {
+	inputJson = inputJson.replace("&quot;", "\\"+"\"");
+	inputJson = inputJson.replace("/", "\\"+"/");
+	inputJson = inputJson.replace("\\\\", "\\\\\\\\");
+	return inputJson;
 }
 
 }

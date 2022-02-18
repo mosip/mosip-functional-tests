@@ -12,14 +12,27 @@
 	</listeners>
 	
 	
-	 <test name="CreateMachine">
+	<test name="CreateMachine">
 		<parameter name="ymlFile"
 			value="prerequisite/Machine/CreateMachine.yml" />
 		<parameter name="idKeyName" value="id" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
+	</test> 
+	<test name="CreateIdSchema">
+		<parameter name="ymlFile"
+			value="prerequisite/IdSchema/CreateIdSchema.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
 	</test>
-	
+	<test name="UpdateIdSchema">
+		<parameter name="ymlFile"
+			value="prerequisite/UpdateIdSchema/UpdateIdSchema.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
 	
 </suite>
