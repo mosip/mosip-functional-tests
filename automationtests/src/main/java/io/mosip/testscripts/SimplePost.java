@@ -69,6 +69,9 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		if(testCaseName.contains("CreateIdSchema")) {
+			inputJson = modifyIdSchemaInputJson(inputJson);
+		}
 
 		if (inputJson.contains("$1STLANG$"))
 			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
@@ -76,7 +79,6 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
 		if (inputJson.contains("$3RDLANG$"))
 			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-		
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
