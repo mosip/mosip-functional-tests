@@ -4,6 +4,7 @@
 <suite name="Idrepository Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
+		
 	<listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener
@@ -87,7 +88,7 @@
 	</classes>
 	</test>  
 	
-	<test name="CreateDraft">
+	<!-- <test name="CreateDraft">
 		<parameter name="ymlFile"	value="idRepository\CreateDraft\CreateDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
@@ -151,6 +152,6 @@
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
-	</test>
+	</test> -->
 	
 </suite>

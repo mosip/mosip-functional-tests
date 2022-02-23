@@ -12,7 +12,7 @@
 	</listeners>
 	
 	
-	<test name="SendOtp">
+	<!-- <test name="SendOtp">
 		<parameter name="ymlFile"
 			value="preReg/SendOtp/SendOtp.yml" />
 		<classes>
@@ -25,7 +25,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test> 
+	</test>  -->
 	  <test name="CreatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/createPrereg/createPrereg.yml" />
@@ -34,7 +34,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	 <!-- <test name="UpdatePreregistration">
+	<!--  <test name="UpdatePreregistration">
 		<parameter name="ymlFile"
 			value="preReg/UpdatePreregistration/UpdatePreregistration.yml" />
 			<parameter name="pathParams"	value="preRegistrationId" />
@@ -281,6 +281,6 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithFormDataAndFileForNotificationAPI" />
 		</classes>
-	</test> -->
+	</test>  -->
 	
 </suite>

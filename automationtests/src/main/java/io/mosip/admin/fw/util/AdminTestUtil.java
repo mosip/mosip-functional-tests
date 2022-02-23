@@ -135,10 +135,12 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	protected Response postRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
+		String uriParts[] = url.split("/");
+		String partnerId = uriParts[uriParts.length-2];
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -158,7 +160,7 @@ public class AdminTestUtil extends BaseTestCase{
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, null));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Patch request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -172,12 +174,16 @@ public class AdminTestUtil extends BaseTestCase{
 			return response;
 		}
 	}
+	
+	
 	protected Response postRequestWithAuthHeaderAndSignature(String url, String jsonInput, String testCaseName) {
 		Response response=null;
+		String uriParts[] = url.split("/");
+		String partnerId = uriParts[uriParts.length-2];
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
+		headers.put( SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
@@ -1284,27 +1290,16 @@ public class AdminTestUtil extends BaseTestCase{
 		}
 		return prop;
 	}
-	public String generateSignatureWithRequest(String Request, String payload) {
-		
-		
-		String signUrl = ApplnURI+props.getProperty("internalSignEndpoint");
-		String token = kernelAuthLib.getTokenByRole("regproc");
-		String encodedrequest = Base64.getEncoder().encodeToString(Request.getBytes());
-		String signJsonPath = MosipTestRunner.getGlobalResourcePath() + "/"+props.getProperty("signJsonPath");
-		String reqJsonString = FileUtil.readInput(signJsonPath);
-		if(payload != null)
-		reqJsonString = JsonPrecondtion.parseAndReturnJsonContent(reqJsonString, payload, "request.includePayload");
-		reqJsonString = reqJsonString.replace("$DATA$", encodedrequest);
-		Response response=RestClient.postRequestWithCookie(signUrl, reqJsonString, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, token);
-		JSONObject res = new JSONObject(response.asString());
-		JSONObject responseJson = new JSONObject(res.get("response").toString());
-		if(responseJson.has("jwtSignedData"))
-		return responseJson.get("jwtSignedData").toString();
-		else
-			logger.error("No able to get the Signature from: "+signUrl+" with request: "+reqJsonString);
-		return "Not able to Get Signature";
-		
-	}
+	public String generateSignatureWithRequest(String Request, String payload, String partnerId) {
+		String singResponse = null;
+		//call sing() 
+		try {
+		 singResponse =  sign(Request, false, true, false, null, getKeysDirPath(), partnerId);
+		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
+				| OperatorCreationException | JoseException | IOException e) {
+			e.printStackTrace();
+		}
+		return singResponse;
 	
 	
 		/*
@@ -1325,6 +1320,8 @@ public class AdminTestUtil extends BaseTestCase{
 		 * logger.error("No able to get the Signature from: "+signUrl+" with request: "
 		 * +reqJsonString); return "Not able to Get Signature";
 		 */
+		
+	}
 	
 	
 /**
