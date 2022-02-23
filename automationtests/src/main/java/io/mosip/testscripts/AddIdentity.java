@@ -90,9 +90,15 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		
 		if(BaseTestCase.languageList.size()==2) {		  
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
 		} 
 		else if(BaseTestCase.languageList.size()==1) { 
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",""); 
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line2\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
 		}
 		
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate());
