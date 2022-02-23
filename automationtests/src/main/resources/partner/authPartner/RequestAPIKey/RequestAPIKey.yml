@@ -6,7 +6,7 @@ RequestAPIKeyForAuthPartner:
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/authPartner/RequestAPIKey/requestApiKeyResult
       input: '{
-        "policyName": "mosip policy",
+        "policyName": "mosip data share policy",
         "useCaseDescription": "Need to submit the payment",
 		"requesttime": "$TIMESTAMP$"
     }'
