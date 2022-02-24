@@ -10,6 +10,6 @@ FetchAllTitle:
 }'
       output: '{
    "data": [{
-           "isActive": true
+           "isActive": "$IGNORE$"
       }]
 }'

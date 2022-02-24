@@ -1,6 +1,6 @@
 DeleteBlockListedWords:
    Masterdata_DeleteBlockListedWords_valid_smoke:
-      endPoint: /v1/masterdata/blocklistedwords/{word}
+      endPoint: /v1/masterdata/blacklistedwords/{word}
       role: admin
       templateFields: ["word","code"]
       restMethod: Delete

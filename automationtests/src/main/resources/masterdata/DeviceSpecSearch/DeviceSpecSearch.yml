@@ -32,9 +32,9 @@ DeviceSpecSearch:
 	"id": "$IGNORE$",
 	"name": "Webcam",
 	"brand": "Logitech",
-	"model": "C270",
+	"model": "C930E",
 	"deviceTypeCode": "CMR",
-	"minDriverversion": "2.086",
+	"minDriverversion": "1.1.135.0",
 	"description": "$IGNORE$",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
@@ -117,7 +117,7 @@ DeviceSpecSearch:
   "id": "$IGNORE$",
   "name": "$IGNORE$",
   "brand": "$IGNORE$",
-  "model": "C270",
+  "model": "$IGNORE$",
   "deviceTypeCode": "$IGNORE$",
   "minDriverversion": "$IGNORE$",
   "description": "$IGNORE$",
@@ -205,7 +205,7 @@ DeviceSpecSearch:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
+      outputTemplate: masterdata/errors
       input: '{
     "filters": [
       {
@@ -228,7 +228,12 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "data": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-313",
+      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+    }
+  ]
 }'
    MasterData_DeviceSpecSearch_InvalidPageStart:
       endPoint: /v1/masterdata/devicespecifications/search
@@ -299,9 +304,9 @@ DeviceSpecSearch:
   "id": "$IGNORE$",
   "name": "Webcam",
   "brand": "Logitech",
-  "model": "C270",
+  "model": "C930E",
   "deviceTypeCode": "CMR",
-  "minDriverversion": "2.086",
+  "minDriverversion": "1.1.135.0",
   "description": "$IGNORE$",
   "langCode": "$IGNORE$",
   "isActive": "$IGNORE$",
@@ -527,9 +532,9 @@ DeviceSpecSearch:
   "id": "$IGNORE$",
   "name": "Webcam",
   "brand": "Logitech",
-  "model": "C270",
+  "model": "C930E",
   "deviceTypeCode": "CMR",
-  "minDriverversion": "2.086",
+  "minDriverversion": "1.1.135.0",
   "description": "$IGNORE$",
   "langCode": "$IGNORE$",
   "isActive": "$IGNORE$",

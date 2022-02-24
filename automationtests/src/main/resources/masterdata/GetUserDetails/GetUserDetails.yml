@@ -47,8 +47,8 @@ GetUserDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-USR-007",
-      "message": "User Center mapping not found"
+      "errorCode": "KER-USR-006",
+      "message": "User not found"
     }
   ]
 }'

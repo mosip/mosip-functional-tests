@@ -27,8 +27,8 @@ GetHolidaysMissingIds:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-LANG-ERR",
-      "message": "Language Code is Invalid"
+      "errorCode": "KER-MSD-500",
+      "message": "$IGNORE$"
     }
   ]
 }'

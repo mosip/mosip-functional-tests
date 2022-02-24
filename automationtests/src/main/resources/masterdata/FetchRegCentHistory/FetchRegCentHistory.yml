@@ -31,7 +31,7 @@ FetchRegCentHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -50,7 +50,7 @@ FetchRegCentHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]

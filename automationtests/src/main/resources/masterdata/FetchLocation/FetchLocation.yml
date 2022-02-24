@@ -193,7 +193,7 @@ FetchLocation:
       "hierarchyname": "$REMOVE$"
       }'
       output: '{
-	"status": "Valid"
+	"status": "Invalid"
 }'
    MasterData_FetchLocation_details_invalid_locationname:
       endPoint: /v1/masterdata/locations/validate/{locationname}

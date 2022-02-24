@@ -1,6 +1,6 @@
 UpdateBlockListedWords:
    Masterdata_UpdateBlockListedWords_All_Valid_Smoke:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["description","word","oldWord"]
       restMethod: put
@@ -19,7 +19,7 @@ UpdateBlockListedWords:
 	"langCode": "eng"
 }'
    Masterdata_UpdateBlockListedWords_Valid_WordLength128:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put
@@ -42,7 +42,7 @@ UpdateBlockListedWords:
   ]
 }'
    Masterdata_UpdateBlockListedWords_Invalid_BlocklistedWordsLength129:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put
@@ -65,7 +65,7 @@ UpdateBlockListedWords:
   ]
 }'
    Masterdata_UpdateBlockListedWords_inValid_descriptionBlank:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["word"]
       restMethod: put
@@ -84,7 +84,7 @@ UpdateBlockListedWords:
 	"langCode": "eng"
 }'
    Masterdata_UpdateBlockListedWords_Invalid_DescriptionLength257:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["word"]
       restMethod: put
@@ -107,7 +107,7 @@ UpdateBlockListedWords:
   ]
 }'
    Masterdata_UpdateBlockListedWords_Invalid_EmptyWord:
-      endPoint: /v1/masterdata/blocklistedwords
+      endPoint: /v1/masterdata/blacklistedwords
       role: admin
       templateFields: ["description"]
       restMethod: put

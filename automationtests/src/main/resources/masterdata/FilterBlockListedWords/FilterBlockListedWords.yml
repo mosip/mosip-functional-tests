@@ -1,6 +1,6 @@
 FilterBlockListedWords:
    Masterdata_FilterBlockListedWords_Valid_Request_Smoke:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text","fieldValue"]
       restMethod: post
@@ -24,7 +24,7 @@ FilterBlockListedWords:
     ]
   }'
    Masterdata_FilterBlockListedWords_Valid_TypeAll:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text","fieldValue"]
       restMethod: post
@@ -48,7 +48,7 @@ FilterBlockListedWords:
     ]
   }'
    Masterdata_FilterBlockListedWords_Invalid_EmptyColumnName:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -72,7 +72,7 @@ FilterBlockListedWords:
   ]
 }'  
    Masterdata_FilterBlockListedWords_Invalid_EmptyFilterType:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -96,7 +96,7 @@ FilterBlockListedWords:
   ]
 }'  
    Masterdata_FilterBlockListedWords_Invalid_ColumnName:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post
@@ -120,7 +120,7 @@ FilterBlockListedWords:
   ]
 }'  
    Masterdata_FilterBlockListedWords_Invalid_FilterType:
-      endPoint: /v1/masterdata/blocklistedwords/filtervalues
+      endPoint: /v1/masterdata/blacklistedwords/filtervalues
       role: admin
       templateFields: ["text"]
       restMethod: post

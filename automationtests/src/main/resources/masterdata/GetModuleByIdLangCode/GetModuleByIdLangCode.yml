@@ -33,7 +33,7 @@ GetModuleByIdLangCode:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-248",
+      "errorCode": "KER-MSD-398",
       "message": "Module not Found"
     }
   ]
@@ -52,7 +52,7 @@ GetModuleByIdLangCode:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-248",
+      "errorCode": "KER-MSD-398",
       "message": "Module not Found"
     }
   ]

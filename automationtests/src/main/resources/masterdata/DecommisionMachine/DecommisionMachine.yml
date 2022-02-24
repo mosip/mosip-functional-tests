@@ -12,7 +12,7 @@ DecommisionMachine:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-214",
+      "errorCode": "KER-MSD-042",
       "message": "Machine ID 1022dddw3456778432wsd does not exist"
     }
   ]

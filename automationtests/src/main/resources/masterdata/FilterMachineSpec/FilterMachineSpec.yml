@@ -16,12 +16,7 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Vostro"
-      }
-    ]
+    "filters": []
   }'
    Masterdata_FilterMachineSpec_Valid_col_as_name_filterType_all:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
@@ -40,12 +35,7 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "Vostro"
-      }
-    ]
+    "filters": []
   }'
    Masterdata_FilterMachineSpec_Valid_name_tro_filterType_all:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
@@ -64,12 +54,7 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
+    "filters": []
   }'
    Masterdata_FilterMachineSpec_Valid_name_tro_filterType_unique:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
@@ -88,12 +73,7 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "name",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
+    "filters": []
   }'
    Masterdata_FilterMachineSpec_Valid_col_brand:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
@@ -136,12 +116,7 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "model",
-        "fieldValue": "3568"
-      }
-    ]
+    "filters": []
   }'
    Masterdata_FilterMachineSpec_Valid_filterText_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues

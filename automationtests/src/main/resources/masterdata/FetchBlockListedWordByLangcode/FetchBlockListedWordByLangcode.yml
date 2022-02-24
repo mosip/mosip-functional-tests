@@ -1,6 +1,6 @@
 FetchBlockListedWordByLangcode:
    Masterdata_FetchBlockListedWordByLangcode_valid_eng_smoke:
-      endPoint: /v1/masterdata/blocklistedwords/{langCode}
+      endPoint: /v1/masterdata/blacklistedwords/{langCode}
       role: admin
       templateFields: ["langCode"]
       restMethod: get
@@ -13,7 +13,7 @@ FetchBlockListedWordByLangcode:
   "langCode":"eng"
 }'
    Masterdata_FetchBlackListedWord_invalid_langcode:
-      endPoint: /v1/masterdata/blocklistedwords/{langCode}
+      endPoint: /v1/masterdata/blacklistedwords/{langCode}
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchBlockListedWordByLangcode/fetchBlockListedWordByLangcode

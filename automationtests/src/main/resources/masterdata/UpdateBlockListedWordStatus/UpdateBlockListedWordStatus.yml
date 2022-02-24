@@ -1,6 +1,6 @@
 UpdateBlockListedWordStatus:
    MasterData_UpdateBlockListedWordStatus_All_Valid_Smoke:  
-      endPoint: /v1/masterdata/blocklistedwords?isActive={isActive}&word={word}
+      endPoint: /v1/masterdata/blacklistedwords?isActive={isActive}&word={word}
       role: admin
       templateFields: ["word"]
       restMethod: patch
@@ -14,7 +14,7 @@ UpdateBlockListedWordStatus:
     "status": "Status updated successfully for BlocklistedWords"
 }'
    MasterData_UpdateBlockListedWordStatus_Invalid_word:  
-      endPoint: /v1/masterdata/blocklistedwords?isActive={isActive}&word={word}
+      endPoint: /v1/masterdata/blacklistedwords?isActive={isActive}&word={word}
       role: admin
       restMethod: patch
       inputTemplate: masterdata/UpdateBlockListedWordStatus/updateBlockListedWordStatus

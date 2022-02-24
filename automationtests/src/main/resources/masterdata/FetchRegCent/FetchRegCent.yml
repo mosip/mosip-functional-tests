@@ -75,7 +75,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -103,7 +103,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -157,7 +157,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -294,7 +294,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -323,7 +323,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -402,7 +402,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -541,7 +541,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]
@@ -570,7 +570,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
+      "errorCode": "KER-MSD-042",
       "message": "Registration Center not found"
     }
   ]

@@ -1,6 +1,6 @@
 FetchAllBlockListedWord:
    Kernel_FetchAllBlockListedWord_valid_smoke:
-      endPoint: /v1/masterdata/blocklistedwords/all
+      endPoint: /v1/masterdata/blacklistedwords/all
       role: admin
       restMethod: get
       inputTemplate: masterdata/FetchAllBlockListedWord/fetchAllBlockListedWord

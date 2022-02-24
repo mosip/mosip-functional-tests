@@ -64,7 +64,7 @@ BiometricAttributes:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-APP-103",
+      "errorCode": "KER-MSD-994",
       "message": "$IGNORE$"
     }
   ]
