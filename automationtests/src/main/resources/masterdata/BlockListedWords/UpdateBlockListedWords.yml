@@ -94,8 +94,8 @@ UpdateBlockListedWords:
     "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
 	"isActive": "true",
 	"langCode": "eng",
-	"oldWord": "bull word",	
-	"word": "bull word",
+	"oldWord": "bullword",	
+	"word": "bullword",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

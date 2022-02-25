@@ -7,15 +7,15 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/MachineType/machineTypeResult
       input: '{
-    "code": "Laptop-2",
-    "description": "Laptop-2 info",
+    "code": "Laptop2",
+    "description": "Laptop2 info",
 	"isActive": true,
 	"langCode": "eng",
-	"name": "Laptop-2 test",
+	"name": "Laptop2 test",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Laptop-2",
+	"code": "Laptop2",
 	"langCode": "eng"
 }'
    Masterdata_CreateMachineType_Invalid_InputParameter_Code_Missing:
@@ -72,8 +72,8 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/error
       input: '{
-    "code": "Laptop3",
-    "description": "Laptop3 test ",
+    "code": "Laptop2",
+    "description": "Laptop2 test ",
 	"isActive": false,
 	"langCode": "eng",
 	"name": "$REMOVE$",
@@ -95,8 +95,8 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/error
       input: '{
-    "code": "Laptop3",
-    "description": "Laptop3 test",
+    "code": "Laptop2",
+    "description": "Laptop2 test",
 	"isActive": false,
 	"langCode": "eng",
 	"name": "",
@@ -118,8 +118,8 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/error
       input: '{
-    "code": "Laptop3",
-    "description": "Laptop3 test",
+    "code": "Laptop2",
+    "description": "Laptop2 test",
 	"isActive": false,
 	"langCode": "eng",
 	"name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
@@ -141,7 +141,7 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/error
       input: '{
-    "code": "Laptop3",
+    "code": "Laptop2",
     "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
 	"isActive": false,
 	"langCode": "eng",
@@ -163,8 +163,8 @@ CreateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/error
       input: '{
-    "code": "Laptop3",
-    "description": "Laptop3 test",
+    "code": "Laptop2",
+    "description": "Laptop2 test",
 	"isActive": "$REMOVE$",
 	"langCode": "eng",
 	"name": "Laptop3 testname",

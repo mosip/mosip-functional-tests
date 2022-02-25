@@ -9,9 +9,6 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-
-
-
 	<test name="BulkUpload">
 		<parameter name="ymlFile"
 			value="masterdata/BulkUpload/BulkUpload.yml" />
@@ -365,6 +362,99 @@
 		</classes>
 	</test>
 
+	<test name="CreateMachineType">
+		<parameter name="ymlFile"
+			value="masterdata/MachineType/CreateMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateMachineTypeStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateMachineTypeStatus/UpdateMachineTypeStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
+	<test name="MachineTypeSearch">
+		<parameter name="ymlFile"
+			value="masterdata/MachineTypeSearch/MachineTypeSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateMachineType">
+		<parameter name="ymlFile"
+			value="masterdata/MachineType/UpdateMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterMachineType">
+		<parameter name="ymlFile"
+			value="masterdata/FilterMachineType/FilterMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchAllMachineType">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllMachineType/FetchAllMachineType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateMachineSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/MachineSpecification/CreateMachineSpecification.yml" />
+		<parameter name="idKeyName" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateMachineSpecificationStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateMachineSpecificationStatus/UpdateMachineSpecificationStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test>
+	<test name="SearchMachineSpec">
+		<parameter name="ymlFile"
+			value="masterdata/SearchMachineSpec/SearchMachineSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateMachineSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/MachineSpecification/UpdateMachineSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FilterMachineSpec">
+		<parameter name="ymlFile"
+			value="masterdata/FilterMachineSpec/FilterMachineSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchAllMachineSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/FetchAllMachineSpecification/FetchAllMachineSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteMachineSpec">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteMachineSpec/DeleteMachineSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+
 	<test name="CreateMachine">
 		<parameter name="ymlFile"
 			value="masterdata/Machine/CreateMachine.yml" />
@@ -422,104 +512,6 @@
 			<class name="io.mosip.testscripts.PutWithPathParam" />
 		</classes>
 	</test>
-
-
-	<test name="CreateMachineSpecification">
-		<parameter name="ymlFile"
-			value="masterdata/MachineSpecification/CreateMachineSpecification.yml" />
-		<parameter name="idKeyName" value="id" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="UpdateMachineSpecificationStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateMachineSpecificationStatus/UpdateMachineSpecificationStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test>
-	<test name="SearchMachineSpec">
-		<parameter name="ymlFile"
-			value="masterdata/SearchMachineSpec/SearchMachineSpec.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateMachineSpecification">
-		<parameter name="ymlFile"
-			value="masterdata/MachineSpecification/UpdateMachineSpecification.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="FilterMachineSpec">
-		<parameter name="ymlFile"
-			value="masterdata/FilterMachineSpec/FilterMachineSpec.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="FetchAllMachineSpecification">
-		<parameter name="ymlFile"
-			value="masterdata/FetchAllMachineSpecification/FetchAllMachineSpecification.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="DeleteMachineSpec">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteMachineSpec/DeleteMachineSpec.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-
-
-	<test name="CreateMachineType">
-		<parameter name="ymlFile"
-			value="masterdata/MachineType/CreateMachineType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateMachineTypeStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateMachineTypeStatus/UpdateMachineTypeStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test>
-	<test name="MachineTypeSearch">
-		<parameter name="ymlFile"
-			value="masterdata/MachineTypeSearch/MachineTypeSearch.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateMachineType">
-		<parameter name="ymlFile"
-			value="masterdata/MachineType/UpdateMachineType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="FilterMachineType">
-		<parameter name="ymlFile"
-			value="masterdata/FilterMachineType/FilterMachineType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="FetchAllMachineType">
-		<parameter name="ymlFile"
-			value="masterdata/FetchAllMachineType/FetchAllMachineType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-
-
 	<test name="CreateRegistrationCenter">
 		<parameter name="ymlFile"
 			value="masterdata/RegistrationCenter/CreateRegistrationCenter.yml" />
@@ -669,8 +661,6 @@
 		</classes>
 	</test>
 
-
-
 	<test name="CreateHoliday">
 		<parameter name="ymlFile"
 			value="masterdata/Holiday/CreateHoliday.yml" />
@@ -714,9 +704,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-
-
-	
 	<test name="FilterLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/FilterLocationData/FilterLocationData.yml" />
@@ -745,7 +732,56 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>	
-
+	<test name="CreateTemplateType">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateType/CreateTemplateType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="FetchTemplateType">
+		<parameter name="ymlFile"
+			value="masterdata/FetchTemplateType/FetchTemplateType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/CreateTemplateFileFormat.yml" />
+		<parameter name="idKeyName" value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormatStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateTemplateFileFormatStatus/UpdateTemplateFileFormatStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/TemplateFileFormat/UpdateTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DeleteTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteTemplateFileFormat/DeleteTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="GetTemplateFileFormat">
+		<parameter name="ymlFile"
+			value="masterdata/GetTemplateFileFormat/GetTemplateFileFormat.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="CreateTemplate">
 		<parameter name="ymlFile"
 			value="masterdata/Template/CreateTemplate.yml" />
@@ -810,25 +846,6 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-
-	<test name="CreateTemplateType">
-		<parameter name="ymlFile"
-			value="masterdata/TemplateType/CreateTemplateType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="FetchTemplateType">
-		<parameter name="ymlFile"
-			value="masterdata/FetchTemplateType/FetchTemplateType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-
-
-	
-
 	<test name="FetchAllUserDetails">
 		<parameter name="ymlFile"
 			value="masterdata/FetchAllUserDetails/FetchAllUserDetails.yml" />
@@ -1191,48 +1208,6 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetUserDetailsByIdAndEffDate">
-		<parameter name="ymlFile" value="masterdata/GetUserDetailsByIdAndEffDate/GetUserDetailsByIdAndEffDate.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="CreateTemplateFileFormat">
-		<parameter name="ymlFile"
-			value="masterdata/TemplateFileFormat/CreateTemplateFileFormat.yml" />
-		<parameter name="idKeyName" value="code" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="UpdateTemplateFileFormatStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateTemplateFileFormatStatus/UpdateTemplateFileFormatStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParam" />
-		</classes>
-	</test>
-	<test name="UpdateTemplateFileFormat">
-		<parameter name="ymlFile"
-			value="masterdata/TemplateFileFormat/UpdateTemplateFileFormat.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="DeleteTemplateFileFormat">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteTemplateFileFormat/DeleteTemplateFileFormat.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
-	<test name="GetTemplateFileFormat">
-		<parameter name="ymlFile"
-			value="masterdata/GetTemplateFileFormat/GetTemplateFileFormat.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="CreateDynamicField">
 		<parameter name="ymlFile"
 			value="masterdata/DynamicField/CreateDynamicField.yml" />
@@ -1369,6 +1344,18 @@
 			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>	
+	<test name="GetUserDetails">
+		<parameter name="ymlFile" value="masterdata/GetUserDetails/GetUserDetails.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetUserDetailsByIdAndEffDate">
+		<parameter name="ymlFile" value="masterdata/GetUserDetailsByIdAndEffDate/GetUserDetailsByIdAndEffDate.yml"/>  
+		<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="DeleteUserCenterMapping">
 		<parameter name="ymlFile"
 			value="masterdata/DeleteUserCenterMapping/DeleteUserCenterMapping.yml" />
@@ -1376,12 +1363,7 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-	<test name="GetUserDetails">
-		<parameter name="ymlFile" value="masterdata/GetUserDetails/GetUserDetails.yml"/>  
-		<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
+	
 	<test name="SearchUserCenterMapping">
 		<parameter name="ymlFile"
 			value="masterdata/SearchUserCenterMapping/SearchUserCenterMapping.yml" />

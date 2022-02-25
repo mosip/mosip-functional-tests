@@ -7,11 +7,11 @@ GetUserDetailsByIdAndEffDate:
       inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
       outputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDateResult
       input: '{
-  "id":"110001",
+  "id":"func_auto_test_user",
   "effDate":"2023-12-10T08:43:46.614Z"
 }'
       output: '{
-   "id": "110001",
+   "id": "func_auto_test_user",
    "langCode": "eng"
 }'
    MasterData_GetUserDetailsByIdAndEffDate_InValid_dateFormat:
@@ -21,7 +21,7 @@ GetUserDetailsByIdAndEffDate:
       inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
       outputTemplate: masterdata/error
       input: '{
-  "id":"110001",
+  "id":"func_auto_test_user",
   "effDate":"2021-12-10T08:43:46.614"
 }'
       output: '{
@@ -39,7 +39,7 @@ GetUserDetailsByIdAndEffDate:
       inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
       outputTemplate: masterdata/error
       input: '{
-  "id":"110001",
+  "id":"func_auto_test_user",
   "effDate":"2021-09-08T08:43:46.614Z"
 }'
       output: '{

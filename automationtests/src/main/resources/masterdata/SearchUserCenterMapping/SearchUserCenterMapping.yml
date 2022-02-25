@@ -20,9 +20,9 @@ SearchUserCenterMapping:
       output: '{
        "data": [{
         "userId": "110005",
-        "zoneName": "Casablanca-Settat",
-        "regCenterId": "10005",
-        "zoneCode": "CST"
+        "zoneName": "MyCountry",
+        "regCenterId": "$IGNORE$",
+        "zoneCode": "MOR"
        }]
 }'
 

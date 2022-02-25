@@ -50,7 +50,7 @@ CreateBlockListedWords:
     "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
 	"isActive": true,
 	"langCode": "eng",
-	"word": "bull word",
+	"word": "bullword",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
