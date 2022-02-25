@@ -10,7 +10,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "Vostro"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "HP"
       }
     ]
   }'
@@ -34,7 +34,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "Vostro"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,7 +43,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "name",
-        "fieldValue": "Vostro"
+        "fieldValue": "HP"
       }
     ]
   }'
@@ -58,7 +58,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "name",
 		"type": "all",
-		"text": "tro"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -82,7 +82,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "name",
 		"type": "unique",
-		"text": "tro"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -106,7 +106,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "brand",
 		"type": "unique",
-		"text": "Dell"
+		"text": "HP"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -130,7 +130,7 @@ FilterMachineSpec:
 	"filters": [{
 		"columnName": "model",
 		"type": "all",
-		"text": "3568"
+		"text": "1234"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -139,7 +139,7 @@ FilterMachineSpec:
     "filters": [
       {
         "fieldID": "model",
-        "fieldValue": "3568"
+        "fieldValue": "1234"
       }
     ]
   }'

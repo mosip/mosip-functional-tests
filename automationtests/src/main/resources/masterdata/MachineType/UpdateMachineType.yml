@@ -7,15 +7,15 @@ UpdateMachineType:
       inputTemplate: masterdata/MachineType/machineType
       outputTemplate: masterdata/MachineType/machineTypeResult
       input: '{
-    "code": "Laptop-2",
-    "description": "Laptop-2 info updated",
+    "code": "Laptop2",
+    "description": "Laptop2 info updated",
 	"isActive": true,
 	"langCode": "eng",
-	"name": "Laptop-2 test",
+	"name": "Laptop2 test",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Laptop-2",
+	"code": "Laptop2",
 	"langCode": "eng"
 }'
    Masterdata_UpdateMachineType_Invalid_InputParameter_Code_Missing:

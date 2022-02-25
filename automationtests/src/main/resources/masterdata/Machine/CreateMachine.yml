@@ -12,7 +12,7 @@ CreateMachine:
     "isActive":true,
     "langCode":"eng",
     "macAddress":"61-D3-FD-12-C9-ED",
-    "machineSpecId":"1001",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
     "name":"Mach-Test",
     "serialNum":"FB5962911687",
     "validityDateTime":"2021-12-24T05:52:46.758Z",
@@ -24,7 +24,7 @@ CreateMachine:
       output: '{
     "id": "$IGNORE$", 
     "name": "Mach-Test",
-	"machineSpecId": "1001",
+	"machineSpecId": "$IGNORE$",
 	"serialNum": "FB5962911687",
 	"ipAddress": "192.168.0.424",
 	"isActive": "$IGNORE$",
@@ -196,13 +196,13 @@ CreateMachine:
     "isActive":true,
     "langCode":"eng",
     "macAddress":"61-D3-FD-12-C9-ED",
-    "machineSpecId":"1001",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
     "name":"Mach-Test2",
     "serialNum":"FB5962911687",
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"NTH",
+    "zoneCode":"STH",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{

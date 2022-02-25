@@ -7,7 +7,7 @@ UpdateMachineTypeStatus:
       inputTemplate: masterdata/UpdateMachineTypeStatus/updateMachineTypeStatus
       outputTemplate: masterdata/UpdateMachineTypeStatus/updateteMachineTypeStatusResult
       input: '{
-	"code": "Laptop-2",
+	"code": "Laptop2",
 	"isActive": "true"
 }'
       output: '{

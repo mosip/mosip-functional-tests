@@ -34,7 +34,7 @@ FilterMachines:
 	"filters": [{
 		"columnName": "machineSpecId",
 		"type": "All",
-		"text": "1001"
+		"text": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,7 +43,7 @@ FilterMachines:
     "filters": [
       {
         "fieldID": "machineSpecId",
-        "fieldValue": "1001"
+        "fieldValue": "$IGNORE$"
       }
     ]
   }'
