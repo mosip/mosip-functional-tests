@@ -39,6 +39,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
+
 	/**
 	 * get current testcaseName
 	 */
@@ -55,7 +56,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -69,53 +70,65 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		String uin = JsonPrecondtion
-				.getValueFromJson(RestClient.getRequestWithCookie(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
+				.getValueFromJson(
+						RestClient.getRequestWithCookie(ApplnURI + "/v1/idgenerator/uin", MediaType.APPLICATION_JSON,
+								MediaType.APPLICATION_JSON, COOKIENAME,
+								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
+						"response.uin");
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+
+		// filterHbs(testCaseDTO);
+
+		testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
+		String jsonInput = testCaseDTO.getInput();
 		
-		//filterHbs(testCaseDTO);
+		if(BaseTestCase.languageList.size()==2) {		  
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
+		} 
+		else if(BaseTestCase.languageList.size()==1) { 
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line2\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
+			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
+		}
 		
-		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-		
-		
-		
-		
-		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-		
+		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate());
+
 		if (inputJson.contains("$1STLANG$"))
-			inputJson=inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
+			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
 		if (inputJson.contains("$2NDLANG$"))
-			inputJson=inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
+			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
 		if (inputJson.contains("$3RDLANG$"))
-			inputJson=inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-		
+			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
 		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
-		
-		
-		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+
+		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		if(testCaseDTO.getTestCaseName().contains("_Pos"))
-		{
+		if (testCaseDTO.getTestCaseName().contains("_Pos")) {
 			writeAutoGeneratedId(testCaseDTO.getTestCaseName(), "UIN", uin);
 			writeAutoGeneratedId(testCaseDTO.getTestCaseName(), "RID", genRid);
 		}
-			
-	}
 
-	
+	}
 
 	/**
 	 * The method ser current test name to result
@@ -135,15 +148,16 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
+
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
-		try 
-		{logger.info("waiting for 2Minutes after UIN Generation In IDREPO");
-			Thread.sleep(120000);
+		try {
+			logger.info("waiting for 2Minutes after UIN Generation In IDREPO");
+			// Thread.sleep(120000);
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
-		
+
 	}
 }

@@ -21,8 +21,8 @@ RequestAPIKeyCredentialPartner:
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKeyResult
       input: '{
-        "policyName": "mosip data share policy",
-        "useCaseDescription": "mosip data share policy",
+        "policyName": "mosip policy",
+        "useCaseDescription": "mosip policy",
 		"requesttime": "$TIMESTAMP$"
     }'
       output: ' {
