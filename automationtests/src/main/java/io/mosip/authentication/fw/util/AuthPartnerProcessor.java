@@ -29,10 +29,15 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 */
 	public static void startProcess() {
 		String encryptUtilPort = props.getProperty("encryptUtilPort");
+		String AuthClientID = propsKernel.getProperty("AuthClientID");
+		String AuthClientSecret = propsKernel.getProperty("AuthClientSecret");
+		String AuthAppID = propsKernel.getProperty("AuthAppID");
 		try {
 			authPartherProcessor = Runtime.getRuntime()
 					.exec(new String[] { getJavaPath(), "-Dmosip.base.url="+ApplnURI,
-							"-Dserver.port="+encryptUtilPort, "-jar", getDemoAppJarPath() });
+							"-Dserver.port="+encryptUtilPort, "-Dauth-token-generator.rest.clientId="+AuthClientID, 
+							"-Dauth-token-generator.rest.secretKey="+AuthClientSecret, 
+							"-Dauth-token-generator.rest.appId="+AuthAppID, "-jar", getDemoAppJarPath() });
 			Runnable startDemoAppTask = () -> {
 				try (InputStream inputStream = authPartherProcessor.getInputStream();
 						BufferedReader bis = new BufferedReader(new InputStreamReader(inputStream));) {
@@ -44,7 +49,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 				}
 			};
 			new Thread(startDemoAppTask).start();
-			Thread.sleep(60000);
+			//Thread.sleep(60000);
 		} catch (Exception e) {
 			DEMOAPP_LOGGER.error("Exception occured in starting the demo auth partner processor");
 		}

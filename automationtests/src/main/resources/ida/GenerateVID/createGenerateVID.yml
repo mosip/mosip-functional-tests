@@ -29,7 +29,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    auth_GenerateVID_All_Valid_Smoke_Temp_VID_sid:
@@ -62,6 +62,6 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
