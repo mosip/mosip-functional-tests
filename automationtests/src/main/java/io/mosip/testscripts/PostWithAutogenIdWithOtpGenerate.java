@@ -130,12 +130,13 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
-		try 
-		{logger.info("waiting for" + props.getProperty("Delaytime") +" mili secs after VID Generation In RESIDENT SERVICES");
+		try {
+			logger.info("waiting for" + props.getProperty("Delaytime")
+					+ " mili secs after VID Generation In RESIDENT SERVICES");
 			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
-		
+
 	}
 }

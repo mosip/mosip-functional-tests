@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-	<test name="AddIdentity">
+	 <test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="ida\AddIdentity\AddIdentity.yml" />
 		<classes>
@@ -27,7 +27,7 @@
 			<class
 				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>
+	</test> 
 
 	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
@@ -37,7 +37,7 @@
 		</classes>
 	</test>
 
-	<test name="EkycBio">
+	 <test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -81,7 +81,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> 
+	</test>  
 
 
 
