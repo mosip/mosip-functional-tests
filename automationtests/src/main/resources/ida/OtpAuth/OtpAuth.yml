@@ -60,9 +60,9 @@ OtpAuth:
   "authStatus": "true",
  "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX8538",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "XXkXXiXXb@technoforte.co.in"
+        "maskedEmail": "$IGNORE$"
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_neg:
