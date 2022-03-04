@@ -9,16 +9,16 @@ Transliteration:
   "id": "mosip.pre-registration.transliteration.transliterate",
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
-  "from_field_value": "سترِنگ",
-  "from_field_lang": "ara",
-  "to_field_lang": "eng"
+  "from_field_value": "string",
+  "from_field_lang": "eng",
+  "to_field_lang": "ara"
  
 }'
       output: '{
-  "from_field_value": "سترِنگ",
-  "from_field_lang": "ara",
-  "to_field_value": "string",
-  "to_field_lang": "eng"
+  "from_field_value": "string",
+  "from_field_lang": "eng",
+  "to_field_value": "سترِنگ",
+  "to_field_lang": "ara"
 }'
    Prereg_Transliteration_inValid_tofieldlang:
       endPoint: /preregistration/v1/transliteration/transliterate
@@ -30,8 +30,8 @@ Transliteration:
   "id": "mosip.pre-registration.transliteration.transliterate",
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
-  "from_field_value": "سترِنگ",
-  "from_field_lang": "ara",
+  "from_field_value": "string",
+  "from_field_lang": "eng",
   "to_field_lang": "asdlka"
  
 }'
@@ -53,9 +53,9 @@ Transliteration:
   "id": "mosip.pre-registration.transliteration.transliterate",
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
-  "from_field_value": "سترِنگ",
+  "from_field_value": "string",
   "from_field_lang": "wqeffv",
-  "to_field_lang": "eng"
+  "to_field_lang": "ara"
  
 }'
       output: '{
