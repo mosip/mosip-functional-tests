@@ -1,15 +1,15 @@
 delete from master.blocklisted_words where word='dumbo6';
 delete from master.blocklisted_words where word='dumbo7';
-delete from master.machine_master where name in ('Mach-Test2','Mach-Test updated');
+delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated');
 delete from master.machine_spec where name='HP';
 delete from master.machine_type where code='Laptop2';
 delete FROM master.gender where code='Genderdummy';
-delete FROM master.device_master where name='testDevicedummy';
+delete FROM master.device_master where name in ('testDevicedummy','testDevicedummy updated');
 delete FROM master.device_spec where id='743';
 delete FROM master.device_type where code='GST3';
 delete FROM master.loc_holiday where holiday_name='AutoTest user Eng';
 delete FROM master.reg_center_type where code='ALT-3';
-delete FROM master.registration_center where name='Test123';
+delete FROM master.registration_center where name in ('Test123','HSR Center updated');
 delete from master.loc_holiday where holiday_name in ('AutoTest user Eng','AutoTest user');
 delete from master.reg_center_type where code in('ALT-3','ALT-5');
 delete from master.registration_center where id='10000';

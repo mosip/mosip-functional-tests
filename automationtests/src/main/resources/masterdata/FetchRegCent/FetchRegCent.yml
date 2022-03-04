@@ -176,7 +176,7 @@ FetchRegCent:
   "langcode": "eng",
   "proximitydistance": "$REMOVE$",
   "locationcode": "$REMOVE$",
-  "registrationcenterid": "10001",
+  "registrationcenterid": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
   "year": "2021",
   "id": "$REMOVE$",
   "hierarchylevel": "$REMOVE$",
