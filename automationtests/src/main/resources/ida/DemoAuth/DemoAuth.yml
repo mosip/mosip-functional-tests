@@ -1,5 +1,5 @@
 DemoAuth:
-  auth_DemoAuth_DOB_Valid_Smoke_Pos:
+  auth_DemoAuth_DOB_Valid_Smoke_UIN_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
@@ -10,6 +10,29 @@ DemoAuth:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_DOB_Valid_Smoke_VID_Pos:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
         "bio": false,
         "demo": true,
         "otp": false,
@@ -51,6 +74,35 @@ DemoAuth:
     }
   ]
 }'
+  auth_DemoAuth_DOB_InValid_Dateofbirth_with_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "04-11-1965",
+"key": "dob",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
+    }
+  ]
+}'
   auth_DemoAuth_Email_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
@@ -74,6 +126,29 @@ DemoAuth:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_Email_Valid_Smoke_Pos_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "rakshit.b@technoforte.co.in",
+"key": "emailId",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
   auth_DemoAuth_Email_InValid_Email:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
@@ -85,6 +160,35 @@ DemoAuth:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "raksdgdg@@#$%RFFGVgb",
+"key": "emailId",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data emailId did not match"
+    }
+  ]
+}'
+  auth_DemoAuth_Email_InValid_Email_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
         "bio": false,
         "demo": true,
         "otp": false,
@@ -130,6 +234,99 @@ DemoAuth:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_gender_Valid_Smoke_Pos_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "FR"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptGender"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_InValid_gender_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "EHEHDB@393939"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptGender"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data gender in eng did not match"
+    }
+  ]
+}'
+  auth_DemoAuth_InValid_gender:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "EHEHDB@393939"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptGender"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data gender in eng did not match"
+    }
+  ]
+}'
   auth_DemoAuth_Name_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
@@ -157,6 +354,99 @@ DemoAuth:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_Name_Valid_Smoke_VID_Pos:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "FR"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_InValid_name:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "FX334@@#R"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data name did not match"
+    }
+  ]
+}'
+  auth_DemoAuth_InValid_Name_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "F@@@@ddffR"
+    }
+  ],
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
   auth_DemoAuth_age_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
@@ -180,6 +470,87 @@ DemoAuth:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_age_Valid_Smoke_VID_Pos:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "51",
+"key": "age",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_invalid_age_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "ehdhdh",
+"key": "age",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data age did not match"
+    }
+  ]
+}'
+  auth_DemoAuth_age_InValid:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "ehdhdh",
+"key": "age",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data age did not match"
+    }
+  ]
+}'
   auth_DemoAuth_PhoneNumber_Valid_Smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
@@ -191,6 +562,29 @@ DemoAuth:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "7019878538",
+"key": "phoneNumber",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_PhoneNumber_Valid_VID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
         "bio": false,
         "demo": true,
         "otp": false,
@@ -231,6 +625,58 @@ DemoAuth:
       "errorMessage": "Demographic data phoneNumber did not match"
     }
   ]
+}'
+  auth_DemoAuth_PhoneNumber_InValid_PhoneNumber_VID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "7019878538dkssjw736352521g",
+"key": "phoneNumber",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-DEA-001",
+      "errorMessage": "Demographic data phoneNumber did not match"
+    }
+  ]
+}'
+  auth_DemoAuth_PhoneNumber__with_Valid_TVID_Smoke_Pos:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/demoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "7019878538",
+"key": "phoneNumber",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
 }'
   auth_DemoAuth_DOB_InValid_individualId:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
@@ -455,6 +901,64 @@ DemoAuth:
     {
       "errorCode": "IDA-MLC-006",
       "errorMessage": "Missing Input Parameter - transactionID"
+    }
+  ]
+}'
+  auth_DemoAuth_without_individual_type_ID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualIdType"
+    }
+  ]
+}'
+  auth_DemoAuth_with_missing_individual_type_ID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/demoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "",
+        "individualIdType": "$REMOVE$",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "$IGNORE$"
     }
   ]
 }'
