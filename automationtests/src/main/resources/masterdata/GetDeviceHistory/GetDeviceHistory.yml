@@ -59,19 +59,18 @@ GetDeviceHistory:
       role: regproc
       restMethod: get
       inputTemplate: masterdata/GetDeviceHistory/getDeviceHistory
-      outputTemplate: masterdata/GetDeviceHistory/getDeviceHistoryNotFoundError
+      outputTemplate: masterdata/error
       input: '{
   "id":"$ID:CreateDevice_All_Valid_Smoke_sid_id$",
   "langcode":"eng",
-  "effdatetimes":"2019/02/20T10:00:00.000Z"
+  "effdatetimes":"2023-02-04T1536:11.452Z"
 }'
       output: '{
-   "errors": [
+  "errors": [
     {
-  "status": 404,
-  "error": "Not Found",
-  "message": "No message available"
-}
+      "errorCode": "KER-MSD-033",
+      "message": "$IGNORE$"
+    }
   ]
 }'
    Masterdata_GetDeviceHistory_invalid_effdatetimes_format_2:

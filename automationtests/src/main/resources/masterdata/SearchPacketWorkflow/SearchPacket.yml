@@ -53,7 +53,7 @@ SearchPacketWorkflow:
       output: '{
    "errors": [
     {
-      "errorCode": "RPR-WAA-000",
+      "errorCode": "KER-MSD-263",
       "message": "$IGNORE$"
     }
   ]
@@ -85,7 +85,7 @@ SearchPacketWorkflow:
       output: '{
    "errors": [
     {
-      "errorCode": "RPR-WAA-002",
+      "errorCode": "KER-MSD-263",
       "message": "$IGNORE$"
     }
   ]
