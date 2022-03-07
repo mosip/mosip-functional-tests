@@ -387,8 +387,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_BOOK_RCI_003",
+      "message": "User has not selected time slot"
     }
   ]
 }'
