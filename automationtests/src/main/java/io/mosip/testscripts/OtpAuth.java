@@ -134,6 +134,10 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
 				
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
