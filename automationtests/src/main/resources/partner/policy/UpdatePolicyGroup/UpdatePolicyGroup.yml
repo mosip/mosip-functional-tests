@@ -25,7 +25,7 @@ updatePolicyGroup:
     role: partner
   Partner_UpdatePolicyGroup_Missing_InputParameter_desc: 
     endPoint: "/v1/policymanager/policies/group/{policyGroupId}"
-    input: "{ \"isActive\": true, \"desc\": \"$REMOVE$\", \"name\": \"mosip policy group\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid$\", \"requesttime\": \"$TIMESTAMP$\" }"
+    input: "{ \"isActive\": true, \"desc\": \"$REMOVE$\", \"name\": \"mosip policy group\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$\", \"requesttime\": \"$TIMESTAMP$\" }"
     inputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroup
     output: "{ \"errors\": [ { \"errorCode\": \"PMS_COR_001\", \"message\": \"Invalid request parameter - value is empty or null :request.desc\" } ] }"
     outputTemplate: partner/error
@@ -33,9 +33,17 @@ updatePolicyGroup:
     role: partner
   Partner_UpdatePolicyGroup_Missing_InputParameter_name: 
     endPoint: "/v1/policymanager/policies/group/{policyGroupId}"
-    input: "{ \"isActive\": true, \"desc\": \"desc mosip policy group\", \"name\": \"$REMOVE$\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid$\", \"requesttime\": \"$TIMESTAMP$\" }"
+    input: "{ \"isActive\": true, \"desc\": \"desc mosip policy group\", \"name\": \"$REMOVE$\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$\", \"requesttime\": \"$TIMESTAMP$\" }"
     inputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroup
     output: "{ \"errors\": [ { \"errorCode\": \"PMS_COR_001\", \"message\": \"Invalid request parameter - value is empty or null :request.name\" } ] }"
+    outputTemplate: partner/error
+    restMethod: put
+    role: partner
+  Partner_UpdatePolicyGroup_Missing_InputParameter_isActive: 
+    endPoint: "/v1/policymanager/policies/group/{policyGroupId}"
+    input: "{ \"isActive\": \"$REMOVE$\", \"desc\": \"desc mosip policy group\", \"name\": \"mosip policy group\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$\", \"requesttime\": \"$TIMESTAMP$\" }"
+    inputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroup
+    output: "{ \"errors\": [ { \"errorCode\": \"PMS_COR_003\", \"message\": \"Could not process the request\" } ] }"
     outputTemplate: partner/error
     restMethod: put
     role: partner

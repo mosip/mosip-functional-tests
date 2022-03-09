@@ -97,3 +97,103 @@ defineDataSharePolicy:
     }
   ]
 }'
+   Partner_DefineDataSharePolicy_missing_name:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "$REMOVE$",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.name"
+    }
+  ]
+}'
+   Partner_DefineDataSharePolicy_missing_descr:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "$REMOVE$",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.desc"
+    }
+  ]
+}'
+   Partner_DefineDataSharePolicy_missing_PolicyGrpName:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "$REMOVE$",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
+    }
+  ]
+}'
+   Partner_DefineDataSharePolicy_missing_PolicyType:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group",
+    "policyType": "$REMOVE$",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null. Allowed values Auth/DataShare/CredentialIssuance :request.policyType"
+    }
+  ]
+}'

@@ -16,6 +16,25 @@ definePolicyGroup:
         "desc": "desc mosip policy group",
         "is_Active": true
     }'
+   Partner_DefinePolicyGroup_AlreadyExists_InValid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "errors": [
+       {
+            "errorCode": "PMS_POL_014",
+            "message": "Policy group exists with name : mosip policy group"
+        }
+  ]
+    }'
    Partner_DefinePolicyGroup_UpdatePolicyGroupForPartner_AllValid_Smoke_sid:
       endPoint: /v1/policymanager/policies/group/new
       role: partner
