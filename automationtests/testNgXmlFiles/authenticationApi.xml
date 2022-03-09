@@ -29,7 +29,7 @@
 		</classes>
 	</test> 
 
-	<test name="BioAuth">
+	 <test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -59,7 +59,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
-	</test>
+	</test> 
 
 	<test name="DemoAuth">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
@@ -68,7 +68,7 @@
 		</classes>
 	</test>
 
-	<test name="MultiFactorAuth">
+	 <test name="MultiFactorAuth">
 		<parameter name="ymlFile"
 			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />
 		<classes>
@@ -81,7 +81,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>  
+	</test>   
 
 
 

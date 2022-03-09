@@ -250,18 +250,19 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationProcessor() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-		
-		JSONObject request=new JSONObject();
-		request.put("appId", regProc_appid);
-		request.put("password", regProc_password);
-		request.put("userName", regProc_userName);
-		actualrequest.put("request", request);
 	
-		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
-		cookie=reponse.getCookie("Authorization");
-		return cookie;
-	}
+	JSONObject actualrequest = getRequestJson(authRequest);
+	JSONObject request=new JSONObject();
+	request.put("appId", props.get("regProc_appid"));
+	request.put("clientId", props.get("regProc_clientId"));
+	request.put("secretKey", props.get("regProc_secretKey"));
+	actualrequest.put("request", request);
+	
+	Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+	cookie=reponse.getCookie("Authorization");
+	return cookie;
+}
+	
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForIDA() {
