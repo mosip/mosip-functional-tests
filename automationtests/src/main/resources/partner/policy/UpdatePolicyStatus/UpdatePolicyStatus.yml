@@ -1,5 +1,5 @@
 UpdatePolicyStatus:
-   Partner_UpdatePolicyStatus_DeActive_All_Valid_Smoke:
+   Partner_UpdatePolicyStatus_DeActive_auth_All_Valid_Smoke:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
       role: partner
       restMethod: patch
@@ -14,6 +14,21 @@ UpdatePolicyStatus:
       output: ' {
        "message": "status updated successfully"
     }'  
+   Partner_UpdatePolicyStatus_DeActive_datashare_All_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/policy/UpdatePolicyStatus/updatePolicyStatus
+      outputTemplate: partner/policy/UpdatePolicyStatus/updatePolicyStatusResult
+      input: '{		
+		"policyId": "MDSP",
+		"policygroupId":"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$",
+		"status":"De-Active",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+       "message": "status updated successfully"
+    }'
    Partner_UpdatePolicyStatus_Active_InValid:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}
       role: partner

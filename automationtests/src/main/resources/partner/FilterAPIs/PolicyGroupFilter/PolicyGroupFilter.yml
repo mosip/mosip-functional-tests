@@ -1,5 +1,5 @@
 PolicyGroupFilter:
-   partner_PolicyGroupFilter_Valid_Smoke:
+   partner_PolicyGroupFilter_using_name_Valid_Smoke:
       endPoint: /v1/policymanager/policies/group/filtervalues
       role: partner
       restMethod: post
@@ -8,6 +8,30 @@ PolicyGroupFilter:
       input: '{
   "filters": [{
     "columnName": "name",
+    "type": "unique",
+    "text": "update_policy_group"
+  }],
+  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "update_policy_group",
+        "fieldCode": "update_policy_group"
+      }
+    ]
+}'
+   partner_PolicyGroupFilter_using_desc_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "descr",
     "type": "unique",
     "text": "mpolicygroup-default-auth"
   }],
