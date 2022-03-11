@@ -1,4 +1,28 @@
 DeviceSubTypeFilter:
+   partner_DeviceSubTypeFilter_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "code",
+    "type": "all",
+    "text": "Single"
+  }],
+   "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Single",
+        "fieldCode": "Single"
+      }
+    ]
+}'
    partner_DeviceSubTypeFilter_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
       role: partner
@@ -11,7 +35,6 @@ DeviceSubTypeFilter:
     "type": "unique",
     "text": "Single"
   }],
-  "optionalFilters": "$IGNORE$",
    "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$"
 }'
@@ -36,7 +59,6 @@ DeviceSubTypeFilter:
 		"type": "",
 		"text": "Single"
 	}],
-	"optionalFilters": "$IGNORE$",
 	"purpose": "REGISTRATION",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -45,6 +67,75 @@ DeviceSubTypeFilter:
     {
       "errorCode": "PMS-MSD-322",
       "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   partner_DeviceSubTypeFilter_Invalid_EmptyFilterColumn:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "all",
+		"text": "Single"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'
+   partner_DeviceSubTypeFilter_Invalid_type_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "asfdg",
+		"text": "Single"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   partner_DeviceSubTypeFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "asdf",
+		"type": "all",
+		"text": "Single"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
     }
   ]
 }'

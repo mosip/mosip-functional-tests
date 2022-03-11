@@ -7,20 +7,43 @@ DeviceDetailsFilter:
       outputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilterResult
       input: '{
   "filters": [{
-    "columnName": "code",
-    "type": "unique",
-    "text": "Finger"
-  }],
-  "optionalFilters": "$IGNORE$",
+        "columnName": "id",
+        "type": "unique",
+        "text": "device-id-123"
+      }],
    "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
     "filters": [
       {
-        "fieldID": "code",
-        "fieldValue": "Finger",
-        "fieldCode": "Finger"
+        "fieldID": "id",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "device-id-123"
+      }
+    ]
+}'
+   partner_DeviceDetailsFilter_all_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "id",
+    "type": "all",
+    "text": "device-id-123"
+  }],
+   "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "$IGNORE$",
+        "fieldCode": "device-id-123"
       }
     ]
 }'
@@ -32,9 +55,9 @@ DeviceDetailsFilter:
       outputTemplate: partner/error
       input: '{
 	"filters": [{
-		"columnName": "code",
+		"columnName": "id",
 		"type": "",
-		"text": "Finger"
+		"text": "device-id-123"
 	}],
 	"optionalFilters": "$IGNORE$",
 	"purpose": "REGISTRATION",
@@ -45,6 +68,75 @@ DeviceDetailsFilter:
     {
       "errorCode": "PMS-MSD-322",
       "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   partner_DeviceDetailsFilter_Invalid_EmptyFilterColumn:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "all",
+		"text": "device-id-123"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'
+   partner_DeviceDetailsFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "asff",
+		"type": "all",
+		"text": "device-id-123"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   partner_DeviceDetailsFilter_Invalid_type_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "id",
+		"type": "asdf",
+		"text": "device-id-123"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
     }
   ]
 }'

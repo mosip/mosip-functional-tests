@@ -1,4 +1,27 @@
 PartnerApiKeyRequestFilter:
+   partner_PartnerApiKeyRequestFilter_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "id",
+    "type": "all",
+    "text": "mpartner_policy_auth_req"
+  }],
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner_policy_auth_req",
+        "fieldCode": "mpartner_policy_auth_req"
+      }
+    ]
+}'
    partner_PartnerApiKeyRequestFilter_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
       role: partner
@@ -11,7 +34,6 @@ PartnerApiKeyRequestFilter:
     "type": "unique",
     "text": "mpartner_policy_auth_req"
   }],
-  "optionalFilters": "$IGNORE$",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -35,7 +57,6 @@ PartnerApiKeyRequestFilter:
 		"type": "",
 		"text": "mpartner_policy_auth_req"
 	}],
-	"optionalFilters": "$IGNORE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -43,6 +64,72 @@ PartnerApiKeyRequestFilter:
     {
       "errorCode": "PMS-MSD-322",
       "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   partner_PartnerApiKeyRequestFilter_Invalid_EmptyFilterColumn:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "unique",
+		"text": "mpartner_policy_auth_req"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'
+   partner_PartnerApiKeyRequestFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "asdf",
+		"type": "unique",
+		"text": "mpartner_policy_auth_req"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   partner_PartnerApiKeyRequestFilter_Invalid_type_doesnt_exist:
+      endPoint: /v1/partnermanager/partners/apikey/request/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerApiKeyRequestFilter/partnerApiKeyRequestFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "id",
+		"type": "sfga",
+		"text": "mpartner_policy_auth_req"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
     }
   ]
 }'
