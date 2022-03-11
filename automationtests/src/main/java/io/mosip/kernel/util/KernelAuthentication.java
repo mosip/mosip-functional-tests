@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.json.simple.JSONObject;
 //import org.json.JSONObject;
@@ -13,6 +14,7 @@ import org.json.simple.parser.JSONParser;
 
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
 /**
@@ -20,6 +22,7 @@ import io.restassured.response.Response;
  *
  */
 public class KernelAuthentication extends BaseTestCase{
+	
 	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
@@ -73,6 +76,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authenticationInternalEndpoint = props.get("authenticationInternal");
 	private String sendOtp = props.get("sendOtp");
 	private String useridOTP = props.get("useridOTP");
+	private String pmsAuthInternal = props.get("pmsAuthInternal");
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
 	private String authRequest="Config/Authorization/request.json";
@@ -162,9 +166,9 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public String getAuthForPartner() {
-		JSONObject actualrequest = getRequestJson(authInternalRequest);
+			JSONObject actualrequest = getRequestJson(authInternalRequest);
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", partner_appid);
@@ -178,6 +182,31 @@ public class KernelAuthentication extends BaseTestCase{
 		String responseBody = reponse.getBody().asString();
 		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
 		return token;
+	}*/
+	
+	@SuppressWarnings({ "unchecked", "unused" })
+	public String getAuthForPartner() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", partner_appid);
+		request.put("password", partner_password);
+		request.put("userName", partner_userName);	
+		
+		if(Boolean.parseBoolean(props.get("pmsAuthInternal")) == true) {
+			JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+			request.put("clientId", props.get("partner_clientId"));
+			request.put("clientSecret", props.get("partner_clientSecret"));
+			actualInternalrequest.put("request", request);
+			Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+			String responseBody = reponse.getBody().asString();
+			String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+			return token;			
+		}
+		JSONObject actualrequest = getRequestJson(authRequest);
+		actualrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
 	}
 	
 	@SuppressWarnings("unchecked")

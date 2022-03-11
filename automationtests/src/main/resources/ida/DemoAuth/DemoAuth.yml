@@ -118,7 +118,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "rakshit.b@technoforte.co.in",
+    "value": "idaautomation@gmail.com",
 "key": "emailId",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -141,7 +141,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "rakshit.b@technoforte.co.in",
+    "value": "idaautomation@gmail.com",
 "key": "emailId",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -566,7 +566,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "7019878538",
+    "value": "7019858531",
 "key": "phoneNumber",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -589,7 +589,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "7019878538",
+    "value": "7019858531",
 "key": "phoneNumber",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -670,7 +670,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "7019878538",
+    "value": "7019858531",
 "key": "phoneNumber",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
