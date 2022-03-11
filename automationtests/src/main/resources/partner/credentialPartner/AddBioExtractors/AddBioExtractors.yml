@@ -1,6 +1,6 @@
 addBioExtractors:
-   Partner_AddBioExtractors_All_Valid_Smoke:
-      endPoint: /v1/partnermanager/partners/MOVP/bioextractors/MDSP
+   Partner_AddBioExtractors_MosipDataSharePolicy_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}/bioextractors/{policyId}
       role: partner
       restMethod: post
       inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
@@ -11,9 +11,22 @@ addBioExtractors:
 	"requesttime": "$TIMESTAMP$"
   }'
       output: '{"message":"Extractors added successfully."}'
+
+   Partner_AddBioExtractors_MosipPolicy_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/{partnerId}/bioextractors/{policyId}
+      role: partner
+      restMethod: post
+      inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
+      outputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractorsResult
+      input: '{
+	"partnerId":"MOVP",
+	"policyId":"$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{"message":"Extractors added successfully."}'
       
    Partner_AddBioExtractors_invalid_policyId:
-      endPoint: /v1/partnermanager/partners/MOVP/bioextractors/abcd
+      endPoint: /v1/partnermanager/partners/{partnerId}/bioextractors/{policyId}
       role: partner
       restMethod: post
       inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
@@ -33,7 +46,7 @@ addBioExtractors:
 }'
 
    Partner_AddBioExtractors_invalid_partnerId:
-      endPoint: /v1/partnermanager/partners/abcd/bioextractors/MDSP
+      endPoint: /v1/partnermanager/partners/{partnerId}/bioextractors/{policyId}
       role: partner
       restMethod: post
       inputTemplate: partner/credentialPartner/AddBioExtractors/addBioExtractors
