@@ -26,11 +26,84 @@ createSearchDeviceDetails:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "id": "device-id-123"
+   "errors": []
+}'
+   Partner_SearchDeviceDetails_AllValid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails
+      outputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult
+      input: '{
+    "deviceProviderId": "all",
+    "pageFetch": "$REMOVE$",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": []
+}'
+   Partner_SearchDeviceDetails_Only_FilterCriteria_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails
+      outputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult
+      input: '{
+    "deviceProviderId": "all",
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "equals",
+        "value": "device-id-123"
       }
-    ]
+    ],
+    "pageFetch": "$REMOVE$",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": []
+}'
+   Partner_SearchDeviceDetails_Only_SortCriteria_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails
+      outputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult
+      input: '{
+    "deviceProviderId": "all",
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ],
+    "pageFetch": "$REMOVE$",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": []
+}'
+   Partner_SearchDeviceDetails_Only_PaginationCriteria_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails
+      outputTemplate: partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult
+      input: '{
+    "deviceProviderId": "all",
+    "pageFetch": "10",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "errors": []
 }'
    Partner_SearchDeviceDetails_with_invalid_columnName:
       endPoint: /v1/partnermanager/devicedetail/search
