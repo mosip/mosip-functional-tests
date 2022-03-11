@@ -217,7 +217,7 @@
 			value="partner/credentialPartner/AddBioExtractors/AddBioExtractors.yml" />
 		<parameter name="pathParams" value="partnerId,policyId" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.PostWithBodyAndPathParams" />
 		</classes>
 	</test>
 	<test name="RejectAPIKey_Online_Verification_Partner">
@@ -382,7 +382,7 @@
 		</classes>
 	</test> 
 	
-	<test name="createSearchDeviceType">
+    <test name="createSearchDeviceType">
 		<parameter name="ymlFile"
 			value="partner/SearchAPIs/SearchDeviceType/createSearchDeviceType.yml" />
 		<classes>
