@@ -1,4 +1,28 @@
 DeviceTypeFilter:
+   partner_DeviceTypeFilter_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail/deviceType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: partner/FilterAPIs/DeviceTypeFilter/deviceTypeFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "code",
+    "type": "all",
+    "text": "Finger"
+  }],
+   "purpose": "REGISTRATION",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Finger",
+        "fieldCode": "Finger"
+      }
+    ]
+}'
    partner_DeviceTypeFilter_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/deviceType/filtervalues
       role: partner
@@ -11,7 +35,6 @@ DeviceTypeFilter:
     "type": "unique",
     "text": "Finger"
   }],
-  "optionalFilters": "$IGNORE$",
    "purpose": "REGISTRATION",
   "requesttime": "$TIMESTAMP$"
 }'
@@ -36,7 +59,6 @@ DeviceTypeFilter:
 		"type": "",
 		"text": "Finger"
 	}],
-	"optionalFilters": "$IGNORE$",
 	"purpose": "REGISTRATION",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -45,6 +67,75 @@ DeviceTypeFilter:
     {
       "errorCode": "PMS-MSD-322",
       "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   partner_DeviceTypeFilter_Invalid_EmptyFilterColumn:
+      endPoint: /v1/partnermanager/devicedetail/deviceType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "unique",
+		"text": "Finger"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'
+   partner_DeviceTypeFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/deviceType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "asdf",
+		"type": "unique",
+		"text": "Finger"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   partner_DeviceTypeFilter_Invalid_type_doesnt_exist:
+      endPoint: /v1/partnermanager/devicedetail/deviceType/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "asdf",
+		"text": "Finger"
+	}],
+	"purpose": "REGISTRATION",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
     }
   ]
 }'

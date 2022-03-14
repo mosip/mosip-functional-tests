@@ -1,5 +1,5 @@
 PartnerFilter:
-   partner_PartnerFilter_Valid_Smoke:
+   partner_PartnerFilter_unique_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/filtervalues
       role: partner
       restMethod: post
@@ -11,7 +11,29 @@ PartnerFilter:
     "type": "unique",
     "text": "mpartner-default-abis"
   }],
-  "optionalFilters": "$IGNORE$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner-default-abis",
+        "fieldCode": "mpartner-default-abis"
+      }
+    ]
+}'
+   partner_PartnerFilter_all_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "id",
+    "type": "all",
+    "text": "mpartner-default-abis"
+  }],
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -35,7 +57,6 @@ PartnerFilter:
 		"type": "",
 		"text": "mpartner-default-abis"
 	}],
-	"optionalFilters": "$IGNORE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -43,6 +64,72 @@ PartnerFilter:
     {
       "errorCode": "PMS-MSD-322",
       "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   partner_PartnerFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "asfgs",
+		"type": "unique",
+		"text": "mpartner-default-abis"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   partner_PartnerFilter_Invalid_type_doesnt_exist:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "id",
+		"type": "asdg",
+		"text": "mpartner-default-abis"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   partner_PartnerFilter_Invalid_Empty_column:
+      endPoint: /v1/partnermanager/partners/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PartnerFilter/partnerFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "unique",
+		"text": "mpartner-default-abis"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
     }
   ]
 }'

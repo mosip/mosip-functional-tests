@@ -11,7 +11,6 @@ PolicyGroupFilter:
     "type": "unique",
     "text": "update_policy_group"
   }],
-  "optionalFilters": "$IGNORE$",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -20,6 +19,29 @@ PolicyGroupFilter:
         "fieldID": "name",
         "fieldValue": "update_policy_group",
         "fieldCode": "update_policy_group"
+      }
+    ]
+}'
+   partner_PolicyGroupFilter_all_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult
+      input: '{
+  "filters": [{
+    "columnName": "name",
+    "type": "all",
+    "text": "mpolicygroup-default-auth"
+  }],
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "mpolicygroup-default-auth",
+        "fieldCode": "mpolicygroup-default-auth"
       }
     ]
 }'
@@ -35,7 +57,6 @@ PolicyGroupFilter:
     "type": "unique",
     "text": "mpolicygroup-default-auth"
   }],
-  "optionalFilters": "$IGNORE$",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -59,7 +80,6 @@ PolicyGroupFilter:
 		"type": "",
 		"text": "mpolicygroup-default-auth"
 	}],
-	"optionalFilters": "$IGNORE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -79,10 +99,9 @@ PolicyGroupFilter:
       input: '{
   "filters": [{
     "columnName": "",
-    "type": "",
+    "type": "all",
     "text": "mpolicygroup-default-auth"
   }],
-  "optionalFilters": "$IGNORE$",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -90,6 +109,50 @@ PolicyGroupFilter:
     {
       "errorCode": "PMS_COR_001",
       "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}'
+   partner_PolicyGroupFilter_Invalid_Column_doesnt_exist:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "sfg",
+		"type": "all",
+		"text": "mpolicygroup-default-auth"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}'
+   partner_PolicyGroupFilter_Invalid_Type_doesnt_exist:
+      endPoint: /v1/policymanager/policies/group/filtervalues
+      role: partner
+      restMethod: post
+      inputTemplate: partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter
+      outputTemplate: partner/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "sfgar",
+		"text": "mpolicygroup-default-auth"
+	}],
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
     }
   ]
 }'
