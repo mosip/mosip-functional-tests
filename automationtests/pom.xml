@@ -152,7 +152,7 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<kernel.version>1.0.9</kernel.version>
+		<kernel.version>1.2.0.1-SNAPSHOT</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
@@ -456,12 +456,12 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-registration-packet-manager</artifactId>
-			<version>1.1.1-rc1</version>
+			<version>1.1.5.3</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-crypto-jce</artifactId>
-			<version>1.0.6</version>
+			<version>1.1.5.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wink</groupId>
