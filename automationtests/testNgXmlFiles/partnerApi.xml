@@ -599,13 +599,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetMISPLicenseByMispID">
-		<parameter name="ymlFile"
-			value="partner/MispLicense/GetMISPLicenseByMispID/GetMISPLicenseByMispID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
 	<test name="UpdateMispLicense">
 		<parameter name="ymlFile"
 			value="partner/MispLicense/UpdateMispLicense/UpdateMispLicense.yml" />
@@ -613,6 +606,14 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	<test name="GetMISPLicenseByMispID">
+		<parameter name="ymlFile"
+			value="partner/MispLicense/GetMISPLicenseByMispID/GetMISPLicenseByMispID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+	
 	<test name="SearchMispLicense">
 		<parameter name="ymlFile"
 			value="partner/MispLicense/SearchMispLicense/SearchMispLicense.yml" />

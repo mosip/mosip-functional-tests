@@ -14,6 +14,21 @@ CreateMispLicense:
    "licenseKey": "$IGNORE$",
    "licenseKeyStatus": "Active"
 }'
+   Partner_CreateMispLicense_MispLicense_allValid_smoke_sid:
+      endPoint: /v1/partnermanager/misps
+      role: partner
+      restMethod: post
+      inputTemplate: partner/MispLicense/CreateMispLicense/createMispLicense
+      outputTemplate: partner/MispLicense/CreateMispLicense/createMispLicenseResult
+      input: '{
+   "providerId": "MISP2",
+   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "providerId": "MISP2",
+   "licenseKey": "$IGNORE$",
+   "licenseKeyStatus": "Active"
+}'
    Partner_CreateMispLicense_InValid_ProviderId:
       endPoint: /v1/partnermanager/misps
       role: partner

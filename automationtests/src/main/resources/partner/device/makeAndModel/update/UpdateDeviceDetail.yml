@@ -7,12 +7,12 @@ createServiceToUpdateDeviceDetail:
       outputTemplate: partner/device/makeAndModel/update/updateDeviceDetailResult
       input: '{
     "deviceProviderId": "Tech-123",
-    "deviceSubTypeCode": "Slab",
+    "deviceSubTypeCode": "Slap",
     "deviceTypeCode": "Finger",
     "id": "device-id-123",
     "isActive": true,
     "isItForRegistrationDevice": true,
-    "make": "abcde123",
+    "make": "abcdef",
     "model": "FRO90000",
     "partnerOrganizationName": "Techno",
     "requesttime": "$TIMESTAMP$"
@@ -20,7 +20,27 @@ createServiceToUpdateDeviceDetail:
       output: '{
         "id": "device-id-123"
     }'
-
+   Partner_ServiceToUpdateDeviceDetail_afterReject_InValid:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/makeAndModel/update/updateDeviceDetail
+      outputTemplate: partner/device/makeAndModel/update/updateDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Single",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-124",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcdef",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "device-id-124"
+    }'
    Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId:
       endPoint: /v1/partnermanager/devicedetail
       role: partner

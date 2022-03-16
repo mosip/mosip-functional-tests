@@ -19,7 +19,91 @@ createServiceToSaveDeviceDetail:
       output: '{
         "id": "device-id-123"
     }'
-
+   Partner_ServiceToSaveDeviceDetail_sameMakeModelType_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Single",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-124",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "device-id-124"
+    }'
+   Partner_ServiceToSaveDeviceDetail_sameMakeModel_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Single",
+    "deviceTypeCode": "Iris",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "$IGNORE$"
+    }'
+   Partner_ServiceToSaveDeviceDetail_sameTypeSubType_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slap",
+    "deviceTypeCode": "Finger",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "abcdef",
+    "model": "FRO900000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "$IGNORE$"
+    }'
+   Partner_ServiceToSaveDeviceDetail_AlreadyExists_Invalid:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
+      outputTemplate: partner/error
+      input: '{
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slap",
+    "deviceTypeCode": "Finger",
+    "id": "$REMOVE$",
+    "isItForRegistrationDevice": true,
+    "make": "abcde",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_AUT_003",
+      "message": "Device Details already exists"
+    }
+  ]
+}'
    Partner_ServiceToSaveDeviceDetail_Missing_InputParameter_DeviceId:
       endPoint: /v1/partnermanager/devicedetail
       role: partner

@@ -1,4 +1,38 @@
 uploadPartnerCert:
+   Partner_UploadPartnerCert_missing_PartnerDomain:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/UploadCert/uploadCert2
+      outputTemplate: partner/error
+      input: '{  
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+  "errors": [
+        {
+            "errorCode": "PMS_COR_001",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
+   Partner_UploadPartnerCert_invalid_certificate:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/UploadCert/uploadCert3
+      outputTemplate: partner/error
+      input: '{  
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+  "errors": [
+        {
+            "errorCode": "$IGNORE$",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
    Partner_UploadPartnerCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
@@ -10,4 +44,16 @@ uploadPartnerCert:
 }'
       output: ' {
   "errors": "$IGNORE$"
-}'   
+}' 
+   Partner_UploadPartnerCert_UploadAgain_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/UploadCert/uploadCert
+      outputTemplate: partner/authPartner/UploadCert/uploadCertResult
+      input: '{  
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+  "errors": "$IGNORE$"
+}'           
