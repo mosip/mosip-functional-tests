@@ -12,9 +12,23 @@ rejectDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Device details approved successfully."
+        "response": "Device details rejected successfully."
     }'
-
+   Partner_rejectDeviceDetail_Valid_Smoke:
+      endPoint: /v1/partnermanager/devicedetail
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/makeAndModel/approve/approveDeviceDetail
+      outputTemplate: partner/device/makeAndModel/approve/approveDeviceDetailResult
+      input: '{
+    "approvalStatus": "De-activate",
+    "id": "device-id-124",
+    "isItForRegistrationDevice": "true",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Device details rejected successfully."
+    }'
    Partner_rejectDeviceDetail_Missing_InputParameter_approvalStatus:
       endPoint: /v1/partnermanager/devicedetail
       role: partner

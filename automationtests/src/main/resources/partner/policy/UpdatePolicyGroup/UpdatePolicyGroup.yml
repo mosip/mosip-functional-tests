@@ -7,6 +7,14 @@ updatePolicyGroup:
     outputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroupResult
     restMethod: put
     role: partner
+  Partner_UpdatePolicyGroup_All_Valid_Smoke: 
+    endPoint: "/v1/policymanager/policies/group/{policyGroupId}"
+    input: "{ \"isActive\": false, \"desc\": \"desc mosip policy group2\", \"name\": \"mosip policy group2\", \"policyGroupId\": \"$ID:DefinePolicyGroup_InActive_All_Valid_Smoke_sid_id$\", \"requesttime\": \"$TIMESTAMP$\" }"
+    inputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroup
+    output: " { \"name\": \"mosip policy group2\", \"desc\": \"desc mosip policy group2\", \"is_Active\": false }"
+    outputTemplate: partner/policy/UpdatePolicyGroup/updatePolicyGroupResult
+    restMethod: put
+    role: partner
   Partner_UpdatePolicyGroup_activate_All_Valid_Smoke: 
     endPoint: "/v1/policymanager/policies/group/{policyGroupId}"
     input: "{ \"isActive\": true, \"desc\": \"desc mosip policy group updated\", \"name\": \"mosip policy group\", \"policyGroupId\": \"$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$\", \"requesttime\": \"$TIMESTAMP$\" }"

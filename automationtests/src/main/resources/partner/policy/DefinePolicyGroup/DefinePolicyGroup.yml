@@ -16,6 +16,23 @@ definePolicyGroup:
         "desc": "desc mosip policy group",
         "is_Active": true
     }'
+   Partner_DefinePolicyGroup_InActive_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group2",
+    "name": "mosip policy group2",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "id": "$IGNORE$",
+        "name": "mosip policy group2",
+        "desc": "desc mosip policy group2",
+        "is_Active": true
+    }'
    Partner_DefinePolicyGroup_AlreadyExists_InValid:
       endPoint: /v1/policymanager/policies/group/new
       role: partner

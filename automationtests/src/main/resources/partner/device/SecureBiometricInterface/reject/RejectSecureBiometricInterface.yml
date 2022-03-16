@@ -12,9 +12,23 @@ RejectSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Secure biometric details approved successfully."
+        "response": "Secure biometric details rejected successfully."
     }'
-
+   Partner_RejectSecureBiometricInterface_Valid_Smoke:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
+      input: '{
+    "approvalStatus": "De-activate",
+    "id": "$ID:SaveSecureBiometricInterface_Valid_Smoke_sid_id$",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Secure biometric details rejected successfully."
+    }'
    Partner_RejectSecureBiometricInterface_Missing_InputParameter_approvalStatus:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
