@@ -209,7 +209,7 @@ definePolicy:
     }
   ]
 }'
-   Partner_DefinePolicy_Missing_InputParameter_authSubType:
+   Partner_DefinePolicy_Missing_InputParameter_mandatory:
       endPoint: /v1/policymanager/policies
       role: partner
       restMethod: post
@@ -290,33 +290,33 @@ definePolicy:
         }
   ]
 }'
-#   Partner_DefinePolicy_Missing_InputParameter_attributeName:
-#      endPoint: /v1/policymanager/policies
-#      role: partner
-#      restMethod: post
-#      inputTemplate: partner/policy/DefinePolicy/definePolicy
-#      outputTemplate: partner/error
-#     input: '{
-#     "attributeName": "$REMOVE$",
-#		"desc": "desc mosip policy",
-#		"name": "mosip policy test",
-#		"authSubType": "FINGER",
-#		"authType": "bio",
-#		"mandatory": true,
-#		"authTokenType": "partner",
-#		"policyGroupName": "mosip policy group",
-#		"policyType": "Auth",
-#		"version": "1.0",
-#		"requesttime": "$TIMESTAMP$"
-#}'
-#      output: '{
-#   "errors": [
-#    {
-#            "errorCode": "PMS_PV_006",
-#            "message": "Missing input parameter - allowedKycAttributes/0/attributeName"
-#        }
-#  ]
-#}'
+   Partner_DefinePolicy_Missing_InputParameter_attributeName:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+        "attributeName": "$REMOVE$",
+		"desc": "desc mosip policy",
+		"name": "mosip policy test",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+            "errorCode": "PMS_PV_006",
+            "message": "Missing input parameter - allowedKycAttributes/0/attributeName"
+        }
+  ]
+}'
    Partner_DefinePolicy_Missing_InputParameter_policyGroupName:
       endPoint: /v1/policymanager/policies
       role: partner

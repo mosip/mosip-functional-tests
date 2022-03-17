@@ -1196,8 +1196,8 @@ public class AdminTestUtil extends BaseTestCase{
 							finalarrayContent = removObjectFromArray(arr);
 						} else {
 							String arrayContent = removeObject(new JSONObject(array.get(i).toString()),finalarrayContent);
-							if (!arrayContent.equals("{}"))
-								finalarrayContent = finalarrayContent + "," + arrayContent;
+							//if (!arrayContent.equals("{}"))
+							finalarrayContent = finalarrayContent + "," + arrayContent;
 						}
 					}
 					finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
