@@ -1,5 +1,5 @@
 UpdateMispLicense:
-   Partner_UpdateMispLicense_allValid_smoke:
+   Partner_UpdateMispLicense_Deactive_allValid_smoke:
       endPoint: /v1/partnermanager/misps
       role: partner
       restMethod: put
@@ -13,6 +13,21 @@ UpdateMispLicense:
       output: '{
    "providerId": "MISP",
     "licenseKeyStatus": "de-active"
+}'
+   Partner_UpdateMispLicense_Active_allValid_smoke:
+      endPoint: /v1/partnermanager/misps
+      role: partner
+      restMethod: put
+      inputTemplate: partner/MispLicense/UpdateMispLicense/updateMispLicense
+      outputTemplate: partner/MispLicense/UpdateMispLicense/updateMispLicenseResult
+      input: '{
+   "providerId": "MISP2",
+   "licenseKeyStatus": "Active",
+   "licenseKey": "$ID:CreateMispLicense_MispLicense_allValid_smoke_sid_licenseKey$"
+}'
+      output: '{
+   "providerId": "MISP2",
+    "licenseKeyStatus": "active"
 }'
    Partner_UpdateMispLicense_InValid_licenseKeyStatus:
       endPoint: /v1/partnermanager/misps
@@ -33,4 +48,3 @@ UpdateMispLicense:
     }
   ]
 }'
-   

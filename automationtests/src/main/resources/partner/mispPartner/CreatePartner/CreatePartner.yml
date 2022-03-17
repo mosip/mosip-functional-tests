@@ -19,3 +19,23 @@ createPartnerSelfRegistration:
         "partnerId": "MISP",
         "status": "InProgress"
     }'
+   Partner_PartnerSelfRegistration_MispLicense_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/mispPartner/CreatePartner/createPartner
+      outputTemplate: partner/mispPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "9553967572",
+    "emailId": "mis2p@gmail.com",
+    "organizationName": "misp2",
+    "partnerId": "MISP2",
+    "partnerType": "MISP_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "MISP2",
+        "status": "InProgress"
+    }'
