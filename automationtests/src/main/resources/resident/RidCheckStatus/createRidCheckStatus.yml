@@ -1,4 +1,19 @@
 RidCheckStatus:
+   Resident_RidCheckStatus_AllValid_Smoke:
+      endPoint: /resident/v1/rid/check-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/RidCheckStatus/createRidCheckStatus
+      outputTemplate: resident/RidCheckStatus/createRidCheckStatusResult
+      input: '{
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "id": "mosip.resident.checkstatus",
+    "individualIdType": "RID",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "ridStatus": "Active"
+}'
    Resident_RidCheckStatus_Missing_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status
       role: resident
