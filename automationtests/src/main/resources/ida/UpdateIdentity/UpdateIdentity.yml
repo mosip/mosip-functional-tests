@@ -1,0 +1,58 @@
+UpdateIdentity:
+  Auth_UpdateIdentity_DEACTIVATED_and_auth_smoke_Pos_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Deactivate_and_auth_smoke_Pos_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "DEACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
+  Auth_UpdateIdentity_DEACTIVATED_Positive_TRE_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_TRE_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "DEACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
+  Auth_UpdateIdentity_ACTIVATED_Positive_TRE_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_TRE_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+    "status": "ACTIVATED"
+}'

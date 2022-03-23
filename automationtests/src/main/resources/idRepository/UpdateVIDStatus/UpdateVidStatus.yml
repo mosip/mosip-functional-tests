@@ -431,3 +431,19 @@ UpdateVidStatus:
       output: '{
     "vidStatus": "REVOKED"
 }'
+  IdRepository_UpdateVidStatus_Activate_withValidParameters_For_Vid_Type_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
+      input: '{
+    "vidStatus": "ACTIVATED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+    "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "vidStatus": "ACTIVATED"
+}'
