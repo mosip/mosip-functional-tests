@@ -31,9 +31,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Missing_Id:
@@ -68,9 +68,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Invalid_Individual_Id:
@@ -105,9 +105,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Missing_Individual_Id:
@@ -142,9 +142,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Missing_Request_Time:
@@ -179,9 +179,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Invalid_Request_Time:
@@ -216,9 +216,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Invalid_version:
@@ -253,9 +253,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Missing_version:
@@ -290,9 +290,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Missing_vid_status:
@@ -327,9 +327,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_Invalid_vidstatus:
@@ -364,9 +364,9 @@ RevokeVID:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_RevokeVID_All_Valid_Smoke:
@@ -396,8 +396,8 @@ RevokeVID:
       output: '{
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
