@@ -54,7 +54,7 @@ SendOTP:
       role: resident
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP
-      outputTemplate: resident/SendOTP/createSendOTPResult
+      outputTemplate: resident/SendOTP/createSendOTPErrorResult
       input: '{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -62,8 +62,8 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-        "maskedMobile": "$IGNORE$",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }'
    Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel:
       endPoint: /resident/v1/req/otp

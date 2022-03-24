@@ -98,6 +98,13 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> -->
+	<test name="SendOTP">
+		<parameter name="ymlFile"
+			value="resident/SendOTP/SendOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="GetCredentialTypes">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/GetCredentialTypes/GetCredentialTypes.yml" />
@@ -105,13 +112,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	<test name="GetPolicyforMappedPartnerAndCredentialtype">
-		<parameter name="ymlFile"
-			value="resident/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> 
+	
 	<test name="CredentialCheckStatus">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
@@ -126,16 +127,12 @@
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test> 
-
-<test name="SendOTP">
+	<test name="GetPolicyforMappedPartnerAndCredentialtype">
 		<parameter name="ymlFile"
-			value="resident/SendOTP/SendOTP.yml" />
+			value="resident/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
-	
-	
-	
+	</test> 
 	
 </suite>

@@ -1,5 +1,5 @@
 UpdateIdentity:
-  IdRepository_UpdateIdentity_all_valid_smoke:
+  IdRepository_UpdateIdentity_DEACTIVATED_all_valid_smoke:
       endPoint: /idrepository/v1/identity/
       role: idrepo
       restMethod: patch
@@ -9,6 +9,26 @@ UpdateIdentity:
       "registrationId":"$RID$",
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
+      "status": "DEACTIVATED",
+      "phone": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
+  IdRepository_UpdateIdentity_ACTIVATED_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "status": "ACTIVATED",
       "phone": "8249742850",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
@@ -28,6 +48,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
       "version": "89HTR"
@@ -51,6 +72,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$T",
       "version": "v1"
@@ -74,6 +96,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
@@ -97,6 +120,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
       "version": "$REMOVE$"
@@ -120,6 +144,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$REMOVE$",
       "version": "v1"
@@ -143,6 +168,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/15",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
@@ -166,6 +192,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "user@mailinator.com",
       "phone": "824222@@@@@####850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"
@@ -189,6 +216,7 @@ UpdateIdentity:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       "email": "us####@@@@$%%^^^^%%ator.com",
       "phone": "8249742850",
+      "status": "ACTIVATED",
       "dateOfBirth": "1992/04/15",
       "requesttime": "$TIMESTAMP$",
       "version": "v1"

@@ -28,6 +28,13 @@
 				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test> 
+	<test name="UpdateIdentity">
+		<parameter name="ymlFile"
+			value="ida\UpdateIdentity\UpdateIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.UpdateIdentity" />
+		</classes>
+	</test>
 
 	 <test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
