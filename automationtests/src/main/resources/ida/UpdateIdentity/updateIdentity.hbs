@@ -8,9 +8,44 @@
             "email": "{{email}}",
             "phone": "{{phone}}",
             "dateOfBirth": "{{dateOfBirth}}",
-            "UIN": "{{UIN}}"
-                      
-        }
+            "UIN": "{{UIN}}",
+            "fullName": [
+		        {{#each fullName}}
+		        {
+		          "language": "{{language}}",
+		          "value": "{{value}}"
+		        }
+		        {{#unless @last}},{{/unless}}
+		      	{{/each}}
+		      ],
+            "addressLine1": [
+		        {{#each addressLine1}}
+		        {
+		          "language": "{{language}}",
+		          "value": "{{value}}"
+		        }
+		        {{#unless @last}},{{/unless}}
+		      	{{/each}}
+		      ],
+		    "addressLine2": [
+		        {{#each addressLine2}}
+		        {
+		          "language": "{{language}}",
+		          "value": "{{value}}"
+		        }
+		        {{#unless @last}},{{/unless}}
+		      	{{/each}}
+		      ],
+		    "addressLine3": [
+		        {{#each addressLine3}}
+		        {
+		          "language": "{{language}}",
+		          "value": "{{value}}"
+		        }
+		        {{#unless @last}},{{/unless}}
+		      	{{/each}}
+		      ]              
+		  }
     },
     "requesttime": "{{requesttime}}",
     "version": "{{version}}"
