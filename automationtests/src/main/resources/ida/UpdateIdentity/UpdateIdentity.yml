@@ -37,10 +37,24 @@ UpdateIdentity:
         "value": "Line3"
       }
     ],
-      "version": "v1"
+      "version": "v1",
+      "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/UpdateIdentity/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$"
+    }
       }'
       output: '{
-    "status": "ACTIVATED"
+    "status": "ACTIVATED",
+    "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"ida/UpdateIdentity/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
 }'
   Auth_UpdateIdentity_updateAddress_Positive_EKYC_smoke:
       endPoint: /idrepository/v1/identity/
