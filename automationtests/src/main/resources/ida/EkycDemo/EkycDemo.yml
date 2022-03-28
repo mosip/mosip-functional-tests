@@ -1,0 +1,55 @@
+EkycDemo:
+  auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/ekycDemo
+      outputTemplate: ida/EkycDemo/ekycDemoResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+        "addressLine1": [
+            {
+            "language": "eng",
+            "value": "HSR Rd"
+           }
+	      ],
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptAddress"
+    }
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/ekycDemo
+      outputTemplate: ida/EkycDemo/ekycDemoResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+        "addressLine1": [
+            {
+            "language": "eng",
+            "value": "Tester A mn"
+           }
+	      ],
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptAddress"
+    }
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
