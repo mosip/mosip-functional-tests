@@ -1,0 +1,14 @@
+UpdateUserCenterMappingStatus:
+   Prerequisite_UpdateUserCenterMappingStatus_All_Valid_Smoke:  
+      endPoint: /v1/masterdata/usercentermapping?isActive={isActive}&id={id}
+      role: admin
+      restMethod: patch
+      inputTemplate: prerequisite/UpdateUserCenterMappingStatus/updateUserCenterMappingStatus
+      outputTemplate: prerequisite/UpdateUserCenterMappingStatus/updateUserCenterMappingStatusResult
+      input: '{
+  "id": "110005",
+  "isActive": true
+}'
+      output: '{
+    "status": "Status updated successfully for User"
+}'

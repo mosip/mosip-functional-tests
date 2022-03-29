@@ -12,7 +12,7 @@
 	</listeners>
 	
 	
-	<test name="CreateMachine">
+	<!-- <test name="CreateMachine">
 		<parameter name="ymlFile"
 			value="prerequisite/Machine/CreateMachine.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -33,6 +33,34 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
+	</test> -->
+	<test name="CreateZoneUser">
+		<parameter name="ymlFile"
+			value="prerequisite/ZoneUser/CreateZoneUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
 	</test>
+	<test name="UpdateZoneUserStatus">
+		<parameter name="ymlFile"
+			value="prerequisite/UpdateZoneUserStatus/UpdateZoneUserStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UserCenterMapping">
+		<parameter name="ymlFile"
+			value="prerequisite/UserCenterMapping/UserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateUserCenterMappingStatus">
+		<parameter name="ymlFile"
+			value="prerequisite/UpdateUserCenterMappingStatus/UpdateUserCenterMappingStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>	
 	
 </suite>
