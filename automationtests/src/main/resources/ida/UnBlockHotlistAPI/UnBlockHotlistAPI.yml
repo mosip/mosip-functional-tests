@@ -74,7 +74,7 @@ HotlistAPI:
       output: '{
         "status": "UNBLOCKED"
     }'
-   auth_HotlistAPI_All_Valid_Smoke_DEVICE_sid:
+   auth_HotlistAPI_All_Valid_Smoke_DEVICE_with_expirytie_sid:
       endPoint: /v1/hotlist/unblock
       role: hotlist
       restMethod: post
@@ -84,7 +84,7 @@ HotlistAPI:
     "id": "78467171Logitech4d36e96c-e325-11ce-bfc1-08002be10318",
     "idType": "DEVICE",
     "requestTime": "$TIMESTAMP$",
-    "expiryTimestamp": ""
+    "expiryTimestamp": "120"
   }'
       output: '{
         "status": "UNBLOCKED"

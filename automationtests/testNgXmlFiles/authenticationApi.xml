@@ -46,8 +46,27 @@
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
+	
 	 <test name="HotlistTestcasesKyc">
 		<parameter name="ymlFile" value="ida/HotlistTestcases/HotlistTestcasesKyc.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.BioAuth" />
+		</classes>
+	</test>
+	
+	
+	<test name="UpdateIdentity">
+		<parameter name="ymlFile"
+			value="ida\UpdateIdentity\UpdateIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.UpdateIdentity" />
+		</classes>
+	</test>
+	
+	 <test name="BioAuth">
+		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
+		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
@@ -104,6 +123,19 @@
 	</test> 
 
 	
+	<test name="DemoAuth">
+		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuth" />
+		</classes>
+	</test>
+	
+	<test name="EkycDemo">
+		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuth" />
+		</classes>
+	</test>
 
 	 <test name="MultiFactorAuth">
 		<parameter name="ymlFile"

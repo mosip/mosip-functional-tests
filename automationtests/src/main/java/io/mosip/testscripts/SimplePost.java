@@ -79,6 +79,9 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
 		if (inputJson.contains("$3RDLANG$"))
 			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		if(inputJson.contains("&quot;")) {
+			inputJson = inputJson.replace("&quot;", "\"");
+		}
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);

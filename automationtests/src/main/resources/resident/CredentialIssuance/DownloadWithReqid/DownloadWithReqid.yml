@@ -27,3 +27,21 @@ DownloadCredential:
         "Content-Type": "application/pdf",
         "filename": "$IGNORE$"
     }'
+   Resident_CredentialsStatus_In_Valid_requestId:
+      endPoint: /resident/v1/req/card/{requestId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/CredentialIssuance/DownloadWithReqid/downloadwithreqid
+      outputTemplate: resident/error
+      input: '{
+        "requestId": "adfvd",
+        "requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+       "errors": [
+    {
+      "errorCode": "RES-SER-29",
+      "message": "Invalid id"
+    }
+  ]
+    }'

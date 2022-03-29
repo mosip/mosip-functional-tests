@@ -27,9 +27,9 @@ PrintUin:
   "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Empty_Cardtype_Neg:
@@ -64,9 +64,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength10_Cardtype_Neg:
@@ -101,9 +101,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Missing_Cardtype_Neg:
@@ -138,9 +138,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_IndividualIDType_Neg:
@@ -175,9 +175,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength3_IndividualIDType_Neg:
@@ -212,9 +212,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Missing_IndividualID_Neg:
@@ -249,9 +249,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Empty_Otp_Neg:
@@ -286,9 +286,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength6_Otp_Neg:
@@ -323,9 +323,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Otp_Neg:
@@ -360,9 +360,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Empty_requestTime_Neg:
@@ -397,9 +397,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Empty_TrnxID_Neg:
@@ -434,9 +434,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Value_TrnxID_Neg:
@@ -471,9 +471,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Empty_version_Neg:
@@ -508,9 +508,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_version_Neg:
@@ -545,9 +545,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Invalid_Individual_Id_Neg:
@@ -582,9 +582,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Missing_Individual_Id_Neg:
@@ -619,9 +619,9 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_PrintUin_Empty_Individual_Id_Neg:
@@ -656,8 +656,8 @@ PrintUin:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
