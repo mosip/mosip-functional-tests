@@ -51,7 +51,7 @@ UpdateIdentity:
     "status": "ACTIVATED",
     "sendOtpResp":{
         "transactionID": "1234567890",
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/UpdateIdentity/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }

@@ -566,7 +566,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "7019858531",
+    "value": "9876543210",
 "key": "phoneNumber",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -983,13 +983,7 @@ DemoAuth:
     }
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+  "authStatus": "true"
 }'
   auth_DemoAuth_unblocked_VID_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
@@ -1012,11 +1006,5 @@ DemoAuth:
     }
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+  "authStatus": "true"
 }'

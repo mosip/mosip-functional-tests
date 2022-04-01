@@ -52,7 +52,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test> -->
+	</test> 
 	
 
 	<test name="RidCheckStatus">
@@ -61,7 +61,9 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test> -->
+	
+	
 	<test name="AuthLock">
 		<parameter name="ymlFile"
 			value="resident/AuthLock/createAuthLock.yml" />

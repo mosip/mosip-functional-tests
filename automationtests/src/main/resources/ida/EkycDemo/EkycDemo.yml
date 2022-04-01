@@ -14,19 +14,15 @@ EkycDemo:
         "demo": true,
         "otp": false,
         "identityRequest":{
-        "addressLine1": [
-            {
-            "language": "eng",
-            "value": "HSR Rd"
-           }
-	      ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptAddress"
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
     }
     }'
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_Valid_VID_Smoke:
       endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
       role: resident
       restMethod: post
@@ -34,20 +30,16 @@ EkycDemo:
       outputTemplate: ida/EkycDemo/ekycDemoResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
+        "individualIdType": "VID",
         "bio": false,
         "demo": true,
         "otp": false,
         "identityRequest":{
-        "addressLine1": [
-            {
-            "language": "eng",
-            "value": "Tester A mn"
-           }
-	      ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptAddress"
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
     }
     }'
       output: '{

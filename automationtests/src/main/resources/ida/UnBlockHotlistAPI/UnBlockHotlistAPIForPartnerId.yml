@@ -7,7 +7,7 @@ HotlistAPI:
       outputTemplate: ida/UnBlockHotlistAPI/UnblockHotlistAPIResult
       input: '{
     "id": "$PARTNERID$",
-    "idType": "UIN",
+    "idType": "PARTNER_ID",
     "requestTime": "$TIMESTAMP$",
     "expiryTimestamp": ""
   }'

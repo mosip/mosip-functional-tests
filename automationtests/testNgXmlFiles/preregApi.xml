@@ -142,6 +142,9 @@
 			<class name="io.mosip.testscripts.BookAppoinmentByPrid" />
 		</classes>
 	</test>
+	
+	
+	
 	<test name="GetAppointmentDetails">
 		<parameter name="ymlFile"
 			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
@@ -164,6 +167,18 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	
+	
+	
+	
+	<test name="SendNotifications">
+		<parameter name="ymlFile"
+			value="preReg/SendNotifications/SendNotifications.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormDataAndFileForNotificationAPI" />
+		</classes>
+	</test>
+	
 	<test name="DeleteSpecificDocForaPRID">
 		<parameter name="ymlFile"
 			value="preReg/DeleteSpecificDocForaPRID/DeleteSpecificDocForaPRID.yml" />
@@ -275,12 +290,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="SendNotifications">
-		<parameter name="ymlFile"
-			value="preReg/SendNotifications/SendNotifications.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithFormDataAndFileForNotificationAPI" />
-		</classes>
-	</test>
+	
 	
 </suite>
