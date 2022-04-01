@@ -113,7 +113,7 @@ BioAuth:
       output: '{
   "authStatus": "true"
 }'
-  auth_BioAuth_Biometric_Face_Deactivate_and_auth_smoke_Pos_invalid:
+  auth_BioAuth_Biometric_Face_after_unblocking_uin_smoke_Pos_invalid:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
@@ -149,13 +149,7 @@ BioAuth:
     }
     }'
       output: '{
-  "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "UIN not available in database"
-    }
-  ]
+  "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_Positive_TRE_smoke_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
@@ -1656,8 +1650,8 @@ BioAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DPM-004",
-      "errorMessage": "Device Type and Biometric Type do not match"
+      "errorCode": "$IGNORE$",
+      "errorMessage": "$IGNORE$"
     }
   ]
 }'

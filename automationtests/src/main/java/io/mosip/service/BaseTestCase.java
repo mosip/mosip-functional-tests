@@ -62,6 +62,7 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String residentCookie = null;
+	public String hotlistCookie = null;
 	public String autoTstUsrCkie = null;
 	public static List<String> listOfModules = null;
 

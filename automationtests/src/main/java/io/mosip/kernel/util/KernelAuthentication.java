@@ -137,6 +137,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
+		case "hotlist":
+			if(!kernelCmnLib.isValidToken(hotlistCookie))
+				residentCookie = kernelAuthLib.getAuthForHotlist();
+			return residentCookie;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -217,6 +221,21 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", props.get("resident_appid"));
 		request.put("clientId", props.get("resident_clientId"));
 		request.put("secretKey", props.get("resident_secretKey"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForHotlist() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("hotlist_appid"));
+		request.put("clientId", props.get("hotlist_clientId"));
+		request.put("secretKey", props.get("hotlist_secretKey"));
 		actualrequest.put("request", request);
 		
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
