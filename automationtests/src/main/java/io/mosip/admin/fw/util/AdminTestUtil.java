@@ -1082,8 +1082,10 @@ public class AdminTestUtil extends BaseTestCase{
 			jsonString = jsonString.replace("$RID$", genRid);
 		if(jsonString.contains("$RIDDEL$"))
 			jsonString = jsonString.replace("$RIDDEL$", genRidDel);
-		if(jsonString.contains("$PUBLICKEY$"))
+		if(jsonString.contains("$PUBLICKEY$")) {
 			jsonString = jsonString.replace("$PUBLICKEY$", MosipTestRunner.generatePulicKey());
+			publickey=JsonPrecondtion.getJsonValueFromJson(jsonString,"request.publicKey");
+		}
 		if(jsonString.contains("$REMOVE$")) 
 			jsonString = removeObject(new JSONObject(jsonString));
 		if(jsonString.contains("$ID:")) {

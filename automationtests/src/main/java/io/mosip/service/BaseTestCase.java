@@ -49,7 +49,7 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
-
+	public String registrationclientCookie = null;
 	public String individualCookie = null;
 	public String idaCookie = null;
 	public String idrepoCookie = null;
@@ -97,7 +97,7 @@ public class BaseTestCase {
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
-
+	public static String publickey;
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
 		if (type.toLowerCase().contains("windows")) {

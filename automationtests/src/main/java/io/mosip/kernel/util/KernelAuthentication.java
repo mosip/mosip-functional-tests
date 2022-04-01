@@ -83,8 +83,10 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authInternalRequest="Config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
-
 	
+		private String regclient_appid=props.get("regclient_appid");
+		private String regclient_password=props.get("regclient_password");
+		private String regclient_userName=props.get("regclient_userName");
 	
 	public String getTokenByRole(String role)
 	{
@@ -94,7 +96,10 @@ public class KernelAuthentication extends BaseTestCase{
 		else return "";
 		
 		switch(insensitiveRole) {
-		
+		case "registrationclient":
+			if(!kernelCmnLib.isValidToken(registrationclientCookie))
+				registrationclientCookie = kernelAuthLib.getAuthForRegistrationClient();
+			return registrationclientCookie;
 		case "individual":
 			if(!kernelCmnLib.isValidToken(individualCookie))
 				individualCookie = kernelAuthLib.getAuthForIndividual();
@@ -224,6 +229,25 @@ public class KernelAuthentication extends BaseTestCase{
 		return cookie;
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForRegistrationClient() {
+		JSONObject actualrequest = getRequestJson(authInternalRequest);
+
+		JSONObject request = new JSONObject();
+		request.put("appId", regclient_appid);
+		request.put("password", regclient_password);
+		request.put("userName", regclient_userName);
+		request.put("clientId", props.get("regclient_clientId"));
+		request.put("clientSecret", props.get("regclient_clientSecret"));
+		actualrequest.put("request", request);
+
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
 		// getting request and expected response jsondata from json files.
@@ -248,6 +272,7 @@ public class KernelAuthentication extends BaseTestCase{
         cookie=otpValidate.getCookie("Authorization");
 		return cookie;
 	}
+	
 	
 	public String getPreRegToken() {	
 		// getting request and expected response jsondata from json files.
