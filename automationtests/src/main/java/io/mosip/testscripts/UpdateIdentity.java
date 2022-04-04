@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.ws.rs.core.MediaType;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -79,12 +80,41 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 	}
 	
 	public void updateIdentity(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
-	
+		
+		testCaseName = testCaseDTO.getTestCaseName(); 
+		
+		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		JSONObject otpReqJson = null;
+		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
+		if(req.has("sendOtp")) {
+			otpRequest = req.get("sendOtp").toString();
+			req.remove("sendOtp");
+			otpReqJson = new JSONObject(otpRequest);
+			sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
+			otpReqJson.remove("sendOtpReqTemplate");
+			sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
+			otpReqJson.remove("sendOtpEndPoint");
+			testCaseDTO.setInput(req.toString());
+			
+			if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+			{
+				sendOtpEndPoint= sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+			}
+		}
+		JSONObject res = new JSONObject(testCaseDTO.getOutput());
+		String sendOtpResp = null, sendOtpResTemplate = null;
+		if(res.has("sendOtpResp")) {
+			sendOtpResp = res.get("sendOtpResp").toString();
+			res.remove("sendOtpResp");
+			testCaseDTO.setOutput(res.toString());
+		}
+		
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 		generatedRid=genRid;
+		
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		
 		inputJson = inputJson.replace("$RID$", genRid);
@@ -97,6 +127,21 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
+		
+		if(otpReqJson!=null) {
+			Response otpResponse = null;
+			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
+			
+			JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
+			sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
+			sendOtpRespJson.remove("sendOtpResTemplate");
+			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
+					.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+			Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
+			
+			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
+				throw new AdminTestException("Failed at Send OTP output validation");
+		}
 	}
 	
 

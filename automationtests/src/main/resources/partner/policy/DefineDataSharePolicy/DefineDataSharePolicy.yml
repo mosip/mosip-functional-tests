@@ -22,6 +22,29 @@ defineDataSharePolicy:
     "desc": "mosip data share policy",
     "is_Active": false      
     }'
+   Partner_DefineDataSharePolicy_WithoutMandatoryFields_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy2",
+		"name": "mosip data share policy2",
+		"policyId": "MDSP2",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"$REMOVE$",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group",
+    "name": "mosip data share policy2",
+    "desc": "mosip data share policy2",
+    "is_Active": false      
+    }'
    Partner_DefineDataSharePolicy_duplicate_policy_name:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -45,6 +68,31 @@ defineDataSharePolicy:
       "errorCode": "PMS_POL_009",
       "message": "Auth policy exists with name : mosip data share policy"
     }
+  ]
+}'
+   Partner_DefineDataSharePolicy_InActive_policyGroup:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+    "desc": "mosip data share policy",
+    "name": "mosip data share policy",
+    "policyId": "MDSP",
+    "policyGroupName": "mosip policy group2",
+    "policyType": "DataShare",
+    "format":"extraction",
+    "attributeName":"biometrics",
+    "version": "1.0",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+            "errorCode": "PMS_POL_053",
+            "message": "Policy group is not active."
+        }
   ]
 }'
    Partner_DefineDataSharePolicy_invalid_policy_grp_name:

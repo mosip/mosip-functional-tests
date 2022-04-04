@@ -19,7 +19,26 @@ createUpdateSecureBiometricInterface:
       output: '{
         "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$"
     }'
-
+   Partner_UpdateSecureBiometricInterface_AfterReject_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/SecureBiometricInterface/update/updateSecureBiometricInterface
+      outputTemplate: partner/device/SecureBiometricInterface/update/updateSecureBiometricInterfaceResult
+      input: '{
+    "deviceDetailId": "device-id-123",
+	"id": "$ID:SaveSecureBiometricInterface_Valid_Smoke_sid_id$",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+    "swVersion": "MO.TD.200",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "id": "$ID:SaveSecureBiometricInterface_Valid_Smoke_sid_id$"
+    }'
    Partner_UpdateSecureBiometricInterface_Missing_InputParameter_Id:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner

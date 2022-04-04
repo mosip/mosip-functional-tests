@@ -12,7 +12,7 @@ createApproveRejectDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Device details approved successfully."
+        "response": "Device details approved successfully."
     }'
 
    Partner_ApproveRejectDeviceDetail_Missing_InputParameter_approvalStatus:

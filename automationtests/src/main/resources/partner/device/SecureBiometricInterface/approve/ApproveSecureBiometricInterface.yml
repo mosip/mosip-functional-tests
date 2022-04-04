@@ -12,7 +12,7 @@ ApproveSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Secure biometric details approved successfully."
+        "response": "Secure biometric details approved successfully."
     }'
 
    Partner_ApproveSecureBiometricInterface_Missing_InputParameter_approvalStatus:

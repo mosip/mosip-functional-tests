@@ -16,6 +16,23 @@ createSaveSecureBiometricInterface:
       output: '{
         "id": "$IGNORE$"
     }'
+   Partner_SaveSecureBiometricInterface_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: post
+      inputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterface
+      outputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterfaceResult
+      input: '{
+    "swBinaryHash": "0",
+    "swCreateDateTime": "$TIMESTAMP$",
+    "swExpiryDateTime": "2222-12-30T08:23:57.986Z",
+    "swVersion": "MO.TD.02",
+    "requesttime": "$TIMESTAMP$",
+    "providerId": "Tech-123"
+  }'
+      output: '{
+        "id": "$IGNORE$"
+    }'
    Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner

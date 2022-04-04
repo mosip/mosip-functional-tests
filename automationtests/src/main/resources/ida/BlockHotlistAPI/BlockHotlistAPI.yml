@@ -1,0 +1,91 @@
+HotlistAPI:
+   auth_BlockHotlistAPI_All_Valid_Smoke_UIN_without_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$ID:AddIdentity_Positive_unblockUIN_valid_smoke_UIN$",
+    "idType": "UIN",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_UIN_with_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$ID:AddIdentity_Positive_unblockUIN_valid_smoke_UIN$",
+    "idType": "UIN",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": "120"
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_VID_without_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "idType": "VID",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_VID_with_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "idType": "VID",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": "120"
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_Device_with_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "78467171Logitech4d36e96c-e325-11ce-bfc1-08002be10318",
+    "idType": "DEVICE",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_Device_withOUT_expirytime_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "78467171Logitech4d36e96c-e325-11ce-bfc1-08002be10318",
+    "idType": "DEVICE",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'

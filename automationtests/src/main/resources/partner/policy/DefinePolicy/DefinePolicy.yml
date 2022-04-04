@@ -24,6 +24,56 @@ definePolicy:
     "desc": "desc mosip policy",
     "is_Active": false
 }'
+   Partner_DefinePolicy_RandomTokenType_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "desc mosip policy2",
+	"name": "mosip policy2",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": false,
+	"attributeName": "string",
+	"authTokenType": "random",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group",
+    "name": "mosip policy2",
+    "desc": "desc mosip policy2",
+    "is_Active": false
+}'
+   Partner_DefinePolicy_PolicyTokenType_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "desc mosip policy3",
+	"name": "mosip policy3",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "policy",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group",
+    "name": "mosip policy3",
+    "desc": "desc mosip policy3",
+    "is_Active": false
+}'
    Partner_DefinePolicy_AlreadyExists_InValid:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -76,6 +126,33 @@ definePolicy:
          "errorCode": "PMS_POL_019",
          "message": "Policy group name does not exist"
     }
+  ]
+}'
+   Partner_DefinePolicy_PolicyGrpInActive_InValid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy",
+	"name": "mosip policy",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group2",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "errors": [
+    {
+            "errorCode": "PMS_POL_053",
+            "message": "Policy group is not active."
+        }
   ]
 }'
    Partner_DefinePolicy_Missing_InputParameter_name:
@@ -132,7 +209,7 @@ definePolicy:
     }
   ]
 }'
-   Partner_DefinePolicy_Missing_InputParameter_authSubType:
+   Partner_DefinePolicy_Missing_InputParameter_mandatory:
       endPoint: /v1/policymanager/policies
       role: partner
       restMethod: post
@@ -140,10 +217,10 @@ definePolicy:
       outputTemplate: partner/error
       input: '{
 		"desc": "desc mosip policy",
-		"name": "mosip policy",
-		"authSubType": "$REMOVE$",
+		"name": "mosip policy test",
+		"authSubType": "FINGER",
 		"authType": "bio",
-		"mandatory": true,
+		"mandatory": $REMOVE$,
 		"attributeName": "string",
 		"authTokenType": "partner",
 		"policyGroupName": "mosip policy group",
@@ -154,9 +231,9 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_009",
-      "message": "Auth policy exists with name : mosip policy"
-    }
+            "errorCode": "PMS_PV_006",
+            "message": "Missing input parameter - allowedAuthTypes/0/mandatory"
+        }
   ]
 }'
    Partner_DefinePolicy_Missing_InputParameter_authType:
@@ -167,7 +244,7 @@ definePolicy:
       outputTemplate: partner/error
       input: '{
 		"desc": "desc mosip policy",
-		"name": "mosip policy",
+		"name": "mosip policy test",
 		"authSubType": "FINGER",
 		"authType": "$REMOVE$",
 		"mandatory": true,
@@ -181,9 +258,9 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_009",
-      "message": "Auth policy exists with name : mosip policy"
-    }
+            "errorCode": "PMS_PV_006",
+            "message": "Missing input parameter - allowedAuthTypes/0/authType"
+        }
   ]
 }'
    Partner_DefinePolicy_Missing_InputParameter_authTokenType:
@@ -194,7 +271,7 @@ definePolicy:
       outputTemplate: partner/error
       input: '{
 		"desc": "desc mosip policy",
-		"name": "mosip policy",
+		"name": "mosip policy test",
 		"authSubType": "FINGER",
 		"authType": "bio",
 		"mandatory": true,
@@ -208,9 +285,36 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_009",
-      "message": "Auth policy exists with name : mosip policy"
-    }
+            "errorCode": "PMS_PV_006",
+            "message": "Missing input parameter - authTokenType"
+        }
+  ]
+}'
+   Partner_DefinePolicy_Missing_InputParameter_attributeName:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+        "attributeName": "$REMOVE$",
+		"desc": "desc mosip policy",
+		"name": "mosip policy test",
+		"authSubType": "FINGER",
+		"authType": "bio",
+		"mandatory": true,
+		"authTokenType": "partner",
+		"policyGroupName": "mosip policy group",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+            "errorCode": "PMS_PV_006",
+            "message": "Missing input parameter - allowedKycAttributes/0/attributeName"
+        }
   ]
 }'
    Partner_DefinePolicy_Missing_InputParameter_policyGroupName:
