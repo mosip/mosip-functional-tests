@@ -98,6 +98,7 @@ public class BaseTestCase {
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
+	public static String publickey;
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
