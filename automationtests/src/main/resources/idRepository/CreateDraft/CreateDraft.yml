@@ -11,6 +11,18 @@ CreateDraft:
       output: '{
     "status": "DRAFTED"
 }'
+  IdRepository_Verify_UIN_Only_One_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/draft/create/{registrationId}
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraft/createDraft
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$RID$"
+      }'
+      output: '{
+    "message": "Record already exists in DB"
+}'
   IdRepository_CreateDraft_delete_Smoke_Pos:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}
       role: idrepo
