@@ -27,9 +27,9 @@ UpdateUIN:
   "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
@@ -64,9 +64,9 @@ UpdateUIN:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
@@ -101,8 +101,8 @@ UpdateUIN:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
