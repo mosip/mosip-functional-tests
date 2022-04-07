@@ -29,17 +29,6 @@
 		</classes>
 	</test>   
 
-
-
-
-
-
-    <!-- <test name="DemoAuth">
-		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
-		</classes>
-	</test> -->
 	
 	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
@@ -49,7 +38,7 @@
 		</classes>
 	</test>
 	
-	
+		
 	 <test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
@@ -75,8 +64,6 @@
 		</classes>
 	</test> 
 
-	
-	
 	
 	<test name="EkycDemo">
 		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />

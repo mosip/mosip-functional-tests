@@ -430,9 +430,5 @@ public class KernelAuthentication extends BaseTestCase{
 		return cookie;
 	}
 	
-	//Reading the request file from folder
-	public JSONObject getRequestJson(String filepath){
-		return clib.readJsonData(filepath, true);
-		
-	}
+	
 }

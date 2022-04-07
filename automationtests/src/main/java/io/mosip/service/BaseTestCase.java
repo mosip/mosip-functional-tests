@@ -15,6 +15,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.json.simple.JSONObject;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -49,7 +50,6 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
-
 	public String individualCookie = null;
 	public String idaCookie = null;
 	public String idrepoCookie = null;
@@ -289,5 +289,10 @@ public class BaseTestCase {
 			logger.error(e.getMessage());
 		}
 		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
+	}
+	
+	public static JSONObject getRequestJson(String filepath){
+		return kernelCmnLib.readJsonData(filepath, true);
+		
 	}
 }
