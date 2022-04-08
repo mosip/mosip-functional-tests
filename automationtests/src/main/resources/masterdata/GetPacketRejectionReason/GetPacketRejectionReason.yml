@@ -13,18 +13,23 @@ GetPacketRejectionReason:
       output: '{
    "errors": null
 }'  
-   Masterdata_GetPacketRejectionReason_Valid_smoke:
+   Masterdata_GetPacketRejectionReason_Valid:
       endPoint: /v1/masterdata/packetrejectionreasons
       role: admin
       restMethod: get
       inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
-      outputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReasonResult
+      outputTemplate: masterdata/error
       input: '{
   "reasoncategorycode":"$IGNORE$",
   "langcode":"$IGNORE$"
 }'
       output: '{
-   "errors": null
+   "errors": [
+    {
+      "errorCode": "KER-MSD-500",
+      "message": "possible non-threadsafe access to the session"
+    }
+  ]
 }'
    Masterdata_GetPacketRejectionReason_Invalid_Invalid_reasoncategorycode:
       endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
