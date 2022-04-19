@@ -63,6 +63,7 @@ public class BaseTestCase {
 	public String partnerCookie = null;
 	public String residentCookie = null;
 	public String hotlistCookie = null;
+	public String keycloakCookie = null;
 	public String autoTstUsrCkie = null;
 	public static List<String> listOfModules = null;
 
@@ -86,6 +87,7 @@ public class BaseTestCase {
 	// GLOBAL CLASS VARIABLES
 
 	public static String ApplnURI;
+	public static String ApplnURIForKeyCloak;
 	public static String authToken;
 	public static String regProcAuthToken;
 	public static String getStatusRegProcAuthToken;
@@ -130,6 +132,8 @@ public class BaseTestCase {
 		logger.info("Environemnt is  ==== :" + environment);
 		ApplnURI = System.getProperty("env.endpoint");
 		logger.info("Application URI ======" + ApplnURI);
+		ApplnURIForKeyCloak = System.getProperty("env.keycloak");
+		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
 		languageList =Arrays.asList(System.getProperty("env.langcode").split(","));

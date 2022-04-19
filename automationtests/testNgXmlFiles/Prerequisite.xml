@@ -33,7 +33,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
-	</test> -->
+	</test> 
 	<test name="CreateZoneUser">
 		<parameter name="ymlFile"
 			value="prerequisite/ZoneUser/CreateZoneUser.yml" />
@@ -61,6 +61,73 @@
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithPathParam" />
 		</classes>
-	</test>	
+	</test>	-->
+	
+	<!-- <test name="AddUser">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/AddUser/AddUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+		</classes>
+	</test>
+	
+	<test name="DeleteUser">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/DeleteUser/DeleteUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParamForKeyCloak" />
+		</classes>
+	</test> 
+	
+	<test name="GetRoleIdForAllRoles">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/GetRoleIdForAllRoles/GetRoleIdForAllRoles.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+		</classes>
+	</test>-->
+	
+	
+	<test name="AddUser">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/AddUser/AddUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+		</classes>
+	</test>
+	 <test name="GetUserDetails">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/GetUserDetails/GetUserDetails.yml" />
+			<parameter name="idKeyName"	value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+		</classes>
+	</test> 
+	
+	<test name="GetRoleIdForAllRoles">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/GetRoleIdForAllRoles/GetRoleIdForAllRoles.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+		</classes>
+	</test>
+	
+	 <test name="MapRolesToUser">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/MapRolesToUser/MapRolesToUser.yml" />
+		<parameter name="pathParams" value="username" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+		</classes>
+	</test> 
+	
+	<test name="DeleteUser">
+		<parameter name="ymlFile"
+			value="prerequisite/KeyCloak/DeleteUser/DeleteUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParamForKeyCloak" />
+		</classes>
+	</test> 
+	
 	
 </suite>
