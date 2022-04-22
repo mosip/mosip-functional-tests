@@ -3,8 +3,8 @@ AuthUnlock:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
       restMethod: post
-      inputTemplate: resident/AuthUnLock/createAuthUnLock
-      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      inputTemplate: ida/AuthUnLock/createAuthUnLock
+      outputTemplate: ida/AuthUnLock/createAuthUnLockResult
       input: '{
         "transactionID": "1234567890",
         "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",

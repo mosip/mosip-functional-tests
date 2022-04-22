@@ -8,7 +8,7 @@ EkycDemo:
       input: '{
         "id": "mosip.identity.kyc",
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_unblockUIN_valid_smoke_UIN$",
+        "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
         "bio": false,
@@ -21,7 +21,7 @@ EkycDemo:
     }
     }'
       output: '{
-    "authStatus": false,
+    "kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-022",
@@ -51,7 +51,7 @@ EkycDemo:
     }
     }'
       output: '{
-    "authStatus": false,
+    "kycStatus": false,
    "errors": [
     {
       "errorCode": "IDA-MLC-022",

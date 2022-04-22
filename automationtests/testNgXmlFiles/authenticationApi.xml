@@ -19,7 +19,7 @@
 		</classes>
 	</test> 
 
-	<!--  <test name="GenerateVID">
+	 <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
 		<parameter name="idKeyName" value="vid" />
@@ -27,7 +27,7 @@
 			<class
 				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>   -->
+	</test>  
 
 
 <test name="AuthLock">
