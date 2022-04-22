@@ -3,11 +3,10 @@ package io.mosip.kernel.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import io.mosip.admin.fw.util.*;
-import io.mosip.testrunner.MosipTestRunner;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.core.Response;
 
@@ -23,10 +22,14 @@ import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
+import io.mosip.testrunner.MosipTestRunner;
+
 
 
 public class KeycloakUserManager {
+	
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
+
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
 	private static Keycloak getKeycloakInstance() {
@@ -36,8 +39,7 @@ public class KeycloakUserManager {
 	}
 
 	public static Properties getproperty(String path) {
-		Properties prop = new Properties();
-		
+		Properties prop = new Properties();		
 		try {
 			File file = new File(path);
 			prop.load(new FileInputStream(file));
@@ -81,9 +83,18 @@ public class KeycloakUserManager {
 
 			// Getting all the roles
 			List<RoleRepresentation> testerRealmRoleList = realmResource.roles().list();
+			List<RoleRepresentation> availableRoles = new ArrayList<>();
+			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty("roles."+needsToBeCreatedUser).split(","));
+			for(String role : toBeAssignedRoles) {
+				if(testerRealmRoleList.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+					availableRoles.add(testerRealmRoleList.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				}else {
+					System.out.printf("Role not found in keycloak: %s%n", role);
+				}
+			}
 			// Assign realm role tester to user
 			userResource.roles().realmLevel() //
-					.add((testerRealmRoleList));
+					.add((availableRoles == null ? testerRealmRoleList : availableRoles));
 		}
 	}
 
@@ -94,9 +105,13 @@ public class KeycloakUserManager {
 			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
 			UsersResource usersRessource = realmResource.users();
 			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
-			UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
-			userResource.remove();
-			System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+			if (!usersFromDB.isEmpty()) {
+				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
+				userResource.remove();
+				System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+			} else {
+				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
+			}
 		}
 	}
 }
