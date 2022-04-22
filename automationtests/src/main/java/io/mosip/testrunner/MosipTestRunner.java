@@ -43,7 +43,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();
 		BaseTestCase.suiteSetup();
 		startTestRunner();
-		KeycloakUserManager.removeUser();
+		
 	}
 
 	/**
@@ -86,6 +86,7 @@ public class MosipTestRunner {
 		runner.setTestSuites(suitefiles);
 		runner.setOutputDirectory("testng-report");
 		runner.run();
+		KeycloakUserManager.removeUser();
 		System.exit(0);
 	}
 
