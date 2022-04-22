@@ -436,6 +436,19 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public Response postWithOnlyPathParams(String url,  HashMap<String, String> pathParams,
+			String contentHeader, String acceptHeader, String cookie) {
+		logger.info("REST:ASSURED:Sending post request to" + url);
+		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
+				.contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log()
+				.all().extract().response();
+		// log then response
+		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
+		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	/**
 	 * @param file

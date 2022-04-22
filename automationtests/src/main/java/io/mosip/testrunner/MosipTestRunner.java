@@ -15,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
+import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
 
 /**
@@ -39,8 +40,10 @@ public class MosipTestRunner {
 			ExtractResource.extractResourceFromJar();
 		}
 		// Initializing or setting up execution
+		KeycloakUserManager.createUsers();
 		BaseTestCase.suiteSetup();
 		startTestRunner();
+		KeycloakUserManager.removeUser();
 	}
 
 	/**

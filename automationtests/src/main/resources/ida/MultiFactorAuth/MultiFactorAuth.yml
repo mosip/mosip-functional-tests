@@ -302,7 +302,7 @@ MultiFactorAuth:
         "demo": true,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234@@@##567890",
+    "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -410,7 +410,7 @@ MultiFactorAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "",
+        "transactionId": "12345@33ff67890",
         "individualIdType": "UIN",
         "bio": true,
         "demo": true,
@@ -450,7 +450,7 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "Missing Input Parameter - transactionID"
     }
   ],

@@ -1,0 +1,23 @@
+MapRolesToUser:
+   Prerequisite_keycloak_MapRolesToUser_allValid_smoke:
+      endPoint: /auth/admin/realms/mosip/users/$ID:GetUserDetails_allValid_smoke_get_sid_KeyCloakuserDetails_id$/role-mappings/realm
+      role: keycloak
+      restMethod: post
+      inputTemplate: prerequisite/KeyCloak/AddUser/addUser
+      outputTemplate: prerequisite/KeyCloak/AddUser/addUserResult
+      input: '{
+        "id": "$KEYCLOAKUSER1$"
+    }'
+      output: '{
+}'
+   Prerequisite_keycloak_MapRolesToUser2_allValid_smoke:
+      endPoint: /auth/admin/realms/mosip/users/$ID:GetUserDetails_allValid_smoke2_get_sid_KeyCloakuserDetails_id$/role-mappings/realm
+      role: keycloak
+      restMethod: post
+      inputTemplate: prerequisite/KeyCloak/AddUser/addUser
+      outputTemplate: prerequisite/KeyCloak/AddUser/addUserResult
+      input: '{
+        "id": "$KEYCLOAKUSER2$"
+    }'
+      output: '{
+}'
