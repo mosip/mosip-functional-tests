@@ -82,19 +82,19 @@ public class KeycloakUserManager {
 			userResource.resetPassword(passwordCred);
 
 			// Getting all the roles
-			List<RoleRepresentation> testerRealmRoleList = realmResource.roles().list();
+			List<RoleRepresentation> allRoles = realmResource.roles().list();
 			List<RoleRepresentation> availableRoles = new ArrayList<>();
 			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty("roles."+needsToBeCreatedUser).split(","));
 			for(String role : toBeAssignedRoles) {
-				if(testerRealmRoleList.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(testerRealmRoleList.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 				}else {
 					System.out.printf("Role not found in keycloak: %s%n", role);
 				}
 			}
 			// Assign realm role tester to user
 			userResource.roles().realmLevel() //
-					.add((availableRoles == null ? testerRealmRoleList : availableRoles));
+					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
 		}
 	}
 
