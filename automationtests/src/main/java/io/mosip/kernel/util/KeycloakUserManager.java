@@ -104,6 +104,7 @@ public class KeycloakUserManager {
 		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
 			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
 			UsersResource usersRessource = realmResource.users();
+
 			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
@@ -112,6 +113,7 @@ public class KeycloakUserManager {
 			} else {
 				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
 			}
+
 		}
 	}
 }
