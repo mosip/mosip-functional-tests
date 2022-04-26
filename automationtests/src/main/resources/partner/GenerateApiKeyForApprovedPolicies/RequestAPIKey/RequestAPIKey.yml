@@ -1,6 +1,6 @@
 RequestAPIKeyForAuthPartner:
    Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid:
-      endPoint: /v1/partnermanager/partners/110124/policy/map
+      endPoint: /v1/partnermanager/partners/111997/policy/map
       role: partner
       restMethod: post 
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/requestApiKey
@@ -8,7 +8,7 @@ RequestAPIKeyForAuthPartner:
       input: '{
         "policyName": "mosip policy",
         "useCaseDescription": "Need to submit the payment",
-		"requesttime": "$TIMESTAMP$"
+        "requesttime": "$TIMESTAMP$"
     }'
       output: '{
         "mappingkey": "$IGNORE$",

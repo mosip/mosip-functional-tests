@@ -51,7 +51,9 @@ public class KeycloakUserManager {
 
 	public static void createUsers() {
 		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
+		//List<String> userPassword = List.of(propsKernel.getProperty("users.password").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
+		//int passwordIndex = 0;
 		for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
 			UserRepresentation user = new UserRepresentation();
 			user.setEnabled(true);
@@ -72,8 +74,11 @@ public class KeycloakUserManager {
 
 			// Define password credential
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
+			
 			passwordCred.setTemporary(false);
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
+			
+			//passwordCred.setValue(userPassword.get(passwordIndex));
 			passwordCred.setValue("mosip123");
 
 			UserResource userResource = usersRessource.get(userId);
@@ -95,6 +100,7 @@ public class KeycloakUserManager {
 			// Assign realm role tester to user
 			userResource.roles().realmLevel() //
 					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
+			//passwordIndex ++;
 		}
 	}
 
