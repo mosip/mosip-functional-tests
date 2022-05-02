@@ -1,0 +1,72 @@
+AuthInternalLock:
+  auth_AuthInternal_Lock_UIN_Unlock_BioAuth_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: ida/AuthInternalLock/authInternalLock
+      outputTemplate: ida/AuthInternalLock/authInternalLockResult
+      input: '{
+    "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Bio",
+    "authSubType": "Iris",
+    "locked": true,
+    "unlockForSeconds": 500
+}'
+      output: '{
+    "responsetime": "$IGNORE$"
+}'
+
+  auth_AuthInternal_Lock_UIN_Unlock_DemoAuth_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: ida/AuthInternalLock/authInternalLock
+      outputTemplate: ida/AuthInternalLock/authInternalLockResult
+      input: '{
+    "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Demo",
+    "authSubType": "dob",
+    "locked": false,
+    "unlockForSeconds": 500
+}'
+      output: '{
+    "responsetime": "$IGNORE$"
+}'
+
+  auth_AuthInternal_Permanent_Lock_BioAuth_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: ida/AuthInternalLock/authInternalLock
+      outputTemplate: ida/AuthInternalLock/authInternalLockResult
+      input: '{
+    "individualId": "$ID:AddIdentity_Lock_permanent_BioAuth_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Bio",
+    "authSubType": "Iris",
+    "locked": true,
+    "unlockForSeconds": 0
+}'
+      output: '{
+    "responsetime": "$IGNORE$"
+}'
+
+  auth_AuthInternal_Permanent_Lock_DemoAuth_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: ida/AuthInternalLock/authInternalLock
+      outputTemplate: ida/AuthInternalLock/authInternalLockResult
+      input: '{
+    "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Demo",
+    "authSubType": "dob",
+    "locked": true,
+    "unlockForSeconds": 0
+}'
+      output: '{
+    "responsetime": "$IGNORE$"
+}'

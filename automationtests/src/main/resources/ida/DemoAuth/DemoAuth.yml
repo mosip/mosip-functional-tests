@@ -7,7 +7,7 @@ DemoAuth:
       outputTemplate: ida/DemoAuth/demoAuthResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
         "bio": false,
@@ -566,7 +566,7 @@ DemoAuth:
         "demo": true,
         "otp": false,
         "identityRequest":{
-    "value": "9876543210",
+    "value": "7019858531",
 "key": "phoneNumber",
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncrypt"
     }
@@ -962,7 +962,7 @@ DemoAuth:
     }
   ]
 }'
-  auth_DemoAuth_unblocked_UIN_Pos:
+  auth_DemoAuth_DOB_Unlock_Valid_Smoke_UIN_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
@@ -970,7 +970,7 @@ DemoAuth:
       outputTemplate: ida/DemoAuth/demoAuthResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_unblockUIN_valid_smoke_UIN$",
+        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
         "individualIdType": "UIN",
         "bio": false,
@@ -985,7 +985,8 @@ DemoAuth:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_unblocked_VID_Pos:
+
+  auth_DemoAuth_DOB_Lock_Permanent_Valid_Smoke_UIN_Pos:
       endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
@@ -993,9 +994,9 @@ DemoAuth:
       outputTemplate: ida/DemoAuth/demoAuthResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": true,
         "otp": false,
@@ -1006,5 +1007,11 @@ DemoAuth:
     }
     }'
       output: '{
-  "authStatus": "true"
+  "authStatus": "false",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-019",
+      "errorMessage": "demo Auth Type is Locked for the UIN"
+    }
+  ]
 }'
