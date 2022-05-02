@@ -28,7 +28,12 @@
 				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>  
-
+    <test name="AuthInternalLock">
+		<parameter name="ymlFile"	value="ida\AuthInternalLock\AuthInternalLock.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 <test name="AuthLock">
 		<parameter name="ymlFile"
