@@ -15,6 +15,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.json.simple.JSONObject;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -49,7 +50,6 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
-
 	public String individualCookie = null;
 	public String idaCookie = null;
 	public String idrepoCookie = null;
@@ -62,6 +62,8 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String residentCookie = null;
+	public String hotlistCookie = null;
+	public String keycloakCookie = null;
 	public String autoTstUsrCkie = null;
 	public static List<String> listOfModules = null;
 
@@ -85,6 +87,7 @@ public class BaseTestCase {
 	// GLOBAL CLASS VARIABLES
 
 	public static String ApplnURI;
+	public static String ApplnURIForKeyCloak;
 	public static String authToken;
 	public static String regProcAuthToken;
 	public static String getStatusRegProcAuthToken;
@@ -97,6 +100,7 @@ public class BaseTestCase {
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
+	public static String publickey;
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -128,6 +132,8 @@ public class BaseTestCase {
 		logger.info("Environemnt is  ==== :" + environment);
 		ApplnURI = System.getProperty("env.endpoint");
 		logger.info("Application URI ======" + ApplnURI);
+		ApplnURIForKeyCloak = System.getProperty("env.keycloak");
+		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
 		languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
@@ -287,5 +293,10 @@ public class BaseTestCase {
 			logger.error(e.getMessage());
 		}
 		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
+	}
+	
+	public static JSONObject getRequestJson(String filepath){
+		return kernelCmnLib.readJsonData(filepath, true);
+		
 	}
 }

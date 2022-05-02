@@ -15,7 +15,9 @@ import org.json.simple.parser.JSONParser;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 /**
  * @author Arunakumar Rati
@@ -80,6 +82,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
 	private String authRequest="Config/Authorization/request.json";
+	private String keycloakAuthRequest="Config/Authorization/keycloakTokenGeneration.json";
 	private String authInternalRequest="Config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
@@ -137,6 +140,14 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
+		case "hotlist":
+			if(!kernelCmnLib.isValidToken(hotlistCookie))
+				residentCookie = kernelAuthLib.getAuthForHotlist();
+			return residentCookie;
+		case "keycloak":
+			if(!kernelCmnLib.isValidToken(keycloakCookie))
+				keycloakCookie = kernelAuthLib.getAuthForKeyCloak();
+			return keycloakCookie;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -225,6 +236,40 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings("unchecked")
+	public String getAuthForKeyCloak() {
+		
+		Response response = RestAssured.given().with().auth().preemptive()
+				.basic(props.get("keycloak_username"), props.get("keycloak_password"))
+				.header("Content-Type", "application/x-www-form-urlencoded")
+				.formParam("grant_type", props.get("keycloak_granttype"))
+				.formParam("client_id", props.get("keycloak_clientid"))
+				.formParam("username", props.get("keycloak_username"))
+				.formParam("password", props.get("keycloak_password")).when()
+				.post(ApplnURIForKeyCloak + props.get("keycloakAuthURL"));
+		System.out.println(response.getBody().asString());
+		
+		String responseBody = response.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getString("access_token");
+		System.out.println(token);
+		return token;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForHotlist() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("hotlist_appid"));
+		request.put("clientId", props.get("hotlist_clientId"));
+		request.put("secretKey", props.get("hotlist_secretKey"));
+		actualrequest.put("request", request);
+		
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
 		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
@@ -280,7 +325,7 @@ public class KernelAuthentication extends BaseTestCase{
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationProcessor() {
 	
-	JSONObject actualrequest = getRequestJson(authRequest);
+	JSONObject actualrequest = getRequestJson(keycloakAuthRequest);
 	JSONObject request=new JSONObject();
 	request.put("appId", props.get("regProc_appid"));
 	request.put("clientId", props.get("regProc_clientId"));
@@ -411,9 +456,5 @@ public class KernelAuthentication extends BaseTestCase{
 		return cookie;
 	}
 	
-	//Reading the request file from folder
-	public JSONObject getRequestJson(String filepath){
-		return clib.readJsonData(filepath, true);
-		
-	}
+	
 }

@@ -1,6 +1,6 @@
 GenerateApiKeysforApprovedPolicies:
    Partner_GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid:
-      endPoint: /v1/partnermanager/partners/110124/generate/apikey
+      endPoint: /v1/partnermanager/partners/111997/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
@@ -11,11 +11,11 @@ GenerateApiKeysforApprovedPolicies:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
     "label": "string"    
 }'
    Partner_GenerateApiKeysforApprovedPolicies_InValid_policy:
-      endPoint: /v1/partnermanager/partners/110124/generate/apikey
+      endPoint: /v1/partnermanager/partners/111997/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey

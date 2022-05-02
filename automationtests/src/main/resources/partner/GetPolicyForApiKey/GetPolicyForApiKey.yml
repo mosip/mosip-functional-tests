@@ -6,11 +6,11 @@ GetPolicyForApiKey:
       inputTemplate: partner/GetPolicyForApiKey/getPolicyForApiKey
       outputTemplate: partner/GetPolicyForApiKey/getPolicyForApiKeyResult
       input: '{
-    "partnerId": "110124",
+    "partnerId": "111997",
     "apiKey": "$ID:GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid_apiKey$"
 }'
       output: '{
-   "partnerID": "110124"      
+   "partnerID": "111997"      
 }'
    Partner_GetPolicyForApiKey_InValid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/apikey/{apiKey}

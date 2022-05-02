@@ -1,0 +1,16 @@
+HotlistAPI:
+   auth_HotlistAPI_All_Valid_Smoke_sid:
+      endPoint: /v1/hotlist/unblock
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/UnBlockHotlistAPI/UnblockHotlistAPI
+      outputTemplate: ida/UnBlockHotlistAPI/UnblockHotlistAPIResult
+      input: '{
+    "id": "$PARTNERID$",
+    "idType": "PARTNER_ID",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "UNBLOCKED"
+    }'

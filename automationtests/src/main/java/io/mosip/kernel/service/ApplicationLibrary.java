@@ -41,6 +41,12 @@ public class ApplicationLibrary extends BaseTestCase {
 		return commonLibrary.postWithPathParams(ApplnURI + endpoint, body, pathParams, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
+	
+	public Response postWithPathParamsForKeyCloak(String endpoint, HashMap<String, String> pathParams,
+			String cookie) {
+		return commonLibrary.postWithOnlyPathParams(ApplnURI + endpoint, pathParams, MediaType.APPLICATION_FORM_URLENCODED,
+				MediaType.APPLICATION_FORM_URLENCODED, cookie);
+	}
 
 /*	public Response postWithOnlyFile(String endpoint, File file, String fileKeyName, String cookie) {
 		return commonLibrary.postWithOnlyFile(ApplnURI + endpoint,  file, fileKeyName, cookie);

@@ -13,7 +13,7 @@ ResumePacketWorkflow:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-364",
+      "errorCode": "RPR-WAA-003",
       "message": "$IGNORE$"
     }
   ]

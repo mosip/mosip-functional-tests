@@ -1,0 +1,6 @@
+{
+"grant_type" : "{{grant_type}}",
+"client_id": "{{policyId}}",
+"username": "{{policyId}}",
+"password":	"{{policyId}}"
+}

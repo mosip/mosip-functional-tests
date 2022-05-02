@@ -1,0 +1,28 @@
+UserCenterMapping:
+   Prerequisite_UserCenterMapping_All_Valid_Smoke:
+      endPoint: /v1/masterdata/usercentermapping
+      role: admin
+      templateFields: ["name"]
+      restMethod: post
+      inputTemplate: prerequisite/UserCenterMapping/userCenterMapping
+      outputTemplate: prerequisite/UserCenterMapping/userCenterMappingResult
+      input: '{
+     "id": "110005",
+     "name": "automation",
+     "statusCode": "active",
+     "regCenterId": "10005",
+     "isActive": true,
+     "langCode": "eng",
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+       "id": "110005",
+    "langCode": "eng",
+    "name": "automation",
+    "statusCode": "active",
+    "regCenterId": "10005",
+    "isActive": $IGNORE$,
+    "zoneCode": "BSN",
+    "zoneName": "Benslimane",
+    "regCenterName": "Center Mehdia"
+    }'

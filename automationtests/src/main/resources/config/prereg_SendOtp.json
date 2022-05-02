@@ -4,6 +4,6 @@
   "requesttime": "$TIMESTAMP$",
   "request": {
     "langCode": "$PRIMARYLANG$",
-    "userId": "mosipuser123@mailinator.com"
+    "userId": "user123@mailinator.com"
   }
 }

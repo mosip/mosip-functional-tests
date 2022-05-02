@@ -24,7 +24,7 @@
 		<maven.sonar.plugin.version>3.2</maven.sonar.plugin.version>
 		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 		<maven-shade-plugin.version>2.3</maven-shade-plugin.version>
-
+<maven.javadoc.skip>true</maven.javadoc.skip>
 		<!-- spring -->
 		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
 		<spring.data.jpa.version>2.0.7.RELEASE</spring.data.jpa.version>
@@ -161,6 +161,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
+		<fileName>automationtests-1.2.0.1-SNAPSHOT-jar-with-dependencies</fileName>
 	</properties>
 	<dependencies>
 
@@ -179,9 +180,11 @@
 			<artifactId>icu4j</artifactId>
 			<version>68.1</version>
 		</dependency>
-
-
-
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-admin-client</artifactId>
+			<version>17.0.1</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 		<dependency>
 			<groupId>org.javassist</groupId>
@@ -253,7 +256,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
+			<version>2.10.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
@@ -266,14 +269,10 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.10.4</version>
+			<version>2.10.5</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.1</version>
-		</dependency>
-
+		<!-- <dependency> <groupId>javax.ws.rs</groupId> <artifactId>javax.ws.rs-api</artifactId> 
+			<version>2.1</version> </dependency> -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
@@ -512,7 +511,6 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
@@ -521,7 +519,7 @@
 					<argLine>-Dfile.encoding=UTF-8</argLine>
 				</configuration>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
@@ -544,7 +542,43 @@
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 				</configuration>
-			</plugin>
+			</plugin> -->
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>3.2.4</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>shade</goal>
+            </goals>
+            <configuration>
+                <finalName>${fileName}</finalName>
+                <transformers>
+                    <!-- need this to merge the services files properly -->
+                    <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    <!-- add Main-Class to manifest file -->
+                    <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>io.mosip.testrunner.MosipTestRunner</mainClass>
+                    </transformer>
+                </transformers>
+                <!-- add this to prevent some security issues when merging everything together -->
+                <filters>
+                    <filter>
+                        <artifact>*:*</artifact>
+                        <excludes>
+                            <exclude>META-INF/*.SF</exclude>
+                            <exclude>META-INF/*.DSA</exclude>
+                            <exclude>META-INF/*.RSA</exclude>
+                        </excludes>
+                    </filter>
+                </filters>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
 </project>

@@ -12,7 +12,7 @@ UpdateUIN:
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
-        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+        "identityJson": "$IDENTITYJSON$",
         "otp": "111111",
         "sendOtp":{
     "transactionID": "1234567890",
@@ -27,9 +27,9 @@ UpdateUIN:
   "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
@@ -45,7 +45,7 @@ UpdateUIN:
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
-        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+        "identityJson": "$IDENTITYJSON$",
         "otp": "",
         "sendOtp":{
     "transactionID": "1234567890",
@@ -64,9 +64,9 @@ UpdateUIN:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
    Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
@@ -82,7 +82,7 @@ UpdateUIN:
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
-        "identityJson": "ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImxhbmd1YWdlIjogImVuZyIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImV4ZW1wbGUgZCdhZGRyZXNzcyBsaWduZSAxIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUyIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYWRkcmVzc0xpbmUzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJsYW5ndWFnZSI6ICJlbmciLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGVtcGxlIGQnYWRkcmVzcyBsaWduZSAyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAoJCSJJRFNjaGVtYVZlcnNpb24iOiAwLjEsCgkJIlVJTiI6ICIyNjA5MzQ3MTg0IgoJfQp9",
+        "identityJson": "$IDENTITYJSON$",
         "otp": "111111",
         "sendOtp":{
     "transactionID": "1234567890",
@@ -101,8 +101,8 @@ UpdateUIN:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX2850",
+        "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXhXX.XXy@technoforte.co.in"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'

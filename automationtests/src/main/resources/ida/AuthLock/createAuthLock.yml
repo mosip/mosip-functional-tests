@@ -1,0 +1,67 @@
+AuthLock:
+   auth_AuthLock_Valid_UIN_All:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: ida/AuthLock/createAuthLock
+      outputTemplate: ida/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8531",
+        "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   auth_AuthLock_Valid_UIN_for_bio_auth:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: ida/AuthLock/createAuthLock
+      outputTemplate: ida/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Finger"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX8531",
+        "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'

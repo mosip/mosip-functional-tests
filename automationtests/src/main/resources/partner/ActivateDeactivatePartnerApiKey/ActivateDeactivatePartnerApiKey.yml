@@ -6,7 +6,7 @@ ActivateDeactivatePartnerApiKey:
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "policyId": "MDSP",
    "label": "string",
    "requesttime": "$TIMESTAMP$",
@@ -22,7 +22,7 @@ ActivateDeactivatePartnerApiKey:
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "policyId": "MDSP",
    "label": "string",
    "requesttime": "$TIMESTAMP$",
@@ -59,7 +59,7 @@ ActivateDeactivatePartnerApiKey:
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/error
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "policyId": "asfv",
    "label": "string",
    "requesttime": "$TIMESTAMP$",
@@ -80,7 +80,7 @@ ActivateDeactivatePartnerApiKey:
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/error
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "policyId": "MDSP",
    "label": "asdfsad",
    "requesttime": "$TIMESTAMP$",

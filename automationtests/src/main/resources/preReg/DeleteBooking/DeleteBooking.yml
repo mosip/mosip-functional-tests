@@ -9,5 +9,5 @@ DeleteBooking:
   "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
-  "deletedBy":"mosipuser123@mailinator.com"
+  "deletedBy":"user123@mailinator.com"
 }'   

@@ -6,7 +6,7 @@ UpdatePolicyAgainstApiKey:
       inputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKey
       outputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKeyResult
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "apiKey": "$ID:GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid_apiKey$",
    "oldPolicyID": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
    "newPolicyID": "$ID:DefineDataSharePolicy_All_Valid_Smoke_sid_id$",
@@ -43,7 +43,7 @@ UpdatePolicyAgainstApiKey:
       inputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKey
       outputTemplate: partner/error
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "apiKey": "asvbgn",
    "oldPolicyID": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
    "newPolicyID": "$ID:DefineDataSharePolicy_All_Valid_Smoke_sid_id$",
@@ -64,7 +64,7 @@ UpdatePolicyAgainstApiKey:
       inputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKey
       outputTemplate: partner/error
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "apiKey": "$ID:GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid_apiKey$",
    "oldPolicyID": "asfbgt",
    "newPolicyID": "$ID:DefineDataSharePolicy_All_Valid_Smoke_sid_id$",
@@ -85,7 +85,7 @@ UpdatePolicyAgainstApiKey:
       inputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKey
       outputTemplate: partner/error
       input: '{
-   "partnerId": "110124",
+   "partnerId": "111997",
    "apiKey": "$ID:GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid_apiKey$",
    "oldPolicyID": "$ID:DefineDataSharePolicy_All_Valid_Smoke_sid_id$",
    "newPolicyID": "INVALID",

@@ -1,0 +1,316 @@
+UpdateIdentity:
+  Auth_UpdateIdentity_updatePhone_withValidParameters_smoke_Pos_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "9876543210",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1",
+      "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "ida/UpdateIdentity/sendOtp",
+    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$"
+    }
+      }'
+      output: '{
+    "status": "ACTIVATED",
+    "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/UpdateIdentity/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  Auth_UpdateIdentity_updateAddress_Positive_EKYC_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "AddLine1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "AddLine2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "AddLine3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "ACTIVATED"
+}'
+  Auth_UpdateIdentity_updateName_Positive_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_valid_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FRA"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "ACTIVATED"
+}'
+  Auth_UpdateIdentity_updateDOB_ValidParam_smoke_Pos_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1980/08/10",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "ACTIVATED"
+}'
+  Auth_UpdateIdentity_DEACTIVATED_and_auth_smoke_Pos_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Deactivate_and_auth_smoke_Pos_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "DEACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
+  Auth_UpdateIdentity_DEACTIVATED_Positive_TRE_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_TRE_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "DEACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
+  Auth_UpdateIdentity_ACTIVATED_Positive_TRE_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: ida/UpdateIdentity/updateIdentity
+      outputTemplate: ida/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_Positive_TRE_smoke_UIN$",
+      "email": "idaautomation@gmail.com",
+      "status": "ACTIVATED",
+      "phone": "7019858531",
+      "dateOfBirth": "1970/07/08",
+      "requesttime": "$TIMESTAMP$",
+      "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      }
+    ], 
+      "addressLine1": [
+      {
+        "language": "eng",
+        "value": "Line1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "eng",
+        "value": "Line2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "eng",
+        "value": "Line3"
+      }
+    ],
+      "version": "v1"
+      }'
+      output: '{
+    "status": "ACTIVATED"
+}'

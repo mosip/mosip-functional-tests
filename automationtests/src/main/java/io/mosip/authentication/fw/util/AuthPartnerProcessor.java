@@ -49,7 +49,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 				}
 			};
 			new Thread(startDemoAppTask).start();
-			Thread.sleep(90000);
+			Thread.sleep(120000);
 		} catch (Exception e) {
 			DEMOAPP_LOGGER.error("Exception occured in starting the demo auth partner processor");
 		}
