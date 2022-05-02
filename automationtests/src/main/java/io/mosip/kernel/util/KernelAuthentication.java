@@ -325,7 +325,7 @@ public class KernelAuthentication extends BaseTestCase{
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationProcessor() {
 	
-	JSONObject actualrequest = getRequestJson(keycloakAuthRequest);
+	JSONObject actualrequest = getRequestJson(authRequest);
 	JSONObject request=new JSONObject();
 	request.put("appId", props.get("regProc_appid"));
 	request.put("clientId", props.get("regProc_clientId"));
