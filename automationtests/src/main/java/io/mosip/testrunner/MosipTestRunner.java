@@ -42,6 +42,7 @@ public class MosipTestRunner {
 		// Initializing or setting up execution
 		KeycloakUserManager.removeUser();
 		KeycloakUserManager.createUsers();
+	
 		BaseTestCase.suiteSetup();
 		startTestRunner();
 		
