@@ -33,9 +33,19 @@ public class KeycloakUserManager {
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
 	private static Keycloak getKeycloakInstance() {
-		return KeycloakBuilder.builder().serverUrl(propsKernel.getProperty("keycloak.url")).realm(propsKernel.getProperty("keycloak.realm"))
+		 Keycloak key=null;
+		try {
+			
+	key=KeycloakBuilder.builder().serverUrl(propsKernel.getProperty("keycloak.url")).realm(propsKernel.getProperty("keycloak.realm"))
 				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(propsKernel.getProperty("automation.clientid")).clientSecret(propsKernel.getProperty("automation.clientid.secrectkey"))
 				.build();
+	System.out.println(key.toString() + key.realms());
+		}catch(Exception e)
+		{
+			throw e;
+			
+		}
+		return key;
 	}
 
 	public static Properties getproperty(String path) {
