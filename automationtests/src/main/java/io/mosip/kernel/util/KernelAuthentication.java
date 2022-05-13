@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.ws.rs.core.MediaType;
+
 import org.json.simple.JSONObject;
 //import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
+import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
@@ -148,6 +150,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(keycloakCookie))
 				keycloakCookie = kernelAuthLib.getAuthForKeyCloak();
 			return keycloakCookie;
+		case "zonemap":
+			if(!kernelCmnLib.isValidToken(zonemapCookie))
+				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
+			return zonemapCookie;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -168,6 +174,26 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("userName", admin_userName);
 		request.put("clientId", props.get("admin_clientId"));
 		request.put("clientSecret", props.get("admin_clientSecret"));
+		actualrequest.put("request", request);
+
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForzoneMap() {
+
+		JSONObject actualrequest = getRequestJson(authInternalRequest);
+
+		JSONObject request = new JSONObject();
+		request.put("appId", props.get("admin_zone_appid"));
+		request.put("password", props.get("admin_zone_password"));
+		request.put("userName", props.get("admin_zone_userName"));
+		request.put("clientId", props.get("admin_zone_clientId"));
+		request.put("clientSecret", props.get("admin_zone_clientSecret"));
 		actualrequest.put("request", request);
 
 		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
@@ -455,6 +481,8 @@ public class KernelAuthentication extends BaseTestCase{
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
 	}
+	
+	
 	
 	
 }

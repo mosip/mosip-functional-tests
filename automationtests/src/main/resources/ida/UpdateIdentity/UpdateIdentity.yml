@@ -15,28 +15,10 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
       }
     ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
-      }
-    ],
       "version": "v1",
       "sendOtp":{
     "transactionID": "1234567890",
@@ -72,26 +54,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "AddLine1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "AddLine2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "AddLine3"
       }
     ],
       "version": "v1"
@@ -115,26 +79,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FRA"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
       }
     ],
       "version": "v1"
@@ -158,26 +104,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
       }
     ],
       "version": "v1"
@@ -201,26 +129,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
       }
     ],
       "version": "v1"
@@ -244,26 +154,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
       }
     ],
       "version": "v1"
@@ -287,26 +179,8 @@ UpdateIdentity:
       "requesttime": "$TIMESTAMP$",
       "fullName": [
       {
-        "language": "eng",
+        "language": "$PRIMARYLANG$",
         "value": "FR"
-      }
-    ], 
-      "addressLine1": [
-      {
-        "language": "eng",
-        "value": "Line1"
-      }
-    ],
-    "addressLine2": [
-      {
-        "language": "eng",
-        "value": "Line2"
-      }
-    ],
-    "addressLine3": [
-      {
-        "language": "eng",
-        "value": "Line3"
       }
     ],
       "version": "v1"

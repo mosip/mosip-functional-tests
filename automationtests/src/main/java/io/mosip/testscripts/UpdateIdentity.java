@@ -30,6 +30,7 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class UpdateIdentity extends AdminTestUtil implements ITest {
@@ -119,6 +120,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		
 		inputJson = inputJson.replace("$RID$", genRid);
 		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
+		
+		if (inputJson.contains("$PRIMARYLANG$"))
+			inputJson = inputJson.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
 		
 		Response response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		

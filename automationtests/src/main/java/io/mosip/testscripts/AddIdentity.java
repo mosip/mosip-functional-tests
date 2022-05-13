@@ -157,8 +157,9 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			logger.info("waiting for 2Minutes after UIN Generation In IDREPO");
-			Thread.sleep(70000);
+			logger.info("waiting for" + props.getProperty("Delaytime")
+			+ " mili secs after UIN Generation In IDREPO");
+	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}

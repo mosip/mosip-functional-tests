@@ -32,7 +32,7 @@ FetchDevice:
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceResult
       input: '{
-  "deviceType": "IRS",
+  "deviceType": "GST4",
   "langCode": "eng",
   "regCenterId": "$REMOVE$"
 }'
@@ -44,7 +44,7 @@ FetchDevice:
             "macAddress": "$IGNORE$",
             "langCode": "$IGNORE$",
             "isActive": true,
-            "deviceTypeCode": "IRS",
+            "deviceTypeCode": "GST4",
             "zoneCode": "$IGNORE$",
             "regCenterId": "$IGNORE$"
         }]

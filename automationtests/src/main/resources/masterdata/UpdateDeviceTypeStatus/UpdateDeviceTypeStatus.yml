@@ -1,0 +1,15 @@
+UpdateDeviceTypeStatus:
+   MasterData_UpdateDeviceTypeStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/devicetypes?isActive={isActive}&code={code}
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDeviceTypeStatus/updateDeviceTypeStatus
+      outputTemplate: masterdata/UpdateDeviceTypeStatus/updateteDeviceTypeStatusResult
+      input: '{
+    "code": "GST4",
+    "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Device Types"
+}'

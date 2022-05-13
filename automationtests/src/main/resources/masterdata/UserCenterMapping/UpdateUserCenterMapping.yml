@@ -2,6 +2,7 @@ UpdateUserCenterMapping:
    MasterData_UpdateUserCenterMapping_All_Valid_Smoke:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
@@ -11,7 +12,7 @@ UpdateUserCenterMapping:
      "statusCode": "active",
      "regCenterId": "10005",
      "langCode": "eng",
-	   "requesttime": "$TIMESTAMP$"
+     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
        "id": "func_auto_test_user",
@@ -27,6 +28,7 @@ UpdateUserCenterMapping:
    MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/error
@@ -49,6 +51,7 @@ UpdateUserCenterMapping:
    MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId:
       endPoint: /v1/masterdata/usercentermapping
       role: admin
+      templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
       outputTemplate: masterdata/error

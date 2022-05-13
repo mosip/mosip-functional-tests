@@ -2,6 +2,7 @@ AddUpdateRegistration:
    Prereg_AddUpdateRegistration_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/applications/updateregistration
       role: batch
+      templateFields: ["langCode"]
       restMethod: post
       inputTemplate: preReg/AddUpdateRegistration/addUpdateRegistration
       outputTemplate: preReg/AddUpdateRegistration/addUpdateRegistrationResult

@@ -2,7 +2,7 @@ CreateDeviceType:
    MasterData_CreateDeviceType_All_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes
       role: admin
-      templateFields: ["description","name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
