@@ -13,14 +13,14 @@
 	
 	
 	
-	<!-- <test name="AddIdentity">
+	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idRepository\AddIdentity\AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
-	</test> -->
-	<!-- <test name="CreateVID">
+	</test>
+	<test name="CreateVID">
 		<parameter name="ymlFile"	value="idRepository\CreateVID\CreateVid.yml" />
 	    <parameter name="idKeyName" value="VID" />
 	<classes>
@@ -137,7 +137,7 @@
 	<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 	</classes>
-	</test> --> 
+	</test> 
 	
 	<test name="AuthInternalLock">
 		<parameter name="ymlFile"	value="idRepository\AuthInternalLock\AuthInternalLock.yml" />
@@ -146,11 +146,11 @@
 	</classes>
 	</test>
 	
-	<!-- <test name="RetrieveAuthTypeStatus">
+	<test name="RetrieveAuthTypeStatus">
 		<parameter name="ymlFile"	value="idRepository\RetrieveAuthTypeStatus\RetrieveAuthTypeStatus.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
-	</test> -->
+	</test> 
 	
 </suite>

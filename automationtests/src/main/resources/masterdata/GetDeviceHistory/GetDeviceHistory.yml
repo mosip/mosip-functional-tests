@@ -2,17 +2,18 @@ GetDeviceHistory:
    Masterdata_GetDeviceHistory_allValid_smoke:
       endPoint: /v1/masterdata/deviceshistories/{id}/{langcode}/{effdatetimes}
       role: regproc
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetDeviceHistory/getDeviceHistory
       outputTemplate: masterdata/GetDeviceHistory/getDeviceHistoryResult
       input: '{
-  "id":"0301dfdd-66fb-4e8d-8615-1d1fe070454c",
+  "id":"$ID:CreateDevice_All_Valid_Smoke_sid_id$",
   "langcode":"eng",
   "effdatetimes":"2023-02-04T15:36:11.452Z"
 }'
       output: '{
 "deviceHistoryDetails": [{
-        "langCode": "eng",
+        "langCode": "$IGNORE$",
         "isActive": true
       }]
 }'

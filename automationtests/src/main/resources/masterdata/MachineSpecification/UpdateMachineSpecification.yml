@@ -2,7 +2,7 @@ UpdateMachineSpecification:
    Masterdata_UpdateMachineSpecification_All_Valid_Smoke:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/MachineSpecification/machineSpecificationResult

@@ -9,7 +9,7 @@ CreateTemplateType:
       input: '{
      "code": "Test-info-Template-auto",
     "description": "Test-info-Template auto description",
-    "isActive":false,
+    "isActive":true,
     "langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'

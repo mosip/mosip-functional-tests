@@ -14,7 +14,7 @@ GetPacketRejectionReason:
    "errors": null
 }'  
    Masterdata_GetPacketRejectionReason_Valid:
-      endPoint: /v1/masterdata/packetrejectionreasons
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
       role: admin
       restMethod: get
       inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason

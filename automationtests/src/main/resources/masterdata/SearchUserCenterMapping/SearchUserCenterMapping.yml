@@ -9,9 +9,9 @@ SearchUserCenterMapping:
       input: '{
         "filters": [
       {
-        "columnName": "userId",
+        "columnName": "id",
         "type": "equals",
-        "value": "110005"
+        "value": "220005"
       }
     ],
      "languageCode": "eng",
@@ -19,7 +19,7 @@ SearchUserCenterMapping:
 }'
       output: '{
        "data": [{
-        "userId": "110005",
+        "userId": "220005",
         "zoneName": "$IGNORE$",
         "regCenterId": "$IGNORE$",
         "zoneCode": "$IGNORE$"

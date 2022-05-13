@@ -1,5 +1,6 @@
 package io.mosip.admin.fw.util;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +17,9 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.UnrecoverableEntryException;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -109,6 +112,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static String UpdateUinRequest="config/Authorization/requestIdentity.json";
 	public static HashMap<String, String> keycloakRolesMap=new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap=new HashMap<String, String>();
+	private String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
 	
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -1108,6 +1112,7 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	public static void initiateMasterDataTest() {
 		copyMasterDataTestResource();
+		//BaseTestCase.mapUserToZone();
 	}
 	
 	public static void initiateSyncDataTest() {
@@ -1986,5 +1991,31 @@ public static String modifyIdSchemaInputJson(String inputJson) {
 	inputJson = inputJson.replace("\\\\", "\\\\\\\\");
 	return inputJson;
 }
+
+
+/*
+ * public static JSONObject mapUserToZone() { //public String void
+ * mapUserToZone() { String token = kernelAuthLib.getTokenByRole("resident");
+ * String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+ * 
+ * org.json.simple.JSONObject actualrequest =
+ * getRequestJson(zoneMappingRequest);
+ * 
+ * JSONObject request = new JSONObject(); request.put("appId",
+ * props.get("autoUsr_appid")); request.put("zoneCode",
+ * props.get("autoUsr_appid")); request.put("userId",
+ * props.get("autoUsr_password")); request.put("langCode",
+ * props.get("autoUsr_user")); actualrequest.put("request", request);
+ * System.out.println(actualrequest);
+ * logger.info("Getting certificate for "+props.get("autoUsr_appid")); Response
+ * response = RestClient.postRequestWithCookie(url, actualrequest,
+ * MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
+ * token); JSONObject responseJson = new JSONObject(response.asString());
+ * System.out.println(responseJson); return responseJson;
+ * 
+ * 
+ * 
+ * }
+ */
 
 }

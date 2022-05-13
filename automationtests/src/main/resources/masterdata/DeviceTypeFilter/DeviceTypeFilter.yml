@@ -8,9 +8,9 @@ DeviceTypeFilter:
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
       input: '{
 	"filters": [{
-		"columnName": "name",
+		"columnName": "code",
 		"type": "unique",
-		"text": "Printer"
+		"text": "GST4"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -18,8 +18,8 @@ DeviceTypeFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Printer"
+        "fieldID": "code",
+        "fieldValue": "GST4"
       }
     ]
   }'  
@@ -32,9 +32,9 @@ DeviceTypeFilter:
       outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
       input: '{
 	"filters": [{
-		"columnName": "name",
+		"columnName": "code",
 		"type": "all",
-		"text": "Printer"
+		"text": "GST4"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -42,8 +42,8 @@ DeviceTypeFilter:
       output: '{
     "filters": [
       {
-        "fieldID": "name",
-        "fieldValue": "Printer"
+        "fieldID": "code",
+        "fieldValue": "GST4"
       }
     ]
   }'    

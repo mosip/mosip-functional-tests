@@ -31,6 +31,7 @@
 		</classes>
 	</test>
 	
+	
 	<test name="UpdateUIN">
 		<parameter name="ymlFile"
 			value="resident/UpdateUIN/UpdateUIN.yml" />
@@ -46,7 +47,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="PrintUin">
+	<test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
 		<classes>
@@ -61,7 +62,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test> -->
+	</test>
 	
 	
 	<test name="AuthLock">
@@ -93,13 +94,13 @@
 		<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 	</classes>
 </test> 
-	<!-- <test name="CancellCredential">
+	<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> -->
+	</test>
 	<test name="SendOTP">
 		<parameter name="ymlFile"
 			value="resident/SendOTP/SendOTP.yml" />

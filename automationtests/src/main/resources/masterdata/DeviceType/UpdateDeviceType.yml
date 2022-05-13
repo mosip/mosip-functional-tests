@@ -2,7 +2,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_All_Valid_Smoke:
       endPoint: /v1/masterdata/devicetypes
       role: admin
-      templateFields: ["description","name"]
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
@@ -21,6 +21,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/devicetypes
       role: admin
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/DeviceType/deviceTypeResult
@@ -39,7 +40,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/devicetypes
       role: admin
-      templateFields: ["description","name"]
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -62,7 +63,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Code_Empty:
       endPoint: /v1/masterdata/devicetypes
       role: admin
-      templateFields: ["description","name"]
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error
@@ -85,7 +86,7 @@ UpdateDeviceType:
    MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36:
       endPoint: /v1/masterdata/devicetypes
       role: admin
-      templateFields: ["description","name"]
+      templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/DeviceType/deviceType
       outputTemplate: masterdata/error

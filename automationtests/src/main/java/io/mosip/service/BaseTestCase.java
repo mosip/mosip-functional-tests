@@ -1,9 +1,16 @@
 package io.mosip.service;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -11,11 +18,18 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import javax.ws.rs.core.MediaType;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
+import org.keycloak.admin.client.Keycloak;
+import org.keycloak.admin.client.resource.RealmResource;
+import org.keycloak.admin.client.resource.UserResource;
+import org.keycloak.admin.client.resource.UsersResource;
+import org.keycloak.representations.idm.UserRepresentation;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -25,11 +39,13 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.testrunner.MosipTestRunner;
 //import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 /**
  * This is the main class for TestNG that will setup and begin running tests.
@@ -64,6 +80,7 @@ public class BaseTestCase {
 	public String residentCookie = null;
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
+	public String zonemapCookie = null;
 	public String autoTstUsrCkie = null;
 	public static List<String> listOfModules = null;
 
@@ -101,6 +118,9 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
+	private static String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -208,6 +228,10 @@ public class BaseTestCase {
 			
 		}
 		
+		/*
+		 * if (listOfModules.contains("masterdata")) { mapUserToZone(); }
+		 */
+		
 		//inserting device management data
 		/*
 		 * if(insertDevicedata) { AuthTestsUtil.deleteDeviceManagementData();
@@ -216,6 +240,7 @@ public class BaseTestCase {
 		 */
 
 	} 
+		
 
 
 	/**
@@ -239,6 +264,17 @@ public class BaseTestCase {
 		// extent.flush();
 	} // end testTearDown
 
+	public static Properties getproperty(String path) {
+		Properties prop = new Properties();
+		
+		try {
+			File file = new File(path);
+			prop.load(new FileInputStream(file));
+		} catch (IOException e) {
+			logger.error("Exception " + e.getMessage());
+		}
+		return prop;
+	}
 	private static Properties getLoggerPropertyConfig() {
 		Properties logProp = new Properties();
 		logProp.setProperty("log4j.rootLogger", "INFO, Appender1,Appender2");
@@ -294,6 +330,40 @@ public class BaseTestCase {
 		}
 		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
 	}
+	
+	
+	
+	
+		public static void  mapUserToZone() {
+				String token = kernelAuthLib.getTokenByRole("zonemap");
+				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+				
+				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
+
+				JSONObject request = new JSONObject();
+				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
+				request.put("userId", propsKernel.get("admin_userName"));
+				request.put("langCode", BaseTestCase.languageList.get(0));
+				request.put("isActive", "true");
+				actualrequest.put("request", request);
+				System.out.println(actualrequest);
+				
+				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+				logger.info(propsKernel.get("admin_userName") + "Mapped to"+props.get("zoneCode_to_beMapped")+ "Zone");
+				System.out.println(response);
+				
+			}
+		
+		public static void mapZone() {
+			
+			String token = kernelAuthLib.getTokenByRole("zonemap");
+			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("isActive", "true");
+			map.put("userId", (String) propsKernel.get("admin_userName"));
+			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+			System.out.println(response);
+		}
 	
 	public static JSONObject getRequestJson(String filepath){
 		return kernelCmnLib.readJsonData(filepath, true);

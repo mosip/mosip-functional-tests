@@ -2,7 +2,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/MachineSpecification/machineSpecificationResult
@@ -19,8 +19,8 @@ CreateMachineSpecification:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"id": "$IGNORE$",
-	"langCode": "eng"
+    "id": "$IGNORE$",
+    "langCode": "eng"
 }'
    Masterdata_CreateMachineSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/machinespecifications
@@ -106,7 +106,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Brand_Missing:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -133,7 +133,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Brand_Empty:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -160,7 +160,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Brand_AboveMaxLen32:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -187,7 +187,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Model_Missing:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -214,7 +214,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Model_Empty:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -241,7 +241,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Model_AboveMaxLen16:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -268,7 +268,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_machineTypeCode_Missing:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -295,7 +295,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_machineTypeCode_Empty:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -322,7 +322,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -349,7 +349,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Invalid_machineTypeCode:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -376,7 +376,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_MinDriverversion_Missing:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -403,7 +403,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_MinDriverversion_Empty:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -430,7 +430,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -457,7 +457,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
@@ -484,7 +484,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_InputParameter_isActive_Missing:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
-      templateFields: ["name"]
+      templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
       outputTemplate: masterdata/error
