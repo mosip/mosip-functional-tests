@@ -137,11 +137,7 @@ public class KeycloakUserManager {
 
 	public static void createUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
 		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
-		//List<String> userPassword = List.of(propsKernel.getProperty("users.password").split(","));
-		//Keycloak keycloakInstance = getKeycloakInstance("neeha");
 		Keycloak keycloakInstance = getKeycloakInstance();
-		//int passwordIndex = 0;
-		//for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
 			UserRepresentation user = new UserRepresentation();
 			user.setEnabled(true);
 			user.setUsername(userid);
@@ -152,12 +148,7 @@ public class KeycloakUserManager {
 		    user.setAttributes(map);
 			// Get realm
 			RealmResource realmResource=null;
-			try {
 			 realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
-			}catch(Exception e)
-			{
-				e.printStackTrace();
-			}
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
@@ -199,7 +190,6 @@ public class KeycloakUserManager {
 	}
 
 	public static void removeUser(String user) {
-		//List<String> needsToBeRemovedUsers = List.of(propsKernel.getProperty("users.create").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
 			UsersResource usersRessource = realmResource.users();
