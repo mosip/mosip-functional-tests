@@ -11,15 +11,15 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-	   <test name="AddIdentity">
+	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="ida\AddIdentity\AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
-	</test> 
+	</test>
 
-	 <test name="GenerateVID">
+	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
 		<parameter name="idKeyName" value="vid" />
@@ -27,22 +27,32 @@
 			<class
 				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>  
-    <test name="AuthInternalLock">
-		<parameter name="ymlFile"	value="ida\AuthInternalLock\AuthInternalLock.yml" />
+	</test>
+
+	<test name="RevokeVID">
+		<parameter name="ymlFile"
+			value="ida\RevokeVID\createRevokeVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+
+	<test name="AuthInternalLock">
+		<parameter name="ymlFile"
+			value="ida\AuthInternalLock\AuthInternalLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 
-<test name="AuthLock">
+	<test name="AuthLock">
 		<parameter name="ymlFile"
 			value="ida/AuthLock/createAuthLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
-	
+
 	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
@@ -50,16 +60,16 @@
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
-	
-		
-	 <test name="EkycBio">
+
+
+	<test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
-	
+
 
 	<test name="OtpAuth">
 		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuth.yml" />
@@ -75,17 +85,12 @@
 		<classes>
 			<class name="io.mosip.testscripts.OtpAuth" />
 		</classes>
-	</test> 
-
-	
-	<test name="EkycDemo">
-		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
-		</classes>
 	</test>
 
-	 <test name="MultiFactorAuth">
+
+
+
+	<test name="MultiFactorAuth">
 		<parameter name="ymlFile"
 			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />
 		<classes>
@@ -93,98 +98,110 @@
 		</classes>
 	</test>
 
-<test name="AuthTransaction">
-		<parameter name="ymlFile" value="ida/AuthTransaction/AuthTransaction.yml" />
+	<test name="AuthTransaction">
+		<parameter name="ymlFile"
+			value="ida/AuthTransaction/AuthTransaction.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>  
-	
-	
-	 <test name="UpdateIdentity">
+	</test>
+
+
+	<test name="UpdateIdentity">
 		<parameter name="ymlFile"
 			value="ida\UpdateIdentity\UpdateIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.UpdateIdentity" />
 		</classes>
-	</test> 
-	
-	 <test name="BlockHotlist">
+	</test>
+
+	<test name="BlockHotlist">
 		<parameter name="ymlFile"
 			value="ida\BlockHotlistAPI\BlockHotlistAPI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	
-	
-	
-	
-	
-	 <test name="HotlistTestcasesAuth">
-		<parameter name="ymlFile" value="ida/HotlistTestcases/HotlistTestcases.yml" />
+
+
+
+
+
+	<test name="HotlistTestcasesAuth">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/HotlistTestcases.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
-	
+
 	<test name="HotlistTestcasesKyc">
-		<parameter name="ymlFile" value="ida/HotlistTestcases/HotlistTestcasesKyc.yml" />
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/HotlistTestcasesKyc.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
-	
-	
-	 <test name="AuthUnLock">
+
+
+	<test name="AuthUnLock">
 		<parameter name="ymlFile"
 			value="ida/AuthUnLock/createAuthUnLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
-	
- <test name="UnBlockHotlist">
+
+	<test name="UnBlockHotlist">
 		<parameter name="ymlFile"
 			value="ida\UnBlockHotlistAPI\UnBlockHotlistAPI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>   
+	</test>
 
 
-<test name="DemoAuth">
+	<test name="DemoAuth">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
 
-	 <test name="BlockPartnerId">
+	<test name="EkycDemo">
+		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuth" />
+		</classes>
+	</test>
+
+	<test name="BlockPartnerId">
 		<parameter name="ymlFile"
 			value="ida\BlockHotlistAPI\BlockPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	
-	
-	  <test name="HotlistTestcasesPartnerId">
-		<parameter name="ymlFile" value="ida/HotlistTestcases/HotlistTestcasesPartnerId.yml" />
+
+
+	<test name="HotlistTestcasesPartnerId">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/HotlistTestcasesPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
-	</test> 
-	
+	</test>
 
- <test name="UnBlockPartnerId">
+
+	<test name="UnBlockPartnerId">
 		<parameter name="ymlFile"
 			value="ida\UnBlockHotlistAPI\UnBlockHotlistAPIForPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>  
+	</test> 
+
 
 
 </suite>

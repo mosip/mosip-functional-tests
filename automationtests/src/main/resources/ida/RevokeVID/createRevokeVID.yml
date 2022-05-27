@@ -1,0 +1,38 @@
+RevokeVID:
+   auth_RevokeVID_all_valid_smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_to_revoke_Perpetual_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: ida/RevokeVID/createRevokeVID
+      outputTemplate: ida/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "m@@@333dstus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
