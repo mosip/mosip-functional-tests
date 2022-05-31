@@ -1,0 +1,58 @@
+GetLocationHierarchyByLanguageCode:
+   Resident_GetLocationHierarchyByLanguageCode_All_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
+      role: resident
+      restMethod: get
+      templateFields: ["langCode"]
+      inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
+      outputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCodeResult
+      input: '{
+      "langCode":"hin"
+}'
+      output: '{
+    "id": null,
+    "version": null,
+    "responsetime": "$IGNORE$",
+    "metadata": null,
+    "response": {
+        "locationHierarchyLevels": [
+            {
+                "hierarchyLevel": 0,
+                "hierarchyLevelName": "देश",
+                "langCode": "hin",
+                "isActive": true
+            },
+            {
+                "hierarchyLevel": 1,
+                "hierarchyLevelName": "क्षेत्रों",
+                "langCode": "hin",
+                "isActive": true
+            },
+            {
+                "hierarchyLevel": 2,
+                "hierarchyLevelName": "प्रांत",
+                "langCode": "hin",
+                "isActive": true
+            },
+            {
+                "hierarchyLevel": 3,
+                "hierarchyLevelName": "शहर",
+                "langCode": "hin",
+                "isActive": true
+            },
+            {
+                "hierarchyLevel": 4,
+                "hierarchyLevelName": "क्षेत्र",
+                "langCode": "hin",
+                "isActive": true
+            },
+            {
+                "hierarchyLevel": 5,
+                "hierarchyLevelName": "डाक कोड",
+                "langCode": "hin",
+                "isActive": true
+            }
+        ]
+    },
+    "errors": null
+}'

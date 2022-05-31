@@ -1,0 +1,61 @@
+GetImmediateChildrenByLocCodeAndLangCode:
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_allValid_smoke:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
+      outputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCodeResult
+      input: '{
+      "locationcode":"KNT",
+      "langcode":"tam"
+}'
+      output: '{
+"locations": [{
+        "code": "$IGNORE$",
+        "name": "$IGNORE$",
+        "hierarchyLevel": "$IGNORE$",
+        "hierarchyName": "$IGNORE$",
+        "parentLocCode": "$IGNORE$",
+        "langcode": "tam",
+        "isActive": "$IGNORE$"
+    }]
+}'
+
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_Invalid_locationcode:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "locationcode":"abc",
+      "langcode":"tam"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_Invalid_langcode:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "locationcode":"KNT",
+      "langcode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

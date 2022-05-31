@@ -1,0 +1,43 @@
+GetCoordinateSpecificRegistrationCenters:
+   Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke:
+      endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
+      outputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult
+      input: '{
+      "langcode": "hin",
+	  "latitude": "34.52117",
+	  "proximitydistance": "21",
+	  "longitude": "-6.453275"
+}'
+      output: '{
+"registrationCenters": [{
+        "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "centerTypeCode": "$IGNORE$",
+        "addressLine1": "$IGNORE$",
+        "addressLine2": "$IGNORE$",
+        "addressLine3": "$IGNORE$",
+        "latitude": "34.52117",
+        "longitude": "-6.453275",
+        "locationCode": "$IGNORE$",
+        "holidayLocationCode": "$IGNORE$",
+        "contactPhone": "$IGNORE$",
+        "workingHours": "$IGNORE$",
+        "langcode": "hin",
+        "numberOfKiosks": $IGNORE$,
+        "perKioskProcessTime": "$IGNORE$",
+        "centerStartTime": "$IGNORE$",
+        "centerEndTime": "$IGNORE$",
+        "timeZone": "$IGNORE$",
+        "contactPerson": "$IGNORE$",
+        "lunchStartTime": "$IGNORE$",
+        "lunchEndTime": "$IGNORE$",
+        "isActive": $IGNORE$,
+        "zoneCode": "$IGNORE$"
+    }]
+}'
+
+  

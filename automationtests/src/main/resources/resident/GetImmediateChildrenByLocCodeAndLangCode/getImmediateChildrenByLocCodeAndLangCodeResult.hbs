@@ -1,0 +1,23 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "locations": [
+    {{#each locations}}
+      {
+        "code": "{{code}}",
+        "name": "{{name}}",
+        "hierarchyLevel": {{hierarchyLevel}},
+        "hierarchyName": "{{hierarchyName}}",
+        "parentLocCode": "{{parentLocCode}}",
+        "langcode": "{{langcode}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": null
+}
