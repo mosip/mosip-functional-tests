@@ -136,6 +136,58 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test> 
+	</test>
+	
+	
+	<test name="GetUiProperties">
+		<parameter name="ymlFile"
+			value="resident/GetUiProperties/GetUiProperties.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+ 	<test name="GetLocationHierarchyByLanguageCode">
+		<parameter name="ymlFile"
+			value="resident/GetLocationHierarchyByLanguageCode/GetLocationHierarchyByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetValidDocumentByLangCode">
+		<parameter name="ymlFile"
+			value="resident/GetValidDocumentByLangCode/GetValidDocumentByLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetImmediateChildrenByLocCodeAndLangCode">
+		<parameter name="ymlFile"
+			value="resident/GetImmediateChildrenByLocCodeAndLangCode/GetImmediateChildrenByLocCodeAndLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetCoordinateSpecificRegistrationCenters">
+		<parameter name="ymlFile"
+			value="resident/GetCoordinateSpecificRegistrationCenters/GetCoordinateSpecificRegistrationCenters.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetRegistrationCenterWorkingDays">
+		<parameter name="ymlFile"
+			value="resident/GetRegistrationCenterWorkingDays/GetRegistrationCenterWorkingDays.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetLocationDetailsByLocCodeAndLangCode">
+		<parameter name="ymlFile"
+			value="resident/GetLocationDetailsByLocCodeAndLangCode/GetLocationDetailsByLocCodeAndLangCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	
 	
 </suite>

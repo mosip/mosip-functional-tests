@@ -1,0 +1,54 @@
+GetRegistrationCenterWorkingDays:
+   Resident_GetRegistrationCenterWorkingDays_allValid_smoke:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDaysResult
+      input: '{
+  "langCode": "eng",
+  "registrationCenterID": "10011"
+}'
+      output: '{
+   "errors": null
+}'
+
+   Resident_GetRegistrationCenterWorkingDays_InvalidValid_langCode:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/error
+      input: '{
+  "langCode": "eng1",
+  "registrationCenterID": "10011"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetRegistrationCenterWorkingDays_InvalidValid_registrationCenterID:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/error
+      input: '{
+  "langCode": "eng",
+  "registrationCenterID": "1001112"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

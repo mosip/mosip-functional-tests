@@ -1,0 +1,31 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+  	"documentcategories": [
+  		{{#each documentcategories}}
+  		{
+  			"code": "$IGNORE$",
+            "name": "$IGNORE$",
+            "description": "$IGNORE$",
+            "langcode": "{{langcode}}",
+            "isActive": "$IGNORE$",
+            "documenttypes": [
+            	{{#each documenttypes}}
+            	{
+            		"code": "$IGNORE$",
+                    "name": "$IGNORE$",
+                    "description": "$IGNORE$",
+                    "langcode": "{{langcode}}",
+                    "isActive": "$IGNORE$"
+                }
+                {{/each}}
+            ]
+        }
+        {{/each}}    
+  	]
+  },
+  "errors": null
+}

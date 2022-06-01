@@ -1,0 +1,16 @@
+GetValidDocumentByLangCode:
+   Resident_GetValidDocumentByLangCode_All_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langcode}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
+      outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
+      input: '{
+      "langcode": "hin"
+}'
+      output: '{
+	  "response": [{
+      	"langcode": "hin"
+      }]
+}'
