@@ -93,13 +93,13 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "$IGNORE$",
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database",
       "actionMessage": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"

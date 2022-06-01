@@ -33,12 +33,7 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
-	<test name="RetrieveIdentityByUin">
-		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByUin\RetrieveIdentityByUin.yml" />
-	<classes>
-		<class name="io.mosip.testscripts.GetWithParam" />
-	</classes>
-	</test>
+	
 	
 	<test name="RetrieveVIDByUIN">
 		<parameter name="ymlFile"	value="idRepository\RetrieveVIDByUIN\RetrieveVIDByUIN.yml" />
@@ -66,6 +61,13 @@
 		<parameter name="ymlFile"	value="idRepository\DeactivateVid\DeactivateVid.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	
+	<test name="RetrieveIdentityByUin">
+		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByUin\RetrieveIdentityByUin.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
 	<test name="RetrieveUINByVID">

@@ -570,8 +570,8 @@ BioAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }
   ]
 }'

@@ -35,3 +35,37 @@ CreateDraft:
       output: '{
     "status": "DRAFTED"
 }'
+  IdRepository_CreateDraft_invalid_rid:
+      endPoint: /idrepository/v1/identity/draft/create/{registrationId}
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraft/createDraft
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"ajajaj@gddb#$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-003",
+      "message": "Invalid Request"
+    }
+  ]
+}'
+  IdRepository_CreateDraft_blank_rid:
+      endPoint: /idrepository/v1/identity/draft/create/{registrationId}
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraft/createDraft
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":""
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-003",
+      "message": "Invalid Request"
+    }
+  ]
+}'
