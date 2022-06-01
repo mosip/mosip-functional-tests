@@ -1,0 +1,13 @@
+GetChannelVerificationStatus:
+   Resident_GetChannelVerificationStatus_all_Valid_Smoke:
+      endPoint: /resident/v1/channel/verification-status/{channel}/{individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
+      input: '{
+      	"channel":"",
+		"individualId":""
+}'
+      output: '{
+}'

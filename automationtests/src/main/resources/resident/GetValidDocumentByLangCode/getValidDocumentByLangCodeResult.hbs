@@ -10,7 +10,7 @@
   			"code": "$IGNORE$",
             "name": "$IGNORE$",
             "description": "$IGNORE$",
-            "langcode": "{{langcode}}",
+            "langCode": "{{langCode}}",
             "isActive": "$IGNORE$",
             "documenttypes": [
             	{{#each documenttypes}}
@@ -18,12 +18,14 @@
             		"code": "$IGNORE$",
                     "name": "$IGNORE$",
                     "description": "$IGNORE$",
-                    "langcode": "{{langcode}}",
+                    "langCode": "{{langCode}}",
                     "isActive": "$IGNORE$"
                 }
+                {{#unless @last}},{{/unless}}
                 {{/each}}
             ]
         }
+        {{#unless @last}},{{/unless}}
         {{/each}}    
   	]
   },

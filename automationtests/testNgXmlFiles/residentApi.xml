@@ -13,7 +13,7 @@
 		
 	
 	
-	
+<!--	
 	<test name="AddIdentity">
 	<parameter name="ymlFile"
 		value="resident\AddIdentity\AddIdentity.yml" />
@@ -137,8 +137,9 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	-->
 	
-	
+	<!--
 	<test name="GetUiProperties">
 		<parameter name="ymlFile"
 			value="resident/GetUiProperties/GetUiProperties.yml" />
@@ -188,6 +189,48 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetResidentValidDocuments">
+		<parameter name="ymlFile"
+			value="resident/GetResidentValidDocuments/GetResidentValidDocuments.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetLatestIdSchema">
+		<parameter name="ymlFile"
+			value="resident/GetLatestIdSchema/GetLatestIdSchema.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetRegCenterByLangCodeAndHierarchyLevel">
+		<parameter name="ymlFile"
+			value="resident/GetRegCenterByLangCodeAndHierarchyLevel/GetRegCenterByLangCodeAndHierarchyLevel.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetRegistrationCenterByHierarchyLevelAndTextPaginated">
+		<parameter name="ymlFile"
+			value="resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetChannelVerificationStatus">
+		<parameter name="ymlFile"
+			value="resident/GetChannelVerificationStatus/GetChannelVerificationStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test> -->
 	
+	<test name="GetCoordinateSpecificRegistrationCenters">
+		<parameter name="ymlFile"
+			value="resident/GetCoordinateSpecificRegistrationCenters/GetCoordinateSpecificRegistrationCenters.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	
 </suite>

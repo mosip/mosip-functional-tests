@@ -1,16 +1,36 @@
 GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_All_Valid_Smoke:
-      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langcode}
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
-      templateFields: ["langcode"]
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
       input: '{
-      "langcode": "hin"
+      "langCode": "hin"
 }'
       output: '{
 	  "response": [{
-      	"langcode": "hin"
+      	"langCode": "hin"
       }]
+}'
+
+
+
+   Resident_GetValidDocumentByLangCode_Invalid_LangCode:
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "hin"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
 }'

@@ -1,0 +1,19 @@
+GetResidentValidDocuments:
+   Resident_GetResidentValidDocuments_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
+      outputTemplate: resident/GetResidentValidDocuments/getResidentValidDocumentsResult
+      input: '{
+      	"applicantId": "001",
+		"langCode":"{{langCode}}"
+}'
+      output: '{
+    "response": {
+        "appTypeCode": "$IGNORE$",
+        "langCode": "{{langCode}}",
+        "isActive": "$IGNORE$",
+        }
+}'
