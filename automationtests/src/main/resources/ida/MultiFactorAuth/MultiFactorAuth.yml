@@ -276,8 +276,8 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }
   ],
   "sendOtpResp":{

@@ -231,8 +231,8 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }
   ]
 }'
@@ -993,6 +993,64 @@ EkycDemo:
     {
       "errorCode": "IDA-MLC-006",
       "errorMessage": "Missing Input Parameter - individualIdType"
+    }
+  ]
+}'
+  auth_EkycDemo_missing_individual_ID:
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/ekycDemo
+      outputTemplate: ida/EkycDemo/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$REMOVE$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "kycStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualId"
+    }
+  ]
+}'
+  auth_EkycDemo_blank_individual_ID:
+      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/ekycDemo
+      outputTemplate: ida/EkycDemo/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": false,
+        "demo": true,
+        "otp": false,
+        "identityRequest":{
+    "value": "1970/07/08",
+"key": "dob",
+    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
+    }
+    }'
+      output: '{
+    "kycStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualId"
     }
   ]
 }'

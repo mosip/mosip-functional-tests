@@ -1157,7 +1157,7 @@ DemoAuth:
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
-      outputTemplate: ida/DemoAuth/demoAuthResult
+      outputTemplate: ida/DemoAuth/error
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",
@@ -1186,7 +1186,7 @@ DemoAuth:
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
-      outputTemplate: ida/DemoAuth/demoAuthResult
+      outputTemplate: ida/DemoAuth/error
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
@@ -1205,8 +1205,8 @@ DemoAuth:
   "authStatus": "false",
   "errors": [
     {
-      "errorCode": "IDA-MLC-019",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }
   ]
 }'
@@ -1215,7 +1215,7 @@ DemoAuth:
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/demoAuth
-      outputTemplate: ida/DemoAuth/demoAuthResult
+      outputTemplate: ida/DemoAuth/error
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",

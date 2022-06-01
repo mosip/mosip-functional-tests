@@ -12,3 +12,75 @@ CreateDraftVID:
       output: '{
     "vidStatus": "DRAFT"
 }'
+  IdRepository_CreateDraftVID_invalid_vidtype:
+      endPoint: /idrepository/v1/draft/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraftVID/createDraftVID
+      outputTemplate: idRepository/error
+      input: '{
+      "vidType": "ddhh@312",
+      "UIN": "$ID:GetDraft_all_valid_smoke_sid_UIN$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateDraftVID_blank_vidtype:
+      endPoint: /idrepository/v1/draft/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraftVID/createDraftVID
+      outputTemplate: idRepository/error
+      input: '{
+      "vidType": "",
+      "UIN": "$ID:GetDraft_all_valid_smoke_sid_UIN$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateDraftVID_missing_vidtype:
+      endPoint: /idrepository/v1/draft/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraftVID/createDraftVID
+      outputTemplate: idRepository/error
+      input: '{
+      "vidType": "$REMOVE$",
+      "UIN": "$ID:GetDraft_all_valid_smoke_sid_UIN$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - vidType"
+    }
+  ]
+}'
+  IdRepository_CreateDraftVID_Invalid_UIN:
+      endPoint: /idrepository/v1/draft/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateDraftVID/createDraftVID
+      outputTemplate: idRepository/error
+      input: '{
+      "vidType": "Perpetual",
+      "UIN": "SNSHSH@U4U438"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - UIN"
+    }
+  ]
+}'

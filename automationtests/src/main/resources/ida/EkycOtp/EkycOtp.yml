@@ -125,12 +125,12 @@ EkycOtp:
       output: '{
    "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
