@@ -1,0 +1,14 @@
+GetRegCenterByLangCodeAndHierarchyLevel:
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+      	"langcode":"",
+		"hierarchylevel":"",
+		"name":""
+}'
+      output: '{
+}'

@@ -1,0 +1,18 @@
+GetRegistrationCenterByHierarchyLevelAndTextPaginated:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"",
+		"hierarchylevel":"",
+		"name":"",
+		"pageNumber":"",
+		"pageSize":"",
+		"sortBy":"",
+		"orderBy":""
+}'
+      output: '{
+}'
