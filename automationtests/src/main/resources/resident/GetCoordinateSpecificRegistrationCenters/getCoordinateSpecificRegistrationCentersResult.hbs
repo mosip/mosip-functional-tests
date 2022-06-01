@@ -1,0 +1,51 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": "$IGNORE$",
+  "metadata": null,
+  "response": {
+    "registrationCenters": [
+      {{#each registrationCenters}}	
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "centerTypeCode": "{{centerTypeCode}}",
+        "addressLine1": "{{addressLine1}}",
+        "addressLine2": "{{addressLine2}}",
+        "addressLine3": "{{addressLine3}}",
+        "latitude": "{{latitude}}",
+        "longitude": "{{longitude}}",
+        "locationCode": "{{locationCode}}",
+        "holidayLocationCode": "{{holidayLocationCode}}",
+        "contactPhone": "{{contactPhone}}",
+        "workingHours": "{{workingHours}}",
+        "langcode": "{{langcode}}",
+        "numberOfKiosks": {{numberOfKiosks}},
+        "perKioskProcessTime": "{{perKioskProcessTime}}",
+        "centerStartTime": "{{centerStartTime}}",
+        "centerEndTime": "{{centerEndTime}}",
+        "timeZone": "{{timeZone}}",
+        "contactPerson": "{{contactPerson}}",
+        "lunchStartTime": "{{lunchStartTime}}",
+        "lunchEndTime": "{{lunchEndTime}}",
+        "isActive": {{isActive}},
+        "zoneCode": "{{zoneCode}}"
+      }
+      {{#unless @last}},{{/unless}}
+      {{/each}}
+    ]
+  },
+  "errors": null
+}
+
+
+
+
+
+
+
+
+
+
+
+

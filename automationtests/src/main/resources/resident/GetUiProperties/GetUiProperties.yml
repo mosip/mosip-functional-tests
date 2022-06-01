@@ -1,0 +1,13 @@
+GetUiProperties:
+   Resident_GetUiProperties_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/config/ui-properties
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetUiProperties/getUiProperties
+      outputTemplate: resident/GetUiProperties/getUiPropertiesResult
+      input: '{
+}'
+      output: '{
+        "mosip.resident.api.version.otp.request": "1.0",
+        "mosip.iam.adapter.clientid": "mosip-resident-client"
+}'
