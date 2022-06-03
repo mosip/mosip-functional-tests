@@ -8,6 +8,13 @@ GetUiProperties:
       input: '{
 }'
       output: '{
-        "mosip.resident.api.version.otp.request": "1.0",
-        "mosip.iam.adapter.clientid": "mosip-resident-client"
+        "mosip.resident.api.id.auth": "{{mosip.resident.api.id.auth}}",
+        "mosip.resident.api.version.otp.request": "{{mosip.resident.api.version.otp.request}}",
+        "resident.datetime.pattern": "$IGNORE$",
+        "mosip.mandatory-languages": "$IGNORE$",
+        "mosip.resident.api.version.auth": "{{mosip.resident.api.version.auth}}",
+        "mosip.optional-languages": "$IGNORE$",
+        "mosip.resident.api.id.otp.request": "{{mosip.resident.api.id.otp.request}}",
+        "mosip.utc-datetime-pattern": "$IGNORE$",
+        "mosip.iam.adapter.clientid": "{{mosip.iam.adapter.clientid}}"
 }'

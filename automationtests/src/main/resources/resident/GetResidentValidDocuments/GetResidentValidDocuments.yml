@@ -8,12 +8,51 @@ GetResidentValidDocuments:
       outputTemplate: resident/GetResidentValidDocuments/getResidentValidDocumentsResult
       input: '{
       	"applicantId": "001",
-		"langCode":"{{langCode}}"
+		"langCode":"tam"
 }'
       output: '{
-    "response": {
-        "appTypeCode": "$IGNORE$",
-        "langCode": "{{langCode}}",
-        "isActive": "$IGNORE$",
-        }
+    	"code": "$IGNORE$",
+        "name": "$IGNORE$",
+        "description": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "isActive": "$IGNORE$"
+}'
+
+   Resident_GetResidentValidDocuments_Invalid_LangCode:
+      endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
+      outputTemplate: resident/error
+      input: '{
+      	"applicantId": "001",
+		"langCode":"tamm"
+}'
+      output: '{
+    	"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+  ]
+}'
+
+   Resident_GetResidentValidDocuments_Invalid_ApplicantId:
+      endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
+      outputTemplate: resident/error
+      input: '{
+      	"applicantId": "tt",
+		"langCode":"tam"
+}'
+      output: '{
+    	"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+  ]
 }'

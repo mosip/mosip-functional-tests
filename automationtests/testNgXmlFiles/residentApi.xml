@@ -11,18 +11,16 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 		
-	
-	
-<!--	
+
 	<test name="AddIdentity">
-	<parameter name="ymlFile"
-		value="resident\AddIdentity\AddIdentity.yml" />
-	<classes>
-		<class name="io.mosip.testscripts.AddIdentity" />
-	</classes>
-</test>
+		<parameter name="ymlFile"
+			value="resident\AddIdentity\AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AddIdentity" />
+		</classes>
+	</test>
 	
-<test name="GenerateVID">
+	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
@@ -46,7 +44,7 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
-	
+<!--	
 	<test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
@@ -63,7 +61,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
+-->	
 	
 	<test name="AuthLock">
 		<parameter name="ymlFile"
@@ -88,12 +86,12 @@
 		</classes>
 	</test>
 	<test name="RevokeVID">
-	<parameter name="ymlFile"
-		value="resident\RevokeVID\createRevokeVID.yml" />
-	<classes>
-		<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
-	</classes>
-</test> 
+		<parameter name="ymlFile"
+			value="resident\RevokeVID\createRevokeVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
+		</classes>
+	</test> 
 	<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
@@ -137,9 +135,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	-->
 	
-	<!--
 	<test name="GetUiProperties">
 		<parameter name="ymlFile"
 			value="resident/GetUiProperties/GetUiProperties.yml" />
@@ -195,7 +191,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test> 
 	<test name="GetLatestIdSchema">
 		<parameter name="ymlFile"
 			value="resident/GetLatestIdSchema/GetLatestIdSchema.yml" />
@@ -217,20 +213,5 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetChannelVerificationStatus">
-		<parameter name="ymlFile"
-			value="resident/GetChannelVerificationStatus/GetChannelVerificationStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test> -->
-	
-	<test name="GetCoordinateSpecificRegistrationCenters">
-		<parameter name="ymlFile"
-			value="resident/GetCoordinateSpecificRegistrationCenters/GetCoordinateSpecificRegistrationCenters.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	
+
 </suite>

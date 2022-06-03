@@ -11,7 +11,7 @@ GetValidDocumentByLangCode:
 }'
       output: '{
 	  "response": [{
-      	"langCode": "hin"
+      	
       }]
 }'
 
@@ -24,7 +24,7 @@ GetValidDocumentByLangCode:
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "hin"
+      "langCode": "hinn"
 }'
       output: '{
       "errors": [

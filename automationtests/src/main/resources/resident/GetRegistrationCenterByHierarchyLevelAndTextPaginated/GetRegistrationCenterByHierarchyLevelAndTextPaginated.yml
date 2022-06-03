@@ -2,17 +2,192 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
    Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
+      templateFields: ["langcode", "name"]
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
       input: '{
-      	"langcode":"",
-		"hierarchylevel":"",
-		"name":"",
-		"pageNumber":"",
-		"pageSize":"",
-		"sortBy":"",
-		"orderBy":""
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
 }'
       output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_LangCode:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tamm",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_HierarchyLevel:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"tt",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_Name:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"tt",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_PageNumber:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"tt",
+		"pageSize":"10",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_PageSize:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"tt",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_SortBy_Value:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"10",
+		"sortBy":"tt",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_OrderBy_Value:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"tam",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"10",
+		"sortBy":"createdDateTime",
+		"orderBy":"tt"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
 }'
