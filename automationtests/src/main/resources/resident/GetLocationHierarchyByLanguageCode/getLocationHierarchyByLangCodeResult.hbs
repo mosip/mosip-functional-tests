@@ -7,10 +7,10 @@
 	  	"locationHierarchyLevels": [
 	  		{{#each locationHierarchyLevels}}
 	  		{
-	  			"hierarchyLevel": $IGNORE$,
+	  			"hierarchyLevel": "$IGNORE$",
 	            "hierarchyLevelName": "$IGNORE$",
-	            "langCode": "${{langCode}}$",
-	            "isActive": $IGNORE$
+	            "langCode": "{{langCode}}",
+	            "isActive": "$IGNORE$"
 	        }
 	        {{#unless @last}},{{/unless}}
 	        {{/each}}

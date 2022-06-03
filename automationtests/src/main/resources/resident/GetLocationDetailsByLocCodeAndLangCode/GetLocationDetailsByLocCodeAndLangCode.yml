@@ -1,0 +1,36 @@
+GetLocationDetailsByLocCodeAndLangCode:
+   Resident_GetLocationDetailsByLocCodeAndLangCode_allValid_smoke:
+      endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
+      role: resident
+      restMethod: get
+      templateFields: ["langCode"]
+      inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
+      outputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCodeResult
+      input: '{
+      "langCode": "tam",
+   	  "loccode": "14022"
+}'
+      output: '{
+		    "id": null,
+		    "version": null,
+		    "responsetime": "$IGNORE$",
+		    "metadata": null,
+		    "response": {
+		        "isActive": "$IGNORE$",
+		        "createdBy": "$IGNORE$",
+		        "createdDateTime": "$IGNORE$",
+		        "updatedBy": null,
+		        "updatedDateTime": null,
+		        "isDeleted": false,
+		        "deletedDateTime": null,
+		        "code": "$IGNORE$",
+		        "name": "$IGNORE$",
+		        "hierarchyLevel": "$IGNORE$",
+		        "hierarchyName": "$IGNORE$",
+		        "parentLocCode": "$IGNORE$",
+		        "langCode": "{{langCode}}"
+		    },
+		    "errors": null
+		}'
+
+  
