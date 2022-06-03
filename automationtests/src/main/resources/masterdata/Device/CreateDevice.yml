@@ -9,7 +9,7 @@ CreateDevice:
       input: '{
     "name": "testDevicedummy",
     "description": "testDevicedummy",
-	"deviceSpecId": "736",
+	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
 	"langCode": "eng",
@@ -21,7 +21,7 @@ CreateDevice:
 	}'
       output: '{
     "name": "testDevicedummy",
-	"deviceSpecId": "736",
+	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": false,
 	"langCode": "eng",

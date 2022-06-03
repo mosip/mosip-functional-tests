@@ -9,7 +9,7 @@ CreateDeviceSpecification:
       input: '{
       "brand": "Technoforte",
       "description": "Test DeviceSpec",
-      "deviceTypeCode": "CMR",
+      "deviceTypeCode": "GST4",
       "id": "743",
       "isActive": true,
       "langCode": "eng",

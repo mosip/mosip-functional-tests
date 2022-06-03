@@ -7,15 +7,37 @@ CreateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/blockListedWords
       outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
       input: '{
-    "description": "wrong word",
+    "description": "wrongword",
 	"isActive": true,
 	"langCode": "eng",
-	"word": "dumbo6",
+	"word": "dumboo",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbo6",
+	"word": "dumboo",
 	"langCode": "eng"
+}'
+   Masterdata_CreateBlockListedWords_space_in_word:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description","word"]
+      restMethod: post
+      inputTemplate: masterdata/BlockListedWords/blockListedWords
+      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      input: '{
+    "description": "wrongword",
+	"isActive": true,
+	"langCode": "eng",
+	"word": "dumbo 98",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Blocklisted word cannot contain numbers and special characters"
+    }
+  ]
 }'
    Masterdata_CreateBlockListedWords_Invalid_BlocklistedWordsLength129:
       endPoint: /v1/masterdata/blocklistedwords
@@ -25,7 +47,7 @@ CreateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/blockListedWords
       outputTemplate: masterdata/error
       input: '{
-    "description": "dummy data",
+    "description": "dummydata",
 	"isActive": true,
 	"langCode": "eng",
 	"word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
@@ -69,7 +91,7 @@ CreateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/blockListedWords
       outputTemplate: masterdata/error
       input: '{
-    "description": "bad words",
+    "description": "badwords",
 	"isActive": true,
 	"langCode": "eng",
 	"word": "",

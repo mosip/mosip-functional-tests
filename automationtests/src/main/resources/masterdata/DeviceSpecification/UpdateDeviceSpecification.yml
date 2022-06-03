@@ -9,7 +9,7 @@ UpdateDeviceSpecification:
       input: '{
       "brand": "Technoforte",
       "description": "Test DeviceSpec updated",
-      "deviceTypeCode": "CMR",
+      "deviceTypeCode": "GST4",
       "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
       "isActive": true,
       "langCode": "eng",

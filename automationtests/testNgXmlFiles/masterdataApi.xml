@@ -149,6 +149,57 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="CreateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecification/CreateDeviceSpecification.yml" />
+		<parameter name="idKeyName" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceSpecStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDeviceSpecStatus/UpdateDeviceSpecStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	<test name="UpdateDeviceSpecification">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecification/UpdateDeviceSpecification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="FetchDeviceSpec">
+		<parameter name="ymlFile"
+			value="masterdata/FetchDeviceSpec/FetchDeviceSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAllDeviceSpec"> 
+		<parameter name="ymlFile" value="masterdata/FetchAllDeviceSpec/FetchAllDeviceSpec.yml" /> 
+		<classes> 
+			<class name="io.mosip.testscripts.GetWithParam" /> 
+		</classes> 
+	</test>
+	<test name="DeviceSpecFilter">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecFilter/DeviceSpecFilter.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="DeviceSpecSearch">
+		<parameter name="ymlFile"
+			value="masterdata/DeviceSpecSearch/DeviceSpecSearch.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 
 	<test name="CreateDevice">
 		<parameter name="ymlFile"
@@ -212,6 +263,13 @@
 			value="masterdata/DecommisionDevice/decommisionDevice.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParam" />
+		</classes>
+	</test>
+	<test name="DeleteDeviceSpec">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteDeviceSpec/deleteDeviceSpec.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
 
@@ -318,62 +376,7 @@
 
 
 
-	<test name="CreateDeviceSpecification">
-		<parameter name="ymlFile"
-			value="masterdata/DeviceSpecification/CreateDeviceSpecification.yml" />
-		<parameter name="idKeyName" value="id" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="UpdateDeviceSpecStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateDeviceSpecStatus/UpdateDeviceSpecStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParam" />
-		</classes>
-	</test>
-	<test name="UpdateDeviceSpecification">
-		<parameter name="ymlFile"
-			value="masterdata/DeviceSpecification/UpdateDeviceSpecification.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	<test name="FetchDeviceSpec">
-		<parameter name="ymlFile"
-			value="masterdata/FetchDeviceSpec/FetchDeviceSpec.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="FetchAllDeviceSpec"> 
-		<parameter name="ymlFile" value="masterdata/FetchAllDeviceSpec/FetchAllDeviceSpec.yml" /> 
-		<classes> 
-			<class name="io.mosip.testscripts.GetWithParam" /> 
-		</classes> 
-	</test>
-	<test name="DeviceSpecFilter">
-		<parameter name="ymlFile"
-			value="masterdata/DeviceSpecFilter/DeviceSpecFilter.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="DeviceSpecSearch">
-		<parameter name="ymlFile"
-			value="masterdata/DeviceSpecSearch/DeviceSpecSearch.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="DeleteDeviceSpec">
-		<parameter name="ymlFile"
-			value="masterdata/DeleteDeviceSpec/deleteDeviceSpec.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParam" />
-		</classes>
-	</test>
+	
 
 
 
