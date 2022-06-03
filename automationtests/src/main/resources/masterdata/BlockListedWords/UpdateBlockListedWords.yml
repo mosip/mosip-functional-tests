@@ -10,13 +10,36 @@ UpdateBlockListedWords:
     "description": "wrong word updated",
 	"isActive": "true",
 	"langCode": "eng",
-	"oldWord": "dumbo6",	
-	"word": "dumbo7",
+	"oldWord": "dumboo",	
+	"word": "dumbooo",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbo7",
+	"word": "dumbooo",
 	"langCode": "eng"
+}'
+   Masterdata_UpdateBlockListedWords_with_spaces:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description","word","oldWord"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      input: '{
+    "description": "wrong word updated",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "dumboo",	
+	"word": "dumbooo",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Blocklisted word cannot contain numbers and special characters"
+    }
+  ]
 }'
    Masterdata_UpdateBlockListedWords_Valid_WordLength128:
       endPoint: /v1/masterdata/blocklistedwords
@@ -26,7 +49,7 @@ UpdateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
       outputTemplate: masterdata/error
       input: '{
-    "description": "dummy data updated",
+    "description": "dummydataupdated",
 	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "defdefghijklmnopqrstuvddwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",	
@@ -49,7 +72,7 @@ UpdateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
       outputTemplate: masterdata/error
       input: '{
-    "description": "dummy data",
+    "description": "dummydata",
 	"isActive": "true",
 	"langCode": "eng",
 	"oldWord": "dumb",	
@@ -75,12 +98,12 @@ UpdateBlockListedWords:
     "description": "",
 	"isActive": "true",
 	"langCode": "eng",
-	"oldWord": "bull word",	
-	"word": "bull word upd",
+	"oldWord": "bullword",	
+	"word": "bullwordupd",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "bull word upd",
+	"word": "bullwordupd",
 	"langCode": "eng"
 }'
    Masterdata_UpdateBlockListedWords_Invalid_DescriptionLength257:
@@ -114,7 +137,7 @@ UpdateBlockListedWords:
       inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
       outputTemplate: masterdata/error
       input: '{
-    "description": "bad words",
+    "description": "badwords",
 	"isActive": "true",
 	"oldWord": "bull word",	
 	"langCode": "eng",

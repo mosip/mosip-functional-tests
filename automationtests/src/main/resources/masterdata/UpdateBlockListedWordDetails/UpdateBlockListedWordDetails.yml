@@ -10,11 +10,11 @@ UpdateBlockListedWordDetails:
     "description": "wrong word updated again",
 	"isActive": true,
 	"langCode": "eng",
-	"word": "dumbo7",
+	"word": "dumbooo",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbo7",
+	"word": "dumbooo",
 	"langCode": "eng"
 }'
    Masterdata_CreateBlockListedWords_Invalid_BlocklistedWordsLength129:
@@ -50,11 +50,11 @@ UpdateBlockListedWordDetails:
     "description": "",
 	"isActive": true,
 	"langCode": "eng",
-	"word": "bull word",
+	"word": "bullword",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "bull word",
+	"word": "bullword",
 	"langCode": "eng"
 }'
    Masterdata_CreateBlockListedWords_Invalid_DescriptionLength257:

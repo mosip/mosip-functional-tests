@@ -41,7 +41,7 @@ FetchDeviceSpec:
       inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
       outputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpecResult
       input: '{
-  "devicetypecode": "CMR",
+  "devicetypecode": "GST4",
   "langcode": "eng"
 }'
       output: '{

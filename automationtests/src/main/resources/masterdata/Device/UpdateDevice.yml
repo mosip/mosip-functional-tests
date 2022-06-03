@@ -9,7 +9,7 @@ UpdateDevice:
       input: '{
      "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
     "name": "testDevicedummy updated",
-	"deviceSpecId": "736",
+	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": true,
 	"langCode": "eng",
@@ -21,7 +21,7 @@ UpdateDevice:
 	}'
       output: '{
     "name": "$IGNORE$",
-	"deviceSpecId": "736",
+	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": $IGNORE$,
 	"langCode": "eng",
