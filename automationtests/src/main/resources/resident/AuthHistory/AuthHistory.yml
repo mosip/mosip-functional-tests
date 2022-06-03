@@ -87,8 +87,8 @@ AuthHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-29",
-      "message": "Invalid id::No Record(s) found"
+      "errorCode": "RES-SER-422",
+      "message": "Invalid Input Parameter - individualId"
     }
   ],
   "sendOtpResp":{

@@ -7,7 +7,7 @@ UpdateBlockListedWordStatus:
       inputTemplate: masterdata/UpdateBlockListedWordStatus/updateBlockListedWordStatus
       outputTemplate: masterdata/UpdateBlockListedWordStatus/updateBlockListedWordStatusResult
       input: '{
-    "word": "dumbo6",
+    "word": "dumboo",
     "isActive": true
 }'
       output: '{

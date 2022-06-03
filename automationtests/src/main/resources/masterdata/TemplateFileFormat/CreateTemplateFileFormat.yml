@@ -159,8 +159,8 @@ CreateTemplateFileFormat:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-232",
-      "message": "Error occurred while inserting Template File Format details  ERROR: value too long for type character varying(3)"
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: Should not be blank or size must be between 3 and 3"
     }
   ]
 }'

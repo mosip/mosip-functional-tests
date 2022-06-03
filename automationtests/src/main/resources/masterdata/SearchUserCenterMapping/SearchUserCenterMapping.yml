@@ -9,7 +9,7 @@ SearchUserCenterMapping:
       input: '{
         "filters": [
       {
-        "columnName": "id",
+        "columnName": "userId",
         "type": "equals",
         "value": "220005"
       }

@@ -26,8 +26,8 @@ GetPacketRejectionReason:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-500",
-      "message": "possible non-threadsafe access to the session"
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
     }
   ]
 }'
