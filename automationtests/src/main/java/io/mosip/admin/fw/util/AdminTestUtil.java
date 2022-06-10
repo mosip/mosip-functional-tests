@@ -1315,6 +1315,11 @@ public class AdminTestUtil extends BaseTestCase{
 			//jsonString = getPartnerId(jsonString, getPartnerId);
 			jsonString = jsonString.replace("$PARTNERID$", getPartnerId);
 		}
+		if(jsonString.contains("$APIKEY$")) {
+			String getApiKey = getAPIKey(jsonString, testCaseName);
+			//jsonString = getPartnerId(jsonString, getPartnerId);
+			jsonString = jsonString.replace("$APIKEY$", getApiKey);
+		}
 		
 		if(jsonString.contains("$IDENTITYJSON$")) {
 			jsonString = jsonString.replace("$IDENTITYJSON$", generateIdentityJson(testCaseName));
@@ -1332,6 +1337,14 @@ public class AdminTestUtil extends BaseTestCase{
 		partnerId = uriParts[uriParts.length-2];
 		//String partnerId = null;
 		return partnerId;
+	}
+	
+	public String getAPIKey(String jsonString, String apiKey)
+	{
+		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		apiKey = uriParts[uriParts.length-1];
+		//String partnerId = null;
+		return apiKey;
 	}
 	
 	

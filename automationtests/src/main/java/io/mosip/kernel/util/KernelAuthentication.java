@@ -128,6 +128,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
+		case "policytest":
+			if(!kernelCmnLib.isValidToken(policytestCookie))
+				policytestCookie = kernelAuthLib.getAuthForPolicytest();
+			return policytestCookie;
 		case "batch":
 			if (!kernelCmnLib.isValidToken(batchJobToken)) 
 				batchJobToken = kernelAuthLib.getPreRegToken();
@@ -221,13 +225,38 @@ public class KernelAuthentication extends BaseTestCase{
 		return token;
 	}*/
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartner() {		
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", partner_appid);
 		request.put("password", partner_password);
 		request.put("userName", partner_userName);	
+		
+		if(Boolean.parseBoolean(props.get("pmsAuthInternal")) == true) {
+			JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+			request.put("clientId", props.get("partner_clientId"));
+			request.put("clientSecret", props.get("partner_clientSecret"));
+			actualInternalrequest.put("request", request);
+			Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+			String responseBody = reponse.getBody().asString();
+			String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+			return token;			
+		}
+		JSONObject actualrequest = getRequestJson(authRequest);
+		actualrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPolicytest() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", props.get("policytest_appid"));
+		request.put("password", props.get("policytest_password"));
+		request.put("userName", props.get("policytest_userName"));	
 		
 		if(Boolean.parseBoolean(props.get("pmsAuthInternal")) == true) {
 			JSONObject actualInternalrequest = getRequestJson(authInternalRequest);

@@ -16,6 +16,42 @@ definePolicyGroup:
         "desc": "desc mosip policy group",
         "is_Active": true
     }'
+   Partner_DefinePolicyGroup_with_policy_manager_role_Smoke_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: policytest
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group 9983",
+    "name": "mosip policy role testing groupp",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "id": "$IGNORE$",
+        "name": "mosip policy role testing groupp",
+        "desc": "desc mosip policy group 9983",
+        "is_Active": true
+    }'
+   Partner_DefinePolicyGroup_without_policy_manager_role_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: admin
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/error
+      input: '{
+    "desc": "desc mosip policy group 9983",
+    "name": "mosip policy role testing groupp",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "errors": [
+       {
+            "errorCode": "KER-ATH-403",
+            "message": "Forbidden"
+        }
+  ]
+    }'
    Partner_DefinePolicyGroup_InActive_All_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies/group/new
       role: partner

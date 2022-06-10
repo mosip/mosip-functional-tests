@@ -77,6 +77,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
