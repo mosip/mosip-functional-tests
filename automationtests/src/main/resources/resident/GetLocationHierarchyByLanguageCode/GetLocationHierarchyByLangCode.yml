@@ -12,7 +12,7 @@ GetLocationHierarchyByLanguageCode:
       output: '{
         "hierarchyLevel": "$IGNORE$",
         "hierarchyLevelName": "$IGNORE$",
-        "langCode": "{{langCode}}",
+        "langCode": "$IGNORE$",
         "isActive": "$IGNORE$"
 }'
 

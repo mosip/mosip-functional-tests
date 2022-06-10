@@ -8,15 +8,13 @@
         "langCode": "$IGNORE$",
         "isActive": "$IGNORE$",
         "documentCategories": [
-        	{{#each documentCategories}}
-	  		{
-	  			"code": "$IGNORE$",
+            {
+                "code": "$IGNORE$",
                 "name": "$IGNORE$",
                 "description": "$IGNORE$",
                 "langCode": "$IGNORE$",
-                "isActive": "$IGNORE$"
+                "isActive": "$IGNORE$",
                 "documentTypes": [
-                	{{#each documentTypes}}
                     {
                         "code": "$IGNORE$",
                         "name": "$IGNORE$",
@@ -24,13 +22,41 @@
                         "langCode": "$IGNORE$",
                         "isActive": "$IGNORE$"
                     }
-                    {{#unless @last}},{{/unless}}
-	        		{{/each}}
                 ]
-	        }
-	        {{#unless @last}},{{/unless}}
-	        {{/each}}
-	        ]
+            },
+            {
+                "code": "$IGNORE$",
+                "name": "$IGNORE$",
+                "description": "$IGNORE$",
+                "langCode": "$IGNORE$",
+                "isActive": "$IGNORE$",
+                "documentTypes": [
+                    {
+                        "code": "$IGNORE$",
+                        "name": "$IGNORE$",
+                        "description": "$IGNORE$",
+                        "langCode": "$IGNORE$",
+                        "isActive": "$IGNORE$"
+                    }
+                ]
+            },
+            {
+                "code": "$IGNORE$",
+                "name": "$IGNORE$",
+                "description": "$IGNORE$",
+                "langCode": "$IGNORE$",
+                "isActive": "$IGNORE$",
+                "documentTypes": [
+                    {
+                        "code": "$IGNORE$",
+                        "name": "$IGNORE$",
+                        "description": "$IGNORE$",
+                        "langCode": "$IGNORE$",
+                        "isActive": "$IGNORE$"
+                    }
+                ]
+            }
+        ]
     },
     "errors": null
 }
