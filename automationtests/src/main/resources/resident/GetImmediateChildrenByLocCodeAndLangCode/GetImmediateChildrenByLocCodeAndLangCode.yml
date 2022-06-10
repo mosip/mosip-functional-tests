@@ -1,36 +1,36 @@
 GetImmediateChildrenByLocCodeAndLangCode:
    Resident_GetImmediateChildrenByLocCodeAndLangCode_allValid_smoke:
-      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
       role: resident
-      templateFields: ["langcode"]
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
       outputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCodeResult
       input: '{
-      "locationcode":"KNT",
-      "langcode":"tam"
+      "locationCode":"KNT",
+      "langCode":"eng"
 }'
       output: '{
-"locations": [{
+	"locations": [{
         "code": "$IGNORE$",
         "name": "$IGNORE$",
         "hierarchyLevel": "$IGNORE$",
         "hierarchyName": "$IGNORE$",
-        "parentLocCode": "$IGNORE$",
-        "langcode": "tam",
+        "parentLocCode": "{{parentLocCode}}",
+        "langCode": "$IGNORE$",
         "isActive": "$IGNORE$"
     }]
 }'
 
-   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_Invalid_locationcode:
-      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_locationCode:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
       role: resident
       restMethod: get
       inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "locationcode":"abc",
-      "langcode":"tam"
+      "locationCode":"abc",
+      "langCode":"tam"
 }'
       output: '{
    "errors": [
@@ -41,15 +41,15 @@ GetImmediateChildrenByLocCodeAndLangCode:
   ]
 }'
 
-   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_Invalid_langcode:
-      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Invalid_langCode:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
       role: resident
       restMethod: get
       inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "locationcode":"KNT",
-      "langcode":"abc"
+      "locationCode":"KNT",
+      "langCode":"abc"
 }'
       output: '{
    "errors": [

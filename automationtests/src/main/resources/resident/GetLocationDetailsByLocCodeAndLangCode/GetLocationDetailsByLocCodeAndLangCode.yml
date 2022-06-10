@@ -19,18 +19,55 @@ GetLocationDetailsByLocCodeAndLangCode:
 		        "isActive": "$IGNORE$",
 		        "createdBy": "$IGNORE$",
 		        "createdDateTime": "$IGNORE$",
-		        "updatedBy": null,
-		        "updatedDateTime": null,
-		        "isDeleted": false,
-		        "deletedDateTime": null,
+		        "updatedBy": "$IGNORE$",
+		        "updatedDateTime": "$IGNORE$",
+		        "isDeleted": "$IGNORE$",
+		        "deletedDateTime": "$IGNORE$",
 		        "code": "$IGNORE$",
 		        "name": "$IGNORE$",
 		        "hierarchyLevel": "$IGNORE$",
 		        "hierarchyName": "$IGNORE$",
 		        "parentLocCode": "$IGNORE$",
-		        "langCode": "{{langCode}}"
+		        "langCode": "$IGNORE$"
 		    },
 		    "errors": null
 		}'
 
-  
+   Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LangCode:
+      endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "tamm",
+   	  "loccode": "14022"
+}'
+      output: '{
+	    "errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LocationCode:
+      endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
+      role: resident
+      restMethod: get
+      templateFields: ["langCode"]
+      inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "tam",
+   	  "loccode": "kk"
+}'
+      output: '{
+		    "errors": [
+			    {
+			      "errorCode": "RES-SER-418",
+			      "message": "$IGNORE$"
+			    }
+			  ]
+		}'

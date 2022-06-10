@@ -2,13 +2,80 @@ GetRegCenterByLangCodeAndHierarchyLevel:
    Resident_GetRegCenterByLangCodeAndHierarchyLevel_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
       role: resident
+      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
       outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
       input: '{
-      	"langcode":"",
-		"hierarchylevel":"",
-		"name":""
+		  "langcode": "ara",
+		  "hierarchylevel": "5",
+		  "name": "10112"
 }'
       output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Invalid_HierarchyLevel:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode","name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "tam",
+		  "hierarchylevel": "tt",
+		  "name": "10112"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Invalid_Name:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode","name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "tam",
+		  "hierarchylevel": "5",
+		  "name": "tt"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Invalid_LangCode:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "tamm",
+		  "hierarchylevel": "5",
+		  "name": "10112"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
 }'

@@ -13,31 +13,119 @@ GetCoordinateSpecificRegistrationCenters:
 	  "longitude": "-6.453275"
 }'
       output: '{
-"registrationCenters": [{
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "centerTypeCode": "$IGNORE$",
-        "addressLine1": "$IGNORE$",
-        "addressLine2": "$IGNORE$",
-        "addressLine3": "$IGNORE$",
-        "latitude": "34.52117",
-        "longitude": "-6.453275",
-        "locationCode": "$IGNORE$",
-        "holidayLocationCode": "$IGNORE$",
-        "contactPhone": "$IGNORE$",
-        "workingHours": "$IGNORE$",
-        "langcode": "hin",
-        "numberOfKiosks": $IGNORE$,
-        "perKioskProcessTime": "$IGNORE$",
-        "centerStartTime": "$IGNORE$",
-        "centerEndTime": "$IGNORE$",
-        "timeZone": "$IGNORE$",
-        "contactPerson": "$IGNORE$",
-        "lunchStartTime": "$IGNORE$",
-        "lunchEndTime": "$IGNORE$",
-        "isActive": $IGNORE$,
-        "zoneCode": "$IGNORE$"
+	"registrationCenters": [{
+	        "id": "$IGNORE$",
+            "name": "$IGNORE$",
+            "centerTypeCode": "$IGNORE$",
+            "addressLine1": "$IGNORE$",
+            "addressLine2": "$IGNORE$",
+            "addressLine3": "$IGNORE$",
+            "latitude": "{{latitude}}",
+            "longitude": "{{longitude}}",
+            "locationCode": "$IGNORE$",
+            "holidayLocationCode": "$IGNORE$",
+            "contactPhone": "$IGNORE$",
+            "workingHours": "$IGNORE$",
+            "langCode": "$IGNORE$",
+            "numberOfKiosks": "$IGNORE$",
+            "perKioskProcessTime": "$IGNORE$",
+            "centerStartTime": "$IGNORE$",
+            "centerEndTime": "$IGNORE$",
+            "timeZone": "$IGNORE$",
+            "contactPerson": "$IGNORE$",
+            "lunchStartTime": "$IGNORE$",
+            "lunchEndTime": "$IGNORE$",
+            "isActive": "$IGNORE$",
+            "zoneCode": "$IGNORE$"
     }]
 }'
 
-  
+
+   Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode:
+      endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
+      outputTemplate: resident/error
+      input: '{
+      "langcode": "hinn",
+	  "latitude": "34.52117",
+	  "proximitydistance": "21",
+	  "longitude": "-6.453275"
+}'
+      output: '{
+	  "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+  	]
+}'
+
+
+   Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude:
+      endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
+      outputTemplate: resident/error
+      input: '{
+      "langcode": "hin",
+	  "latitude": "134.52117",
+	  "proximitydistance": "21",
+	  "longitude": "-6.453275"
+}'
+      output: '{
+		  "errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+
+   Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Proximity_Distance:
+      endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
+      outputTemplate: resident/error
+      input: '{
+      "langcode": "hin",
+	  "latitude": "34.52117",
+	  "proximitydistance": "tt",
+	  "longitude": "-6.453275"
+}'
+      output: '{
+		  "errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Longitude:
+      endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
+      outputTemplate: resident/error
+      input: '{
+      "langcode": "hin",
+	  "latitude": "34.52117",
+	  "proximitydistance": "21",
+	  "longitude": "tt"
+}'
+      output: '{
+		  "errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'

@@ -12,3 +12,23 @@ GetLatestIdSchema:
 }'
       output: '{
 }'
+
+   Resident_GetLatestIdSchema_Invalid_Schema_Version:
+      endPoint: /resident/v1/proxy/masterdata/idschema/latest?schemaVersion={schemaVersion}&domain={domain}&type={type}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetLatestIdSchema/getLatestIdSchema
+      outputTemplate: resident/error
+      input: '{
+      	"schemaVersion":"tt",
+		"domain":"",
+		"type":""
+}'
+      output: '{
+      "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+  ]
+}'
