@@ -32,6 +32,7 @@ UpdateUIN:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
+
    Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
@@ -69,6 +70,83 @@ UpdateUIN:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
+
+   Resident_UpdateUIN_Invalid_Otp_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "@345esddd",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "OTP is invalid"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Missing_Otp_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "$REMOVE$",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- otp"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
    Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
@@ -98,6 +176,348 @@ UpdateUIN:
     {
       "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- transactionId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Invalid_TrnxID_Mismatch_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234560",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "Invalid Input Parameter - transactionID"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Invalid_IndividualId_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "@345esddd",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Missing_IndividualId_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$REMOVE$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Invalid_Id_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "@3453#",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Missing_Id_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- id"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Missing_Timestamp_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$REMOVE$",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Invalid_Timestamp_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "ESTA",
+        "id": "mosip.resident.updateuin",
+        "version": "v1",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Invalid_Version_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "@er45",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- version"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_UpdateUIN_Missing_Version_Neg:
+      endPoint: /resident/v1/req/update-uin
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateUIN/updateUIN
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.updateuin",
+        "version": "$REMOVE$",
+        "identityJson": "$IDENTITYJSON$",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- version"
     }
   ],
   "sendOtpResp":{

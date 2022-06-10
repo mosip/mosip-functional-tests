@@ -1,13 +1,122 @@
 GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_all_Valid_Smoke:
-      endPoint: /resident/v1/channel/verification-status/{channel}/{individualId}
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
       input: '{
-      	"channel":"",
-		"individualId":""
+      	"channel":"EMAIL",
+		"individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+		"transactionID": "1234567890",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.identity.auth.internal",
+        "version": "v1",
+        "otp": "111111",
+		"sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
 }'
       output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GetChannelVerificationStatus_all_Valid_Smoke_With_Different_Channel:
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
+      input: '{
+      	"channel":"PHONE",
+		"individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+		"sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+}'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GetChannelVerificationStatus_Invalid_Channel:
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/error
+      input: '{
+      	"channel":"CALL",
+		"individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+		"sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- channel"
+    }
+  ],
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GetChannelVerificationStatus_Invalid_UIN:
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/error
+      input: '{
+      	"channel":"PHONE",
+		"individualId":"tt",
+		"sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- individualId"
+    }
+  ],
+	  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'

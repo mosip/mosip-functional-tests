@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Resident Suite">
+	<suite name="Resident Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 		
-
+ 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="resident\AddIdentity\AddIdentity.yml" />
@@ -211,5 +211,9 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-
+	
+	
+	
+	
+	
 </suite>

@@ -28,7 +28,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
-public class GetWithParam extends AdminTestUtil implements ITest {
+public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(GetWithParamWithOtpGenerate.class);
 	protected String testCaseName = "";
 	public Response response = null;
@@ -65,6 +65,39 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		
+		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		if(req.has("sendOtp")) {
+			otpRequest = req.get("sendOtp").toString();
+			req.remove("sendOtp");
+		}
+		JSONObject otpReqJson = new JSONObject(otpRequest);
+		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
+		otpReqJson.remove("sendOtpReqTemplate");
+		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
+		otpReqJson.remove("sendOtpEndPoint");
+		
+
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+
+
+		JSONObject res = new JSONObject(testCaseDTO.getOutput());
+		String sendOtpResp = null, sendOtpResTemplate = null;
+		if(res.has("sendOtpResp")) {
+			sendOtpResp = res.get("sendOtpResp").toString();
+			res.remove("sendOtpResp");
+		}
+		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
+		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
+		sendOtpRespJson.remove("sendOtpResTemplate");
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+		Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
+		
+		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
+			throw new AdminTestException("Failed at otp output validation");
+		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
