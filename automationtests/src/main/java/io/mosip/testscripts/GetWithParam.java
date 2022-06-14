@@ -29,7 +29,7 @@ import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class GetWithParam extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(GetWithParamWithOtpGenerate.class);
+	private static final Logger logger = Logger.getLogger(GetWithParam.class);
 	protected String testCaseName = "";
 	public Response response = null;
 
