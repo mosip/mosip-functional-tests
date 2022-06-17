@@ -21,6 +21,28 @@ createSearchPolicy:
       }
     ]
 }'
+   Partner_SearchPolicy_Valid_Smoke:
+      endPoint: /v1/policymanager/policies/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/Search/searchPolicy
+      outputTemplate: partner/policy/Search/searchPolicyResult
+      input: '{
+  "policyType": "DataShare",
+  "pageFetch": "$REMOVE$",
+  "pageStart": "0",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "version": "$IGNORE$",
+        "policyType": "$IGNORE$",
+        "schema": "$IGNORE$"
+      }
+    ]
+}'
    Partner_SearchPolicy_Only_FilterCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner

@@ -98,6 +98,28 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
 		
+		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
+		JSONObject reqvtOtp = (JSONObject) reqvOtp.get("sendOtp");
+		String otpValidationRequest = null, validateOtpReqTemplate = null, validateOtpEndPoint = null;
+		
+		if(!reqvtOtp.isNull("validateOtp")) {
+			otpValidationRequest = reqvtOtp.get("validateOtp").toString();
+			reqvOtp.remove("validateOtp");
+		}
+		JSONObject validateOtpReqJson = new JSONObject(otpValidationRequest);
+		validateOtpReqTemplate = validateOtpReqJson.getString("validateOtpReqTemplate");
+		validateOtpReqJson.remove("validateOtpReqTemplate");
+		validateOtpEndPoint = validateOtpReqJson.getString("validateOtpEndPoint");
+		validateOtpReqJson.remove("validateOtpEndPoint");
+		
+
+		Response validateOtpResponse = postWithBodyAndCookie(ApplnURI + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+
+
+		
+		
+		
+		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))

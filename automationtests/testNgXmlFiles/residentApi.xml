@@ -213,4 +213,12 @@
 	</test>
 	
 	
+	<test name="GetChannelVerificationStatus">
+		<parameter name="ymlFile"
+			value="resident\GetChannelVerificationStatus\GetChannelVerificationStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamWithOtpGenerate" />
+		</classes>
+	</test>
+
 </suite>

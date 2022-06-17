@@ -113,6 +113,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static HashMap<String, String> keycloakRolesMap=new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap=new HashMap<String, String>();
 	private String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	public static String prevrReqTime=null;
 	
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -1289,7 +1290,9 @@ public class AdminTestUtil extends BaseTestCase{
 			return jsonString;
 		}
 		if(jsonString.contains("$TIMESTAMP$"))
-			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
+			prevrReqTime=generateCurrentUTCTimeStamp();
+			jsonString = jsonString.replace("$TIMESTAMP$", prevrReqTime);
+		
 		
 		if(jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
@@ -1314,6 +1317,11 @@ public class AdminTestUtil extends BaseTestCase{
 			String getPartnerId = getPartnerId(jsonString, testCaseName);
 			//jsonString = getPartnerId(jsonString, getPartnerId);
 			jsonString = jsonString.replace("$PARTNERID$", getPartnerId);
+		}
+		if(jsonString.contains("$APIKEY$")) {
+			String getApiKey = getAPIKey(jsonString, testCaseName);
+			//jsonString = getPartnerId(jsonString, getPartnerId);
+			jsonString = jsonString.replace("$APIKEY$", getApiKey);
 		}
 		
 		if(jsonString.contains("$IDENTITYJSON$")) {
@@ -1345,6 +1353,14 @@ public class AdminTestUtil extends BaseTestCase{
 		partnerId = uriParts[uriParts.length-2];
 		//String partnerId = null;
 		return partnerId;
+	}
+	
+	public String getAPIKey(String jsonString, String apiKey)
+	{
+		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		apiKey = uriParts[uriParts.length-1];
+		//String partnerId = null;
+		return apiKey;
 	}
 	
 	

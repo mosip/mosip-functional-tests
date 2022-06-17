@@ -32,6 +32,39 @@ createSearchPartner:
       }
     ]
 }'
+   Partner_SearchPartner_type__Smoke_asc_sid:
+      endPoint: /v1/partnermanager/partners/search
+      role: partner
+      restMethod: post
+      inputTemplate: partner/search/searchPartner
+      outputTemplate: partner/search/searchPartnerResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Airtekiboi"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ],
+  "pageFetch": "10",
+  "pageStart": "0",
+  "partnerType": "all",
+  "requesttime": "$TIMESTAMP$",
+  "version": "v1"
+}'
+      output: '{
+   "data": [
+     {
+        "isActive": true
+      }
+    ]
+}'
    Partner_SearchPartner_type_contains_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
