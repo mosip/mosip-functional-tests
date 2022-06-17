@@ -429,8 +429,8 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- vidStatus"
+      "errorCode": "RES-SER-29",
+      "message": "Invalid id::VID is REVOKED"
     }
   ],     
   "sendOtpResp":{
@@ -467,8 +467,8 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- vidStatus"
+      "errorCode": "RES-SER-422",
+      "message": "VID not available in database"
     }
   ],
   "sendOtpResp":{
@@ -479,14 +479,14 @@ RevokeVID:
 }'
 
    Resident_Revoke_Expired_Onetimeuse_VID_Neg:
-      endPoint: /resident/v1/vid/$ID:Generate_Onetimeuse_VID_Valid_Smoke_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:Generate_Onetimeuse_VID_Valid_Smoke_vid$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -496,8 +496,8 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:Generate_Onetimeuse_VID_Valid_Smoke_vid$",
-    "individualIdType": "VID",
+    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
     }
@@ -505,8 +505,8 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- vidStatus"
+      "errorCode": "RES-SER-422",
+      "message": "VID not available in database"
     }
   ],
   "sendOtpResp":{
