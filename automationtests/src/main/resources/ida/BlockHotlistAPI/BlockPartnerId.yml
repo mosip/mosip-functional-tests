@@ -14,3 +14,18 @@ HotlistAPI:
       output: '{
         "status": "BLOCKED"
     }'
+   auth_BlockPartnerId_All_Valid_Smoke_block_api_key_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$APIKEY$",
+    "idType": "PARTNER_ID",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'

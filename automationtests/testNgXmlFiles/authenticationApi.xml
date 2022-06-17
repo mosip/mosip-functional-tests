@@ -192,6 +192,15 @@
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
+	
+	<test name="HotlistTestcasesPartnerIdKyc">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/HotlistTestcasesPartnerIdKyc.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuth" />
+		</classes>
+	</test>
 
 
 	<test name="UnBlockPartnerId">
