@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 
-    <test name="CreatePolicyGroup">
+      <test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/DefinePolicyGroup/DefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id" />
@@ -19,6 +19,16 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogCreatePolicyGroup">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
 	 <test name="GetPolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/policy/GetPolicyGroup/GetPolicyGroup.yml" />
@@ -42,6 +52,15 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogDefinePolicy">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	 <test name="DefineDataSharePolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/DefineDataSharePolicy/DefineDataSharePolicy.yml" />
@@ -56,6 +75,13 @@
 		<parameter name="pathParams" value="policyId" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="AuditLogDataSharePolicy">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	<test name="UpdatePolicyStatus">
@@ -73,11 +99,28 @@
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogPublishPolicy">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="PublishDataSharePolicy">
 		<parameter name="ymlFile"
 			value="partner/policy/PublishDataSharePolicy/PublishDataSharePolicy.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+		</classes>
+	</test>
+	
+	<test name="AuditLogPublishDataSharePolicy">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	<test name="GetPolicy">
@@ -94,11 +137,20 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
     <test name="CreatePartner">
 		<parameter name="ymlFile"
 			value="partner/authPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="AuditLogCreatePartner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	
@@ -109,6 +161,14 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	
+	<test name="AuditLogUploadCACertificate">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	 <test name ="UploadPartnerCertificate">
 		<parameter name ="ymlFile"
 			value= "partner/authPartner/UploadCert/UploadCert.yml" />
@@ -116,6 +176,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogUploadPartnerCertificate">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="GetPartnerDetails">
 		<parameter name="ymlFile"
 			value="partner/authPartner/GetPartner/GetPartner.yml" />
@@ -136,7 +205,16 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
-	</test> 
+	</test>
+	
+	<test name="AuditLogUpdatePartner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
     <test name="AddAdditionalContact">
 		<parameter name="ymlFile"
 			value="partner/authPartner/AddContacts/AddContact.yml" />
@@ -152,6 +230,15 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="AuditLogAddAdditionalContact">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
 	<test name="RejectAPIKey">
 		<parameter name="ymlFile"
 			value="partner/authPartner/RejectAPIKey/RejectAPIKey.yml" />
@@ -168,11 +255,27 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test> 
+	
+	<test name="AuditLogApproveAPIKey">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
     <test name="CreatePartner_Online_Verification_Partner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/CreatePartner/CreatePartner.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="AuditLogOnline_Verification_Partner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	<test name ="UploadCACertificate_Online_Verification_Partner">
@@ -182,6 +285,14 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLog_UploadCACertificateOnline_Verification_Partner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	 <test name ="UploadPartnerCertificate_Online_Verification_Partner">
 		<parameter name ="ymlFile"
 			value= "partner/credentialPartner/UploadCert/UploadCert.yml" />
@@ -189,6 +300,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLog_OVP">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="GetPartnerDetails_Online_Verification_Partner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/GetPartner/GetPartner.yml" />
@@ -212,6 +332,14 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test> 
+	
+	<test name="AuditLogAPIKeyCredentialPartner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	<test name="AddBioExtractors">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/AddBioExtractors/AddBioExtractors.yml" />
@@ -220,6 +348,15 @@
 			<class name="io.mosip.testscripts.PostWithBodyAndPathParams" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogAddBioExtractors">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="RejectAPIKey_Online_Verification_Partner">
 		<parameter name="ymlFile"
 			value="partner/credentialPartner/RejectAPIKey/RejectAPIKey.yml" />
@@ -237,6 +374,14 @@
 		</classes>
 	</test>
 	
+	<test name="AuditLogApproveAPIKey_Online_Verification_Partner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	 <test name="CreatePartner_Device_Provider">
 		<parameter name="ymlFile"
 			value="partner/devicePartner/CreatePartner/CreatePartner.yml" />
@@ -245,6 +390,13 @@
 		</classes>
 	</test>
 	
+	<test name="AuditLogCreatePartner_Device_Provider">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	<test name ="UploadCACertificate_Device_Provider">
 		<parameter name ="ymlFile"
 			value= "partner/devicePartner/UploadCertificate/UploadCertificate.yml" />
@@ -259,6 +411,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLog9">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="GetPartnerDetails_Device_Provider">
 		<parameter name="ymlFile"
 			value="partner/devicePartner/GetPartner/GetPartner.yml" />
@@ -288,6 +449,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="AuditLogUploadCACertificate_MISP_Provider">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	 <test name ="UploadPartnerCertificate_MISP_Provider">
 		<parameter name ="ymlFile"
 			value= "partner/mispPartner/UploadCert/UploadCert.yml" />
@@ -295,6 +463,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogUploadPartnerCertificate_MISP_Provider">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="GetPartnerDetails_MISP_Provider">
 		<parameter name="ymlFile"
 			value="partner/mispPartner/GetPartner/GetPartner.yml" />
@@ -331,6 +508,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>	
+	
+	<test name="AuditLogFTM_Partner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	 <test name ="UploadPartnerCertificate_FTM_Partner">
 		<parameter name ="ymlFile"
 			value= "partner/FtpPartner/UploadCert/UploadCert.yml" />
@@ -338,6 +524,16 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>		
+	
+	<test name="AuditLogUploadPartnerCertificate_FTM_Partner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
    	<test name="CreateDeviceDetail">
 		<parameter name="ymlFile"
 			value="partner/device/makeAndModel/create/createDeviceDetail.yml" />
@@ -352,6 +548,14 @@
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test>
+	<test name="AuditLogCreateDeviceDetail">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="ApproveDeviceDetail">
 		<parameter name="ymlFile"
 			value="partner/device/makeAndModel/approve/ApproveDeviceDetail.yml" />
@@ -366,6 +570,15 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogUpdateDeviceDetail">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	
 	<test name="DeviceSubTypeFilter">
 		<parameter name="ymlFile"
@@ -389,12 +602,28 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	<test name="AuditLogcreateSearchDeviceType">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	
 	<test name="createSearchDeviceDetails">
 		<parameter name="ymlFile"
 			value="partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	
+	<test name="AuditLogcreateSearchDeviceDetails">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	
@@ -408,6 +637,15 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogCreateSecureBiometricInterface">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="RejectSecureBiometricInterface">
 		<parameter name="ymlFile"
 			value="partner/device/SecureBiometricInterface/reject/RejectSecureBiometricInterface.yml" />
@@ -433,6 +671,15 @@
 		</classes>
 	</test>	 
 	
+	
+	<test name="AuditLogUpdateSecureBiometricInterface">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="createSearchSecureBiometric">
 		<parameter name="ymlFile"
 			value="partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric.yml" />
@@ -453,6 +700,14 @@
 			value="partner/device/SecureBiometricInterface/MapDeviceWithSBI/MapDeviceWithSBI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="AuditLogSecureBiometric">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	
@@ -491,6 +746,8 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> 
+	
+	
 	<test name="GetValueForConfigKey">
 		<parameter name="ymlFile"
 			value="partner/GetValueForConfigKey/GetValueForConfigKey.yml" />
@@ -556,6 +813,15 @@
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogFtpChipDetail">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="UpdateFtpChipDetail">
 		<parameter name="ymlFile"
 			value="partner/device/ftmChipDetails/update/UpdateFtpChipDetail.yml" />
@@ -570,6 +836,17 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	
+	<test name="AuditLogUploadCertificate_FTP">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
 	<test name="GetFTPChipDetail">
 		<parameter name="ymlFile"
 			value="partner/device/ftmChipDetails/get/GetFtpChipDetail.yml" />
@@ -606,6 +883,16 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogMispLicense">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
 	<test name="GetMISPLicenseByMispID">
 		<parameter name="ymlFile"
 			value="partner/MispLicense/GetMISPLicenseByMispID/GetMISPLicenseByMispID.yml" />
@@ -657,6 +944,14 @@
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogBioExtractors">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
 	<test name="GetPolicyforMappedPartnerAndCredentialtype">
 		<parameter name="ymlFile"
 			value="partner/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
@@ -693,6 +988,15 @@
 			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogActivateDeactivatePartner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="GetApiKeyRequests">
 		<parameter name="ymlFile"
 			value="partner/GetApiKeyRequests/GetApiKeyRequests.yml" />
@@ -715,6 +1019,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
+	<test name="AuditLoggenerateApiKey">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
   	<test name="RequestAPIKey_for_generateApiKey">
 		<parameter name="ymlFile"
 			value="partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/RequestAPIKey.yml" />
@@ -739,6 +1052,16 @@
 			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogGenerateApiKey">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
+	
 	<test name="GetPolicyForApiKey">
 		<parameter name="ymlFile"
 			value="partner/GetPolicyForApiKey/GetPolicyForApiKey.yml" />
@@ -762,6 +1085,15 @@
 			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
+	
+	<test name="AuditLogPartnerApiKey_">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+	
 	<test name="UpdatePolicyGroupForPartner">
 		<parameter name="ymlFile"
 			value="partner/UpdatePolicyGroupForPartner/UpdatePolicyGroupForPartner.yml" />
@@ -770,6 +1102,14 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	
+	
+	<test name="AuditLogUpdatePolicyGroupForPartner">
+		<parameter name="ymlFile"
+			value="partner/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AuditValidator" />
+		</classes>
+	</test>
+		
 </suite>
-
-
