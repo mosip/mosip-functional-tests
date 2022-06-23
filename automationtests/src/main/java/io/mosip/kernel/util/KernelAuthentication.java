@@ -49,7 +49,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String admin_userName=props.get("admin_userName");
 	
 	private String partner_appid=props.get("partner_appid");
-	private String partner_password=props.get("partner_password");
+	private String partner_password=props.get("partner_user_password");
 	private String partner_userName=props.get("partner_userName");
 	
 	private String registrationAdmin_appid=props.get("registrationAdmin_appid");;

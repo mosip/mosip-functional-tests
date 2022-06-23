@@ -2,12 +2,14 @@ package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -24,13 +26,11 @@ import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
-import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBodyData;
 import io.mosip.dbaccess.*;
 
-public class AuditValidator extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(AuditValidator.class);
+public class DBValidator extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(DBValidator.class);
 	protected String testCaseName = "";
 	public static List<String> templateFields = new ArrayList<>();
 	public Response response = null;
@@ -57,13 +57,31 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		//String moduleName = testCaseDTO.getInput();
-		String[] templateFields = testCaseDTO.getTemplateFields();
-		List<String> queryProp = Arrays.asList(templateFields);
-		System.out.println(queryProp);
+		//String[] templateFields = testCaseDTO.getTemplateFields();
+		//List<String> queryProp = Arrays.asList(templateFields);
+		//System.out.println(queryProp);
 		//Arrays.asList(templateFields.split(","));
-		//String respTime = inputJsonKeyWordHandeler(testCaseDTO.getInput(), testCaseName);
-		String query = "select * from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
+		
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		String replaceId = inputJsonKeyWordHandeler(inputJson, testCaseName);
+		
+		
+		JSONObject jsonObject = new JSONObject(replaceId);
+		System.out.println(jsonObject.keySet());
+		//List<String> attributName = (List<String>) jsonObject.keySet();
+		//String s1 = attributName.get(0);
+		//System.out.println(s1);
+		
+		Set<String> set = new TreeSet<>();
+	    set.addAll(jsonObject.keySet());
+	    String filterId = set.stream().findFirst().get();
+	    System.out.println(filterId);
+		
+		
+		//List<Set<String>> attributName = Arrays.asList(jsonObject.keySet());
+		//List<String> stringsList = new ArrayList<>(attributName);
+		//stringsList.get(0);
+		String query = testCaseDTO.getEndPoint() +" " + filterId + " = " +"'"+jsonObject.getString(filterId)+"'";
 		
 		
 		System.out.println(query);
@@ -90,6 +108,12 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	/**
 	 * The method ser current test name to result
 	 * 
@@ -98,9 +122,9 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
 		
-		String deleteQuery = "delete from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
-		System.out.println(deleteQuery);
-		AuditDBManager.executeQueryAndDeleteRecord("audit", deleteQuery);
+		//String deleteQuery = "delete from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
+		//System.out.println(deleteQuery);
+		//AuditDBManager.executeQueryAndDeleteRecord("audit", deleteQuery);
 		try {
 			Field method = TestResult.class.getDeclaredField("m_method");
 			method.setAccessible(true);
