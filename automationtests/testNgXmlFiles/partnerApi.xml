@@ -601,13 +601,6 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test> 
-	<test name="AuditLogcreateSearchDeviceType">
-		<parameter name="ymlFile"
-			value="partner/AuditLog/AuditLog.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AuditValidator" />
-		</classes>
 	</test>
 	
 	<test name="createSearchDeviceDetails">
@@ -616,18 +609,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
-	
-	
-	<test name="AuditLogcreateSearchDeviceDetails">
-		<parameter name="ymlFile"
-			value="partner/AuditLog/AuditLog.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AuditValidator" />
-		</classes>
-	</test>
-	
-	
+	</test>	
 	
  	<test name="CreateSecureBiometricInterface">
 		<parameter name="ymlFile"
@@ -700,14 +682,6 @@
 			value="partner/device/SecureBiometricInterface/MapDeviceWithSBI/MapDeviceWithSBI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
-		</classes>
-	</test>
-	
-	<test name="AuditLogSecureBiometric">
-		<parameter name="ymlFile"
-			value="partner/AuditLog/AuditLog.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
 	
