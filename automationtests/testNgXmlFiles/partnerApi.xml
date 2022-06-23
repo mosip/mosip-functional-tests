@@ -1085,5 +1085,13 @@
 			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
+	
+	<test name="DBValidator">
+		<parameter name="ymlFile"
+			value="partner/DbValidatorTest/DbValidatorTest.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DBValidator" />
+		</classes>
+	</test>
 		
 </suite>
