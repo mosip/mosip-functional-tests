@@ -97,6 +97,14 @@
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
 	</test> 
+	<test name="ReGenerateVID">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/ReGenerateVID.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>	
 	<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
@@ -219,6 +227,5 @@
 			<class name="io.mosip.testscripts.GetWithParamWithOtpGenerate" />
 		</classes>
 	</test>
-
 
 </suite>

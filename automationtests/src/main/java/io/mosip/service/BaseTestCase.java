@@ -229,6 +229,11 @@ public class BaseTestCase {
 			
 		}
 		
+		if (listOfModules.contains("mobileid")) {
+			AdminTestUtil.copyMobileIdTestResource();
+			
+		}
+		
 		/*
 		 * if (listOfModules.contains("masterdata")) { mapUserToZone(); }
 		 */

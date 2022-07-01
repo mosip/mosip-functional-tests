@@ -1,0 +1,103 @@
+{
+  "id": "{{id}}",
+  "request": {
+     "registrationId": "{{registrationId}}",
+      "biometricReferenceId": "{{biometricReferenceId}}",
+    "identity": {
+      "residenceStatus": [
+       {{#each residenceStatus}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "IDSchemaVersion": {{IDSchemaVersion}},
+      "UIN": "{{UIN}}",
+      "fullName": [
+        {{#each fullName}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "dateOfBirth": "{{dateOfBirth}}",
+      "gender": [
+        {{#each gender}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "region": [
+        {{#each region}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "province": [
+        {{#each province}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "city": [
+        {{#each city}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "postalCode": "{{postalCode}}",
+      "email": "{{email}}",
+	  "phone": "{{phone}}",
+      "referenceIdentityNumber": "{{referenceIdentityNumber}}",
+      "zone": [
+        {{#each zone}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "introducerRID": "{{introducerRID}}",
+      "introducerUIN": "{{introducerUIN}}",
+      "introducerName": [
+        {{#each introducerName}}
+        {
+          "language": "{{language}}",
+          "value": "{{value}}"
+        }
+        {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ],
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      }
+    },
+    "documents": [
+      {
+        "value": "{{value}}",
+        "category": "{{category}}"
+      }
+    ]
+  },
+  "requesttime": "{{requesttime}}",
+  "version": "{{version}}"
+}
