@@ -133,42 +133,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_InValid_OTP_Neg:
-      endPoint: /resident/v1/req/auth-history
-      role: resident
-      restMethod: post
-      inputTemplate: resident/AuthHistory/authHistory
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "individualIdType": "UIN",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authhistory",
-        "version": "v1",
-        "otp": "1@@@@11",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
+
   Resident_AuthHistory_Missing_OTP_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
@@ -449,6 +414,80 @@ AuthHistory:
     {
       "errorCode": "RES-SER-410",
       "message": "Invalid Input Parameter- requesttime"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+  Resident_AuthHistory_InValid_OTP_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+        "otp": "1@@@@11",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "OTP is invalid"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+  Resident_AuthHistory_With_UIN_eotp_Pos_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "OTP has expired"
     }
   ],
   "sendOtpResp":{

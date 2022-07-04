@@ -83,6 +83,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="CredentialCheckStatus">
+		<parameter name="ymlFile"
+			value="resident/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="resident\RevokeVID\createRevokeVID.yml" />
@@ -90,6 +97,14 @@
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
 	</test> 
+	<test name="ReGenerateVID">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/ReGenerateVID.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>	
 	<test name="CancellCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
@@ -111,14 +126,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	
-	<test name="CredentialCheckStatus">
-		<parameter name="ymlFile"
-			value="resident/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="DownloadWithReqid">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />

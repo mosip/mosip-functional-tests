@@ -467,8 +467,8 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "VID not available in database"
+      "errorCode": "RES-SER-29",
+      "message": "Invalid id::VID is EXPIRED"
     }
   ],
   "sendOtpResp":{
