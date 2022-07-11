@@ -7,7 +7,7 @@ GetValidDocumentByLangCode:
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
       input: '{
-      "langCode": "hin"
+      "langCode": "eng"
 }'
       output: '{
 	  "response": [{
@@ -24,13 +24,61 @@ GetValidDocumentByLangCode:
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "hinn"
+      "langCode": "engg"
 }'
       output: '{
       "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "$IGNORE$"
+      "message": "Valid document not found"
+    }
+  ]
+}'
+
+   Resident_GetValidDocumentByLangCode_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
+      outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
+      input: '{
+      "langCode": "eng"
+}'
+      output: '{
+	  "response": [{
+      	
+      }]
+}'
+
+   Resident_GetValidDocumentByLangCode_Empty_Invalid_Neg:
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": ""
+}'
+      output: '{
+      	"error": "Not Found",
+  		"message": "No message available"
+}'
+
+   Resident_GetValidDocumentByLangCode_Invalid_LangCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "ttt"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Valid document not found"
     }
   ]
 }'

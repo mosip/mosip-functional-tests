@@ -52,3 +52,49 @@ GetRegistrationCenterWorkingDays:
     }
   ]
 }'
+
+   Resident_GetRegistrationCenterWorkingDays_Invalid_langCode_registrationCenterID:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/error
+      input: '{
+		  "langCode": "eng1",
+		  "registrationCenterID": "10011222"
+		}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/error
+      input: '{
+  "langCode": "eng",
+  "registrationCenterID": ""
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
+      outputTemplate: resident/error
+      input: '{
+		  "langCode": "",
+		  "registrationCenterID": "10011"
+		}'
+      output: '{
+}'

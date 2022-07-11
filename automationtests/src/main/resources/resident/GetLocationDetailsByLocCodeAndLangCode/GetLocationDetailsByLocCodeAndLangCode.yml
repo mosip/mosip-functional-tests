@@ -7,7 +7,7 @@ GetLocationDetailsByLocCodeAndLangCode:
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCodeResult
       input: '{
-      "langCode": "tam",
+      "langCode": "eng",
    	  "loccode": "14022"
 }'
       output: '{
@@ -40,14 +40,14 @@ GetLocationDetailsByLocCodeAndLangCode:
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "tamm",
+      "langCode": "engg",
    	  "loccode": "14022"
 }'
       output: '{
 	    "errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "$IGNORE$"
+		      "message": "Location not found"
 		    }
 		  ]
 }'
@@ -60,14 +60,41 @@ GetLocationDetailsByLocCodeAndLangCode:
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "tam",
+      "langCode": "eng",
    	  "loccode": "kk"
 }'
       output: '{
-		    "errors": [
-			    {
-			      "errorCode": "RES-SER-418",
-			      "message": "$IGNORE$"
-			    }
-			  ]
-		}'
+	    "errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "Location not found"
+		    }
+		  ]
+}'
+
+   Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LangCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "",
+   	  "loccode": "14022"
+}'
+      output: '{
+}'
+
+   Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
+      role: resident
+      restMethod: get
+      templateFields: ["langCode"]
+      inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode": "eng",
+   	  "loccode": ""
+}'
+      output: '{
+}'

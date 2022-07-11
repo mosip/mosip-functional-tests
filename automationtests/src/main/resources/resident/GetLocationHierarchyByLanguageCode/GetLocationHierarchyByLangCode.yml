@@ -7,7 +7,7 @@ GetLocationHierarchyByLanguageCode:
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCodeResult
       input: '{
-      "langCode":"hin"
+      "langCode":"eng"
 }'
       output: '{
         "hierarchyLevel": "$IGNORE$",
@@ -24,13 +24,26 @@ GetLocationHierarchyByLanguageCode:
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode":"hinn"
+      "langCode":"engg"
 }'
       output: '{
         "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "$IGNORE$"
+      "message": "Location Hierarchy not Found"
     }
   ]
+}'
+
+   Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
+      outputTemplate: resident/error
+      input: '{
+      "langCode":""
+}'
+      output: '{
+        
 }'

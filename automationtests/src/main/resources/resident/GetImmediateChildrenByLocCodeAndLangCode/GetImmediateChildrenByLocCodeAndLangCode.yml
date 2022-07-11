@@ -7,7 +7,7 @@ GetImmediateChildrenByLocCodeAndLangCode:
       inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
       outputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCodeResult
       input: '{
-      "locationCode":"KNT",
+      "locationCode":"MOR",
       "langCode":"eng"
 }'
       output: '{
@@ -36,7 +36,7 @@ GetImmediateChildrenByLocCodeAndLangCode:
    "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "$IGNORE$"
+      "message": "Location not found"
     }
   ]
 }'
@@ -55,7 +55,34 @@ GetImmediateChildrenByLocCodeAndLangCode:
    "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "$IGNORE$"
+      "message": "Location not found"
     }
   ]
+}'
+
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Empty_locationCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "locationCode":"",
+      "langCode":"abc"
+}'
+      output: '{
+   
+}'
+
+   Resident_GetImmediateChildrenByLocCodeAndLangCode_Empty_langCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
+      outputTemplate: resident/error
+      input: '{
+      "locationCode":"KNT",
+      "langCode":""
+}'
+      output: '{
 }'
