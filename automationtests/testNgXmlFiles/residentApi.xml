@@ -19,7 +19,6 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
@@ -28,8 +27,6 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	
-	
 	<test name="UpdateUIN">
 		<parameter name="ymlFile"
 			value="resident/UpdateUIN/UpdateUIN.yml" />
@@ -50,9 +47,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test> 
-	
-
+	</test>
 	<test name="RidCheckStatus">
 		<parameter name="ymlFile"
 			value="resident/RidCheckStatus/createRidCheckStatus.yml" />
@@ -218,8 +213,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
-	
 	<test name="GetChannelVerificationStatus">
 		<parameter name="ymlFile"
 			value="resident\GetChannelVerificationStatus\GetChannelVerificationStatus.yml" />
@@ -227,5 +220,18 @@
 			<class name="io.mosip.testscripts.GetWithParamWithOtpGenerate" />
 		</classes>
 	</test>
-
+	<test name="GetRetrieveVidPolicy">
+		<parameter name="ymlFile"
+			value="resident/GetRetrieveVidPolicy/GetRetrieveVidPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetIdentityMapping">
+		<parameter name="ymlFile"
+			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 </suite>
