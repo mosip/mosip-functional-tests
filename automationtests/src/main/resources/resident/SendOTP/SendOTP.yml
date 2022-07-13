@@ -194,3 +194,36 @@ SendOTP:
          "errorCode": "RES-SER-425",
          "message": "while generating otp error is occured"
     }'
+
+   Resident_SendOTP_Empty_individualId_Neg:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPErrorResult
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "",
+    "individualIdType": "UIN"
+}'
+      output: '{
+         "errorCode": "IDA-MLC-009",
+         "errorMessage": "Invalid Input Parameter - individualId"
+    }'
+   Resident_SendOTP_Empty_individualIdType_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": ""
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }'

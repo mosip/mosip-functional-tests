@@ -7,7 +7,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
       inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
       outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
       input: '{
-		  "langcode": "ara",
+		  "langcode": "eng",
 		  "hierarchylevel": "5",
 		  "name": "10112"
 }'
@@ -26,7 +26,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
       inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
       outputTemplate: resident/error
       input: '{
-		  "langcode": "tam",
+		  "langcode": "eng",
 		  "hierarchylevel": "tt",
 		  "name": "10112"
 }'
@@ -47,7 +47,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
       inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
       outputTemplate: resident/error
       input: '{
-		  "langcode": "tam",
+		  "langcode": "eng",
 		  "hierarchylevel": "5",
 		  "name": "tt"
 }'
@@ -67,7 +67,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
       inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
       outputTemplate: resident/error
       input: '{
-		  "langcode": "tamm",
+		  "langcode": "engg",
 		  "hierarchylevel": "5",
 		  "name": "10112"
 }'
@@ -75,7 +75,220 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 	   "errors": [
 	    {
 	      "errorCode": "RES-SER-418",
-	      "message": "$IGNORE$"
+	      "message": "Location not found"
 	    }
 	  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_RandomVal_LangCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "1234",
+		  "hierarchylevel": "7",
+		  "name": "10112"
+}'
+      output: '{
+		"errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "Location not found"
+	    }
+	  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_RandomVal_Level_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "-177",
+		  "name": "10112"
+}'
+      output: '{
+		"errors": [
+    {
+      "errorCode": "RES-SER-412",
+      "message": "Unable to access API resource"
+    }
+  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_RandomVal_Name_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "1234",
+		  "hierarchylevel": "7",
+		  "name": "Random"
+}'
+      output: '{
+		"errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "Location not found"
+	    }
+	  ]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_LangCode_MandatoryFields_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "",
+		  "hierarchylevel": "5",
+		  "name": "10112"
+}'
+      output: '{
+		
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_Level_MandatoryFields_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "",
+		  "name": "10112"
+}'
+      output: '{
+		
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_Name_MandatoryFields_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/error
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "5",
+		  "name": ""
+}'
+      output: '{
+		
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_0_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "0",
+		  "name": "MyCountry"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_1_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "1",
+		  "name": "Rabat Sale Kenitra"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_2_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "2",
+		  "name": "Rabat"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_3_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "3",
+		  "name": "Rabat"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_4_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "4",
+		  "name": "Assam"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
+}'
+
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_5_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevel
+      outputTemplate: resident/GetRegCenterByLangCodeAndHierarchyLevel/getRegCenterByLangCodeAndHierarchyLevelResult
+      input: '{
+		  "langcode": "eng",
+		  "hierarchylevel": "5",
+		  "name": "14022"
+}'
+      output: '{
+		"registrationCenters": [{
+					"langCode": "$IGNORE$"
+				}]
 }'
