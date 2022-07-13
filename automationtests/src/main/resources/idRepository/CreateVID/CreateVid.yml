@@ -521,8 +521,8 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - id"
     }
   ]
 }'
