@@ -113,7 +113,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static String UpdateUinRequest="config/Authorization/requestIdentity.json";
 	public static HashMap<String, String> keycloakRolesMap=new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap=new HashMap<String, String>();
-	private String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	private String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	//public static String prevrReqTime=null;
 	
 	/** The Constant SIGN_ALGO. */

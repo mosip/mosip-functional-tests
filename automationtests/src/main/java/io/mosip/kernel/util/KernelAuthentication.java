@@ -86,9 +86,9 @@ public class KernelAuthentication extends BaseTestCase{
 	private String pmsAuthInternal = props.get("pmsAuthInternal");
 	private String testsuite="/Authorization";	
 	private ApplicationLibrary appl=new ApplicationLibrary();
-	private String authRequest="Config/Authorization/request.json";
-	private String keycloakAuthRequest="Config/Authorization/keycloakTokenGeneration.json";
-	private String authInternalRequest="Config/Authorization/internalAuthRequest.json";
+	private String authRequest="config/Authorization/request.json";
+	private String keycloakAuthRequest="config/Authorization/keycloakTokenGeneration.json";
+	private String authInternalRequest="config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
 
