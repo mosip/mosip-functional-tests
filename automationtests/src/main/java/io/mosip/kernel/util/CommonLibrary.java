@@ -163,13 +163,18 @@ public class CommonLibrary extends BaseTestCase {
 	 * @return this method is for reading the jsonData object from the given relative/absolute path.
 	 */
 	public JSONObject readJsonData(String path, boolean isRelative) {
+		logger.info("path : " + path);
 		if(isRelative)
 			path = getResourcePath() + path;
+		logger.info("Relativepath : " + path);
 		File fileToRead = new File(path);
 		InputStream isOfFile = null;
 		try {
+			logger.info("fileToRead : " + fileToRead);
 			isOfFile = new FileInputStream(fileToRead);
 		} catch (FileNotFoundException e1) {
+			logger.info("error while reading the file : " + e1.getLocalizedMessage() );
+			e1.printStackTrace();
 			logger.info("File Not Found at the given path");
 		}
 		JSONObject jsonData = null;
