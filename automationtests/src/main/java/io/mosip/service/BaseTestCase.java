@@ -187,7 +187,7 @@ public class BaseTestCase {
 		logger.info("Test Framework for Mosip api Initialized");
 		logger.info("Logging initialized: All logs are located at " + "src/logs/mosip-api-test.log");
 		initialize();
-		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
+		logger.info("Done with BeforeSuite and test case setup! su TEST EXECUTION!\n\n");
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));

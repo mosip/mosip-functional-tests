@@ -1682,6 +1682,7 @@ protected String modifyRequest(String inputJson, Map<String, String> fieldvalue,
 
 public static void copyPreregTestResource() {
 	try {
+		System.out.println("GlobalResourcePath" + RunConfigUtil.getGlobalResourcePath());
 		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/preReg");
 		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 		FileUtils.copyDirectoryToDirectory(source, destination);
