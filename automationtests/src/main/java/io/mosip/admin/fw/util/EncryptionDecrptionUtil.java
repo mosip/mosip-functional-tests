@@ -48,8 +48,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String idaFirThumbPrint =null;
 	
 	static {
-		if(EncryptUtilBaseUrl==null)
+		if(EncryptUtilBaseUrl==null)			
 			EncryptUtilBaseUrl = getEncryptUtilBaseUrl();
+		System.out.println("EncryptUtilBaseUrl " + EncryptUtilBaseUrl);
 		getThumbprints();
 	}
 	public static void getThumbprints() {
@@ -334,6 +335,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
     }
 	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
+		
 		String token = kernelAuthLib.getTokenByRole("resident");
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();

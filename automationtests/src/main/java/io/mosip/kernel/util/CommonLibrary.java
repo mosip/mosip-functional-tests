@@ -190,6 +190,7 @@ public class CommonLibrary extends BaseTestCase {
 		Properties prop = new Properties();
 		try {
 			System.out.println("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
+			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			File propertyFile = new File(getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			prop.load(new FileInputStream(propertyFile));
 

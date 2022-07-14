@@ -9,10 +9,12 @@ import java.util.Properties;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 //import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
@@ -27,6 +29,7 @@ import io.restassured.specification.RequestSpecification;
  */
 public class KernelAuthentication extends BaseTestCase{
 	
+	private static final Logger lOGGER = Logger.getLogger(KernelAuthentication.class);
 	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
@@ -278,14 +281,16 @@ public class KernelAuthentication extends BaseTestCase{
 	@SuppressWarnings("unchecked")
 	public String getAuthForResident() {
 		JSONObject actualrequest = getRequestJson(authRequest);
-		
+		logger.info("actualrequest " + actualrequest);
 		JSONObject request=new JSONObject();
 		request.put("appId", props.get("resident_appid"));
 		request.put("clientId", props.get("resident_clientId"));
 		request.put("secretKey", props.get("resident_secretKey"));
-		System.out.println("request for  Resident: " + actualrequest);
+		System.out.println("request for  Resident: " + request);
+		logger.info("request for  Resident " + request);
 		actualrequest.put("request", request);
 		System.out.println("Actual Auth Request for Resident: " + actualrequest);
+		logger.info("Actual Auth Request for Resident: " + actualrequest);
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
