@@ -23,7 +23,7 @@ CreateBlockListedWords:
       templateFields: ["description","word"]
       restMethod: post
       inputTemplate: masterdata/BlockListedWords/blockListedWords
-      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      outputTemplate: masterdata/error
       input: '{
     "description": "wrongword",
 	"isActive": true,

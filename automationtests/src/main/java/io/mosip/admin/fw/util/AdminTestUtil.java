@@ -1117,6 +1117,11 @@ public class AdminTestUtil extends BaseTestCase{
 		//BaseTestCase.mapUserToZone();
 	}
 	
+	public static void initiateMobileIdTestTest() {
+		copyMobileIdTestResource();
+		//BaseTestCase.mapUserToZone();
+	}
+	
 	public static void initiateSyncDataTest() {
 		copySyncDataTestResource();
 	}
@@ -1145,6 +1150,22 @@ public class AdminTestUtil extends BaseTestCase{
 			logger.error("Exception occured while copying the file: "+e.getMessage());
 		}
 	}
+	
+	
+	public static void copyMobileIdTestResource() {
+		try {
+			//File source = new File(getGlobalResourcePath() + "/masterdata");
+			//File destination = new File(getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			
+			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/mobileId");
+			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
+			FileUtils.copyDirectoryToDirectory(source, destination);
+			logger.info("Copied the MobileId test resource successfully");
+		} catch (Exception e) {
+			logger.error("Exception occured while copying the file: "+e.getMessage());
+		}
+	}
+	
 	
 	public static void copySyncDataTestResource() {
 		try {
@@ -1685,18 +1706,6 @@ public static void copyPrerequisiteTestResource() {
 	}
 }
 
-public static void copyMobileIdTestResource() {
-	try {
-		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/mobileId");
-		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
-		FileUtils.copyDirectoryToDirectory(source, destination);
-		File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
-		FileUtils.copyDirectoryToDirectory(config, destination);
-		logger.info("Copied the mobileId test resource successfully");
-	} catch (Exception e) {
-		logger.error("Exception occured while copying the file: "+e.getMessage());
-	}
-}
 
 public static void copyIdrepoTestResource() {
 	try {
