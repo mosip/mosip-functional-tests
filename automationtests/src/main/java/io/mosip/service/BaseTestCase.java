@@ -119,7 +119,7 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
-	private static String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
