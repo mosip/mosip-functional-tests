@@ -119,7 +119,7 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
-	private static String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
@@ -187,7 +187,7 @@ public class BaseTestCase {
 		logger.info("Test Framework for Mosip api Initialized");
 		logger.info("Logging initialized: All logs are located at " + "src/logs/mosip-api-test.log");
 		initialize();
-		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
+		logger.info("Done with BeforeSuite and test case setup! su TEST EXECUTION!\n\n");
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
