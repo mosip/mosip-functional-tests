@@ -7,7 +7,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
       input: '{
-      	"langcode":"tam",
+      	"langcode":"eng",
 		"hierarchylevel":"5",
 		"name":"10104",
 		"pageNumber":"0",
@@ -25,7 +25,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tamm",
+      	"langcode":"engg",
 		"hierarchylevel":"5",
 		"name":"10104",
 		"pageNumber":"0",
@@ -50,8 +50,8 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
-		"hierarchylevel":"tt",
+      	"langcode":"eng",
+		"hierarchylevel":"999",
 		"name":"10104",
 		"pageNumber":"0",
 		"pageSize":"1",
@@ -75,9 +75,9 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
+      	"langcode":"eng",
 		"hierarchylevel":"5",
-		"name":"tt",
+		"name":"Random",
 		"pageNumber":"0",
 		"pageSize":"1",
 		"sortBy":"createdDateTime",
@@ -100,10 +100,10 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
+      	"langcode":"eng",
 		"hierarchylevel":"5",
 		"name":"10104",
-		"pageNumber":"tt",
+		"pageNumber":"999",
 		"pageSize":"10",
 		"sortBy":"createdDateTime",
 		"orderBy":"desc"
@@ -125,7 +125,132 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"-999",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+    {
+      "errorCode": "RES-SER-412",
+      "message": "Unable to access API resource"
+    }
+  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_SortBy_Value:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"10",
+		"sortBy":"Random",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "$IGNORE$",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_OrderBy_Value:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"10",
+		"sortBy":"createdDateTime",
+		"orderBy":"Random"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_Random_HierarchyLevel:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"tt",
+		"name":"10104",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_Random_PageNumber:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"10104",
+		"pageNumber":"tt",
+		"pageSize":"10",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   "errors": [
+	    {
+	      "errorCode": "RES-SER-418",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_Random_PageSize:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
 		"hierarchylevel":"5",
 		"name":"10104",
 		"pageNumber":"0",
@@ -142,32 +267,26 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 	  ]
 }'
 
-   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_SortBy_Value:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_LangCode_Empty_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
-      templateFields: ["langcode", "name"]
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
+      	"langcode":"",
 		"hierarchylevel":"5",
 		"name":"10104",
 		"pageNumber":"0",
-		"pageSize":"10",
-		"sortBy":"tt",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
 		"orderBy":"desc"
 }'
       output: '{
-	   "errors": [
-	    {
-	      "errorCode": "RES-SER-418",
-	      "message": "$IGNORE$"
-	    }
-	  ]
+	   
 }'
 
-   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Invalid_OrderBy_Value:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_HierarchyLevel_Empty_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
       templateFields: ["langcode", "name"]
@@ -175,19 +294,148 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
       outputTemplate: resident/error
       input: '{
-      	"langcode":"tam",
-		"hierarchylevel":"5",
+      	"langcode":"eng",
+		"hierarchylevel":"",
 		"name":"10104",
 		"pageNumber":"0",
-		"pageSize":"10",
+		"pageSize":"1",
 		"sortBy":"createdDateTime",
-		"orderBy":"tt"
+		"orderBy":"desc"
 }'
       output: '{
-	   "errors": [
-	    {
-	      "errorCode": "RES-SER-418",
-	      "message": "$IGNORE$"
-	    }
-	  ]
+	   
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Name_Empty_Neg:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/error
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+	   
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_0_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"0",
+		"name":"MyCountry",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_1_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"1",
+		"name":"Rabat Sale Kenitra",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_2_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"2",
+		"name":"Rabat",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_3_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"3",
+		"name":"Rabat",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_4_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"4",
+		"name":"Assam",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
+}'
+
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_5_Valid_Smoke:
+      endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
+      role: resident
+      templateFields: ["langcode", "name"]
+      restMethod: get
+      inputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginated
+      outputTemplate: resident/GetRegistrationCenterByHierarchyLevelAndTextPaginated/GetRegistrationCenterByHierarchyLevelAndTextPaginatedResult
+      input: '{
+      	"langcode":"eng",
+		"hierarchylevel":"5",
+		"name":"14022",
+		"pageNumber":"0",
+		"pageSize":"1",
+		"sortBy":"createdDateTime",
+		"orderBy":"desc"
+}'
+      output: '{
 }'

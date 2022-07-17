@@ -32,7 +32,7 @@ GetResidentValidDocuments:
     	"errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "$IGNORE$"
+		      "message": "Document Category- Document Type mapping not found"
 		    }
   ]
 }'
@@ -52,7 +52,34 @@ GetResidentValidDocuments:
     	"errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "$IGNORE$"
+		      "message": "Document Category- Document Type mapping not found"
 		    }
   ]
+}'
+
+   Resident_GetResidentValidDocuments_Empty_LangCode_Neg:
+      endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
+      outputTemplate: resident/error
+      input: '{
+      	"applicantId": "001",
+		"langCode":""
+}'
+      output: '{
+}'
+
+   Resident_GetResidentValidDocuments_Empty_ApplicantId_Neg:
+      endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
+      role: resident
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
+      outputTemplate: resident/error
+      input: '{
+      	"applicantId": "",
+		"langCode":"tam"
+}'
+      output: '{
 }'
