@@ -138,7 +138,7 @@ public class KeycloakUserManager {
 	public static void createUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
 		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
-			UserRepresentation user = new UserRepresentation();
+			UserRepresentation user = new UserRepresentation(); 
 			user.setEnabled(true);
 			user.setUsername(userid);
 			user.setFirstName(userid);
@@ -165,7 +165,7 @@ public class KeycloakUserManager {
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
 			//passwordCred.setValue(userPassword.get(passwordIndex));
-			passwordCred.setValue("mosip123");
+			passwordCred.setValue(pwd);
 
 			UserResource userResource = usersRessource.get(userId);
 			// Set password credential
@@ -174,7 +174,8 @@ public class KeycloakUserManager {
 			// Getting all the roles
 			List<RoleRepresentation> allRoles = realmResource.roles().list();
 			List<RoleRepresentation> availableRoles = new ArrayList<>();
-			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum));
+			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
+			
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
 					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
