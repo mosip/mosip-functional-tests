@@ -67,6 +67,7 @@ public class MosipTestRunner {
 		// +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
 		if (checkRunType().contains("IDE") || os.toLowerCase().contains("windows") == true) {
 			homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
+			LOGGER.info("IDE: " + homeDir);
 		}
 		/*
 		 * if(checkRunType().contains("IDE") ||
@@ -78,6 +79,7 @@ public class MosipTestRunner {
 		else {
 			File dir = new File(System.getProperty("user.dir"));
 			homeDir = new File(dir.getParent() + "/testNgXmlFiles");
+			LOGGER.info("ELSE: " + homeDir);
 		}
 		for (File file : homeDir.listFiles()) {
 			for (String fileName : modulesToRun) {
