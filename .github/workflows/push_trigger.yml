@@ -8,6 +8,7 @@ on:
       - master
       - 1.*
       - develop
+      - MOSIP-*
 
 jobs:
   build-authentication-demo-service:
