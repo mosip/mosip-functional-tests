@@ -44,10 +44,10 @@ USER ${container_user_uid}:${container_user_gid}
 
 EXPOSE 8083
 
-ENV MODULES=prereg
-ENV ENV_USER=qa4
-ENV ENV_ENDPOINT=https://api-internal.qa4.mosip.net
-ENV ENV_TESTLEVEL=smokeAndRegression
-ENV ENV_LANGCODE=eng
+ENV MODULES=
+ENV ENV_USER=
+ENV ENV_ENDPOINT=
+ENV ENV_TESTLEVEL=
+ENV ENV_LANGCODE=
 
 CMD java -jar -Dmodules="$MODULES" -Denv.user="$ENV_USER" -Denv.endpoint="$ENV_ENDPOINT" -Denv.langcode="$ENV_LANGCODE" -Denv.testLevel="$ENV_TESTLEVEL" automationtests.jar
