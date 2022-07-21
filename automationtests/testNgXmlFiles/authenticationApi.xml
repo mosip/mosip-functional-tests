@@ -13,7 +13,7 @@
 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="ida\AddIdentity\AddIdentity.yml" />
+			value="ida/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
@@ -31,7 +31,7 @@
 
 	<test name="RevokeVID">
 		<parameter name="ymlFile"
-			value="ida\RevokeVID\createRevokeVID.yml" />
+			value="ida/RevokeVID/createRevokeVID.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
@@ -39,7 +39,7 @@
 
 	<test name="AuthInternalLock">
 		<parameter name="ymlFile"
-			value="ida\AuthInternalLock\AuthInternalLock.yml" />
+			value="ida/AuthInternalLock/AuthInternalLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -109,7 +109,7 @@
 
 	<test name="UpdateIdentity">
 		<parameter name="ymlFile"
-			value="ida\UpdateIdentity\UpdateIdentity.yml" />
+			value="ida/UpdateIdentity/UpdateIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.UpdateIdentity" />
 		</classes>
@@ -117,7 +117,7 @@
 
 	<test name="BlockHotlist">
 		<parameter name="ymlFile"
-			value="ida\BlockHotlistAPI\BlockHotlistAPI.yml" />
+			value="ida/BlockHotlistAPI/BlockHotlistAPI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
@@ -155,7 +155,7 @@
 
 	<test name="UnBlockHotlist">
 		<parameter name="ymlFile"
-			value="ida\UnBlockHotlistAPI\UnBlockHotlistAPI.yml" />
+			value="ida/UnBlockHotlistAPI/UnBlockHotlistAPI.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
@@ -178,7 +178,7 @@
 
 	<test name="BlockPartnerId">
 		<parameter name="ymlFile"
-			value="ida\BlockHotlistAPI\BlockPartnerId.yml" />
+			value="ida/BlockHotlistAPI/BlockPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
@@ -205,7 +205,7 @@
 
 	<test name="UnBlockPartnerId">
 		<parameter name="ymlFile"
-			value="ida\UnBlockHotlistAPI\UnBlockHotlistAPIForPartnerId.yml" />
+			value="ida/UnBlockHotlistAPI/UnBlockHotlistAPIForPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
