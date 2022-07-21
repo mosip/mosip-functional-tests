@@ -36,6 +36,15 @@ public class MosipTestRunner {
 	 * @param arg
 	 */
 	public static void main(String arg[]) {
+
+		System.out.println("**-------------Printing env variables-----------------------------**");
+		System.out.println("MODULES:" + System.getProperty("MODULES"));
+		System.out.println("ENV_USER:" + System.getProperty("ENV_USER"));
+		System.out.println("ENV_ENDPOINT:" + System.getProperty("ENV_ENDPOINT"));
+		System.out.println("ENV_TESTLEVEL:" + System.getProperty("ENV_TESTLEVEL"));
+		System.out.println("ENV_LANGCODE:" + System.getProperty("ENV_LANGCODE"));
+		System.out.println("work_dir:" + System.getProperty("work_dir"));
+
 		if (checkRunType().equalsIgnoreCase("JAR")) {
 			ExtractResource.removeOldMosipTestTestResource();
 			ExtractResource.extractResourceFromJar();
