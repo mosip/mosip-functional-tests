@@ -146,6 +146,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
+		case "residentnew":
+			if(!kernelCmnLib.isValidToken(residentNewCookie))
+				residentNewCookie = kernelAuthLib.getAuthForNewResident();
+			return residentNewCookie;
 		case "hotlist":
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
@@ -288,6 +292,25 @@ public class KernelAuthentication extends BaseTestCase{
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForNewResident() {
+
+		JSONObject actualrequest = getRequestJson(authInternalRequest);
+
+		JSONObject request = new JSONObject();
+		request.put("appId", props.get("resident_appid"));
+		request.put("password", props.get("new_Resident_Password"));
+		request.put("userName", props.get("new_Resident_User"));
+		request.put("clientId", props.get("resident_clientId"));
+		request.put("clientSecret", props.get("resident_secretKey"));
+		actualrequest.put("request", request);
+
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;
 	}
 	
 	@SuppressWarnings("unchecked")

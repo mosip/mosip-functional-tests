@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.KeyStore.PrivateKeyEntry;
@@ -69,9 +70,12 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
+import io.mosip.testscripts.AddIdentity;
 import io.restassured.response.Response;
 
 
@@ -2031,6 +2035,18 @@ public static String modifyIdSchemaInputJson(String inputJson) {
 	return inputJson;
 }
 
+
+public static String generateTokenID(String uin, String partnerCode) {
+	try {
+		String uinHash = HMACUtils2.digestAsPlainText((uin + props.getProperty("mosip.kernel.tokenid.uin.salt")).getBytes());
+		String hash = HMACUtils2.digestAsPlainText((props.getProperty("mosip.kernel.tokenid.partnercode.salt") + props.getProperty("partner_Token_Id") + uinHash).getBytes());
+		return new BigInteger(hash.getBytes()).toString().substring(0, 36);
+	} catch (NoSuchAlgorithmException e) {
+		// TODO to be removed
+		logger.error("Exception " + e);
+		return partnerCode;
+	}
+}
 
 /*
  * public static JSONObject mapUserToZone() { //public String void

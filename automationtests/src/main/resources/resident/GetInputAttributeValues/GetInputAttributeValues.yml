@@ -1,0 +1,22 @@
+GetInputAttributeValues:
+   Resident_GetInputAttributeValues_UIN_all_Valid_Smoke:
+      endPoint: /resident/v1/identity/info
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
+      outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
+      input: '{
+}'
+      output: '{
+}'
+
+   Resident_GetInputAttributeValues_VID_all_Valid_Smoke:
+      endPoint: /resident/v1/identity/info
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
+      outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
+      input: '{
+}'
+      output: '{
+}'
