@@ -21,7 +21,7 @@
 		</classes>
 	</test>
 	
-<!-- 	<test name="AuditLogCreatePolicyGroup">
+	<test name="AuditLogCreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/AuditLog/AuditLog.yml" />
 		<classes>
@@ -1093,6 +1093,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.DBValidator" />
 		</classes>
-	</test>
- -->		
+	</test>		
 </suite>
