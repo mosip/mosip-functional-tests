@@ -1,12 +1,14 @@
 package io.mosip.testrunner;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
 import java.security.KeyPair;
@@ -108,6 +110,7 @@ public class MosipTestRunner {
 			}
 		}
 		runner.setTestSuites(suitefiles);
+		System.getProperties().setProperty("testng.outpur.dir", "testng-report");
 		runner.setOutputDirectory("testng-report");
 		runner.run();
 		KeycloakUserManager.removeUser();
@@ -157,6 +160,17 @@ public class MosipTestRunner {
 			e.printStackTrace();
 		}
 		return publicKey;
+	}
+	
+	public static Properties getproperty(String path) {
+		Properties prop = new Properties();		
+		try {
+			File file = new File(path);
+			prop.load(new FileInputStream(file));
+		} catch (IOException e) {
+			LOGGER.error("Exception " + e.getMessage());
+		}
+		return prop;
 	}
 
 	/**
