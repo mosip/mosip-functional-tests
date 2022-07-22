@@ -9,6 +9,7 @@
 	<listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 
       <test name="CreatePolicyGroup">
@@ -20,7 +21,7 @@
 		</classes>
 	</test>
 	
-	<test name="AuditLogCreatePolicyGroup">
+<!-- 	<test name="AuditLogCreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="partner/AuditLog/AuditLog.yml" />
 		<classes>
@@ -1093,5 +1094,5 @@
 			<class name="io.mosip.testscripts.DBValidator" />
 		</classes>
 	</test>
-		
+ -->		
 </suite>
