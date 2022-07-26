@@ -61,12 +61,13 @@ public class MosipTestRunner {
 			ExtractResource.extractResourceFromJar();
 		}
 		// Initializing or setting up execution
+		ConfigManager.init();
 		KeycloakUserManager.removeUser();
 		KeycloakUserManager.createUsers();
 		BaseTestCase.suiteSetup();
 		BaseTestCase.mapUserToZone();
 		BaseTestCase.mapZone();
-		ConfigManager.init();
+		
 		startTestRunner();
 
 	}
