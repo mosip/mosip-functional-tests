@@ -3,8 +3,6 @@ package io.mosip.kernel.util;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -13,12 +11,8 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import io.mosip.kernel.core.util.StringUtils;
-import io.mosip.testrunner.MosipTestRunner;
 
 public class S3Adapter {
-
-	public static Properties propsKernel = MosipTestRunner
-			.getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 	private AmazonS3 connection = null;
 
@@ -39,19 +33,17 @@ public class S3Adapter {
 			return connection;
 
 		try {
-			AWSCredentials awsCredentials = new BasicAWSCredentials(
-					propsKernel.getProperty("object.store.s3.accesskey"),
-					propsKernel.getProperty("object.store.s3.secretkey"));
+			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
+					ConfigManager.getS3SecretKey());
 			connection = AmazonS3ClientBuilder.standard()
 					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).enablePathStyleAccess()
 					.withClientConfiguration(
 							new ClientConfiguration().withMaxConnections(maxConnection).withMaxErrorRetry(maxRetry))
-					.withEndpointConfiguration(
-							new AwsClientBuilder.EndpointConfiguration(propsKernel.getProperty("object.store.s3.url"),
-									propsKernel.getProperty("object.store.s3.region")))
+					.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ConfigManager.getS3Host(),
+							ConfigManager.getS3Region()))
 					.build();
-			
-			connection.doesBucketExistV2(bucketName);			
+
+			connection.doesBucketExistV2(bucketName);
 			retry = 0;
 		} catch (Exception e) {
 			if (retry >= maxRetry) {
