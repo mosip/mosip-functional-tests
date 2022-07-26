@@ -155,7 +155,7 @@ public class KeycloakUserManager {
 	public static void createUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
 		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
-			UserRepresentation user = new UserRepresentation();
+			UserRepresentation user = new UserRepresentation(); 
 			user.setEnabled(true);
 			user.setUsername(userid);
 			user.setFirstName(userid);
@@ -182,7 +182,7 @@ public class KeycloakUserManager {
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
 			//passwordCred.setValue(userPassword.get(passwordIndex));
-			passwordCred.setValue("mosip123");
+			passwordCred.setValue(pwd);
 
 			UserResource userResource = usersRessource.get(userId);
 			// Set password credential
