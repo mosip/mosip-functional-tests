@@ -49,6 +49,7 @@ public class ConfigManager {
 	private static String S3_USER_KEY = "s3-user-key";
 	private static String S3_SECRET_KEY = "s3-secret-key";
 	private static String S3_ACCOUNT = "s3-account";
+	private static String PUSH_TO_S3 ="push-reports-to-s3";
 
 	private static String DB_PORT = "DB_PORT";
 	private static String DB_DOMAIN = "installation-domain";
@@ -108,6 +109,7 @@ public class ConfigManager {
 	private static String s3_user_key;
 	private static String s3_account;
 	private static String s3_secret_key;
+	private static String push_reports_to_s3;
 
 	private static String db_port;
 	private static String db_domain;
@@ -212,6 +214,8 @@ public class ConfigManager {
 				: System.getenv(S3_SECRET_KEY);
 		s3_account = System.getenv(S3_ACCOUNT) == null ? propsKernel.getProperty(S3_ACCOUNT)
 				: System.getenv(S3_ACCOUNT);
+		push_reports_to_s3 = System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3)
+				: System.getenv(PUSH_TO_S3);
 
 		db_port = System.getenv(DB_PORT) == null ? propsKernel.getProperty(DB_PORT) : System.getenv(DB_PORT);
 		db_domain = System.getenv(DB_DOMAIN) == null ? propsKernel.getProperty(DB_DOMAIN) : System.getenv(DB_DOMAIN);
@@ -367,6 +371,10 @@ public class ConfigManager {
 
 	public static String getS3Account() {
 		return s3_account;
+	}
+	
+	public static String getPushReportsToS3() {
+		return push_reports_to_s3;
 	}
 
 	public static String getIdaDbUrl() {
