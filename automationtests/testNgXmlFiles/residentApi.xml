@@ -260,7 +260,14 @@
 			value="resident/GenerateVID/createGenerateVIDNew.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetPartnersByPartnerType">
+		<parameter name="ymlFile"
+			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 </suite>

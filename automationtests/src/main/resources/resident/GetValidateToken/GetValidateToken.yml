@@ -1,0 +1,11 @@
+GetValidateToken:
+   Resident_GetValidateToken_all_Valid_Smoke:
+      endPoint: /resident/v1/authorize/admin/validateToken
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetValidateToken/getValidateToken
+      outputTemplate: resident/GetValidateToken/getValidateTokenResult
+      input: '{
+}'
+      output: '{
+}'
