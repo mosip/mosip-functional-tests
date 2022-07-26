@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
-import java.util.stream.Collectors;
-
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
@@ -37,8 +35,8 @@ public class KeycloakUserManager {
 		 Keycloak key=null;
 		try {
 			
-	key=KeycloakBuilder.builder().serverUrl(propsKernel.getProperty("keycloak.url")).realm(propsKernel.getProperty("keycloak.realm"))
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(propsKernel.getProperty("automation.clientid")).clientSecret(propsKernel.getProperty("automation.clientid.secrectkey"))
+	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getPmsClientId()).clientSecret(ConfigManager.getPmsClientSecret())
 				.build();
 	System.out.println(key.toString() + key.realms());
 		}catch(Exception e)
@@ -61,7 +59,7 @@ public class KeycloakUserManager {
 	}
 
 	public static void createUsers() {
-		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
+		List<String> needsToBeCreatedUsers = List.of(ConfigManager.getIAMUsersToCreate().split(","));
 		//List<String> userPassword = List.of(propsKernel.getProperty("users.password").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 		//int passwordIndex = 0;
@@ -73,7 +71,7 @@ public class KeycloakUserManager {
 			user.setLastName(needsToBeCreatedUser);
 			user.setEmail("automation" + needsToBeCreatedUser + "@automationlabs.com");
 			// Get realm
-			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
@@ -100,7 +98,7 @@ public class KeycloakUserManager {
 			// Getting all the roles
 			List<RoleRepresentation> allRoles = realmResource.roles().list();
 			List<RoleRepresentation> availableRoles = new ArrayList<>();
-			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty("roles."+needsToBeCreatedUser).split(","));
+			List<String> toBeAssignedRoles = List.of(ConfigManager.getRolesForUser(needsToBeCreatedUser).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
 					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
@@ -116,10 +114,10 @@ public class KeycloakUserManager {
 	}
 
 	public static void removeUser() {
-		List<String> needsToBeRemovedUsers = List.of(propsKernel.getProperty("users.create").split(","));
+		List<String> needsToBeRemovedUsers = List.of(ConfigManager.getIAMUsersToCreate().split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
-			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
 			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
@@ -136,7 +134,6 @@ public class KeycloakUserManager {
 
 
 	public static void createUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
-		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 			UserRepresentation user = new UserRepresentation();
 			user.setEnabled(true);
@@ -148,7 +145,7 @@ public class KeycloakUserManager {
 		    user.setAttributes(map);
 			// Get realm
 			RealmResource realmResource=null;
-			 realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			 realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
@@ -191,7 +188,7 @@ public class KeycloakUserManager {
 
 	public static void removeUser(String user) {
 		Keycloak keycloakInstance = getKeycloakInstance();
-			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
 			List<UserRepresentation> usersFromDB = usersRessource.search(user);

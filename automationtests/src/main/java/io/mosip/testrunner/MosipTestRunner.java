@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
 
@@ -65,6 +66,7 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		BaseTestCase.mapUserToZone();
 		BaseTestCase.mapZone();
+		ConfigManager.init();
 		startTestRunner();
 
 	}
