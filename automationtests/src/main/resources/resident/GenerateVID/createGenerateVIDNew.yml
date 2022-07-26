@@ -354,3 +354,25 @@ GenerateVIDNew:
     }
   ]
 }'
+
+   Resident_GenerateVID_Perpetual_Invalid_Token:
+      endPoint: /resident/v1/generate-vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-439",
+      "message": "Claim not available: individual_id"
+    }
+  ]
+}'

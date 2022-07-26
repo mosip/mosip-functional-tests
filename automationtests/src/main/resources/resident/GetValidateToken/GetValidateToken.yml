@@ -9,3 +9,31 @@ GetValidateToken:
 }'
       output: '{
 }'
+
+   Resident_GetValidateToken_Invalid_Token:
+      endPoint: /resident/v1/authorize/admin/validateToken
+      role: residen
+      restMethod: get
+      inputTemplate: resident/GetValidateToken/getValidateToken
+      outputTemplate: resident/error
+      input: '{
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}'
+
+   Resident_GetValidateToken_Empty_Token:
+      endPoint: /resident/v1/authorize/admin/validateToken
+      role: 
+      restMethod: get
+      inputTemplate: resident/GetValidateToken/getValidateToken
+      outputTemplate: resident/error
+      input: '{
+}'
+      output: '{
+}'
