@@ -51,8 +51,8 @@ public class ConfigManager {
 	private static String S3_ACCOUNT = "s3-account";
 	private static String PUSH_TO_S3 ="push-reports-to-s3";
 
-	private static String DB_PORT = "DB_PORT";
-	private static String DB_DOMAIN = "installation-domain";
+	private static String DB_PORT = "db-port";
+	private static String DB_DOMAIN = "db-server";
 	private static String HIBERNATE_CONNECTION_DRIVER_CLASS = "hibernate.connection.driver_class";
 	private static String HIBERNATE_CONNECTION_POOL_SIZE = "hibernate.connection.pool_size";
 	private static String HIBERNATE_DIALECT = "hibernate.dialect";
