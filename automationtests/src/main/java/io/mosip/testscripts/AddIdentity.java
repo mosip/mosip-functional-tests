@@ -1,9 +1,12 @@
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
+import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +34,11 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
+import io.mosip.kernel.core.exception.NoSuchAlgorithmException;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
@@ -39,7 +46,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
-
+	String uin2 = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -78,13 +85,35 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 								MediaType.APPLICATION_JSON, COOKIENAME,
 								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
 						"response.uin");
+		
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 
+		
+		
+		
+		
+		
+		
 		// filterHbs(testCaseDTO);
-
+		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
+			
+			KeycloakUserManager.removeVidUser();
+			HashMap<String, List<String>> attrmap=new HashMap<String, List<String>>();
+			List<String> list=new ArrayList<String>();
+			list.add(uin);
+			attrmap.put("individual_id", list);
+			list=new ArrayList<String>();
+			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
+			list.add(token);
+			attrmap.put("ida_token", list);
+			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"), propsKernel.getProperty("new_Resident_Password"), propsKernel.getProperty("new_Resident_Role"), attrmap);
+		}
+		
+		
+		
 		testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
 		
@@ -159,7 +188,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		try {
 			logger.info("waiting for" + props.getProperty("Delaytime")
 			+ " mili secs after UIN Generation In IDREPO");
-	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+//	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
