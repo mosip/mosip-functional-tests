@@ -249,6 +249,8 @@ public class ConfigManager {
 
 		iam_external_url = System.getenv(IAM_EXTERNAL_URL) == null ? propsKernel.getProperty(IAM_EXTERNAL_URL)
 				: System.getenv(IAM_EXTERNAL_URL);
+		
+		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
 		iam_realm_id = System.getenv(IAM_REALM_ID) == null ? propsKernel.getProperty(IAM_REALM_ID)
 				: System.getenv(IAM_REALM_ID);
 		iam_users_to_create = System.getenv(IAM_USERS_TO_CREATE) == null ? propsKernel.getProperty(IAM_USERS_TO_CREATE)
