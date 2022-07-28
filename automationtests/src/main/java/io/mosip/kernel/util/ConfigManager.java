@@ -431,6 +431,8 @@ public class ConfigManager {
 
 	// from docker env getting only host url
 	public static String getIAMUrl() {
+		
+		System.out.println("keycloak url is:::"+iam_external_url + "/auth");
 		return iam_external_url + "/auth";
 	}
 
