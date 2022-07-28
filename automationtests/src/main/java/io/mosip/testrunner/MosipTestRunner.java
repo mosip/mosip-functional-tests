@@ -55,7 +55,8 @@ public class MosipTestRunner {
 		System.out.println("ENV_TESTLEVEL:" + System.getenv("ENV_TESTLEVEL"));
 		System.out.println("ENV_LANGCODE:" + System.getenv("ENV_LANGCODE"));
 		System.out.println("work_dir:" + System.getenv("work_dir"));
-
+		System.out.println("DB Password from ENV::: "+ System.getenv("db-su-password"));
+		System.out.println("DB Password from ENV::: "+ System.getenv("keycloak-external-url"));
 		if (checkRunType().equalsIgnoreCase("JAR")) {
 			ExtractResource.removeOldMosipTestTestResource();
 			ExtractResource.extractResourceFromJar();
