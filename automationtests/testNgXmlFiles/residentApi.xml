@@ -10,7 +10,7 @@
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
-		
+
 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
@@ -55,7 +55,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="AuthLock">
 		<parameter name="ymlFile"
 			value="resident/AuthLock/createAuthLock.yml" />
@@ -91,7 +90,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
-	</test> 
+	</test>
 	<test name="ReGenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/ReGenerateVID.yml" />
@@ -135,7 +134,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="GetUiProperties">
 		<parameter name="ymlFile"
 			value="resident/GetUiProperties/GetUiProperties.yml" />
@@ -266,6 +264,13 @@
 	<test name="GetPartnersByPartnerType">
 		<parameter name="ymlFile"
 			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetAuthLockStatus">
+		<parameter name="ymlFile"
+			value="resident/GetAuthLockStatus/GetAuthLockStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
