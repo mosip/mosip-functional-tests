@@ -13,15 +13,20 @@ public class EmailableReport extends EmailableReporter2 {
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 		super.generateReport(xmlSuites, suites, outputDirectory);
+		System.out.println("valuetoPush" + ConfigManager.getPushReportsToS3());
 		if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
 			File repotFile = new File(System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
 					+ "/" + System.getProperty("emailable.report2.name"));
+			System.out.println("reportFile is::" + System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
+			+ "/" + System.getProperty("emailable.report2.name"));
 			S3Adapter s3Adapter = new S3Adapter();
 			boolean isStoreSuccess = false;
 			try {
 				isStoreSuccess = s3Adapter.putObject(ConfigManager.getS3Account(), System.getProperty("modules"), null,
 						null, System.getProperty("emailable.report2.name"), repotFile);
+				System.out.println("isStoreSuccess:: "+isStoreSuccess);
 			} catch (Exception e) {
+				System.out.println("error occured while pushing the object"+ e.getLocalizedMessage());
 				e.printStackTrace();
 			}
 			if (isStoreSuccess) {
