@@ -1,0 +1,27 @@
+AuditLog:
+   Resident_AuditLog_all_Valid_Smoke:
+      endPoint: /resident/v1/proxy/audit/log
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuditLog/createAuditLog
+      outputTemplate: resident/AuditLog/createAuditLogResult
+      input: '{
+		  "eventId": "string",
+		  "eventName": "string",
+		  "eventType": "string",
+		  "actionTimeStamp": "2022-07-26T05:39:26.388Z",
+		  "hostName": "string",
+		  "hostIp": "string",
+		  "applicationId": "string",
+		  "applicationName": "string",
+		  "sessionUserId": "string",
+		  "sessionUserName": "string",
+		  "id": "string",
+		  "idType": "string",
+		  "createdBy": "string",
+		  "moduleName": "string",
+		  "moduleId": "string",
+		  "description": "string"
+}'
+      output: '{
+}'

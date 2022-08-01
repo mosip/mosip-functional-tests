@@ -1,0 +1,11 @@
+GetAuthLockStatus:
+   Resident_GetAuthLockStatus_all_Valid_Smoke:
+      endPoint: /resident/v1/auth-lock-status
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetAuthLockStatus/getAuthLockStatus
+      outputTemplate: resident/GetAuthLockStatus/getAuthLockStatusResult
+      input: '{
+}'
+      output: '{
+}'

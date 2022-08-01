@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 	</listeners>
 		
- 
+
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="resident\AddIdentity\AddIdentity.yml" />
@@ -230,6 +230,42 @@
 	<test name="GetIdentityMapping">
 		<parameter name="ymlFile"
 			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetInputAttributeValues">
+		<parameter name="ymlFile"
+			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="AuditLog">
+		<parameter name="ymlFile"
+			value="resident/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetValidateToken">
+		<parameter name="ymlFile"
+			value="resident/GetValidateToken/GetValidateToken.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GenerateVIDNew">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/createGenerateVIDNew.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetPartnersByPartnerType">
+		<parameter name="ymlFile"
+			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

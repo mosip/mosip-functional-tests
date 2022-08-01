@@ -91,8 +91,24 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 
+		// filterHbs(testCaseDTO);
+		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
+			
+			KeycloakUserManager.removeVidUser();
+			HashMap<String, List<String>> attrmap=new HashMap<String, List<String>>();
+			List<String> list=new ArrayList<String>();
+			list.add(uin);
+			attrmap.put("individual_id", list);
+			list=new ArrayList<String>();
+			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
+			list.add(token);
+			attrmap.put("ida_token", list);
+			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"), propsKernel.getProperty("new_Resident_Password"), propsKernel.getProperty("new_Resident_Role"), attrmap);
+		}
 		
 		
+		
+		//testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
 		
 		if(BaseTestCase.languageList.size()==2) {		  
@@ -167,6 +183,9 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		try {
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
 			//Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			logger.info("waiting for" + props.getProperty("Delaytime")
+			+ " mili secs after UIN Generation In IDREPO");
+//	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}

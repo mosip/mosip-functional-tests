@@ -72,7 +72,6 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.Translator;
@@ -2206,6 +2205,5 @@ public static String modifySchemaGenerateHbs() {
 	identityHbs=everything.toString();
 	return identityHbs;
 }
-
 
 }
