@@ -5,6 +5,7 @@ import java.util.Map;
 import org.json.simple.JSONObject;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 /**
@@ -114,6 +115,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
+		case "residentnew":
+			if(!kernelCmnLib.isValidToken(residentNewCookie))
+				residentNewCookie = kernelAuthLib.getAuthForNewResident();
+			return residentNewCookie;
 		case "hotlist":
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
@@ -220,6 +225,44 @@ public class KernelAuthentication extends BaseTestCase{
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
 		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForNewResident() {
+
+		JSONObject actualrequest = getRequestJson(authInternalRequest);
+
+		JSONObject request = new JSONObject();
+		request.put("appId", props.get("resident_appid"));
+		request.put("password", props.get("new_Resident_Password"));
+		request.put("userName", props.get("new_Resident_User"));
+		request.put("clientId", props.get("resident_clientId"));
+		request.put("clientSecret", props.get("resident_secretKey"));
+		actualrequest.put("request", request);
+
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForKeyCloak() {
+		
+		Response response = RestAssured.given().with().auth().preemptive()
+				.basic(props.get("keycloak_username"), props.get("keycloak_password"))
+				.header("Content-Type", "application/x-www-form-urlencoded")
+				.formParam("grant_type", props.get("keycloak_granttype"))
+				.formParam("client_id", props.get("keycloak_clientid"))
+				.formParam("username", props.get("keycloak_username"))
+				.formParam("password", props.get("keycloak_password")).when()
+				.post(ApplnURIForKeyCloak + props.get("keycloakAuthURL"));
+		System.out.println(response.getBody().asString());
+		
+		String responseBody = response.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getString("access_token");
+		System.out.println(token);
+		return token;
 	}
 	
 	@SuppressWarnings("unchecked")
