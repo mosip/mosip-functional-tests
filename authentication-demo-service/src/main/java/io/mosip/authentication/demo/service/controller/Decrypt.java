@@ -432,12 +432,15 @@ public class Decrypt {
 	
 	@PostMapping(path = "/decryptEkycData", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String decryptEkycData(
-			@RequestBody Map<String, String> requestData) throws CertificateException, IOException, 
+			@RequestBody Map<String, String> requestData,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName
+			) throws CertificateException, IOException, 
 			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, 
 			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 				
 		String identity = requestData.get("identity");
-		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(), PartnerTypes.EKYC);
+		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(), PartnerTypes.EKYC, partnerName, keyFileNameByPartnerName);
 		
 		String sessionKey = requestData.get("sessionKey");
 		
