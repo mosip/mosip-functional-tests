@@ -43,7 +43,7 @@ public class S3Adapter {
 					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).enablePathStyleAccess()
 					.withClientConfiguration(
 							new ClientConfiguration().withMaxConnections(maxConnection).withMaxErrorRetry(maxRetry))
-					.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://"+ConfigManager.getS3Host(),
+					.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ConfigManager.getS3Host(),
 							ConfigManager.getS3Region()))
 					.build();
 

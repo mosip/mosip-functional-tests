@@ -44,7 +44,7 @@ public class ConfigManager {
 	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_automation_client_id";
 	private static String MOSIP_AUTOMATION_APP_ID = "mosip_automation_app_id";
 
-	private static String S3_HOST = "mosip-minio-host";
+	private static String S3_HOST = "s3-host";
 	private static String S3_REGION = "s3-region";
 	private static String S3_USER_KEY = "s3-user-key";
 	private static String S3_SECRET_KEY = "s3-secret-key";
