@@ -47,7 +47,7 @@ public class ConfigManager {
 	private static String S3_HOST = "s3-host";
 	private static String S3_REGION = "s3-region";
 	private static String S3_USER_KEY = "s3-user-key";
-	private static String S3_SECRET_KEY = "s3-secret-key";
+	private static String S3_SECRET_KEY = "s3-user-secret";
 	private static String S3_ACCOUNT = "s3-account";
 	private static String PUSH_TO_S3 ="push-reports-to-s3";
 
