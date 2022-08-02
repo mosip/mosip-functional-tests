@@ -21,6 +21,8 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
+import java.lang.String;
+import java.util.Map;
 
 /**
  * Class to initiate mosip api test execution
@@ -40,7 +42,7 @@ public class MosipTestRunner {
 	 */
 	public static void main(String arg[]) {
 
-		System.out.println("**-------------Printing env variables by getproperty -----------------------------**");
+		System.out.println("** ------------- Printing env variables by getproperty ----------------------------- **");
 		System.out.println("MODULES:" + System.getProperty("MODULES"));
 		System.out.println("ENV_USER:" + System.getProperty("ENV_USER"));
 		System.out.println("ENV_ENDPOINT:" + System.getProperty("ENV_ENDPOINT"));
@@ -48,7 +50,7 @@ public class MosipTestRunner {
 		System.out.println("ENV_LANGCODE:" + System.getProperty("ENV_LANGCODE"));
 		System.out.println("work_dir:" + System.getProperty("work_dir"));
 		
-		System.out.println("**-------------Printing env variables by getenv -----------------------------**");
+		System.out.println("** ------------- Printing env variables by getenv ---------------------------------- **");
 		System.out.println("MODULES:" + System.getenv("MODULES"));
 		System.out.println("ENV_USER:" + System.getenv("ENV_USER"));
 		System.out.println("ENV_ENDPOINT:" + System.getenv("ENV_ENDPOINT"));
@@ -56,17 +58,24 @@ public class MosipTestRunner {
 		System.out.println("ENV_LANGCODE:" + System.getenv("ENV_LANGCODE"));
 		System.out.println("work_dir:" + System.getenv("work_dir"));
 
+		Map<String, String> envMap = System.getenv();
+		System.out.println("** ------------- Get ALL ENV varibales --------------------------------------------- **");
+		for (String envName : envMap.keySet()) {
+			System.out.format("ENV %s = %s%n", envName, envMap.get(envName));
+		}
+
 		if (checkRunType().equalsIgnoreCase("JAR")) {
 			ExtractResource.removeOldMosipTestTestResource();
 			ExtractResource.extractResourceFromJar();
 		}
 		// Initializing or setting up execution
+		ConfigManager.init();
 		KeycloakUserManager.removeUser();
 		KeycloakUserManager.createUsers();
 		BaseTestCase.suiteSetup();
 		BaseTestCase.mapUserToZone();
 		BaseTestCase.mapZone();
-		ConfigManager.init();
+		
 		startTestRunner();
 
 	}

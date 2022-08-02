@@ -51,8 +51,8 @@ public class ConfigManager {
 	private static String S3_ACCOUNT = "s3-account";
 	private static String PUSH_TO_S3 ="push-reports-to-s3";
 
-	private static String DB_PORT = "DB_PORT";
-	private static String DB_DOMAIN = "installation-domain";
+	private static String DB_PORT = "db-port";
+	private static String DB_DOMAIN = "db-server";
 	private static String HIBERNATE_CONNECTION_DRIVER_CLASS = "hibernate.connection.driver_class";
 	private static String HIBERNATE_CONNECTION_POOL_SIZE = "hibernate.connection.pool_size";
 	private static String HIBERNATE_DIALECT = "hibernate.dialect";
@@ -249,6 +249,8 @@ public class ConfigManager {
 
 		iam_external_url = System.getenv(IAM_EXTERNAL_URL) == null ? propsKernel.getProperty(IAM_EXTERNAL_URL)
 				: System.getenv(IAM_EXTERNAL_URL);
+		
+		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
 		iam_realm_id = System.getenv(IAM_REALM_ID) == null ? propsKernel.getProperty(IAM_REALM_ID)
 				: System.getenv(IAM_REALM_ID);
 		iam_users_to_create = System.getenv(IAM_USERS_TO_CREATE) == null ? propsKernel.getProperty(IAM_USERS_TO_CREATE)
@@ -410,6 +412,7 @@ public class ConfigManager {
 	}
 
 	public static String getAuditDbPass() {
+		System.out.println("DB Password from ENV::: "+ System.getenv(AUDIT_DB_PASS));
 		return audit_db_pass;
 	}
 
@@ -431,6 +434,10 @@ public class ConfigManager {
 
 	// from docker env getting only host url
 	public static String getIAMUrl() {
+		System.out.println("keycloak url from ENV::: "+ System.getenv(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url from Property::: "+ System.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url from Config::: "+ propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url is:::"+iam_external_url + "/auth");
 		return iam_external_url + "/auth";
 	}
 

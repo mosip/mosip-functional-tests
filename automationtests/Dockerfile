@@ -50,4 +50,4 @@ ENV ENV_ENDPOINT=
 ENV ENV_TESTLEVEL=
 ENV ENV_LANGCODE=
 
-CMD java -jar -Dmodules="$MODULES" -Denv.user="$ENV_USER" -Denv.endpoint="$ENV_ENDPOINT" -Denv.langcode="$ENV_LANGCODE" -Denv.testLevel="$ENV_TESTLEVEL" automationtests.jar
+CMD [ "/bin/bash", "-c", "java -jar -Dmodules=\"$MODULES\" -Denv.user=\"$ENV_USER\" -Denv.endpoint=\"$ENV_ENDPOINT\" -Denv.langcode=\"$ENV_LANGCODE\" -Denv.testLevel=\"$ENV_TESTLEVEL\" automationtests.jar && sleep infinity" ]
