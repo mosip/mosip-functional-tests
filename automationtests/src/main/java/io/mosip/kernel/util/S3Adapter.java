@@ -32,6 +32,10 @@ public class S3Adapter {
 		if (connection != null)
 			return connection;
 
+		System.out.println("ConfigManager.getS3UserKey() :: "+ConfigManager.getS3UserKey());
+		System.out.println("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
+		System.out.println("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
+		System.out.println("ConfigManager.getS3SecretKey() :: "+ConfigManager.getS3SecretKey());
 		try {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
 					ConfigManager.getS3SecretKey());
@@ -66,7 +70,7 @@ public class S3Adapter {
 			File file) {
 		String finalObjectName = null;
 		String bucketName = null;
-
+        System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname);
 		if (useAccountAsBucketname) {
 			finalObjectName = getName(container, source, process, objectName);
 			bucketName = account;
@@ -74,6 +78,7 @@ public class S3Adapter {
 			finalObjectName = getName(source, process, objectName);
 			bucketName = container;
 		}
+		System.out.println("bucketName :: "+bucketName);
 		AmazonS3 connection = getConnection(bucketName);
 		if (!doesBucketExists(bucketName)) {
 			connection.createBucket(bucketName);
