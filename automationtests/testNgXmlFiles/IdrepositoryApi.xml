@@ -16,20 +16,20 @@
 	
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="idRepository\AddIdentity\AddIdentity.yml" />
+			value="idRepository/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
 	<test name="CreateVID">
-		<parameter name="ymlFile"	value="idRepository\CreateVID\CreateVid.yml" />
+		<parameter name="ymlFile"	value="idRepository/CreateVID/CreateVid.yml" />
 	    <parameter name="idKeyName" value="VID" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 	</classes>
 	</test>
 	<test name="RetrieveIdentityByRid">
-		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByRid\RetrieveIdentityByRid.yml" />
+		<parameter name="ymlFile"	value="idRepository/RetrieveIdentityByRid/RetrieveIdentityByRid.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
@@ -37,7 +37,7 @@
 	
 	
 	<test name="RetrieveVIDByUIN">
-		<parameter name="ymlFile"	value="idRepository\RetrieveVIDByUIN\RetrieveVIDByUIN.yml" />
+		<parameter name="ymlFile"	value="idRepository/RetrieveVIDByUIN/RetrieveVIDByUIN.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
@@ -45,60 +45,60 @@
 	
 	<test name="UpdateIdentity">
 		<parameter name="ymlFile"
-			value="idRepository\UpdateIdentity\UpdateIdentity.yml" />
+			value="idRepository/UpdateIdentity/UpdateIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.UpdateIdentity" />
 		</classes>
 	</test>
 	<test name="UpdateVIDStatus">
 		<parameter name="ymlFile"
-			value="idRepository\UpdateVIDStatus\UpdateVidStatus.yml" />
+			value="idRepository/UpdateVIDStatus/UpdateVidStatus.yml" />
 		<parameter name="pathParams" value="VID" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
 		</classes>
 	</test>
 	<test name="DeactivateVIDs">
-		<parameter name="ymlFile"	value="idRepository\DeactivateVid\DeactivateVid.yml" />
+		<parameter name="ymlFile"	value="idRepository/DeactivateVid/DeactivateVid.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 	</classes>
 	</test>
 	
 	<test name="RetrieveIdentityByUin">
-		<parameter name="ymlFile"	value="idRepository\RetrieveIdentityByUin\RetrieveIdentityByUin.yml" />
+		<parameter name="ymlFile"	value="idRepository/RetrieveIdentityByUin/RetrieveIdentityByUin.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
 	<test name="RetrieveUINByVID">
-		<parameter name="ymlFile"	value="idRepository\RetrieveUINByVID\RetrieveUINByVID.yml" />
+		<parameter name="ymlFile"	value="idRepository/RetrieveUINByVID/RetrieveUINByVID.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
 	<test name="ReactivateVIDs">
-		<parameter name="ymlFile"	value="idRepository\ReactivateVIDsForUIN\ReactivateVIDsForUIN.yml" />
+		<parameter name="ymlFile"	value="idRepository/ReactivateVIDsForUIN/ReactivateVIDsForUIN.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 	</classes>
 	</test>
 	<test name="RegenerateVid">
-		<parameter name="ymlFile"	value="idRepository\RegenerateVid\RegenerateVid.yml" />
+		<parameter name="ymlFile"	value="idRepository/RegenerateVid/RegenerateVid.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
 	</test>
 	
 	<test name="CreateDraft">
-		<parameter name="ymlFile"	value="idRepository\CreateDraft\CreateDraft.yml" />
+		<parameter name="ymlFile"	value="idRepository/CreateDraft/CreateDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
 	</test> 
 	
 	<test name="GetDraft">
-		<parameter name="ymlFile"	value="idRepository\GetDraft\GetDraft.yml" />
+		<parameter name="ymlFile"	value="idRepository/GetDraft/GetDraft.yml" />
 		<parameter name="idKeyName" value="UIN" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
@@ -106,7 +106,7 @@
 	</test>
 	
 	<test name="CreateDraftVID">
-		<parameter name="ymlFile"	value="idRepository\CreateDraftVID\CreateDraftVID.yml" />
+		<parameter name="ymlFile"	value="idRepository/CreateDraftVID/CreateDraftVID.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 	</classes>
@@ -114,7 +114,7 @@
 	
 	
 	 <test name="UpdateDraft">
-		<parameter name="ymlFile"	value="idRepository\UpdateDraft\UpdateDraft.yml" />
+		<parameter name="ymlFile"	value="idRepository/UpdateDraft/UpdateDraft.yml" />
 		<parameter name="pathParams"	value="registrationId" />
 	<classes>
 		<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
@@ -122,35 +122,35 @@
 	</test> 
 	
 	<test name="PublishDraft">
-		<parameter name="ymlFile"	value="idRepository\PublishDraft\PublishDraft.yml" />
+		<parameter name="ymlFile"	value="idRepository/PublishDraft/PublishDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test>
 	
 	<test name="ExtractBiometrics">
-		<parameter name="ymlFile"	value="idRepository\ExtractBiometrics\ExtractBiometrics.yml" />
+		<parameter name="ymlFile"	value="idRepository/ExtractBiometrics/ExtractBiometrics.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.PutWithPathParam" />
 	</classes>
 	</test> 
 	
 	<test name="DeleteDraft">
-		<parameter name="ymlFile"	value="idRepository\DeleteDraft\DeleteDraft.yml" />
+		<parameter name="ymlFile"	value="idRepository/DeleteDraft/DeleteDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.DeleteWithParam" />
 	</classes>
 	</test> 
 	
 	<test name="AuthInternalLock">
-		<parameter name="ymlFile"	value="idRepository\AuthInternalLock\AuthInternalLock.yml" />
+		<parameter name="ymlFile"	value="idRepository/AuthInternalLock/AuthInternalLock.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.SimplePost" />
 	</classes>
 	</test>
 	
 	<test name="RetrieveAuthTypeStatus">
-		<parameter name="ymlFile"	value="idRepository\RetrieveAuthTypeStatus\RetrieveAuthTypeStatus.yml" />
+		<parameter name="ymlFile"	value="idRepository/RetrieveAuthTypeStatus/RetrieveAuthTypeStatus.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
