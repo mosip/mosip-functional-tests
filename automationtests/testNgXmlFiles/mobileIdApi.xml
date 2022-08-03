@@ -15,7 +15,7 @@
  
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="mobileId\AddIdentity\AddIdentity.yml" />
+			value="mobileId/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
