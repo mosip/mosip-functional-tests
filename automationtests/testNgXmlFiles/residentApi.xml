@@ -9,6 +9,7 @@
 		<listener
 			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
 

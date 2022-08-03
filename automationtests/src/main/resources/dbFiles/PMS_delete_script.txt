@@ -1,8 +1,8 @@
-delete from pms.partner_contact where partner_id='Tech-123'; 
+delete from pms.partner_contact where partner_id='Tech-123';
 delete from partner_policy where part_id='Tech-123';
 delete from partner_policy where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'));
-delete from partner_policy_request where part_id='Tech-123'; 
-delete from pms.partner_policy where label='string'; 
+delete from partner_policy_request where part_id='Tech-123';
+delete from pms.partner_policy where label='string';
 delete from partner_policy_request where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'));
 delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'));
 delete from partner_policy_credential_type where part_id='MOVP';
