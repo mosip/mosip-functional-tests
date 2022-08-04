@@ -7,7 +7,6 @@
 	<listeners>
 		<listener class-name="io.mosip.report.CustomTestNGReporter" />
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
-		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 
 	<test name="BulkUpload">
@@ -374,6 +373,12 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
+
+
+
+	
+
+
 
 
 	<test name="CreateMachineType">
