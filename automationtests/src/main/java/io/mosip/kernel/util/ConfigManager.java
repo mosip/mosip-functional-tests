@@ -28,9 +28,9 @@ public class ConfigManager {
 	private static String MOSIP_ADMIN_CLIENT_ID = "mosip_admin_client_id";
 	private static String MOSIP_ADMIN_APP_ID = "mosip_admin_app_id";
 
-	private static String MOSIP_REGPROC_CLIENT_SECRET = "mosip_regproc_client_secret";
-	private static String MOSIP_REGPROC_CLIENT_ID = "mosip_regproc_client_id";
-	private static String MOSIP_REGPROC_APP_ID = "mosip_regproc_app_id";
+	private static String MOSIP_REG_CLIENT_SECRET = "mosip_reg_client_secret";
+	private static String MOSIP_REG_CLIENT_ID = "mosip_reg_client_id";
+	private static String MOSIP_REGCLIENT_APP_ID = "mosip_regclient_app_id";
 
 	private static String MOSIP_IDA_CLIENT_SECRET = "mosip_ida_client_secret";
 	private static String MOSIP_IDA_CLIENT_ID = "mosip_ida_client_id";
@@ -194,14 +194,14 @@ public class ConfigManager {
 		admin_app_id = System.getenv(MOSIP_ADMIN_APP_ID) == null ? propsKernel.getProperty(MOSIP_ADMIN_APP_ID)
 				: System.getenv(MOSIP_ADMIN_APP_ID);
 
-		regproc_client_secret = System.getenv(MOSIP_REGPROC_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_REGPROC_CLIENT_SECRET)
-				: System.getenv(MOSIP_REGPROC_CLIENT_SECRET);
-		regproc_client_id = System.getenv(MOSIP_REGPROC_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_REGPROC_CLIENT_ID)
-				: System.getenv(MOSIP_REGPROC_CLIENT_ID);
-		regproc_app_id = System.getenv(MOSIP_REGPROC_APP_ID) == null ? propsKernel.getProperty(MOSIP_REGPROC_APP_ID)
-				: System.getenv(MOSIP_REGPROC_APP_ID);
+		regproc_client_secret = System.getenv(MOSIP_REG_CLIENT_SECRET) == null
+				? propsKernel.getProperty(MOSIP_REG_CLIENT_SECRET)
+				: System.getenv(MOSIP_REG_CLIENT_SECRET);
+		regproc_client_id = System.getenv(MOSIP_REG_CLIENT_ID) == null
+				? propsKernel.getProperty(MOSIP_REG_CLIENT_ID)
+				: System.getenv(MOSIP_REG_CLIENT_ID);
+		regproc_app_id = System.getenv(MOSIP_REGCLIENT_APP_ID) == null ? propsKernel.getProperty(MOSIP_REGCLIENT_APP_ID)
+				: System.getenv(MOSIP_REGCLIENT_APP_ID);
 
 		ida_client_secret = System.getenv(MOSIP_IDA_CLIENT_SECRET) == null
 				? propsKernel.getProperty(MOSIP_IDA_CLIENT_SECRET)
