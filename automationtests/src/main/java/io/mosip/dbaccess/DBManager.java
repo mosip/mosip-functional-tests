@@ -122,6 +122,10 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
 					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+			System.out.println("DB URL:: " + ConfigManager.getMASTERDbUrl());
+			System.out.println("DbUser:: " + ConfigManager.getMasterDbUser());
+			System.out.println("DbPass:: " + ConfigManager.getMasterDbPass());
+			System.out.println("DbSchema:: " + ConfigManager.getMasterDbSchema());
 			session.doWork(new Work() {
 
 				@Override
@@ -240,8 +244,11 @@ public class DBManager {
 			Configuration config = new Configuration();
 			config.setProperty(Environment.DRIVER, ConfigManager.getDbDriverClass());
 			config.setProperty(Environment.URL, dburl);
+			System.out.println("dburl is" + dburl);
 			config.setProperty(Environment.USER, userName);
+			System.out.println("userName is" + userName);
 			config.setProperty(Environment.PASS, password);
+			System.out.println("password is" + password);
 			config.setProperty(Environment.DEFAULT_SCHEMA, schema);
 			config.setProperty(Environment.POOL_SIZE, ConfigManager.getDbConnectionPoolSize());
 			config.setProperty(Environment.DIALECT, ConfigManager.getDbDialect());

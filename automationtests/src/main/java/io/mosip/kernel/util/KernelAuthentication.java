@@ -336,6 +336,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 	cookie=reponse.getCookie("Authorization");
+	System.out.println("Regproc Cookie is:: " + cookie);
 	return cookie;
 }
 	
