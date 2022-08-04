@@ -46,6 +46,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
+
 	/**
 	 * get current testcaseName
 	 */
@@ -85,7 +86,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 								MediaType.APPLICATION_JSON, COOKIENAME,
 								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
 						"response.uin");
-		
+
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
@@ -93,42 +94,53 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		// filterHbs(testCaseDTO);
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
-			
+
 			KeycloakUserManager.removeVidUser();
-			HashMap<String, List<String>> attrmap=new HashMap<String, List<String>>();
-			List<String> list=new ArrayList<String>();
+			HashMap<String, List<String>> attrmap = new HashMap<String, List<String>>();
+			List<String> list = new ArrayList<String>();
 			list.add(uin);
 			attrmap.put("individual_id", list);
-			list=new ArrayList<String>();
+			list = new ArrayList<String>();
 			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
 			list.add(token);
 			attrmap.put("ida_token", list);
-			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"), propsKernel.getProperty("new_Resident_Password"), propsKernel.getProperty("new_Resident_Role"), attrmap);
+			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"),
+					propsKernel.getProperty("new_Resident_Password"), propsKernel.getProperty("new_Resident_Role"),
+					attrmap);
 		}
-		
-		
-		
-		//testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
+
+		// testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
-		
-		if(BaseTestCase.languageList.size()==2) {		  
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }","");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }","");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
-		} 
-		else if(BaseTestCase.languageList.size()==1) { 
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }","");
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Female\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }","");
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Madhu.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }","");
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }","");
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line2\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }","");
-			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
+
+		if (BaseTestCase.languageList.size() == 2) {
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }", "");
+		} else if (BaseTestCase.languageList.size() == 1) {
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Female\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Madhu.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Line2\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }",
+					"");
 		}
-		
-		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(),false);
+
+		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 
 		if (inputJson.contains("$1STLANG$"))
 			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
@@ -139,7 +151,8 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
-		//inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
+		// inputJson = inputJson.replace("$SCHEMAVERSION$",
+		// props.getProperty("idSchemaVersion"));
 
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -181,15 +194,11 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void waittime() {
 
 		try {
-			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
-			//Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
-			logger.info("waiting for" + props.getProperty("Delaytime")
-			+ " mili secs after UIN Generation In IDREPO");
-//	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
+			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
-		 
 
 	}
 }
