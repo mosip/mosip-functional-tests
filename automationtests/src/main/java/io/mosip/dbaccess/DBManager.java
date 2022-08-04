@@ -120,12 +120,14 @@ public class DBManager {
 	public static void clearMasterDbData() {
 		Session session = null;
 		try {
-			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
-					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+			
 			System.out.println("DB URL:: " + ConfigManager.getMASTERDbUrl());
 			System.out.println("DbUser:: " + ConfigManager.getMasterDbUser());
 			System.out.println("DbPass:: " + ConfigManager.getMasterDbPass());
 			System.out.println("DbSchema:: " + ConfigManager.getMasterDbSchema());
+			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+			
 			session.doWork(new Work() {
 
 				@Override
@@ -239,6 +241,11 @@ public class DBManager {
 	private static Session getDataBaseConnection(String dburl, String userName, String password, String schema) {
 		SessionFactory factory = null;
 		Session session = null;
+		
+		System.out.println("dburl is" + dburl);
+		System.out.println("userName is" + userName);
+		System.out.println("password is" + password);
+		
 
 		try {
 			Configuration config = new Configuration();
