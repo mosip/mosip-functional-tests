@@ -129,7 +129,7 @@ public class KeyMgrUtil {
         
         //Invoke getKey entry for DEVICE and FTM partner type to automatically generate DSK and CSK certificates
         if(partnerType.equals(PartnerTypes.DEVICE) || partnerType.equals(PartnerTypes.FTM)) {
-        	getKeyEntry(dirPath, partnerType);
+        	getKeyEntry(dirPath, partnerType, organization, keyFileNameByPartnerName);
         }
         
         
@@ -229,28 +229,36 @@ public class KeyMgrUtil {
 		builder.addRDN(BCStyle.OU, "IDA-TEST-ORG-UNIT");
 		builder.addRDN(BCStyle.CN, cn);
 		return builder.build();
-	}
+	}   
+    
 
-    public PrivateKeyEntry getKeyEntry(String dirPath, PartnerTypes partnerType) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
-            KeyStoreException, CertificateException, IOException, OperatorCreationException {
-
+    public PrivateKeyEntry getKeyEntry(String dirPath, PartnerTypes partnerType, String organization, boolean keyFileNameByPartnerName) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
+            KeyStoreException, CertificateException, IOException, OperatorCreationException {    	
+        
         if (partnerType == PartnerTypes.EKYC) {
-            String partnerFilePath = dirPath + '/' + PartnerTypes.EKYC.getFilePrepend() + PARTNER_P12_FILE_NAME;
+			String filePrepend = keyFileNameByPartnerName ? PartnerTypes.EKYC.getFilePrepend() + '-' + organization
+					: PartnerTypes.EKYC.getFilePrepend();
+            String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;            
             PrivateKeyEntry privateKeyEntry = getPrivateKeyEntry(partnerFilePath);
             //If ekyc key is not present, use relying partner key
             if(privateKeyEntry == null) {
-            	partnerFilePath = dirPath + '/' + PartnerTypes.RELYING_PARTY.getFilePrepend() + PARTNER_P12_FILE_NAME;
+            	filePrepend = keyFileNameByPartnerName ? PartnerTypes.RELYING_PARTY.getFilePrepend() + '-' + organization
+    					: PartnerTypes.RELYING_PARTY.getFilePrepend();
+                partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
                 privateKeyEntry = getPrivateKeyEntry(partnerFilePath);
             }
 			return privateKeyEntry;
         }
         
-        String filePrepend = partnerType.getFilePrepend();
+        
         if (partnerType == PartnerTypes.RELYING_PARTY) {
-            String partnerFilePath = dirPath + '/' + partnerType.getFilePrepend() + PARTNER_P12_FILE_NAME;
+			String filePrepend = keyFileNameByPartnerName ? PartnerTypes.RELYING_PARTY.getFilePrepend() + '-' + organization
+					: PartnerTypes.RELYING_PARTY.getFilePrepend();
+            String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
             return getPrivateKeyEntry(partnerFilePath);
         }
         
+        String filePrepend = partnerType.getFilePrepend();
         if (partnerType == PartnerTypes.FTM) {
             String csPartnerFilePath = dirPath + '/' + filePrepend + CHIP_SPECIFIC_KEY + PARTNER_P12_FILE_NAME;
             PrivateKeyEntry csKeyEntry = getPrivateKeyEntry(csPartnerFilePath);
@@ -315,10 +323,11 @@ public class KeyMgrUtil {
         return false;
     }
 
-    public boolean updatePartnerCertificate(String partnerType, X509Certificate updateCert, String dirPath) throws NoSuchAlgorithmException, 
+    public boolean updatePartnerCertificate(String partnerType, X509Certificate updateCert, String dirPath, String organization, boolean keyFileNameByPartnerName) throws NoSuchAlgorithmException, 
             UnrecoverableEntryException, KeyStoreException, CertificateException, IOException {
-
-        String partnerFilePath = dirPath + '/' + partnerType + PARTNER_P12_FILE_NAME;
+    	String filePrepend = keyFileNameByPartnerName ? partnerType + '-' + organization : partnerType;        
+        String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
+        
         PrivateKeyEntry partnerPrivKeyEntry = getPrivateKeyEntry(partnerFilePath);
         if (Objects.nonNull(partnerPrivKeyEntry)) {
             X509Certificate fileCert = (X509Certificate) partnerPrivKeyEntry.getCertificate();
