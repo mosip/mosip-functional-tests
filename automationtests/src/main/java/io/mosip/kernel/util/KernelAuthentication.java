@@ -329,9 +329,9 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	JSONObject actualrequest = getRequestJson(authRequest);
 	JSONObject request=new JSONObject();
-	request.put("appId", props.get("regProc_appid"));
-	request.put("clientId", props.get("regProc_clientId"));
-	request.put("secretKey", props.get("regProc_secretKey"));
+	request.put("appId", ConfigManager.getRegprocAppId());
+	request.put("clientId", ConfigManager.getRegprocClientId());
+	request.put("secretKey", ConfigManager.getRegprocClientSecret());
 	actualrequest.put("request", request);
 	
 	Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
