@@ -145,7 +145,7 @@
 	</test>
 	<test name="DeviceTypeSearch">
 		<parameter name="ymlFile"
-			value="masterdata/DeviceTypeSearch/deviceTypeSearch.yml" />
+			value="masterdata/DeviceTypeSearch/DeviceTypeSearch.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -374,12 +374,6 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
-
-
-
-	
-
-
 
 
 	<test name="CreateMachineType">
