@@ -42,12 +42,18 @@ Only external API endpoints are covered.
   *	 On your local sytem, gitbash at any location
   *	 Run the "git clone https://github.com/mosip/mosip-functional-tests" command
 
+## Build Authentication Demo Service
 ```
-cd automationtests
+cd authentication-demo-service
+```
+```
+mvn clean install
 ```
 
 ## Build Test Automation Code
-
+```
+cd ../automationtests
+```
 ```
 mvn clean install  
 ```

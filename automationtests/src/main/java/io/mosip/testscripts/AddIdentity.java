@@ -46,7 +46,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	String uin2 = null;
 	/**
 	 * get current testcaseName
 	 */
@@ -79,6 +78,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseDTO.setInputTemplate(AdminTestUtil.modifySchemaGenerateHbs());
 		String uin = JsonPrecondtion
 				.getValueFromJson(
 						RestClient.getRequestWithCookie(ApplnURI + "/v1/idgenerator/uin", MediaType.APPLICATION_JSON,
@@ -91,12 +91,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
 
-		
-		
-		
-		
-		
-		
 		// filterHbs(testCaseDTO);
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
 			
@@ -114,7 +108,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		
 		
 		
-		testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
+		//testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
 		
 		if(BaseTestCase.languageList.size()==2) {		  
@@ -134,7 +128,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			jsonInput= jsonInput.replace(", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }","");
 		}
 		
-		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate());
+		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(),false);
 
 		if (inputJson.contains("$1STLANG$"))
 			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
@@ -145,7 +139,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
-		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
+		//inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
 
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -185,13 +179,17 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
+
 		try {
+			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
+			//Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime")
 			+ " mili secs after UIN Generation In IDREPO");
 	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}
+		 
 
 	}
 }

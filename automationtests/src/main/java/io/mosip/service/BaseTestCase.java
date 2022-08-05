@@ -1,23 +1,14 @@
 package io.mosip.service;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
-
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
@@ -25,11 +16,6 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
-import org.keycloak.admin.client.Keycloak;
-import org.keycloak.admin.client.resource.RealmResource;
-import org.keycloak.admin.client.resource.UserResource;
-import org.keycloak.admin.client.resource.UsersResource;
-import org.keycloak.representations.idm.UserRepresentation;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -43,7 +29,6 @@ import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.testrunner.MosipTestRunner;
-//import io.mosip.prereg.scripts.Create_PreRegistration;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -88,7 +73,7 @@ public class BaseTestCase {
 
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
-	public static Map queries;
+	public static Map<?, ?> queries;
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
@@ -96,8 +81,8 @@ public class BaseTestCase {
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	//static PreRegistrationLibrary lib = new PreRegistrationLibrary();
-	public static Map residentQueries;
-	public static Map partnerQueries;
+	public static Map<?, ?> residentQueries;
+	public static Map<?, ?> partnerQueries;
 	public static boolean insertDevicedata = false;
 	public static boolean proxy = true;
 	/**
@@ -120,7 +105,7 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
-	private static String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
 
@@ -188,67 +173,68 @@ public class BaseTestCase {
 		logger.info("Test Framework for Mosip api Initialized");
 		logger.info("Logging initialized: All logs are located at " + "src/logs/mosip-api-test.log");
 		initialize();
-		logger.info("Done with BeforeSuite and test case setup! BEGINNING TEST EXECUTION!\n\n");
+		logger.info("Done with BeforeSuite and test case setup! su TEST EXECUTION!\n\n");
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
 		AuthTestsUtil.removeOldMosipTempTestResource();
-		if (listOfModules.contains("auth") || listOfModules.contains("all")) {
+		if (listOfModules.contains("auth")) {
+			setReportName("auth");
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
-		if (listOfModules.contains("idrepo") || listOfModules.contains("all")) {
-			AdminTestUtil.copyIdrepoTestResource();
+		if (listOfModules.contains("idrepo")) {
+			setReportName("idrepo");
+			AdminTestUtil.copyIdrepoTestResource();			
 		}
-		if (listOfModules.contains("admin") || listOfModules.contains("all")) {
+		if (listOfModules.contains("admin")) {
+			setReportName("admin");
 			AdminTestUtil.initiateAdminTest();
 		}
-		if (listOfModules.contains("masterdata") || listOfModules.contains("all")) {
+		if (listOfModules.contains("masterdata")) {
+			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
 		}
 		
-		if (listOfModules.contains("mobileid") || listOfModules.contains("all")){
+		if (listOfModules.contains("mobileid")){
+			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
 			
 		}
-		if (listOfModules.contains("syncdata") || listOfModules.contains("all")) {
+		if (listOfModules.contains("syncdata")) {
+			setReportName("syncdata");
 			AdminTestUtil.initiateSyncDataTest();
 		}
-		if (listOfModules.contains("resident") || listOfModules.contains("all")) {
+		if (listOfModules.contains("resident")) {
+			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
 		}
-		if (listOfModules.contains("partner") || listOfModules.contains("all")) {
+		if (listOfModules.contains("partner")) {
+			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		if (listOfModules.contains("kernel") || listOfModules.contains("all")) {
+		if (listOfModules.contains("kernel")) {
+			setReportName("kernel");
 			AdminTestUtil.initiateKernelTest();
 		}
-		if (listOfModules.contains("regproc") || listOfModules.contains("all")) {
+		if (listOfModules.contains("regproc")) {
+			setReportName("regproc");
 			AdminTestUtil.initiateregProcTest();
 		}
-		if (listOfModules.contains("prereg") || listOfModules.contains("all")) {
+		if (listOfModules.contains("prereg")) {
+			setReportName("prereg");
 			AdminTestUtil.copyPreregTestResource();
 			
 		}
 		if (listOfModules.contains("prerequisite")) {
+			setReportName("prerequisite");
 			AdminTestUtil.copyPrerequisiteTestResource();
-			
 		}
-		
-		
-		
-		/*
-		 * if (listOfModules.contains("masterdata")) { mapUserToZone(); }
-		 */
-		
-		//inserting device management data
-		/*
-		 * if(insertDevicedata) { AuthTestsUtil.deleteDeviceManagementData();
-		 * logger.info("Inserting device management data");
-		 * AuthTestsUtil.createDeviceManagementData(); }
-		 */
-
-	} 
+	}
+	
+	private static void  setReportName(String moduleName) {
+		System.getProperties().setProperty("emailable.report2.name", "mosip-" + moduleName +"-"+ System.currentTimeMillis() +"-report.html");
+	}
 		
 
 
@@ -257,20 +243,11 @@ public class BaseTestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	public void testTearDown(ITestContext ctx) {
-		String testsuite = ctx.getCurrentXmlTest().getSuite().getName();
-		/*
-		 * if(testsuite.contains("AuthenticationTest")) { new PMPDataManager(false);
-		 * AuthTestsUtil.deleteDeviceManagementData(); } else
-		 * if(testsuite.equalsIgnoreCase("Mosip API Suite")) { new
-		 * PMPDataManager(false); AuthTestsUtil.deleteDeviceManagementData(); }
-		 */
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
-		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
-		
-		// extent.flush();
+		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");		
 	} // end testTearDown
 
 	public static Properties getproperty(String path) {
@@ -297,19 +274,6 @@ public class BaseTestCase {
 		return logProp;
 	}
 
-	private static void copyDbInTarget() {
-		File db = new File(MosipTestRunner.getGlobalResourcePath().substring(0,
-				MosipTestRunner.getGlobalResourcePath().lastIndexOf("target")) + "/db");
-		File targetDb = new File(db.getPath().replace("/db", "/target/db"));
-		try {
-			FileUtils.copyDirectory(db, targetDb);
-			logger.info("Copied :: " + targetDb.getPath() + ":: to target");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	private void copyReportAndLog()
 	{
 		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
@@ -343,6 +307,7 @@ public class BaseTestCase {
 	
 	
 	
+		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");

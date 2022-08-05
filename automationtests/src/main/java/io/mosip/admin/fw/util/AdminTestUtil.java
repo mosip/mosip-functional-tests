@@ -2,6 +2,7 @@ package io.mosip.admin.fw.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -61,6 +62,7 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -70,12 +72,11 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
-import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
 import io.mosip.kernel.core.util.HMACUtils2;
+import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
-import io.mosip.testscripts.AddIdentity;
 import io.restassured.response.Response;
 
 
@@ -114,10 +115,11 @@ public class AdminTestUtil extends BaseTestCase{
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField=null;
+	public static String identityHbs=null;
 	public static String UpdateUinRequest="config/Authorization/requestIdentity.json";
 	public static HashMap<String, String> keycloakRolesMap=new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap=new HashMap<String, String>();
-	private String zoneMappingRequest="Config/Authorization/zoneMappingRequest.json";
+	private String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	//public static String prevrReqTime=null;
 	
 	/** The Constant SIGN_ALGO. */
@@ -1242,13 +1244,27 @@ public class AdminTestUtil extends BaseTestCase{
 	
 	public String getJsonFromTemplate(String input, String template)
 	{
+		return getJsonFromTemplate(input, template, true);
+		
+	}
+	
+	
+	public String getJsonFromTemplate(String input, String template, boolean readFile)
+	{
 		String resultJson = null;
 		try {
 			Handlebars handlebars = new Handlebars();
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>(){}.getType();
-			Map<String, Object> map = gson.fromJson(input, type);   
-			String templateJsonString = new String(Files.readAllBytes(Paths.get(getResourcePath()+template+".hbs")), "UTF-8");
+			Map<String, Object> map = gson.fromJson(input, type);  
+			String templateJsonString ;
+			if(readFile) {
+				templateJsonString = new String(Files.readAllBytes(Paths.get(getResourcePath()+template+".hbs")), "UTF-8");
+			}
+			else {
+				templateJsonString=template;
+			}
+			
 			Template compiledTemplate = handlebars.compileInline(templateJsonString);
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
@@ -1686,6 +1702,7 @@ protected String modifyRequest(String inputJson, Map<String, String> fieldvalue,
 
 public static void copyPreregTestResource() {
 	try {
+		System.out.println("GlobalResourcePath" + RunConfigUtil.getGlobalResourcePath());
 		File source = new File(RunConfigUtil.getGlobalResourcePath() + "/preReg");
 		File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/"+RunConfigUtil.resourceFolderName);
 		FileUtils.copyDirectoryToDirectory(source, destination);
@@ -2048,29 +2065,146 @@ public static String generateTokenID(String uin, String partnerCode) {
 	}
 }
 
-/*
- * public static JSONObject mapUserToZone() { //public String void
- * mapUserToZone() { String token = kernelAuthLib.getTokenByRole("resident");
- * String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
- * 
- * org.json.simple.JSONObject actualrequest =
- * getRequestJson(zoneMappingRequest);
- * 
- * JSONObject request = new JSONObject(); request.put("appId",
- * props.get("autoUsr_appid")); request.put("zoneCode",
- * props.get("autoUsr_appid")); request.put("userId",
- * props.get("autoUsr_password")); request.put("langCode",
- * props.get("autoUsr_user")); actualrequest.put("request", request);
- * System.out.println(actualrequest);
- * logger.info("Getting certificate for "+props.get("autoUsr_appid")); Response
- * response = RestClient.postRequestWithCookie(url, actualrequest,
- * MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
- * token); JSONObject responseJson = new JSONObject(response.asString());
- * System.out.println(responseJson); return responseJson;
- * 
- * 
- * 
- * }
- */
+
+public static String modifySchemaGenerateHbs() {
+    if(identityHbs!=null) {
+    	return identityHbs;
+    }
+	StringBuffer everything = new StringBuffer("");
+	kernelAuthLib = new KernelAuthentication();
+	String token = kernelAuthLib.getTokenByRole("admin");
+	String url = ApplnURI + props.getProperty("masterSchemaURL");
+
+	Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+			"Authorization", token);
+
+	org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+	org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
+	
+	//String schemaVersion = schemaData.getString("idVersion");
+	Double schemaVersion = (Double) schemaData.get("idVersion");
+	//double schemaVersion=Double.parseDouble(schemaVersion);
+	System.out.println(schemaVersion);
+	String schemaJsonData = schemaData.getString("schemaJson");
+	
+	String schemaFile = schemaJsonData.toString();
+
+	try {
+		JSONObject jObj = new JSONObject(schemaFile);
+		JSONObject objIDJson4 = jObj.getJSONObject("properties");
+		JSONObject objIDJson = objIDJson4.getJSONObject("identity");
+		JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
+		JSONArray objIDJson1 = objIDJson.getJSONArray("required");
+
+		FileWriter myFile = new FileWriter("addIdentity.hbs");
+		myFile.write("{\n");
+		myFile.write("  \"id\": \"{{id}}\",\n");
+		myFile.write("  \"request\": {\n");
+		myFile.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
+
+		myFile.write("    \"identity\": {\n");
+		myFile.write("\t  \"UIN\": \"{{UIN}}\",\n");
+		myFile.close();
+
+
+		boolean flag = true;
+		for (int i = 0, size = objIDJson1.length(); i < size; i++) {
+			String objIDJson3 = objIDJson1.getString(i);
+
+			JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+
+			if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
+				JSONObject jo = new JSONObject();
+
+				jo.put("language", "{{language}}");
+				jo.put("value", "{{value}}");
+
+				JSONArray ja = new JSONArray();
+
+				String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
+						+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
+						+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+
+				JSONObject mainObj = new JSONObject();
+				mainObj.put("fullName", ja3);
+
+				System.out.println(mainObj);
+
+				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				flag = true;
+				myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+
+				myWriter.write(ja3);
+				myWriter.write("\n\t  ],\n");
+				myWriter.close();
+
+			} else {
+
+				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				flag = true;
+
+				if (objIDJson3.equals("proofOfIdentity")) {
+					myWriter.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+							+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+				}
+
+				else if (objIDJson3.equals("individualBiometrics")) {
+					myWriter.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+							+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+				}
+
+				else if (objIDJson3.equals("IDSchemaVersion")) {
+					myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+				}
+
+				else {
+					myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+
+				}
+				myWriter.close();
+
+			}
+
+		}
+		FileWriter myFile2 = new FileWriter("addIdentity.hbs", true);
+
+
+		myFile2.write("\t},\n");
+		myFile2.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+				+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
+		myFile2.write("},\n");
+
+		myFile2.write("\t\"requesttime\": \"{{requesttime}}\",\n");
+		myFile2.write("\t\"version\": \"{{version}}\"\n");
+		myFile2.write("}\n");
+		myFile2.close();
+
+		BufferedReader br = new BufferedReader(new FileReader("addIdentity.hbs"));
+		try {
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null) {
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = br.readLine();
+
+				StringBuffer everythingtrue = new StringBuffer(sb.toString());
+				everything = everythingtrue;
+				
+			}
+
+		} finally {
+			br.close();
+		}
+
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	identityHbs=everything.toString();
+	return identityHbs;
+}
 
 }
