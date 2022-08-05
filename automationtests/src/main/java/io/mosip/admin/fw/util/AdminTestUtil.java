@@ -1337,6 +1337,11 @@ public class AdminTestUtil extends BaseTestCase{
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if(jsonString.contains("$RID$"))
 			jsonString = jsonString.replace("$RID$", genRid);
+		
+		if(jsonString.contains("$SCHEMAVERSION$"))
+			jsonString = jsonString.replace("$SCHEMAVERSION$", generateLatestSchemaVersion());
+		
+		
 		if(jsonString.contains("$KEYCLOAKUSER1$"))
 			jsonString = jsonString.replace("$KEYCLOAKUSER1$", propsKernel.getProperty("KEYCLOAKUSER1"));
 		if(jsonString.contains("$KEYCLOAKUSER2$"))
@@ -2206,5 +2211,170 @@ public static String modifySchemaGenerateHbs() {
 	identityHbs=everything.toString();
 	return identityHbs;
 }
+
+public static String generateLatestSchemaVersion() {
+    
+	kernelAuthLib = new KernelAuthentication();
+	String token = kernelAuthLib.getTokenByRole("admin");
+	String url = ApplnURI + props.getProperty("masterSchemaURL");
+
+	Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+			"Authorization", token);
+
+	org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+	org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
+	
+	//String schemaVersion = schemaData.getString("idVersion");
+	Double schemaVersion = (Double) schemaData.get("idVersion");
+	String latestSchemaVersion=Double. toString(schemaVersion);
+	//double schemaVersion=Double.parseDouble(schemaVersion);
+	System.out.println(latestSchemaVersion);
+	return latestSchemaVersion;
+	
+}
+
+
+public static String generateHbsForUpdateDraft() {
+    if(identityHbs!=null) {
+    	return identityHbs;
+    }
+	StringBuffer everything = new StringBuffer("");
+	kernelAuthLib = new KernelAuthentication();
+	String token = kernelAuthLib.getTokenByRole("admin");
+	String url = ApplnURI + props.getProperty("masterSchemaURL");
+
+	Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+			"Authorization", token);
+
+	org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+	org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
+	
+	//String schemaVersion = schemaData.getString("idVersion");
+	Double schemaVersion = (Double) schemaData.get("idVersion");
+	//double schemaVersion=Double.parseDouble(schemaVersion);
+	System.out.println(schemaVersion);
+	String schemaJsonData = schemaData.getString("schemaJson");
+	
+	String schemaFile = schemaJsonData.toString();
+
+	try {
+		JSONObject jObj = new JSONObject(schemaFile);
+		JSONObject objIDJson4 = jObj.getJSONObject("properties");
+		JSONObject objIDJson = objIDJson4.getJSONObject("identity");
+		JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
+		JSONArray objIDJson1 = objIDJson.getJSONArray("required");
+
+		FileWriter myFile = new FileWriter("addIdentity.hbs");
+		myFile.write("{\n");
+		myFile.write("  \"id\": \"{{id}}\",\n");
+		myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
+		myFile.write("  \"version\": \"{{version}}\",\n");
+		myFile.write("  \"registrationId\": \"{{registrationId}}\",\n");
+		myFile.write("  \"request\": {\n");
+		
+
+		myFile.write("    \"identity\": {\n");
+		myFile.close();
+
+
+		boolean flag = true;
+		for (int i = 0, size = objIDJson1.length(); i < size; i++) {
+			String objIDJson3 = objIDJson1.getString(i);
+
+			JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+
+			if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
+				JSONObject jo = new JSONObject();
+
+				jo.put("language", "{{language}}");
+				jo.put("value", "{{value}}");
+
+				JSONArray ja = new JSONArray();
+
+				String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
+						+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
+						+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+
+				JSONObject mainObj = new JSONObject();
+				mainObj.put("fullName", ja3);
+
+				System.out.println(mainObj);
+
+				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				flag = true;
+				myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+
+				myWriter.write(ja3);
+				myWriter.write("\n\t  ],\n");
+				myWriter.close();
+
+			} else {
+
+				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				flag = true;
+
+				if (objIDJson3.equals("proofOfIdentity")) {
+					myWriter.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+							+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+				}
+
+				else if (objIDJson3.equals("individualBiometrics")) {
+					myWriter.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+							+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+				}
+
+				else if (objIDJson3.equals("IDSchemaVersion")) {
+					myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+				}
+
+				else {
+					myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+
+				}
+				myWriter.close();
+
+			}
+
+		}
+		FileWriter myFile2 = new FileWriter("addIdentity.hbs", true);
+
+
+		myFile2.write("\t},\n");
+		myFile2.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+				+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
+		myFile2.write("},\n");
+
+		
+		myFile2.write("}\n");
+		myFile2.close();
+
+		BufferedReader br = new BufferedReader(new FileReader("addIdentity.hbs"));
+		try {
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null) {
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = br.readLine();
+
+				StringBuffer everythingtrue = new StringBuffer(sb.toString());
+				everything = everythingtrue;
+				
+			}
+
+		} finally {
+			br.close();
+		}
+
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	identityHbs=everything.toString();
+	return identityHbs;
+}
+
 
 }
