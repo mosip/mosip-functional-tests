@@ -57,7 +57,7 @@ GetCoordinateSpecificRegistrationCenters:
 	  "errors": [
 	    {
 	      "errorCode": "RES-SER-418",
-	      "message": "Registration Center not found"
+	      "message": "$IGNORE$"
 	    }
   	]
 }'
@@ -80,7 +80,7 @@ GetCoordinateSpecificRegistrationCenters:
 		  "errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Registration Center not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'
@@ -209,7 +209,7 @@ GetCoordinateSpecificRegistrationCenters:
 	  "errors": [
 	    {
 	      "errorCode": "$IGNORE$",
-	      "message": "Registration Center not found"
+	      "message": "$IGNORE$"
 	    }
   	]
 }'
@@ -231,7 +231,7 @@ GetCoordinateSpecificRegistrationCenters:
 		  "errors": [
 		    {
 		      "errorCode": "$IGNORE$",
-		      "message": "Registration Center not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'
@@ -253,7 +253,7 @@ GetCoordinateSpecificRegistrationCenters:
 		  "errors": [
 		    {
 		      "errorCode": "$IGNORE$",
-		      "message": "Registration Center not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'
@@ -275,7 +275,7 @@ GetCoordinateSpecificRegistrationCenters:
 		  "errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Registration Center not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'

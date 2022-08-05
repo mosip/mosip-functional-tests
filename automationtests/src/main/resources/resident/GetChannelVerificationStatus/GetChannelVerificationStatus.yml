@@ -109,7 +109,7 @@ GetChannelVerificationStatus:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- channel"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -154,7 +154,7 @@ GetChannelVerificationStatus:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -199,7 +199,7 @@ GetChannelVerificationStatus:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- channel"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -244,7 +244,7 @@ GetChannelVerificationStatus:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{

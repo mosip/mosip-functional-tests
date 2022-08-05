@@ -392,7 +392,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- authType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -429,7 +429,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -466,7 +466,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -503,7 +503,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -541,7 +541,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -579,7 +579,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -616,7 +616,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -653,7 +653,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -690,7 +690,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -727,7 +727,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -764,7 +764,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -801,7 +801,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -839,7 +839,7 @@ AuthLock:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP has expired"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -877,7 +877,7 @@ AuthLock:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP has expired"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -915,7 +915,7 @@ AuthLock:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- authType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -953,7 +953,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -990,7 +990,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1027,7 +1027,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- transactionId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1064,7 +1064,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1102,7 +1102,7 @@ AuthLock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1117,7 +1117,7 @@ AuthLock:
       role: resident
       restMethod: post
       inputTemplate: resident/AuthLock/createAuthLock
-      outputTemplate: resident/error
+      outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
         "transactionID": "1234567890",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
@@ -1143,5 +1143,107 @@ AuthLock:
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthLock_Valid_UIN_Phone_All:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLock/createAuthLock
+      outputTemplate: resident/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
+    }
+}'
+
+   Resident_AuthLock_Valid_UIN_Email_All:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLock/createAuthLock
+      outputTemplate: resident/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthLock_Valid_UIN_EmptyChannel_Neg:
+      endPoint: /resident/v1/req/auth-lock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLock/createAuthLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmpty",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/error"
     }
 }'

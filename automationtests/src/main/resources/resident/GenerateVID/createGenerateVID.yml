@@ -298,7 +298,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -404,7 +404,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -476,7 +476,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -513,7 +513,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -551,7 +551,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -589,7 +589,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -626,7 +626,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -663,7 +663,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -702,7 +702,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -739,7 +739,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -776,7 +776,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -814,7 +814,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -852,7 +852,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -889,7 +889,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -926,7 +926,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -963,7 +963,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1000,7 +1000,7 @@ GenerateVID:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1380,7 +1380,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1418,7 +1418,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1558,7 +1558,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1596,7 +1596,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-422",
-            "message": "OTP has expired"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1634,7 +1634,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-29",
-            "message": "Invalid id::VID is REVOKED"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1672,7 +1672,7 @@ GenerateVID:
   "errors": [
         {
             "errorCode": "RES-SER-29",
-            "message": "Invalid id::VID is REVOKED"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -1744,7 +1744,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- transactionId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1782,7 +1782,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1820,7 +1820,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1858,7 +1858,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1934,7 +1934,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1972,7 +1972,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -2058,7 +2058,7 @@ GenerateVID:
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -2068,7 +2068,7 @@ GenerateVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2079,8 +2079,7 @@ GenerateVID:
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
     }
 }'
 
@@ -2092,7 +2091,7 @@ GenerateVID:
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -2102,7 +2101,7 @@ GenerateVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2112,8 +2111,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
@@ -2126,7 +2124,7 @@ GenerateVID:
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
@@ -2136,7 +2134,7 @@ GenerateVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmpty",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2146,7 +2144,7 @@ GenerateVID:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{

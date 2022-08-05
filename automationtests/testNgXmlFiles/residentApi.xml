@@ -40,7 +40,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test>	
+	</test>
 	<test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
