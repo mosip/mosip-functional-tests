@@ -490,7 +490,7 @@
 	
 	<test name="SearchPartner">
 		<parameter name="ymlFile"
-			value="partner/SearchAPIs/SearchPartner/CreateSearchPartner.yml" />
+			value="partner/SearchAPIs/SearchPartner/createSearchPartner.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -537,7 +537,7 @@
 	
    	<test name="CreateDeviceDetail">
 		<parameter name="ymlFile"
-			value="partner/device/makeAndModel/create/createDeviceDetail.yml" />
+			value="partner/device/makeAndModel/create/CreateDeviceDetail.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -1021,7 +1021,7 @@
 	</test>
 	<test name="GenerateApiKey">
 		<parameter name="ymlFile"
-			value="partner/GenerateApiKeyforApprovedPolicies/GenerateApiKey/GenerateApiKey.yml" />
+			value="partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/GenerateApiKey.yml" />
 		<parameter name="idKeyName"	value="apiKey" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
