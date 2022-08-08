@@ -145,7 +145,6 @@
 	</test>
 	
 	
-	
 	<test name="GetAppointmentDetails">
 		<parameter name="ymlFile"
 			value="preReg/GetAppointmentDetails/GetAppointmentDetails.yml" />
@@ -168,8 +167,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
-	
 	
 	
 	<test name="SendNotifications">
@@ -244,11 +241,9 @@
 		</classes>
 	</test>
 	
-	
-	
 	<test name="AddUpdateRegistration">
 		<parameter name="ymlFile"
-			value="preReg/AddUpdateRegistration/addUpdateRegistration.yml" />
+			value="preReg/AddUpdateRegistration/AddUpdateRegistration.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>

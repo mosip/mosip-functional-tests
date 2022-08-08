@@ -15,7 +15,7 @@
 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="resident\AddIdentity\AddIdentity.yml" />
+			value="resident/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
@@ -87,7 +87,7 @@
 	</test>
 	<test name="RevokeVID">
 		<parameter name="ymlFile"
-			value="resident\RevokeVID\createRevokeVID.yml" />
+			value="resident/RevokeVID/createRevokeVID.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
@@ -214,7 +214,7 @@
 	</test>
 	<test name="GetChannelVerificationStatus">
 		<parameter name="ymlFile"
-			value="resident\GetChannelVerificationStatus\GetChannelVerificationStatus.yml" />
+			value="resident/GetChannelVerificationStatus/GetChannelVerificationStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamWithOtpGenerate" />
 		</classes>

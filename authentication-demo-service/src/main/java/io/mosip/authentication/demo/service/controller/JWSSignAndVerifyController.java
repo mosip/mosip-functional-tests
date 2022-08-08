@@ -319,11 +319,14 @@ public class JWSSignAndVerifyController {
 			boolean includeCertHash, 
 			String certificateUrl, 
 			String dirPath, 
-			PartnerTypes partnerType) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, 
+			PartnerTypes partnerType,
+			String organizationName,
+			boolean keyFileNameByPartnerName) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, 
 			KeyStoreException, CertificateException, IOException, OperatorCreationException {
 
 		JsonWebSignature jwSign = new JsonWebSignature();
-		PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerType);
+		PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerType, organizationName,
+				keyFileNameByPartnerName);
 		if (Objects.isNull(keyEntry)) {
 			throw new KeyStoreException("Key file not available for partner type: " + partnerType.toString());
 		}

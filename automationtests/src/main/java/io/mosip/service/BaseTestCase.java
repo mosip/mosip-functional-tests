@@ -26,6 +26,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.dbaccess.DBManager;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.testrunner.MosipTestRunner;
@@ -192,6 +193,7 @@ public class BaseTestCase {
 			AdminTestUtil.initiateAdminTest();
 		}
 		if (listOfModules.contains("masterdata")) {
+			DBManager.clearMasterDbData();
 			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
 		}
@@ -210,6 +212,8 @@ public class BaseTestCase {
 			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner")) {
+			DBManager.clearPMSDbData();
+			DBManager.clearKeyManagerDbData();
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}

@@ -1,10 +1,29 @@
 {
   "id": "{{id}}",
+  "requesttime": "{{requesttime}}",
+  "version": "{{version}}",
+  "registrationId": "{{registrationId}}",
   "request": {
-	  "registrationId": "{{registrationId}}",
     "identity": {
-	  "UIN": "{{UIN}}",
-	  "IDSchemaVersion": 0.1,
+	  "IDSchemaVersion": 0.7,
+	  "consent": [
+	   {{#each consent}}
+		{
+		  "language": "{{language}}",
+		  "value": "{{value}}"
+		}
+		{{#unless @last}},{{/unless}}
+		{{/each}}
+	  ],
+	  "consentText": [
+	   {{#each consentText}}
+		{
+		  "language": "{{language}}",
+		  "value": "{{value}}"
+		}
+		{{#unless @last}},{{/unless}}
+		{{/each}}
+	  ],
 	  "fullName": [
 	   {{#each fullName}}
 		{
@@ -17,33 +36,6 @@
 	  "dateOfBirth": "{{dateOfBirth}}",
 	  "gender": [
 	   {{#each gender}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "addressLine1": [
-	   {{#each addressLine1}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "addressLine2": [
-	   {{#each addressLine2}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "addressLine3": [
-	   {{#each addressLine3}}
 		{
 		  "language": "{{language}}",
 		  "value": "{{value}}"
@@ -108,6 +100,4 @@
 	  }
 	]
 },
-	"requesttime": "{{requesttime}}",
-	"version": "{{version}}"
 }

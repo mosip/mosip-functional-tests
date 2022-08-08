@@ -37,13 +37,15 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(UpdateIdentity.class);
 	protected String testCaseName = "";
 	private static String identity;
+
 	public static void saveIdentityForUpdateIdentityVerification(String id) {
-		identity=id;
+		identity = id;
 	}
-	
+
 	public static String getIdentityForUpdateIdentityVerification() {
 		return identity;
 	}
+
 	/**
 	 * get current testcaseName
 	 */
@@ -60,7 +62,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -74,20 +76,20 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		updateIdentity(testCaseDTO);
-		
+
 	}
-	
+
 	public void updateIdentity(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
-		
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		
+
+		testCaseName = testCaseDTO.getTestCaseName();
+
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		JSONObject otpReqJson = null;
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
-		if(req.has("sendOtp")) {
+		if (req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
 			req.remove("sendOtp");
 			otpReqJson = new JSONObject(otpRequest);
@@ -96,58 +98,56 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 			otpReqJson.remove("sendOtpEndPoint");
 			testCaseDTO.setInput(req.toString());
-			
-			if(sendOtpEndPoint.contains("$partnerKeyURL$"))
-			{
-				sendOtpEndPoint= sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+
+			if (sendOtpEndPoint.contains("$partnerKeyURL$")) {
+				sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
 			}
 		}
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
+		if (res.has("sendOtpResp")) {
 			sendOtpResp = res.get("sendOtpResp").toString();
 			res.remove("sendOtpResp");
 			testCaseDTO.setOutput(res.toString());
 		}
-		
+
 		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
-		generatedRid=genRid;
-		
-		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-		
+		generatedRid = genRid;
+
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+
 		inputJson = inputJson.replace("$RID$", genRid);
-		inputJson = inputJson.replace("$SCHEMAVERSION$", props.getProperty("idSchemaVersion"));
-		
+
 		if (inputJson.contains("$PRIMARYLANG$"))
 			inputJson = inputJson.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
-		
-		Response response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+
+		Response response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
-		
-		if(otpReqJson!=null) {
+
+		if (otpReqJson != null) {
 			Response otpResponse = null;
-			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
-			
+			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
+
 			JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 			sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 			sendOtpRespJson.remove("sendOtpResTemplate");
-			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-					.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
-			
+
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 				throw new AdminTestException("Failed at Send OTP output validation");
 		}
 	}
-	
 
 	/**
 	 * The method ser current test name to result
@@ -167,5 +167,5 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }
