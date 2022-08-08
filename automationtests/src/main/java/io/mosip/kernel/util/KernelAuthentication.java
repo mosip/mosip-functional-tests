@@ -233,11 +233,11 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 
 		JSONObject request = new JSONObject();
-		request.put("appId", props.get("resident_appid"));
+		request.put("appId", ConfigManager.getResidentAppId());
 		request.put("password", props.get("new_Resident_Password"));
 		request.put("userName", props.get("new_Resident_User"));
-		request.put("clientId", props.get("resident_clientId"));
-		request.put("clientSecret", props.get("resident_secretKey"));
+		request.put("clientId", ConfigManager.getResidentClientId());
+		request.put("clientSecret", ConfigManager.getResidentClientSecret());
 		actualrequest.put("request", request);
 
 		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
