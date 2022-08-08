@@ -781,12 +781,12 @@ public class AdminTestUtil extends BaseTestCase{
 		JSONObject req = new JSONObject(inputJson);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
-		System.out.println("req is:: "+ req);
+		//System.out.println("req is:: "+ req);
 		for(String param: params)
 		{
 			if(req.has(param)) {
 				 pathParamsMap.put(param, req.get(param).toString());
-				 System.out.println("pathParamsMap is:: "+ pathParamsMap);
+				 //System.out.println("pathParamsMap is:: "+ pathParamsMap);
 				 req.remove(param);
 			}
 			else 
@@ -798,8 +798,8 @@ public class AdminTestUtil extends BaseTestCase{
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			  System.out.println("req.toString() is"+req.toString());
-			  System.out.println("pathParamsMap is"+pathParamsMap);
+			  //System.out.println("req.toString() is"+req.toString());
+			  //System.out.println("pathParamsMap is"+pathParamsMap);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
