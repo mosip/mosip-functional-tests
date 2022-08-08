@@ -136,7 +136,7 @@ public class KeycloakUserManager {
 		List<String> needsToBeRemovedUsers = List.of(propsKernel.getProperty("new_Resident_User"));
 		Keycloak keycloakInstance = getKeycloakInstance();
 		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
-			RealmResource realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
 			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
