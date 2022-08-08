@@ -10,7 +10,7 @@ FilterBlockListedWords:
 	"filters": [{
 		"columnName": "word",
 		"type": "unique",
-		"text": "dumboo"
+		"text": "dumbooo"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -19,7 +19,7 @@ FilterBlockListedWords:
     "filters": [
       {
         "fieldID": "word",
-        "fieldValue": "dumboo"
+        "fieldValue": "dumbooo"
       }
     ]
   }'
@@ -34,7 +34,7 @@ FilterBlockListedWords:
 	"filters": [{
 		"columnName": "word",
 		"type": "All",
-		"text": "dumboo"
+		"text": "dumbooo"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -43,7 +43,7 @@ FilterBlockListedWords:
     "filters": [
       {
         "fieldID": "word",
-        "fieldValue": "dumboo"
+        "fieldValue": "dumbooo"
       }
     ]
   }'

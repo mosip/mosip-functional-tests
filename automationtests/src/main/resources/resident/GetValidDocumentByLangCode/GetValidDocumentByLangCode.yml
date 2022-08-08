@@ -30,7 +30,7 @@ GetValidDocumentByLangCode:
       "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "Valid document not found"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -62,7 +62,7 @@ GetValidDocumentByLangCode:
 }'
       output: '{
       	"error": "Not Found",
-  		"message": "No message available"
+  		"message": "$IGNORE$"
 }'
 
    Resident_GetValidDocumentByLangCode_Invalid_LangCode_Neg:
@@ -78,7 +78,7 @@ GetValidDocumentByLangCode:
       "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "Valid document not found"
+      "message": "$IGNORE$"
     }
   ]
 }'

@@ -75,7 +75,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 	   "errors": [
 	    {
 	      "errorCode": "RES-SER-418",
-	      "message": "Location not found"
+	      "message": "$IGNORE$"
 	    }
 	  ]
 }'
@@ -95,7 +95,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		"errors": [
 	    {
 	      "errorCode": "RES-SER-418",
-	      "message": "Location not found"
+	      "message": "$IGNORE$"
 	    }
 	  ]
 }'
@@ -115,7 +115,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		"errors": [
     {
       "errorCode": "RES-SER-412",
-      "message": "Unable to access API resource"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -135,7 +135,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		"errors": [
 	    {
 	      "errorCode": "RES-SER-418",
-	      "message": "Location not found"
+	      "message": "$IGNORE$"
 	    }
 	  ]
 }'

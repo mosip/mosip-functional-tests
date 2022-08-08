@@ -2,6 +2,7 @@ FetchValidDocumentsByDocCategoryCode:
    MasterData_FetchValidDocumentsByDocCategoryCode_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{languagecode}
       role: admin
+      templateFields: ["languagecode"]
       restMethod: get
       inputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCode
       outputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCodeResult
