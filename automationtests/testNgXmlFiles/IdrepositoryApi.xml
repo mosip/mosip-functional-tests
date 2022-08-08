@@ -14,7 +14,7 @@
 	
 	
 	
-	<test name="AddIdentity">
+	<!-- <test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idRepository/AddIdentity/AddIdentity.yml" />
 		<classes>
@@ -89,7 +89,7 @@
 		<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 	</classes>
 	</test>
-	
+	 -->
 	<test name="CreateDraft">
 		<parameter name="ymlFile"	value="idRepository/CreateDraft/CreateDraft.yml" />
 	<classes>
@@ -121,7 +121,7 @@
 	</classes>
 	</test> 
 	
-	<test name="PublishDraft">
+	<!-- <test name="PublishDraft">
 		<parameter name="ymlFile"	value="idRepository/PublishDraft/PublishDraft.yml" />
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
@@ -154,6 +154,6 @@
 	<classes>
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
-	</test> 
+	</test>  -->
 	
 </suite>
