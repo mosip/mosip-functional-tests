@@ -36,7 +36,7 @@ GetPartnersByPartnerType:
       "errors": [
     {
       "errorCode": "KER-ATH-401",
-      "message": "Authentication Failed"
+      "message": "$IGNORE$"
     }
   ]
 }'

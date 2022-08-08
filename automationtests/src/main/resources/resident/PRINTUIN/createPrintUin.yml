@@ -60,7 +60,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- cardType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -97,7 +97,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- cardType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -134,7 +134,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- cardType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -171,7 +171,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualIdType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -208,7 +208,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualIdType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -245,7 +245,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -282,7 +282,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -319,7 +319,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -356,7 +356,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -393,7 +393,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -430,7 +430,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- transactionId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -467,7 +467,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -504,7 +504,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -541,7 +541,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -578,7 +578,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -615,7 +615,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -652,7 +652,7 @@ PrintUin:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{

@@ -825,6 +825,13 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
+	<test name="FetchTemplate">
+		<parameter name="ymlFile"
+			value="masterdata/FetchTemplate/FetchTemplate.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	
 	<test name="DeleteTemplate">
 		<parameter name="ymlFile"
@@ -1348,13 +1355,6 @@
 	<test name="FetchTemplateType">
 		<parameter name="ymlFile"
 			value="masterdata/FetchTemplateType/FetchTemplateType.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="FetchTemplate">
-		<parameter name="ymlFile"
-			value="masterdata/FetchTemplate/FetchTemplate.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

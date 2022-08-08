@@ -2,6 +2,7 @@ FetchValidDocuments:
    MasterData_FetchValidDocuments_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/validdocuments/{languagecode}
       role: admin
+      templateFields: ["languagecode"]
       restMethod: get
       inputTemplate: masterdata/FetchValidDocuments/fetchValidDocuments
       outputTemplate: masterdata/FetchValidDocuments/fetchValidDocumentsResult

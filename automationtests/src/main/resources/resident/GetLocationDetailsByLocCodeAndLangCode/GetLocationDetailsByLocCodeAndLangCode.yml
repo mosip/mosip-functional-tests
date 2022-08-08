@@ -47,7 +47,7 @@ GetLocationDetailsByLocCodeAndLangCode:
 	    "errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Location not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'
@@ -67,7 +67,7 @@ GetLocationDetailsByLocCodeAndLangCode:
 	    "errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Location not found"
+		      "message": "$IGNORE$"
 		    }
 		  ]
 }'

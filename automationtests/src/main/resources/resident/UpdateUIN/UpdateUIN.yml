@@ -61,7 +61,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -99,7 +99,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -137,7 +137,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -175,7 +175,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- transactionId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -213,7 +213,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -251,7 +251,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -289,7 +289,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -327,7 +327,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -365,7 +365,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -403,7 +403,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -441,7 +441,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -479,7 +479,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -517,7 +517,7 @@ UpdateUIN:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{

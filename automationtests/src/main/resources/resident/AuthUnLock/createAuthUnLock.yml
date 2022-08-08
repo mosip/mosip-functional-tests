@@ -98,7 +98,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -137,7 +137,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -211,7 +211,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -285,7 +285,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -359,7 +359,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -433,7 +433,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -507,7 +507,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -581,7 +581,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -655,7 +655,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -729,7 +729,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -768,7 +768,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -807,7 +807,7 @@ AuthUnlock:
   "errors": [
         {
             "errorCode": "RES-SER-410",
-            "message": "Invalid Input Parameter- UnlockForSeconds must be greater than or equal to 0"
+            "message": "$IGNORE$"
         }
     ],
   "sendOtpResp":{
@@ -846,7 +846,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- authType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -884,7 +884,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -922,7 +922,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -960,7 +960,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -998,7 +998,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1036,7 +1036,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1074,7 +1074,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1112,7 +1112,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1150,7 +1150,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1188,7 +1188,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1226,7 +1226,7 @@ AuthUnlock:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1265,7 +1265,7 @@ AuthUnlock:
   "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- authType"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1304,7 +1304,7 @@ AuthUnlock:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP has expired"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1343,7 +1343,7 @@ AuthUnlock:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP has expired"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -1421,4 +1421,304 @@ AuthUnlock:
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
+}'
+
+   Resident_AuthUnLock_Empty_transactionID_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthUnLock_Empty_individualId_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthUnLock_Empty_requesttime_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthUnLock_Empty_id_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthUnLock_Empty_otp_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthUnLock_Valid_UIN_EmptyChannel_Neg:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmpty",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+  		"errors": [
+    {
+      "errorCode": "IDA-OTA-008",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+        "sendOtpResTemplate":"resident/error"
+    }
+}'
+
+   Resident_AuthUnLock_Valid_UIN_EmailChannel_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+       }
+}'
+
+   Resident_AuthUnLock_Valid_UIN_PhoneChannel_Pos:
+      endPoint: /resident/v1/req/auth-unlock
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnLock/createAuthUnLock
+      outputTemplate: resident/AuthUnLock/createAuthUnLockResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "unlockForSeconds": "1",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authunlock",
+        "version": "v1",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
+        "maskedMobile": "XXXXXX3210"
+        }
 }'

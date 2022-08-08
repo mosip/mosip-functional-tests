@@ -137,7 +137,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 	   "errors": [
     {
       "errorCode": "RES-SER-412",
-      "message": "Unable to access API resource"
+      "message": "$IGNORE$"
     }
   ]
 }'

@@ -32,7 +32,7 @@ GetResidentValidDocuments:
     	"errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Document Category- Document Type mapping not found"
+		      "message": "$IGNORE$"
 		    }
   ]
 }'
@@ -52,7 +52,7 @@ GetResidentValidDocuments:
     	"errors": [
 		    {
 		      "errorCode": "RES-SER-418",
-		      "message": "Document Category- Document Type mapping not found"
+		      "message": "$IGNORE$"
 		    }
   ]
 }'

@@ -7,8 +7,8 @@ DeleteBlockListedWords:
       inputTemplate: masterdata/DeleteBlockListedWords/deleteBlockListedWords
       outputTemplate: masterdata/DeleteBlockListedWords/deleteBlockListedWordsResult
       input: '{
-   "word": "dumboo"
+   "word": "dumbooo"
       }'
       output: '{
-  "code":"dumboo"
+  "code":"dumbooo"
 }'

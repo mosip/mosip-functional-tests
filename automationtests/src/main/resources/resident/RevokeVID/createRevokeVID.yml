@@ -27,7 +27,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -64,7 +64,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -101,7 +101,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -138,7 +138,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -175,7 +175,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -212,7 +212,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -249,7 +249,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -286,7 +286,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -323,7 +323,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- vidStatus"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -360,7 +360,7 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- vidStatus"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -430,7 +430,7 @@ RevokeVID:
   "errors": [
     {
       "errorCode": "RES-SER-29",
-      "message": "Invalid id::VID is REVOKED"
+      "message": "$IGNORE$"
     }
   ],     
   "sendOtpResp":{
@@ -468,7 +468,7 @@ RevokeVID:
   "errors": [
     {
       "errorCode": "RES-SER-29",
-      "message": "Invalid id::VID is EXPIRED"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -506,7 +506,7 @@ RevokeVID:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "VID not available in database"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
