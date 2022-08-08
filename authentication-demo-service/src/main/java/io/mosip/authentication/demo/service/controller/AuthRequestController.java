@@ -115,8 +115,8 @@ public class AuthRequestController {
 	private static final String DATE_TIME = "dateTime";
 
 	private static final String MOSIP_ENV = "mosip.env";
-	
-	private static final String MOSIP_DOMAINURI= "mosip.domainUri";
+
+	private static final String MOSIP_DOMAINURI = "mosip.domainUri";
 
 	private static final String REQ_ID = "reqId";
 
@@ -179,17 +179,10 @@ public class AuthRequestController {
 
 	private static final String ENCODE_TYPE = "UTF-8";
 
-	private static final String DEFAULT_OTP_REQ_TEMPLATE = "{\r\n"
-			+ "  \"id\": \"${reqId}\",\r\n"
-			+ "  \"individualId\": \"${id}\",\r\n"
-			+ "  \"otpChannel\": [\r\n"
-			+ "    \"email\",\r\n"
-			+ "    \"phone\"\r\n"
-			+ "  ],\r\n"
-			+ "  \"requestTime\": \"${timestamp}\",\r\n"
-			+ "  \"transactionID\": \"${txn}\",\r\n"
-			+ "  \"version\": \"${ver}\"\r\n"
-			+ "}";
+	private static final String DEFAULT_OTP_REQ_TEMPLATE = "{\r\n" + "  \"id\": \"${reqId}\",\r\n"
+			+ "  \"individualId\": \"${id}\",\r\n" + "  \"otpChannel\": [\r\n" + "    \"email\",\r\n"
+			+ "    \"phone\"\r\n" + "  ],\r\n" + "  \"requestTime\": \"${timestamp}\",\r\n"
+			+ "  \"transactionID\": \"${txn}\",\r\n" + "  \"version\": \"${ver}\"\r\n" + "}";
 
 	private static final String BEGIN_CERTIFICATE = "-----BEGIN CERTIFICATE-----";
 	private static final String END_CERTIFICATE = "-----END CERTIFICATE-----";
@@ -215,7 +208,7 @@ public class AuthRequestController {
 
 	@Autowired
 	KeyMgrUtil keyMgrUtil;
-	
+
 	@PostConstruct
 	public void idTemplateManagerPostConstruct() {
 		templateManager = templateManagerBuilder.encodingType(ENCODE_TYPE).enableCache(false).resourceLoader(CLASSPATH)
@@ -247,36 +240,38 @@ public class AuthRequestController {
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestBody Map<String, Object> request) throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
-		
-		if(isPreLTS) {
+
+		if (isPreLTS) {
 			reqValues.put(OTP, false);
 			reqValues.put(DEMO, false);
 			reqValues.put(BIO, false);
 			reqValues.put(PIN, false);
 		}
-		
-		if(isNewInternalAuth) {
-			isInternal  = true;
+
+		if (isNewInternalAuth) {
+			isInternal = true;
 		}
-		
+
 		boolean needsEncryption = !isInternal || !isNewInternalAuth;
 		String keysDirPath = keyMgrUtil.getKeysDirPath();
 
-		if(needsEncryption) {
+		if (needsEncryption) {
 			reqValues.put("thumbprint",
 					digest(getCertificateThumbprint(encrypt.getCertificate(isInternal, keysDirPath))));
 		}
-		
+
 		if (requestTime == null) {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
 		}
-		
-		if(!request.containsKey(TIMESTAMP)) {
-			request.put(TIMESTAMP, "");//Initializing. Setting value is done in further steps.
+
+		if (!request.containsKey(TIMESTAMP)) {
+			request.put(TIMESTAMP, "");// Initializing. Setting value is done in further steps.
 		}
 
 		idValuesMap(id, isKyc, isInternal, reqValues, transactionId, requestTime);
@@ -285,17 +280,17 @@ public class AuthRequestController {
 		applyRecursively(request, DATE_TIME, requestTime);
 		applyRecursively(request, TRANSACTION_ID, transactionId);
 
-		if(needsEncryption) {
+		if (needsEncryption) {
 			if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
 				Object bioObj = request.get(BIOMETRICS);
 				if (bioObj instanceof List) {
 					List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
-							transactionId, (List<Map<String, Object>>) bioObj);
+							transactionId, partnerName, keyFileNameByPartnerName, (List<Map<String, Object>>) bioObj);
 					request.put(BIOMETRICS, encipheredBiometrics);
 				}
 			}
 			encryptValuesMap(request, reqValues, isInternal);
-		} 
+		}
 
 		StringWriter writer = new StringWriter();
 		InputStream templateValue;
@@ -306,13 +301,13 @@ public class AuthRequestController {
 			if (templateValue != null) {
 				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
 				String res = writer.toString();
-				if(!needsEncryption) {
+				if (!needsEncryption) {
 					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
 					resMap.put("request", request);
 					resMap.put("requestHMAC", null);
 					resMap.put("requestSessionKey", null);
 					resMap.put("thumbprint", null);
-					
+
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
 				if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
@@ -320,33 +315,35 @@ public class AuthRequestController {
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
-				if(isPreLTS) {
+				if (isPreLTS) {
 					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
 					Map<String, Object> requestedAuth = new HashMap<>();
-					resMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+					resMap.put("individualIdType",
+							idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
 					resMap.put("requestedAuth", requestedAuth);
-					if(Boolean.valueOf(String.valueOf(reqValues.get(OTP)))) {
+					if (Boolean.valueOf(String.valueOf(reqValues.get(OTP)))) {
 						requestedAuth.put("otp", true);
 					}
-					if(Boolean.valueOf(String.valueOf(reqValues.get(DEMO)))) {
+					if (Boolean.valueOf(String.valueOf(reqValues.get(DEMO)))) {
 						requestedAuth.put("demo", true);
 					}
-					if(Boolean.valueOf(String.valueOf(reqValues.get(BIO)))) {
+					if (Boolean.valueOf(String.valueOf(reqValues.get(BIO)))) {
 						requestedAuth.put("bio", true);
 					}
-					if(Boolean.valueOf(String.valueOf(reqValues.get(PIN)))) {
+					if (Boolean.valueOf(String.valueOf(reqValues.get(PIN)))) {
 						requestedAuth.put("pin", true);
 					}
 					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
 				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
-				
+
 				HttpHeaders httpHeaders = new HttpHeaders();
 				String responseStr = response.toString();
-				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
+				// httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr,
+				// false));
 				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
 
-				String rpSignature = signRequest(partnerTypes, responseStr);
+				String rpSignature = signRequest(partnerTypes, partnerName, keyFileNameByPartnerName, responseStr);
 				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
@@ -361,7 +358,7 @@ public class AuthRequestController {
 					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
 		}
 	}
-	
+
 	/**
 	 * this method is used to create the auth request.
 	 *
@@ -378,9 +375,10 @@ public class AuthRequestController {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PostMapping(path = "/authenticate", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<Map<String, Object>> authenticate(@RequestParam(name = ID, required = true) @Nullable String id,
+	public ResponseEntity<Map<String, Object>> authenticate(
+			@RequestParam(name = ID, required = true) @Nullable String id,
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
-			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
+			@RequestParam(name = "isLocal", required = false) @Nullable boolean isLocal,
 			@RequestParam(name = "isKyc", required = false) @Nullable boolean isKyc,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
@@ -389,54 +387,63 @@ public class AuthRequestController {
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestBody Map<String, Object> request) throws Exception {
-		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, isPreLTS, request);
+		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth,
+				transactionId, requestTime, isNewInternalAuth, isPreLTS, partnerName, keyFileNameByPartnerName,
+				request);
 		String reqBody = authRequest.getBody();
 		String reqSignature = authRequest.getHeaders().get("signature").get(0);
-		
+
 		RestTemplate restTemplate = encrypt.createRestTemplate();
-		
+
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.add("signature", reqSignature);
 		httpHeaders.add("Authorization", reqSignature);
 		httpHeaders.add("Content-Type", "application/json");
 		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
 		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
-		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix, isNewInternalAuth);
-		
+		URI authRequestUrl = getAuthRequestUrl((String) reqBodyMap.get("id"), isLocal, partnerUrlSuffix,
+				isNewInternalAuth);
+
 		Map<String, Object> respMap = new LinkedHashMap<>();
-		
+
 		respMap.put("URL", authRequestUrl);
-		
+
 		Map<String, Object> authReqMap = new LinkedHashMap<>();
 		authReqMap.put("body", reqBody);
 		authReqMap.put("signature", reqSignature);
 		respMap.put("authRequest", authReqMap);
-		
+
 		Map<String, Object> authRespBody = new LinkedHashMap<>();
 		Object respBody;
 		String respSignature;
 		try {
-			ResponseEntity<Map> authResponse = restTemplate.exchange(authRequestUrl, HttpMethod.POST, httpEntity, Map.class);
+			ResponseEntity<Map> authResponse = restTemplate.exchange(authRequestUrl, HttpMethod.POST, httpEntity,
+					Map.class);
 			respBody = authResponse.getBody();
-			List<ServiceError> serviceErrorList = ExceptionUtils.getServiceErrorList(mapper.writeValueAsString(respBody));
-			if(serviceErrorList.isEmpty()) {
+			List<ServiceError> serviceErrorList = ExceptionUtils
+					.getServiceErrorList(mapper.writeValueAsString(respBody));
+			if (serviceErrorList.isEmpty()) {
 				List<String> signatureHeaders = authResponse.getHeaders().get("response-signature");
-				respSignature = signatureHeaders != null ? authResponse.getHeaders().get("response-signature").get(0) : null;
+				respSignature = signatureHeaders != null ? authResponse.getHeaders().get("response-signature").get(0)
+						: null;
 				authRespBody.put("signature", respSignature);
 			}
 		} catch (RestClientException e) {
-			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException)e).getResponseBodyAsString() : ExceptionUtils.getStackTrace(e);
+			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException) e).getResponseBodyAsString()
+					: ExceptionUtils.getStackTrace(e);
 		}
-		
+
 		authRespBody.put("body", respBody);
 		respMap.put("authResponse", authRespBody);
-		
+
 		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
 		return responseEntity;
-		
+
 	}
-	
+
 	/**
 	 * this method is used to create the auth request.
 	 *
@@ -451,145 +458,156 @@ public class AuthRequestController {
 	 * @throws Exception
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@PostMapping(path = "/sendOtp", produces = {
-			MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(path = "/sendOtp", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Map<String, Object>> sendOtp(@RequestParam(name = ID, required = true) @Nullable String id,
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
-			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
+			@RequestParam(name = "isLocal", required = false) @Nullable boolean isLocal,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
 			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
 			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
-			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws Exception {
-		
-		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, idType, isEmail, isPhone, id, transactionId, isPreLTS, requestTime);
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName)
+			throws Exception {
+
+		ResponseEntity<String> otpReqEntity = createOtpRequestBody(isInternal, idType, isEmail, isPhone, id,
+				transactionId, isPreLTS, requestTime, partnerName, keyFileNameByPartnerName);
 		String reqSignature = otpReqEntity.getHeaders().get("signature").get(0);
 		String reqBody = otpReqEntity.getBody();
-		
+
 		RestTemplate restTemplate = encrypt.createRestTemplate();
-		
+
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.add("signature", reqSignature);
 		httpHeaders.add("Authorization", reqSignature);
 		httpHeaders.add("Content-Type", "application/json");
 		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
 		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
-		URI otpRequestUrl = getOtpRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
-		
+		URI otpRequestUrl = getOtpRequestUrl((String) reqBodyMap.get("id"), isLocal, partnerUrlSuffix);
+
 		Map<String, Object> respMap = new LinkedHashMap<>();
-		
+
 		respMap.put("URL", otpRequestUrl);
-		
+
 		Map<String, Object> otpReqMap = new LinkedHashMap<>();
 		otpReqMap.put("body", reqBody);
 		otpReqMap.put("signature", reqSignature);
 		respMap.put("otpRequest", otpReqMap);
-		
+
 		Map<String, Object> otpRespBody = new LinkedHashMap<>();
 		Object respBody;
 		String respSignature;
 		try {
-			ResponseEntity<Map> authResponse = restTemplate.exchange(otpRequestUrl, HttpMethod.POST, httpEntity, Map.class);
+			ResponseEntity<Map> authResponse = restTemplate.exchange(otpRequestUrl, HttpMethod.POST, httpEntity,
+					Map.class);
 			respBody = authResponse.getBody();
 			respSignature = authResponse.getHeaders().get("response-signature").get(0);
 			otpRespBody.put("signature", respSignature);
 		} catch (RestClientException e) {
-			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException)e).getResponseBodyAsString() : ExceptionUtils.getStackTrace(e);
+			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException) e).getResponseBodyAsString()
+					: ExceptionUtils.getStackTrace(e);
 		}
-		
+
 		otpRespBody.put("body", respBody);
 		respMap.put("otpResponse", otpRespBody);
-		
+
 		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
 		return responseEntity;
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
-	@PostMapping(path = "/createOtpReqest", produces = {
-			MediaType.TEXT_PLAIN_VALUE })
+	@PostMapping(path = "/createOtpReqest", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> createOtpRequestBody(
-			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal, 
+			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
 			@RequestParam(name = "isEmail", required = false, defaultValue = "true") @Nullable boolean isEmail,
 			@RequestParam(name = "isPhone", required = false, defaultValue = "true") @Nullable boolean isPhone,
-			@RequestParam(name = ID, required = true) @NonNull String id, 
-			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId, 
+			@RequestParam(name = ID, required = true) @NonNull String id,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
-			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime) throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, JoseException {
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName)
+			throws IOException, IdAuthenticationBusinessException, KeyManagementException, NoSuchAlgorithmException,
+			UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException,
+			JoseException {
 		String otpReqTemplate = environment.getProperty("otpRequestTemplate", DEFAULT_OTP_REQ_TEMPLATE);
-		
+
 		Map<String, Object> reqValues = new HashMap<>();
 
 		if (requestTime == null) {
 			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
 
 		}
-		if(isPreLTS) {
+		if (isPreLTS) {
 			if (null != idType) {
 				reqValues.put(ID_TYPE, idType);
 			} else {
 				reqValues.put(ID_TYPE, UIN);
 			}
-			
+
 		}
-		
+
 		List<String> channels = new ArrayList<String>();
-		if(isEmail) {
+		if (isEmail) {
 			channels.add(EMAIL);
 		}
-		if(isPhone) {
+		if (isPhone) {
 			channels.add(PHONE);
 		}
-		
-		if(!isEmail && !isPhone) {
+
+		if (!isEmail && !isPhone) {
 			channels.add(EMAIL);
 		}
-		
+
 		String channelStr = channels.stream().collect(Collectors.joining("\",\"", "\"", "\""));
 
 		reqValues.put(CHANNELS, channelStr);
 		idValuesMapForOtpReq(id, isInternal, reqValues, transactionId, requestTime);
-		
+
 		StringWriter writer = new StringWriter();
 		InputStream templateValue;
-			templateValue = templateManager
-					.merge(new ByteArrayInputStream(otpReqTemplate.getBytes(StandardCharsets.UTF_8)), reqValues);
+		templateValue = templateManager.merge(new ByteArrayInputStream(otpReqTemplate.getBytes(StandardCharsets.UTF_8)),
+				reqValues);
 
 		if (templateValue != null) {
 			IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
 			String res = writer.toString();
-			if(isPreLTS) {
+			if (isPreLTS) {
 				Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
-				resMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+				resMap.put("individualIdType",
+						idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
 				res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 			}
 			ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
 			HttpHeaders httpHeaders = new HttpHeaders();
 			String responseStr = response.toString();
-			httpHeaders.add("signature", signRequest(PartnerTypes.RELYING_PARTY, responseStr));
+			httpHeaders.add("signature",
+					signRequest(PartnerTypes.RELYING_PARTY, partnerName, keyFileNameByPartnerName, responseStr));
 			return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 		} else {
 			throw new IdAuthenticationBusinessException(
-					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
-							IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
+					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(),
+					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
 		}
 
 	}
 
-	@PostMapping(path = "/signRequest", produces = {
-			MediaType.TEXT_PLAIN_VALUE })
+	@PostMapping(path = "/signRequest", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public String signRequest(
 			@RequestParam(name = "partnerType", required = true, defaultValue = "RELYING_PARTY") @NonNull PartnerTypes partnerType,
-			@RequestBody 	String request)
-			throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException,
-			CertificateException, IOException, OperatorCreationException {
-		return jWSSignAndVerifyController.sign(request, false, 
-				true, false, null, keyMgrUtil.getKeysDirPath(), partnerType);
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestBody String request) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException,
+			KeyStoreException, CertificateException, IOException, OperatorCreationException {
+		return jWSSignAndVerifyController.sign(request, false, true, false, null, keyMgrUtil.getKeysDirPath(),
+				partnerType, partnerName, keyFileNameByPartnerName);
 	}
-	
+
 	private void idValuesMapForOtpReq(String id, boolean isInternal, Map<String, Object> reqValues,
 			String transactionId, String utcCurrentDateTimeString) {
 		reqValues.put(ID, id);
@@ -602,14 +620,14 @@ public class AuthRequestController {
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
 		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
 	}
-	
+
 	private URI getAuthRequestUrl(String reqId, boolean isLocal, String partnerUrlSuffix, boolean isNewInternalAuth) {
 		String baseUrl;
 		String urlSuffix;
 		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
 
 		boolean isInternal = false;
-		switch(reqId) {
+		switch (reqId) {
 		case "mosip.identity.auth":
 			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/auth";
@@ -619,8 +637,9 @@ public class AuthRequestController {
 			urlSuffix = "/idauthentication/v1/kyc";
 			break;
 		case "mosip.identity.auth.internal":
-			baseUrl = isLocal ? "http://localhost:" +  environment.getProperty("internal.port", "8093"): envBaseUrl;
-			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity" : "/idauthentication/v1/internal/auth";
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("internal.port", "8093") : envBaseUrl;
+			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity"
+					: "/idauthentication/v1/internal/auth";
 			isInternal = true;
 			break;
 		default:
@@ -628,12 +647,13 @@ public class AuthRequestController {
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		}
-		
+
 		String url = baseUrl + urlSuffix;
-		
-		if(!isInternal) {
-			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX) : partnerUrlSuffix;
-			if(partnerSuffix == null) {
+
+		if (!isInternal) {
+			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX)
+					: partnerUrlSuffix;
+			if (partnerSuffix == null) {
 				throw new NullPointerException("partnerUrlSuffix is not specified");
 			}
 			url += "/" + partnerSuffix;
@@ -647,7 +667,7 @@ public class AuthRequestController {
 		String envBaseUrl = environment.getProperty(MOSIP_BASE_URL);
 
 		boolean isInternal = false;
-		switch(reqId) {
+		switch (reqId) {
 		case "mosip.identity.otp":
 			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("otp.port", "8092") : envBaseUrl;
 			urlSuffix = "/idauthentication/v1/otp";
@@ -662,11 +682,12 @@ public class AuthRequestController {
 			urlSuffix = "/idauthentication/v1/auth";
 			break;
 		}
-		
+
 		String url = baseUrl + urlSuffix;
-		
-		if(!isInternal) {
-			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX) : partnerUrlSuffix;
+
+		if (!isInternal) {
+			String partnerSuffix = partnerUrlSuffix == null ? environment.getProperty(PROP_PARTNER_URL_SUFFIX)
+					: partnerUrlSuffix;
 			url += "/" + partnerSuffix;
 		}
 		return URI.create(url);
@@ -682,11 +703,13 @@ public class AuthRequestController {
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
 			@RequestParam(name = "timestamp", required = false) @Nullable String timestampArg,
 			@RequestParam(name = "transactionId", required = false) @Nullable String transactionIdArg,
-			@RequestBody List<Map<String, Object>> biometrics)
-			throws KeyManagementException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			IOException, JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException,
-			KeyStoreException, CertificateException, UnrecoverableEntryException, JoseException, OperatorCreationException {
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestBody List<Map<String, Object>> biometrics) throws KeyManagementException, InvalidKeyException,
+			NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException,
+			InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, IOException,
+			JSONException, IdAuthenticationAppException, IdAuthenticationBusinessException, KeyStoreException,
+			CertificateException, UnrecoverableEntryException, JoseException, OperatorCreationException {
 		byte[] previousHash = getHash("");
 
 		for (Map<String, Object> bioMap : biometrics) {
@@ -706,8 +729,9 @@ public class AuthRequestController {
 					timestamp = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
 				}
 
-				dataMap.put(TIMESTAMP, timestamp);				
-				dataMap.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI,environment.getProperty(MOSIP_BASE_URL)));
+				dataMap.put(TIMESTAMP, timestamp);
+				dataMap.put(DOMAIN_URI,
+						environment.getProperty(MOSIP_DOMAINURI, environment.getProperty(MOSIP_BASE_URL)));
 				dataMap.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 				dataMap.put(SPEC_VERSION, "1.0");
 				Object txnIdObj = dataMap.get(TRANSACTION_ID);
@@ -717,24 +741,26 @@ public class AuthRequestController {
 				String transactionId = String.valueOf(dataMap.get(TRANSACTION_ID));
 				String keysDirPath = keyMgrUtil.getKeysDirPath();
 
-				//SplittedEncryptedData encryptedBiometrics = encrypt.encryptBiometrics(bioValue, timestamp,
-				//		transactionId, isInternal);
-				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBio(bioValue, timestamp,
-						transactionId, isInternal, keysDirPath);
+				// SplittedEncryptedData encryptedBiometrics =
+				// encrypt.encryptBiometrics(bioValue, timestamp,
+				// transactionId, isInternal);
+				SplittedEncryptedData encryptedBiometrics = encrypt.encryptBio(bioValue, timestamp, transactionId,
+						isInternal, keysDirPath);
 
 				dataMap.put(BIO_VALUE, encryptedBiometrics.getEncryptedData());
 				bioMap.put(SESSION_KEY, encryptedBiometrics.getEncryptedSessionKey());
-				bioMap.put("thumbprint", digest(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, keysDirPath))));
+				bioMap.put("thumbprint",
+						digest(getCertificateThumbprint(encrypt.getBioCertificate(isInternal, keysDirPath))));
 
 				Object digitalId = dataMap.get(DIGITAL_ID);
 				if (digitalId instanceof Map) {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
 					String signedDititalId;
-					if(!isInternal) {
-						//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
-						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
-								false, null, keysDirPath, PartnerTypes.FTM);
+					if (!isInternal) {
+						// String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
+						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, false, null,
+								keysDirPath, PartnerTypes.FTM, partnerName, keyFileNameByPartnerName);
 					} else {
 						signedDititalId = CryptoUtil.encodeToURLSafeBase64(digitalIdStr.getBytes());
 					}
@@ -742,17 +768,17 @@ public class AuthRequestController {
 				}
 
 				String dataStrJson = mapper.writeValueAsString(dataMap);
-				
+
 				String dataStr;
 				if (isInternal) {
 					dataStr = CryptoUtil.encodeToURLSafeBase64(dataStrJson.getBytes());
 				} else {
-					//dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
-					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, 
-						false, null, keysDirPath, PartnerTypes.DEVICE);
+					// dataStr = jWSSignAndVerifyController.sign(dataStrJson, true);
+					dataStr = jWSSignAndVerifyController.sign(dataStrJson, true, true, false, null, keysDirPath,
+							PartnerTypes.DEVICE, partnerName, keyFileNameByPartnerName);
 				}
 				bioMap.put(DATA, dataStr);
-				
+
 				// Updating hash calculation as per latest changes - 29-May-2021
 				byte[] currentHash = getHash(CryptoUtil.decodePlainBase64(bioValue));
 				byte[] finalBioDataBytes = new byte[currentHash.length + previousHash.length];
@@ -760,9 +786,10 @@ public class AuthRequestController {
 				System.arraycopy(currentHash, 0, finalBioDataBytes, previousHash.length, currentHash.length);
 				byte[] finalBioDataHash = getHash(finalBioDataBytes);
 
-				/* String concatenatedHash = previousHash + currentHash;
-				byte[] finalHash = getHash(concatenatedHash);
-				*/
+				/*
+				 * String concatenatedHash = previousHash + currentHash; byte[] finalHash =
+				 * getHash(concatenatedHash);
+				 */
 				String finalHashHexEncoded = digest(finalBioDataHash);
 				bioMap.put("hash", finalHashHexEncoded);
 				previousHash = finalBioDataHash;
@@ -846,7 +873,8 @@ public class AuthRequestController {
 		EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
 		encodeBioData(identity);
 		encryptionRequestDto.setIdentityRequest(identity);
-		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal, keyMgrUtil.getKeysDirPath());
+		EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal,
+				keyMgrUtil.getKeysDirPath());
 		reqValues.put("encHmac", encryptionResponse.getRequestHMAC());
 		reqValues.put("encSessionKey", encryptionResponse.getEncryptedSessionKey());
 		reqValues.put("encRequest", encryptionResponse.getEncryptedIdentity());
@@ -910,10 +938,10 @@ public class AuthRequestController {
 				reqValues.put(AUTH_TYPE, "auth");
 			}
 		}
-		
+
 		reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
 		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
-		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));		
+		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
 		reqValues.put(DOMAIN_URI, environment.getProperty(MOSIP_DOMAINURI, environment.getProperty(MOSIP_BASE_URL)));
 		reqValues.put(ENV, environment.getProperty(MOSIP_ENV, "Staging"));
 	}
@@ -922,7 +950,7 @@ public class AuthRequestController {
 	public String uploadIDACertificate(
 			@RequestParam(name = "certificateType", required = true) CertificateTypes certificateType,
 			@RequestBody Map<String, String> requestData) throws CertificateException, IOException {
-		
+
 		String certificateData = requestData.get("certData");
 		String fileName = certificateType.getFileName();
 		System.out.println("certificateType: " + certificateType.toString());
@@ -939,51 +967,55 @@ public class AuthRequestController {
 		strBuilder.append(LINE_SEPARATOR);
 		strBuilder.append(END_CERTIFICATE);
 		String certificateStr = strBuilder.toString();
-		
+
 		String keysDirPath = keyMgrUtil.getKeysDirPath();
 
 		Path parentPath = Paths.get(keysDirPath + "/" + fileName).getParent();
-        if (parentPath != null && !Files.exists(parentPath)) {
-            Files.createDirectories(parentPath);
-        }
+		if (parentPath != null && !Files.exists(parentPath)) {
+			Files.createDirectories(parentPath);
+		}
 
 		boolean isErrored = false;
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(keysDirPath + "/" + fileName ))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(keysDirPath + "/" + fileName))) {
 			writer.write(certificateStr);
 			writer.flush();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			isErrored = true;
 		}
-		
-		return isErrored ? "Upload Failed" : "Upload Success"; 
+
+		return isErrored ? "Upload Failed" : "Upload Success";
 	}
 
-	@GetMapping (path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/generatePartnerKeys", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CertificateChainResponseDto generatePartnerKeys(
 			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
 			@RequestParam(name = "partnerName", required = true) String partnerName,
-			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName
-			) throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, 
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName)
+			throws CertificateException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException,
 			KeyStoreException, OperatorCreationException {
-		
-		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName, keyFileNameByPartnerName);
+
+		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName,
+				keyFileNameByPartnerName);
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updatePartnerCertificate(
-		@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
-			@RequestBody Map<String, String> requestData) throws CertificateException, IOException, 
+			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestBody Map<String, String> requestData) throws CertificateException, IOException,
 			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException {
-		
+
 		String certificateData = requestData.get("certData");
 		String filePrepend = partnerType.getFilePrepend();
 
 		X509Certificate x509Cert = (X509Certificate) keyMgrUtil.convertToCertificate(certificateData);
 		System.out.println("certificateType: " + partnerType.toString());
 		System.out.println("filePrepend: " + filePrepend);
-		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, keyMgrUtil.getKeysDirPath());
-		return isUpdated ? "Update Success" : "Update Failed"; 
+		boolean isUpdated = keyMgrUtil.updatePartnerCertificate(filePrepend, x509Cert, keyMgrUtil.getKeysDirPath(),
+				partnerName, keyFileNameByPartnerName);
+		return isUpdated ? "Update Success" : "Update Failed";
 	}
 
 }

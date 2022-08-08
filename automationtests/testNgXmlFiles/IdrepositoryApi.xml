@@ -117,7 +117,7 @@
 		<parameter name="ymlFile"	value="idRepository/UpdateDraft/UpdateDraft.yml" />
 		<parameter name="pathParams"	value="registrationId" />
 	<classes>
-		<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+		<class name="io.mosip.testscripts.UpdateDraft" />
 	</classes>
 	</test> 
 	

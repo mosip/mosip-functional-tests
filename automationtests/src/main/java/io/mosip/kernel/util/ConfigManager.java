@@ -28,9 +28,9 @@ public class ConfigManager {
 	private static String MOSIP_ADMIN_CLIENT_ID = "mosip_admin_client_id";
 	private static String MOSIP_ADMIN_APP_ID = "mosip_admin_app_id";
 
-	private static String MOSIP_REGPROC_CLIENT_SECRET = "mosip_regproc_client_secret";
-	private static String MOSIP_REGPROC_CLIENT_ID = "mosip_regproc_client_id";
-	private static String MOSIP_REGPROC_APP_ID = "mosip_regproc_app_id";
+	private static String MOSIP_REG_CLIENT_SECRET = "mosip_reg_client_secret";
+	private static String MOSIP_REG_CLIENT_ID = "mosip_reg_client_id";
+	private static String MOSIP_REGCLIENT_APP_ID = "mosip_regclient_app_id";
 
 	private static String MOSIP_IDA_CLIENT_SECRET = "mosip_ida_client_secret";
 	private static String MOSIP_IDA_CLIENT_ID = "mosip_ida_client_id";
@@ -66,6 +66,18 @@ public class ConfigManager {
 	private static String IDA_DB_USER = "db-su-user";
 	private static String IDA_DB_PASS = "db-su-password";
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
+
+	private static String PMS_DB_USER="db-su-user";
+	private static String PMS_DB_PASS="db-su-password";
+	private static String PMS_DB_SCHEMA="pms_db_schema";
+	
+	private static String KM_DB_USER="db-su-user";
+	private static String KM_DB_PASS="db-su-password";
+	private static String KM_DB_SCHEMA="km_db_schema";
+	
+	private static String MASTER_DB_USER="db-su-user";
+	private static String MASTER_DB_PASS="db-su-password";
+	private static String MASTER_DB_SCHEMA="master_db_schema";
 
 	private static String IAM_EXTERNAL_URL = "keycloak-external-url";
 	private static String IAM_REALM_ID = "keycloak-realm-id";
@@ -127,6 +139,18 @@ public class ConfigManager {
 	private static String ida_db_pass;
 	private static String ida_db_schema;
 
+	private static String pms_db_user;
+	private static String pms_db_pass;
+	private static String pms_db_schema;
+
+	private static String km_db_user;
+	private static String km_db_pass;
+	private static String km_db_schema;
+
+	private static String master_db_user;
+	private static String master_db_pass;
+	private static String master_db_schema;
+
 	private static String iam_external_url;
 	private static String iam_realm_id;
 	private static String iam_users_to_create;
@@ -170,14 +194,14 @@ public class ConfigManager {
 		admin_app_id = System.getenv(MOSIP_ADMIN_APP_ID) == null ? propsKernel.getProperty(MOSIP_ADMIN_APP_ID)
 				: System.getenv(MOSIP_ADMIN_APP_ID);
 
-		regproc_client_secret = System.getenv(MOSIP_REGPROC_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_REGPROC_CLIENT_SECRET)
-				: System.getenv(MOSIP_REGPROC_CLIENT_SECRET);
-		regproc_client_id = System.getenv(MOSIP_REGPROC_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_REGPROC_CLIENT_ID)
-				: System.getenv(MOSIP_REGPROC_CLIENT_ID);
-		regproc_app_id = System.getenv(MOSIP_REGPROC_APP_ID) == null ? propsKernel.getProperty(MOSIP_REGPROC_APP_ID)
-				: System.getenv(MOSIP_REGPROC_APP_ID);
+		regproc_client_secret = System.getenv(MOSIP_REG_CLIENT_SECRET) == null
+				? propsKernel.getProperty(MOSIP_REG_CLIENT_SECRET)
+				: System.getenv(MOSIP_REG_CLIENT_SECRET);
+		regproc_client_id = System.getenv(MOSIP_REG_CLIENT_ID) == null
+				? propsKernel.getProperty(MOSIP_REG_CLIENT_ID)
+				: System.getenv(MOSIP_REG_CLIENT_ID);
+		regproc_app_id = System.getenv(MOSIP_REGCLIENT_APP_ID) == null ? propsKernel.getProperty(MOSIP_REGCLIENT_APP_ID)
+				: System.getenv(MOSIP_REGCLIENT_APP_ID);
 
 		ida_client_secret = System.getenv(MOSIP_IDA_CLIENT_SECRET) == null
 				? propsKernel.getProperty(MOSIP_IDA_CLIENT_SECRET)
@@ -246,6 +270,27 @@ public class ConfigManager {
 				: System.getenv(IDA_DB_PASS);
 		ida_db_schema = System.getenv(IDA_DB_SCHEMA) == null ? propsKernel.getProperty(IDA_DB_SCHEMA)
 				: System.getenv(IDA_DB_SCHEMA);
+
+		pms_db_user = System.getenv(PMS_DB_USER) == null ? propsKernel.getProperty(PMS_DB_USER)
+				: System.getenv(PMS_DB_USER);
+		pms_db_pass = System.getenv(PMS_DB_PASS) == null ? propsKernel.getProperty(PMS_DB_PASS)
+				: System.getenv(PMS_DB_PASS);
+		pms_db_schema = System.getenv(PMS_DB_SCHEMA) == null ? propsKernel.getProperty(PMS_DB_SCHEMA)
+				: System.getenv(PMS_DB_SCHEMA);
+		
+		km_db_user = System.getenv(KM_DB_USER) == null ? propsKernel.getProperty(KM_DB_USER)
+				: System.getenv(KM_DB_USER);
+		km_db_pass = System.getenv(KM_DB_PASS) == null ? propsKernel.getProperty(KM_DB_PASS)
+				: System.getenv(KM_DB_PASS);
+		km_db_schema = System.getenv(KM_DB_SCHEMA) == null ? propsKernel.getProperty(KM_DB_SCHEMA)
+				: System.getenv(KM_DB_SCHEMA);
+
+		master_db_user = System.getenv(MASTER_DB_USER) == null ? propsKernel.getProperty(MASTER_DB_USER)
+				: System.getenv(MASTER_DB_USER);
+		master_db_pass = System.getenv(MASTER_DB_PASS) == null ? propsKernel.getProperty(MASTER_DB_PASS)
+				: System.getenv(MASTER_DB_PASS);
+		master_db_schema = System.getenv(MASTER_DB_SCHEMA) == null ? propsKernel.getProperty(MASTER_DB_SCHEMA)
+				: System.getenv(MASTER_DB_SCHEMA);
 
 		iam_external_url = System.getenv(IAM_EXTERNAL_URL) == null ? propsKernel.getProperty(IAM_EXTERNAL_URL)
 				: System.getenv(IAM_EXTERNAL_URL);
@@ -431,6 +476,55 @@ public class ConfigManager {
 	public static String getIdaDbSchema() {
 		return ida_db_schema;
 	}
+	
+	public static String getPMSDbUrl() {
+		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_pms";
+	}
+
+	public static String getKMDbUrl() {
+		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_keymgr";
+	}
+	
+	public static String getMASTERDbUrl() {
+		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_master";
+	}
+	
+	public static String getPMSDbUser() {
+		return pms_db_user;
+	}
+
+	public static String getPMSDbPass() {
+		return pms_db_pass;
+	}
+
+	public static String getPMSDbSchema() {
+		return pms_db_schema;
+	}
+	
+	public static String getKMDbUser() {
+		return km_db_user;
+	}
+
+	public static String getKMDbPass() {
+		return km_db_pass;
+	}
+
+	public static String getKMDbSchema() {
+		return km_db_schema;
+	}
+
+	public static String getMasterDbUser() {
+		return master_db_user;
+	}
+
+	public static String getMasterDbPass() {
+		return master_db_pass;
+	}
+
+	public static String getMasterDbSchema() {
+		return master_db_schema;
+	}
+
 
 	// from docker env getting only host url
 	public static String getIAMUrl() {
