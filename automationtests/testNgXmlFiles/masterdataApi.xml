@@ -5,8 +5,9 @@
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
-		<listener class-name="io.mosip.report.CustomTestNGReporter" />
-		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
+		<listener class-name="io.mosip.report.CustomTestNGReporter"/>
+		<listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+		<listener class-name="io.mosip.customReport.EmailableReport"/>
 	</listeners>
 
 	<test name="BulkUpload">
