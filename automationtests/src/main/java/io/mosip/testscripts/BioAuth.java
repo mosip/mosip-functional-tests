@@ -46,6 +46,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
+		
+		
 	AuthPartnerProcessor.startProcess();
 	}
 
