@@ -144,6 +144,8 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
+		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
+				//return;
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

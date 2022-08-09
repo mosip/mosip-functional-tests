@@ -42,6 +42,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
+import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -945,36 +946,14 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 	
-	/*public static void regenerateVID() {
-		if (!AuthenticationTestsListener.currentTestMethod.toString()
-				.contains("authentication.idRepository.prerequiste")) {
-			IDASCRIPT_LOGGER.info("Regenerating Used VID...");
-			VIDUtil.regenerateVID();
-		}
-	}*/
+	
 	
 	public static void initiateAuthTest() {
+		
 		copyAuthTestResource();
-		//IdRepoTestsUtil.copyIdrepoTestResource();
-		//ResidentTestUtil.initiateResidentTest();
+		
 	}
-	//static KernelDataBaseAccess masterDB = new KernelDataBaseAccess();
-	/*
-	 * public static void createDeviceManagementData() { String crtQuerKeys[] =
-	 * queries.get("crtAuthDevicesData").toString().split(","); List<String>
-	 * crtQueries = new LinkedList<String>(); for(String queryKeys: crtQuerKeys)
-	 * crtQueries.add(queries.get(queryKeys).toString()); if
-	 * (masterDB.executeQueries(crtQueries, "authdevice"))
-	 * logger.info("created device management data for automation"); else logger.
-	 * info("not able to create device management data, IDA authentications will fail"
-	 * ); } public static void deleteDeviceManagementData() { String dltQueryKeys[]
-	 * = queries.get("dltAuthDevicesData").toString().split(","); List<String>
-	 * dltQueries = new LinkedList<String>(); for(String queryKeys: dltQueryKeys)
-	 * dltQueries.add(queries.get(queryKeys).toString()); if
-	 * (masterDB.executeQueries(dltQueries, "authdevice"))
-	 * logger.info("deleted created device management data for automation"); else
-	 * logger.info("not able to delete device management data"); }
-	 */
+	
 
 	/**
 	 * The method will create bat or sh file to run demoApp jar in windows or linux OS respectively
