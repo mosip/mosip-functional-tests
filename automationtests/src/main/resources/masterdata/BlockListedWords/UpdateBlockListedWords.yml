@@ -24,7 +24,7 @@ UpdateBlockListedWords:
       templateFields: ["description","word","oldWord"]
       restMethod: put
       inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
-      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      outputTemplate: masterdata/error
       input: '{
     "description": "wrong word updated",
 	"isActive": "true",
@@ -36,8 +36,8 @@ UpdateBlockListedWords:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "request.word: Blocklisted word cannot contain numbers and special characters"
+      "errorCode": "KER-MSD-008",
+      "message": "Blocklisted word not found"
     }
   ]
 }'

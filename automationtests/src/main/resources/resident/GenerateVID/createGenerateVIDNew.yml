@@ -136,7 +136,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-417",
-      "message": "Sending notification(Email and SMS) to resident failed. Invalid phone number and email"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -158,7 +158,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- transactionId"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -180,7 +180,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -202,7 +202,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -224,7 +224,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -265,6 +265,12 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_Generate_Perpetual_VID_requesttime_Invalid_Neg:
@@ -284,7 +290,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -306,7 +312,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -328,7 +334,7 @@ GenerateVIDNew:
       "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -372,7 +378,7 @@ GenerateVIDNew:
       	"errors": [
     {
       "errorCode": "RES-SER-439",
-      "message": "Claim not available: individual_id"
+      "message": "$IGNORE$"
     }
   ]
 }'

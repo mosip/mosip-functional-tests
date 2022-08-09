@@ -63,7 +63,7 @@ SendOTP:
 }'
       output: '{
       "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
+      "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel:
       endPoint: /resident/v1/req/otp
@@ -80,7 +80,7 @@ SendOTP:
 }'
       output: '{
       "errorCode": "IDA-OTA-008",
-      "errorMessage": "OTP Notification Channel not provided"
+      "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_individualId:
       endPoint: /resident/v1/req/otp
@@ -96,7 +96,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-009",
-         "errorMessage": "Invalid Input Parameter - individualId"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_Missing_individualId:
       endPoint: /resident/v1/req/otp
@@ -112,7 +112,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-009",
-         "errorMessage": "Invalid Input Parameter - individualId"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_Empty_transactionID:
       endPoint: /resident/v1/req/otp
@@ -128,7 +128,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-006",
-         "errorMessage": "Missing Input Parameter - transactionID"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_transactionID:
       endPoint: /resident/v1/req/otp
@@ -144,7 +144,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-009",
-         "errorMessage": "Invalid Input Parameter - transactionID"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_Missing_transactionID:
       endPoint: /resident/v1/req/otp
@@ -160,7 +160,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "RES-SER-425",
-         "message": "while generating otp error is occured"
+         "message": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_Empty_requestTime:
       endPoint: /resident/v1/req/otp
@@ -176,7 +176,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-006",
-         "errorMessage": "Missing Input Parameter - requestTime"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_InValid_requestTime:
       endPoint: /resident/v1/req/otp
@@ -192,7 +192,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "RES-SER-425",
-         "message": "while generating otp error is occured"
+         "message": "$IGNORE$"
     }'
 
    Resident_SendOTP_Empty_individualId_Neg:
@@ -209,7 +209,7 @@ SendOTP:
 }'
       output: '{
          "errorCode": "IDA-MLC-009",
-         "errorMessage": "Invalid Input Parameter - individualId"
+         "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_Empty_individualIdType_Smoke:
       endPoint: /resident/v1/req/otp

@@ -1,5 +1,5 @@
-AuthHistory:      
-  Resident_AuthHistory_With_UIN_smoke_Pos:
+AuthHistory:
+   Resident_AuthHistory_With_UIN_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -30,7 +30,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_With_VID_smoke_Pos:
+   Resident_AuthHistory_With_VID_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -61,7 +61,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_InValid_UIN_Neg:
+   Resident_AuthHistory_InValid_UIN_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -88,7 +88,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -97,7 +97,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_missing_UIN_Neg:
+   Resident_AuthHistory_missing_UIN_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -124,7 +124,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- individualId"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -134,7 +134,7 @@ AuthHistory:
     }
 }'
 
-  Resident_AuthHistory_Missing_OTP_Neg:
+   Resident_AuthHistory_Missing_OTP_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -161,7 +161,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- otp"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -170,7 +170,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_TransactionMismatch_Neg:
+   Resident_AuthHistory_TransactionMismatch_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -197,7 +197,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "Invalid Input Parameter - transactionID"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -206,7 +206,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_Invalid_Id_Neg:
+   Resident_AuthHistory_Invalid_Id_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -233,7 +233,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -242,7 +242,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_Missing_Id_Neg:
+   Resident_AuthHistory_Missing_Id_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -269,7 +269,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- id"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -278,7 +278,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_InValid_version_Neg:
+   Resident_AuthHistory_InValid_version_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -305,7 +305,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -314,7 +314,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_Missing_version_Neg:
+   Resident_AuthHistory_Missing_version_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -341,7 +341,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- version"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -350,7 +350,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_Invalid_Timestamp_Neg:
+   Resident_AuthHistory_Invalid_Timestamp_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -377,7 +377,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -386,7 +386,7 @@ AuthHistory:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-  Resident_AuthHistory_Missing_Timestamp_Neg:
+   Resident_AuthHistory_Missing_Timestamp_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -413,7 +413,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- requesttime"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -423,7 +423,7 @@ AuthHistory:
     }
 }'
 
-  Resident_AuthHistory_InValid_OTP_Neg:
+   Resident_AuthHistory_InValid_OTP_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -450,7 +450,7 @@ AuthHistory:
    "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP is invalid"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -460,7 +460,7 @@ AuthHistory:
     }
 }'
 
-  Resident_AuthHistory_With_UIN_eotp_Pos_Neg:
+   Resident_AuthHistory_With_UIN_eotp_Pos_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
       restMethod: post
@@ -487,12 +487,108 @@ AuthHistory:
   "errors": [
     {
       "errorCode": "RES-SER-422",
-      "message": "OTP has expired"
+      "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_AuthHistory_With_UIN_Phone_smoke_Pos:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/AuthHistory/authHistoryResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
+    }
+}'
+
+   Resident_AuthHistory_With_UIN_Email_smoke_Pos:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/AuthHistory/authHistoryResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_AuthHistory_With_UIN_EmptyChannel_Neg:
+      endPoint: /resident/v1/req/auth-history
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthHistory/authHistory
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authhistory",
+        "version": "v1",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmpty",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/error"
     }
 }'

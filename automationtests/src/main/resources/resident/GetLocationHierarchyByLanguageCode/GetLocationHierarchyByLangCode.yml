@@ -30,7 +30,7 @@ GetLocationHierarchyByLanguageCode:
         "errors": [
     {
       "errorCode": "RES-SER-418",
-      "message": "Location Hierarchy not Found"
+      "message": "$IGNORE$"
     }
   ]
 }'
