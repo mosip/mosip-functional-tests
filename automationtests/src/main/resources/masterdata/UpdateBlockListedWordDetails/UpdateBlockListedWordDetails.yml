@@ -5,7 +5,7 @@ UpdateBlockListedWordDetails:
       templateFields: ["description","word"]
       restMethod: put
       inputTemplate: masterdata/UpdateBlockListedWordDetails/updateBlockListedWordDetails
-      outputTemplate: masterdata/UpdateBlockListedWordDetails/updateBlockListedWordDetailsResult
+      outputTemplate: masterdata/UpdateBlockListedWordDetails/updateblockListedWordDetailsResult
       input: '{
     "description": "wrong word updated again",
 	"isActive": true,

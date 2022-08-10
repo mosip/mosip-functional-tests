@@ -5,7 +5,7 @@ UpdateMachineSpecification:
       templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/MachineSpecification/machineSpecification
-      outputTemplate: masterdata/MachineSpecification/machineSpecificationResult
+      outputTemplate: masterdata/MachineSpecification/MachineSpecificationResult
       input: '{
     "brand": "HP",
     "description": "HP brand updated",

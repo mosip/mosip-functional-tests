@@ -4,7 +4,7 @@ RequestAPIKeyForAuthPartner:
       role: partner
       restMethod: post 
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/requestApiKey
-      outputTemplate: partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/requestApiKeyResult
+      outputTemplate: partner/GenerateApiKeyForApprovedPolicies/RequestAPIKey/requestAPIKeyResult
       input: '{
         "policyName": "mosip policy",
         "useCaseDescription": "Need to submit the payment",

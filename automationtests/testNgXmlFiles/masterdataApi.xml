@@ -341,7 +341,7 @@
 	</test>
 	<test name="FetchDocumentTypes">
 		<parameter name="ymlFile"
-			value="masterdata/FetchDocumentTypes/fetchDocumentTypes.yml" />
+			value="masterdata/FetchDocumentTypes/FetchDocumentTypes.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -369,7 +369,7 @@
 	</test>
 	<test name="DeleteDocumentType">
 		<parameter name="ymlFile"
-			value="masterdata/DeleteDocumentType/DeleteDocumentType.yml" />
+			value="masterdata/DeleteDocumentType/deleteDocumentType.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
