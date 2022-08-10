@@ -4,7 +4,7 @@ RequestAPIKeyCredentialPartner:
       role: partner
       restMethod: post
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
-      outputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKeyResult
+      outputTemplate: partner/credentialPartner/RequestAPIKey/requestAPIKeyResult
       input: '{
         "policyName": "mosip data share policy",
         "useCaseDescription": "mosip data share policy",
@@ -19,7 +19,7 @@ RequestAPIKeyCredentialPartner:
       role: partner
       restMethod: post
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
-      outputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKeyResult
+      outputTemplate: partner/credentialPartner/RequestAPIKey/requestAPIKeyResult
       input: '{
         "policyName": "mosip policy",
         "useCaseDescription": "mosip policy",

@@ -4,7 +4,7 @@ FetchAllMachineType:
       role: admin
       templateFields: []
       restMethod: get
-      inputTemplate: masterdata/FetchAllMachineType/FetchAllMachineType
+      inputTemplate: masterdata/FetchAllMachineType/fetchAllMachineType
       outputTemplate: masterdata/FetchAllMachineType/fetchAllMachineTypeResult
       input: '{
   

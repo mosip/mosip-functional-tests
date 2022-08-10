@@ -4,8 +4,8 @@ UpdateHolidayStatus:
       role: admin
       templateFields: []
       restMethod: patch
-      inputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatus
-      outputTemplate: masterdata/UpdateHolidayStatus/UpdateHolidayStatusResult
+      inputTemplate: masterdata/UpdateHolidayStatus/updateHolidayStatus
+      outputTemplate: masterdata/UpdateHolidayStatus/updateHolidayStatusResult
       input: '{
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": "true"
