@@ -4,7 +4,7 @@ DBValidator:
       role: partner
       restMethod: post
       inputTemplate: partner/DbValidatorTest/dbValidatorTest
-      outputTemplate: partner/DbValidatorTest/dbValidatorTestResult
+      outputTemplate: partner/DbValidatorTest/DbValidatorResult
       input: '{
     "partner_id": "Tech-123",
     "policy_name": "$REMOVE$",
@@ -20,7 +20,7 @@ DBValidator:
       role: partner
       restMethod: post
       inputTemplate: partner/DbValidatorTest/dbValidatorTest
-      outputTemplate: partner/DbValidatorTest/dbValidatorTestResult
+      outputTemplate: partner/DbValidatorTest/DbValidatorResult
       input: '{
     "partner_id": "$REMOVE$",
     "policy_name": "mosip data share policy",
@@ -37,7 +37,7 @@ DBValidator:
       role: partner
       restMethod: post
       inputTemplate: partner/DbValidatorTest/dbValidatorTest
-      outputTemplate: partner/DbValidatorTest/dbValidatorTestResult
+      outputTemplate: partner/DbValidatorTest/DbValidatorResult
       input: '{
     "partner_id": "$REMOVE$",
     "policy_name": "$REMOVE$",
@@ -53,7 +53,7 @@ DBValidator:
       role: partner
       restMethod: post
       inputTemplate: partner/DbValidatorTest/dbValidatorTest
-      outputTemplate: partner/DbValidatorTest/dbValidatorTestResult
+      outputTemplate: partner/DbValidatorTest/DbValidatorResult
       input: '{
     "partner_id": "$REMOVE$",
     "policy_name": "$REMOVE$",

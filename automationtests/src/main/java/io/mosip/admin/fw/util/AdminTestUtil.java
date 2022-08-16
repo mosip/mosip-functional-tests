@@ -116,6 +116,7 @@ public class AdminTestUtil extends BaseTestCase{
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField=null;
 	public static String identityHbs=null;
+	public static String draftHbs=null;
 	public static String UpdateUinRequest="config/Authorization/requestIdentity.json";
 	public static HashMap<String, String> keycloakRolesMap=new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap=new HashMap<String, String>();
@@ -2239,8 +2240,8 @@ public static String generateLatestSchemaVersion() {
 
 
 public static String generateHbsForUpdateDraft() {
-    if(identityHbs!=null) {
-    	return identityHbs;
+    if(draftHbs!=null) {
+    	return draftHbs;
     }
 	StringBuffer everything = new StringBuffer("");
 	kernelAuthLib = new KernelAuthentication();
@@ -2268,7 +2269,7 @@ public static String generateHbsForUpdateDraft() {
 		JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
 		JSONArray objIDJson1 = objIDJson.getJSONArray("required");
 
-		FileWriter myFile = new FileWriter("addIdentity.hbs");
+		FileWriter myFile = new FileWriter("updateDraft.hbs");
 		myFile.write("{\n");
 		myFile.write("  \"id\": \"{{id}}\",\n");
 		myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
@@ -2304,7 +2305,7 @@ public static String generateHbsForUpdateDraft() {
 
 				System.out.println(mainObj);
 
-				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
 				flag = true;
 				myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
 
@@ -2314,7 +2315,7 @@ public static String generateHbsForUpdateDraft() {
 
 			} else {
 
-				FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+				FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
 				flag = true;
 
 				if (objIDJson3.equals("proofOfIdentity")) {
@@ -2340,7 +2341,7 @@ public static String generateHbsForUpdateDraft() {
 			}
 
 		}
-		FileWriter myFile2 = new FileWriter("addIdentity.hbs", true);
+		FileWriter myFile2 = new FileWriter("updateDraft.hbs", true);
 
 
 		myFile2.write("\t},\n");
@@ -2352,7 +2353,7 @@ public static String generateHbsForUpdateDraft() {
 		myFile2.write("}\n");
 		myFile2.close();
 
-		BufferedReader br = new BufferedReader(new FileReader("addIdentity.hbs"));
+		BufferedReader br = new BufferedReader(new FileReader("updateDraft.hbs"));
 		try {
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
@@ -2376,8 +2377,8 @@ public static String generateHbsForUpdateDraft() {
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
-	identityHbs=everything.toString();
-	return identityHbs;
+	draftHbs=everything.toString();
+	return draftHbs;
 }
 
 

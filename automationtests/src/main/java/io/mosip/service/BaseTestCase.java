@@ -27,6 +27,7 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
+import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.testrunner.MosipTestRunner;
@@ -181,6 +182,7 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
+			CertificateGenerationUtil.getThumbprints();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}

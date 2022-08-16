@@ -467,7 +467,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-29",
+      "errorCode": "RES-SER-422",
       "message": "$IGNORE$"
     }
   ],

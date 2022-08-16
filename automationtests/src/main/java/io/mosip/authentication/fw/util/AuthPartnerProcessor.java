@@ -26,8 +26,12 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 
 	/**
 	 * Start demo app or auth partner applciation in seperate thread using runtime processor
+	 * 
 	 */
 	public static void startProcess() {
+		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
+		//return;
+		
 		String encryptUtilPort = props.getProperty("encryptUtilPort");
 		String AuthClientID = propsKernel.getProperty("AuthClientID");
 		String AuthClientSecret = propsKernel.getProperty("AuthClientSecret");

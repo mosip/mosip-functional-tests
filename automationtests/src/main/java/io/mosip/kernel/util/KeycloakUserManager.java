@@ -204,7 +204,6 @@ public class KeycloakUserManager {
 		
 	}
 	public static void createVidUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
-		List<String> needsToBeCreatedUsers = List.of(propsKernel.getProperty("users.create").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 			UserRepresentation user = new UserRepresentation();
 			user.setEnabled(true);
