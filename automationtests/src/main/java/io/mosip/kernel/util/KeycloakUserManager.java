@@ -163,7 +163,8 @@ public class KeycloakUserManager {
 		    user.setAttributes(map);
 			// Get realm
 			RealmResource realmResource=null;
-			 realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			// realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			realmResource=keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
