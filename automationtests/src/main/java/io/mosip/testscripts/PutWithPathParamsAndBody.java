@@ -78,7 +78,7 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			//adding...
 			List<String> languageList = new ArrayList<>();
-			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {

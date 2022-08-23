@@ -305,7 +305,7 @@ public class KernelAuthentication extends BaseTestCase{
 		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
         actualRequest_generation.put("requesttime", clib.getCurrentUTCTime());
-        ((JSONObject)actualRequest_generation.get("request")).put("langCode", languageList.get(0));
+        ((JSONObject)actualRequest_generation.get("request")).put("langCode", BaseTestCase.getLanguageList().get(0));
         ((JSONObject)actualRequest_generation.get("request")).get("userId").toString();
         // getting request and expected response jsondata from json files.
         JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");

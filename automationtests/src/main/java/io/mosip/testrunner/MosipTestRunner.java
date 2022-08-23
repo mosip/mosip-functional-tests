@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.dbaccess.DBManager;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
@@ -33,7 +34,10 @@ import java.util.Map;
 public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
 
+	private static final boolean String = false;
+
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	public static List<String> languageList = new ArrayList<>();
 
 	/**
 	 * C Main method to start mosip test execution
@@ -69,14 +73,44 @@ public class MosipTestRunner {
 			ExtractResource.extractResourceFromJar();
 		}
 		// Initializing or setting up execution
-		ConfigManager.init();
-		KeycloakUserManager.removeUser();
-		KeycloakUserManager.createUsers();
-		BaseTestCase.suiteSetup();
-		BaseTestCase.mapUserToZone();
-		BaseTestCase.mapZone();
+		ConfigManager.init(); //Langauge Independent
+		KeycloakUserManager.removeUser();  //Langauge Independent
+		KeycloakUserManager.createUsers();  //Langauge Independent
+		BaseTestCase.suiteSetup();  //Langauge Independent
+		//BaseTestCase.getLanguageList();
+		List<String> languageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+		//Get List of languages from server and set into BaseTestCase.languageList
+		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
+		//ForTesting
 		
-		startTestRunner();
+		if (BaseTestCase.listOfModules.contains("masterdata")) {
+			//get all languages which are already loaded and store into local variable
+			//List<String> localLanguageList= new ArrayList<String>(BaseTestCase.getLanguageList());
+			BaseTestCase.mapUserToZone();
+			BaseTestCase.mapZone();
+				
+			
+			for (int i = 0; i < localLanguageList.size(); i++) {
+				// update one language at a time in the BaseTestCase.languageList
+				BaseTestCase.languageList.clear();
+				BaseTestCase.languageList.add(localLanguageList.get(i));
+
+				DBManager.clearMasterDbData();
+				BaseTestCase.setReportName("masterdata-" + localLanguageList);
+				startTestRunner();
+
+			}
+			 
+		}
+		else {
+			startTestRunner();
+		}
+		
+		KeycloakUserManager.removeUser();
+		System.exit(0);
+		
+		
 
 	}
 
@@ -124,8 +158,8 @@ public class MosipTestRunner {
 		System.getProperties().setProperty("testng.outpur.dir", "testng-report");
 		runner.setOutputDirectory("testng-report");
 		runner.run();
-		KeycloakUserManager.removeUser();
-		System.exit(0);
+		//KeycloakUserManager.removeUser();
+		//System.exit(0);
 	}
 
 	/**
