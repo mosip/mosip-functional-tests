@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
@@ -73,12 +74,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			inputJson = modifyIdSchemaInputJson(inputJson);
 		}
 
-		if (inputJson.contains("$1STLANG$"))
-			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (inputJson.contains("$2NDLANG$"))
-			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (inputJson.contains("$3RDLANG$"))
-			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		
 		if(inputJson.contains("&quot;")) {
 			inputJson = inputJson.replace("&quot;", "\"");
 		}
@@ -88,7 +84,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			//adding...
 			List<String> languageList = new ArrayList<>();
-			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {

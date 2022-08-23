@@ -32,7 +32,7 @@
 			value="preReg/createPrereg/createPrereg.yml" />
 			<parameter name="idKeyName"	value="preRegistrationId" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+			<class name="io.mosip.testscripts.CreatePreReg" />
 		</classes>
 	</test>
 	 <test name="UpdatePreregistration">
@@ -40,7 +40,7 @@
 			value="preReg/UpdatePreregistration/UpdatePreregistration.yml" />
 			<parameter name="pathParams"	value="preRegistrationId" />
 		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+			<class name="io.mosip.testscripts.UpdatePrereg" />
 		</classes>
 	</test>
 	<test name="GetApplicationWithPrId">

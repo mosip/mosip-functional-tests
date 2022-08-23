@@ -145,7 +145,7 @@ public class BaseTestCase {
 		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
-		languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+		//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 		
 		//langcode = System.getProperty("env.langcode");
 		logger.info("Test Level ======" + languageList);
@@ -229,6 +229,7 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("prereg")) {
 			setReportName("prereg");
+			AdminTestUtil.generateHbsForPrereg();
 			AdminTestUtil.copyPreregTestResource();
 			
 		}
@@ -238,7 +239,7 @@ public class BaseTestCase {
 		}
 	}
 	
-	private static void  setReportName(String moduleName) {
+	public static void  setReportName(String moduleName) {
 		System.getProperties().setProperty("emailable.report2.name", "mosip-" + moduleName +"-"+ System.currentTimeMillis() +"-report.html");
 	}
 		
@@ -323,7 +324,7 @@ public class BaseTestCase {
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
 				request.put("userId", propsKernel.get("admin_userName"));
-				request.put("langCode", BaseTestCase.languageList.get(0));
+				request.put("langCode", BaseTestCase.getLanguageList().get(0));
 				request.put("isActive", "true");
 				actualrequest.put("request", request);
 				System.out.println(actualrequest);
@@ -343,6 +344,24 @@ public class BaseTestCase {
 			map.put("userId", (String) propsKernel.get("admin_userName"));
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
+		}
+		
+		
+         public static List<String> getLanguageList() {
+			
+			//String token = kernelAuthLib.getTokenByRole("zonemap");
+			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
+			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+			org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
+			String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
+			String optionalLanguage = (String) responseValue.get("mosip.optional-languages");
+			List<String> localLanguageList= new ArrayList<String>();
+			localLanguageList.add(mandatoryLanguage);
+			localLanguageList.add(optionalLanguage);
+			//JSONObject responseJson = new JSONObject(response.asString());
+			//JSONObject responseValue = (JSONObject) responseJson.get("response");
+			return localLanguageList;
 		}
 	
 	public static JSONObject getRequestJson(String filepath){

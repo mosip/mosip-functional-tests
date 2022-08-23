@@ -28,8 +28,8 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
-public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(PostWithBodyAndPathParams.class);
+public class UpdatePrereg extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(UpdatePrereg.class);
 	protected String testCaseName = "";
 	String pathParams = null;
 	public Response response = null;
@@ -66,12 +66,74 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg());
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		//filterHbs(testCaseDTO);
-		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-		String inputJson = filterInputHbs(testCaseDTO);
-		String outputJson = filterOutputHbs(testCaseDTO);
+		//testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
+		//String inputJson = filterInputHbs(testCaseDTO);
+		
+		String jsonInput = AdminTestUtil.generateHbsForPrereg();
+		
+		
+		
+		
+		
+		
+		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+		
+		
+		
+		//String jsonInput = testCaseDTO.getInput();
+		
+		 //inputJson = getJsonFromTemplate(inputJson, testCaseDTO.getInputTemplate(), false);
+		//inputJson.substring(0, inputJson.length()-4);
+		String inputJson=jsonInput.substring(0, jsonInput.length()-14) + "  }}},\"preRegistrationId\": \"{{preRegistrationId}}\"}";
+		//JSONObject newInputJson = new JSONObject(inputJson);
+		//inputJson= newInputJson.toString();
+		//testCaseDTO.setInputTemplate(inputJson);
+		
+		
+		if (BaseTestCase.getLanguageList().size() == 2) {
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"MLE\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"RSK\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }", "");
+		} else if (BaseTestCase.getLanguageList().size() == 1) {
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Test Book appointment\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"MLE\" }, { \"language\": \"$3RDLANG$\", \"value\": \"MLE\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"RSK\" }, { \"language\": \"$3RDLANG$\", \"value\": \"RSK\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"KTA\" }, { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"KNT\" }, { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"BNMR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }",
+					"");
+		}
+		
+		
+		inputJson = getJsonFromTemplate(testCaseDTO.getInput(), inputJson, false);
+		System.out.println(inputJson);
+		
+		
+		
+		
+		
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
@@ -82,7 +144,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 			 for (int i=0; i<languageList.size(); i++) {
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {
-		            	response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+		            	response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
@@ -97,7 +159,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 					.doJsonOutputValidation(response.asString(), outputJson);
@@ -109,31 +171,6 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 
 	}
 	
-	private String filterOutputHbs(TestCaseDTO testCaseDTO) {
-		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-
-		if (outputJson.contains("$1STLANG$"))
-			outputJson = outputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (outputJson.contains("$2NDLANG$"))
-			outputJson = outputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (outputJson.contains("$3RDLANG$"))
-			outputJson = outputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-		return outputJson;
-	}
-
-	private String filterInputHbs(TestCaseDTO testCaseDTO) {
-		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-
-		if (inputJson.contains("$1STLANG$"))
-			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (inputJson.contains("$2NDLANG$"))
-			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (inputJson.contains("$3RDLANG$"))
-			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-		
-		
-		return inputJson;
-	}
 	
 
 	
