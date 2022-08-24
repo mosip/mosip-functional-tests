@@ -1367,11 +1367,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$SCHEMAVERSION$"))
 			jsonString = jsonString.replace("$SCHEMAVERSION$", generateLatestSchemaVersion());
 		if (jsonString.contains("$1STLANG$"))
-			jsonString = jsonString.replace("$1STLANG$", BaseTestCase.getLanguageList().get(0));
+			jsonString = jsonString.replace("$1STLANG$",BaseTestCase.languageList.get(0));
 		if (jsonString.contains("$2NDLANG$"))
-			jsonString = jsonString.replace("$2NDLANG$", BaseTestCase.getLanguageList().get(1));
+			jsonString = jsonString.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
 		if (jsonString.contains("$3RDLANG$"))
-			jsonString = jsonString.replace("$3RDLANG$", BaseTestCase.getLanguageList().get(2));
+			jsonString = jsonString.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
 
 		if (jsonString.contains("$KEYCLOAKUSER1$"))
 			jsonString = jsonString.replace("$KEYCLOAKUSER1$", propsKernel.getProperty("KEYCLOAKUSER1"));

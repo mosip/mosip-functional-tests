@@ -144,7 +144,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request = new JSONObject();
 		request.put("appId", ConfigManager.getAdminAppId());
 		request.put("password", admin_password);
-		request.put("userName", admin_userName);
+		request.put("userName", BaseTestCase.currentModule +"-"+ admin_userName);
 		request.put("clientId", ConfigManager.getAdminClientId());
 		request.put("clientSecret", ConfigManager.getAdminClientSecret());
 		actualrequest.put("request", request);
@@ -181,7 +181,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", partner_password);
-		request.put("userName", partner_userName);	
+		request.put("userName", BaseTestCase.currentModule +"-"+partner_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());
