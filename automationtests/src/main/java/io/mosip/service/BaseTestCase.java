@@ -71,6 +71,7 @@ public class BaseTestCase {
 	public String keycloakCookie = null;
 	public String zonemapCookie = null;
 	public String autoTstUsrCkie = null;
+	public static String currentModule = null;
 	public static List<String> listOfModules = null;
 
 	public static KernelAuthentication kernelAuthLib = null;
@@ -103,6 +104,7 @@ public class BaseTestCase {
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
 	public static List<String> languageList = new ArrayList<>();
+	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
@@ -348,20 +350,20 @@ public class BaseTestCase {
 		
 		
          public static List<String> getLanguageList() {
-			
+			if(!languageList.isEmpty()) {
+				return languageList;
+			}
 			//String token = kernelAuthLib.getTokenByRole("zonemap");
 			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 			org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
 			String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
-			String optionalLanguage = (String) responseValue.get("mosip.optional-languages");
-			List<String> localLanguageList= new ArrayList<String>();
-			localLanguageList.add(mandatoryLanguage);
-			localLanguageList.add(optionalLanguage);
-			//JSONObject responseJson = new JSONObject(response.asString());
-			//JSONObject responseValue = (JSONObject) responseJson.get("response");
-			return localLanguageList;
+			
+			languageList.add(mandatoryLanguage);
+			languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
+			
+			return languageList;
 		}
 	
 	public static JSONObject getRequestJson(String filepath){

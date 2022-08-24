@@ -74,11 +74,11 @@ public class MosipTestRunner {
 		}
 		// Initializing or setting up execution
 		ConfigManager.init(); //Langauge Independent
+		BaseTestCase.suiteSetup();
 		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
-		BaseTestCase.suiteSetup();  //Langauge Independent
+		  //Langauge Independent
 		//BaseTestCase.getLanguageList();
-		List<String> languageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 		//Get List of languages from server and set into BaseTestCase.languageList
 		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
@@ -86,18 +86,24 @@ public class MosipTestRunner {
 		
 		if (BaseTestCase.listOfModules.contains("masterdata")) {
 			//get all languages which are already loaded and store into local variable
-			//List<String> localLanguageList= new ArrayList<String>(BaseTestCase.getLanguageList());
 			BaseTestCase.mapUserToZone();
 			BaseTestCase.mapZone();
 				
-			
+			/*
+			 * for (String lang : BaseTestCase.languageList) {
+			 * DBManager.clearMasterDbData(); BaseTestCase.languageList.clear();
+			 * BaseTestCase.languageList.add(localLanguageList.get(lang));
+			 * BaseTestCase.setReportName("masterdata-" + localLanguageList);
+			 * startTestRunner(); }
+			 */
 			for (int i = 0; i < localLanguageList.size(); i++) {
 				// update one language at a time in the BaseTestCase.languageList
 				BaseTestCase.languageList.clear();
 				BaseTestCase.languageList.add(localLanguageList.get(i));
 
 				DBManager.clearMasterDbData();
-				BaseTestCase.setReportName("masterdata-" + localLanguageList);
+				BaseTestCase.currentModule = "masterdata";
+				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
 				startTestRunner();
 
 			}

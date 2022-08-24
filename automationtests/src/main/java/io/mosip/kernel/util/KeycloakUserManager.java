@@ -21,6 +21,7 @@ import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
+import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
 
@@ -60,17 +61,17 @@ public class KeycloakUserManager {
 	}
 
 	public static void createUsers() {
+		
 		List<String> needsToBeCreatedUsers = List.of(ConfigManager.getIAMUsersToCreate().split(","));
-		//List<String> userPassword = List.of(propsKernel.getProperty("users.password").split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
-		//int passwordIndex = 0;
 		for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
 			UserRepresentation user = new UserRepresentation();
+			String moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
 			user.setEnabled(true);
-			user.setUsername(needsToBeCreatedUser);
-			user.setFirstName(needsToBeCreatedUser);
-			user.setLastName(needsToBeCreatedUser);
-			user.setEmail("automation" + needsToBeCreatedUser + "@automationlabs.com");
+			user.setUsername(moduleSpecificUser);
+			user.setFirstName(moduleSpecificUser);
+			user.setLastName(moduleSpecificUser);
+			user.setEmail("automation" + moduleSpecificUser + "@automationlabs.com");
 			// Get realm
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
@@ -118,16 +119,17 @@ public class KeycloakUserManager {
 		List<String> needsToBeRemovedUsers = List.of(ConfigManager.getIAMUsersToCreate().split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();
 		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
+			String moduleSpecificUserToBeRemoved = BaseTestCase.currentModule +"-"+ needsToBeRemovedUser;
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
-			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
+			List<UserRepresentation> usersFromDB = usersRessource.search(moduleSpecificUserToBeRemoved);
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+				System.out.printf("User removed with name: %s%n", moduleSpecificUserToBeRemoved);
 			} else {
-				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
+				System.out.printf("User not found with name: %s%n", moduleSpecificUserToBeRemoved);
 			}
 
 		}
