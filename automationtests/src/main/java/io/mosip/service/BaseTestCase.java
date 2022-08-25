@@ -244,7 +244,7 @@ public class BaseTestCase {
 	}
 	
 	public static void  setReportName(String moduleName) {
-		System.getProperties().setProperty("emailable.report2.name", "mosip-" + moduleName +"-"+ System.currentTimeMillis() +"-report.html");
+		System.getProperties().setProperty("emailable.report2.name", "mosip-"+ environment+"-" + moduleName+"-"  + System.currentTimeMillis() +"-report.html");
 	}
 		
 
