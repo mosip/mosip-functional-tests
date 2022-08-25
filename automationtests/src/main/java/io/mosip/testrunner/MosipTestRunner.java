@@ -46,22 +46,6 @@ public class MosipTestRunner {
 	 */
 	public static void main(String arg[]) {
 
-		System.out.println("** ------------- Printing env variables by getproperty ----------------------------- **");
-		System.out.println("MODULES:" + System.getProperty("MODULES"));
-		System.out.println("ENV_USER:" + System.getProperty("ENV_USER"));
-		System.out.println("ENV_ENDPOINT:" + System.getProperty("ENV_ENDPOINT"));
-		System.out.println("ENV_TESTLEVEL:" + System.getProperty("ENV_TESTLEVEL"));
-		System.out.println("ENV_LANGCODE:" + System.getProperty("ENV_LANGCODE"));
-		System.out.println("work_dir:" + System.getProperty("work_dir"));
-		
-		System.out.println("** ------------- Printing env variables by getenv ---------------------------------- **");
-		System.out.println("MODULES:" + System.getenv("MODULES"));
-		System.out.println("ENV_USER:" + System.getenv("ENV_USER"));
-		System.out.println("ENV_ENDPOINT:" + System.getenv("ENV_ENDPOINT"));
-		System.out.println("ENV_TESTLEVEL:" + System.getenv("ENV_TESTLEVEL"));
-		System.out.println("ENV_LANGCODE:" + System.getenv("ENV_LANGCODE"));
-		System.out.println("work_dir:" + System.getenv("work_dir"));
-
 		Map<String, String> envMap = System.getenv();
 		System.out.println("** ------------- Get ALL ENV varibales --------------------------------------------- **");
 		for (String envName : envMap.keySet()) {
@@ -77,8 +61,6 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
-		  //Langauge Independent
-		//BaseTestCase.getLanguageList();
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 		//Get List of languages from server and set into BaseTestCase.languageList
 		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
@@ -89,13 +71,7 @@ public class MosipTestRunner {
 			BaseTestCase.mapUserToZone();
 			BaseTestCase.mapZone();
 				
-			/*
-			 * for (String lang : BaseTestCase.languageList) {
-			 * DBManager.clearMasterDbData(); BaseTestCase.languageList.clear();
-			 * BaseTestCase.languageList.add(localLanguageList.get(lang));
-			 * BaseTestCase.setReportName("masterdata-" + localLanguageList);
-			 * startTestRunner(); }
-			 */
+			
 			for (int i = 0; i < localLanguageList.size(); i++) {
 				// update one language at a time in the BaseTestCase.languageList
 				BaseTestCase.languageList.clear();

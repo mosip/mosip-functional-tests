@@ -198,6 +198,7 @@ public class BaseTestCase {
 		}
 		if (listOfModules.contains("masterdata")) {
 			DBManager.clearMasterDbData();
+			BaseTestCase.currentModule = "masterdata";
 			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
 		}
@@ -218,6 +219,7 @@ public class BaseTestCase {
 		if (listOfModules.contains("partner")) {
 			DBManager.clearPMSDbData();
 			DBManager.clearKeyManagerDbData();
+			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
@@ -242,7 +244,7 @@ public class BaseTestCase {
 	}
 	
 	public static void  setReportName(String moduleName) {
-		System.getProperties().setProperty("emailable.report2.name", "mosip-" + moduleName +"-"+ System.currentTimeMillis() +"-report.html");
+		System.getProperties().setProperty("emailable.report2.name", "mosip-"+ environment+"-" + moduleName+"-"  + System.currentTimeMillis() +"-report.html");
 	}
 		
 
