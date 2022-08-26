@@ -2405,7 +2405,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		StringBuffer everything = new StringBuffer("");
 		kernelAuthLib = new KernelAuthentication();
-		String token = kernelAuthLib.getTokenByRole("zonemap");
+		String token = kernelAuthLib.getTokenByRole("admin");
 		String url = ApplnURI + props.getProperty("masterSchemaURL");
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,

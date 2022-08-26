@@ -184,18 +184,21 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
+			BaseTestCase.currentModule = "auth";
 			CertificateGenerationUtil.getThumbprints();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
+			BaseTestCase.currentModule = "idrepo";
 			AdminTestUtil.copyIdrepoTestResource();			
 		}
-		if (listOfModules.contains("admin")) {
-			setReportName("admin");
-			AdminTestUtil.initiateAdminTest();
-		}
+		/*
+		 * if (listOfModules.contains("admin")) { setReportName("admin");
+		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
+		 */
+		
 		if (listOfModules.contains("masterdata")) {
 			DBManager.clearMasterDbData();
 			BaseTestCase.currentModule = "masterdata";
@@ -204,43 +207,46 @@ public class BaseTestCase {
 		}
 		
 		if (listOfModules.contains("mobileid")){
+			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
 			
 		}
-		if (listOfModules.contains("syncdata")) {
-			setReportName("syncdata");
-			AdminTestUtil.initiateSyncDataTest();
-		}
+		/*
+		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
+		 * AdminTestUtil.initiateSyncDataTest(); }
+		 */
 		if (listOfModules.contains("resident")) {
+			BaseTestCase.currentModule = "resident";
 			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner")) {
+			BaseTestCase.currentModule = "partner";
 			DBManager.clearPMSDbData();
 			DBManager.clearKeyManagerDbData();
 			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		if (listOfModules.contains("kernel")) {
-			setReportName("kernel");
-			AdminTestUtil.initiateKernelTest();
-		}
-		if (listOfModules.contains("regproc")) {
-			setReportName("regproc");
-			AdminTestUtil.initiateregProcTest();
-		}
+		/*
+		 * if (listOfModules.contains("kernel")) { setReportName("kernel");
+		 * AdminTestUtil.initiateKernelTest(); }
+		 */
+		/*
+		 * if (listOfModules.contains("regproc")) { setReportName("regproc");
+		 * AdminTestUtil.initiateregProcTest(); }
+		 */
 		if (listOfModules.contains("prereg")) {
+			BaseTestCase.currentModule = "prereg";
 			setReportName("prereg");
-			AdminTestUtil.generateHbsForPrereg();
 			AdminTestUtil.copyPreregTestResource();
 			
 		}
-		if (listOfModules.contains("prerequisite")) {
-			setReportName("prerequisite");
-			AdminTestUtil.copyPrerequisiteTestResource();
-		}
+		/*
+		 * if (listOfModules.contains("prerequisite")) { setReportName("prerequisite");
+		 * AdminTestUtil.copyPrerequisiteTestResource(); }
+		 */
 	}
 	
 	public static void  setReportName(String moduleName) {

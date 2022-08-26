@@ -67,6 +67,7 @@ public class KeycloakUserManager {
 		for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
 			UserRepresentation user = new UserRepresentation();
 			String moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
+			System.out.println(moduleSpecificUser);
 			user.setEnabled(true);
 			user.setUsername(moduleSpecificUser);
 			user.setFirstName(moduleSpecificUser);
