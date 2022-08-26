@@ -528,29 +528,7 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.1.13</version>
-                <executions>
-                    <execution>
-                        <id>populate-git-commit-information</id>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                        <configuration>
-                            <verbose>true</verbose>
-                            <dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
-                            <abbrevLength>8</abbrevLength>
-                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                </configuration>
-            </plugin> 
+			
 			
 			
 <!-- 			<plugin>
