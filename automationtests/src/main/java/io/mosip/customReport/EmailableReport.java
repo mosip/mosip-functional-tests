@@ -18,17 +18,38 @@ import io.mosip.kernel.util.S3Adapter;
 
 public class EmailableReport extends EmailableReporter2 {
 	
+	
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 		
+		String commitId = null;
+		String branch = null;
 		
-		
+		Properties properties = new Properties();
+		try (InputStream is = EmailableReport.class.getClassLoader().getResourceAsStream("git.properties")) {
+			properties.load(is);
+			
+			commitId = properties.getProperty("git.commit.id.abbrev");
+			
+			branch = properties.getProperty("git.branch");
+			
 
-		for (ISuite suite : suites) {
-			String suiteName = suite.getName() + "(" + "CommitId" + ")";
-			// suite.s
-			suiteResults.add(new SuiteResult(suite));
+		} catch (IOException io) {
+			io.printStackTrace();
 		}
+		
+		//this.writeHead("(commit-id=" + commitId + ")" + "(branchName=" + branch + ")");
+
+		
+		
+		/*
+		 * for (ISuite suite : suites) { String suiteName = suite.getName() +
+		 * "(commit-id=" + commitId + ")" + "(branchName=" + branch + ")";
+		 * suite.setAttribute("abcs", suiteName); System.out.println(suite);
+		 * suiteResults.add(new SuiteResult(suite)); }
+		 */
+		 
+		 
 
 		super.generateReport(xmlSuites, suites, outputDirectory);
 		System.out.println("valuetoPush" + ConfigManager.getPushReportsToS3());
