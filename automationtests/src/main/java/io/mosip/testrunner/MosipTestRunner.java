@@ -68,6 +68,7 @@ public class MosipTestRunner {
 		
 		if (BaseTestCase.listOfModules.contains("masterdata")) {
 			//get all languages which are already loaded and store into local variable
+			//KeycloakUserManager.createUsers();
 			BaseTestCase.mapUserToZone();
 			BaseTestCase.mapZone();
 				
