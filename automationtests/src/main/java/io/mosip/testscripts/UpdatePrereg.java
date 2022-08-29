@@ -66,18 +66,14 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
-		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg());
+		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg(true));
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		//filterHbs(testCaseDTO);
 		//testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		//String inputJson = filterInputHbs(testCaseDTO);
 		
-		String jsonInput = AdminTestUtil.generateHbsForPrereg();
-		
-		
-		
-		
+		//String jsonInput = AdminTestUtil.generateHbsForPrereg(true);
 		
 		
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
@@ -86,9 +82,9 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		
 		//String jsonInput = testCaseDTO.getInput();
 		
-		 //inputJson = getJsonFromTemplate(inputJson, testCaseDTO.getInputTemplate(), false);
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate(), false);
 		//inputJson.substring(0, inputJson.length()-4);
-		String inputJson=jsonInput.substring(0, jsonInput.length()-14) + "  }}},\"preRegistrationId\": \"{{preRegistrationId}}\"}";
+		//String inputJson=jsonInput.substring(0, jsonInput.length()-14) + "  }}},\"preRegistrationId\": \"{{preRegistrationId}}\"}";
 		//JSONObject newInputJson = new JSONObject(inputJson);
 		//inputJson= newInputJson.toString();
 		//testCaseDTO.setInputTemplate(inputJson);
@@ -127,8 +123,8 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		}
 		
 		
-		inputJson = getJsonFromTemplate(testCaseDTO.getInput(), inputJson, false);
-		System.out.println(inputJson);
+		//inputJson = getJsonFromTemplate(testCaseDTO.getInput(), inputJson, false);
+		//System.out.println(inputJson);
 		
 		
 		

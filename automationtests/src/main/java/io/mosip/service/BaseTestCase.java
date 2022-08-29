@@ -30,6 +30,7 @@ import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -329,6 +330,8 @@ public class BaseTestCase {
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 				
+				KeycloakUserManager.createUsersWithArg(propsKernel.getProperty("admin_zone_userName"),
+						propsKernel.getProperty("admin_zone_password"), propsKernel.getProperty("new_Resident_Role"));
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 
 				JSONObject request = new JSONObject();

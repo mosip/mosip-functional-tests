@@ -206,6 +206,57 @@ public class KeycloakUserManager {
 			//passwordIndex ++;
 		
 	}
+	
+	public static void createUsersWithArg(String userid,String pwd, String rolenum) {
+		Keycloak keycloakInstance = getKeycloakInstance();
+			UserRepresentation user = new UserRepresentation(); 
+			user.setEnabled(true);
+			user.setUsername(userid);
+			user.setFirstName(userid);
+			user.setLastName(userid);
+			user.setEmail("automation" + userid + "@automationlabs.com");
+			// Get realm
+			RealmResource realmResource=null;
+			 realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+			UsersResource usersRessource = realmResource.users();
+			// Create user (requires manage-users role)
+			Response response = usersRessource.create(user);
+			System.out.println(response);
+			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+			System.out.println(response.getLocation());
+			String userId = CreatedResponseUtil.getCreatedId(response);
+			System.out.printf("User created with userId: %s%n", userId);
+
+			// Define password credential
+			CredentialRepresentation passwordCred = new CredentialRepresentation();
+			
+			passwordCred.setTemporary(false);
+			passwordCred.setType(CredentialRepresentation.PASSWORD);
+			
+			//passwordCred.setValue(userPassword.get(passwordIndex));
+			passwordCred.setValue(pwd);
+
+			UserResource userResource = usersRessource.get(userId);
+			// Set password credential
+			userResource.resetPassword(passwordCred);
+
+			// Getting all the roles
+			List<RoleRepresentation> allRoles = realmResource.roles().list();
+			List<RoleRepresentation> availableRoles = new ArrayList<>();
+			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
+			for(String role : toBeAssignedRoles) {
+				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				}else {
+					System.out.printf("Role not found in keycloak: %s%n", role);
+				}
+			}
+			// Assign realm role tester to user
+			userResource.roles().realmLevel() //
+					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
+			//passwordIndex ++;
+		
+	}
 	public static void createVidUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
 		Keycloak keycloakInstance = getKeycloakInstance();
 			UserRepresentation user = new UserRepresentation();

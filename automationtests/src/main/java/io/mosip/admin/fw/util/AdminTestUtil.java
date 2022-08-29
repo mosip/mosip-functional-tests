@@ -1,6 +1,5 @@
 package io.mosip.admin.fw.util;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -19,9 +18,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.UnrecoverableEntryException;
-import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -62,7 +59,6 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -119,7 +115,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String idField = null;
 	public static String identityHbs = null;
 	public static String draftHbs = null;
-	public static String preregHbs = null;
+	public static String preregHbsForCreate = null;
+	public static String preregHbsForUpdate = null;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
 	public static HashMap<String, String> keycloakRolesMap = new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
@@ -2399,9 +2396,13 @@ public class AdminTestUtil extends BaseTestCase {
 		return draftHbs;
 	}
 
-	public static String generateHbsForPrereg() {
-		if (preregHbs != null) {
-			return preregHbs;
+	public static String generateHbsForPrereg(boolean isItUpdate) {
+		if ( isItUpdate && preregHbsForUpdate != null) {
+			return preregHbsForUpdate;
+		}
+		
+		if (!isItUpdate && preregHbsForCreate != null) {
+			return preregHbsForCreate;
 		}
 		StringBuffer everything = new StringBuffer("");
 		kernelAuthLib = new KernelAuthentication();
@@ -2453,18 +2454,15 @@ public class AdminTestUtil extends BaseTestCase {
 			//Recreate JSON Array
 			JSONArray newIdJson = new JSONArray(list);
 			
-			/*
-			 * if(objIDJson1.contains("proofOfIdentity")) {
-			 * objIDJson3.replace("proofOfIdentity", ""); }
-			 * if(objIDJson3.contains("individualBiometrics")) {
-			 * objIDJson3.replace("individualBiometrics", ""); }
-			 */
+			
 			
 
 			FileWriter myFile = new FileWriter("createPrereg.hbs");
 			myFile.write("{\n");
 			myFile.write("  \"id\": \"{{id}}\",\n");
-			
+			if ( isItUpdate ) {
+				myFile.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
+			}
 		
 			
 			myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
@@ -2562,8 +2560,13 @@ public class AdminTestUtil extends BaseTestCase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		preregHbs = everything.toString();
-		return preregHbs;
+		if(isItUpdate) {
+			
+			preregHbsForUpdate = everything.toString();
+			return preregHbsForUpdate;
+		}
+		preregHbsForCreate = everything.toString();
+		return preregHbsForCreate;
 	}
 
 }

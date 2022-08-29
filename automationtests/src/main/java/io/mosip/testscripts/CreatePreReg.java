@@ -81,7 +81,7 @@ public class CreatePreReg extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO)
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg());
+		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg(false));
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		// filterHbs(testCaseDTO);
