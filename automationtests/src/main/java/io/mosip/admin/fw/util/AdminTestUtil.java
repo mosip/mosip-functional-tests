@@ -749,11 +749,15 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, String pathParams) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		System.out.println("inputJson is::" + inputJson);
 		JSONObject req = new JSONObject(inputJson);
+		System.out.println("req is::" +req);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
 		for (String param : params) {
+			System.out.println("param is::" +param);
 			if (req.has(param)) {
+				System.out.println("req is::" +req);
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
 			} else
