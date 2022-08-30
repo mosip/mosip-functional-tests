@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class PutWithPathParam extends AdminTestUtil implements ITest {
@@ -71,7 +72,7 @@ public class PutWithPathParam extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			//adding...
 			List<String> languageList = new ArrayList<>();
-			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {

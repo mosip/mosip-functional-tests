@@ -66,12 +66,7 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 
-		if (inputJson.contains("$1STLANG$"))
-			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (inputJson.contains("$2NDLANG$"))
-			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (inputJson.contains("$3RDLANG$"))
-			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		
 		
 		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		

@@ -3,15 +3,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -20,15 +135,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -37,15 +267,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -54,15 +399,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -71,15 +531,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -88,15 +663,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -105,15 +795,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/createPrereg/createPreregResult_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
   "langCode": "$1STLANG$"
@@ -122,15 +927,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.prestration.demographic.create"
+  "id": "mosip.prtion.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -144,15 +1064,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "$REMOVE$"
+  "id": "$REMOVE$",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -166,15 +1201,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": ""
+  "id": "",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -188,15 +1338,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$REMOVE$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -210,15 +1475,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
-  "langCode": "@@Fgsdh43",
+  "langCode": "$363738$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -228,41 +1608,134 @@ CreatePrereg:
     }
   ]
 }'
-   Prereg_CreatePrereg_invalid_dateOfBirth_sid:
-      endPoint: /preregistration/v1/applications/prereg
-      role: batch
-      restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
-      outputTemplate: preReg/error
-      input: '{
-  "dateOfBirth": "1996/01",
-  "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
-  "langCode": "$1STLANG$",
-  "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
-}'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "KER-IOV-004",
-      "message": "Invalid input parameter - identity/dateOfBirth"
-    }
-  ]
-}'
    Prereg_CreatePrereg_invalid_email_sid:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "so.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "aasa@334dc",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -276,15 +1749,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
-  "requesttime": "2021dd02-10T04:50:04.812Z",
-  "id": "mosip.pre-registration.demographic.create"
+  "requesttime": "$2233STAMP$",
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -298,15 +1886,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$REMOVE$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -320,15 +2023,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
-  "requesttime": "2019-02-10T04:50:04.812Z",
-  "id": "mosip.pre-registration.demographic.create"
+  "requesttime": "2019-08-23T05:28:27.570Z",
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -342,15 +2160,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
-  "dateOfBirth": "1996/01/01",
-  "version": "1safag",
+  "postalCode": "14022",
+  "phone": "8249742850",
   "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
+  "dateOfBirth": "1996/01/01",
+  "version": "13YU2U2",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
@@ -364,15 +2297,130 @@ CreatePrereg:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
       restMethod: post
-      inputTemplate: preReg/createPrereg/createPrereg_$LANGNUMBER$
+      inputTemplate: preReg/createPrereg/createPrereg
       outputTemplate: preReg/error
       input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "sohan.dey@technoforte.co.in",
+  "IDSchemaVersion": 0.7, 
   "dateOfBirth": "1996/01/01",
   "version": "$REMOVE$",
-  "email": "sohan.dey@technoforte.co.in",
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
-  "id": "mosip.pre-registration.demographic.create"
+  "id": "mosip.pre-registration.demographic.create",
+  "consent": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "consentText": [
+      {
+        "language": "$1STLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "FR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "FR"
+      }
+    ],
+  "fullName": [
+      {
+        "language": "$1STLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "Test Book appointment"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "Test Book appointment"
+      }
+    ],
+  "gender": [
+      {
+        "language": "$1STLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "MLE"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "MLE"
+      }
+    ],
+  "region": [
+      {
+        "language": "$1STLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "RSK"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "RSK"
+      }
+    ],
+  "province": [
+      {
+        "language": "$1STLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KTA"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KTA"
+      }
+    ],
+  "city": [
+      {
+        "language": "$1STLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "KNT"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "KNT"
+      }
+    ],
+  "zone": [
+      {
+        "language": "$1STLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "BNMR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "BNMR"
+      }
+    ]
 }'
       output: '{
    "errors": [
