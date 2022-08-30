@@ -322,18 +322,13 @@ public class BaseTestCase {
 		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
 	}
 	
-	
-	
-	
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 				
-				KeycloakUserManager.createUsersWithArg(propsKernel.getProperty("admin_zone_userName"),
-						propsKernel.getProperty("admin_zone_password"), propsKernel.getProperty("new_Resident_Role"));
+				AdminTestUtil.initialUserCreation();
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
-
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
 				request.put("userId", propsKernel.get("admin_userName"));
