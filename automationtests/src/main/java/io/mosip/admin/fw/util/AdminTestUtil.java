@@ -661,6 +661,57 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	public static void  initialUserCreation() {
+		Response response = null;
+		String token = kernelAuthLib.getTokenByRole("admin");
+		org.json.simple.JSONObject actualRequest_generation = BaseTestCase.getRequestJson("config/bulkUpload.json");
+		String url = ApplnURI + propsKernel.getProperty("bulkUploadUrl");
+		
+		JSONObject req = new JSONObject(actualRequest_generation);
+		
+		HashMap<String, String> formParams = new HashMap<String, String>();
+		formParams.put("category", req.getString("category"));
+		formParams.put("operation", req.getString("operation"));
+		formParams.put("tableName", req.getString("tableName"));
+		
+		String absolueFilePath = null;
+		JSONArray josnArray = req.getJSONArray("files");
+		for (int index = 0; index < josnArray.length(); index++) {
+			String csvFilePath = (String) josnArray.get(index);
+			absolueFilePath = getResourcePath() + csvFilePath;
+			if (formParams.get("category").equalsIgnoreCase("masterData")) {
+				absolueFilePath = StringUtils.substringBefore(absolueFilePath, "FilesToUpload") + "FilesToUpload";
+			}
+		}
+		File file = new File(absolueFilePath);
+		File[] listFiles = file.listFiles();
+		
+		for (File specificFile : listFiles) {
+			if (formParams.get("operation").equalsIgnoreCase("insert")
+					&& specificFile.getName().equals(formParams.get("tableName") + ".csv")) {
+				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
+				listFiles = new File[1];
+				listFiles[0] = specificFile;
+			} else {
+				if (formParams.get("operation").equalsIgnoreCase("update")
+						&& specificFile.getName().equalsIgnoreCase("update" + formParams.get("tableName") + ".csv")) {
+					listFiles = new File[1];
+					listFiles[0] = specificFile;
+				}
+			}
+		}
+		try {
+			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
+					MediaType.MULTIPART_FORM_DATA, token);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+		}
+	
+	}
 
 	/**
 	 * This method will hit put request and return the response
