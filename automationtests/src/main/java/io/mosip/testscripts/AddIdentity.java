@@ -142,13 +142,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 
-		if (inputJson.contains("$1STLANG$"))
-			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (inputJson.contains("$2NDLANG$"))
-			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (inputJson.contains("$3RDLANG$"))
-			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
 		// inputJson = inputJson.replace("$SCHEMAVERSION$",
@@ -195,12 +188,14 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		try {
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
-			//Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime")
 			+ " mili secs after UIN Generation In IDREPO");
-//	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
-//			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+	         Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}

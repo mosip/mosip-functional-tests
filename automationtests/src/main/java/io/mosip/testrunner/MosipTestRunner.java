@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 import org.testng.TestNG;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.dbaccess.DBManager;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
@@ -33,7 +34,10 @@ import java.util.Map;
 public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
 
+	private static final boolean String = false;
+
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	public static List<String> languageList = new ArrayList<>();
 
 	/**
 	 * C Main method to start mosip test execution
@@ -41,22 +45,6 @@ public class MosipTestRunner {
 	 * @param arg
 	 */
 	public static void main(String arg[]) {
-
-		System.out.println("** ------------- Printing env variables by getproperty ----------------------------- **");
-		System.out.println("MODULES:" + System.getProperty("MODULES"));
-		System.out.println("ENV_USER:" + System.getProperty("ENV_USER"));
-		System.out.println("ENV_ENDPOINT:" + System.getProperty("ENV_ENDPOINT"));
-		System.out.println("ENV_TESTLEVEL:" + System.getProperty("ENV_TESTLEVEL"));
-		System.out.println("ENV_LANGCODE:" + System.getProperty("ENV_LANGCODE"));
-		System.out.println("work_dir:" + System.getProperty("work_dir"));
-		
-		System.out.println("** ------------- Printing env variables by getenv ---------------------------------- **");
-		System.out.println("MODULES:" + System.getenv("MODULES"));
-		System.out.println("ENV_USER:" + System.getenv("ENV_USER"));
-		System.out.println("ENV_ENDPOINT:" + System.getenv("ENV_ENDPOINT"));
-		System.out.println("ENV_TESTLEVEL:" + System.getenv("ENV_TESTLEVEL"));
-		System.out.println("ENV_LANGCODE:" + System.getenv("ENV_LANGCODE"));
-		System.out.println("work_dir:" + System.getenv("work_dir"));
 
 		Map<String, String> envMap = System.getenv();
 		System.out.println("** ------------- Get ALL ENV varibales --------------------------------------------- **");
@@ -69,14 +57,43 @@ public class MosipTestRunner {
 			ExtractResource.extractResourceFromJar();
 		}
 		// Initializing or setting up execution
-		ConfigManager.init();
-		KeycloakUserManager.removeUser();
-		KeycloakUserManager.createUsers();
+		ConfigManager.init(); //Langauge Independent
 		BaseTestCase.suiteSetup();
-		BaseTestCase.mapUserToZone();
-		BaseTestCase.mapZone();
+		KeycloakUserManager.removeUser();  //Langauge Independent
+		KeycloakUserManager.createUsers();  //Langauge Independent
+		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+		//Get List of languages from server and set into BaseTestCase.languageList
+		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
+		//ForTesting
 		
-		startTestRunner();
+		if (BaseTestCase.listOfModules.contains("masterdata")) {
+			//get all languages which are already loaded and store into local variable
+			//KeycloakUserManager.createUsers();
+			BaseTestCase.mapUserToZone();
+			BaseTestCase.mapZone();
+				
+			
+			for (int i = 0; i < localLanguageList.size(); i++) {
+				// update one language at a time in the BaseTestCase.languageList
+				BaseTestCase.languageList.clear();
+				BaseTestCase.languageList.add(localLanguageList.get(i));
+
+				DBManager.clearMasterDbData();
+				BaseTestCase.currentModule = "masterdata";
+				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
+				startTestRunner();
+
+			}
+			 
+		}
+		else {
+			startTestRunner();
+		}
+		
+		KeycloakUserManager.removeUser();
+		System.exit(0);
+		
+		
 
 	}
 
@@ -124,8 +141,8 @@ public class MosipTestRunner {
 		System.getProperties().setProperty("testng.outpur.dir", "testng-report");
 		runner.setOutputDirectory("testng-report");
 		runner.run();
-		KeycloakUserManager.removeUser();
-		System.exit(0);
+		//KeycloakUserManager.removeUser();
+		//System.exit(0);
 	}
 
 	/**
