@@ -3,6 +3,8 @@ package io.mosip.kernel.util;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.simple.JSONObject;
+
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.restassured.RestAssured;
@@ -97,6 +99,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
+		case "partnernew":
+			if(!kernelCmnLib.isValidToken(partnerNewCookie))
+				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
+			return partnerNewCookie;
 		case "policytest":
 			if(!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -182,6 +188,23 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", partner_password);
 		request.put("userName", partner_userName);	
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put("clientId", ConfigManager.getPmsClientId());
+		request.put("clientSecret", ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;			
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartner() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("password", partner_password);
+		request.put("userName", PartnerRegistration.partnerId);	
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());

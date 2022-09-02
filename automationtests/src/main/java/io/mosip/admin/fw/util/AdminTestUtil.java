@@ -139,6 +139,7 @@ public class AdminTestUtil extends BaseTestCase{
 	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role, String testCaseName) {
 		Response response=null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		url = uriKeyWordHandelerUri(url, testCaseName );
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
