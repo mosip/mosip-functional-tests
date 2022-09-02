@@ -1,0 +1,16 @@
+DemoAuthNew:
+  auth_DemoAuth_DOB_Valid_Smoke_UIN_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Valid_Parameters_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "transactionId": "1234567890",
+    	"value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+      		"authStatus": "true"
+}'

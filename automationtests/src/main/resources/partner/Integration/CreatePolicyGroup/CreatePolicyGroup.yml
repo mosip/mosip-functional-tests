@@ -1,0 +1,18 @@
+CreateAPolicyGroup:
+   Partner_Create_Policy_Group_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Integration/CreatePolicyGroup/createPolicyGroup
+      outputTemplate: partner/Integration/CreatePolicyGroup/createPolicyGroupResult
+      input: '{
+    "desc": "desc mosip auth policy group",
+    "name": "mosip auth policy group",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "id": "$IGNORE$",
+        "name": "mosip auth policy group",
+        "desc": "desc mosip auth policy group",
+        "is_Active": true
+    }'

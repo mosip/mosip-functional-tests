@@ -61,6 +61,13 @@
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
+	<test name="BioAuthNew">
+		<parameter name="ymlFile" value="ida/BioAuthNew/BioAuthNew.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.BioAuthNew" />
+		</classes>
+	</test>
 
 
 	<test name="EkycBio">
@@ -163,10 +170,17 @@
 	</test>
 
 
-	<test name="DemoAuth">
+	<test name="DemoAuthOld">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
+		</classes>
+	</test>
+	
+	<test name="DemoAuth">
+		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
 		</classes>
 	</test>
 
@@ -210,8 +224,6 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test> 
-
-
+	</test>
 
 </suite>
