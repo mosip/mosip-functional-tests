@@ -28,6 +28,9 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
+import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
+import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
@@ -65,6 +68,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String partnerNewCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String residentNewCookie = null;
@@ -187,6 +191,7 @@ public class BaseTestCase {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
 			CertificateGenerationUtil.getThumbprints();
+			PartnerRegistration.getPartnerKeyUrl();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}

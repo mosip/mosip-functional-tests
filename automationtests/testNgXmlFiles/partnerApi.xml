@@ -1035,7 +1035,30 @@
 			<class name="io.mosip.testscripts.AuditValidator" />
 		</classes>
 	</test>
-	
+
+      <test name="CreateAPolicyGroup">
+		<parameter name="ymlFile"
+			value="partner/Integration/CreatePolicyGroup/CreatePolicyGroup.yml" />
+		<parameter name="idKeyName" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+  	<test name="CreateAuthPolicy">
+		<parameter name="ymlFile"
+			value="partner/Integration/CreateAuthPolicy/CreateAuthPolicy.yml" />
+		<parameter name="idKeyName" value="id" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="createPublishPolicyAndGroup">
+		<parameter name="ymlFile"
+			value="partner/Integration/PublishPolicy/PublishPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+		</classes>
+	</test>
 	
 	<test name="GetPolicyForApiKey">
 		<parameter name="ymlFile"
@@ -1093,5 +1116,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.DBValidator" />
 		</classes>
-	</test>		
+	</test>
 </suite>
