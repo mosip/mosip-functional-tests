@@ -32,6 +32,7 @@ import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
 import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MosipTestRunner;
@@ -111,6 +112,8 @@ public class BaseTestCase {
 	public static List<String> languageList = new ArrayList<>();
 	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	
+	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
@@ -358,6 +361,8 @@ public class BaseTestCase {
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
 		}
+		
+        
 		
 		
          public static List<String> getLanguageList() {

@@ -62,6 +62,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+		AdminTestUtil.createAndPublishPolicy();
 		//Get List of languages from server and set into BaseTestCase.languageList
 		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
 		//ForTesting
@@ -71,6 +72,8 @@ public class MosipTestRunner {
 			//KeycloakUserManager.createUsers();
 			BaseTestCase.mapUserToZone();
 			BaseTestCase.mapZone();
+			
+			
 				
 			
 			for (int i = 0; i < localLanguageList.size(); i++) {
