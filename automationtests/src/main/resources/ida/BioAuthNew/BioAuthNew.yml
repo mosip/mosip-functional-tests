@@ -21,10 +21,9 @@ BioAuthNew:
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  	"authStatus": "true"
+    "authStatus": "true"
 }'

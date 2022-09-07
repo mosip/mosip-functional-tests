@@ -1,0 +1,24 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc":"desc mosip auth policy",
+    "name":"automattion983401",
+    "policyGroupName":"mosip auth policy group",
+    "policyType":"Auth",
+    "version": "1.0",
+    "policies": {
+			"allowedAuthTypes": [{
+				"authSubType": "",
+				"authType": "demo",
+				"mandatory": false
+			}],
+			"allowedKycAttributes": [{
+				"attributeName": "string"
+			}],
+			"authTokenType": "partner"
+		}
+  },
+  "requesttime": "2022-09-07T04:23:38.117Z",
+  "version": "string"
+}

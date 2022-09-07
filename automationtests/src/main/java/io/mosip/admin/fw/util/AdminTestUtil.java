@@ -118,6 +118,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String preregHbsForCreate = null;
 	public static String preregHbsForUpdate = null;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
+    private static String authInternalRequest="config/Authorization/internalAuthRequest.json";
+	private static String AuthPolicyRequest="config/AuthPolicy.json";
+	private static String policyGroupRequest="config/policyGroup.json";
 	public static HashMap<String, String> keycloakRolesMap = new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
@@ -1416,6 +1419,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
 			jsonString = jsonString.replace("$RID$", genRid);
+		
+		
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
 			jsonString = jsonString.replace("$SCHEMAVERSION$", generateLatestSchemaVersion());
@@ -2623,6 +2628,56 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		preregHbsForCreate = everything.toString();
 		return preregHbsForCreate;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void createAndPublishPolicy() {
+    	
+    	String token = kernelAuthLib.getTokenByRole("partner");
+		String url = ApplnURI + props.getProperty("authPolicyUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(AuthPolicyRequest);
+		
+		
+		//String newrequest = actualrequest.toString();
+		
+		//if (newrequest.contains("$AUTHPOLICY$"))
+			//newrequest = newrequest.replace("$AUTHPOLICY$", "mosip Automation"+ genPolicyNumber);
+		
+		//JSONObject actualNewRequest = new JSONObject(newrequest);
+		
+		
+		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody = response.getBody().asString();
+		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
+		System.out.println(policyId);
+		System.out.println(responseBody);
+		
+		
+		String url2 = ApplnURI + props.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(policyGroupRequest);
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest2, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
+		System.out.println(policygroupId);
+		System.out.println(responseBody2);
+		
+		
+		String url3 = ApplnURI + props.getProperty("publishPolicyurl");
+		
+		if(url3.contains("POLICYID"))
+		{
+			url3=url3.replace("POLICYID", policyId);
+			url3=url3.replace("POLICYGROUPID", policygroupId);
+			
+		}
+		
+		
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		
+		//Response response3 = RestClient.postRequestWithCookie(url3, actualrequest3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody3 = response3.getBody().asString();
+		System.out.println(responseBody3);
+		
 	}
 
 }
