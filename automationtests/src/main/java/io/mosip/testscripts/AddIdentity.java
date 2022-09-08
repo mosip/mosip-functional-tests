@@ -53,6 +53,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@Override
 	public String getTestName() {
 		return testCaseName;
+		
 	}
 
 	/**
