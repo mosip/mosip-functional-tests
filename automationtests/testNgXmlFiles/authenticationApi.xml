@@ -11,7 +11,7 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
-<!--
+
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="ida/AddIdentity/AddIdentity.yml" />
@@ -55,7 +55,7 @@
 	</test>
 
 	<test name="BioAuthOld">
-		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
+		<parameter name="ymlFile" value="ida/BioAuthOld/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
@@ -77,8 +77,8 @@
 		</classes>
 	</test>
 
-	<test name="EkycBio">
-		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
+	<test name="EkycBioOld">
+		<parameter name="ymlFile" value="ida/EkycBioOld/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
@@ -178,7 +178,7 @@
 
 
 	<test name="DemoAuthOld">
-		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
+		<parameter name="ymlFile" value="ida/DemoAuthOld/DemoAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
@@ -197,8 +197,8 @@
 		</classes>
 	</test>
 
-	<test name="EkycDemo">
-		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
+	<test name="EkycDemoOld">
+		<parameter name="ymlFile" value="ida/EkycDemoOld/EkycDemo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
@@ -236,56 +236,6 @@
 			value="ida/UnBlockHotlistAPI/UnBlockHotlistAPIForPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>-->
-	<test name="AddIdentity">
-		<parameter name="ymlFile"
-			value="ida/AddIdentity/AddIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AddIdentity" />
-		</classes>
-	</test>
-	<test name="GenerateVID">
-		<parameter name="ymlFile"
-			value="ida/GenerateVID/createGenerateVID.yml" />
-		<parameter name="idKeyName" value="vid" />
-		<classes>
-			<class
-				name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
-		</classes>
-	</test>
-
-	<test name="RevokeVID">
-		<parameter name="ymlFile"
-			value="ida/RevokeVID/createRevokeVID.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
-		</classes>
-	</test>
-	<test name="DemoAuth">
-		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="EkycDemo">
-		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="BioAuth">
-		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.BioAuthNew" />
-		</classes>
-	</test>
-	<test name="EkycBio">
-		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.BioAuthNew" />
 		</classes>
 	</test>
 </suite>

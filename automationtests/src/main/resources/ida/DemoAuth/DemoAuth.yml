@@ -198,6 +198,14 @@ DemoAuthNew:
         "transactionId": "1234567890"
     }'
       output: '{
+      "errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data gender in eng did not match",
+          "actionMessage": "Please re-enter your gender in eng"
+        }
+      ],
+        "authStatus": false
 }'
   auth_DemoAuth_InValid_gender:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
@@ -216,6 +224,14 @@ DemoAuthNew:
         "transactionId": "1234567890"
     }'
       output: '{
+      "errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data gender in eng did not match",
+          "actionMessage": "Please re-enter your gender in eng"
+        }
+      ],
+        "authStatus": false
 }'
   auth_DemoAuth_Name_Valid_Smoke_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
@@ -405,6 +421,14 @@ DemoAuthNew:
         "transactionId": "1234567890"
     }'
       output: '{
+      "errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data name in eng did not match",
+          "actionMessage": "Please re-enter your name in eng"
+        }
+      ],
+        "authStatus": false
 }'
   auth_DemoAuth_InValid_Name_VID:
       endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
@@ -423,6 +447,14 @@ DemoAuthNew:
         "transactionId": "1234567890"
     }'
       output: '{
+      "errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data name in eng did not match",
+          "actionMessage": "Please re-enter your name in eng"
+        }
+      ],
+        "authStatus": false
 }'
   auth_DemoAuth_age_Valid_Smoke_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
