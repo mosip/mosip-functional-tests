@@ -188,13 +188,13 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		try {
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
-			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+//			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime")
 			+ " mili secs after UIN Generation In IDREPO");
-	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+//	Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
-			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
-	         Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+//			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+//	         Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
