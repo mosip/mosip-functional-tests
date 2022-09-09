@@ -89,9 +89,14 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
 		
+		String input = testCaseDTO.getInput();
+		
+		if (input.contains("$PRIMARYLANG$"))
+			input = input.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
+		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
-		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		String inputJson = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 		// filterOutputHbs(testCaseDTO);
 

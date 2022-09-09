@@ -54,24 +54,31 @@
 		</classes>
 	</test>
 
-	<test name="BioAuth">
-		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
+	<test name="BioAuthOld">
+		<parameter name="ymlFile" value="ida/BioAuthOld/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
-	<test name="BioAuthNew">
-		<parameter name="ymlFile" value="ida/BioAuthNew/BioAuthNew.yml" />
+	<test name="BioAuth">
+		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuthNew" />
 		</classes>
 	</test>
 
-
 	<test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.BioAuthNew" />
+		</classes>
+	</test>
+
+	<test name="EkycBioOld">
+		<parameter name="ymlFile" value="ida/EkycBioOld/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.BioAuth" />
@@ -171,7 +178,7 @@
 
 
 	<test name="DemoAuthOld">
-		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
+		<parameter name="ymlFile" value="ida/DemoAuthOld/DemoAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
@@ -183,9 +190,15 @@
 			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
 		</classes>
 	</test>
-
 	<test name="EkycDemo">
 		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
+		</classes>
+	</test>
+
+	<test name="EkycDemoOld">
+		<parameter name="ymlFile" value="ida/EkycDemoOld/EkycDemo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
@@ -225,5 +238,4 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-
 </suite>

@@ -28,13 +28,15 @@ public class PartnerRegistration extends AdminTestUtil{
 	static String getPartnerType = "RELYING_PARTY";
 	public static String policyGroup = "mosip auth policy group";
 	
-	public static void getPartnerKeyUrl() {
+	public static String generateAndGetPartnerKeyUrl() {
 		getAndUploadCertificates();
 		String apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		String mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
 		
 		
 		partnerKeyUrl = mispLicKey+ "/"+partnerId+"/"+apiKey;
+		
+		return partnerKeyUrl;
 	}
 	
 	public static void getAndUploadCertificates() {

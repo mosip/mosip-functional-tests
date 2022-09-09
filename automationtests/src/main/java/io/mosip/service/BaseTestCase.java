@@ -193,8 +193,8 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
-			CertificateGenerationUtil.getThumbprints();
-			PartnerRegistration.getPartnerKeyUrl();
+//			CertificateGenerationUtil.getThumbprints();
+//			PartnerRegistration.getPartnerKeyUrl();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}

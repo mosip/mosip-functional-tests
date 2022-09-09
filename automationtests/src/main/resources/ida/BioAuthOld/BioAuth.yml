@@ -1,12 +1,20 @@
 BioAuth:
   auth_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Valid_Parameters_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
-          "bioSubType": "",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "UNKNOWN",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -16,41 +24,53 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Full face",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-          "transactionId": "1234567890",
-          "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
-    "authStatus": "true"
+  	"authStatus": "true"
 }'
   auth_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Valid_Parameters_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -62,23 +82,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -90,23 +120,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTINDEXFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+   "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+   "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -118,23 +158,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left LittleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTLITTLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -146,23 +196,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right IndexFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTINDEXFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -174,23 +234,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right RingFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTRINGFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -202,23 +272,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTMIDDLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -230,23 +310,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right LittleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTLITTLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -258,23 +348,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left Thumb",
           "bioType": "Finger",
           "bioValue": "$LEFTTHUMB$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -286,23 +386,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right Thumb",
           "bioType": "Finger",
           "bioValue": "$RIGHTTHUMB$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -314,23 +424,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -342,23 +462,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -370,6 +500,14 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "UNKNOWN",
           "bioType": "FACE",
           "bioValue": "$FACE$",
@@ -380,13 +518,15 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Full face",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
-          "type": "FACE",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+          "type": "Face",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -398,6 +538,14 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "UNKNOWN",
           "bioType": "FACE",
           "bioValue": "$FACE$",
@@ -408,13 +556,15 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Full face",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
-          "type": "FACE",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+          "type": "Face",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -432,23 +582,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -460,23 +620,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -488,23 +658,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTINDEXFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -516,23 +696,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left LittleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTLITTLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -544,23 +734,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right IndexFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTINDEXFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-          "transactionId": "1234567890",
-          "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -572,23 +772,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right RingFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTRINGFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -600,23 +810,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTMIDDLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -628,23 +848,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right LittleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTLITTLEFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -656,23 +886,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left Thumb",
           "bioType": "Finger",
           "bioValue": "$LEFTTHUMB$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -684,23 +924,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right Thumb",
           "bioType": "Finger",
           "bioValue": "$RIGHTTHUMB$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -712,23 +962,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -740,23 +1000,247 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/bioAuthResult
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "transactionId": "1234567890",
+        "individualIdType": "VID",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_BioAuth_Biometric_inValid_transactionID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "123HGFRFDDR3245@@456",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "Left",
+          "bioType": "Iris",
+          "bioValue": "$LEFTIRIS$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Slap",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467175",
+          "type": "Iris",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - transactionID"
+    }
+  ]
+}'
+  auth_BioAuth_Biometric_blank_transactionID:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "Left",
+          "bioType": "Iris",
+          "bioValue": "$LEFTIRIS$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Slap",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467175",
+          "type": "Iris",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - transactionID"
+    }
+  ]
+}'
+  auth_BioAuth_Biometric_inValid_individualIdType:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UHGFETN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "Left",
+          "bioType": "Iris",
+          "bioValue": "$LEFTIRIS$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Slap",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467175",
+          "type": "Iris",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualIdType"
+    }
+  ]
+}'
+  auth_BioAuth_Biometric_blank_individualIdType:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "Left",
+          "bioType": "Iris",
+          "bioValue": "$LEFTIRIS$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Slap",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467175",
+          "type": "Iris",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
+    }'
+      output: '{
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - individualIdType"
+    }
+  ]
+}'
+  auth_BioAuth_Biometric_Missing_Optional_Field_individualIdType:
+      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/bioAuth
+      outputTemplate: ida/BioAuth/bioAuthResult
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "$REMOVE$",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "Left",
+          "bioType": "Iris",
+          "bioValue": "$LEFTIRIS$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Slap",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467175",
+          "type": "Iris",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
   "authStatus": "true"
@@ -768,23 +1252,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-          "bioSubType": "dh363737dbsb",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
+          "bioSubType": "L@@@$%4556eft",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -802,23 +1296,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -836,23 +1340,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -870,23 +1384,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "$REMOVE$",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -904,23 +1428,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
-          "bioType": "@363GDG",
+          "bioType": "ddff3355",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
+          "serialNo": "78467175",
           "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
@@ -938,23 +1472,33 @@ BioAuth:
       inputTemplate: ida/BioAuth/bioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+        "transactionId": "1234567890",
+        "individualIdType": "UIN",
+        "bio": true,
+        "demo": false,
+        "otp": false,
+        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
+          "deviceProviderID": "SYNCBYTE.MC01A",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
+          "deviceSubType": "Slap",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Iris",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
+          "serialNo": "78467175",
+          "type": "dhdhhdh@3647",
+    "transactionId": "1234567890",
+    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
+    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
+    }
     }'
       output: '{
     "authStatus": false,
