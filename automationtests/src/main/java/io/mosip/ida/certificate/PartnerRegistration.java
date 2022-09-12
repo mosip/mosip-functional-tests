@@ -22,13 +22,20 @@ public class PartnerRegistration extends AdminTestUtil{
 	static String address = "Bangalore";
 	static String contactNumber = "8553967572";
 	static String emailId = "mosip"+RandomStringUtils.randomNumeric(4)+"@gmail.com";
+	static String emailId2 = "mosip"+RandomStringUtils.randomNumeric(3)+"@gmail.com";
+	static String emailId3 = "mosip"+RandomStringUtils.randomNumeric(2)+"@gmail.com";
 	public static String organizationName = "mosip-" + RandomStringUtils.randomNumeric(4);
+	public static String deviceOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(5);
+	public static String ftmOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(3);
 	public static String partnerId = organizationName;
 	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
-	public static String policyGroup = "mosip auth policy group";
+	public static String policyGroup = "mosip auth policy group 2345678";
 	
 	public static String generateAndGetPartnerKeyUrl() {
+		ftmGeneration();
+		deviceGeneration();
+		
 		getAndUploadCertificates();
 		String apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		String mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
@@ -65,6 +72,8 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 	}
 	
+	
+	
 	private static String getLocalHostUrl() {
 		try {
 			InetAddress inetAddress = InetAddress.getLocalHost();
@@ -76,7 +85,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		}
 	}
 
-	public static void partnerGeneration() { 
+	public static void partnerGeneration() {
 		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
@@ -107,7 +116,12 @@ public class PartnerRegistration extends AdminTestUtil{
 		System.out.println(responseValue);
 	}
 	
+	
+	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
+		if (localHostUrl == null) {
+			localHostUrl = getLocalHostUrl();
+		}
 		String url = localHostUrl + props.getProperty("getPartnerCertURL");
 		
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -124,6 +138,32 @@ public class PartnerRegistration extends AdminTestUtil{
 		System.out.println(responseJson);
 //		JSONObject responseValue = (JSONObject) responseJson.get("response");
 //		System.out.println(responseValue);
+		
+		return responseJson;
+	}
+	
+	public static JSONObject getDeviceCertificates(String partnerId, String partnerType) {
+		if (localHostUrl == null) {
+			localHostUrl = getLocalHostUrl();
+		}
+		String url = localHostUrl + props.getProperty("getPartnerCertURL");
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("partnerName", partnerId);
+		map.put("partnerType", partnerType);
+//		map.put("keyFileNameByPartnerName", "true");
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		System.out.println(responseJson);
+//		JSONObject responseValue = (JSONObject) responseJson.get("response");
+//		System.out.println(responseValue);
+		
+		
 		
 		return responseJson;
 	}
@@ -223,6 +263,104 @@ public class PartnerRegistration extends AdminTestUtil{
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		
 		System.out.println(response);
+	}
+	
+	
+	public static void deviceGeneration() {
+		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		HashMap<String, String> requestBody = new HashMap<String, String>();
+		
+		requestBody.put("address", address);
+		requestBody.put("contactNumber", contactNumber);
+		requestBody.put("emailId", emailId3);
+		requestBody.put("organizationName", deviceOrganizationName);
+		requestBody.put("partnerId", deviceOrganizationName);
+		requestBody.put("partnerType", "Device_Provider");
+		requestBody.put("policyGroup", policyGroup);
+		
+		HashMap<String, Object> body = new HashMap<String, Object>();
+		
+		body.put("id", "string");
+		body.put("metadata", new HashMap<>());
+		body.put("request", requestBody);
+		body.put("requesttime", generateCurrentUTCTimeStamp());
+		body.put("version", "LTS");
+		
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		System.out.println(responseJson);
+		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		System.out.println(responseValue);
+		
+		
+		JSONObject certificateValue = getDeviceCertificates(deviceOrganizationName, "DEVICE");
+		String caDeviceCertValue = certificateValue.getString("caCertificate");
+		String interDeviceCertValue = certificateValue.getString("interCertificate");
+		String partnerDeviceCertValue = certificateValue.getString("partnerCertificate");
+		
+		
+		uploadCACertificate(caDeviceCertValue,"DEVICE");
+		uploadIntermediateCertificate(interDeviceCertValue,"DEVICE");
+		
+		JSONObject signedDevicePartnerCert = uploadPartnerCertificate(partnerDeviceCertValue,"DEVICE",deviceOrganizationName);
+		String signedDevicePartnerCertf = signedDevicePartnerCert.getString("signedCertificateData");
+		
+		uploadSignedCertificate(signedDevicePartnerCertf, "DEVICE", deviceOrganizationName, true);
+		
+		
+	}
+	
+	
+	public static void ftmGeneration() {
+		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		HashMap<String, String> requestBody = new HashMap<String, String>();
+		
+		requestBody.put("address", address);
+		requestBody.put("contactNumber", contactNumber);
+		requestBody.put("emailId", emailId2);
+		requestBody.put("organizationName", ftmOrganizationName);
+		requestBody.put("partnerId", ftmOrganizationName);
+		requestBody.put("partnerType", "FTM_Provider");
+		requestBody.put("policyGroup", policyGroup);
+		
+		HashMap<String, Object> body = new HashMap<String, Object>();
+		
+		body.put("id", "string");
+		body.put("metadata", new HashMap<>());
+		body.put("request", requestBody);
+		body.put("requesttime", generateCurrentUTCTimeStamp());
+		body.put("version", "LTS");
+		
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		System.out.println(responseJson);
+		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		System.out.println(responseValue);
+		
+		
+		JSONObject certificateValue = getDeviceCertificates(ftmOrganizationName, "FTM");
+		String caFtmCertValue = certificateValue.getString("caCertificate");
+		String interFtmCertValue = certificateValue.getString("interCertificate");
+		String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
+		
+		
+		uploadCACertificate(caFtmCertValue,"FTM");
+		uploadIntermediateCertificate(interFtmCertValue,"FTM");
+		
+		JSONObject signedDevicePartnerCert = uploadPartnerCertificate(partnerFtmCertValue,"FTM",ftmOrganizationName);
+		String signedDevicePartnerCertf = signedDevicePartnerCert.getString("signedCertificateData");
+		
+		uploadSignedCertificate(signedDevicePartnerCertf, "FTM", ftmOrganizationName, true);
+		
+		
 	}
 	
 }

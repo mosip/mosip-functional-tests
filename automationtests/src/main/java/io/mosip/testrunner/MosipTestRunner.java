@@ -63,11 +63,13 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
+		
 		if (BaseTestCase.listOfModules.contains("auth")) {
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
 			PartnerRegistration.generateAndGetPartnerKeyUrl();
 		}
+		 
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 
 		//Get List of languages from server and set into BaseTestCase.languageList
