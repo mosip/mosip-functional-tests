@@ -1,6 +1,6 @@
 BioAuth:
   auth_BioAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Valid_Parameters_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -28,7 +28,7 @@ BioAuth:
     "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Valid_Parameters_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -56,7 +56,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -84,7 +84,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -112,7 +112,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -140,7 +140,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -168,7 +168,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -196,7 +196,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -224,7 +224,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -252,7 +252,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -280,7 +280,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -308,7 +308,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -336,7 +336,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -364,7 +364,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -392,7 +392,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_With_RevokedVID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -426,7 +426,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_RingFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -454,7 +454,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftMiddleFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -482,7 +482,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIndexFingerr_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -510,7 +510,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -538,7 +538,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -566,7 +566,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -594,7 +594,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -622,7 +622,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightLittleFinger_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -650,7 +650,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftThumb_With_VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -678,7 +678,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -706,7 +706,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -734,7 +734,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_LeftIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -762,7 +762,7 @@ BioAuth:
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -796,7 +796,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -830,7 +830,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Blank_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -864,7 +864,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Missing_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -898,7 +898,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Invalid_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -932,7 +932,7 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_valid_bioType_and_invalid_digitalId_type:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
@@ -952,7 +952,7 @@ BioAuth:
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
-          "type": "Iris",
+          "type": "dhdhhdh@3647",
     	  "transactionId": "1234567890",
     	  "timestamp": "$TIMESTAMP$"
     }'
@@ -970,39 +970,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_invalid_biovalue:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "Left",
-          "bioType": "Iris",
+          "bioSubType": "",
+          "bioType": "FACE",
           "bioValue": "sgshshsh",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1014,39 +1004,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Face_With_FingerBio_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FACE",
-          "bioValue": "$LEFTIRIS$",
+          "bioValue": "$LEFTTHUMB$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1058,39 +1038,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Iris_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1102,39 +1072,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Finger_With_FaceBio_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Finger",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1145,40 +1105,30 @@ BioAuth:
     }
   ]
 }'
-  auth_BioAuth_invalid_Bio-Type_value_as_FIR_instead_of_Finger_uin:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_BioAuth_invalid_Bio-Type_value_as_FIR_instead_of_Face_uin:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "Left RingFinger",
+          "bioSubType": "",
           "bioType": "FIR",
-          "bioValue": "$LEFTRINGFINGER$",
+          "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1190,39 +1140,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_invalid_Bio-Type_value_as_IR_instead_of_IRIS_uin:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "IR",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1234,39 +1174,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_invalid_Bio-Type_value_as_FIR_instead_of_Finger_VID:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Left RingFinger",
           "bioType": "FIR",
           "bioValue": "$LEFTRINGFINGER$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Finger",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1278,39 +1208,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_invalid_Bio-Type_value_as_IR_instead_of_IRIS_VID:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "IR",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1322,21 +1242,13 @@ BioAuth:
   ]
 }'
   auth_BioAuth_invalid_Bio-Type_value_as_FC_instead_of_FACE_VID:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FC",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -1346,15 +1258,13 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1366,21 +1276,13 @@ BioAuth:
   ]
 }'
   auth_BioAuth_invalid_Bio-Type_value_as_FC_instead_of_FACE_UIN:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FC",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -1390,15 +1292,13 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -1410,20 +1310,12 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_Face_Unlock_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/BioAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "UNKNOWN",
           "bioType": "FACE",
           "bioValue": "$FACE$",
@@ -1434,53 +1326,41 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_Lock_Permanent_:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_permanent_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_permanent_BioAuth_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "false",
@@ -1492,21 +1372,13 @@ BioAuth:
   ]
 }'
   auth_BioAuth_Biometric_time_difference_datetime_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/BioAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -1516,15 +1388,13 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "false",
@@ -1536,39 +1406,29 @@ BioAuth:
   ]
 }'
   auth_BioAuth_with_dummy_partnerkey_Pos:
-      endPoint: /idauthentication/v1/auth/zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "2022-05-18T12:11:06.641Z",
+          "dateTime": "$DATETIME$",
           "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "false",
@@ -1585,21 +1445,13 @@ BioAuth:
 }'
 
   auth_BioAuth_Biometric_Face_Unlock_With_AllValid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/BioAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParams_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -1609,53 +1461,41 @@ BioAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_Lock_Permanent_Valid_Smoke:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_permanent_BioAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
       outputTemplate: ida/BioAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_permanent_BioAuth_withValidParams_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": false,
-        "otp": false,
-        "identityRequest":{
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
+          "deviceProviderID": "1873299273",
           "deviceServiceID": "",
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
+          "serialNo": "78467171",
           "type": "Iris",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/BioAuth/BioAuthIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+          "transactionId": "1234567890",
+          "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "false",

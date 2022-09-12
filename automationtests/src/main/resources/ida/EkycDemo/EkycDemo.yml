@@ -281,7 +281,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Mrs Madhu.GN"
+      "value": "FR"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -350,7 +350,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu"
+      "value": "Madhu.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",

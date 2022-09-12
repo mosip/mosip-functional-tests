@@ -2632,8 +2632,18 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
-    	
+
     	String token = kernelAuthLib.getTokenByRole("partner");
+    	
+		String url2 = ApplnURI + props.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(policyGroupRequest);
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest2, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
+		System.out.println(policygroupId);
+		System.out.println(responseBody2);
+    	
+
 		String url = ApplnURI + props.getProperty("authPolicyUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(AuthPolicyRequest);
 		
@@ -2651,15 +2661,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
 		System.out.println(policyId);
 		System.out.println(responseBody);
-		
-		
-		String url2 = ApplnURI + props.getProperty("policyGroupUrl");
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(policyGroupRequest);
-		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest2, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		String responseBody2 = response2.getBody().asString();
-		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
-		System.out.println(policygroupId);
-		System.out.println(responseBody2);
+
 		
 		
 		String url3 = ApplnURI + props.getProperty("publishPolicyurl");
