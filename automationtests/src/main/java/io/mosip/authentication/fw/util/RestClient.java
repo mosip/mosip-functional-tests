@@ -533,6 +533,17 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postRequestWithQueryParm(String url, HashMap<String, String> body, String contentHeader,
+			String acceptHeader, String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().queryParams(body)
+				.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
+				.post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response putRequestWithQueryParm(String url, HashMap<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {

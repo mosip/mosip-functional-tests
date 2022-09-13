@@ -265,6 +265,25 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature, String testCaseName) {
+		Response response = null;
+		HashMap<String, String> headers = new HashMap<String, String>();
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		headers.put(SIGNATURE_HEADERNAME, signature);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 
 	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
