@@ -32,7 +32,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	static String role = PartnerRegistration.partnerType;
 	static String policyGroup = PartnerRegistration.policyGroup;
 	static String randomAbbreviation = RandomStringUtils.randomAlphabetic(4).toUpperCase();
-	static String policyName = "mosip auth policy";
+	static String policyName = "mosip auth policy 2345678";
 	
 	public static String createKCUserAndGetAPIKey() {
 		KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
