@@ -1,55 +1,7 @@
 {
   "id": "string",
   "metadata": {},
-  "request": {
-    "desc":"desc mosip auth policy",
-    "name":"mosip auth policy 2345678",
-    "policyGroupName":"mosip auth policy group 2345678",
-    "policyType":"Auth",
-    "version": "1.0",
-    "policies": {
-			"allowedAuthTypes": [
-		{
-          "authSubType": "IRIS",
-          "authType": "bio",
-          "mandatory": false
-        },
-        {
-          "authSubType": "FINGER",
-          "authType": "bio",
-          "mandatory": false
-        },
-        {
-          "authSubType": "FACE",
-          "authType": "bio",
-          "mandatory": false
-        },
-        {
-          "authSubType": "",
-          "authType": "otp",
-          "mandatory": false
-        },
-        {
-           "authSubType": "",
-           "authType": "otp-request",
-           "mandatory": false
-        },       
-        {
-          "authSubType": "",
-          "authType": "kyc",
-          "mandatory": false
-        },
-        {
-          "authSubType": "",
-          "authType": "demo",
-          "mandatory": false
-        }],
-			"allowedKycAttributes": [{
-				"attributeName": "string"
-			}],
-			"authTokenType": "partner"
-		}
-  },
+  "request": {},
   "requesttime": "2022-09-07T04:23:38.117Z",
   "version": "string"
 }

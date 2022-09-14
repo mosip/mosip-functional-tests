@@ -1,20 +1,13 @@
 OtpAuth:
   auth_OTP_Auth_With_Valid_UIN_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=5703851972&partnerUrlSuffix=5hUMlbiYsUNfq1pWAmtjaffDc6g6MJiDjJ8tvH59HtIEY5IXRB/mosip-2324/467770
+      endPoint: /v1/identity/authenticate?id=5703851972&partnerUrlSuffix=mXKMu0fM6IR3BKR6nhtEQczviTkoQLL0hMtTmGEMUCbfdXQQrm/mosip-9167/292749
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
       	"transactionID": "1234567890",
-  		"timestamp": "$TIMESTAMP$",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "5703851972",
-    "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/5hUMlbiYsUNfq1pWAmtjaffDc6g6MJiDjJ8tvH59HtIEY5IXRB/mosip-2324/467770"
-    }
+  		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",

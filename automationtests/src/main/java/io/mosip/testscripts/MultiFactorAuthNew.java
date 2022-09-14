@@ -3,6 +3,7 @@ package io.mosip.testscripts;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,6 @@ import java.util.Map;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -26,29 +26,26 @@ import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.restassured.response.Response;
 
-public class OtpAuthNew extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(OtpAuthNew.class);
+public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(MultiFactorAuthNew.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	public boolean isInternal = false;
 	
-	/*
-	 * @BeforeClass public static void setPrerequiste() {
-	 * logger.info("Starting authpartner demo service...");
-	 * AuthPartnerProcessor.startProcess(); }
-	 */
+	@BeforeClass
+	public static void setPrerequiste() {
+		logger.info("Starting authpartner demo service...");
+//		AuthPartnerProcessor.startProcess();
+	}
 	
 	/**
 	 * get current testcaseName
@@ -66,7 +63,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		isInternal = Boolean.parseBoolean(context.getCurrentXmlTest().getLocalParameters().get("isInternal"));
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -81,7 +77,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String endPoint = testCaseDTO.getEndPoint();
 		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
@@ -126,9 +122,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		
 		requestBody.put("id", individualId);
 		String token = kernelAuthLib.getTokenByRole("regproc");
+		
 		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
-		
-		
+				
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
 		System.out.println(otpInput);
@@ -161,7 +157,10 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
 		
+		input = buildIdentityRequest(input);
+		
 		String authRequest = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
+		
 				
 		logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");		
 		
@@ -174,27 +173,10 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 		
-		if(testCaseName.toLowerCase().contains("kyc")) {
-			JSONObject resJsonObject = new JSONObject(response.asString());
-			String resp="";
-			try {
-				resp = resJsonObject.get("response").toString();
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
-		}
-		
 		/*
-		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
-		 * if(response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
-		 * if(error.equalsIgnoreCase("null"))
+		 * if(testCaseName.toLowerCase().contains("kyc"))
 		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint()); }
+		 * testCaseDTO.getEndPoint());
 		 */
 		
 		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
@@ -225,8 +207,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
-		//return;
 //		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }
