@@ -1,8 +1,7 @@
 {
-  "URL": "$IGNORE$",
-  "authRequest": "$IGNORE$",
-  "authResponse": {
-    "body": {
+    "transactionID": "$IGNORE$",
+    "version": "$IGNORE$",
+    "id": "$IGNORE$",
     "errors": [
       {{#each errors}}
         {
@@ -13,10 +12,9 @@
           {{#unless @last}},{{/unless}}
       	{{/each}}
   ],
-      "responseTime": "$IGNORE$",
-      "response": {
-        "kycStatus": {{kycStatus}}
-      }
+    "responseTime": "$IGNORE$",
+    "response": {
+        "authStatus": {{authStatus}},
+        "authToken": "$IGNORE$"
     }
-  }
 }

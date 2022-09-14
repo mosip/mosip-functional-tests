@@ -30,7 +30,7 @@ public class PartnerRegistration extends AdminTestUtil{
 	public static String partnerId = organizationName;
 	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
-	public static String policyGroup = "mosip auth policy group 2345678";
+	public static String policyGroup = AdminTestUtil.policyGroup;
 	
 	public static String generateAndGetPartnerKeyUrl() {
 		ftmGeneration();
