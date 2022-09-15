@@ -331,7 +331,7 @@ public class BaseTestCase {
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-				request.put("userId", propsKernel.get("admin_userName"));
+				request.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
 				request.put("langCode", BaseTestCase.getLanguageList().get(0));
 				request.put("isActive", "true");
 				actualrequest.put("request", request);
