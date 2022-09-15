@@ -63,7 +63,7 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 		System.out.println(queryProp);
 		//Arrays.asList(templateFields.split(","));
 		//String respTime = inputJsonKeyWordHandeler(testCaseDTO.getInput(), testCaseName);
-		String query = "select * from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
+		String query = "select * from audit.app_audit_log where cr_by = '"+BaseTestCase.currentModule +"-"+propsKernel.getProperty("partner_userName")+"'";
 		
 		
 		System.out.println(query);
