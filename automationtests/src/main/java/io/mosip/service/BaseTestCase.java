@@ -324,10 +324,10 @@ public class BaseTestCase {
 	
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
+			
+			AdminTestUtil.initialUserCreation();
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
-				
-				AdminTestUtil.initialUserCreation();
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
@@ -336,7 +336,6 @@ public class BaseTestCase {
 				request.put("isActive", "true");
 				actualrequest.put("request", request);
 				System.out.println(actualrequest);
-				
 				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 				logger.info(propsKernel.get("admin_userName") + "Mapped to"+props.get("zoneCode_to_beMapped")+ "Zone");
 				System.out.println(response);
