@@ -28,6 +28,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBodyData;
 import io.mosip.dbaccess.*;
+import io.mosip.service.BaseTestCase;
 
 public class AuditValidator extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(AuditValidator.class);
@@ -63,6 +64,7 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 		System.out.println(queryProp);
 		//Arrays.asList(templateFields.split(","));
 		//String respTime = inputJsonKeyWordHandeler(testCaseDTO.getInput(), testCaseName);
+		//BaseTestCase.currentModule +"-"+partner_userName);
 		String query = "select * from audit.app_audit_log where cr_by = '"+BaseTestCase.currentModule +"-"+propsKernel.getProperty("partner_userName")+"'";
 		
 		
