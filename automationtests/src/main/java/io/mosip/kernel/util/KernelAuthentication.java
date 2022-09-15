@@ -164,7 +164,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request = new JSONObject();
 		request.put("appId", ConfigManager.getAdminAppId());
 		request.put("password", props.get("admin_zone_password"));
-		request.put("userName", props.get("admin_zone_userName"));
+		request.put("userName", BaseTestCase.currentModule +"-"+props.get("admin_zone_userName"));
 		request.put("clientId", ConfigManager.getAdminClientId());
 		request.put("clientSecret", ConfigManager.getAdminClientSecret());
 		actualrequest.put("request", request);
