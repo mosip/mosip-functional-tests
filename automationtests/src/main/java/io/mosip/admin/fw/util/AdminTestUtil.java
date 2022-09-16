@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,6 +41,7 @@ import java.util.stream.Collectors;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -68,7 +70,9 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.core.util.HMACUtils2;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
@@ -117,7 +121,15 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String draftHbs = null;
 	public static String preregHbsForCreate = null;
 	public static String preregHbsForUpdate = null;
+	public static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
+	public static String policyGroup = "mosip auth policy group "+timeStamp;
+	public static String policyName = "mosip auth policy "+timeStamp;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
+    private static String authInternalRequest="config/Authorization/internalAuthRequest.json";
+    private static String AuthPolicyBody="config/AuthPolicy.json";
+	private static String AuthPolicyRequest="config/AuthPolicy3.json";
+	private static String AuthPolicyRequestAttr="config/AuthPolicy2.json";
+	private static String policyGroupRequest="config/policyGroup.json";
 	public static HashMap<String, String> keycloakRolesMap = new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
@@ -140,6 +152,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		url = uriKeyWordHandelerUri(url, testCaseName );
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -248,6 +261,25 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(AUTHORIZATHION_HEADERNAME, authHeaderValue);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature, String testCaseName) {
+		Response response = null;
+		HashMap<String, String> headers = new HashMap<String, String>();
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		headers.put(SIGNATURE_HEADERNAME, signature);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
@@ -1387,7 +1419,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	String uriKeyWordHandelerUri(String uri, String testCaseName) {
+	public String uriKeyWordHandelerUri(String uri, String testCaseName) {
 		if (uri == null) {
 			logger.info(" Request Json String is :" + uri);
 			return uri;
@@ -1415,6 +1447,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
 			jsonString = jsonString.replace("$RID$", genRid);
+		
+		
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
 			jsonString = jsonString.replace("$SCHEMAVERSION$", generateLatestSchemaVersion());
@@ -1460,14 +1494,14 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getPartnerId(String jsonString, String partnerId) {
-		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
 		partnerId = uriParts[uriParts.length - 2];
 		// String partnerId = null;
 		return partnerId;
 	}
 
 	public String getAPIKey(String jsonString, String apiKey) {
-		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
 		apiKey = uriParts[uriParts.length - 1];
 		// String partnerId = null;
 		return apiKey;
@@ -2024,7 +2058,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String buildIdentityRequest(String identityRequest) {
 		if (identityRequest.contains("$DATETIME$"))
 			identityRequest = identityRequest.replace("$DATETIME$", generateCurrentUTCTimeStamp());
-
+		if (identityRequest.contains("$TIMESTAMP$"))
+			identityRequest = identityRequest.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
 		if (identityRequest.contains("$FACE$"))
 			identityRequest = identityRequest.replace("$FACE$", propsBio.getProperty("FaceBioValue"));
 		if (identityRequest.contains("$RIGHTIRIS$"))
@@ -2622,6 +2657,64 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		preregHbsForCreate = everything.toString();
 		return preregHbsForCreate;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void createAndPublishPolicy() {
+
+    	String token = kernelAuthLib.getTokenByRole("partner");
+    	
+		String url2 = ApplnURI + props.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(policyGroupRequest);
+		
+		org.json.simple.JSONObject modifiedReq = new org.json.simple.JSONObject();
+		modifiedReq.put("desc", "desc mosip auth policy group");
+		modifiedReq.put("name", policyGroup);
+		
+		actualrequest.put("request", modifiedReq);
+		
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
+		System.out.println(policygroupId);
+		System.out.println(responseBody2);
+    	
+
+		String url = ApplnURI + props.getProperty("authPolicyUrl");
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AuthPolicyBody);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AuthPolicyRequest);
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AuthPolicyRequestAttr);
+		
+		actualrequest2.put("name", policyName);
+		actualrequest2.put("policyGroupName", policyGroup);
+		actualrequest2.put("policies", actualrequestAttr);
+		actualrequestBody.put("request", actualrequest2);
+		
+		
+		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody = response.getBody().asString();
+		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
+		System.out.println(policyId);
+		System.out.println(responseBody);
+
+		
+		
+		String url3 = ApplnURI + props.getProperty("publishPolicyurl");
+		
+		if(url3.contains("POLICYID"))
+		{
+			url3=url3.replace("POLICYID", policyId);
+			url3=url3.replace("POLICYGROUPID", policygroupId);
+			
+		}
+		
+		
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		
+		//Response response3 = RestClient.postRequestWithCookie(url3, actualrequest3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		String responseBody3 = response3.getBody().asString();
+		System.out.println(responseBody3);
+		
 	}
 
 }

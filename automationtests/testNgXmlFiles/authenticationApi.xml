@@ -58,44 +58,36 @@
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
+			<class name="io.mosip.testscripts.BioAuthNew" />
 		</classes>
 	</test>
-
 
 	<test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
+			<class name="io.mosip.testscripts.BioAuthNew" />
 		</classes>
 	</test>
-
-
 	<test name="OtpAuth">
 		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.OtpAuth" />
+			<class name="io.mosip.testscripts.OtpAuthNew" />
 		</classes>
 	</test>
-
 	<test name="EkycOtp">
 		<parameter name="ymlFile" value="ida/EkycOtp/EkycOtp.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.OtpAuth" />
+			<class name="io.mosip.testscripts.OtpAuthNew" />
 		</classes>
 	</test>
-
-
-
-
 	<test name="MultiFactorAuth">
 		<parameter name="ymlFile"
 			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.MultiFactorAuth" />
+			<class name="io.mosip.testscripts.MultiFactorAuthNew" />
 		</classes>
 	</test>
 
@@ -161,19 +153,17 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-
-
+	
 	<test name="DemoAuth">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
+			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
 		</classes>
 	</test>
-
 	<test name="EkycDemo">
 		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
+			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
 		</classes>
 	</test>
 
@@ -210,8 +200,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test> 
-
-
-
+	</test>
 </suite>

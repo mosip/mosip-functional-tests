@@ -1,0 +1,26 @@
+CreateAuthPolicy:
+   Partner_Create_Auth_Policy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/Integration/CreateAuthPolicy/createAuthPolicy
+      outputTemplate: partner/Integration/CreateAuthPolicy/createAuthPolicyResult
+      input: '{
+	"desc": "desc mosip auth policy",
+	"name": "mosip auth policy",
+	"authSubType": "",
+	"authType": "demo",
+	"mandatory": false,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip auth policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip auth policy group",
+    "name": "mosip auth policy",
+    "desc": "desc mosip auth policy",
+    "is_Active": false
+}'

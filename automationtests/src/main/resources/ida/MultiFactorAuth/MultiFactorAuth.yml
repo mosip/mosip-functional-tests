@@ -1,28 +1,13 @@
 MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_Face_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -32,17 +17,15 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -53,30 +36,15 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_InValid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_Face_With_InValid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "123@@###4567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -86,26 +54,18 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -113,30 +73,15 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_Missing_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_Face_With_Missing_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -146,26 +91,18 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -174,29 +111,14 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_Valid_vid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -206,17 +128,15 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -228,29 +148,14 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_revoked_vid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -260,17 +165,15 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -287,30 +190,15 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_InValid_vid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_Face_With_InValid_vid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567@@EDD890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -320,26 +208,18 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -347,30 +227,15 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_blank_vid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_Face_With_blank_vid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -380,26 +245,18 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -408,28 +265,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -447,10 +289,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -461,29 +301,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_missing_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_RingFinger_With_missing_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "12345@33ff67890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -501,19 +326,11 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "$REMOVE$",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -521,29 +338,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_invalid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_RingFinger_With_invalid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "12345@33ff67890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -561,19 +363,11 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -582,28 +376,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_vid_InValid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "12345@Eed67890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -619,19 +398,16 @@ MultiFactorAuth:
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467175",
           "type": "Finger",
-          "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
+      "errorCode": "IDA-DEA-003",
+      "errorMessage": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
@@ -641,29 +417,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_vid_blank_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_RingFinger_With_vid_blank_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -681,19 +442,11 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -702,28 +455,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTRINGFINGER$",
@@ -741,10 +479,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -756,28 +492,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
@@ -795,10 +516,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -809,29 +528,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_InValid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_InValid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234@@###567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
@@ -849,19 +553,11 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -869,29 +565,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_blank_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_blank_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
@@ -909,19 +590,11 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -930,28 +603,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTMIDDLEFINGER$",
@@ -969,10 +627,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -984,28 +640,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTINDEXFINGER$",
@@ -1023,10 +664,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1038,28 +677,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_Valid_vid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTINDEXFINGER$",
@@ -1077,10 +701,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1092,28 +714,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left LittleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTLITTLEFINGER$",
@@ -1131,10 +738,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1146,28 +751,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left LittleFinger",
           "bioType": "Finger",
           "bioValue": "$LEFTLITTLEFINGER$",
@@ -1185,10 +775,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1200,28 +788,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right IndexFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTINDEXFINGER$",
@@ -1239,10 +812,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1254,28 +825,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right IndexFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTINDEXFINGER$",
@@ -1293,10 +849,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1308,28 +862,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right RingFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -1347,10 +886,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1362,28 +899,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right RingFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -1401,10 +923,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1416,28 +936,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTMIDDLEFINGER$",
@@ -1455,10 +960,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1470,28 +973,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right MiddleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTMIDDLEFINGER$",
@@ -1509,10 +997,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1524,28 +1010,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right LittleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTLITTLEFINGER$",
@@ -1563,10 +1034,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1578,28 +1047,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right LittleFinger",
           "bioType": "Finger",
           "bioValue": "$RIGHTLITTLEFINGER$",
@@ -1617,10 +1071,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1632,28 +1084,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left Thumb",
           "bioType": "Finger",
           "bioValue": "$LEFTTHUMB$",
@@ -1671,10 +1108,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1686,28 +1121,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left Thumb",
           "bioType": "Finger",
           "bioValue": "$LEFTTHUMB$",
@@ -1725,10 +1145,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1740,28 +1158,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right Thumb",
           "bioType": "Finger",
           "bioValue": "$RIGHTTHUMB$",
@@ -1779,10 +1182,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1794,28 +1195,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right Thumb",
           "bioType": "Finger",
           "bioValue": "$RIGHTTHUMB$",
@@ -1833,10 +1219,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1848,28 +1232,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
@@ -1887,10 +1256,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1902,28 +1269,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Right",
           "bioType": "Iris",
           "bioValue": "$RIGHTIRIS$",
@@ -1941,10 +1293,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -1956,28 +1306,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -1995,10 +1330,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -2006,152 +1339,17 @@ MultiFactorAuth:
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_InValid_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UI@@@N",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
-    }'
-      output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
-    }'
-      output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With__VID_Valid_Smoke_Pos:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/multiFactorAuthResult
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2169,10 +1367,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
@@ -2183,29 +1379,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_InValid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_InValid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "12345@@#67890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2223,19 +1404,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2243,29 +1416,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_InValid_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_InValid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "12345@@#67890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2283,19 +1441,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "123@@###4567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2303,29 +1453,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2343,19 +1478,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2363,29 +1490,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_blank_transactionId:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_blank_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2403,19 +1515,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2423,29 +1527,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_individualIdType_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2463,19 +1552,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualIdType"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2483,29 +1564,14 @@ MultiFactorAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_blank_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_individualIdType_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=12dd4@#$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2523,139 +1589,11 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "12dd4@#$",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
-    }'
-      output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualIdType"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_individualIdType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "12dd4@#$",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
-    }'
-      output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualIdType"
-    }
-  ],
+    "authStatus": true,
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -2664,28 +1602,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Le233@wft",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2703,10 +1626,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -2724,28 +1645,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Le233@wft",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2763,10 +1669,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -2784,28 +1688,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2823,10 +1712,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -2844,28 +1731,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_blank_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2883,10 +1755,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -2904,28 +1774,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_missing_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "$REMOVE$",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -2943,10 +1798,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -2964,28 +1817,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_missing_bioSubType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "$REMOVE$",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -3003,10 +1841,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3024,28 +1860,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_BLANK_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$/idauthentication/v1/auth/$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "",
           "bioValue": "$LEFTIRIS$",
@@ -3063,19 +1884,12 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
-    }
-  ],
+    "authStatus": "$IGNORE$",
+   "errors": "$IGNORE$",
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -3084,28 +1898,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_BLANK_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "",
           "bioValue": "$LEFTIRIS$",
@@ -3123,10 +1922,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3144,28 +1941,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_missing_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "$REMOVE$",
           "bioValue": "$LEFTIRIS$",
@@ -3183,10 +1965,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3204,28 +1984,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_missing_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "$REMOVE$",
           "bioValue": "$LEFTIRIS$",
@@ -3243,10 +2008,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3264,28 +2027,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "ssss@34",
           "bioValue": "$LEFTIRIS$",
@@ -3303,10 +2051,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3324,28 +2070,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_bioType:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "ssss@34",
           "bioValue": "$LEFTIRIS$",
@@ -3363,10 +2094,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3384,28 +2113,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_valid_bioType_and_invalid_digitalId_type:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -3423,10 +2137,8 @@ MultiFactorAuth:
           "type": "dhdhhdh@3647",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3448,28 +2160,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_valid_bioType_and_invalid_digitalId_type:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$LEFTIRIS$",
@@ -3487,10 +2184,8 @@ MultiFactorAuth:
           "type": "dhdhhdh@3647",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3512,28 +2207,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_INvalid_bioValue:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "sgshshsh",
@@ -3551,10 +2231,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3572,28 +2250,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_INvalid_bioValue:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "sgshshsh",
@@ -3611,10 +2274,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3632,28 +2293,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_With_Face_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$FACE$",
@@ -3671,10 +2317,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3692,28 +2336,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_With_Face_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$FACE$",
@@ -3731,10 +2360,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3752,28 +2379,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_With_Finger_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -3791,10 +2403,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3812,28 +2422,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_With_Finger_Invalid:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Iris",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -3851,10 +2446,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3872,28 +2465,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_Bio-Type_value_as_IR_instead_of_Iris:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "Ir",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -3911,10 +2489,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3932,28 +2508,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_Bio-Type_value_as_IR_instead_of_Iris:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "Ir",
           "bioValue": "$RIGHTRINGFINGER$",
@@ -3971,10 +2532,8 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -3992,28 +2551,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_With_VID_invalid_Bio-Type_value_as_FIR_instead_of_Finger:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
           "bioSubType": "Left",
           "bioType": "FiR",
           "bioValue": "$LEFTRINGFINGER$",
@@ -4031,10 +2575,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -4052,28 +2594,13 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_Biometric_With_UIN_invalid_Bio-Type_value_as_FIR_instead_of_Finger:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
           "bioSubType": "Left",
           "bioType": "FiR",
           "bioValue": "$LEFTRINGFINGER$",
@@ -4091,10 +2618,8 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -4112,29 +2637,14 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_with_invalid_partner:
-      endPoint: /idauthentication/v1/auth/zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/MultiFactorAuth/multiFactorAuth
+      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": true,
-        "demo": true,
-        "otp": true,
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "ida/MultiFactorAuth/sendOtp",
-    "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
-    },
-        "identityRequest":{
-          "bioSubType": "UNKNOWN",
+      	  "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+          "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
@@ -4144,17 +2654,15 @@ MultiFactorAuth:
           "deviceServiceVersion": "SB.WIN.001",
           "deviceProvider": "SYNCBYTE",
           "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Full face",
+          "deviceSubType": "Single",
           "make": "Logitech",
           "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
           "serialNo": "78467171",
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-    "transactionId": "1234567890",
-    "identityRequestTemplate": "ida/MultiFactorAuth/MultiFactorIdentityEncrypt",
-    "identityRequestEncUrl": "/idauthentication/v1/internal/encrypt"
-    }
+    	  "transactionId": "1234567890",
+    	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": false,
@@ -4164,8 +2672,8 @@ MultiFactorAuth:
       "errorMessage": "Request could not be processed. Please try again"
     },
     {
-      "errorCode": "IDA-MPA-001",
-      "errorMessage": "Digital signature verification failed for signature header"
+      "errorCode": "IDA-MPA-009",
+      "errorMessage": "Partner is not registered"
     }
   ],
   "sendOtpResp":{

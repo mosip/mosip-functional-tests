@@ -36,9 +36,6 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
 	
 	static String EncryptUtilBaseUrl = null;
-	public static Certificate partnerThumbPrint =null;
-	public static Certificate internalThumbPrint =null;
-	public static Certificate idaFirThumbPrint =null;
 	
 	static {
 		if(EncryptUtilBaseUrl==null)			
@@ -48,9 +45,9 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 	}
 	public static void getThumbprints() {
 		String appId = props.getProperty("appIdForCertificate");
-		partnerThumbPrint = getIdaCertificate(appId, props.getProperty("partnerrefId"));
-		internalThumbPrint = getIdaCertificate(appId, props.getProperty("internalrefId"));
-		idaFirThumbPrint = getIdaCertificate(appId, props.getProperty("idaFirRefId"));	
+		getAndUploadIdaCertificate(appId, props.getProperty("partnerrefId"), props.getProperty("uploadPartnerurl"));
+		getAndUploadIdaCertificate(appId, props.getProperty("internalrefId"), props.getProperty("uploadInternalurl"));
+		getAndUploadIdaCertificate(appId, props.getProperty("idaFirRefId"), props.getProperty("uploadIdaFirurl"));
 	}
 	
 	public static String getEncryptUtilBaseUrl() {
@@ -66,7 +63,7 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 	
 	
 	
-	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
+	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, String endPoint) {
 		String token = kernelAuthLib.getTokenByRole("resident");
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -86,10 +83,8 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 		request.put("certData", idaCertValue);
 		//actualrequest.put("request", request);
 		
-		Response reponse=RestClient.postRequest(CertificateGenerationUtil.getEncryptUtilBaseUrl()+props.getProperty("uploadIdaFirurl"), request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-		JSONObject reponseValue = new JSONObject(reponse.asString());
-		System.out.println(reponseValue);
-		return idaFirThumbPrint;
+		Response reponse=RestClient.postRequest(CertificateGenerationUtil.getEncryptUtilBaseUrl()+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		System.out.println(reponse);
 		
 		
 	}

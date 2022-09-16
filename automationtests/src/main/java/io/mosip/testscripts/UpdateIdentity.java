@@ -29,6 +29,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -100,7 +101,11 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			testCaseDTO.setInput(req.toString());
 
 			if (sendOtpEndPoint.contains("$partnerKeyURL$")) {
-				sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+				sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl);
+			}
+			if(sendOtpEndPoint.contains("$PartnerName$"))
+			{
+				sendOtpEndPoint = sendOtpEndPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 			}
 		}
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
