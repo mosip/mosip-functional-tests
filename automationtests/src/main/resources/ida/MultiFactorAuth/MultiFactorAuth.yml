@@ -2637,7 +2637,7 @@ MultiFactorAuth:
     }
 }'
   auth_MultiFactorAuth_with_invalid_partner:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth

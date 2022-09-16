@@ -107,9 +107,13 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 		
 		requestBody.put("id", individualId);
-		String token = kernelAuthLib.getTokenByRole("regproc");
-		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
+		requestBody.put("keyFileNameByPartnerName", "true");
+		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		
+		String token = kernelAuthLib.getTokenByRole("regproc");
+		
+		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
+		System.out.println(sendOtpReqResp);
 		
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
