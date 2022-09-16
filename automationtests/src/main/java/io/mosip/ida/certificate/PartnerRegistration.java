@@ -2,6 +2,7 @@ package io.mosip.ida.certificate;
 
 import java.net.InetAddress;
 import java.security.cert.Certificate;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
@@ -21,12 +22,13 @@ public class PartnerRegistration extends AdminTestUtil{
 	
 	static String address = "Bangalore";
 	static String contactNumber = "8553967572";
-	static String emailId = "mosip"+RandomStringUtils.randomNumeric(4)+"@gmail.com";
-	static String emailId2 = "mosip"+RandomStringUtils.randomNumeric(3)+"@gmail.com";
-	static String emailId3 = "mosip"+RandomStringUtils.randomNumeric(2)+"@gmail.com";
-	public static String organizationName = "mosip-" + RandomStringUtils.randomNumeric(4);
-	public static String deviceOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(5);
-	public static String ftmOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(3);
+	static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
+	static String emailId = "mosip_1"+timeStamp+"@gmail.com";
+	static String emailId2 = "mosip_2"+timeStamp+"@gmail.com";
+	static String emailId3 = "mosip_3"+timeStamp+"@gmail.com";
+	public static String organizationName = "mosip_partnerorg" + timeStamp;
+	public static String deviceOrganizationName = "mosip_deviceorg" + timeStamp;
+	public static String ftmOrganizationName = "mosip_ftmorg" +timeStamp;
 	public static String partnerId = organizationName;
 	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
@@ -128,7 +130,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-//		map.put("keyFileNameByPartnerName", "true");
+		map.put("keyFileNameByPartnerName", "true");
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -152,7 +154,9 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-//		map.put("keyFileNameByPartnerName", "true");
+		if (partnerType.equals("RELYING_PARTY")){
+			map.put("keyFileNameByPartnerName", "true");
+		}
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -255,8 +259,11 @@ public class PartnerRegistration extends AdminTestUtil{
 		requestBody.put("certData", certValueSigned);
 		
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
-		
+		queryParamMap.put("partnerName", partnerId);
 		queryParamMap.put("partnerType", partnerType);
+		if (partnerType.equals("RELYING_PARTY")){
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+		}
 //		queryParamMap.put("partnerName", partnerId);
 //		queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		

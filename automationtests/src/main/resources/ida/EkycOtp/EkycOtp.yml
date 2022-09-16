@@ -1,17 +1,410 @@
 EkycOtp:
   auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=5703851972&isKyc=true&partnerUrlSuffix=mXKMu0fM6IR3BKR6nhtEQczviTkoQLL0hMtTmGEMUCbfdXQQrm/mosip-9167/292749
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Valid_VID_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+  "kycStatus": "true",
+ "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_revoke_VID_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+  "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "VID not available in database"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "$IGNORE$",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Invalid_individualId_neg:
+      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+      "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Invalid_individualId_VID_neg:
+      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+      "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Blank_individualId_neg:
+      endPoint: /v1/identity/authenticate?id=isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+      "kycStatus": "$IGNORE$",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-007",
+      "errorMessage": "Request could not be processed. Please try again"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Blank_individualId_VID_neg:
+      endPoint: /v1/identity/authenticate?id=&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+      "kycStatus": "$IGNORE$",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualId"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Missing_individualId_neg:
+      endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Missing_individualId_VID_neg:
+      endPoint: /v1/identity/authenticate?isKyc=true&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Invalid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "76544ddffgg@@@3444",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Invalid_transactionId_VID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "76544ddffgg@@@3444",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Blank_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Blank_transactionId_VID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Invalid_individualIdType_VID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+	   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Blank_individualIdType_VID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567890",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Different_transaction_id_VID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567891",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Different_transaction_id_uin_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/EkycOtpResult
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567891",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "true",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_invalid_partner:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567891",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "false",
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-007",
+      "errorMessage": "Request could not be processed. Please try again"
+    },
+    {
+      "errorCode": "IDA-MPA-009",
+      "errorMessage": "Partner is not registered"
+    }
+  ],
+  "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",

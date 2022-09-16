@@ -88,6 +88,10 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
 		
 		String input = testCaseDTO.getInput();
 		

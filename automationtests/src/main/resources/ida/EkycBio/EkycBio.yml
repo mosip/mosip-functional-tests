@@ -1,6 +1,6 @@
 EkycBio:
   auth_EkycBio_Face_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -25,9 +25,10 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
+      	"kycStatus": "true"
 }'
   auth_EkycBio_RingFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -55,7 +56,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftMiddleFingerr_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -83,7 +84,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIndexFingerr_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -111,7 +112,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -139,7 +140,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIndexFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -167,7 +168,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightRingFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -195,7 +196,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightMiddleFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -223,7 +224,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightLittleFinger_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -251,7 +252,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftThumb_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -279,7 +280,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightThumb_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -307,7 +308,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIris_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -335,7 +336,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIris_With_Valid_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -363,7 +364,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_Face_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -391,7 +392,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -419,7 +420,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -447,7 +448,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIndexFingerr_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -475,7 +476,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -503,7 +504,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIndexFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -531,7 +532,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightRingFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -559,7 +560,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -587,7 +588,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightLittleFinger_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -615,7 +616,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -643,7 +644,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightThumb_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -671,7 +672,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_RightIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -699,7 +700,7 @@ EkycBio:
   "kycStatus": "true"
 }'
   auth_EkycBio_LeftIris_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -726,12 +727,12 @@ EkycBio:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycBio_inValid_transactionID:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycBio_inValid_transactionID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/EkycBioResult
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
@@ -752,19 +753,14 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ]
+	   "kycStatus": "true"
 }'
-  auth_EkycBio_inValid_transactionID_vid:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycBio_inValid_transactionID_vid_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/EkycBioResult
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
@@ -785,19 +781,14 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ]
+	   "kycStatus": "true"
 }'
-  auth_EkycBio_blank_transactionID:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycBio_blank_transactionID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/EkycBioResult
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
@@ -818,19 +809,14 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ]
+      	"kycStatus": "true"
 }'
-  auth_EkycBio_blank_transactionID_vid:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycBio_blank_transactionID_vid_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
+      outputTemplate: ida/EkycBio/EkycBioResult
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "Finger",
@@ -851,15 +837,10 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ]
+	   "kycStatus": "true"
 }'
   auth_EkycBio_with_revoked_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -884,15 +865,16 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-018",
+          "errorMessage": "VID not available in database"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_invalid_bioSubType:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -917,15 +899,16 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$REGEXP:Invalid Input Parameter - request/biometrics/.*/data/bioSubType.*$"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-009",
+          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_invalid_bioSubType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -950,15 +933,16 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$REGEXP:Invalid Input Parameter - request/biometrics/.*/data/bioSubType.*$"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-009",
+          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_blank_bioSubType:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -983,15 +967,16 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-006",
+          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_blank_bioSubType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1016,19 +1001,20 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-006",
+          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Blank_bioType:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
+      outputTemplate: ida/EkycBio/error
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "",
@@ -1049,19 +1035,20 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-006",
+          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Blank_bioType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
+      outputTemplate: ida/EkycBio/error
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "",
@@ -1082,85 +1069,20 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
-    }
-  ]
-}'
-  auth_EkycBio_Missing_bioType:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
-      input: '{
-          "bioSubType": "Left IndexFinger",
-          "bioType": "$REMOVE$",
-          "bioValue": "$LEFTINDEXFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-  auth_EkycBio_Missing_bioType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
-      input: '{
-          "bioSubType": "Left IndexFinger",
-          "bioType": "$REMOVE$",
-          "bioValue": "$LEFTINDEXFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-006",
+          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Invalid_bioType:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
+      outputTemplate: ida/EkycBio/error
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "ddff3355",
@@ -1181,19 +1103,21 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-011",
+          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
+          "actionMessage": "Please use other Authentication Types in the request"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Invalid_bioType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/errorCommon
+      outputTemplate: ida/EkycBio/error
       input: '{
           "bioSubType": "Left IndexFinger",
           "bioType": "ddff3355",
@@ -1214,81 +1138,17 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-  auth_EkycBio_invalid_biovalue:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
-      input: '{
-          "bioSubType": "Left IndexFinger",
-          "bioType": "Finger",
-          "bioValue": "$sgshshsh$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Iris did not match"
-    }
-  ]
-}'
-  auth_EkycBio_invalid_biovalue_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycBio/EkycBio
-      outputTemplate: ida/EkycBio/error
-      input: '{
-          "bioSubType": "Left IndexFinger",
-          "bioType": "Finger",
-          "bioValue": "$sgshshsh$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Finger",
-    	  "transactionId": "1234567890",
-    	  "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Iris did not match"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-011",
+          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
+          "actionMessage": "Please use other Authentication Types in the request"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1313,15 +1173,17 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Iris did not match"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-BIA-001",
+          "errorMessage": "Biometric data - Iris did not match",
+          "actionMessage": "Please give your biometrics again"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1346,15 +1208,17 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Iris did not match"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-BIA-001",
+          "errorMessage": "Biometric data - Iris did not match",
+          "actionMessage": "Please give your biometrics again"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1379,15 +1243,17 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Finger did not match"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-BIA-001",
+          "errorMessage": "Biometric data - Finger did not match",
+          "actionMessage": "Please give your biometrics again"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1412,15 +1278,17 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "Biometric data - Finger did not match"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-BIA-001",
+          "errorMessage": "Biometric data - Finger did not match",
+          "actionMessage": "Please give your biometrics again"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycBio_Finger_With_dummy_partnerkey_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycBio/EkycBio
@@ -1445,14 +1313,15 @@ EkycBio:
     	  "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
-    },
-    {
-      "errorCode": "IDA-MPA-001",
-      "errorMessage": "Digital signature verification failed for signature header"
-    }
-  ]
+	   "errors": [
+        {
+          "errorCode": "IDA-MLC-007",
+          "errorMessage": "Request could not be processed. Please try again"
+        },
+        {
+          "errorCode": "IDA-MPA-009",
+          "errorMessage": "Partner is not registered"
+        }
+      ],
+        "kycStatus": false
 }'

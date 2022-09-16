@@ -36,6 +36,7 @@ import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.restassured.response.Response;
 
 public class OtpAuthNew extends AdminTestUtil implements ITest {
@@ -83,34 +84,15 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
-		String endPoint = testCaseDTO.getEndPoint();
-		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
 		
-		String individualId = "";
-		
-		if(endPoint.contains("id="))
-		{
-			int lengthOfEndPoint = endPoint.length();
-			int charOfId = endPoint.indexOf("id=");
-			
-			
-			for (int i = charOfId + 3 ; i < lengthOfEndPoint ; i++) {
-				if (endPoint.charAt(i)!= '&') {
-					char eachChar = endPoint.charAt(i);
-					individualId += eachChar;
-				}
-				else {
-					break;
-				}
-				}
-		}
-		System.out.println(individualId);
-		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+		JSONObject input = new JSONObject(testCaseDTO.getInput());
+		String individualId = null;
+		if(input.has("individualId")) {
+			individualId = input.get("individualId").toString();
+			input.remove("individualId");
 		}
 		
-		String input = testCaseDTO.getInput();
+		individualId = uriKeyWordHandelerUri(individualId, testCaseName );
 		
 		String url = null;
 		InetAddress inetAddress = null;
@@ -141,8 +123,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		headers.put(AUTHORIZATHION_HEADERNAME, token);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 
+		Response otpRespon = null;
 		
-		Response otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/mXKMu0fM6IR3BKR6nhtEQczviTkoQLL0hMtTmGEMUCbfdXQQrm/mosip-9167/292749", sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
+		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
 		
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
@@ -161,11 +144,23 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
 		
-		String authRequest = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
-				
-		logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");		
+		String endPoint = testCaseDTO.getEndPoint();
+		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
 		
-		response = RestClient.postRequest(url + testCaseDTO.getEndPoint(), authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
+		if(endPoint.contains("$partnerKeyURL$"))
+		{
+			endPoint = endPoint.replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl);
+		}
+		if(endPoint.contains("$PartnerName$"))
+		{
+			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
+		}
+		
+		String authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
+				
+		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
+		
+		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
@@ -183,9 +178,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
+//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+//						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
 		/*

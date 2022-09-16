@@ -91,6 +91,10 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
 
@@ -127,9 +131,9 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
+//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+//						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
 		/*
