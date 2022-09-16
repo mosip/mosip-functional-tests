@@ -221,7 +221,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", props.get("policytest_password"));
-		request.put("userName", props.get("policytest_userName"));
+		request.put("userName", BaseTestCase.currentModule +"-"+props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());

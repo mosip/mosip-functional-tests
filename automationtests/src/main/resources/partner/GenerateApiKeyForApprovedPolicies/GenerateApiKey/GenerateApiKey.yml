@@ -1,6 +1,6 @@
 GenerateApiKeysforApprovedPolicies:
    Partner_GenerateApiKeysforApprovedPolicies_AllValid_smoke_sid:
-      endPoint: /v1/partnermanager/partners/111997/generate/apikey
+      endPoint: /v1/partnermanager/partners/partner-111997/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
@@ -15,7 +15,7 @@ GenerateApiKeysforApprovedPolicies:
     "label": "string"    
 }'
    Partner_GenerateApiKeysforApprovedPolicies_InValid_policy:
-      endPoint: /v1/partnermanager/partners/111997/generate/apikey
+      endPoint: /v1/partnermanager/partners/partner-111997/generate/apikey
       role: partner
       restMethod: patch
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/GenerateApiKey/generateApiKey
