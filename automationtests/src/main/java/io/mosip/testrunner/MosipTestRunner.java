@@ -65,6 +65,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		if (BaseTestCase.listOfModules.contains("auth")) {
+			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
 			PartnerRegistration.generateAndGetPartnerKeyUrl();
