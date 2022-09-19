@@ -167,6 +167,20 @@ public class KeyMgrUtil {
         return stringWriter.toString();
     }
     
+    public boolean deleteFile(File file) throws IOException {
+        if (file != null) {
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+
+                for (File f: files) {
+                    deleteFile(f);
+                }
+            }
+            return Files.deleteIfExists(file.toPath());
+        }
+        return false;
+    }
+    
     private PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType, String p12FilePath, KeyUsage keyUsage, 
             LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
@@ -190,6 +204,9 @@ public class KeyMgrUtil {
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
         }
+        
+//        deleteFile(new File(p12FilePath));
+        
         OutputStream outputStream = new FileOutputStream(p12FilePath);
         keyStore.store(outputStream, getP12Pass());
         outputStream.flush();

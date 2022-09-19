@@ -7,6 +7,7 @@ import static io.mosip.authentication.core.constant.IdAuthCommonConstants.UTF_8;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,6 +62,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -980,6 +982,12 @@ public class AuthRequestController {
 			KeyStoreException, OperatorCreationException {
 		
 		return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(), partnerName, keyFileNameByPartnerName);
+	}
+	
+	@DeleteMapping (path = "/clearKeys")
+	public void clearKeys() throws IOException {
+		
+		keyMgrUtil.deleteFile(new File(keyMgrUtil.getKeysDirPath().toString()));
 	}
 
 	@PostMapping(path = "/updatePartnerCertificate", produces = MediaType.TEXT_PLAIN_VALUE)

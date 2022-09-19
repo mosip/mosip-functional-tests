@@ -370,6 +370,18 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 	}
 	
+	public static void deleteCertificates() {
+		if (localHostUrl == null) {
+			localHostUrl = getLocalHostUrl();
+		}
+		String url = localHostUrl + props.getProperty("clearCertificateURL");
+		
+		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+		System.out.println(response);
+		
+
+	}
+	
 }
 
 	
