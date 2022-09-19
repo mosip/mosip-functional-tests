@@ -43,7 +43,7 @@ public class DBManager {
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
 					statement.addBatch(
-							"delete from pms.policy_group where name in ('mosip policy group','mosip policy group2','update_policy_group')");
+							"delete from pms.policy_group where name in ('mosip policy group','mosip policy role testing groupp','mosip policy group2','update_policy_group')");
 					statement.addBatch("delete from pms.misp_license where cr_by='pm_testuser'");
 					statement.addBatch("delete from pms.misp_license where misp_id in ('MISP','MISP2')");
 					statement.addBatch("delete from pms.ftp_chip_detail where foundational_trust_provider_id='FTP'");
