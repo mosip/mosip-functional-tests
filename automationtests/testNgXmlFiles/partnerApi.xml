@@ -1036,7 +1036,6 @@
 		</classes>
 	</test>
 	
-	
 	<test name="GetPolicyForApiKey">
 		<parameter name="ymlFile"
 			value="partner/GetPolicyForApiKey/GetPolicyForApiKey.yml" />
@@ -1093,5 +1092,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.DBValidator" />
 		</classes>
-	</test>		
+	</test>
 </suite>

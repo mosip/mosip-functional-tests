@@ -28,7 +28,11 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
+import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
+import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MosipTestRunner;
@@ -65,6 +69,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String partnerNewCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String residentNewCookie = null;
@@ -107,6 +112,8 @@ public class BaseTestCase {
 	public static List<String> languageList = new ArrayList<>();
 	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	
+	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
@@ -186,7 +193,8 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
-			CertificateGenerationUtil.getThumbprints();
+//			CertificateGenerationUtil.getThumbprints();
+//			PartnerRegistration.getPartnerKeyUrl();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
@@ -324,19 +332,18 @@ public class BaseTestCase {
 	
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
+			
+			AdminTestUtil.initialUserCreation();
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
-				
-				AdminTestUtil.initialUserCreation();
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-				request.put("userId", propsKernel.get("admin_userName"));
+				request.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
 				request.put("langCode", BaseTestCase.getLanguageList().get(0));
 				request.put("isActive", "true");
 				actualrequest.put("request", request);
 				System.out.println(actualrequest);
-				
 				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 				logger.info(propsKernel.get("admin_userName") + "Mapped to"+props.get("zoneCode_to_beMapped")+ "Zone");
 				System.out.println(response);
@@ -353,6 +360,8 @@ public class BaseTestCase {
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
 		}
+		
+        
 		
 		
          public static List<String> getLanguageList() {

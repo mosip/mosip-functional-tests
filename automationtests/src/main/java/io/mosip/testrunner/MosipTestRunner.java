@@ -19,6 +19,8 @@ import org.testng.TestNG;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.dbaccess.DBManager;
+import io.mosip.ida.certificate.CertificateGenerationUtil;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
@@ -61,7 +63,16 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
+		
+		if (BaseTestCase.listOfModules.contains("auth")) {
+			PartnerRegistration.deleteCertificates();
+			CertificateGenerationUtil.getThumbprints();
+			AdminTestUtil.createAndPublishPolicy();
+			PartnerRegistration.generateAndGetPartnerKeyUrl();
+		}
+		 
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+
 		//Get List of languages from server and set into BaseTestCase.languageList
 		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
 		//ForTesting
@@ -71,6 +82,8 @@ public class MosipTestRunner {
 			//KeycloakUserManager.createUsers();
 			BaseTestCase.mapUserToZone();
 			BaseTestCase.mapZone();
+			
+			
 				
 			
 			for (int i = 0; i < localLanguageList.size(); i++) {

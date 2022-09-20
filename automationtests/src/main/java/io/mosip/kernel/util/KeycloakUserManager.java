@@ -116,6 +116,81 @@ public class KeycloakUserManager {
 		}
 	}
 
+	
+	public static void createKeyCloakUsers(String partnerId,String emailId, String userRole ) {
+		List<String> needsToBeCreatedUsers = List.of(partnerId);
+		//List<String> userPassword = List.of(propsKernel.getProperty("users.password").split(","));
+		Keycloak keycloakInstance = getKeycloakInstance();
+		//int passwordIndex = 0;
+		for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
+			UserRepresentation user = new UserRepresentation();
+			user.setEnabled(true);
+			user.setUsername(needsToBeCreatedUser);
+			user.setFirstName(needsToBeCreatedUser);
+			user.setLastName("");
+			user.setEmail(emailId);
+			// Get realm
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
+			UsersResource usersRessource = realmResource.users();
+			// Create user (requires manage-users role)
+			Response response = usersRessource.create(user);
+			System.out.println(response);
+			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+			System.out.println(response.getLocation());
+			String userId = CreatedResponseUtil.getCreatedId(response);
+			System.out.printf("User created with userId: %s%n", userId);
+
+			// Define password credential
+			CredentialRepresentation passwordCred = new CredentialRepresentation();
+			
+			passwordCred.setTemporary(false);
+			passwordCred.setType(CredentialRepresentation.PASSWORD);
+			
+			//passwordCred.setValue(userPassword.get(passwordIndex));
+			passwordCred.setValue("mosip123");
+
+			UserResource userResource = usersRessource.get(userId);
+
+			// Set password credential
+			userResource.resetPassword(passwordCred);
+
+			// Getting all the roles
+			List<RoleRepresentation> allRoles = realmResource.roles().list();
+			List<RoleRepresentation> availableRoles = new ArrayList<>();
+			List<String> toBeAssignedRoles = List.of(userRole);
+			for(String role : toBeAssignedRoles) {
+				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				}else {
+					System.out.printf("Role not found in keycloak: %s%n", role);
+				}
+			}
+			// Assign realm role tester to user
+			userResource.roles().realmLevel() //
+					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
+			//passwordIndex ++;
+		}
+	}
+	
+	public static void removeKeyCloakUser(String partnerId) {
+		List<String> needsToBeRemovedUsers = List.of(partnerId);
+		Keycloak keycloakInstance = getKeycloakInstance();
+		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
+			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
+			UsersResource usersRessource = realmResource.users();
+
+			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
+			if (!usersFromDB.isEmpty()) {
+				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
+				userResource.remove();
+				System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+			} else {
+				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
+			}
+
+		}
+	}
+	
 	public static void removeUser() {
 		List<String> needsToBeRemovedUsers = List.of(ConfigManager.getIAMUsersToCreate().split(","));
 		Keycloak keycloakInstance = getKeycloakInstance();

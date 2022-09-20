@@ -1,29 +1,10 @@
 {
   "id": "{{id}}",
-  "requesttime": "{{requesttime}}",
-  "version": "{{version}}",
-  "registrationId": "{{registrationId}}",
   "request": {
+	  "registrationId": "{{registrationId}}",
     "identity": {
-	  "IDSchemaVersion": 0.7,
-	  "consent": [
-	   {{#each consent}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "consentText": [
-	   {{#each consentText}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
+	  "UIN": "{{UIN}}",
+	  "IDSchemaVersion": 0.2,
 	  "fullName": [
 	   {{#each fullName}}
 		{
@@ -100,4 +81,6 @@
 	  }
 	]
 },
+	"requesttime": "{{requesttime}}",
+	"version": "{{version}}"
 }
