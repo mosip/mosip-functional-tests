@@ -11,7 +11,7 @@ GenerateApiKeysforApprovedPolicies:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "partnerId": "111997",
+   "partnerId": "partner-111997",
     "label": "string"    
 }'
    Partner_GenerateApiKeysforApprovedPolicies_InValid_policy:

@@ -10,12 +10,12 @@ createPartnerSelfRegistration:
     "contactNumber": "123456789",
     "emailId": "mosip@automationlab.com",
     "organizationName": "Techno",
-    "partnerId": "111997",
+    "partnerId": "partner-111997",
     "partnerType": "Auth_Partner",
     "policyGroup": "mosip policy group",
 	"requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-        "partnerId": "111997",
+        "partnerId": "partner-111997",
         "status": "InProgress"
     }'
