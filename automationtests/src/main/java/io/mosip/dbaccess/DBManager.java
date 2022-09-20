@@ -39,7 +39,7 @@ public class DBManager {
 							"delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch("delete from partner_policy_credential_type where part_id='MOVP'");
 					statement.addBatch(
-							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','updatepolicy')");
+							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','partner-111997','updatepolicy')");
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
 					statement.addBatch(
