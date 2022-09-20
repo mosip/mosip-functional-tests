@@ -46,7 +46,7 @@ DBValidator:
   }'
       output: '{
    "module_name": "partner service"
-   "cr_by": "partner-111997"
+   "cr_by": "Tech-123"
     }'
    Partner_DBValidator_All_Valid_Smoke_data_created_using_Misp:
       endPoint: SELECT * FROM ida.misp_license_data where
