@@ -34,7 +34,7 @@ CreateZoneUser:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.userId: Should not be blank or size must be between 1 and 256"
+      "message": "$IGNORE$"
     }
   ]
 }'
