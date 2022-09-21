@@ -193,8 +193,6 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
-//			CertificateGenerationUtil.getThumbprints();
-//			PartnerRegistration.getPartnerKeyUrl();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
@@ -333,7 +331,7 @@ public class BaseTestCase {
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
 			
-			AdminTestUtil.initialUserCreation();
+//			AdminTestUtil.initialUserCreation();
 				String token = kernelAuthLib.getTokenByRole("zonemap");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
@@ -356,13 +354,13 @@ public class BaseTestCase {
 			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("isActive", "true");
-			map.put("userId", (String) propsKernel.get("admin_userName"));
+			map.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
 		}
 		
-		public static void zoneName() {
-			
+		public static boolean zoneName() {
+			boolean firstUser = true; 
         	String token = kernelAuthLib.getTokenByRole("admin");
 			String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
     		
@@ -374,7 +372,13 @@ public class BaseTestCase {
     		
     		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
     		System.out.println(response);
-    		userCenterMapping();
+    		
+    		String otpInput = response.getBody().asString();
+    		if (otpInput.contains("KER-MSD-391")) {
+    			firstUser = false;
+    		}
+    		return firstUser;
+    		
 	}
 		
 		public static void userCenterMapping() {
@@ -402,7 +406,6 @@ public class BaseTestCase {
     		
     		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
     		System.out.println(response);
-    		BaseTestCase.userCenterMappingStatus();
 	}
 		
 		public static void userCenterMappingStatus() {
