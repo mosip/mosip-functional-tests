@@ -39,7 +39,7 @@ public class DBManager {
 							"delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch("delete from partner_policy_credential_type where part_id='MOVP'");
 					statement.addBatch(
-							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','updatepolicy')");
+							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','partner-111997','updatepolicy')");
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
 					statement.addBatch(
@@ -134,52 +134,52 @@ public class DBManager {
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
 					statement.addBatch("delete from master.blocklisted_words where cr_by='dumbo6'");
-					statement.addBatch("delete from master.blocklisted_words where cr_by='220005'");
-					statement.addBatch("delete from master.machine_master where cr_by='220005'");
-					statement.addBatch("delete FROM master.machine_master where cr_by='220005'");
-					statement.addBatch("delete from master.machine_spec where cr_by='220005'");
-					statement.addBatch("delete from master.machine_type where cr_by='220005'");
-					statement.addBatch("delete FROM master.gender where cr_by='220005'");
-					statement.addBatch("delete FROM master.device_master where cr_by='220005'");
-					statement.addBatch("delete FROM master.device_spec where cr_by='220005'");
-					statement.addBatch("delete FROM master.device_type where cr_by='220005'");
-					statement.addBatch("delete FROM master.loc_holiday where cr_by='220005'");
-					statement.addBatch("delete FROM master.reg_center_type where cr_by='220005'");
-					statement.addBatch("delete FROM master.registration_center where cr_by='220005'");
-					statement.addBatch("delete from master.loc_holiday where cr_by='220005'");
-					statement.addBatch("delete from master.reg_center_type where cr_by='220005'");
-					statement.addBatch("delete from master.registration_center where cr_by='220005'");
-					statement.addBatch("delete from master.device_type where cr_by='220005'");
-					statement.addBatch("delete from master.doc_type where cr_by='220005'");
-					statement.addBatch("delete from master.doc_category where cr_by='220005'");
-					statement.addBatch("delete FROM master.location where cr_by='220005'");
-					statement.addBatch("delete from master.template where cr_by='220005'");
+					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_spec where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.gender where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.device_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.device_spec where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.device_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.loc_holiday where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.reg_center_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.registration_center where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.loc_holiday where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.reg_center_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.registration_center where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.device_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.doc_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.doc_category where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.location where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.template where cr_by='masterdata-220005'");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
 					statement.addBatch("delete from master.template_type where code='Test-info-Template-auto'");
 					statement.addBatch(
 							"update master.location set is_active='true', is_deleted='false' where code='10114'");
 					statement.addBatch("delete from master.location where code in('TST123','IND')");
-					statement.addBatch("delete from master.valid_document where cr_by='220005'");
-					statement.addBatch("delete from master.user_detail where cr_by='220005'");
-					statement.addBatch("delete from master.template_type where cr_by='220005'");
-					statement.addBatch("delete from master.template_file_format where cr_by='220005'");
-					statement.addBatch("delete from master.reason_list where cr_by='220005'");
-					statement.addBatch("delete from master.reason_category where cr_by='220005'");
-					statement.addBatch("delete from master.language where cr_by='220005'");
-					statement.addBatch("delete from master.identity_schema where cr_by='220005'");
-					statement.addBatch("delete from master.biometric_attribute where cr_by='220005'");
-					statement.addBatch("delete from master.biometric_type where cr_by='220005'");
-					statement.addBatch("delete from master.appl_form_type where cr_by='220005'");
-					statement.addBatch("delete from master.id_type where cr_by='220005'");
-					statement.addBatch("delete from master.dynamic_field where cr_by='220005'");
-					statement.addBatch("delete FROM master.zone_user where usr_id='220005'");
+					statement.addBatch("delete from master.valid_document where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.user_detail where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.template_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.template_file_format where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.reason_list where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.reason_category where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.language where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.identity_schema where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.biometric_attribute where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.biometric_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.appl_form_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.id_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.dynamic_field where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.zone_user where usr_id='masterdata-220005'");
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo6'");
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo7'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
 					statement.addBatch("delete from master.machine_spec where name='HP'");
-					statement.addBatch("delete FROM master.machine_master where cr_by='220005'");
+					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where code='Laptop2'");
 					statement.addBatch("delete FROM master.gender where code='Genderdummy'");
 					statement.addBatch(
