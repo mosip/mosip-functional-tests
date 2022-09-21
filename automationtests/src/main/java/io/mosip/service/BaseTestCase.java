@@ -361,7 +361,64 @@ public class BaseTestCase {
 			System.out.println(response);
 		}
 		
-        
+		public static void zoneName() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+    		
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("userID", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+    		
+    		
+    		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+    		userCenterMapping();
+	}
+		
+		public static void userCenterMapping() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+			HashMap<String, String> requestMap = new HashMap<String, String>();
+			
+    		requestMap.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		requestMap.put("name", "automation");
+    		requestMap.put("statusCode", "active");
+    		requestMap.put("regCenterId", "10005");
+    		requestMap.put("isActive", "true");
+    		requestMap.put("langCode", "eng");
+    		
+    		HashMap<String, Object> map = new HashMap<String, Object>();
+    		
+			map.put("id", "string");
+			map.put("version", "string");
+			map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
+			map.put("metadata", new HashMap<>());
+			map.put("request", requestMap);
+    		
+    		
+    		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+    		BaseTestCase.userCenterMappingStatus();
+	}
+		
+		public static void userCenterMappingStatus() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("isActive", "true");
+    		map.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		
+    		
+    		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+	}
 		
 		
          public static List<String> getLanguageList() {
