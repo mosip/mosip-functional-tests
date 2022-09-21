@@ -332,7 +332,7 @@ public class BaseTestCase {
 		public static void  mapUserToZone() {
 			
 //			AdminTestUtil.initialUserCreation();
-				String token = kernelAuthLib.getTokenByRole("zonemap");
+				String token = kernelAuthLib.getTokenByRole("globalAdmin");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 				JSONObject request = new JSONObject();
@@ -350,7 +350,7 @@ public class BaseTestCase {
 		
 		public static void mapZone() {
 			
-			String token = kernelAuthLib.getTokenByRole("zonemap");
+			String token = kernelAuthLib.getTokenByRole("globalAdmin");
 			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("isActive", "true");
@@ -428,7 +428,7 @@ public class BaseTestCase {
 			if(!languageList.isEmpty()) {
 				return languageList;
 			}
-			//String token = kernelAuthLib.getTokenByRole("zonemap");
+			//String token = kernelAuthLib.getTokenByRole("globalAdmin");
 			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
