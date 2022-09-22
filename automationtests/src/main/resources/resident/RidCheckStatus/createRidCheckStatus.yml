@@ -49,7 +49,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-408",
+      "errorCode": "RES-SER-418",
       "message": "$IGNORE$"
     }
   ]
