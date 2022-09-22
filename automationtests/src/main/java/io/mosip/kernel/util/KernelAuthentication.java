@@ -129,7 +129,7 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
 			return residentCookie;
-		case "zonemap":
+		case "globaladmin":
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
@@ -173,7 +173,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request = new JSONObject();
 		request.put("appId", ConfigManager.getAdminAppId());
 		request.put("password", props.get("admin_zone_password"));
-		request.put("userName", BaseTestCase.currentModule +"-"+props.get("admin_zone_userName"));
+		request.put("userName", props.get("admin_zone_userName"));
 		request.put("clientId", ConfigManager.getAdminClientId());
 		request.put("clientSecret", ConfigManager.getAdminClientSecret());
 		actualrequest.put("request", request);
@@ -224,7 +224,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", props.get("policytest_password"));
-		request.put("userName", props.get("policytest_userName"));
+		request.put("userName", BaseTestCase.currentModule +"-"+props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());

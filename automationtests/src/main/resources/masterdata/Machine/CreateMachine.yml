@@ -1,7 +1,7 @@
 CreateMachine:
    Masterdata_CreateMachine_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/machines
-      role: admin
+      role: globalAdmin
       templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Machine/machine
@@ -35,7 +35,7 @@ CreateMachine:
 }'
    Masterdata_CreateMachine_Invalid_publicKey:
       endPoint: /v1/masterdata/machines
-      role: admin
+      role: globalAdmin
       templateFields: ["name"]
       restMethod: post
       inputTemplate: masterdata/Machine/machine

@@ -639,6 +639,14 @@ public class RestClient {
         return deleteResponse;
     }
 	
+	public static Response deleteRequest(String url, String contentHeader, String acceptHeader) {
+        RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
+        Response deleteResponse= given().config(config).relaxedHTTPSValidation()
+                    .log().all().when().delete(url).then().log().all().extract().response();
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + deleteResponse.asString());
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + deleteResponse.time());
+        return deleteResponse;
+    }
 	
 	
 	public static Response deleteRequestWithCookieAndPathParmForKeyCloak(String url, HashMap<String, String> body,

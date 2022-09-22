@@ -37,7 +37,7 @@ public class KeycloakUserManager {
 		try {
 			
 	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getPmsClientId()).clientSecret(ConfigManager.getPmsClientSecret())
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
 				.build();
 	System.out.println(ConfigManager.getIAMUrl());
 	System.out.println(key.toString() + key.realms());
@@ -66,7 +66,14 @@ public class KeycloakUserManager {
 		Keycloak keycloakInstance = getKeycloakInstance();
 		for (String needsToBeCreatedUser : needsToBeCreatedUsers) {
 			UserRepresentation user = new UserRepresentation();
-			String moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
+			String moduleSpecificUser = null;
+			if (needsToBeCreatedUser.equals("globaladmin")) {
+				moduleSpecificUser = needsToBeCreatedUser;
+			}
+			else {
+				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
+			}
+			
 			System.out.println(moduleSpecificUser);
 			user.setEnabled(true);
 			user.setUsername(moduleSpecificUser);
@@ -77,9 +84,13 @@ public class KeycloakUserManager {
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
-			Response response = usersRessource.create(user);
-			System.out.println(response);
+			Response response = null;
+				response = usersRessource.create(user);
+ 				System.out.println(response);
 			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+			if (response.getStatus()==409) {
+				continue;
+			}
 			System.out.println(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
 			System.out.printf("User created with userId: %s%n", userId);

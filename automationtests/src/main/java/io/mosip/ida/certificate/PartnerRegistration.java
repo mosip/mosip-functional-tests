@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class PartnerRegistration extends AdminTestUtil{
@@ -77,14 +78,7 @@ public class PartnerRegistration extends AdminTestUtil{
 	
 	
 	private static String getLocalHostUrl() {
-		try {
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			return "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort")+"/";
-			
-		} catch (Exception e) {
-			lOGGER.error("Exception in RunConfig " + e.getMessage());
-			return null;
-		}
+			return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 
 	public static void partnerGeneration() {
@@ -368,6 +362,18 @@ public class PartnerRegistration extends AdminTestUtil{
 		uploadSignedCertificate(signedDevicePartnerCertf, "FTM", ftmOrganizationName, true);
 		
 		
+	}
+	
+	public static void deleteCertificates() {
+		if (localHostUrl == null) {
+			localHostUrl = getLocalHostUrl();
+		}
+		String url = localHostUrl + props.getProperty("clearCertificateURL");
+		
+		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+		System.out.println(response);
+		
+
 	}
 	
 }

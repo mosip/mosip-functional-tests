@@ -193,8 +193,6 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
-//			CertificateGenerationUtil.getThumbprints();
-//			PartnerRegistration.getPartnerKeyUrl();
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
@@ -333,8 +331,8 @@ public class BaseTestCase {
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
 			
-			AdminTestUtil.initialUserCreation();
-				String token = kernelAuthLib.getTokenByRole("zonemap");
+//			AdminTestUtil.initialUserCreation();
+				String token = kernelAuthLib.getTokenByRole("globalAdmin");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 				JSONObject request = new JSONObject();
@@ -352,23 +350,85 @@ public class BaseTestCase {
 		
 		public static void mapZone() {
 			
-			String token = kernelAuthLib.getTokenByRole("zonemap");
+			String token = kernelAuthLib.getTokenByRole("globalAdmin");
 			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("isActive", "true");
-			map.put("userId", (String) propsKernel.get("admin_userName"));
+			map.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
 		}
 		
-        
+		public static boolean zoneName() {
+			boolean firstUser = true; 
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+    		
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("userID", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+    		
+    		
+    		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+    		
+    		String otpInput = response.getBody().asString();
+    		if (otpInput.contains("KER-MSD-391")) {
+    			firstUser = false;
+    		}
+    		return firstUser;
+    		
+	}
+		
+		public static void userCenterMapping() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+			HashMap<String, String> requestMap = new HashMap<String, String>();
+			
+    		requestMap.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		requestMap.put("name", "automation");
+    		requestMap.put("statusCode", "active");
+    		requestMap.put("regCenterId", "10005");
+    		requestMap.put("isActive", "true");
+    		requestMap.put("langCode", "eng");
+    		
+    		HashMap<String, Object> map = new HashMap<String, Object>();
+    		
+			map.put("id", "string");
+			map.put("version", "string");
+			map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
+			map.put("metadata", new HashMap<>());
+			map.put("request", requestMap);
+    		
+    		
+    		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+	}
+		
+		public static void userCenterMappingStatus() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("isActive", "true");
+    		map.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		
+    		
+    		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+	}
 		
 		
          public static List<String> getLanguageList() {
 			if(!languageList.isEmpty()) {
 				return languageList;
 			}
-			//String token = kernelAuthLib.getTokenByRole("zonemap");
+			//String token = kernelAuthLib.getTokenByRole("globalAdmin");
 			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());

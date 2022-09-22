@@ -58,6 +58,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -87,6 +88,15 @@ public class KeyMgrUtil {
 	@Autowired
 	private Environment environment;
 
+	@Value("${rp-partner-cert-expiry-years:5}")
+	private int rpPartnerCertExpiryYears;
+
+	@Value("${ftm-partner-cert-expiry-years:1}")
+	private int ftmCertificateExpiryYears;
+
+	@Value("${device-partner-cert-expiry-months:6}")
+	private int deviceCertificateExpiryMonths;
+
     public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
 		StringReader strReader = new StringReader(certData);
 		PemReader pemReader = new PemReader(strReader);
@@ -102,7 +112,7 @@ public class KeyMgrUtil {
     	String filePrepend = keyFileNameByPartnerName ? partnerType.getFilePrepend() + '-' + organization : partnerType.getFilePrepend();
         String caFilePath = dirPath + '/' + filePrepend + CA_P12_FILE_NAME;
         LocalDateTime dateTime = LocalDateTime.now(); 
-        LocalDateTime dateTimeExp = dateTime.plusYears(1);
+		LocalDateTime dateTimeExp = dateTime.plusYears(rpPartnerCertExpiryYears);
         PrivateKeyEntry caPrivKeyEntry = getPrivateKeyEntry(caFilePath);
         KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
         if (Objects.isNull(caPrivKeyEntry)) {
@@ -167,6 +177,20 @@ public class KeyMgrUtil {
         return stringWriter.toString();
     }
     
+    public boolean deleteFile(File file) throws IOException {
+        if (file != null) {
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+
+                for (File f: files) {
+                    deleteFile(f);
+                }
+            }
+            return Files.deleteIfExists(file.toPath());
+        }
+        return false;
+    }
+    
     private PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType, String p12FilePath, KeyUsage keyUsage, 
             LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
@@ -190,6 +214,9 @@ public class KeyMgrUtil {
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
         }
+        
+//        deleteFile(new File(p12FilePath));
+        
         OutputStream outputStream = new FileOutputStream(p12FilePath);
         keyStore.store(outputStream, getP12Pass());
         outputStream.flush();
@@ -268,7 +295,7 @@ public class KeyMgrUtil {
             String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
             PrivateKeyEntry pKeyEntry = getPrivateKeyEntry(partnerFilePath);
             LocalDateTime dateTime = LocalDateTime.now(); 
-            LocalDateTime dateTimeExp = dateTime.plusYears(1);
+            LocalDateTime dateTimeExp = dateTime.plusYears(ftmCertificateExpiryYears);
             KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
             
             X500Principal signerPrincipal = ((X509Certificate)pKeyEntry.getCertificate()).getSubjectX500Principal();
@@ -295,7 +322,7 @@ public class KeyMgrUtil {
             String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
             PrivateKeyEntry pKeyEntry = getPrivateKeyEntry(partnerFilePath);
             LocalDateTime dateTime = LocalDateTime.now(); 
-            LocalDateTime dateTimeExp = dateTime.plusMonths(1);
+            LocalDateTime dateTimeExp = dateTime.plusMonths(deviceCertificateExpiryMonths);
             KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
            
             X500Principal signerPrincipal = ((X509Certificate)pKeyEntry.getCertificate()).getSubjectX500Principal();

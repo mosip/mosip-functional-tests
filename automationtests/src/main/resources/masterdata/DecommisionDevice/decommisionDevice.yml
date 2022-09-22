@@ -1,7 +1,7 @@
 DecommisionDevice:
    MasterData_DecommisionDevice_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/devices/decommission/{deviceId}
-      role: admin
+      role: globalAdmin
       restMethod: put
       inputTemplate: masterdata/DecommisionDevice/decommisionDevice
       outputTemplate: masterdata/DecommisionDevice/decommisionDeviceResult
