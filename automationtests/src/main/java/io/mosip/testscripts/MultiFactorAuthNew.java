@@ -99,7 +99,7 @@ testCaseName = testCaseDTO.getTestCaseName();
 		requestBody.put("keyFileNameByPartnerName", "true");
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		
-		String token = kernelAuthLib.getTokenByRole("regproc");
+		String token = kernelAuthLib.getTokenByRole("resident");
 		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
 		
 		
