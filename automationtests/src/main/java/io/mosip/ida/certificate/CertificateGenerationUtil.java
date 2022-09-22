@@ -35,12 +35,9 @@ import io.restassured.response.Response;
 public class CertificateGenerationUtil extends AdminTestUtil{
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
 	
-	static String EncryptUtilBaseUrl = null;
 	
 	static {
-		if(EncryptUtilBaseUrl==null)			
-			EncryptUtilBaseUrl = getEncryptUtilBaseUrl();
-		System.out.println("EncryptUtilBaseUrl " + EncryptUtilBaseUrl);
+		System.out.println("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
 	public static void getThumbprints() {
@@ -48,17 +45,6 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 		getAndUploadIdaCertificate(appId, props.getProperty("partnerrefId"), props.getProperty("uploadPartnerurl"));
 		getAndUploadIdaCertificate(appId, props.getProperty("internalrefId"), props.getProperty("uploadInternalurl"));
 		getAndUploadIdaCertificate(appId, props.getProperty("idaFirRefId"), props.getProperty("uploadIdaFirurl"));
-	}
-	
-	public static String getEncryptUtilBaseUrl() {
-		try {
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			return "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort")+"/";
-			
-		} catch (Exception e) {
-			lOGGER.error("Execption in RunConfig " + e.getMessage());
-			return null;
-		}
 	}
 	
 	
@@ -83,7 +69,7 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 		request.put("certData", idaCertValue);
 		//actualrequest.put("request", request);
 		
-		Response reponse=RestClient.postRequest(CertificateGenerationUtil.getEncryptUtilBaseUrl()+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		Response reponse=RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl()+"/"+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		System.out.println(reponse);
 		
 		

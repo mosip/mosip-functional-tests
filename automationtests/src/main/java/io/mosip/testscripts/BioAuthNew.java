@@ -38,6 +38,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class BioAuthNew extends AdminTestUtil implements ITest {
@@ -102,15 +103,7 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		// storeValue(authRequest,"authRequest");
 
-		String url = null;
-		InetAddress inetAddress = null;
-			try {
-				inetAddress = InetAddress.getLocalHost();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		url =  "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort");
+		String url = ConfigManager.getAuthDemoServiceUrl();
 		
 		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON,
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
