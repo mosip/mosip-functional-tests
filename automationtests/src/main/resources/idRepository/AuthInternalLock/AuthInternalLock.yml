@@ -4,7 +4,7 @@ AuthInternalLock:
       role: idrepo
       restMethod: post
       inputTemplate: idRepository/AuthInternalLock/authInternalLock
-      outputTemplate: idRepository/AuthInternalLock/authInternalLockResult
+      outputTemplate: idRepository/AuthInternalLock/AuthInternalLockResult
       input: '{
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
