@@ -2529,6 +2529,7 @@ public class AdminTestUtil extends BaseTestCase {
 			    list.add(objIDJson1.get(i).toString());
 			   } 
 			}
+			list.add("residenceStatus");
 			//Remove the element from arraylist
 			if(list.contains("proofOfIdentity")) {
 				list.remove("proofOfIdentity");
@@ -2560,6 +2561,14 @@ public class AdminTestUtil extends BaseTestCase {
 			myFile.write("    \"demographicDetails\": {\n");
 
 			myFile.write("      \"identity\": {\n");
+			/*
+			 * myFile.write("      \"residenceStatus\": [\r\n" + "          {\r\n" +
+			 * "            \"language\": \"eng\",\r\n" +
+			 * "            \"value\": \"NFR\"\r\n" + "          },\r\n" + "          {\r\n"
+			 * + "            \"language\": \"fra\",\r\n" +
+			 * "            \"value\": \"NFR\"\r\n" + "          }\r\n" + "        ],");
+			 */
+			
 			myFile.close();
 
 			boolean flag = true;
@@ -2567,8 +2576,10 @@ public class AdminTestUtil extends BaseTestCase {
 				String objIDJson3 = newIdJson.getString(i);
 				
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
-
-				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
+              
+				//If the simple type is a language dependent
+				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) || 
+						objIDJson3.contains("residenceStatus")) {
 					JSONObject jo = new JSONObject();
 
 					jo.put("language", "{{language}}");
@@ -2579,16 +2590,23 @@ public class AdminTestUtil extends BaseTestCase {
 							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
 
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", ja3);
+					//mainObj.put("fullName", ja3);
+					//mainObj.put("residenceStatus", ja3);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  ,\"" + objIDJson3 + "\": [\n\t   ");
 
 					myWriter.write(ja3);
-					myWriter.write("\n\t  ],\n");
+					if(ja3.contains("residenceStatus")) {
+						myWriter.write("\n\t  ]\n}\n}\n}\n}\n");
+					}
+					else {
+						myWriter.write("\n\t  ]\n");
+					}
+					
 					myWriter.close();
 
 				} else {
@@ -2597,19 +2615,19 @@ public class AdminTestUtil extends BaseTestCase {
 					flag = true;
 
 					if (i == size - 1) {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
+						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
 								+ "\n}\n}\n}\n}");
 
 					} 
 					
 					else if (objIDJson3.equals("IDSchemaVersion")) {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
 					}
 					
 					
 					
 					else {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
 
 					}
 					
