@@ -77,7 +77,7 @@ public class BaseTestCase {
 	public String keycloakCookie = null;
 	public String zonemapCookie = null;
 	public String autoTstUsrCkie = null;
-	public static String currentModule = null;
+	public static String currentModule = "masterdata";
 	public static List<String> listOfModules = null;
 
 	public static KernelAuthentication kernelAuthLib = null;
