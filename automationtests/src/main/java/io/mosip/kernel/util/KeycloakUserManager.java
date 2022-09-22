@@ -37,7 +37,7 @@ public class KeycloakUserManager {
 		try {
 			
 	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getPmsClientId()).clientSecret(ConfigManager.getPmsClientSecret())
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
 				.build();
 	System.out.println(ConfigManager.getIAMUrl());
 	System.out.println(key.toString() + key.realms());
