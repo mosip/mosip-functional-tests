@@ -15,6 +15,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+    "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -85,6 +141,7 @@ CreatePrereg:
         "value": "RSK"
       }
     ],
+  
   "province": [
       {
         "language": "$1STLANG$",
@@ -147,6 +204,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -279,6 +392,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -411,6 +580,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -543,6 +768,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -675,6 +956,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -807,6 +1144,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -939,6 +1332,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.prtion.demographic.create",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -1076,6 +1525,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "$REMOVE$",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -1213,6 +1718,62 @@ CreatePrereg:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$3RDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
