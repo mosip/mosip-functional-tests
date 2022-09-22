@@ -1,7 +1,7 @@
 DecommissionRegCenter:
    MasterData_DecommissionRegCenter_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/registrationcenters/decommission/{regCenterID}
-      role: admin
+      role: globalAdmin
       restMethod: put
       inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
       outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult

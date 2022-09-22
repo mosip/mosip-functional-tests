@@ -35,6 +35,7 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
@@ -90,15 +91,7 @@ testCaseName = testCaseDTO.getTestCaseName();
 		
 		individualId = uriKeyWordHandelerUri(individualId, testCaseName );
 		
-		String url = null;
-		InetAddress inetAddress = null;
-			try {
-				inetAddress = InetAddress.getLocalHost();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		url =  "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort");
+		String url = ConfigManager.getAuthDemoServiceUrl();
 		
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 		
