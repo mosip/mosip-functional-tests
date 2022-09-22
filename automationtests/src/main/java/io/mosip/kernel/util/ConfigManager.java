@@ -40,8 +40,8 @@ public class ConfigManager {
 	private static String MOSIP_HOTLIST_CLIENT_ID = "mosip_hotlist_client_id";
 	private static String MOSIP_HOTLIST_APP_ID = "mosip_hotlist_app_id";
 
-	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_automation_client_secret";
-	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_automation_client_id";
+	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_testrig_client_secret";
+	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_testrig_client_id";
 	private static String MOSIP_AUTOMATION_APP_ID = "mosip_automation_app_id";
 
 	private static String S3_HOST = "s3-host";
