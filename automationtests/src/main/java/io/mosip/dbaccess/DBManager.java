@@ -137,10 +137,15 @@ public class DBManager {
 					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch(
+							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
+					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_spec where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete FROM master.gender where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.device_master where upd_by='masterdata-220005'");
 					statement.addBatch("delete FROM master.device_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete FROM master.device_master where name='testDevicedummy'");
 					statement.addBatch("delete FROM master.device_spec where cr_by='masterdata-220005'");
 					statement.addBatch("delete FROM master.device_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete FROM master.loc_holiday where cr_by='masterdata-220005'");

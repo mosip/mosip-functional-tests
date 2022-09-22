@@ -1,7 +1,7 @@
 UpdateMachine:
    Masterdata_UpdateMachine_All_Valid_Smoke:
       endPoint: /v1/masterdata/machines
-      role: admin
+      role: globalAdmin
       templateFields: ["name"]
       restMethod: put
       inputTemplate: masterdata/Machine/machine
