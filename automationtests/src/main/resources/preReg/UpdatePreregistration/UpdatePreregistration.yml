@@ -16,6 +16,46 @@ UpdatePreregistration:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.update",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",
@@ -117,6 +157,46 @@ UpdatePreregistration:
   "langCode": "$1STLANG$",
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.update",
+  "residenceStatus": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+     "addressLine1": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+      "addressLine2": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
+        "addressLine3": [
+      {
+        "language": "$1STLANG$",
+        "value": "NFR"
+      },
+      {
+        "language": "$2NDLANG$",
+        "value": "NFR"
+      }
+    ],
   "consent": [
       {
         "language": "$1STLANG$",

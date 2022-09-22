@@ -98,9 +98,13 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }", "");
 			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }", "");
 			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }", "");
+			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }", "");
 		} else if (BaseTestCase.getLanguageList().size() == 1) {
 			inputJson = inputJson.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
+					"");
+			inputJson = inputJson.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"NFR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }",
 					"");
 			inputJson = inputJson.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Test Book appointment\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }",

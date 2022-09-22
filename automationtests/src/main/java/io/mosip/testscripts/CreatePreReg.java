@@ -102,9 +102,13 @@ public class CreatePreReg extends AdminTestUtil implements ITest {
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }", "");
 		} else if (BaseTestCase.getLanguageList().size() == 1) {
 			jsonInput = jsonInput.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
+					"");
+			jsonInput = jsonInput.replace(
+					", { \"language\": \"$2NDLANG$\", \"value\": \"NFR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }",
 					"");
 			jsonInput = jsonInput.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Test Book appointment\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }",
