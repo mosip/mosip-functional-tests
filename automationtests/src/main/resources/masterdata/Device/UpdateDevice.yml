@@ -1,7 +1,7 @@
 UpdateDevice:
    MasterData_UpdateDevice_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devices
-      role: admin
+      role: globalAdmin
       templateFields: ["name"]
       restMethod: put
       inputTemplate: masterdata/Device/createDevice
@@ -33,7 +33,7 @@ UpdateDevice:
 }'
    MasterData_UpdateDevice_Valid_Smoke_decommison_sid:
       endPoint: /v1/masterdata/devices
-      role: admin
+      role: globalAdmin
       templateFields: ["name"]
       restMethod: put
       inputTemplate: masterdata/Device/createDevice
