@@ -2,6 +2,7 @@ package io.mosip.ida.certificate;
 
 import java.net.InetAddress;
 import java.security.cert.Certificate;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class PartnerRegistration extends AdminTestUtil{
@@ -21,12 +23,13 @@ public class PartnerRegistration extends AdminTestUtil{
 	
 	static String address = "Bangalore";
 	static String contactNumber = "8553967572";
-	static String emailId = "mosip"+RandomStringUtils.randomNumeric(4)+"@gmail.com";
-	static String emailId2 = "mosip"+RandomStringUtils.randomNumeric(3)+"@gmail.com";
-	static String emailId3 = "mosip"+RandomStringUtils.randomNumeric(2)+"@gmail.com";
-	public static String organizationName = "mosip-" + RandomStringUtils.randomNumeric(4);
-	public static String deviceOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(5);
-	public static String ftmOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(3);
+	static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
+	static String emailId = "mosip_1"+timeStamp+"@gmail.com";
+	static String emailId2 = "mosip_2"+timeStamp+"@gmail.com";
+	static String emailId3 = "mosip_3"+timeStamp+"@gmail.com";
+	public static String organizationName = "mosip_partnerorg" + timeStamp;
+	public static String deviceOrganizationName = "mosip_deviceorg" + timeStamp;
+	public static String ftmOrganizationName = "mosip_ftmorg" +timeStamp;
 	public static String partnerId = organizationName;
 	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
@@ -75,14 +78,7 @@ public class PartnerRegistration extends AdminTestUtil{
 	
 	
 	private static String getLocalHostUrl() {
-		try {
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			return "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort")+"/";
-			
-		} catch (Exception e) {
-			lOGGER.error("Exception in RunConfig " + e.getMessage());
-			return null;
-		}
+			return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 
 	public static void partnerGeneration() {
@@ -128,7 +124,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-//		map.put("keyFileNameByPartnerName", "true");
+		map.put("keyFileNameByPartnerName", "true");
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -152,7 +148,9 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-//		map.put("keyFileNameByPartnerName", "true");
+		if (partnerType.equals("RELYING_PARTY")){
+			map.put("keyFileNameByPartnerName", "true");
+		}
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -255,8 +253,11 @@ public class PartnerRegistration extends AdminTestUtil{
 		requestBody.put("certData", certValueSigned);
 		
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
-		
+		queryParamMap.put("partnerName", partnerId);
 		queryParamMap.put("partnerType", partnerType);
+		if (partnerType.equals("RELYING_PARTY")){
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+		}
 //		queryParamMap.put("partnerName", partnerId);
 //		queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		
@@ -361,6 +362,18 @@ public class PartnerRegistration extends AdminTestUtil{
 		uploadSignedCertificate(signedDevicePartnerCertf, "FTM", ftmOrganizationName, true);
 		
 		
+	}
+	
+	public static void deleteCertificates() {
+		if (localHostUrl == null) {
+			localHostUrl = getLocalHostUrl();
+		}
+		String url = localHostUrl + props.getProperty("clearCertificateURL");
+		
+		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+		System.out.println(response);
+		
+
 	}
 	
 }

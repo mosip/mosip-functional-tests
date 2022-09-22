@@ -1,7 +1,7 @@
 CreateZoneUser:
    MasterData_CreateZoneUser_All_Valid_Smoke:
       endPoint: /v1/masterdata/zoneuser
-      role: admin
+      role: globalAdmin
       restMethod: post
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
@@ -34,7 +34,7 @@ CreateZoneUser:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.userId: Should not be blank or size must be between 1 and 256"
+      "message": "$IGNORE$"
     }
   ]
 }'

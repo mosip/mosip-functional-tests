@@ -54,13 +54,6 @@
 		</classes>
 	</test>
 
-	<test name="BioAuthOld">
-		<parameter name="ymlFile" value="ida/BioAuthOld/BioAuth.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
-		</classes>
-	</test>
 	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
@@ -76,24 +69,6 @@
 			<class name="io.mosip.testscripts.BioAuthNew" />
 		</classes>
 	</test>
-
-	<test name="EkycBioOld">
-		<parameter name="ymlFile" value="ida/EkycBioOld/EkycBio.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.BioAuth" />
-		</classes>
-	</test>
-
-
-	<test name="OtpAuthOld">
-		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuth.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.OtpAuth" />
-		</classes>
-	</test>
-	
 	<test name="OtpAuth">
 		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuth.yml" />
 		<parameter name="isInternal" value="false" />
@@ -108,29 +83,11 @@
 			<class name="io.mosip.testscripts.OtpAuthNew" />
 		</classes>
 	</test>
-
-	<test name="EkycOtpOld">
-		<parameter name="ymlFile" value="ida/EkycOtp/EkycOtp.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.OtpAuth" />
-		</classes>
-	</test>
-
-
 	<test name="MultiFactorAuth">
 		<parameter name="ymlFile"
 			value="ida/MultiFactorAuth/MultiFactorAuth.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.MultiFactorAuthNew" />
-		</classes>
-	</test>
-
-	<test name="MultiFactorAuthOld">
-		<parameter name="ymlFile"
-			value="ida/MultiFactorAuthOld/MultiFactorAuth.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.MultiFactorAuth" />
 		</classes>
 	</test>
 
@@ -196,14 +153,6 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-
-
-	<test name="DemoAuthOld">
-		<parameter name="ymlFile" value="ida/DemoAuthOld/DemoAuth.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
-		</classes>
-	</test>
 	
 	<test name="DemoAuth">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
@@ -215,13 +164,6 @@
 		<parameter name="ymlFile" value="ida/EkycDemo/EkycDemo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DemoAuthSimplePostForAutoGenId" />
-		</classes>
-	</test>
-
-	<test name="EkycDemoOld">
-		<parameter name="ymlFile" value="ida/EkycDemoOld/EkycDemo.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.DemoAuth" />
 		</classes>
 	</test>
 

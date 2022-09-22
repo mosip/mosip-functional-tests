@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -69,6 +70,7 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
@@ -119,8 +121,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String draftHbs = null;
 	public static String preregHbsForCreate = null;
 	public static String preregHbsForUpdate = null;
-	public static String policyGroup = "mosip auth policy group "+RandomStringUtils.randomNumeric(5);
-	public static String policyName = "mosip auth policy "+RandomStringUtils.randomNumeric(5);
+	public static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
+	public static String policyGroup = "mosip auth policy group "+timeStamp;
+	public static String policyName = "mosip auth policy "+timeStamp;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
     private static String authInternalRequest="config/Authorization/internalAuthRequest.json";
     private static String AuthPolicyBody="config/AuthPolicy.json";
@@ -1491,14 +1494,14 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getPartnerId(String jsonString, String partnerId) {
-		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
 		partnerId = uriParts[uriParts.length - 2];
 		// String partnerId = null;
 		return partnerId;
 	}
 
 	public String getAPIKey(String jsonString, String apiKey) {
-		String uriParts[] = props.getProperty("partnerKeyURL").split("/");
+		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
 		apiKey = uriParts[uriParts.length - 1];
 		// String partnerId = null;
 		return apiKey;

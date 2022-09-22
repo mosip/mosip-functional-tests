@@ -1,6 +1,6 @@
 EkycDemo:
   auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -15,7 +15,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -30,7 +30,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_DOB:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -51,7 +51,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_DOB_With_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -72,7 +72,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_email_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -87,7 +87,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_Email_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -102,7 +102,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_email:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -123,7 +123,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_email_With_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -144,7 +144,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_revoke_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -165,7 +165,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_gender_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
@@ -184,7 +184,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_gender_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
@@ -203,7 +203,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_gender_With_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
@@ -228,7 +228,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_gender:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
@@ -253,7 +253,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_name_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -272,7 +272,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -291,7 +291,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_name:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -316,7 +316,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_name_With_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -341,7 +341,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_name1_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -360,7 +360,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name2_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -379,7 +379,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name3_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -398,7 +398,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name4_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -417,7 +417,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name5_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -436,7 +436,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name6_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -455,7 +455,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name7_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -474,7 +474,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_ImValid_partner_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -503,7 +503,7 @@ EkycDemo:
         "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_age_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -518,7 +518,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_age_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -533,7 +533,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_age_InValid:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -554,7 +554,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_Invalid_age:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -574,12 +574,12 @@ EkycDemo:
     }
   ]
 }'
-  auth_EkycDemo_Auth_With_phone_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycDemo_Auth_With_phone_Valid_UIN_Neg:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
-      outputTemplate: ida/EkycDemo/EkycDemoResult
+      outputTemplate: ida/EkycDemo/error
       input: '{
 	    "value": "7019858531",
 		"key": "phoneNumber",
@@ -587,10 +587,17 @@ EkycDemo:
         "transactionId": "1234567890"
     }'
       output: '{
-  "kycStatus": "true"
+  		"errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data phoneNumber did not match",
+          "actionMessage": "Please re-enter your phoneNumber"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_phone_Valid_VID_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -605,7 +612,7 @@ EkycDemo:
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_phone_InValid:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -626,7 +633,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_Invalid_phone_vid:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -647,7 +654,7 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_DOB_Invalid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -662,7 +669,7 @@ EkycDemo:
     "kycStatus": true
 }'
   auth_EkycDemo_DOB_blank_transactionId:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -677,7 +684,7 @@ EkycDemo:
     "kycStatus": true
 }'
   auth_EkycDemo_without_individual_type_ID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -692,7 +699,7 @@ EkycDemo:
     "kycStatus": true
 }'
   auth_EkycDemo_missing_individual_ID:
-      endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -713,7 +720,7 @@ EkycDemo:
         "kycStatus": false
 }'
   auth_EkycDemo_blank_individual_ID:
-      endPoint: /v1/identity/authenticate?id=&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -733,12 +740,12 @@ EkycDemo:
       ],
         "kycStatus": false
 }'
-  auth_EkycDemo_DOB_Unlock_Valid_Smoke_UIN_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+  auth_EkycDemo_DOB_Unlock_Valid_Smoke_UIN_Neg:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
-      outputTemplate: ida/EkycDemo/EkycDemoResult
+      outputTemplate: ida/EkycDemo/error
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
@@ -746,10 +753,16 @@ EkycDemo:
         "key": "dob"
     }'
       output: '{
-  "kycStatus": "true"
+		"errors": [
+        {
+          "errorCode": "IDA-MLC-019",
+          "errorMessage": "demo Auth Type is Locked for the UIN"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_DOB_Lock_Permanent_Valid_Smoke_UIN_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -761,5 +774,11 @@ EkycDemo:
         "key": "dob"
     }'
       output: '{
-    "kycStatus": true
+    	"errors": [
+        {
+          "errorCode": "IDA-MLC-019",
+          "errorMessage": "demo Auth Type is Locked for the UIN"
+        }
+      ],
+        "kycStatus": false
 }'

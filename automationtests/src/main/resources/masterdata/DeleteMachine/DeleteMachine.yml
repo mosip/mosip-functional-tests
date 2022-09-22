@@ -1,7 +1,7 @@
 DeleteMachine:
    MasterData_DeleteMachine_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machines/{id}
-      role: admin
+      role: globalAdmin
       templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteMachine/deleteMachine

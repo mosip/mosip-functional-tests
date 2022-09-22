@@ -34,6 +34,8 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
@@ -78,53 +80,29 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
-		testCaseName = testCaseDTO.getTestCaseName();
-		String endPoint = testCaseDTO.getEndPoint();
-		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
+testCaseName = testCaseDTO.getTestCaseName();
 		
-		String individualId = "";
-		
-		if(endPoint.contains("id="))
-		{
-			int lengthOfEndPoint = endPoint.length();
-			int charOfId = endPoint.indexOf("id=");
-			
-			
-			for (int i = charOfId + 3 ; i < lengthOfEndPoint ; i++) {
-				if (endPoint.charAt(i)!= '&') {
-					char eachChar = endPoint.charAt(i);
-					individualId += eachChar;
-				}
-				else {
-					break;
-				}
-				}
-		}
-		System.out.println(individualId);
-		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+		JSONObject input = new JSONObject(testCaseDTO.getInput());
+		String individualId = null;
+		if(input.has("individualId")) {
+			individualId = input.get("individualId").toString();
+			input.remove("individualId");
 		}
 		
-		String input = testCaseDTO.getInput();
+		individualId = uriKeyWordHandelerUri(individualId, testCaseName );
 		
-		String url = null;
-		InetAddress inetAddress = null;
-			try {
-				inetAddress = InetAddress.getLocalHost();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		url =  "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort");
+		String url = ConfigManager.getAuthDemoServiceUrl();
 		
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 		
 		requestBody.put("id", individualId);
-		String token = kernelAuthLib.getTokenByRole("regproc");
+		requestBody.put("keyFileNameByPartnerName", "true");
+		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		
+		String token = kernelAuthLib.getTokenByRole("regproc");
 		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
-				
+		
+		
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
 		System.out.println(otpInput);
@@ -137,8 +115,9 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		headers.put(AUTHORIZATHION_HEADERNAME, token);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 
+		Response otpRespon = null;
 		
-		Response otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/mXKMu0fM6IR3BKR6nhtEQczviTkoQLL0hMtTmGEMUCbfdXQQrm/mosip-9167/292749", sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
+		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
 		
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
@@ -157,15 +136,27 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
 		
-		input = buildIdentityRequest(input);
+		String endPoint = testCaseDTO.getEndPoint();
+		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
 		
-		String authRequest = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
+		if(endPoint.contains("$partnerKeyURL$"))
+		{
+			endPoint = endPoint.replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl);
+		}
+		if(endPoint.contains("$PartnerName$"))
+		{
+			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
+		}
+		
+		String inputStr = buildIdentityRequest(input.toString());
+		
+		String authRequest = getJsonFromTemplate(inputStr, testCaseDTO.getInputTemplate());
 		
 				
-		logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");		
+		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
 		
-		response = RestClient.postRequest(url + testCaseDTO.getEndPoint(), authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
-		
+		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
+		System.out.println(response);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));

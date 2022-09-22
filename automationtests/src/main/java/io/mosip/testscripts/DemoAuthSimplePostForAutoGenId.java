@@ -38,6 +38,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
@@ -88,6 +89,10 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
 		
 		String input = testCaseDTO.getInput();
 		
@@ -127,15 +132,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 				}
 			}
 		} else {
-			String url = null;
-			InetAddress inetAddress = null;
-				try {
-					inetAddress = InetAddress.getLocalHost();
-				} catch (UnknownHostException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			url =  "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort");
+			String url = ConfigManager.getAuthDemoServiceUrl();
 			response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJson,
 					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil

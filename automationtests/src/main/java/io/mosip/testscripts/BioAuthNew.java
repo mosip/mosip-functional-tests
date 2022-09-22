@@ -38,6 +38,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class BioAuthNew extends AdminTestUtil implements ITest {
@@ -91,6 +92,10 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
 
@@ -98,15 +103,7 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		// storeValue(authRequest,"authRequest");
 
-		String url = null;
-		InetAddress inetAddress = null;
-			try {
-				inetAddress = InetAddress.getLocalHost();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		url =  "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort");
+		String url = ConfigManager.getAuthDemoServiceUrl();
 		
 		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON,
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -127,9 +124,9 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
+//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+//						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
 		/*

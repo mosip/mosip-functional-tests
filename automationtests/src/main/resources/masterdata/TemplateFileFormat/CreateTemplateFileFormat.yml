@@ -160,7 +160,7 @@ CreateTemplateFileFormat:
    "errors": [
     {
       "errorCode": "KER-MSD-999",
-      "message": "request.langCode: Should not be blank or size must be between 3 and 3"
+      "message": "$IGNORE$"
     }
   ]
 }'
