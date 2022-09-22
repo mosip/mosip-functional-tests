@@ -73,8 +73,10 @@ public class SimplePut extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			//adding...
 			List<String> languageList = new ArrayList<>();
+
 			languageList =new ArrayList<String>(BaseTestCase.languageList);
 			 for (int i=0; i<languageList.size(); i++) {
+
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {
 		            	response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
