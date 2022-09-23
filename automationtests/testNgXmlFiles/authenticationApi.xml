@@ -30,7 +30,7 @@
 		</classes>
 	</test>
 
-	<test name="RevokeVID">
+	<!--<test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="ida/RevokeVID/createRevokeVID.yml" />
 		<classes>
@@ -52,7 +52,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test>
+	</test>-->
 
 	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
@@ -91,7 +91,7 @@
 		</classes>
 	</test>
 
-	<test name="AuthTransaction">
+	<!--<test name="AuthTransaction">
 		<parameter name="ymlFile"
 			value="ida/AuthTransaction/AuthTransaction.yml" />
 		<classes>
@@ -152,7 +152,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>
+	</test>-->
 	
 	<test name="DemoAuth">
 		<parameter name="ymlFile" value="ida/DemoAuth/DemoAuth.yml" />
@@ -167,7 +167,7 @@
 		</classes>
 	</test>
 
-	<test name="BlockPartnerId">
+	<!--<test name="BlockPartnerId">
 		<parameter name="ymlFile"
 			value="ida/BlockHotlistAPI/BlockPartnerId.yml" />
 		<classes>
@@ -200,5 +200,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>
+	</test>-->
 </suite>
