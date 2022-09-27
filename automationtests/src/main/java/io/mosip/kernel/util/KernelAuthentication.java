@@ -3,6 +3,8 @@ package io.mosip.kernel.util;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.simple.JSONObject;
+
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.restassured.RestAssured;
@@ -97,6 +99,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
+		case "partnernew":
+			if(!kernelCmnLib.isValidToken(partnerNewCookie))
+				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
+			return partnerNewCookie;
 		case "policytest":
 			if(!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -123,7 +129,7 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
 			return residentCookie;
-		case "zonemap":
+		case "globaladmin":
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
@@ -144,7 +150,10 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request = new JSONObject();
 		request.put("appId", ConfigManager.getAdminAppId());
 		request.put("password", admin_password);
-		request.put("userName", admin_userName);
+		
+		//if(BaseTestCase.currentModule==null) admin_userName=
+		request.put("userName", BaseTestCase.currentModule +"-"+ admin_userName);
+		
 		request.put("clientId", ConfigManager.getAdminClientId());
 		request.put("clientSecret", ConfigManager.getAdminClientSecret());
 		actualrequest.put("request", request);
@@ -181,7 +190,24 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", partner_password);
-		request.put("userName", partner_userName);	
+		request.put("userName", BaseTestCase.currentModule +"-"+partner_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put("clientId", ConfigManager.getPmsClientId());
+		request.put("clientSecret", ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;			
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartner() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("password", partner_password);
+		request.put("userName", PartnerRegistration.partnerId);	
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());
@@ -198,7 +224,7 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", props.get("policytest_password"));
-		request.put("userName", props.get("policytest_userName"));
+		request.put("userName", BaseTestCase.currentModule +"-"+props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());
@@ -305,7 +331,7 @@ public class KernelAuthentication extends BaseTestCase{
 		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
         actualRequest_generation.put("requesttime", clib.getCurrentUTCTime());
-        ((JSONObject)actualRequest_generation.get("request")).put("langCode", languageList.get(0));
+        ((JSONObject)actualRequest_generation.get("request")).put("langCode", BaseTestCase.getLanguageList().get(0));
         ((JSONObject)actualRequest_generation.get("request")).get("userId").toString();
         // getting request and expected response jsondata from json files.
         JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");

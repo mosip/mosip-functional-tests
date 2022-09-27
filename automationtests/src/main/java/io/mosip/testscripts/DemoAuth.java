@@ -27,6 +27,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
@@ -39,7 +40,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+//		AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
@@ -76,7 +77,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
@@ -146,6 +147,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		logger.info("Terminating authpartner demo application...");
 		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
 				//return;
-		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

@@ -412,6 +412,17 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response patchRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
@@ -500,6 +511,17 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postWithBodyAndCookie(String url, Object body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body)
+				.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
+				.post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response patchWithPathParamsBodyAndCookie(String url, HashMap<String, String> pathParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
@@ -507,6 +529,17 @@ public class RestClient {
 		Response postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 				.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 				.patch(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
+	
+	public static Response postRequestWithQueryParm(String url, HashMap<String, String> body, String contentHeader,
+			String acceptHeader, String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().queryParams(body)
+				.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
+				.post(url).then().log().all().extract().response();
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
@@ -574,6 +607,16 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
+	
+	public static Response getRequestWithQueryParm(String url, HashMap<String, String> body,
+			String contentHeader, String acceptHeader) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		Response getResponse = given().config(config).relaxedHTTPSValidation().queryParams(body)
+				.log().all().when().get(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
 
 	public static Response patchRequestWithCookieAndQueryParm(String url, HashMap<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
@@ -596,6 +639,14 @@ public class RestClient {
         return deleteResponse;
     }
 	
+	public static Response deleteRequest(String url, String contentHeader, String acceptHeader) {
+        RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
+        Response deleteResponse= given().config(config).relaxedHTTPSValidation()
+                    .log().all().when().delete(url).then().log().all().extract().response();
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + deleteResponse.asString());
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + deleteResponse.time());
+        return deleteResponse;
+    }
 	
 	
 	public static Response deleteRequestWithCookieAndPathParmForKeyCloak(String url, HashMap<String, String> body,

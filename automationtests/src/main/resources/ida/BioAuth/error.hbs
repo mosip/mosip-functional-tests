@@ -1,8 +1,12 @@
 {
-    "transactionID": "$IGNORE$",
-    "version": "$IGNORE$",
-    "id": "$IGNORE$",
-    "errors": [
+  "URL": "$IGNORE$",
+  "authRequest": "$IGNORE$",
+  "authResponse": {
+    "body": {
+      "transactionID": "$IGNORE$",
+      "version": "$IGNORE$",
+      "id": "$IGNORE$",
+      "errors": [
       {{#each errors}}
         {
             "errorCode": "{{errorCode}}",
@@ -12,9 +16,10 @@
           {{#unless @last}},{{/unless}}
       	{{/each}}
   ],
-    "responseTime": "$IGNORE$",
-    "response": {
-        "authStatus": {{authStatus}},
-        "authToken": "$IGNORE$"
+      "responseTime": "$IGNORE$",
+      "response": {
+        "authStatus": {{authStatus}}
+      }
     }
+  }
 }

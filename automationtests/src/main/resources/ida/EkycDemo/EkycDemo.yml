@@ -1,69 +1,45 @@
 EkycDemo:
   auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_DOB:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "04-11-1965",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "04-11-1965",
+        "key": "dob"
     }'
       output: '{
     "kycStatus": false,
@@ -75,24 +51,16 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_DOB_With_VID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "04-11-1965",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "04-11-1965",
+        "key": "dob"
     }'
       output: '{
     "kycStatus": false,
@@ -104,70 +72,46 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_email_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "idaautomation@gmail.com",
-"key": "emailId",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "idaautomation@gmail.com",
+        "key": "emailId"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_Email_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "idaautomation@gmail.com",
-"key": "emailId",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "idaautomation@gmail.com",
+        "key": "emailId"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_email:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "raksdgdg@@#$%RFFGVgb",
-"key": "emailId",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "raksdgdg@@#$%RFFGVgb",
+        "key": "emailId"
     }'
       output: '{
     "kycStatus": false,
@@ -179,24 +123,16 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_email_With_VID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "raksdgdg@@#$%RFFGVgb",
-"key": "emailId",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "raksdgdg@@#$%RFFGVgb",
+        "key": "emailId"
     }'
       output: '{
     "kycStatus": false,
@@ -208,24 +144,16 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_revoke_VID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "idaautomation@gmail.com",
-"key": "emailId",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "idaautomation@gmail.com",
+        "key": "emailId"
     }'
       output: '{
     "kycStatus": false,
@@ -237,82 +165,58 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_gender_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "gender": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Female"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptGender"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_gender_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "gender": [
     {
       "language": "$PRIMARYLANG$",
       "value": "FR"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptGender"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_gender_With_VID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "gender": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Faaa@#R"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptGender"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -324,28 +228,20 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_gender:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "gender": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Faaa@#R"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptGender"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -357,82 +253,58 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_name_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Mrs Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Mrs Madhu.GN"
+      "value": "FR"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_InValid_name:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Faaa@#R"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -444,28 +316,20 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_InValid_name_With_VID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
      "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Faaa@#R"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -477,295 +341,208 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_name1_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu"
+      "value": "Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name2_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Miss Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name3_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Mr Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name4_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Mrs Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name5_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Miss. Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name6_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "MISS. Madhu.GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_name7_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Miss Madhu GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_ImValid_partner_Smoke:
-      endPoint: /idauthentication/v1/kyc/zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
     "name": [
     {
       "language": "$PRIMARYLANG$",
       "value": "Miss Madhu GN"
     }
   ],
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncryptName"
-    }
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
    "errors": [
-    {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
-    },
-    {
-      "errorCode": "IDA-MPA-001",
-      "errorMessage": "Digital signature verification failed for signature header"
-    }
-  ]
+        {
+          "errorCode": "IDA-MLC-007",
+          "errorMessage": "Request could not be processed. Please try again"
+        },
+        {
+          "errorCode": "IDA-MPA-009",
+          "errorMessage": "Partner is not registered"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_age_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "51",
-"key": "age",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "51",
+		"key": "age",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_age_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "51",
-"key": "age",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "51",
+		"key": "age",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_age_InValid:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "5@@##1",
-"key": "age",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "5@@##1",
+		"key": "age",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -777,24 +554,16 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_Invalid_age:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "5@@##1",
-"key": "age",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "5@@##1",
+		"key": "age",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -805,71 +574,54 @@ EkycDemo:
     }
   ]
 }'
-  auth_EkycDemo_Auth_With_phone_Valid_UIN_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+  auth_EkycDemo_Auth_With_phone_Valid_UIN_Neg:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "7019858531",
-"key": "phoneNumber",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "7019858531",
+		"key": "phoneNumber",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
-  "kycStatus": "true"
+  		"errors": [
+        {
+          "errorCode": "IDA-DEA-001",
+          "errorMessage": "Demographic data phoneNumber did not match",
+          "actionMessage": "Please re-enter your phoneNumber"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_phone_Valid_VID_Smoke:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "7019858531",
-"key": "phoneNumber",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "7019858531",
+		"key": "phoneNumber",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
   "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_phone_InValid:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "5@@##1",
-"key": "phoneNumber",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "5@@##1",
+		"key": "phoneNumber",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -881,24 +633,16 @@ EkycDemo:
   ]
 }'
   auth_EkycDemo_Auth_With_Invalid_phone_vid:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "5@@##1",
-"key": "phoneNumber",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+	    "value": "5@@##1",
+		"key": "phoneNumber",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1234567890"
     }'
       output: '{
     "kycStatus": false,
@@ -909,200 +653,132 @@ EkycDemo:
     }
   ]
 }'
-  auth_EkycDemo_DOB_Invalid_transactionId:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+  auth_EkycDemo_DOB_Invalid_transactionId_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/error
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "jdjdjdj@@",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - transactionID"
-    }
-  ]
+    "kycStatus": true
 }'
   auth_EkycDemo_DOB_blank_transactionId:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/error
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "",
-        "individualIdType": "VID",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - transactionID"
-    }
-  ]
+    "kycStatus": true
 }'
-  auth_EkycDemo_without_individual_type_ID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+  auth_EkycDemo_without_individual_type_ID_Pos:
+      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/error
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualIdType"
-    }
-  ]
+    "kycStatus": true
 }'
   auth_EkycDemo_missing_individual_ID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$REMOVE$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
    "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualId"
-    }
-  ]
+        {
+          "errorCode": "IDA-MLC-009",
+          "errorMessage": "Invalid Input Parameter - individualId"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_blank_individual_ID:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
+      inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - individualId"
-    }
-  ]
+    "errors": [
+        {
+          "errorCode": "IDA-MLC-009",
+          "errorMessage": "Invalid Input Parameter - individualId"
+        }
+      ],
+        "kycStatus": false
 }'
-  auth_EkycDemo_DOB_Unlock_Valid_Smoke_UIN_Pos:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+  auth_EkycDemo_DOB_Unlock_Valid_Smoke_UIN_Neg:
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/error
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-  "kycStatus": "true"
+		"errors": [
+        {
+          "errorCode": "IDA-MLC-019",
+          "errorMessage": "demo Auth Type is Locked for the UIN"
+        }
+      ],
+        "kycStatus": false
 }'
   auth_EkycDemo_DOB_Lock_Permanent_Valid_Smoke_UIN_Pos:
-      endPoint: /idauthentication/v1/kyc/$partnerKeyURL$
+      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/EkycDemo/ekycDemo
-      outputTemplate: ida/EkycDemo/ekycDemoResult
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-        "requestTime": "$TIMESTAMP$",
-        "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",
+        "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-        "individualIdType": "UIN",
-        "bio": false,
-        "demo": true,
-        "otp": false,
-        "identityRequest":{
-    "value": "1970/07/08",
-"key": "dob",
-    "identityRequestTemplate": "ida/EkycDemo/DemoIdentityEncrypt"
-    }
+    	"value": "1970/07/08",
+        "key": "dob"
     }'
       output: '{
-    "kycStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-019",
-      "errorMessage": "demo Auth Type is Locked for the UIN"
-    }
-  ]
+    	"errors": [
+        {
+          "errorCode": "IDA-MLC-019",
+          "errorMessage": "demo Auth Type is Locked for the UIN"
+        }
+      ],
+        "kycStatus": false
 }'

@@ -28,8 +28,13 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
+import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
+import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
+import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -64,6 +69,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String partnerNewCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String residentNewCookie = null;
@@ -71,6 +77,7 @@ public class BaseTestCase {
 	public String keycloakCookie = null;
 	public String zonemapCookie = null;
 	public String autoTstUsrCkie = null;
+	public static String currentModule = "masterdata";
 	public static List<String> listOfModules = null;
 
 	public static KernelAuthentication kernelAuthLib = null;
@@ -103,7 +110,10 @@ public class BaseTestCase {
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
 	public static List<String> languageList = new ArrayList<>();
+	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	
+	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
@@ -145,7 +155,7 @@ public class BaseTestCase {
 		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
-		languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+		//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 		
 		//langcode = System.getProperty("env.langcode");
 		logger.info("Test Level ======" + languageList);
@@ -182,64 +192,72 @@ public class BaseTestCase {
 		AuthTestsUtil.removeOldMosipTempTestResource();
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
-			CertificateGenerationUtil.getThumbprints();
+			BaseTestCase.currentModule = "auth";
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
+			BaseTestCase.currentModule = "idrepo";
 			AdminTestUtil.copyIdrepoTestResource();			
 		}
-		if (listOfModules.contains("admin")) {
-			setReportName("admin");
-			AdminTestUtil.initiateAdminTest();
-		}
+		/*
+		 * if (listOfModules.contains("admin")) { setReportName("admin");
+		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
+		 */
+		
 		if (listOfModules.contains("masterdata")) {
 			DBManager.clearMasterDbData();
+			BaseTestCase.currentModule = "masterdata";
 			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
 		}
 		
 		if (listOfModules.contains("mobileid")){
+			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
 			
 		}
-		if (listOfModules.contains("syncdata")) {
-			setReportName("syncdata");
-			AdminTestUtil.initiateSyncDataTest();
-		}
+		/*
+		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
+		 * AdminTestUtil.initiateSyncDataTest(); }
+		 */
 		if (listOfModules.contains("resident")) {
+			BaseTestCase.currentModule = "resident";
 			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner")) {
+			BaseTestCase.currentModule = "partner";
 			DBManager.clearPMSDbData();
 			DBManager.clearKeyManagerDbData();
+			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		if (listOfModules.contains("kernel")) {
-			setReportName("kernel");
-			AdminTestUtil.initiateKernelTest();
-		}
-		if (listOfModules.contains("regproc")) {
-			setReportName("regproc");
-			AdminTestUtil.initiateregProcTest();
-		}
+		/*
+		 * if (listOfModules.contains("kernel")) { setReportName("kernel");
+		 * AdminTestUtil.initiateKernelTest(); }
+		 */
+		/*
+		 * if (listOfModules.contains("regproc")) { setReportName("regproc");
+		 * AdminTestUtil.initiateregProcTest(); }
+		 */
 		if (listOfModules.contains("prereg")) {
+			BaseTestCase.currentModule = "prereg";
 			setReportName("prereg");
 			AdminTestUtil.copyPreregTestResource();
 			
 		}
-		if (listOfModules.contains("prerequisite")) {
-			setReportName("prerequisite");
-			AdminTestUtil.copyPrerequisiteTestResource();
-		}
+		/*
+		 * if (listOfModules.contains("prerequisite")) { setReportName("prerequisite");
+		 * AdminTestUtil.copyPrerequisiteTestResource(); }
+		 */
 	}
 	
-	private static void  setReportName(String moduleName) {
-		System.getProperties().setProperty("emailable.report2.name", "mosip-" + moduleName +"-"+ System.currentTimeMillis() +"-report.html");
+	public static void  setReportName(String moduleName) {
+		System.getProperties().setProperty("emailable.report2.name", "mosip-"+ environment+"-" + moduleName+"-"  + System.currentTimeMillis() +"-report.html");
 	}
 		
 
@@ -310,24 +328,20 @@ public class BaseTestCase {
 		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
 	}
 	
-	
-	
-	
 		@SuppressWarnings("unchecked")
 		public static void  mapUserToZone() {
-				String token = kernelAuthLib.getTokenByRole("zonemap");
+			
+//			AdminTestUtil.initialUserCreation();
+				String token = kernelAuthLib.getTokenByRole("globalAdmin");
 				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
-				
 				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
-
 				JSONObject request = new JSONObject();
 				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-				request.put("userId", propsKernel.get("admin_userName"));
-				request.put("langCode", BaseTestCase.languageList.get(0));
+				request.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+				request.put("langCode", BaseTestCase.getLanguageList().get(0));
 				request.put("isActive", "true");
 				actualrequest.put("request", request);
 				System.out.println(actualrequest);
-				
 				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 				logger.info(propsKernel.get("admin_userName") + "Mapped to"+props.get("zoneCode_to_beMapped")+ "Zone");
 				System.out.println(response);
@@ -336,13 +350,95 @@ public class BaseTestCase {
 		
 		public static void mapZone() {
 			
-			String token = kernelAuthLib.getTokenByRole("zonemap");
+			String token = kernelAuthLib.getTokenByRole("globalAdmin");
 			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("isActive", "true");
-			map.put("userId", (String) propsKernel.get("admin_userName"));
+			map.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
+		}
+		
+		public static boolean zoneName() {
+			boolean firstUser = true; 
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+    		
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("userID", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+    		
+    		
+    		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+    		
+    		String otpInput = response.getBody().asString();
+    		if (otpInput.contains("KER-MSD-391")) {
+    			firstUser = false;
+    		}
+    		return firstUser;
+    		
+	}
+		
+		public static void userCenterMapping() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+			HashMap<String, String> requestMap = new HashMap<String, String>();
+			
+    		requestMap.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		requestMap.put("name", "automation");
+    		requestMap.put("statusCode", "active");
+    		requestMap.put("regCenterId", "10005");
+    		requestMap.put("isActive", "true");
+    		requestMap.put("langCode", "eng");
+    		
+    		HashMap<String, Object> map = new HashMap<String, Object>();
+    		
+			map.put("id", "string");
+			map.put("version", "string");
+			map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
+			map.put("metadata", new HashMap<>());
+			map.put("request", requestMap);
+    		
+    		
+    		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+	}
+		
+		public static void userCenterMappingStatus() {
+			
+        	String token = kernelAuthLib.getTokenByRole("admin");
+			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+			
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		
+    		map.put("isActive", "true");
+    		map.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+    		
+    		
+    		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+    		System.out.println(response);
+	}
+		
+		
+         public static List<String> getLanguageList() {
+			if(!languageList.isEmpty()) {
+				return languageList;
+			}
+			//String token = kernelAuthLib.getTokenByRole("globalAdmin");
+			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
+			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+			org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
+			String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
+			
+			languageList.add(mandatoryLanguage);
+			languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
+			
+			return languageList;
 		}
 	
 	public static JSONObject getRequestJson(String filepath){

@@ -40,8 +40,8 @@ public class ConfigManager {
 	private static String MOSIP_HOTLIST_CLIENT_ID = "mosip_hotlist_client_id";
 	private static String MOSIP_HOTLIST_APP_ID = "mosip_hotlist_app_id";
 
-	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_automation_client_secret";
-	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_automation_client_id";
+	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_testrig_client_secret";
+	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_testrig_client_id";
 	private static String MOSIP_AUTOMATION_APP_ID = "mosip_automation_app_id";
 
 	private static String S3_HOST = "s3-host";
@@ -84,6 +84,9 @@ public class ConfigManager {
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
 
+	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
+	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
+	
 	private static String pms_client_secret;
 	private static String pms_client_id;
 	private static String pms_app_id;
@@ -155,6 +158,8 @@ public class ConfigManager {
 	private static String iam_realm_id;
 	private static String iam_users_to_create;
 	private static String iam_users_password;
+	private static String authDemoServicePort;
+	private static String authDemoServiceBaseUrl;
 
 	public static Properties propsKernel;
 
@@ -232,9 +237,27 @@ public class ConfigManager {
 		master_db_schema = getValueForKey(MASTER_DB_SCHEMA);
 		iam_external_url = getValueForKey(IAM_EXTERNAL_URL);
 		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
+
 		iam_realm_id = getValueForKey(IAM_REALM_ID);
 		iam_users_to_create = getValueForKey(IAM_USERS_TO_CREATE);
 		iam_users_password = getValueForKey(IAM_USERS_PASSWORD);
+
+	
+		
+		authDemoServicePort = System.getenv(AUTH_DEMO_SERVICE_PORT) == null ? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
+				: System.getenv(AUTH_DEMO_SERVICE_PORT);
+		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null ? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
+				: System.getenv(AUTH_DEMO_SERVICE_BASE_URL);
+		
+	}
+	
+	public static String getAuthDemoServicePort() {
+		return authDemoServicePort;
+	}
+	
+	public static String getAuthDemoServiceBaseUrl() {
+		return authDemoServiceBaseUrl;
+
 	}
 
 
@@ -513,5 +536,9 @@ public class ConfigManager {
 			LOGGER.error("Exception " + e.getMessage());
 		}
 		return prop;
+	}
+	
+	public static String getAuthDemoServiceUrl() {
+		return ConfigManager.getAuthDemoServiceBaseUrl()+":"+ConfigManager.getAuthDemoServicePort();
 	}
 }

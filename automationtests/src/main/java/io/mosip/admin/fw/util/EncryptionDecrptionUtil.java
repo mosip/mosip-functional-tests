@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 /**
@@ -61,14 +62,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	
 	public static String getEncryptUtilBaseUrl() {
-		try {
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			return "http://"+inetAddress.getHostName().toLowerCase()+":"+props.getProperty("encryptUtilPort")+"/";
-			
-		} catch (Exception e) {
-			lOGGER.error("Execption in RunConfig " + e.getMessage());
-			return null;
-		}
+		return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 	
 	/**

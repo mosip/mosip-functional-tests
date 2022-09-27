@@ -1,7 +1,7 @@
 UpdateMachineStatus:
    MasterData_UpdateMachineStatus_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machines
-      role: admin
+      role: globalAdmin
       templateFields: []
       restMethod: patch
       inputTemplate: masterdata/UpdateMachineStatus/updateMachineStatus
