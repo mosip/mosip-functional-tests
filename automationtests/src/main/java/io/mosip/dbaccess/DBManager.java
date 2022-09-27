@@ -136,28 +136,28 @@ public class DBManager {
 					statement.addBatch("delete from master.blocklisted_words where cr_by='dumbo6'");
 					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
-					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_master mm WHERE mm.mspec_id IN(SELECT ms.id from master.machine_spec ms where ms.cr_by='masterdata-220005')");
 					statement.addBatch("delete from master.machine_spec where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.gender where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.device_master where upd_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.device_master where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.device_master where name='testDevicedummy'");
-					statement.addBatch("delete FROM master.device_spec where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.device_type where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.loc_holiday where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.reg_center_type where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.registration_center where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.gender where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.device_master where upd_by='masterdata-220005'");
+					statement.addBatch("delete from master.device_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.device_master where name='testDevicedummy'");
+					statement.addBatch("delete from master.device_spec where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.device_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.loc_holiday where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.reg_center_type where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.registration_center where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.loc_holiday where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.reg_center_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.registration_center where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.device_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.doc_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.doc_category where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.location where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.location where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.template where cr_by='masterdata-220005'");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
@@ -178,21 +178,21 @@ public class DBManager {
 					statement.addBatch("delete from master.appl_form_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.id_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.dynamic_field where cr_by='masterdata-220005'");
-					statement.addBatch("delete FROM master.zone_user where usr_id='masterdata-220005'");
+					statement.addBatch("delete from master.zone_user where usr_id='masterdata-220005'");
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo6'");
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo7'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
 					statement.addBatch("delete from master.machine_spec where name='HP'");
-					statement.addBatch("delete FROM master.machine_master where cr_by='masterdata-220005'");
+					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where code='Laptop2'");
-					statement.addBatch("delete FROM master.gender where code='Genderdummy'");
+					statement.addBatch("delete from master.gender where code='Genderdummy'");
 					statement.addBatch(
 							"delete FROM master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
-					statement.addBatch("delete FROM master.device_spec where id='743'");
-					statement.addBatch("delete FROM master.device_type where code='GST3'");
-					statement.addBatch("delete FROM master.loc_holiday where holiday_name='AutoTest user Eng'");
-					statement.addBatch("delete FROM master.reg_center_type where code='ALT-3'");
+					statement.addBatch("delete from master.device_spec where id='743'");
+					statement.addBatch("delete from master.device_type where code='GST3'");
+					statement.addBatch("delete from master.loc_holiday where holiday_name='AutoTest user Eng'");
+					statement.addBatch("delete from master.reg_center_type where code='ALT-3'");
 					statement.addBatch(
 							"delete FROM master.registration_center where name in ('Test123','HSR Center updated')");
 					statement.addBatch(
@@ -204,7 +204,7 @@ public class DBManager {
 							"delete from master.doc_type where code in ('TestDocType0010','TestDocType0020')");
 					statement.addBatch(
 							"delete from master.doc_category where code in ('DocTestCode123','DocTestCode321')");
-					statement.addBatch("delete FROM master.location where code='TST12'");
+					statement.addBatch("delete from master.location where code='TST12'");
 					statement.addBatch("delete from master.template where id='445566777'");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
