@@ -70,11 +70,11 @@ public class ConfigManager {
 	private static String PMS_DB_USER="db-su-user";
 	private static String PMS_DB_PASS="db-su-password";
 	private static String PMS_DB_SCHEMA="pms_db_schema";
-	
+
 	private static String KM_DB_USER="db-su-user";
 	private static String KM_DB_PASS="db-su-password";
 	private static String KM_DB_SCHEMA="km_db_schema";
-	
+
 	private static String MASTER_DB_USER="db-su-user";
 	private static String MASTER_DB_PASS="db-su-password";
 	private static String MASTER_DB_SCHEMA="master_db_schema";
@@ -158,151 +158,103 @@ public class ConfigManager {
 
 	public static Properties propsKernel;
 
+	public static void setProperty(String key, String value)
+	{
+		// Overwrite the value with only if the key exists
+		if(propsKernel.containsKey(key)){
+			propsKernel.setProperty(key, value);
+		}
+	}
+
+	public static String getValueForKey(String key)
+	{
+		String value= System.getenv(key) == null ? propsKernel.getProperty(key): System.getenv(key);
+		setProperty(key, value);
+
+		return 	value;
+	}
+
 	public static void init() {
+		//Loading Kernel property
 		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
-		pms_client_secret = System.getenv(MOSIP_PMS_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_PMS_CLIENT_SECRET)
-				: System.getenv(MOSIP_PMS_CLIENT_SECRET);
-		pms_client_id = System.getenv(MOSIP_PMS_CLIENT_ID) == null ? propsKernel.getProperty(MOSIP_PMS_CLIENT_ID)
-				: System.getenv(MOSIP_PMS_CLIENT_ID);
-		pms_app_id = System.getenv(MOSIP_PMS_APP_ID) == null ? propsKernel.getProperty(MOSIP_PMS_APP_ID)
-				: System.getenv(MOSIP_PMS_APP_ID);
+		
+		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
+		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
+		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
+		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
+		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
+		resident_app_id = getValueForKey(MOSIP_RESIDENT_APP_ID);
+		idrepo_client_secret = getValueForKey(MOSIP_IDREPO_CLIENT_SECRET);
+		idrepo_client_id = getValueForKey(MOSIP_IDREPO_CLIENT_ID);
+		idrepo_app_id = getValueForKey(MOSIP_IDREPO_APP_ID);
+		admin_client_secret = getValueForKey(MOSIP_ADMIN_CLIENT_SECRET);
+		admin_client_id = getValueForKey(MOSIP_ADMIN_CLIENT_ID);
+		admin_app_id = getValueForKey(MOSIP_ADMIN_APP_ID);
+		regproc_client_secret = getValueForKey(MOSIP_REG_CLIENT_SECRET);
+		regproc_client_id = getValueForKey(MOSIP_REG_CLIENT_ID);
+		regproc_app_id = getValueForKey(MOSIP_REGCLIENT_APP_ID);
+		ida_client_secret = getValueForKey(MOSIP_IDA_CLIENT_SECRET);
+		ida_client_id = getValueForKey(MOSIP_IDA_CLIENT_ID);
+		ida_app_id = getValueForKey(MOSIP_IDA_APP_ID);
+		hotlist_client_secret = getValueForKey(MOSIP_HOTLIST_CLIENT_SECRET);
+		hotlist_client_id = getValueForKey(MOSIP_HOTLIST_CLIENT_ID);
+		hotlist_app_id = getValueForKey(MOSIP_HOTLIST_APP_ID);
+		automation_client_secret = getValueForKey(MOSIP_AUTOMATION_CLIENT_SECRET);
+		automation_client_id = getValueForKey(MOSIP_AUTOMATION_CLIENT_ID);
+		automation_app_id = getValueForKey(MOSIP_AUTOMATION_APP_ID);
+		s3_host = getValueForKey(S3_HOST);
+		s3_region = getValueForKey(S3_REGION);
+		s3_user_key = getValueForKey(S3_USER_KEY);
+		s3_secret_key = getValueForKey(S3_SECRET_KEY);
+		s3_account = getValueForKey(S3_ACCOUNT);
+		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
+		db_port = getValueForKey(DB_PORT);
+		db_domain = getValueForKey(DB_DOMAIN);
+		hibernate_connection_driver_class = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
+		hibernate_connection_pool_size = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
+		hibernate_dialect = getValueForKey(HIBERNATE_DIALECT);
+		hibernate_show_sql = getValueForKey(HIBERNATE_SHOW_SQL);
+		hibernate_current_session_context_class = getValueForKey(HIBERNATE_CONTEXT_CLASS) ;
+		audit_db_user = getValueForKey(AUDIT_DB_USER);
+		audit_db_pass = getValueForKey(AUDIT_DB_PASS);
+		audit_db_schema = getValueForKey(AUDIT_DB_SCHEMA);
+		ida_db_user = getValueForKey(IDA_DB_USER) ;
+		ida_db_pass = getValueForKey(IDA_DB_PASS);
+		ida_db_schema = getValueForKey(IDA_DB_SCHEMA);
+		pms_db_user = getValueForKey(PMS_DB_USER);
+		pms_db_pass = getValueForKey(PMS_DB_PASS) ;
+		pms_db_schema = getValueForKey(PMS_DB_SCHEMA);
+		km_db_user = getValueForKey(KM_DB_USER);
+		km_db_pass = getValueForKey(KM_DB_PASS);
+		km_db_schema = getValueForKey(KM_DB_SCHEMA);
+		master_db_user = getValueForKey(MASTER_DB_USER);
+		master_db_pass = getValueForKey(MASTER_DB_PASS);
+		master_db_schema = getValueForKey(MASTER_DB_SCHEMA);
+		iam_external_url = getValueForKey(IAM_EXTERNAL_URL);
+		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
+		iam_realm_id = getValueForKey(IAM_REALM_ID);
+		iam_users_to_create = getValueForKey(IAM_USERS_TO_CREATE);
+		iam_users_password = getValueForKey(IAM_USERS_PASSWORD);
+	}
 
-		resident_client_secret = System.getenv(MOSIP_RESIDENT_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_RESIDENT_CLIENT_SECRET)
-				: System.getenv(MOSIP_RESIDENT_CLIENT_SECRET);
-		resident_client_id = System.getenv(MOSIP_RESIDENT_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_RESIDENT_CLIENT_ID)
-				: System.getenv(MOSIP_RESIDENT_CLIENT_ID);
-		resident_app_id = System.getenv(MOSIP_RESIDENT_APP_ID) == null ? propsKernel.getProperty(MOSIP_RESIDENT_APP_ID)
-				: System.getenv(MOSIP_RESIDENT_APP_ID);
 
-		idrepo_client_secret = System.getenv(MOSIP_IDREPO_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_IDREPO_CLIENT_SECRET)
-				: System.getenv(MOSIP_IDREPO_CLIENT_SECRET);
-		idrepo_client_id = System.getenv(MOSIP_IDREPO_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_IDREPO_CLIENT_ID)
-				: System.getenv(MOSIP_IDREPO_CLIENT_ID);
-		idrepo_app_id = System.getenv(MOSIP_IDREPO_APP_ID) == null ? propsKernel.getProperty(MOSIP_IDREPO_APP_ID)
-				: System.getenv(MOSIP_IDREPO_APP_ID);
+	public static Properties init(String d) {
+		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+
+
+
 
 		admin_client_secret = System.getenv(MOSIP_ADMIN_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET)
-				: System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
-		admin_client_id = System.getenv(MOSIP_ADMIN_CLIENT_ID) == null ? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_ID)
-				: System.getenv(MOSIP_ADMIN_CLIENT_ID);
-		admin_app_id = System.getenv(MOSIP_ADMIN_APP_ID) == null ? propsKernel.getProperty(MOSIP_ADMIN_APP_ID)
-				: System.getenv(MOSIP_ADMIN_APP_ID);
+				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET): System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
 
-		regproc_client_secret = System.getenv(MOSIP_REG_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_REG_CLIENT_SECRET)
-				: System.getenv(MOSIP_REG_CLIENT_SECRET);
-		regproc_client_id = System.getenv(MOSIP_REG_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_REG_CLIENT_ID)
-				: System.getenv(MOSIP_REG_CLIENT_ID);
-		regproc_app_id = System.getenv(MOSIP_REGCLIENT_APP_ID) == null ? propsKernel.getProperty(MOSIP_REGCLIENT_APP_ID)
-				: System.getenv(MOSIP_REGCLIENT_APP_ID);
+				propsKernel.setProperty(MOSIP_ADMIN_CLIENT_SECRET, admin_client_secret);
 
-		ida_client_secret = System.getenv(MOSIP_IDA_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_IDA_CLIENT_SECRET)
-				: System.getenv(MOSIP_IDA_CLIENT_SECRET);
-		ida_client_id = System.getenv(MOSIP_IDA_CLIENT_ID) == null ? propsKernel.getProperty(MOSIP_IDA_CLIENT_ID)
-				: System.getenv(MOSIP_IDA_CLIENT_ID);
-		ida_app_id = System.getenv(MOSIP_IDA_APP_ID) == null ? propsKernel.getProperty(MOSIP_IDA_APP_ID)
-				: System.getenv(MOSIP_IDA_APP_ID);
 
-		hotlist_client_secret = System.getenv(MOSIP_HOTLIST_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_HOTLIST_CLIENT_SECRET)
-				: System.getenv(MOSIP_HOTLIST_CLIENT_SECRET);
-		hotlist_client_id = System.getenv(MOSIP_HOTLIST_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_HOTLIST_CLIENT_ID)
-				: System.getenv(MOSIP_HOTLIST_CLIENT_ID);
-		hotlist_app_id = System.getenv(MOSIP_HOTLIST_APP_ID) == null ? propsKernel.getProperty(MOSIP_HOTLIST_APP_ID)
-				: System.getenv(MOSIP_HOTLIST_APP_ID);
 
-		automation_client_secret = System.getenv(MOSIP_AUTOMATION_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_AUTOMATION_CLIENT_SECRET)
-				: System.getenv(MOSIP_AUTOMATION_CLIENT_SECRET);
-		automation_client_id = System.getenv(MOSIP_AUTOMATION_CLIENT_ID) == null
-				? propsKernel.getProperty(MOSIP_AUTOMATION_CLIENT_ID)
-				: System.getenv(MOSIP_AUTOMATION_CLIENT_ID);
-		automation_app_id = System.getenv(MOSIP_AUTOMATION_APP_ID) == null
-				? propsKernel.getProperty(MOSIP_AUTOMATION_APP_ID)
-				: System.getenv(MOSIP_AUTOMATION_APP_ID);
 
-		s3_host = System.getenv(S3_HOST) == null ? propsKernel.getProperty(S3_HOST) : System.getenv(S3_HOST);
-		s3_region = System.getenv(S3_REGION) == null ? propsKernel.getProperty(S3_REGION) : System.getenv(S3_REGION);
-		s3_user_key = System.getenv(S3_USER_KEY) == null ? propsKernel.getProperty(S3_USER_KEY)
-				: System.getenv(S3_USER_KEY);
-		s3_secret_key = System.getenv(S3_SECRET_KEY) == null ? propsKernel.getProperty(S3_SECRET_KEY)
-				: System.getenv(S3_SECRET_KEY);
-		s3_account = System.getenv(S3_ACCOUNT) == null ? propsKernel.getProperty(S3_ACCOUNT)
-				: System.getenv(S3_ACCOUNT);
-		push_reports_to_s3 = System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3)
-				: System.getenv(PUSH_TO_S3);
-
-		db_port = System.getenv(DB_PORT) == null ? propsKernel.getProperty(DB_PORT) : System.getenv(DB_PORT);
-		db_domain = System.getenv(DB_DOMAIN) == null ? propsKernel.getProperty(DB_DOMAIN) : System.getenv(DB_DOMAIN);
-		hibernate_connection_driver_class = System.getenv(HIBERNATE_CONNECTION_DRIVER_CLASS) == null
-				? propsKernel.getProperty(HIBERNATE_CONNECTION_DRIVER_CLASS)
-				: System.getenv(HIBERNATE_CONNECTION_DRIVER_CLASS);
-		hibernate_connection_pool_size = System.getenv(HIBERNATE_CONNECTION_POOL_SIZE) == null
-				? propsKernel.getProperty(HIBERNATE_CONNECTION_POOL_SIZE)
-				: System.getenv(HIBERNATE_CONNECTION_POOL_SIZE);
-		hibernate_dialect = System.getenv(HIBERNATE_DIALECT) == null ? propsKernel.getProperty(HIBERNATE_DIALECT)
-				: System.getenv(HIBERNATE_DIALECT);
-		hibernate_show_sql = System.getenv(HIBERNATE_SHOW_SQL) == null ? propsKernel.getProperty(HIBERNATE_SHOW_SQL)
-				: System.getenv(HIBERNATE_SHOW_SQL);
-		hibernate_current_session_context_class = System.getenv(HIBERNATE_CONTEXT_CLASS) == null
-				? propsKernel.getProperty(HIBERNATE_CONTEXT_CLASS)
-				: System.getenv(HIBERNATE_CONTEXT_CLASS);
-
-		audit_db_user = System.getenv(AUDIT_DB_USER) == null ? propsKernel.getProperty(AUDIT_DB_USER)
-				: System.getenv(AUDIT_DB_USER);
-		audit_db_pass = System.getenv(AUDIT_DB_PASS) == null ? propsKernel.getProperty(AUDIT_DB_PASS)
-				: System.getenv(AUDIT_DB_PASS);
-		audit_db_schema = System.getenv(AUDIT_DB_SCHEMA) == null ? propsKernel.getProperty(AUDIT_DB_SCHEMA)
-				: System.getenv(AUDIT_DB_SCHEMA);
-
-		ida_db_user = System.getenv(IDA_DB_USER) == null ? propsKernel.getProperty(IDA_DB_USER)
-				: System.getenv(IDA_DB_USER);
-		ida_db_pass = System.getenv(IDA_DB_PASS) == null ? propsKernel.getProperty(IDA_DB_PASS)
-				: System.getenv(IDA_DB_PASS);
-		ida_db_schema = System.getenv(IDA_DB_SCHEMA) == null ? propsKernel.getProperty(IDA_DB_SCHEMA)
-				: System.getenv(IDA_DB_SCHEMA);
-
-		pms_db_user = System.getenv(PMS_DB_USER) == null ? propsKernel.getProperty(PMS_DB_USER)
-				: System.getenv(PMS_DB_USER);
-		pms_db_pass = System.getenv(PMS_DB_PASS) == null ? propsKernel.getProperty(PMS_DB_PASS)
-				: System.getenv(PMS_DB_PASS);
-		pms_db_schema = System.getenv(PMS_DB_SCHEMA) == null ? propsKernel.getProperty(PMS_DB_SCHEMA)
-				: System.getenv(PMS_DB_SCHEMA);
-		
-		km_db_user = System.getenv(KM_DB_USER) == null ? propsKernel.getProperty(KM_DB_USER)
-				: System.getenv(KM_DB_USER);
-		km_db_pass = System.getenv(KM_DB_PASS) == null ? propsKernel.getProperty(KM_DB_PASS)
-				: System.getenv(KM_DB_PASS);
-		km_db_schema = System.getenv(KM_DB_SCHEMA) == null ? propsKernel.getProperty(KM_DB_SCHEMA)
-				: System.getenv(KM_DB_SCHEMA);
-
-		master_db_user = System.getenv(MASTER_DB_USER) == null ? propsKernel.getProperty(MASTER_DB_USER)
-				: System.getenv(MASTER_DB_USER);
-		master_db_pass = System.getenv(MASTER_DB_PASS) == null ? propsKernel.getProperty(MASTER_DB_PASS)
-				: System.getenv(MASTER_DB_PASS);
-		master_db_schema = System.getenv(MASTER_DB_SCHEMA) == null ? propsKernel.getProperty(MASTER_DB_SCHEMA)
-				: System.getenv(MASTER_DB_SCHEMA);
-
-		iam_external_url = System.getenv(IAM_EXTERNAL_URL) == null ? propsKernel.getProperty(IAM_EXTERNAL_URL)
-				: System.getenv(IAM_EXTERNAL_URL);
-		
-		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
-		iam_realm_id = System.getenv(IAM_REALM_ID) == null ? propsKernel.getProperty(IAM_REALM_ID)
-				: System.getenv(IAM_REALM_ID);
-		iam_users_to_create = System.getenv(IAM_USERS_TO_CREATE) == null ? propsKernel.getProperty(IAM_USERS_TO_CREATE)
-				: System.getenv(IAM_USERS_TO_CREATE);
-		iam_users_password = System.getenv(IAM_USERS_PASSWORD) == null ? propsKernel.getProperty(IAM_USERS_PASSWORD)
-				: System.getenv(IAM_USERS_PASSWORD);
+				return propsKernel;
 	}
+
 
 	public static String getPmsClientSecret() {
 		return pms_client_secret;
@@ -419,7 +371,7 @@ public class ConfigManager {
 	public static String getS3Account() {
 		return s3_account;
 	}
-	
+
 	public static String getPushReportsToS3() {
 		return push_reports_to_s3;
 	}
@@ -476,7 +428,7 @@ public class ConfigManager {
 	public static String getIdaDbSchema() {
 		return ida_db_schema;
 	}
-	
+
 	public static String getPMSDbUrl() {
 		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_pms";
 	}
@@ -484,11 +436,11 @@ public class ConfigManager {
 	public static String getKMDbUrl() {
 		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_keymgr";
 	}
-	
+
 	public static String getMASTERDbUrl() {
 		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_master";
 	}
-	
+
 	public static String getPMSDbUser() {
 		return pms_db_user;
 	}
@@ -500,7 +452,7 @@ public class ConfigManager {
 	public static String getPMSDbSchema() {
 		return pms_db_schema;
 	}
-	
+
 	public static String getKMDbUser() {
 		return km_db_user;
 	}
