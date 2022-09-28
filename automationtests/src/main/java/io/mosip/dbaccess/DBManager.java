@@ -208,7 +208,7 @@ public class DBManager {
 							"delete from master.doc_category where code in ('DocTestCode123','DocTestCode321')");
 					statement.addBatch("delete from master.location where code='TST12'");
 					statement.addBatch("delete from master.template where id='445566777'");
-					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto'");
+					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto')");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
 					statement.addBatch("delete from master.template_type where code='Test-info-Template-auto'");
