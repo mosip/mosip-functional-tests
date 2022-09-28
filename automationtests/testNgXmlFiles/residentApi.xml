@@ -11,8 +11,8 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
-
-
+		
+ 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="resident/AddIdentity/AddIdentity.yml" />
@@ -41,7 +41,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test>
+	</test>	
 	<test name="PrintUin">
 		<parameter name="ymlFile"
 			value="resident/PRINTUIN/createPrintUin.yml" />
@@ -56,6 +56,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
 	<test name="AuthLock">
 		<parameter name="ymlFile"
 			value="resident/AuthLock/createAuthLock.yml" />
@@ -91,7 +92,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
-	</test>
+	</test> 
 	<test name="ReGenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/ReGenerateVID.yml" />
@@ -127,5 +128,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test> 
+	</test>
 </suite>

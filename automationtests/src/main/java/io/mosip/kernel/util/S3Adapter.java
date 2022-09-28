@@ -2,7 +2,11 @@ package io.mosip.kernel.util;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.joda.time.DateTime;
+
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -10,6 +14,11 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.util.BinaryUtils;
+import com.amazonaws.util.Md5Utils;
+
 import io.mosip.kernel.core.util.StringUtils;
 
 public class S3Adapter {
@@ -66,29 +75,47 @@ public class S3Adapter {
 		return connection;
 	}
 
-	public boolean putObject(String account, final String container, String source, String process, String objectName,
-			File file) {
+	/*
+	 * public boolean putObject(String account, final String container, String
+	 * source, String process, String objectName, File file) { String
+	 * finalObjectName = null; String bucketName = null;
+	 * System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname); if
+	 * (useAccountAsBucketname) { finalObjectName = getName(container, source,
+	 * process, objectName); bucketName = account; } else { finalObjectName =
+	 * getName(source, process, objectName); bucketName = container; }
+	 * System.out.println("bucketName :: "+bucketName); AmazonS3 connection =
+	 * getConnection(bucketName); if (!doesBucketExists(bucketName)) {
+	 * connection.createBucket(bucketName); if (useAccountAsBucketname)
+	 * existingBuckets.add(bucketName); }
+	 * 
+	 * connection.putObject(bucketName, finalObjectName, file); return true; }
+	 */
+	
+	public boolean putObject(String account, final String container, String source, String process, String objectName, File file) {
 		String finalObjectName = null;
 		String bucketName = null;
-        System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname);
+	        System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname);
 		if (useAccountAsBucketname) {
-			finalObjectName = getName(container, source, process, objectName);
-			bucketName = account;
+				finalObjectName = getName(container, source, process, objectName);
+				bucketName = account;
 		} else {
-			finalObjectName = getName(source, process, objectName);
-			bucketName = container;
+				finalObjectName = getName(source, process, objectName);
+				bucketName = container;
 		}
 		System.out.println("bucketName :: "+bucketName);
 		AmazonS3 connection = getConnection(bucketName);
-		if (!doesBucketExists(bucketName)) {
-			connection.createBucket(bucketName);
-			if (useAccountAsBucketname)
-				existingBuckets.add(bucketName);
+			if (!doesBucketExists(bucketName)) {
+				connection.createBucket(bucketName);
+				if (useAccountAsBucketname)
+					existingBuckets.add(bucketName);
+			}
+			PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, finalObjectName, file);
+			ObjectMetadata objectMetadata = new ObjectMetadata();
+			objectMetadata.setHttpExpiresDate(new DateTime().plusDays(1).toDate());
+			putObjectRequest.setMetadata(objectMetadata);
+			connection.putObject(putObjectRequest);
+			return true;
 		}
-
-		connection.putObject(bucketName, finalObjectName, file);
-		return true;
-	}
 
 	private boolean doesBucketExists(String bucketName) {
 		// use account as bucket name and bucket name is present in existing bucket list
@@ -104,6 +131,27 @@ public class S3Adapter {
 		} else
 			return connection.doesBucketExistV2(bucketName);
 	}
+	
+	/*
+	 * public boolean reportRetentionPolicy(String bucketName) {
+	 * 
+	 * ObjectMetadata metadata = new ObjectMetadata(); System.out.println("size:" +
+	 * bytes.length); metadata.setContentLength(bytes.length);
+	 * metadata.setContentType(contentType); Date expirationTime = new Date(2025, 5,
+	 * 10); metadata.setExpirationTime(DateTime.now().toDate());
+	 * metadata.setHeader("x-amz-object-lock-retain-until-date", closerDate +
+	 * "T00:00:00.000Z"); metadata.setHeader("x-amz-object-lock-mode",
+	 * "COMPLIANCE"); byte[] md5 = Md5Utils.computeMD5Hash(baInputStream); String
+	 * md5Base64 = BinaryUtils.toBase64(md5); metadata.setHeader("Content-MD5",
+	 * md5Base64); baInputStream.reset(); PutObjectRequest putRequest = new
+	 * PutObjectRequest(bucketName, finalObjectName, baInputStream, metadata);
+	 * s3client.putObject(putRequest);
+	 * 
+	 * 
+	 * return true;
+	 * 
+	 * }
+	 */
 
 	public static String getName(String container, String source, String process, String objectName) {
 		String finalObjectName = "";
