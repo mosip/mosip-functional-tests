@@ -140,6 +140,7 @@ public class DBManager {
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
 					statement.addBatch("delete from master.machine_master mm WHERE mm.mspec_id IN(SELECT ms.id from master.machine_spec ms where ms.cr_by='masterdata-220005')");
+					statement.addBatch("delete FROM master.machine_spec WHERE mtyp_code IN (SELECT code FROM master.machine_type WHERE cr_by = 'masterdata-220005')");
 					statement.addBatch("delete from master.machine_spec where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.gender where cr_by='masterdata-220005'");
