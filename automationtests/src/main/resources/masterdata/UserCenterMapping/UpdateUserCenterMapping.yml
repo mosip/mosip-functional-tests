@@ -1,7 +1,7 @@
 UpdateUserCenterMapping:
    MasterData_UpdateUserCenterMapping_All_Valid_Smoke:
       endPoint: /v1/masterdata/usercentermapping
-      role: admin
+      role: globalAdmin
       templateFields: ["langCode"]
       restMethod: put
       inputTemplate: masterdata/UserCenterMapping/updateUserCenterMapping
