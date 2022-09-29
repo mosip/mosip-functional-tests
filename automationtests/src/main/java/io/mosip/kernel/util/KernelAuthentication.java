@@ -89,7 +89,7 @@ public class KernelAuthentication extends BaseTestCase{
 			return regProcCookie;
 		case "admin":
 			if(!kernelCmnLib.isValidToken(adminCookie))
-				adminCookie = kernelAuthLib.getAuthForzoneMap();
+				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
 		case "zonalapprover":
 			if(!kernelCmnLib.isValidToken(zonalApproverCookie))
