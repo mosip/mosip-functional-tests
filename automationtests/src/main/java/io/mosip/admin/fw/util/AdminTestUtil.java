@@ -337,6 +337,9 @@ public class AdminTestUtil extends BaseTestCase {
 	protected Response patchWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
 		Response response = null;
+		if (url.contains("ID:")) {
+			url = uriKeyWordHandelerUri(url, testCaseName);
+		}
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");

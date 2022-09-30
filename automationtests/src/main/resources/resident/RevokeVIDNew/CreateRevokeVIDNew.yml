@@ -1,0 +1,22 @@
+RevokeVIDNew:
+   Resident_RevokeVIDNew_Valid_Smoke:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Perpetual_VID_Valid_Token_Smoke_sid_vid$
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-454",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

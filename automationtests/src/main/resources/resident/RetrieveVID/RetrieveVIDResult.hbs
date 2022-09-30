@@ -1,0 +1,20 @@
+{
+  "id": null,
+  "version": null,
+  "responsetime": null,
+  "response": [
+  		{{#each response}}
+            {
+	          "vid": "$IGNORE$",
+		      "maskedVid": "$IGNORE$",
+		      "vidType": "$IGNORE$",
+		      "expiryTimestamp": "$IGNORE$",
+		      "transactionLimit": "$IGNORE$",
+		      "transactionsLeftCount": "$IGNORE$",
+		      "generatedOnTimestamp": "$IGNORE$"
+        }
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+			],
+  "errors": "$IGNORE$"
+}

@@ -1,6 +1,6 @@
 AuditLog:
    Resident_AuditLog_all_Valid_Smoke:
-      endPoint: /resident/v1/proxy/audit/log
+      endPoint: /resident/v1/auth-proxy/audit/log
       role: resident
       restMethod: post
       inputTemplate: resident/AuditLog/createAuditLog
