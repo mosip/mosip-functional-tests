@@ -99,7 +99,7 @@ public class MosipTestRunner {
 			startTestRunner();
 		}
 		
-		KeycloakUserManager.removeUser();
+		//KeycloakUserManager.removeUser();
 		System.exit(0);
 		
 		
