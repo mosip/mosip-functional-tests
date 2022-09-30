@@ -70,6 +70,10 @@ public class KeycloakUserManager {
 			if (needsToBeCreatedUser.equals("globaladmin")) {
 				moduleSpecificUser = needsToBeCreatedUser;
 			}
+			else if(needsToBeCreatedUser.equals("masterdata-220005")){
+				moduleSpecificUser = needsToBeCreatedUser;
+				
+			}
 			else {
 				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
 			}
