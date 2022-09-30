@@ -235,4 +235,82 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetInputAttributeValues">
+		<parameter name="ymlFile"
+			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="AuditLog">
+		<parameter name="ymlFile"
+			value="resident/AuditLog/AuditLog.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetValidateToken">
+		<parameter name="ymlFile"
+			value="resident/GetValidateToken/GetValidateToken.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GenerateVIDNew">
+		<parameter name="ymlFile"
+			value="resident/GenerateVID/createGenerateVIDNew.yml" />
+			<parameter name="idKeyName"	value="vid" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetPartnersByPartnerType">
+		<parameter name="ymlFile"
+			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="AuthLockNew">
+		<parameter name="ymlFile"
+			value="resident/AuthLockNew/CreateAuthLockNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetAuthLockStatus">
+		<parameter name="ymlFile"
+			value="resident/GetAuthLockStatus/GetAuthLockStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="AuthUnlockNew">
+		<parameter name="ymlFile"
+			value="resident/AuthUnlockNew/CreateAuthUnlockNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetOrderStatus">
+		<parameter name="ymlFile"
+			value="resident/GetOrderStatus/GetOrderStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="RetrieveVID">
+		<parameter name="ymlFile"
+			value="resident/RetrieveVID/RetrieveVID.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="RevokeVIDNew">
+		<parameter name="ymlFile"
+			value="resident/RevokeVIDNew/CreateRevokeVIDNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test> 
 </suite>
