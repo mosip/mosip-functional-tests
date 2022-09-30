@@ -74,6 +74,7 @@ public class KeycloakUserManager {
 				moduleSpecificUser = needsToBeCreatedUser;
 				
 			}
+			
 			else {
 				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
 			}
