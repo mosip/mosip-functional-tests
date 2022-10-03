@@ -74,6 +74,7 @@ public class KeycloakUserManager {
 				moduleSpecificUser = needsToBeCreatedUser;
 				
 			}
+			
 			else {
 				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
 			}
@@ -226,7 +227,7 @@ public class KeycloakUserManager {
 		}
 	}
 	public static void removeVidUser() {
-		List<String> needsToBeRemovedUsers = List.of(propsKernel.getProperty("new_Resident_User"));
+		List<String> needsToBeRemovedUsers = List.of(BaseTestCase.currentModule +"-"+propsKernel.getProperty("new_Resident_User"));
 		Keycloak keycloakInstance = getKeycloakInstance();
 		for (String needsToBeRemovedUser : needsToBeRemovedUsers) {
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
@@ -350,11 +351,15 @@ public class KeycloakUserManager {
 	public static void createVidUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
 		Keycloak keycloakInstance = getKeycloakInstance();
 			UserRepresentation user = new UserRepresentation();
+			
+			String moduleSpecificUser = null;
+			moduleSpecificUser = BaseTestCase.currentModule +"-"+userid;
+			
 			user.setEnabled(true);
-			user.setUsername(userid);
-			user.setFirstName(userid);
-			user.setLastName(userid);
-			user.setEmail("automation" + userid + "@automationlabs.com");
+			user.setUsername(moduleSpecificUser);
+			user.setFirstName(moduleSpecificUser);
+			user.setLastName(moduleSpecificUser);
+			user.setEmail("automation" + moduleSpecificUser + "@automationlabs.com");
 			if(map!=null)
 		    user.setAttributes(map);
 			// Get realm

@@ -1,0 +1,18 @@
+AuthLockNew:
+   Resident_AuthLockNew_Valid_UIN_All:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthLockNew/CreateAuthLockNew
+      outputTemplate: resident/AuthLockNew/CreateAuthLockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "demo",
+        "locked": "true",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'

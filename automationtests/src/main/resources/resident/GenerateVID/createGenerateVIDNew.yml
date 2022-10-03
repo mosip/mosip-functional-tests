@@ -1,24 +1,4 @@
 GenerateVIDNew:
-   Resident_GenerateVID_Perpetual_VID_Valid_Smoke_sid:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNew
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
-      input: '{
-        "transactionID": "1234567890",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
-}'
-
    Resident_GenerateVID_Temporary_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
@@ -118,13 +98,32 @@ GenerateVIDNew:
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
+   Resident_Generate_Perpetual_VID_TransID_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      input: '{
+        "transactionID": "tt@2165;",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      	"vid": "$IGNORE$",
+	    "message": "Notification has been sent to the provided contact detail(s)",
+	    "maskedPhone": "******3210",
+	    "maskedEmail": "res***************@gmail.com"
+}'
 
    Resident_Generate_Perpetual_VID_EmptyChannel_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmpty
-      outputTemplate: resident/error
+      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
@@ -133,12 +132,10 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      "errors": [
-    {
-      "errorCode": "RES-SER-417",
-      "message": "$IGNORE$"
-    }
-  ]
+      	"vid": "$IGNORE$",
+	    "message": "Notification has been sent to the provided contact detail(s)",
+	    "maskedPhone": "******3210",
+	    "maskedEmail": "res***************@gmail.com"
 }'
 
    Resident_Generate_Perpetual_VID_Empty_TransID_Invalid_Neg:
@@ -251,27 +248,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_TransID_Invalid_Neg:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNew
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "tt",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      "errors": [
-    {
-      "errorCode": "RES-SER-418",
-      "message": "$IGNORE$"
-    }
-  ]
-}'
+
 
    Resident_Generate_Perpetual_VID_requesttime_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
@@ -359,6 +336,26 @@ GenerateVIDNew:
       "message": "$IGNORE$"
     }
   ]
+}'
+
+   Resident_GenerateVID_Perpetual_VID_Valid_Token_Smoke_sid:
+      endPoint: /resident/v1/generate-vid
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      	"vid": "$IGNORE$",
+	    "message": "Notification has been sent to the provided contact detail(s)",
+	    "maskedPhone": "******3210",
+	    "maskedEmail": "res***************@gmail.com"
 }'
 
    Resident_GenerateVID_Perpetual_Invalid_Token:
