@@ -2,6 +2,7 @@ package io.mosip.kernel.util;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,28 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.BucketLifecycleConfiguration;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.StorageClass;
+import com.amazonaws.services.s3.model.lifecycle.LifecycleFilter;
+import com.amazonaws.services.s3.model.lifecycle.LifecyclePrefixPredicate;
 import com.amazonaws.util.BinaryUtils;
 import com.amazonaws.util.Md5Utils;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.BucketLifecycleConfiguration;
+import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.Transition;
+import com.amazonaws.services.s3.model.StorageClass;
+import com.amazonaws.services.s3.model.Tag;
+import com.amazonaws.services.s3.model.lifecycle.LifecycleAndOperator;
+import com.amazonaws.services.s3.model.lifecycle.LifecycleFilter;
+import com.amazonaws.services.s3.model.lifecycle.LifecyclePrefixPredicate;
+import com.amazonaws.services.s3.model.lifecycle.LifecycleTagPredicate;
 
 import io.mosip.kernel.core.util.StringUtils;
 
@@ -45,6 +64,23 @@ public class S3Adapter {
 		System.out.println("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
 		System.out.println("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
 		System.out.println("ConfigManager.getS3SecretKey() :: "+ConfigManager.getS3SecretKey());
+		
+		BucketLifecycleConfiguration.Rule rule1 = new BucketLifecycleConfiguration.Rule()
+                .withId("Archive immediately rule")
+                .withFilter(new LifecycleFilter(new LifecyclePrefixPredicate("glacierobjects/")))
+                .addTransition(new Transition().withDays(0).withStorageClass(StorageClass.Glacier))
+                .withStatus(BucketLifecycleConfiguration.ENABLED);
+		
+		BucketLifecycleConfiguration.Rule rule2 = new BucketLifecycleConfiguration.Rule()
+                .withId("Archive and then delete rule")
+                .withFilter(new LifecycleFilter(new LifecycleTagPredicate(new Tag("archive", "true"))))
+                .addTransition(new Transition().withDays(30).withStorageClass(StorageClass.StandardInfrequentAccess))
+                .addTransition(new Transition().withDays(365).withStorageClass(StorageClass.Glacier))
+                .withExpirationInDays(3650)
+                .withStatus(BucketLifecycleConfiguration.ENABLED);
+		
+		BucketLifecycleConfiguration configuration = new BucketLifecycleConfiguration()
+                .withRules(Arrays.asList(rule1, rule2));
 		try {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
 					ConfigManager.getS3SecretKey());
@@ -55,6 +91,8 @@ public class S3Adapter {
 					.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ConfigManager.getS3Host(),
 							ConfigManager.getS3Region()))
 					.build();
+			
+			connection.setBucketLifecycleConfiguration(bucketName,configuration);
 
 			connection.doesBucketExistV2(bucketName);
 			retry = 0;

@@ -87,7 +87,7 @@ public class MosipTestRunner {
 				BaseTestCase.languageList.clear();
 				BaseTestCase.languageList.add(localLanguageList.get(i));
 
-				DBManager.clearMasterDbData();
+				//DBManager.clearMasterDbData();
 				BaseTestCase.currentModule = "masterdata";
 				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
 				startTestRunner();
