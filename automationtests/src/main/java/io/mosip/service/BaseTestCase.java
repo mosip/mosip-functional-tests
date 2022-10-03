@@ -207,7 +207,7 @@ public class BaseTestCase {
 		 */
 		
 		if (listOfModules.contains("masterdata")) {
-			//DBManager.clearMasterDbData();
+			DBManager.clearMasterDbData();
 			BaseTestCase.currentModule = "masterdata";
 			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
