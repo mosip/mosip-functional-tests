@@ -370,6 +370,8 @@ public class KeycloakUserManager {
 			Response response = usersRessource.create(user);
 			System.out.println(response);
 			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+			
+			
 			System.out.println(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
 			System.out.printf("User created with userId: %s%n", userId);
