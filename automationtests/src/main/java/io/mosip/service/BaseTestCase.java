@@ -348,6 +348,26 @@ public class BaseTestCase {
 				
 			}
 		
+		@SuppressWarnings("unchecked")
+		public static void  mapUserToZone(String user,String zone) {
+			
+//			AdminTestUtil.initialUserCreation();
+				String token = kernelAuthLib.getTokenByRole("globalAdmin");
+				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
+				JSONObject request = new JSONObject();
+				request.put("zoneCode", zone);
+				request.put("userId", user);
+				request.put("langCode", BaseTestCase.getLanguageList().get(0));
+				request.put("isActive", "true");
+				actualrequest.put("request", request);
+				System.out.println(actualrequest);
+				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+				logger.info(user + "Mapped to"+zone+ "Zone");
+				System.out.println(response);
+				
+			}
+		
 		public static void mapZone() {
 			
 			String token = kernelAuthLib.getTokenByRole("globalAdmin");
@@ -355,6 +375,16 @@ public class BaseTestCase {
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("isActive", "true");
 			map.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
+			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+			System.out.println(response);
+		}
+	public static void mapZone(String user) {
+			
+			String token = kernelAuthLib.getTokenByRole("globalAdmin");
+			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("isActive", "true");
+			map.put("userId", user);
 			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 			System.out.println(response);
 		}
