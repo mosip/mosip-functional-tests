@@ -9,3 +9,20 @@ GetAuthLockStatus:
 }'
       output: '{
 }'
+
+   Resident_GetAuthLockStatus_Invalid_Token_Neg:
+      endPoint: /resident/v1/auth-lock-status
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetAuthLockStatus/getAuthLockStatus
+      outputTemplate: resident/GetAuthLockStatus/getAuthLockStatusResult
+      input: '{
+}'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-439",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'

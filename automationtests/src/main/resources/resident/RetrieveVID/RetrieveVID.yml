@@ -9,3 +9,20 @@ RetrieveVID:
 }'
       output: '{
 }'
+
+   Resident_RetrieveVID_Invalid_Token_Neg:
+      endPoint: /resident/v1/vids
+      role: resident
+      restMethod: get
+      inputTemplate: resident/RetrieveVID/RetrieveVID
+      outputTemplate: resident/RetrieveVID/RetrieveVIDResult
+      input: '{
+}'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-439",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'

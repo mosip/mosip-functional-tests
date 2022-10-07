@@ -419,3 +419,26 @@ AuthLockNew:
       output: '{
   		"message": "Notification has been sent to the provided contact detail(s)"
 }'
+
+   Resident_AuthLockNew_Invalid_Token_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthLockNew/CreateAuthLockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "true",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-439",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
