@@ -92,9 +92,10 @@ public class S3Adapter {
 							ConfigManager.getS3Region()))
 					.build();
 			
-			connection.setBucketLifecycleConfiguration(bucketName,configuration);
-
 			connection.doesBucketExistV2(bucketName);
+//			connection.setBucketLifecycleConfiguration(bucketName,configuration);
+
+			
 			retry = 0;
 		} catch (Exception e) {
 			if (retry >= maxRetry) {
