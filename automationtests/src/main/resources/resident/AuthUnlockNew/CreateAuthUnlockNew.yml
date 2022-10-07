@@ -1,5 +1,5 @@
 AuthUnlockNew:
-   Resident_AuthUnlockNew_Valid_UIN_All:
+   Resident_AuthUnlockNew_Demo_Valid_UIN_All:
       endPoint: /resident/v1/req/auth-type-status
       role: residentNew
       restMethod: post
@@ -15,4 +15,430 @@ AuthUnlockNew:
     }'
       output: '{
   		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Face_Valid_UIN_All:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FACE",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Iris_Valid_UIN_All:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-IRIS",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Finger_Valid_UIN_All:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Invalid_Requesttime_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "T@345IMP",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Invalid_Id_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mothlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Invalid_Version_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "@333#1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Invalid_AuthType_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-Fing@@",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_Invalid_Locked_Status_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "tr$@s",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_Invalid_Secs_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "@#$"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_Empty_Requesttime_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Empty_Id_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Empty_Version_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Empty_AuthType_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_Empty_Locked_Status_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Empty_Secs_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": ""
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Missing_Requesttime_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$REMOVE$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Missing_Id_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Missing_Version_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "$REMOVE$",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Missingy_AuthType_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "$REMOVE$",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_Missing_Locked_Status_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "$REMOVE$",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Missing_Secs_Pos:
+      endPoint: /resident/v1/req/auth-type-status
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "$REMOVE$"
+    }'
+      output: '{
+  		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_AuthUnlockNew_Invalid_Token_Neg:
+      endPoint: /resident/v1/req/auth-type-status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.authlock",
+        "version": "v1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-439",
+		      "message": "$IGNORE$"
+		    }
+		  ]
 }'
