@@ -15,7 +15,7 @@ RetrieveVID:
       role: resident
       restMethod: get
       inputTemplate: resident/RetrieveVID/RetrieveVID
-      outputTemplate: resident/RetrieveVID/RetrieveVIDResult
+      outputTemplate: resident/error
       input: '{
 }'
       output: '{
