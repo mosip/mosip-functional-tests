@@ -134,6 +134,7 @@ public class DBManager {
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
 					statement.addBatch("delete from master.blocklisted_words where cr_by='dumbo6'");
+					statement.addBatch("delete from master.blocklisted_words where word='dumbooo'");
 					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");

@@ -1,4 +1,5 @@
 delete from master.blocklisted_words where cr_by='dumbo6';
+delete from master.blocklisted_words where word='dumbooo';
 delete from master.blocklisted_words where cr_by='masterdata-220005';
 delete from master.machine_master where cr_by='masterdata-220005';
 delete from master.machine_master where cr_by='masterdata-220005';
