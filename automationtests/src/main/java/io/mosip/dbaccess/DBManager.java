@@ -186,12 +186,14 @@ public class DBManager {
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo7'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
+					statement.addBatch("delete from master.machine_master where mac_address = '61-D3-FD-12-C9-ED'");
 					statement.addBatch("delete from master.machine_spec where name='HP'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where code='Laptop2'");
 					statement.addBatch("delete from master.gender where code='Genderdummy'");
 					statement.addBatch(
-							"delete FROM master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+							"delete from master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+					statement.addBatch("delete from master.device_master where dspec_id='743'");
 					statement.addBatch("delete from master.device_spec where id='743'");
 					statement.addBatch("delete from master.device_type where code='GST3'");
 					statement.addBatch("delete from master.loc_holiday where holiday_name='AutoTest user Eng'");
