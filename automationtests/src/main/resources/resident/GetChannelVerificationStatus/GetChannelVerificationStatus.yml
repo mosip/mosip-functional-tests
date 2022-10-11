@@ -14,14 +14,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -54,14 +54,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -94,14 +94,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -139,14 +139,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -184,14 +184,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -229,14 +229,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -274,14 +274,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -312,14 +312,14 @@ GetChannelVerificationStatus:
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
-    "sendOtpEndPoint": "/resident/v1/validate-otp",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'

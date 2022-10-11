@@ -163,6 +163,7 @@ public class DBManager {
 					statement.addBatch("delete from master.template where cr_by='masterdata-220005'");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
+					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto')");
 					statement.addBatch("delete from master.template_type where code='Test-info-Template-auto'");
 					statement.addBatch(
 							"update master.location set is_active='true', is_deleted='false' where code='10114'");
