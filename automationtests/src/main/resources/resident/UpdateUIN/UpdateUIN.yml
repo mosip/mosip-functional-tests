@@ -1,5 +1,5 @@
 UpdateUIN:
-   Resident_UpdateUIN_Valid_All_Smoke_Pos:
+   Resident_UpdateUIN_Valid_All_Smoke_Pos_sid:
       endPoint: /resident/v1/req/update-uin
       role: resident
       restMethod: post

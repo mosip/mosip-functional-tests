@@ -3,6 +3,7 @@ package io.mosip.testscripts;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -109,8 +110,24 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					inputJson, COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+			Map<String, List<OutputValidationDto>> ouputValid = null;
+			if(testCaseDTO.getTestCaseName().contains("AuditLog")) {
+				OutputValidationDto customResponse = new OutputValidationDto();
+				customResponse.setActualValue(String.valueOf(response.getStatusCode()));
+				customResponse.setExpValue(testCaseDTO.getOutput());
+				customResponse.setFieldName("status");
+				if(customResponse.getActualValue().equals(customResponse.getExpValue())) {
+					customResponse.setStatus("PASS");
+				}else {
+					customResponse.setStatus("FAIL");
+				}
+				
+				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid.put("expected vs actual", List.of(customResponse));
+			}else {
+			 ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			}
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

@@ -31,8 +31,9 @@
 	<test name="UpdateUIN">
 		<parameter name="ymlFile"
 			value="resident/UpdateUIN/UpdateUIN.yml" />
+			<parameter name="idKeyName"	value="registrationId" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthHistory">
@@ -127,13 +128,6 @@
 			value="resident/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
-		</classes>
-	</test> 
-	<test name="GetPolicyforMappedPartnerAndCredentialtype">
-		<parameter name="ymlFile"
-			value="resident/GetPolicyforMappedPartnerAndCredentialtype/GetPolicyforMappedPartnerAndCredentialtype.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	
@@ -290,13 +284,6 @@
 			value="resident/AuthUnlockNew/CreateAuthUnlockNew.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="GetOrderStatus">
-		<parameter name="ymlFile"
-			value="resident/GetOrderStatus/GetOrderStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="RetrieveVID">
