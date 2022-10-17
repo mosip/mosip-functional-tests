@@ -1,6 +1,6 @@
 AuthUnlockNew:
    Resident_AuthUnlockNew_Demo_Valid_UIN_All:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -18,7 +18,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Face_Valid_UIN_All:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -36,7 +36,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Iris_Valid_UIN_All:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -54,7 +54,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Finger_Valid_UIN_All:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -72,7 +72,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Requesttime_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -90,7 +90,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Id_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -108,7 +108,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Version_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -126,7 +126,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_AuthType_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -149,7 +149,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Locked_Status_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -172,7 +172,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Secs_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -195,7 +195,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_Requesttime_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -213,7 +213,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_Id_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -231,7 +231,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_Version_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -249,7 +249,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_AuthType_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -272,7 +272,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_Locked_Status_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -290,7 +290,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Empty_Secs_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -308,7 +308,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missing_Requesttime_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -326,7 +326,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missing_Id_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -344,7 +344,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missing_Version_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -362,7 +362,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missingy_AuthType_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -385,7 +385,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missing_Locked_Status_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -403,7 +403,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Missing_Secs_Pos:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
@@ -421,7 +421,7 @@ AuthUnlockNew:
 }'
 
    Resident_AuthUnlockNew_Invalid_Token_Neg:
-      endPoint: /resident/v1/req/auth-type-status
+      endPoint: /resident/v1/auth-lock-unlock
       role: resident
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
