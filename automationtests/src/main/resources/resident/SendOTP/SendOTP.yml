@@ -62,7 +62,7 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-      "errorCode": "IDA-MLC-018",
+      "errorCode": "IDA-MLC-023",
       "errorMessage": "$IGNORE$"
     }'
    Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel:
