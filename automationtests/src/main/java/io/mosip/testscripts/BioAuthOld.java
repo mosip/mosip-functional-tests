@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -37,12 +35,10 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.mosip.ida.certificate.PartnerRegistration;
-import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
-public class BioAuthNew extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(BioAuthNew.class);
+public class BioAuthOld extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(BioAuthOld.class);
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
@@ -52,7 +48,7 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 		logger.info("Starting authpartner demo service...");
 		
 		
-	//AuthPartnerProcessor.startProcess();
+	AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -88,24 +84,53 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if(testCaseDTO.getEndPoint().contains("$PartnerKeyURL$"))
+		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
 		}
-		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		JSONObject request = new JSONObject(testCaseDTO.getInput());
+		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		if (request.has("identityRequest")) {
+			identityRequest = request.get("identityRequest").toString();
+			request.remove("identityRequest");
 		}
-		String request = testCaseDTO.getInput();
-		request = buildIdentityRequest(request);
-
+		identityRequest = buildIdentityRequest(identityRequest);
 		
-		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+		JSONObject identityReqJson = new JSONObject(identityRequest);
+		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
+		identityReqJson.remove("identityRequestTemplate");
+		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
+		identityReqJson.remove("identityRequestEncUrl");
+		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
+
+		String encryptedIdentityReq = null;
+		try {
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
+					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Map<String, String> bioAuthTempMap = (isInternal)
+				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq)
+				: encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
+		// storeValue(bioAuthTempMap);
+		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+		logger.info("************* Modification of bio auth request ******************");
+		Reporter.log("<b><u>Modification of bio auth request</u></b>");
+		authRequest = modifyRequest(authRequest, bioAuthTempMap,
+				getResourcePath() + props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
+		testCaseDTO.setInput(authRequest);
 		// storeValue(authRequest,"authRequest");
 
-		String url = ConfigManager.getAuthDemoServiceUrl();
-		
-		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON,
+		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
+
+		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
@@ -124,9 +149,9 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-//						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
+			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
 		/*
@@ -174,8 +199,8 @@ public class BioAuthNew extends AdminTestUtil implements ITest {
 
 	@AfterClass
 	public static void authTestTearDown() {
-//		logger.info("Terminating authpartner demo application...");
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
+		logger.info("Terminating authpartner demo application...");
+		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 
 	/*
