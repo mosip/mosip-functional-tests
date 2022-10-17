@@ -62,6 +62,18 @@ public class EmailableReport implements IReporter {
             return;
         }
         
+        
+        for (ISuite suite : suites) {
+            suiteResults.add(new SuiteResult(suite));
+        }
+
+        writeDocumentStart();
+        writeHead();
+        writeBody();
+        writeDocumentEnd();
+
+        writer.close();
+        
         if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
 			File repotFile = new File(System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
 					+ "/" + System.getProperty("emailable.report2.name"));
@@ -83,16 +95,6 @@ public class EmailableReport implements IReporter {
 				System.out.println("Failed while pushing file to S3");
 			}
 		}
-        for (ISuite suite : suites) {
-            suiteResults.add(new SuiteResult(suite));
-        }
-
-        writeDocumentStart();
-        writeHead();
-        writeBody();
-        writeDocumentEnd();
-
-        writer.close();
     }
     
     private String getCommitId(){

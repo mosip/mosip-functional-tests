@@ -98,7 +98,7 @@ GenerateVIDNew:
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
-   Resident_Generate_Perpetual_VID_TransID_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_TransID_Invalid_Pos:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post

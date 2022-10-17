@@ -134,6 +134,7 @@ public class DBManager {
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
 					statement.addBatch("delete from master.blocklisted_words where cr_by='dumbo6'");
+					statement.addBatch("delete from master.blocklisted_words where word='dumbooo'");
 					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
@@ -163,6 +164,7 @@ public class DBManager {
 					statement.addBatch("delete from master.template where cr_by='masterdata-220005'");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
+					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto')");
 					statement.addBatch("delete from master.template_type where code='Test-info-Template-auto'");
 					statement.addBatch(
 							"update master.location set is_active='true', is_deleted='false' where code='10114'");
@@ -185,12 +187,14 @@ public class DBManager {
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo7'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
+					statement.addBatch("delete from master.machine_master where mac_address = '61-D3-FD-12-C9-ED'");
 					statement.addBatch("delete from master.machine_spec where name='HP'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where code='Laptop2'");
 					statement.addBatch("delete from master.gender where code='Genderdummy'");
 					statement.addBatch(
-							"delete FROM master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+							"delete from master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+					statement.addBatch("delete from master.device_master where dspec_id='743'");
 					statement.addBatch("delete from master.device_spec where id='743'");
 					statement.addBatch("delete from master.device_type where code='GST3'");
 					statement.addBatch("delete from master.loc_holiday where holiday_name='AutoTest user Eng'");

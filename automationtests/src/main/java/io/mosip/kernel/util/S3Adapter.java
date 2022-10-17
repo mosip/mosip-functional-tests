@@ -59,28 +59,15 @@ public class S3Adapter {
 	private AmazonS3 getConnection(String bucketName) {
 		if (connection != null)
 			return connection;
-
-		System.out.println("ConfigManager.getS3UserKey() :: "+ConfigManager.getS3UserKey());
-		System.out.println("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
-		System.out.println("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
-		System.out.println("ConfigManager.getS3SecretKey() :: "+ConfigManager.getS3SecretKey());
 		
 		BucketLifecycleConfiguration.Rule rule1 = new BucketLifecycleConfiguration.Rule()
-                .withId("Archive immediately rule")
-                .withFilter(new LifecycleFilter(new LifecyclePrefixPredicate("glacierobjects/")))
-                .addTransition(new Transition().withDays(0).withStorageClass(StorageClass.Glacier))
-                .withStatus(BucketLifecycleConfiguration.ENABLED);
-		
-		BucketLifecycleConfiguration.Rule rule2 = new BucketLifecycleConfiguration.Rule()
                 .withId("Archive and then delete rule")
                 .withFilter(new LifecycleFilter(new LifecycleTagPredicate(new Tag("archive", "true"))))
-                .addTransition(new Transition().withDays(30).withStorageClass(StorageClass.StandardInfrequentAccess))
-                .addTransition(new Transition().withDays(365).withStorageClass(StorageClass.Glacier))
-                .withExpirationInDays(3650)
+                .withExpirationInDays(5)
                 .withStatus(BucketLifecycleConfiguration.ENABLED);
 		
 		BucketLifecycleConfiguration configuration = new BucketLifecycleConfiguration()
-                .withRules(Arrays.asList(rule1, rule2));
+                .withRules(Arrays.asList(rule1));
 		try {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
 					ConfigManager.getS3SecretKey());
@@ -92,9 +79,10 @@ public class S3Adapter {
 							ConfigManager.getS3Region()))
 					.build();
 			
+			connection.doesBucketExistV2(bucketName);
 			connection.setBucketLifecycleConfiguration(bucketName,configuration);
 
-			connection.doesBucketExistV2(bucketName);
+			
 			retry = 0;
 		} catch (Exception e) {
 			if (retry >= maxRetry) {

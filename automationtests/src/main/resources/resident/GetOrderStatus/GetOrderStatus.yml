@@ -9,8 +9,7 @@ GetOrderStatus:
       	"transactionId": "1234567890",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_1_Valid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -21,8 +20,7 @@ GetOrderStatus:
       	"transactionId": "1234567891",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_2_Valid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -33,8 +31,7 @@ GetOrderStatus:
       	"transactionId": "1234567892",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_3_Valid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -45,8 +42,7 @@ GetOrderStatus:
       	"transactionId": "1234567893",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_4_Valid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -57,8 +53,7 @@ GetOrderStatus:
       	"transactionId": "1234567894",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_5_Valid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -69,8 +64,7 @@ GetOrderStatus:
       	"transactionId": "1234567895",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "200"
    Resident_GetOrderStatus_6_Invalid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -81,8 +75,7 @@ GetOrderStatus:
       	"transactionId": "1234567896",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "402"
    Resident_GetOrderStatus_7_Invalid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -93,8 +86,7 @@ GetOrderStatus:
       	"transactionId": "1234567897",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "402"
    Resident_GetOrderStatus_8_Invalid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -105,8 +97,7 @@ GetOrderStatus:
       	"transactionId": "1234567898",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "402"
    Resident_GetOrderStatus_9_Invalid_TransactionID_Smoke:
       endPoint: /resident/v1/mock/print-partner/check-order-status?transactionId={transactionId}&individualId={individualId}
       role: resident
@@ -117,5 +108,4 @@ GetOrderStatus:
       	"transactionId": "1234567899",
 		"individualId": "7423640250"
 }'
-      output: '{
-}'
+      output: "402"

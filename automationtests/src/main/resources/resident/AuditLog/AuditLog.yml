@@ -1,27 +1,26 @@
 AuditLog:
    Resident_AuditLog_all_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/audit/log
-      role: resident
+      role: residentNew
       restMethod: post
       inputTemplate: resident/AuditLog/createAuditLog
       outputTemplate: resident/AuditLog/createAuditLogResult
       input: '{
-		  "eventId": "string",
-		  "eventName": "string",
-		  "eventType": "string",
-		  "actionTimeStamp": "2022-07-26T05:39:26.388Z",
-		  "hostName": "string",
-		  "hostIp": "string",
-		  "applicationId": "string",
-		  "applicationName": "string",
-		  "sessionUserId": "string",
-		  "sessionUserName": "string",
-		  "id": "string",
-		  "idType": "string",
-		  "createdBy": "string",
-		  "moduleName": "string",
-		  "moduleId": "string",
-		  "description": "string"
+		  "eventId": "RES-SER-191",
+		  "eventName": "get vids",
+		  "eventType": "SYSTEM",
+		  "actionTimeStamp": "$TIMESTAMP$",
+		  "hostName": "resident-6f6fb6c845-6frw4",
+		  "hostIp": "10.42.2.150",
+		  "applicationId": "10011",
+		  "applicationName": "Resident portal",
+		  "sessionUserId": "resident-111995",
+		  "sessionUserName": "resident-111995",
+		  "id": "NO_ID",
+		  "idType": "NO_ID_TYPE",
+		  "createdBy": "resident-111995",
+		  "moduleName": "Residence service",
+		  "moduleId": "RES-SER",
+		  "description": "get vids"
 }'
-      output: '{
-}'
+      output: "200"
