@@ -257,6 +257,8 @@ public class KeycloakUserManager {
 		    user.setAttributes(map);
 			// Get realm
 			RealmResource realmResource=null;
+			
+			
 
 			// realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
 			realmResource=keycloakInstance.realm(ConfigManager.getIAMRealmId());
@@ -265,40 +267,54 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
-			System.out.println(response);
-			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
-			System.out.println(response.getLocation());
-			String userId = CreatedResponseUtil.getCreatedId(response);
-			System.out.printf("User created with userId: %s%n", userId);
-
-			// Define password credential
-			CredentialRepresentation passwordCred = new CredentialRepresentation();
 			
-			passwordCred.setTemporary(false);
-			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
-			//passwordCred.setValue(userPassword.get(passwordIndex));
-			passwordCred.setValue(pwd);
+			  if (response.getStatus()==409) { 
+				 
+				  
+			  }
+			  else {
+				  
+				  System.out.println(response);
+					System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+					System.out.println(response.getLocation());
+					String userId = CreatedResponseUtil.getCreatedId(response);
+					System.out.printf("User created with userId: %s%n", userId);
 
-			UserResource userResource = usersRessource.get(userId);
-			// Set password credential
-			userResource.resetPassword(passwordCred);
+					// Define password credential
+					CredentialRepresentation passwordCred = new CredentialRepresentation();
+					
+					passwordCred.setTemporary(false);
+					passwordCred.setType(CredentialRepresentation.PASSWORD);
+					
+					//passwordCred.setValue(userPassword.get(passwordIndex));
+					passwordCred.setValue(pwd);
 
-			// Getting all the roles
-			List<RoleRepresentation> allRoles = realmResource.roles().list();
-			List<RoleRepresentation> availableRoles = new ArrayList<>();
-			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
-			for(String role : toBeAssignedRoles) {
-				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
-				}else {
-					System.out.printf("Role not found in keycloak: %s%n", role);
-				}
-			}
-			// Assign realm role tester to user
-			userResource.roles().realmLevel() //
-					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
-			//passwordIndex ++;
+					UserResource userResource = usersRessource.get(userId);
+					// Set password credential
+					userResource.resetPassword(passwordCred);
+
+					// Getting all the roles
+					List<RoleRepresentation> allRoles = realmResource.roles().list();
+					List<RoleRepresentation> availableRoles = new ArrayList<>();
+					List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
+					for(String role : toBeAssignedRoles) {
+						if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+						}else {
+							System.out.printf("Role not found in keycloak: %s%n", role);
+						}
+					}
+					// Assign realm role tester to user
+					userResource.roles().realmLevel() //
+							.add((availableRoles.isEmpty() ? allRoles : availableRoles));
+					//passwordIndex ++;
+				  
+			  }
+			 
+			
+			
+			
 		
 	}
 	
