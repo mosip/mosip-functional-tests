@@ -340,7 +340,7 @@ AuthLockNew:
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthLockNew/CreateAuthLockNew
-      outputTemplate: resident/AuthLockNew/CreateAuthLockNewResult
+      outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
