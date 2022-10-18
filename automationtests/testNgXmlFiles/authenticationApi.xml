@@ -58,7 +58,7 @@
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.BioAuthNew" />
+			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
 
@@ -66,7 +66,7 @@
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.BioAuthNew" />
+			<class name="io.mosip.testscripts.BioAuth" />
 		</classes>
 	</test>
 	<test name="OtpAuth">
