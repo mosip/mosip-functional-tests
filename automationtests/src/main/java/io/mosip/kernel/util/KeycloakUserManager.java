@@ -431,7 +431,7 @@ public class KeycloakUserManager {
 		Keycloak keycloakInstance = getKeycloakInstance();
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
-
+try {
 			List<UserRepresentation> usersFromDB = usersRessource.search(user);
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
@@ -441,6 +441,12 @@ public class KeycloakUserManager {
 				System.out.printf("User not found with name: %s%n", user);
 			}
 
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+			
 		
 	}
 
