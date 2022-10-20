@@ -7,7 +7,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "demo",
         "locked": "false",
@@ -25,7 +25,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FACE",
         "locked": "false",
@@ -43,7 +43,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-IRIS",
         "locked": "false",
@@ -61,7 +61,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -79,7 +79,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "T@345IMP",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -89,12 +89,12 @@ AuthUnlockNew:
   		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
-   Resident_AuthUnlockNew_Invalid_Id_Pos:
+   Resident_AuthUnlockNew_Invalid_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
-      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
         "id": "mothlock",
@@ -104,7 +104,12 @@ AuthUnlockNew:
         "unlockForSeconds": "null"
     }'
       output: '{
-  		"message": "Notification has been sent to the provided contact detail(s)"
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_AuthUnlockNew_Invalid_Version_Pos:
@@ -115,7 +120,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "@333#1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -133,7 +138,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-Fing@@",
         "locked": "false",
@@ -156,7 +161,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "tr$@s",
@@ -179,7 +184,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -202,7 +207,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -212,12 +217,12 @@ AuthUnlockNew:
   		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
-   Resident_AuthUnlockNew_Empty_Id_Pos:
+   Resident_AuthUnlockNew_Empty_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
-      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
         "id": "",
@@ -227,7 +232,12 @@ AuthUnlockNew:
         "unlockForSeconds": "null"
     }'
       output: '{
-  		"message": "Notification has been sent to the provided contact detail(s)"
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_AuthUnlockNew_Empty_Version_Pos:
@@ -238,7 +248,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -256,7 +266,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "",
         "locked": "false",
@@ -279,7 +289,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "",
@@ -297,7 +307,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -315,7 +325,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$REMOVE$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -325,12 +335,12 @@ AuthUnlockNew:
   		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
-   Resident_AuthUnlockNew_Missing_Id_Pos:
+   Resident_AuthUnlockNew_Missing_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
-      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
@@ -340,7 +350,12 @@ AuthUnlockNew:
         "unlockForSeconds": "null"
     }'
       output: '{
-  		"message": "Notification has been sent to the provided contact detail(s)"
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_AuthUnlockNew_Missing_Version_Pos:
@@ -351,7 +366,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "$REMOVE$",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -369,7 +384,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "$REMOVE$",
         "locked": "false",
@@ -392,7 +407,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "$REMOVE$",
@@ -410,7 +425,7 @@ AuthUnlockNew:
       outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",
@@ -428,7 +443,7 @@ AuthUnlockNew:
       outputTemplate: resident/error
       input: '{
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authlock",
+        "id": "mosip.resident.auth.lock.unlock",
         "version": "v1",
         "authType": "bio-FINGER",
         "locked": "false",

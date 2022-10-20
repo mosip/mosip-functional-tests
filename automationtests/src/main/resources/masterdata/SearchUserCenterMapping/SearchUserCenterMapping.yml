@@ -1,7 +1,7 @@
 SearchUserCenterMapping:
    MasterData_SearchUserCenterMapping_All_ValidUser_Smoke:
       endPoint: /v1/masterdata/usercentermapping/search
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchUserCenterMapping/searchUserCenterMapping
@@ -11,7 +11,7 @@ SearchUserCenterMapping:
       {
         "columnName": "userId",
         "type": "equals",
-        "value": "220005"
+        "value": "globaladmin"
       }
     ],
      "languageCode": "eng",
@@ -19,7 +19,7 @@ SearchUserCenterMapping:
 }'
       output: '{
        "data": [{
-        "userId": "220005",
+        "userId": "globaladmin",
         "zoneName": "$IGNORE$",
         "regCenterId": "$IGNORE$",
         "zoneCode": "$IGNORE$"
