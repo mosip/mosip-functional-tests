@@ -1126,6 +1126,14 @@ public class AdminTestUtil extends BaseTestCase {
 					String identifierKeyName = getAutogenIdKeyName(testCaseName, filedName);
 					if (responseJson.has(filedName))
 						props.put(identifierKeyName, responseJson.get(filedName).toString());
+					else if(responseJson.has("data")) {
+						org.json.JSONArray responseArray = responseJson.getJSONArray("data");
+						
+						
+						JSONObject eachJSON = (JSONObject) responseArray.get(0);
+						System.out.println(eachJSON.get(filedName));
+						props.put(identifierKeyName, eachJSON.get(filedName));
+					}
 					else
 						props.put(identifierKeyName, responseJson.getJSONObject("identity").get(filedName));
 				} else {

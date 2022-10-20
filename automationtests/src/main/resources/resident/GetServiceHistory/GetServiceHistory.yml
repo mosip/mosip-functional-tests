@@ -1,0 +1,12 @@
+GetServiceHistory:
+   Resident_GetServiceHistory_all_Valid_Smoke_sid:
+      endPoint: /resident/v1/service-history
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+}'
+      output: '{
+      
+}'

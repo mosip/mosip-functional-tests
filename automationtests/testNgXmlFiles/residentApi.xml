@@ -293,6 +293,28 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetServiceHistory">
+		<parameter name="ymlFile"
+			value="resident/GetServiceHistory/GetServiceHistory.yml" />
+			<parameter name="idKeyName"	value="eventId" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
+	<test name="PinStatus">
+		<parameter name="ymlFile"
+			value="resident/PinStatus/PinStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+		</classes>
+	</test>
+	<test name="UnPinStatus">
+		<parameter name="ymlFile"
+			value="resident/UnPinStatus/UnPinStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+		</classes>
+	</test>
 	<test name="RevokeVIDNew">
 		<parameter name="ymlFile"
 			value="resident/RevokeVIDNew/CreateRevokeVIDNew.yml" />
