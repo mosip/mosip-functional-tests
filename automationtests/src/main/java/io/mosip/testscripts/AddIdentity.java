@@ -34,7 +34,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
-import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
+//import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
 import io.mosip.kernel.core.exception.NoSuchAlgorithmException;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.KernelAuthentication;
