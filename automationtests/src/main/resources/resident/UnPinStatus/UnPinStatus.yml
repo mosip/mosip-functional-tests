@@ -12,3 +12,21 @@ UnPinStatus:
       		"status": "200",
         	"message": "SUCCESS"
 }'
+
+   Resident_UnPinStatus_Invalid_Input_Neg:
+      endPoint: /resident/v1/pinned/{eventId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UnPinStatus/UnPinStatus
+      outputTemplate: resident/error
+      input: '{
+      	"eventId": "$@kk$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-459",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

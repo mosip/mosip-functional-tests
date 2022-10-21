@@ -1,0 +1,31 @@
+GetDocByTransId:
+   Resident_GetDocByTransId_all_Valid_Smoke:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransId
+      outputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransIdResult
+      input: '{
+      		"transactionId": "1234567889"
+}'
+      output: '{
+            "transactionId": "1234567889"
+}'
+
+   Resident_GetDocByTransId_Invalid_TransactionId:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransId
+      outputTemplate: resident/error
+      input: '{
+      		"transactionId": "jhgf4324"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'

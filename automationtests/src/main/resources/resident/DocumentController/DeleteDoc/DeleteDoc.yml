@@ -1,0 +1,53 @@
+DeleteDoc:
+   Resident_DeleteDoc_all_Valid_Smoke:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/DocumentController/DeleteDoc/DeleteDocResult
+      input: '{
+      	"transactionId": "1234567889",
+		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+        "status": "SUCCESS",
+        "message": "Document deleted successfully"
+}'
+
+   Resident_DeleteDoc_Invalid_TransactionId:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "jhgf4324",
+		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'
+
+   Resident_DeleteDoc_Invalid_DocId:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "1234567889",
+		"docId": "jhgf4324"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- documentId"
+    }
+  ]
+}'
