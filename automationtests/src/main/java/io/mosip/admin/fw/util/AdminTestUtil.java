@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Base64.Encoder;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -505,6 +506,21 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	public String encodeBase64(String value) {
+        String encodedStr;
+		try {
+			Encoder encoder = Base64.getEncoder();
+			encodedStr = encoder.encodeToString(value.getBytes());
+			return encodedStr;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "Error While EncodeingBase64";
+		}
+        
+        
+	}
 
 	protected Response postWithFormPathParamAndFile(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, String idKeyName) {
@@ -523,9 +539,22 @@ public class AdminTestUtil extends BaseTestCase {
 			req.remove("fileKeyName");
 		} else
 			logger.error("request doesn't contanin filePath and fileKeyName: " + inputJson);
-		pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
-		req.remove("preRegistrationId");
-		formParams.put("Document request", req.toString());
+		
+		if (testCaseName.contains("Resident_UploadDocument")) {
+			pathParams.put("transactionId", req.get("transactionId").toString());
+			req.remove("transactionId");
+	        try {
+				formParams.put("request", encodeBase64(req.toString()));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
+			req.remove("preRegistrationId");
+			formParams.put("Document request", req.toString());
+		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");

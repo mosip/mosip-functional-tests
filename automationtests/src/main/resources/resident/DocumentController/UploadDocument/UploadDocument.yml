@@ -1,0 +1,192 @@
+UploadDocument:
+   Resident_UploadDocument_all_Valid_Smoke_sid:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/DocumentController/UploadDocument/UploadDocumentResult
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+        "transactionId": "1234567889",
+	    "docId": "$IGNORE$",
+	    "docName": "doc_POA.pdf",
+	    "docCatCode": "POA",
+	    "docTypCode": "doc008",
+	    "docFileFormat": "pdf"      
+}'
+
+   Resident_UploadDocument_Empty_docTypCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]   
+}'
+
+   Resident_UploadDocument_Missing_docTypCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "$REMOVE$",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
+   Resident_UploadDocument_Blank_DoccatCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
+   Resident_UploadDocument_Missing_DoccatCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
+   Resident_UploadDocument_Missing_langCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$REMOVE$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
+   Resident_UploadDocument_Empty_langCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
+   Resident_UploadDocument_Invalid_requesttime:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$@jsbd$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'

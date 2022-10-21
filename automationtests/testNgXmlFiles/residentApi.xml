@@ -321,5 +321,34 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
-	</test> 
+	</test>
+	<test name="UploadDocument">
+		<parameter name="ymlFile"
+			value="resident/DocumentController/UploadDocument/UploadDocument.yml" />
+			<parameter name="idKeyName"	value="docId" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
+		</classes>
+	</test>
+	<test name="GetDocByTransId">
+		<parameter name="ymlFile"
+			value="resident/DocumentController/GetDocByTransId/GetDocByTransId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetDocByDocId">
+		<parameter name="ymlFile"
+			value="resident/DocumentController/GetDocByDocId/GetDocByDocId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="DeleteDoc">
+		<parameter name="ymlFile"
+			value="resident/DocumentController/DeleteDoc/DeleteDoc.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 </suite>

@@ -10,3 +10,20 @@ GetServiceHistory:
       output: '{
       
 }'
+
+   Resident_GetServiceHistory_Invalid_Token:
+      endPoint: /resident/v1/service-history
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/error
+      input: '{
+}'
+      output: '{
+      	"errors": [
+		    {
+		      "errorCode": "RES-SER-439",
+		      "message": "$IGNORE$"
+		    }
+  ]
+}'
