@@ -19,6 +19,26 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
+   Resident_GenerateVID_Temporary_VID2_Valid_Smoke_sid:
+      endPoint: /resident/v1/generate-vid
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary"
+    }'
+      output: '{
+      	"vid": "$IGNORE$",
+	    "message": "Notification has been sent to the provided contact detail(s)",
+	    "maskedPhone": "******3210",
+	    "maskedEmail": "res***************@gmail.com"
+}'
+
    Resident_GenerateVID_Onetimeuse_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
@@ -118,7 +138,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_EmptyChannel_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_EmptyChannel_Pos:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
