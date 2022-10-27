@@ -4,7 +4,7 @@ RevokeVIDNew:
       role: residentNew
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
@@ -13,12 +13,7 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-      	"errors": [
-    {
-      "errorCode": "RES-SER-454",
-      "message": "$IGNORE$"
-    }
-  ]
+		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_RevokeVIDNew_Temp_Valid_Smoke:
@@ -26,7 +21,7 @@ RevokeVIDNew:
       role: residentNew
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
@@ -35,12 +30,7 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-      	"errors": [
-    {
-      "errorCode": "RES-SER-454",
-      "message": "$IGNORE$"
-    }
-  ]
+		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_RevokeVIDNew_OneTimeUse_Valid_Smoke:
@@ -48,7 +38,7 @@ RevokeVIDNew:
       role: residentNew
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
@@ -57,10 +47,6 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-      	"errors": [
-    {
-      "errorCode": "RES-SER-454",
-      "message": "$IGNORE$"
-    }
+		"message": "Notification has been sent to the provided contact detail(s)"
   ]
 }'
