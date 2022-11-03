@@ -8,6 +8,8 @@ CreateOIDCClient:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
       	"publicKey": "$OIDCJWKKEY$"
 }'
       output: '{
