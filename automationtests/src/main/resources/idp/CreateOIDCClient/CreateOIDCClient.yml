@@ -1,0 +1,16 @@
+CreateOIDCClient:
+   IDP_CreateOIDCClient_all_Valid_Smoke_sid:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: resident
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/CreateOIDCClient/CreateOIDCClientResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+    	"status": "ACTIVE"
+}'

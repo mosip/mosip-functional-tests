@@ -314,6 +314,15 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postRequestWithoutCookie(String url, Object body, String contentHeader, String acceptHeader) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response postRequestWithBearerToken(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {

@@ -1,0 +1,14 @@
+AuthorizationCode:
+   IDP_AuthorizationCode_StatusCode_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+      	"errors": "null"
+}'

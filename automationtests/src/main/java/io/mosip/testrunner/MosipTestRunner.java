@@ -11,11 +11,17 @@ import java.util.List;
 import java.util.Properties;
 import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
+import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
+
+import com.nimbusds.jose.jwk.KeyUse;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.dbaccess.DBManager;
@@ -40,6 +46,10 @@ public class MosipTestRunner {
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
+	/*
+	 * These variables are created to store private key in a file and then use it for some apis
+	 */
+	private static File oidcJWK = new File("src/main/resources/oidcJWK.txt");
 
 	/**
 	 * C Main method to start mosip test execution
@@ -192,8 +202,15 @@ public class MosipTestRunner {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, new SecureRandom());
 			final KeyPair keypair = keyGenerator.generateKeyPair();
+			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
+				    .privateKey(keypair.getPrivate())
+				    .build();
+			
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
-		} catch (NoSuchAlgorithmException e) {
+			
+			FileUtils.touch(oidcJWK);//File got created
+			FileUtils.writeStringToFile(oidcJWK, jwk.toJSONString(), StandardCharset.UTF_8.name());
+		} catch (NoSuchAlgorithmException | IOException e) {
 			e.printStackTrace();
 		}
 		return publicKey;

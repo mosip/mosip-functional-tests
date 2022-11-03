@@ -1,0 +1,30 @@
+{
+  "clientId": "{{clientId}}",
+  "id": "string",
+  "version": "string",
+  "requestTime": "{{requestTime}}",
+  "request": {
+    "clientName": "MOSIP OIDC Client",
+    "status": "{{status}}",
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://health-services.com/userprofile"
+    ],
+    "userClaims": [
+			"given_name",
+            "email",
+            "gender",
+            "phone_number",
+            "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}'

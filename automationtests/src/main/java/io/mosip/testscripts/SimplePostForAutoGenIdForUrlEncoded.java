@@ -1,11 +1,17 @@
 package io.mosip.testscripts;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -13,11 +19,14 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
+
+import com.ibm.icu.text.Transliterator;
 
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
@@ -26,12 +35,15 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
-public class GetWithParam extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(GetWithParam.class);
+public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(SimplePostForAutoGenIdForUrlEncoded.class);
 	protected String testCaseName = "";
+	public String idKeyName = null;
 	public Response response = null;
 
 	/**
@@ -50,6 +62,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -62,78 +75,73 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	 * @param testcaseName
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
+	 * @throws NoSuchAlgorithmException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO)
+			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
-		
-		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+
+		// filterHbs(testCaseDTO);
+
+		// testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
+
+		//String inputJson = filterInputHbs(testCaseDTO);
+		// String outputJson = filterOutputHbs(testCaseDTO);
+
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+		// filterOutputHbs(testCaseDTO);
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
+			// adding...
 			List<String> languageList = new ArrayList<>();
+			//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 			languageList = BaseTestCase.languageList;
-			 for (int i=0; i<languageList.size(); i++) {
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
-		            	response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	
-		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
-						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-						
-						if (!OutputValidationUtil.publishOutputResult(ouputValid))
-							throw new AdminTestException("Failed at output validation");
-		                    break Innerloop;
-		            }
-		        }
-		}
-		
-		else {
-//			To Do This Condition has to be removed
+			for (int i = 0; i < languageList.size(); i++) {
+				Innerloop: for (int j = i; j < languageList.size();) {
+					response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(),
+							getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()),
+							COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+
+					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+							response.asString(),
+							getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
+						JSONObject json = new JSONObject(response.asString());
+						idField = json.getJSONObject("response").get("id").toString();
+					}
+					Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+
+					if (!OutputValidationUtil.publishOutputResult(ouputValid))
+						throw new AdminTestException("Failed at output validation");
+					break Innerloop;
+				}
+			}
+		} else {
 			if(testCaseName.contains("IDP_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
-				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
-						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				response = postWithBodyAndCookieForAutoGeneratedIdForUrlEncoded(tempUrl + testCaseDTO.getEndPoint(), inputJson,
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+				
+//				response = postWithBodyAndCookieForAutoGeneratedIdUrlEncoded(tempUrl + testCaseDTO.getEndPoint(), inputJson,
+//						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 			}
 			else {
-				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				response = postWithBodyAndCookieForAutoGeneratedIdForUrlEncoded(ApplnURI + testCaseDTO.getEndPoint(), inputJson,
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 			}
-			Map<String, List<OutputValidationDto>> ouputValid = null;
-			if(testCaseName.contains("_StatusCode")) {
-				
-				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
-				
-				ouputValid = new HashMap<String, List<OutputValidationDto>>();
-				ouputValid.put("expected vs actual", List.of(customResponse));
-			}else {
-				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-			}
-			
-			System.out.println(ouputValid);
+
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), outputJson);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}
+
 	}
 
 	/**
