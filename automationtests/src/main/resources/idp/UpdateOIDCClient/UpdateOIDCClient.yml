@@ -8,6 +8,8 @@ UpdateOIDCClient:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"status": "ACTIVE",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$"
 }'
       output: '{
