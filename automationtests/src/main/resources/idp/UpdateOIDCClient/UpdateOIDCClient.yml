@@ -1,0 +1,16 @@
+UpdateOIDCClient:
+   IDP_UpdateOIDCClient_all_Valid_Smoke:
+      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      role: resident
+      restMethod: put
+      inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
+      outputTemplate: idp/UpdateOIDCClient/UpdateOIDCClientResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"status": "ACTIVE",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'

@@ -1,0 +1,16 @@
+SendOtp:
+   IDP_SendOtp_all_Valid_Smoke:
+      endPoint: /authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/SendOtp/SendOtpResult
+      input: '{
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "otpChannels": ["PHONE","EMAIL"]
+}'
+      output: '{
+        "maskedEmail": "$IGNORE$",
+    	"maskedMobile": "$IGNORE$"
+}'

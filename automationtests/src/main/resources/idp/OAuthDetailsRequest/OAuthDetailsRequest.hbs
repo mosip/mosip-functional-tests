@@ -1,0 +1,33 @@
+{
+  "requestTime": "{{requestTime}}",
+  "request": {
+    "clientId": "{{clientId}}",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://health-services.com/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+    "claims": {
+      "userinfo": {
+        "given_name": {
+          "essential": true
+        },
+        "phone": null,
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}
