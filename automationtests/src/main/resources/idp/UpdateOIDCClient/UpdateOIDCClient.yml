@@ -1,7 +1,7 @@
 UpdateOIDCClient:
    IDP_UpdateOIDCClient_all_Valid_Smoke:
       endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
-      role: resident
+      role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
       outputTemplate: idp/UpdateOIDCClient/UpdateOIDCClientResult
