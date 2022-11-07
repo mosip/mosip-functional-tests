@@ -518,12 +518,48 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "$IGNORE$",
+      	"authContextRefs": "$REMOVE$",
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
       output: '{
         "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Empty_authContextRefs:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "must not be blank",
+      "errorMessage": "$IGNORE$"
+    },
     {
       "errorCode": "invalid_acr",
       "errorMessage": "$IGNORE$"
@@ -557,6 +593,294 @@ CreateOIDCClient:
         "errors": [
     {
       "errorCode": "invalid_public_key",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Invalid_UserClaims:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RA5315$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "xyz",
+      	"userClaims2": "fd@gh.com",
+      	"userClaims3": "$REMOVE$",
+      	"userClaims4": "$REMOVE$",
+      	"userClaims5": "$REMOVE$",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_claim",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Missing_grantTypes_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "$REMOVE$",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Null_grantTypes_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "null",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Invalid_grantTypes_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "$$@###$",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Empty_grantTypes_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Missing_clientAuthMethods_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Invalid_clientAuthMethods_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "$$#@@A"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Empty_clientAuthMethods_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": ""
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Null_clientAuthMethods_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "$RANDOMID$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "null"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_client_auth",
       "errorMessage": "$IGNORE$"
     }
   ]
