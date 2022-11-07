@@ -737,7 +737,12 @@ OAuthDetailsRequest:
 	    "claims": ""
 }'
       output: '{
-       
+       	"errors": [
+    {
+      "errorCode": "unknown_error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Claims_Pos:
