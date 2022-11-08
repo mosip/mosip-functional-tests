@@ -105,20 +105,22 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		}
 		
 		else {
-			response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+//			To Do This Condition has to be removed
+			if(testCaseName.contains("IDP_")) {
+				String tempUrl = ApplnURI.replace("-internal", "");
+				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			}
+			else {
+				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
-			if(testCaseDTO.getTestCaseName().contains("GetOrderStatus")) {
-				OutputValidationDto customResponse = new OutputValidationDto();
-				customResponse.setActualValue(String.valueOf(response.getStatusCode()));
-				customResponse.setExpValue(testCaseDTO.getOutput());
-				customResponse.setFieldName("status");
-				if(customResponse.getActualValue().equals(customResponse.getExpValue())) {
-					customResponse.setStatus("PASS");
-				}else {
-					customResponse.setStatus("FAIL");
-				}
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 				
 				ouputValid = new HashMap<String, List<OutputValidationDto>>();
 				ouputValid.put("expected vs actual", List.of(customResponse));

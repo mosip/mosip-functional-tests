@@ -1,0 +1,16 @@
+AuthenticateUser:
+   IDP_AuthenticateUserIDP_Valid_Smoke:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "8267411571",
+      	"challenge" : "34789"
+}'
+      output: '{
+        "errors": "null"
+}'

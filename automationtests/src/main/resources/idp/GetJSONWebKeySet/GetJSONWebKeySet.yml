@@ -1,0 +1,12 @@
+GetJSONWebKeySet:
+   IDP_GetJSONWebKeySet_all_Valid_Smoke:
+      endPoint: /v1/idp/.well-known/jwks.json
+      role: resident
+      restMethod: get
+      inputTemplate: idp/GetJSONWebKeySet/GetJSONWebKeySet
+      outputTemplate: idp/GetJSONWebKeySet/GetJSONWebKeySetResult
+      input: '{
+}'
+      output: '{
+        
+}'

@@ -22,6 +22,7 @@ import org.testng.annotations.AfterSuite;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
@@ -117,6 +118,9 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
+	public static String oidcJWKKeyString;
+	public static RSAKey rsaJWK;
+	public static String clientAssertionToken;
 	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
@@ -217,6 +221,13 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
+			
+		}
+		
+		if (listOfModules.contains("idp")){
+			BaseTestCase.currentModule = "idp";
+			setReportName("idp");
+			AdminTestUtil.initiateidpTest();
 			
 		}
 		/*
