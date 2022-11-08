@@ -13,7 +13,7 @@ public class PrerequisteTests extends AuthTestsUtil{
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo application...");
-		AuthPartnerProcessor.startProcess();
+		//AuthPartnerProcessor.startProcess();
 	}
 	
 	/**
