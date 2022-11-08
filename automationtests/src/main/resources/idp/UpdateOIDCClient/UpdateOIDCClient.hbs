@@ -8,23 +8,23 @@
     "status": "{{status}}",
     "logoUri": "{{logoUri}}",
     "redirectUris": [
-      "https://health-services.com/userprofile"
+      "{{redirectUris}}"
     ],
     "userClaims": [
-			"given_name",
-            "email",
-            "gender",
-            "phone_number",
-            "birthdate"
+			"{{userClaims1}}",
+            "{{userClaims2}}",
+            "{{userClaims3}}",
+            "{{userClaims4}}",
+            "{{userClaims5}}"
     ],
     "authContextRefs": [
-      "mosip:idp:acr:static-code"
+      "{{authContextRefs}}"
     ],
     "grantTypes": [
-      "authorization_code"
+      "{{grantTypes}}"
     ],
     "clientAuthMethods": [
-      "private_key_jwt"
+      "{{clientAuthMethods}}"
     ]
   }
 }'
