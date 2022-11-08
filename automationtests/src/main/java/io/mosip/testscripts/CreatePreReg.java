@@ -93,42 +93,42 @@ public class CreatePreReg extends AdminTestUtil implements ITest {
 
 		
 		String jsonInput = testCaseDTO.getInput();
-
-		if (BaseTestCase.getLanguageList().size() == 2) {
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"MLE\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"RSK\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }", "");
-		} else if (BaseTestCase.getLanguageList().size() == 1) {
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"NFR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"NFR\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Test Book appointment\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"MLE\" }, { \"language\": \"$3RDLANG$\", \"value\": \"MLE\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"RSK\" }, { \"language\": \"$3RDLANG$\", \"value\": \"RSK\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"KTA\" }, { \"language\": \"$3RDLANG$\", \"value\": \"KTA\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"KNT\" }, { \"language\": \"$3RDLANG$\", \"value\": \"KNT\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"BNMR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"BNMR\" }",
-					"");
-		}
+		
+		
+		/*
+		 * int maxSupportedLang = 10; for(int i=BaseTestCase.languageList.size();
+		 * i<maxSupportedLang; i++) { String preFix = ", { \"language\": \"$"; String
+		 * suFix = "LANG$\", \"value\": "; int langNumber = i+1;
+		 * 
+		 * String eleMent ="\"FR\" }"; jsonInput = jsonInput.replace(preFix + langNumber
+		 * + suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"Test Book appointment\" }"; jsonInput = jsonInput.replace(preFix
+		 * + langNumber + suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"MLE\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * 
+		 * eleMent ="\"RSK\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"KTA\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"KNT\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"BNMR\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * 
+		 * eleMent ="\"NFR\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * }
+		 */
+		
 		
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

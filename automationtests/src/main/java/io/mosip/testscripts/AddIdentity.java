@@ -113,34 +113,32 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		// testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
 
-		if (BaseTestCase.languageList.size() == 2) {
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }", "");
-		} else if (BaseTestCase.languageList.size() == 1) {
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"FR\" }, { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Female\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Madhu.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Line2\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }",
-					"");
-			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Line3\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }",
-					"");
-		}
-
+	
+		/*
+		 * int maxSupportedLang = 10; for(int i=BaseTestCase.languageList.size();
+		 * i<maxSupportedLang; i++) { String preFix = ", { \"language\": \"$"; String
+		 * suFix = "LANG$\", \"value\": "; int langNumber = i+1;
+		 * 
+		 * String eleMent ="\"FR\" }"; jsonInput = jsonInput.replace(preFix + langNumber
+		 * + suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"Female\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"Mrs Madhu.GN\" }"; jsonInput = jsonInput.replace(preFix +
+		 * langNumber + suFix+ eleMent, "");
+		 * 
+		 * 
+		 * eleMent ="\"Line1\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"Line2\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, "");
+		 * 
+		 * eleMent ="\"Line3\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
+		 * suFix+ eleMent, ""); }
+		 */
+		
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 
 		inputJson = inputJson.replace("$UIN$", uin);
@@ -189,7 +187,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		try {
 			logger.info("waiting for" + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
-			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+			//Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
 		}

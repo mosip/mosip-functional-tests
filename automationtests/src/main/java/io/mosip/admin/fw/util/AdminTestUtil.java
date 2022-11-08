@@ -111,6 +111,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String SIGNATURE_HEADERNAME = "signature";
 	public static Properties props = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+	public static Properties propsMap = getproperty(
+			MosipTestRunner.getResourcePath() + "/" + "config/valueMapping.properties");
 	public static Properties propsBio = getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	public static Properties propsKernel = getproperty(
@@ -123,14 +125,15 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String preregHbsForCreate = null;
 	public static String preregHbsForUpdate = null;
 	public static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
-	public static String policyGroup = "mosip auth policy group "+timeStamp;
-	public static String policyName = "mosip auth policy "+timeStamp;
+	public static String policyGroup = "mosip auth policy group " + timeStamp;
+	public static String policyName = "mosip auth policy " + timeStamp;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
-    private static String authInternalRequest="config/Authorization/internalAuthRequest.json";
-    private static String AuthPolicyBody="config/AuthPolicy.json";
-	private static String AuthPolicyRequest="config/AuthPolicy3.json";
-	private static String AuthPolicyRequestAttr="config/AuthPolicy2.json";
-	private static String policyGroupRequest="config/policyGroup.json";
+	private static String authInternalRequest = "config/Authorization/internalAuthRequest.json";
+	public static List<String> languageDetails = new ArrayList<>();
+	private static String AuthPolicyBody = "config/AuthPolicy.json";
+	private static String AuthPolicyRequest = "config/AuthPolicy3.json";
+	private static String AuthPolicyRequestAttr = "config/AuthPolicy2.json";
+	private static String policyGroupRequest = "config/policyGroup.json";
 	public static HashMap<String, String> keycloakRolesMap = new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
@@ -153,7 +156,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		url = uriKeyWordHandelerUri(url, testCaseName );
+		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -275,8 +278,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
-	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature, String testCaseName) {
+
+	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature,
+			String testCaseName) {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<String, String>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -506,9 +510,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	public String encodeBase64(String value) {
-        String encodedStr;
+		String encodedStr;
 		try {
 			Encoder encoder = Base64.getEncoder();
 			encodedStr = encoder.encodeToString(value.getBytes());
@@ -518,8 +522,7 @@ public class AdminTestUtil extends BaseTestCase {
 			e.printStackTrace();
 			return "Error While EncodeingBase64";
 		}
-        
-        
+
 	}
 
 	protected Response postWithFormPathParamAndFile(String url, String jsonInput, String cookieName, String role,
@@ -539,18 +542,17 @@ public class AdminTestUtil extends BaseTestCase {
 			req.remove("fileKeyName");
 		} else
 			logger.error("request doesn't contanin filePath and fileKeyName: " + inputJson);
-		
+
 		if (testCaseName.contains("Resident_UploadDocument")) {
 			pathParams.put("transactionId", req.get("transactionId").toString());
 			req.remove("transactionId");
-	        try {
+			try {
 				formParams.put("request", encodeBase64(req.toString()));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		else {
+		} else {
 			pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
 			req.remove("preRegistrationId");
 			formParams.put("Document request", req.toString());
@@ -725,20 +727,20 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
-	public static void  initialUserCreation() {
+
+	public static void initialUserCreation() {
 		Response response = null;
 		String token = kernelAuthLib.getTokenByRole("admin");
 		org.json.simple.JSONObject actualRequest_generation = BaseTestCase.getRequestJson("config/bulkUpload.json");
 		String url = ApplnURI + propsKernel.getProperty("bulkUploadUrl");
-		
+
 		JSONObject req = new JSONObject(actualRequest_generation);
-		
+
 		HashMap<String, String> formParams = new HashMap<String, String>();
 		formParams.put("category", req.getString("category"));
 		formParams.put("operation", req.getString("operation"));
 		formParams.put("tableName", req.getString("tableName"));
-		
+
 		String absolueFilePath = null;
 		JSONArray josnArray = req.getJSONArray("files");
 		for (int index = 0; index < josnArray.length(); index++) {
@@ -750,7 +752,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		File file = new File(absolueFilePath);
 		File[] listFiles = file.listFiles();
-		
+
 		for (File specificFile : listFiles) {
 			if (formParams.get("operation").equalsIgnoreCase("insert")
 					&& specificFile.getName().equals(formParams.get("tableName") + ".csv")) {
@@ -774,7 +776,7 @@ public class AdminTestUtil extends BaseTestCase {
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 		}
-	
+
 	}
 
 	/**
@@ -863,13 +865,13 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		System.out.println("inputJson is::" + inputJson);
 		JSONObject req = new JSONObject(inputJson);
-		System.out.println("req is::" +req);
+		System.out.println("req is::" + req);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
 		for (String param : params) {
-			System.out.println("param is::" +param);
+			System.out.println("param is::" + param);
 			if (req.has(param)) {
-				System.out.println("req is::" +req);
+				System.out.println("req is::" + req);
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
 			} else
@@ -1155,15 +1157,13 @@ public class AdminTestUtil extends BaseTestCase {
 					String identifierKeyName = getAutogenIdKeyName(testCaseName, filedName);
 					if (responseJson.has(filedName))
 						props.put(identifierKeyName, responseJson.get(filedName).toString());
-					else if(responseJson.has("data")) {
+					else if (responseJson.has("data")) {
 						org.json.JSONArray responseArray = responseJson.getJSONArray("data");
-						
-						
+
 						JSONObject eachJSON = (JSONObject) responseArray.get(0);
 						System.out.println(eachJSON.get(filedName));
 						props.put(identifierKeyName, eachJSON.get(filedName));
-					}
-					else
+					} else
 						props.put(identifierKeyName, responseJson.getJSONObject("identity").get(filedName));
 				} else {
 					logger.error("Response doesn't contain autogenerated field: " + filedName + " to write- Response : "
@@ -1414,6 +1414,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
+			System.out.print(input);
 			Map<String, Object> map = gson.fromJson(input, type);
 			String templateJsonString;
 			if (readFile) {
@@ -1487,13 +1488,11 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
 			jsonString = jsonString.replace("$RID$", genRid);
-		
-		
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
 			jsonString = jsonString.replace("$SCHEMAVERSION$", generateLatestSchemaVersion());
 		if (jsonString.contains("$1STLANG$"))
-			jsonString = jsonString.replace("$1STLANG$",BaseTestCase.languageList.get(0));
+			jsonString = jsonString.replace("$1STLANG$", BaseTestCase.languageList.get(0));
 		if (jsonString.contains("$2NDLANG$"))
 			jsonString = jsonString.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
 		if (jsonString.contains("$3RDLANG$"))
@@ -2229,6 +2228,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String modifySchemaGenerateHbs() {
+		String ja3 = "";
 		if (identityHbs != null) {
 			return identityHbs;
 		}
@@ -2275,28 +2275,65 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
 				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
-					JSONObject jo = new JSONObject();
+					
 
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
+					
+					 JSONArray jArray = new JSONArray();
 
-					JSONArray ja = new JSONArray();
+					ja3 = "{\n\t\t  \"language\":";
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value",  propsMap.getProperty(objIDJson3));
+					         jArray.put(studentJSON);
+					    }
+						
+						// + BaseTestCase.getLanguageList().get(j) +",\n\t\t \"value\":
+						// \""+objIDJson3+"\\n\t\t}\"";
+						/*
+						 * if (j == BaseTestCase.getLanguageList().size() - 1) { ja3 = ja3 +
+						 * BaseTestCase.getLanguageList().get(j) + ",\n\t\t  \"value\": \"" + objIDJson3
+						 * + "\\n\t\t}\""; languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":";
+						 * 
+						 * } else { ja3 = ja3 + BaseTestCase.getLanguageList().get(j) +
+						 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\"";
+						 * languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":"; }
+						 */
+					}
 
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+					/*
+					 * String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t" +
+					 * "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
+					 * + "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+					 */
+
+					/*
+					 * for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) { ja3 =
+					 * "{\n\t\t  \"language\":" + BaseTestCase.getLanguageList().get(j) +
+					 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\""; }
+					 */
 
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", ja3);
+					mainObj.put("fullName", jArray);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
-					myWriter.write(ja3);
-					myWriter.write("\n\t  ],\n");
+					
+					/*
+					 * for (String list : languageDetails) { myWriter.write(list); }
+					 */
+					 
+					
+					myWriter.write(jArray.toString());
+					//myWriter.write(ja3);
+					myWriter.write("\n\t,\n");
 					myWriter.close();
 
 				} else {
@@ -2436,28 +2473,37 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
 				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
-					JSONObject jo = new JSONObject();
-
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
-
-					JSONArray ja = new JSONArray();
-
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
-
+					
+					JSONArray jArray = new JSONArray();
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value",  propsMap.getProperty(objIDJson3));
+					         jArray.put(studentJSON);
+					    }
+						}
+					
+					
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", ja3);
+					mainObj.put("fullName", jArray);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
-					myWriter.write(ja3);
-					myWriter.write("\n\t  ],\n");
+					
+					/*
+					 * for (String list : languageDetails) { myWriter.write(list); }
+					 */
+					 
+					
+					myWriter.write(jArray.toString());
+					myWriter.write("\n\t  ,\n");
 					myWriter.close();
 
 				} else {
@@ -2527,10 +2573,10 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String generateHbsForPrereg(boolean isItUpdate) {
-		if ( isItUpdate && preregHbsForUpdate != null) {
+		if (isItUpdate && preregHbsForUpdate != null) {
 			return preregHbsForUpdate;
 		}
-		
+
 		if (!isItUpdate && preregHbsForCreate != null) {
 			return preregHbsForCreate;
 		}
@@ -2563,39 +2609,35 @@ public class AdminTestUtil extends BaseTestCase {
 			System.out.println(objIDJson2);
 			JSONArray objIDJson1 = objIDJson.getJSONArray("required");
 			System.out.println(objIDJson1);
-			
-			ArrayList<String> list = new ArrayList<String>();     
 
-			if (objIDJson1 != null) { 
-			   int len = objIDJson1.length();
-			   for (int i=0;i<len;i++){ 
-			    list.add(objIDJson1.get(i).toString());
-			   } 
+			ArrayList<String> list = new ArrayList<String>();
+
+			if (objIDJson1 != null) {
+				int len = objIDJson1.length();
+				for (int i = 0; i < len; i++) {
+					list.add(objIDJson1.get(i).toString());
+				}
 			}
 			list.add("residenceStatus");
-			//Remove the element from arraylist
-			if(list.contains("proofOfIdentity")) {
+			// Remove the element from arraylist
+			if (list.contains("proofOfIdentity")) {
 				list.remove("proofOfIdentity");
 			}
-			
-			if(list.contains("individualBiometrics")) {
+
+			if (list.contains("individualBiometrics")) {
 				list.remove("individualBiometrics");
 			}
-			
-			//Recreate JSON Array
+
+			// Recreate JSON Array
 			JSONArray newIdJson = new JSONArray(list);
-			
-			
-			
 
 			FileWriter myFile = new FileWriter("createPrereg.hbs");
 			myFile.write("{\n");
 			myFile.write("  \"id\": \"{{id}}\",\n");
-			if ( isItUpdate ) {
+			if (isItUpdate) {
 				myFile.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
 			}
-		
-			
+
 			myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
 			myFile.write("  \"version\": \"{{version}}\",\n");
 			myFile.write("  \"request\": {\n");
@@ -2604,52 +2646,55 @@ public class AdminTestUtil extends BaseTestCase {
 			myFile.write("    \"demographicDetails\": {\n");
 
 			myFile.write("      \"identity\": {\n");
-			/*
-			 * myFile.write("      \"residenceStatus\": [\r\n" + "          {\r\n" +
-			 * "            \"language\": \"eng\",\r\n" +
-			 * "            \"value\": \"NFR\"\r\n" + "          },\r\n" + "          {\r\n"
-			 * + "            \"language\": \"fra\",\r\n" +
-			 * "            \"value\": \"NFR\"\r\n" + "          }\r\n" + "        ],");
-			 */
 			
+
 			myFile.close();
 
 			boolean flag = true;
 			for (int i = 0, size = newIdJson.length(); i < size; i++) {
 				String objIDJson3 = newIdJson.getString(i);
-				
+
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
-              
-				//If the simple type is a language dependent
-				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) || 
-						objIDJson3.contains("residenceStatus")) {
-					JSONObject jo = new JSONObject();
 
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
+				// If the simple type is a language dependent
+				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType"))
+						|| objIDJson3.contains("residenceStatus")) {
+					
+					
+					
+					JSONArray jArray = new JSONArray();
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value", objIDJson3);
+					         jArray.put(studentJSON);
+					    }
+						}
+					
 
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
 
 					JSONObject mainObj = new JSONObject();
-					//mainObj.put("fullName", ja3);
-					//mainObj.put("residenceStatus", ja3);
+					// mainObj.put("fullName", ja3);
+					// mainObj.put("residenceStatus", ja3);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
-					myWriter.write("\t  ,\"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  ,\"" + objIDJson3 + "\": ");
 
-					myWriter.write(ja3);
-					if(ja3.contains("residenceStatus")) {
-						myWriter.write("\n\t  ]\n}\n}\n}\n}\n");
+					myWriter.write(jArray.toString());
+					//myWriter.write("\n\t  ,\n");
+					myWriter.write("\t");
+					if (jArray.toString().contains("residenceStatus")) {
+						myWriter.write("\n\t  \n}\n}\n}\n}\n");
+					} else {
+						myWriter.write("\n\t  \n");
 					}
-					else {
-						myWriter.write("\n\t  ]\n");
-					}
-					
+
 					myWriter.close();
 
 				} else {
@@ -2661,19 +2706,16 @@ public class AdminTestUtil extends BaseTestCase {
 						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
 								+ "\n}\n}\n}\n}");
 
-					} 
-					
+					}
+
 					else if (objIDJson3.equals("IDSchemaVersion")) {
 						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
 					}
-					
-					
-					
+
 					else {
 						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
 
 					}
-					
 
 					myWriter.close();
 
@@ -2708,71 +2750,70 @@ public class AdminTestUtil extends BaseTestCase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		if(isItUpdate) {
-			
+		if (isItUpdate) {
+
 			preregHbsForUpdate = everything.toString();
 			return preregHbsForUpdate;
 		}
 		preregHbsForCreate = everything.toString();
 		return preregHbsForCreate;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
 
-    	String token = kernelAuthLib.getTokenByRole("partner");
-    	
+		String token = kernelAuthLib.getTokenByRole("partner");
+
 		String url2 = ApplnURI + props.getProperty("policyGroupUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(policyGroupRequest);
-		
+
 		org.json.simple.JSONObject modifiedReq = new org.json.simple.JSONObject();
 		modifiedReq.put("desc", "desc mosip auth policy group");
 		modifiedReq.put("name", policyGroup);
-		
+
 		actualrequest.put("request", modifiedReq);
-		
-		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
 		String responseBody2 = response2.getBody().asString();
 		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
 		System.out.println(policygroupId);
 		System.out.println(responseBody2);
-    	
 
 		String url = ApplnURI + props.getProperty("authPolicyUrl");
 		org.json.simple.JSONObject actualrequestBody = getRequestJson(AuthPolicyBody);
 		org.json.simple.JSONObject actualrequest2 = getRequestJson(AuthPolicyRequest);
 		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AuthPolicyRequestAttr);
-		
+
 		actualrequest2.put("name", policyName);
 		actualrequest2.put("policyGroupName", policyGroup);
 		actualrequest2.put("policies", actualrequestAttr);
 		actualrequestBody.put("request", actualrequest2);
-		
-		
-		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+
+		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
 		String responseBody = response.getBody().asString();
 		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
 		System.out.println(policyId);
 		System.out.println(responseBody);
 
-		
-		
 		String url3 = ApplnURI + props.getProperty("publishPolicyurl");
-		
-		if(url3.contains("POLICYID"))
-		{
-			url3=url3.replace("POLICYID", policyId);
-			url3=url3.replace("POLICYGROUPID", policygroupId);
-			
+
+		if (url3.contains("POLICYID")) {
+			url3 = url3.replace("POLICYID", policyId);
+			url3 = url3.replace("POLICYGROUPID", policygroupId);
+
 		}
-		
-		
-		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		
-		//Response response3 = RestClient.postRequestWithCookie(url3, actualrequest3, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+
+		// Response response3 = RestClient.postRequestWithCookie(url3, actualrequest3,
+		// MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
+		// token);
 		String responseBody3 = response3.getBody().asString();
 		System.out.println(responseBody3);
-		
+
 	}
 
 }
