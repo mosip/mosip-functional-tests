@@ -134,6 +134,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String SIGNATURE_HEADERNAME = "signature";
 	public static Properties props = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+	public static Properties propsMap = getproperty(
+			MosipTestRunner.getResourcePath() + "/" + "config/valueMapping.properties");
 	public static Properties propsBio = getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	public static Properties propsKernel = getproperty(
@@ -150,6 +152,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String policyName = "mosip auth policy " + timeStamp;
 	public static String UpdateUinRequest = "config/Authorization/requestIdentity.json";
 	private static String authInternalRequest = "config/Authorization/internalAuthRequest.json";
+	public static List<String> languageDetails = new ArrayList<>();
 	private static String AuthPolicyBody = "config/AuthPolicy.json";
 	private static String AuthPolicyRequest = "config/AuthPolicy3.json";
 	private static String AuthPolicyRequestAttr = "config/AuthPolicy2.json";
@@ -1568,6 +1571,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
+			System.out.print(input);
 			Map<String, Object> map = gson.fromJson(input, type);
 			String templateJsonString;
 			if (readFile) {
@@ -2410,6 +2414,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String modifySchemaGenerateHbs() {
+		String ja3 = "";
 		if (identityHbs != null) {
 			return identityHbs;
 		}
@@ -2456,28 +2461,65 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
 				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
-					JSONObject jo = new JSONObject();
+					
 
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
+					
+					 JSONArray jArray = new JSONArray();
 
-					JSONArray ja = new JSONArray();
+					ja3 = "{\n\t\t  \"language\":";
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value",  propsMap.getProperty(objIDJson3));
+					         jArray.put(studentJSON);
+					    }
+						
+						// + BaseTestCase.getLanguageList().get(j) +",\n\t\t \"value\":
+						// \""+objIDJson3+"\\n\t\t}\"";
+						/*
+						 * if (j == BaseTestCase.getLanguageList().size() - 1) { ja3 = ja3 +
+						 * BaseTestCase.getLanguageList().get(j) + ",\n\t\t  \"value\": \"" + objIDJson3
+						 * + "\\n\t\t}\""; languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":";
+						 * 
+						 * } else { ja3 = ja3 + BaseTestCase.getLanguageList().get(j) +
+						 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\"";
+						 * languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":"; }
+						 */
+					}
 
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+					/*
+					 * String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t" +
+					 * "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
+					 * + "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
+					 */
+
+					/*
+					 * for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) { ja3 =
+					 * "{\n\t\t  \"language\":" + BaseTestCase.getLanguageList().get(j) +
+					 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\""; }
+					 */
 
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", ja3);
+					mainObj.put("fullName", jArray);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
-					myWriter.write(ja3);
-					myWriter.write("\n\t  ],\n");
+					
+					/*
+					 * for (String list : languageDetails) { myWriter.write(list); }
+					 */
+					 
+					
+					myWriter.write(jArray.toString());
+					//myWriter.write(ja3);
+					myWriter.write("\n\t,\n");
 					myWriter.close();
 
 				} else {
@@ -2617,28 +2659,37 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
 				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
-					JSONObject jo = new JSONObject();
-
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
-
-					JSONArray ja = new JSONArray();
-
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
-
+					
+					JSONArray jArray = new JSONArray();
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value",  propsMap.getProperty(objIDJson3));
+					         jArray.put(studentJSON);
+					    }
+						}
+					
+					
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", ja3);
+					mainObj.put("fullName", jArray);
 
 					System.out.println(mainObj);
 
 					FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
-					myWriter.write(ja3);
-					myWriter.write("\n\t  ],\n");
+					
+					/*
+					 * for (String list : languageDetails) { myWriter.write(list); }
+					 */
+					 
+					
+					myWriter.write(jArray.toString());
+					myWriter.write("\n\t  ,\n");
 					myWriter.close();
 
 				} else {
@@ -2781,13 +2832,7 @@ public class AdminTestUtil extends BaseTestCase {
 			myFile.write("    \"demographicDetails\": {\n");
 
 			myFile.write("      \"identity\": {\n");
-			/*
-			 * myFile.write("      \"residenceStatus\": [\r\n" + "          {\r\n" +
-			 * "            \"language\": \"eng\",\r\n" +
-			 * "            \"value\": \"NFR\"\r\n" + "          },\r\n" + "          {\r\n"
-			 * + "            \"language\": \"fra\",\r\n" +
-			 * "            \"value\": \"NFR\"\r\n" + "          }\r\n" + "        ],");
-			 */
+			
 
 			myFile.close();
 
@@ -2800,14 +2845,22 @@ public class AdminTestUtil extends BaseTestCase {
 				// If the simple type is a language dependent
 				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType"))
 						|| objIDJson3.contains("residenceStatus")) {
-					JSONObject jo = new JSONObject();
+					
+					
+					
+					JSONArray jArray = new JSONArray();
+					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+						
+						
+						{
+					         JSONObject studentJSON = new JSONObject();
+					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
+					         studentJSON.put("value", objIDJson3);
+					         jArray.put(studentJSON);
+					    }
+						}
+					
 
-					jo.put("language", "{{language}}");
-					jo.put("value", "{{value}}");
-
-					String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t"
-							+ "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-							+ "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
 
 					JSONObject mainObj = new JSONObject();
 					// mainObj.put("fullName", ja3);
@@ -2817,13 +2870,15 @@ public class AdminTestUtil extends BaseTestCase {
 
 					FileWriter myWriter = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
-					myWriter.write("\t  ,\"" + objIDJson3 + "\": [\n\t   ");
+					myWriter.write("\t  ,\"" + objIDJson3 + "\": ");
 
-					myWriter.write(ja3);
-					if (ja3.contains("residenceStatus")) {
-						myWriter.write("\n\t  ]\n}\n}\n}\n}\n");
+					myWriter.write(jArray.toString());
+					//myWriter.write("\n\t  ,\n");
+					myWriter.write("\t");
+					if (jArray.toString().contains("residenceStatus")) {
+						myWriter.write("\n\t  \n}\n}\n}\n}\n");
 					} else {
-						myWriter.write("\n\t  ]\n");
+						myWriter.write("\n\t  \n");
 					}
 
 					myWriter.close();

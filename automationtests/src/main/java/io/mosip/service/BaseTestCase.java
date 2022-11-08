@@ -80,7 +80,7 @@ public class BaseTestCase {
 	public String autoTstUsrCkie = null;
 	public static String currentModule = "masterdata";
 	public static List<String> listOfModules = null;
-
+	public static List<String> languageList = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
 	public static Map<?, ?> queries;
@@ -110,7 +110,7 @@ public class BaseTestCase {
 	public static String adminRegProcAuthToken;
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
-	public static List<String> languageList = new ArrayList<>();
+	public static List<String> t = new ArrayList<>();
 	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
 	
