@@ -133,8 +133,17 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 			}
 
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+			Map<String, List<OutputValidationDto>> ouputValid = null;
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				
+				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid.put("expected vs actual", List.of(customResponse));
+			}else {
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			}
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

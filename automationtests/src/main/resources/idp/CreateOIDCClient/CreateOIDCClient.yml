@@ -55,7 +55,7 @@ CreateOIDCClient:
     	"status": "ACTIVE"
 }'
 
-   IDP_CreateOIDCClient_Invalid_Token_Neg:
+   IDP_CreateOIDCClient_StatusCode_Invalid_Token_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client
       role: resident
       restMethod: post
@@ -78,10 +78,7 @@ CreateOIDCClient:
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
-      output: '{
-        "clientId": "$IGNORE$",
-    	"status": "ACTIVE"
-}'
+      output: "403"
 
    IDP_CreateOIDCClient_Invalid_ClientId_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client
