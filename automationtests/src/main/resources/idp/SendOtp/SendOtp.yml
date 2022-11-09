@@ -1,16 +1,389 @@
 SendOtp:
    IDP_SendOtp_all_Valid_Smoke:
-      endPoint: /authorization/send-otp
+      endPoint: /v1/idp/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/SendOtp/SendOtpResult
       input: '{
+      	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "8267411571",
-	    "otpChannels": ["PHONE","EMAIL"]
+	    "channel1": "email",
+	    "channel2": "sms"
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
     	"maskedMobile": "$IGNORE$"
+}'
+
+   IDP_SendOtp_Invalid_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "transactionId",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Expired_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Missing_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$REMOVE$",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Empty_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Null_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "null",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Delay_eotp_transactionId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Invalid_individualId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "@@#$#VGH",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "send_otp_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Missing_individualId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$REMOVE$",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Empty_individualId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Null_individualId_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "null",
+	    "channel1": "email",
+	    "channel2": "sms"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "send_otp_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Invalid_OtpChannels_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "channel1": "Random1",
+	    "channel2": "Random2"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Missing_OtpChannels_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "channel1": "$REMOVE$",
+	    "channel2": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "size must be between 1 and 2",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Empty_OtpChannels_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "channel1": "",
+	    "channel2": ""
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Null_OtpChannels_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "channel1": "null",
+	    "channel2": "null"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Missing_OtpChannel_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "otpChannels": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Empty_OtpChannel_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "otpChannels": ""
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown_error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Null_OtpChannel_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "8267411571",
+	    "otpChannels": "null"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown_error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'

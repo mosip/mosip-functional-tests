@@ -26,6 +26,33 @@ UpdateOIDCClient:
         "status": "ACTIVE"
 }'
 
+   IDP_UpdateOIDCClient_2_all_Valid_Smoke:
+      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      role: partner
+      restMethod: put
+      inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
+      outputTemplate: idp/UpdateOIDCClient/UpdateOIDCClientResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"status": "ACTIVE",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"clientId": "$ID:CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid_clientId$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+
    IDP_UpdateOIDCClient_Invalid_clientId_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
       role: partner
