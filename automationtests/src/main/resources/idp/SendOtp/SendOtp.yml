@@ -127,28 +127,6 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Delay_eotp_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
-      role: resident
-      restMethod: post
-      inputTemplate: idp/SendOtp/SendOtp
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
-	    "channel1": "email",
-	    "channel2": "sms"
-}'
-      output: '{
-      	"errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
    IDP_SendOtp_Invalid_individualId_Neg:
       endPoint: /v1/idp/authorization/send-otp
       role: resident
@@ -165,7 +143,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "send_otp_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -231,7 +209,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "send_otp_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -253,7 +231,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -297,7 +275,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -319,7 +297,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]

@@ -1270,3 +1270,164 @@ OAuthDetailsRequest:
     }
   ]
 }'
+
+   IDP_OAuthDetailsRequest_Invalid_Prompt_Neg:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "abc",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       	"errors": [
+    {
+      "errorCode": "invalid_prompt",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_OAuthDetailsRequest_Missing_Prompt_Pos:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "$REMOVE$",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+}'
+
+   IDP_OAuthDetailsRequest_Empty_Prompt_Pos:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       	
+}'
+
+   IDP_OAuthDetailsRequest_Null_Prompt_Neg:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "null",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       	"errors": [
+    {
+      "errorCode": "invalid_prompt",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_OAuthDetailsRequest_space_delimited_Prompt_Neg:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "select account",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       	"errors": [
+    {
+      "errorCode": "invalid_prompt",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_OAuthDetailsRequest_Invalid_Id_Scope_Neg:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "$REMOVE$",
+      	"responseType": "$REMOVE$",
+      	"redirectUri": "https://health-services.com/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       	"errors": [
+    {
+      "errorCode": "invalid_scope",
+      "errorMessage": "$IGNORE$"
+    },
+    {
+      "errorCode": "invalid_response_type",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
