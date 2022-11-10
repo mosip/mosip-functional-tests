@@ -126,28 +126,6 @@ AuthenticateUser:
   ]
 }'
 
-   IDP_AuthenticateUserIDP_Delay_eotp_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
-      role: resident
-      restMethod: post
-      inputTemplate: idp/AuthenticateUser/AuthenticateUser
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
-}'
-      output: '{
-      	"errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
    IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg:
       endPoint: /v1/idp/authorization/authenticate
       role: resident
