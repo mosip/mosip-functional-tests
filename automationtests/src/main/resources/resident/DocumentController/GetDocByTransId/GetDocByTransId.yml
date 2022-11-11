@@ -29,3 +29,21 @@ GetDocByTransId:
     }
   ]
 }'
+
+   Resident_GetDocByTransId_Invalid_Token:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: partner
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransId
+      outputTemplate: resident/error
+      input: '{
+      		"transactionId": "1234567889"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}'
