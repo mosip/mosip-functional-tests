@@ -190,3 +190,27 @@ UploadDocument:
     }
   ]     
 }'
+
+   Resident_UploadDocument_Invalid_Token:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: partner
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ] 
+}'
