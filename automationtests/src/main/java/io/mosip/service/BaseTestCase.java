@@ -224,6 +224,14 @@ public class BaseTestCase {
 			
 		}
 		
+		
+		if (listOfModules.contains("mimoto")){
+			BaseTestCase.currentModule = "mimoto";
+			setReportName("mimoto");
+			AdminTestUtil.initiateMimotoTest();
+			
+		}
+		
 		if (listOfModules.contains("idp")){
 			BaseTestCase.currentModule = "idp";
 			setReportName("idp");

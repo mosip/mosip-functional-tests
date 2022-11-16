@@ -1,0 +1,14 @@
+AidGetIndividualId:
+   MobileId_AuthLock_Valid_UIN_All:
+      endPoint: /residentmobileapp/aid/get-individual-id
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
+      input: '{
+        "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_registrationId$"
+    }'
+      output: '{
+  "registrationId": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)"
+}'

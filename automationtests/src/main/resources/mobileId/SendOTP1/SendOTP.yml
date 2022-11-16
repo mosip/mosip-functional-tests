@@ -1,0 +1,37 @@
+SendOTP:
+   MobileId_SendOTP_Valid_UIN_All_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/SendOTP/createSendOTP
+      outputTemplate: mobileId/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }'
+   MobileId_SendOTP_InValid_UIN_All:
+      endPoint: /residentmobileapp/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/SendOTP/createSendOTP
+      outputTemplate: mobileId/error
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "4Y4B4 N@&&&&",
+    "individualIdType": "UIN"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "$IGNORE$"
+    }
+  ]
+    }'
