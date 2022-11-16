@@ -4,6 +4,17 @@
     "requestTime": "{{requestTime}}",
     "request": {
         "transactionId": "{{transactionId}}",
-        "acceptedClaims": [ "given_name", "gender", "email" ]
+        "acceptedClaims": [
+	      {{#each acceptedClaims}}
+	            "{{claim}}"
+	          {{#unless @last}},{{/unless}}
+	      	{{/each}}
+        ],
+        "permittedAuthorizeScopes": [
+	      {{#each permittedAuthorizeScopes}}
+	            "{{scope}}"
+	          {{#unless @last}},{{/unless}}
+	      	{{/each}}
+    ]
     }
 }

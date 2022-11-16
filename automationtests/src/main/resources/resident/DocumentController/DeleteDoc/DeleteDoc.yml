@@ -51,3 +51,22 @@ DeleteDoc:
     }
   ]
 }'
+
+   Resident_DeleteDoc_Invalid_Token:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: partner
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "1234567889",
+		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}'

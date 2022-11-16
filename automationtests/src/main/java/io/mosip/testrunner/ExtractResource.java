@@ -55,6 +55,7 @@ public class ExtractResource {
 		/* getListOfFilesFromJarAndCopyToExternalResource("db"); */
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 		getListOfFilesFromJarAndCopyToExternalResource("mobileId/");
+		getListOfFilesFromJarAndCopyToExternalResource("idp/");
 	}
 	
 	/**
