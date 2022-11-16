@@ -1,0 +1,14 @@
+individualOTP:
+   MobileId_individualOTP_All_Valid_Smoke:
+      endPoint: /residentmobileapp/req/individualId/otp
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/SendOTPUIN/individualIdOtp
+      outputTemplate: mobileId/SendOTPUIN/individualIdOtpResult
+      input: '{
+    "aid": "$RID$"
+  }'
+      output: '{
+        "maskedMobile": "XXXXXX7143",
+        "maskedEmail": "XXkXXlXXhXXuXXr@technoforte.co.in"
+    }'
