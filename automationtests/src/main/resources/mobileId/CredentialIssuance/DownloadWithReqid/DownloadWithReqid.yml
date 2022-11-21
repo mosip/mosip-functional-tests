@@ -1,0 +1,29 @@
+DownloadCredential:
+   MobileId_CredentialsStatus_All_Valid_Smoke_euin:
+      endPoint: /residentmobileapp/credentialshare/download
+      role: resident
+      restMethod: get
+      inputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqid
+      outputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
+      input: '{
+        "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
+        "requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+        "Content-Type": "application/pdf",
+        "filename": "$IGNORE$"
+    }'
+   MobileId_CredentialsStatus_InValid_Smoke_euin:
+      endPoint: /residentmobileapp/credentialshare/download
+      role: resident
+      restMethod: get
+      inputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqid
+      outputTemplate: mobileId/error
+      input: '{
+        "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
+        "requesttime": "$TIMESTAMP$"
+    }'
+      output: ' {
+        "Content-Type": "application/pdf",
+        "filename": "$IGNORE$"
+    }'
