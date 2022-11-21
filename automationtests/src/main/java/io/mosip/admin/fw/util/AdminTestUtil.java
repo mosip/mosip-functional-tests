@@ -1694,7 +1694,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$IDENTITYJSON$", generateIdentityJson(testCaseName));
 		}
 		if (jsonString.contains("$RANDOMID$")) {
-			jsonString = jsonString.replace("$RANDOMID2$", randomId2);
+			jsonString = jsonString.replace("$RANDOMID$2", randomId2);
 			jsonString = jsonString.replace("$RANDOMID$", randomId);
 		}
 
