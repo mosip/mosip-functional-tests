@@ -55,6 +55,70 @@ CreateOIDCClient:
     	"status": "ACTIVE"
 }'
 
+   IDP_CreateOIDCClient_Invalid_RequestTime_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "Bharathi-Inc",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Diff_RequestTime_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"clientId": "$RANDOMID$",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "Bharathi-Inc",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
    IDP_CreateOIDCClient_StatusCode_Invalid_Token_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client
       role: resident

@@ -53,6 +53,68 @@ UpdateOIDCClient:
         "status": "ACTIVE"
 }'
 
+   IDP_UpdateOIDCClient_Invalid_RequestTime_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      role: partner
+      restMethod: put
+      inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30",
+      	"status": "ACTIVE",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_UpdateOIDCClient_Diff_RequestTime_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      role: partner
+      restMethod: put
+      inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"status": "ACTIVE",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
    IDP_UpdateOIDCClient_Invalid_clientId_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
       role: partner
@@ -188,7 +250,7 @@ UpdateOIDCClient:
       	"status": "ACTIVE",
       	"clientName": " MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"clientId": "$ID:CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid_clientId$",
       	"redirectUris": "https://health-services.com/userprofile",
       	"userClaims1": "given_name",
       	"userClaims2": "email",
@@ -233,7 +295,7 @@ UpdateOIDCClient:
       output: '{
         "errors": [
     {
-      "errorCode": "must match \"^(ACTIVE)|(INACTIVE)$\"",
+      "errorCode": "invalid_status",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -326,7 +388,7 @@ UpdateOIDCClient:
       output: '{
         "errors": [
     {
-      "errorCode": "must not be blank",
+      "errorCode": "invalid_redirect_uri",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -451,10 +513,6 @@ UpdateOIDCClient:
         "errors": [
     {
       "errorCode": "invalid_acr",
-      "errorMessage": "$IGNORE$"
-    },
-    {
-      "errorCode": "must not be blank",
       "errorMessage": "$IGNORE$"
     }
   ]
