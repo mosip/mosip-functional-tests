@@ -159,7 +159,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -181,7 +181,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -225,7 +225,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -291,7 +291,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -313,7 +313,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -335,7 +335,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -357,7 +357,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -379,7 +379,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -401,7 +401,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -423,7 +423,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -445,7 +445,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "unknown_error",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -467,7 +467,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -489,7 +489,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -511,7 +511,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_failed",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]

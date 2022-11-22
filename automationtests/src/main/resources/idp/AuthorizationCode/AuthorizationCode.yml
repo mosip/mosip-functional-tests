@@ -48,7 +48,7 @@ AuthorizationCode:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -68,7 +68,7 @@ AuthorizationCode:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -129,7 +129,7 @@ AuthorizationCode:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_scope",
+      "errorCode": "invalid_permitted_scope",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -150,7 +150,7 @@ AuthorizationCode:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_scope",
+      "errorCode": "invalid_permitted_scope",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -171,7 +171,7 @@ AuthorizationCode:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_scope",
+      "errorCode": "invalid_permitted_scope",
       "errorMessage": "$IGNORE$"
     }
   ]
