@@ -10,7 +10,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -18,7 +18,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -35,10 +35,10 @@ CreateOIDCClient:
       outputTemplate: idp/CreateOIDCClient/CreateOIDCClientResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$RANDOMID2$",
+      	"clientId": "$RANDOMID$2",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -46,7 +46,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -63,10 +63,10 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$RANDOMID2$",
+      	"clientId": "$RANDOMID$2",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -74,7 +74,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -91,7 +91,7 @@ CreateOIDCClient:
       	"clientId": "???><::}:",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -99,7 +99,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -123,7 +123,7 @@ CreateOIDCClient:
       	"clientId": "",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -131,7 +131,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -155,7 +155,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -163,7 +163,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -187,7 +187,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1",
       	"clientName": "",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -195,7 +195,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -219,7 +219,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1",
       	"clientName": "vc0neervbsu10dfbo2vu282lt0r9hf044b1q8wm957k97wpjmrmwz6kcbpv5p9zyocksfyg41u4rpm71hhqy29sqcixg1i0ed2aaxlfd9f5wtpf3py2igi3orhttvh6vqys16nmnke9qwjjr8byjflotzyw078t1azc9rvoftuhdis40mgy9uoyzoypwdbomdkjg3v9y216y7bfpiyoenhgaudirgn432u3c2x27z23zvd094m7ug4lvid8av6jhc24j",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -227,7 +227,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -251,7 +251,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv12",
       	"clientName": " MOSIP OIDC CLIENT",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -259,7 +259,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -291,7 +291,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -323,7 +323,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -347,7 +347,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1",
       	"clientName": "MOSIP OIDC CLIENT",
       	"logoUri": "",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -355,7 +355,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -379,7 +379,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1",
       	"clientName": "MOSIP OIDC CLIENT",
       	"logoUri": "jfwy2ky9paqhidten6vg2g4iznvd7l3b6pjnghdvlqzpzmcyq8vdwjm0jalich5t3ro7j716t5zsbg8rqfc99py504vqq74b7p6jtyux9qzzz9ufu24hrgicws8ntszzcwva4tlj8lz1tfubr1vneuv503kn5b591zi0gdfqgj440z86syg0ikpwhpy0hgw1qp5px8dstsoncuc5f43t0hpj3rmiejdhyswpeu6fte0z7811zxauzadx22ii3rsffc7yxu216sqtblwfly7j8r7u32vi47grtqza0yvvondsnek32tktqtb7vycyo33nqhv7rpt5al4vxxa70fablzlr7rf3xzo0u2kti791nywnqed0du1e8356vfu5fsm1tfk6hbscc7ys77hipwernpsctvw3fgvk06qunxylzfmpwz645y8p8liv8s76nwrd3xae1amleljiheuvmrn2qqzcojv65tdreti1cy1sskw3srbgig0h4n6w3l9nts4pb90l19cgmp9y9h54m69uqwwexx8r5jgtcb3cpixwg35gjhzqjo8ub0lrk4etr81b25couzom4mr2ek8s416329cd8fh9k8w2cyr2uas0h9gvvvvvpbh7701kgmpoz712mi37ny7kv6oionrf3370ycsja9eenrr3aybnpt2htl65th9fqlwcpszvhr6ffhcu6q5fss521jr111cfeeobn6byherzj6ayr0io7kgjytucorl2hwir7ragjsdshd579ts55230dvmb4iv8823p7qjf47ik66igdu6b5pn4v3108hfi3gjmre12dusj6g1066n59400183urt2ungulo395k0krhvjotfkg42msujren8pnnz8pmf6vgc3megxhzi3ypycl7o77iq2596n9141mgmgwbe2vlfcc994mv483vwjr7dko10xv3y9n60wfb04a9egu83vws66hgljzey2ore7amcvi7t89kmjfwsy8mywtmokbh9d9jr0a40p76is71t",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -387,7 +387,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -411,7 +411,7 @@ CreateOIDCClient:
       	"clientId": "2222222dddfggf",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "$REMOVE$",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -419,7 +419,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -443,7 +443,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -451,7 +451,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "invalid_acr",
+      	"authContextRefs": [{acrValues: "invalid_acr"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -475,7 +475,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -483,7 +483,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "null",
+      	"authContextRefs": [{acrValues: "null"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -507,7 +507,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -515,7 +515,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "$REMOVE$",
+      	"authContextRefs": [{acrValues: "$REMOVE$"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -539,7 +539,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -547,7 +547,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "",
+      	"authContextRefs": [{acrValues: ""}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -575,14 +575,14 @@ CreateOIDCClient:
       	"clientId": "$RA5315$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"userClaims1": "given_name",
       	"userClaims2": "email",
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -606,7 +606,7 @@ CreateOIDCClient:
       	"clientId": "$RA5315$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "xyz",
@@ -614,7 +614,7 @@ CreateOIDCClient:
       	"userClaims3": "$REMOVE$",
       	"userClaims4": "$REMOVE$",
       	"userClaims5": "$REMOVE$",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -638,7 +638,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -646,7 +646,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "$REMOVE$",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -670,7 +670,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -678,7 +678,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "null",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -702,7 +702,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -710,7 +710,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "$$@###$",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -734,7 +734,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -742,7 +742,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -766,7 +766,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -774,7 +774,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "$REMOVE$"
 }'
@@ -798,7 +798,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -806,7 +806,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "$$#@@A"
 }'
@@ -830,7 +830,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -838,7 +838,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": ""
 }'
@@ -862,7 +862,7 @@ CreateOIDCClient:
       	"clientId": "$RANDOMID$",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "$RANDOMID$",
+      	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "given_name",
@@ -870,7 +870,7 @@ CreateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "null"
 }'

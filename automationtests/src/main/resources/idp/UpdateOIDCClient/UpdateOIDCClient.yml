@@ -17,7 +17,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -44,7 +44,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -71,7 +71,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -102,7 +102,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -133,7 +133,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -164,7 +164,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -195,7 +195,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -226,7 +226,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -257,7 +257,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -288,7 +288,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -319,7 +319,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -350,7 +350,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -381,7 +381,7 @@ UpdateOIDCClient:
       	"userClaims3": "$REMOVE$",
       	"userClaims4": "$REMOVE$",
       	"userClaims5": "$REMOVE$",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -411,8 +411,8 @@ UpdateOIDCClient:
       	"userClaims2": "email",
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
-      	"userClaims5": "birthdate",
-      	"authContextRefs": "invalid_acr",
+      	"userClaims5": "birthdate", 
+      	"authContextRefs": [{acrValues: "invalid_acr"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -443,7 +443,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "",
+      	"authContextRefs": [{acrValues: ""}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -478,7 +478,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "Null",
+      	"authContextRefs": [{acrValues: "null"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -509,7 +509,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "$REMOVE$",
+      	"authContextRefs": [{acrValues: "$REMOVE$"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -540,7 +540,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "$$@###$",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -571,7 +571,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "null",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -602,7 +602,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -633,7 +633,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "$REMOVE$",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -664,7 +664,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "$$#@@A"
 }'
@@ -695,7 +695,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "null"
 }'
@@ -726,7 +726,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": ""
 }'
@@ -757,7 +757,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "$REMOVE$"
 }'
@@ -788,7 +788,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
@@ -819,7 +819,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone_number",
       	"userClaims5": "birthdate",
-      	"authContextRefs": "mosip:idp:acr:static-code",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'

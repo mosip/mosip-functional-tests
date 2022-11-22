@@ -13,7 +13,7 @@ OAuthDetailsRequest:
       	"redirectUri": "https://health-services.com/userprofile",
       	"display": "popup",
 	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
+	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en"
