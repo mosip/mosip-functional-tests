@@ -8,8 +8,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Temporary"
     }'
       output: '{
@@ -28,8 +28,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Temporary"
     }'
       output: '{
@@ -48,8 +48,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Onetimeuse"
     }'
       output: '{
@@ -68,8 +68,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -88,8 +88,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -108,8 +108,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -127,8 +127,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "tt@2165;",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -147,8 +147,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -167,8 +167,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -189,8 +189,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -212,7 +212,7 @@ GenerateVIDNew:
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
         "id": "",
-        "version": "v1",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -233,7 +233,7 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
+        "id": "mosip.resident.vid.generate",
         "version": "",
         "vidType": "Perpetual"
     }'
@@ -255,8 +255,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": ""
     }'
       output: '{
@@ -279,8 +279,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "23553265",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -302,7 +302,7 @@ GenerateVIDNew:
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
         "id": "khdfnsld",
-        "version": "v1",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -323,7 +323,7 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
+        "id": "mosip.resident.vid.generate",
         "version": "tt",
         "vidType": "Perpetual"
     }'
@@ -345,8 +345,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "sdfsdf"
     }'
       output: '{
@@ -367,8 +367,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
@@ -387,8 +387,8 @@ GenerateVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
         "vidType": "Perpetual"
     }'
       output: '{
