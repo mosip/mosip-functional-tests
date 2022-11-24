@@ -8,8 +8,8 @@ RevokeVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vidstatus",
-        "version": "v1",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
         "vidStatus": "Revoked"
     }'
       output: '{
@@ -25,8 +25,8 @@ RevokeVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vidstatus",
-        "version": "v1",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
         "vidStatus": "Revoked"
     }'
       output: '{
@@ -42,8 +42,8 @@ RevokeVIDNew:
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vidstatus",
-        "version": "v1",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
         "vidStatus": "Revoked"
     }'
       output: '{
