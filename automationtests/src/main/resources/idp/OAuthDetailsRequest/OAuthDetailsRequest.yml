@@ -185,34 +185,6 @@ OAuthDetailsRequest:
   ]
 }'
 
-   IDP_OAuthDetailsRequest_Null_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
-      role: resident
-      restMethod: post
-      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"clientId": "null",
-      	"scope": "openid resident-service profile",
-      	"responseType": "code",
-      	"redirectUri": "https://health-services.com/userprofile",
-      	"display": "popup",
-	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
-	    "nonce": "973eieljzng",
-	    "state": "eree2311",
-	    "claimsLocales": "en"
-}'
-      output: '{
-       	"errors": [
-    {
-      "errorCode": "invalid_client_id",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
    IDP_OAuthDetailsRequest_Invalid_redirectUri_Neg:
       endPoint: /v1/idp/authorization/oauth-details
       role: resident
