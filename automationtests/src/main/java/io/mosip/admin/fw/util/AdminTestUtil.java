@@ -43,6 +43,7 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MediaType;
@@ -415,7 +416,12 @@ public class AdminTestUtil extends BaseTestCase {
 			String role, String testCaseName, String idKeyName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		token = kernelAuthLib.getTokenByRole(role);
+		if (testCaseName.contains("Invalid_Token")) {
+			token = "xyz";
+		}
+		else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
@@ -997,8 +1003,12 @@ public class AdminTestUtil extends BaseTestCase {
 			} else
 				logger.error("request doesn't contanin param: " + param + " in: " + inputJson);
 		}
-
-		token = kernelAuthLib.getTokenByRole(role);
+		if (testCaseName.contains("Invalid_Token")) {
+			token = "xyz";
+		}
+		else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
 		try {
@@ -1717,6 +1727,25 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$RANDOMID$")) {
 			jsonString = jsonString.replace("$RANDOMID$2", randomId2);
 			jsonString = jsonString.replace("$RANDOMID$", randomId);
+		}
+		if (jsonString.contains("$RANDOMUUID$")) {
+			UUID uuid = UUID.randomUUID();
+			
+			//converts the randomly generated UUID into String  
+			String uuidAsString = uuid.toString();
+			jsonString = jsonString.replace("$RANDOMUUID$", uuidAsString);
+		}
+		if (jsonString.contains("$BASEURI$")) {
+			jsonString = jsonString.replace("$BASEURI$", ApplnURI);
+		}
+		if (jsonString.contains("$IDPUSER$")) {
+			jsonString = jsonString.replace("$IDPUSER$", propsKernel.getProperty("idpClientId"));
+		}
+		if (jsonString.contains("$BASE64URI$")) {
+			String redirectUri = propsKernel.getProperty("residentDomainURI")+ propsKernel.getProperty("currentUserURI");
+			String encodedRedirectUri = encodeBase64(redirectUri);
+			
+			jsonString = jsonString.replace("$BASE64URI$", encodedRedirectUri);
 		}
 
 		return jsonString;

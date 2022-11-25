@@ -142,6 +142,31 @@ CreateOIDCClient:
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'
+      output: "401"
+      
+   IDP_CreateOIDCClient_StatusCode_Diff_Token_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: idrepo
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$RANDOMID$2",
+      	"clientName": "MOSIP OIDC Client",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "Bharathi-Inc",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
       output: "403"
 
    IDP_CreateOIDCClient_Invalid_ClientId_Neg:
@@ -617,10 +642,6 @@ CreateOIDCClient:
 }'
       output: '{
         "errors": [
-    {
-      "errorCode": "must not be blank",
-      "errorMessage": "$IGNORE$"
-    },
     {
       "errorCode": "invalid_acr",
       "errorMessage": "$IGNORE$"

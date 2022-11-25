@@ -9,7 +9,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
@@ -47,7 +47,7 @@ SendOtp:
       	"requestTime": "2022-11-08T06:35:53",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -68,7 +68,7 @@ SendOtp:
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -89,12 +89,12 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -110,7 +110,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -131,7 +131,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -152,7 +152,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -173,7 +173,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
 	    "individualId": "8267411571",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
       	"errors": [
@@ -194,12 +194,12 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "@@#$#VGH",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
         "errors": [
     {
-      "errorCode": "send_otp_failed",
+      "errorCode": "mock-ida-001",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -215,7 +215,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$REMOVE$",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
         "errors": [
@@ -236,7 +236,7 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
         "errors": [
@@ -257,12 +257,12 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "null",
-	    "otpChannels": [{channel: "email"},{channel: "sms"}]
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
         "errors": [
     {
-      "errorCode": "send_otp_failed",
+      "errorCode": "mock-ida-001",
       "errorMessage": "$IGNORE$"
     }
   ]
