@@ -59,6 +59,7 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
+	public final String COOKIENAMESTATE = "state";
 	public String individualCookie = null;
 	public String idaCookie = null;
 	public String idrepoCookie = null;
