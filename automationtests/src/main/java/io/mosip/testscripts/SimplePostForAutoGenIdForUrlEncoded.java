@@ -89,16 +89,16 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		
 		String jsonInput = inputJsonKeyWordHandeler(inputJson, testCaseName);
 		
-		JSONObject request = new JSONObject(jsonInput);
-		String client_id = null;
-		if(request.has("client_id")) {
-			client_id = request.get("client_id").toString();
-		}
-		
-		if (jsonInput.contains("$CLIENT_ASSERTION_JWK$")) {
-			getJWKKey();
-			jsonInput = jsonInput.replace("$CLIENT_ASSERTION_JWK$", signJWKKey(client_id));
-		}
+//		JSONObject request = new JSONObject(jsonInput);
+//		String client_id = null;
+//		if(request.has("client_id")) {
+//			client_id = request.get("client_id").toString();
+//		}
+//		
+//		if (jsonInput.contains("$CLIENT_ASSERTION_JWK$")) {
+//			getJWKKey();
+//			jsonInput = jsonInput.replace("$CLIENT_ASSERTION_JWK$", signJWKKey(client_id));
+//		}
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
