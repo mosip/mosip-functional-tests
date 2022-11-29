@@ -73,12 +73,17 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 				Reporter.log("Exception : " + e.getMessage());
 			}
 		 
-		 if(pdf!=null && new String(pdf).contains("errors")) {
-			 throw new Exception("Not able to download UIN Card");
+		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
+			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+						+ "Not able to download UIN Card" + "</pre>");
+//			 throw new Exception("Not able to download UIN Card");
+		 }
+		 else {
+			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+						+ pdfAsText+ "</pre>");
 		 }
 				
-		Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-				+ pdfAsText+ "</pre>");
+		
        
 	}
 
