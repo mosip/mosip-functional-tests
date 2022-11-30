@@ -1,23 +1,26 @@
 GetServiceHistory:
    Resident_GetServiceHistory_all_Valid_Smoke_sid:
-      endPoint: /resident/v1/service-history
+      endPoint: /resident/v1/service-history/{langcode}
       role: residentNew
+      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
+      	"langcode": "eng"
 }'
       output: '{
       
 }'
 
    Resident_GetServiceHistory_Invalid_Token:
-      endPoint: /resident/v1/service-history
+      endPoint: /resident/v1/service-history/{langcode}
       role: resident
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
+      	"langcode": "eng"
 }'
       output: '{
       	"errors": [

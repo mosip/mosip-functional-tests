@@ -329,7 +329,7 @@ CreateOIDCClient:
   ]
 }'
 
-   IDP_CreateOIDCClient_Invalid_SpaceFirst_ClientName_Neg:
+   IDP_CreateOIDCClient_Invalid_SpaceFirst_ClientId_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client
       role: partner
       restMethod: post
@@ -337,8 +337,8 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "8nr2xe4jlxa54n9okvcv12",
-      	"clientName": " MOSIP OIDC CLIENT",
+      	"clientId": " 8nr2xe4jlxa54n9okvcv12",
+      	"clientName": "MOSIP OIDC CLIENT",
       	"logoUri": "https://health-services.com/logo.png",
       	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
@@ -355,7 +355,71 @@ CreateOIDCClient:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_client_name",
+      "errorCode": "invalid_client_id",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Invalid_SpaceLast_ClientId_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "8nr2xe4jlxa54n9okvcv12 ",
+      	"clientName": "MOSIP OIDC CLIENT",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "Bharathi-Inc",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_CreateOIDCClient_Invalid_SpaceMiddle_ClientId_Neg:
+      endPoint: /v1/idp/client-mgmt/oidc-client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "8nr2xe4j lxa54n9okvcv12",
+      	"clientName": "MOSIP OIDC CLIENT",
+      	"logoUri": "https://health-services.com/logo.png",
+      	"relyingPartyId": "Bharathi-Inc",
+      	"redirectUris": "https://health-services.com/userprofile",
+      	"publicKey": "$OIDCJWKKEY$",
+      	"userClaims1": "given_name",
+      	"userClaims2": "email",
+      	"userClaims3": "gender",
+      	"userClaims4": "phone_number",
+      	"userClaims5": "birthdate",
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"grantTypes": "authorization_code",
+      	"clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_client_id",
       "errorMessage": "$IGNORE$"
     }
   ]
