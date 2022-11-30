@@ -1372,7 +1372,7 @@ OAuthDetailsRequest:
   ]
 }'
 
-   IDP_OAuthDetailsRequest_Invalid_Id_Scope_Neg:
+   IDP_OAuthDetailsRequest_Invalid_ResponseType_And_Scope_Neg:
       endPoint: /v1/idp/authorization/oauth-details
       role: resident
       restMethod: post

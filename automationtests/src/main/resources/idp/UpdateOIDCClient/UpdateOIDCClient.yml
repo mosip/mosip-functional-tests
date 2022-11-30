@@ -256,37 +256,6 @@ UpdateOIDCClient:
   ]
 }'
 
-   IDP_UpdateOIDCClient_Invalid_SpaceFirst_ClientName_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
-      role: partner
-      restMethod: put
-      inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"status": "ACTIVE",
-      	"clientName": " MOSIP OIDC Client",
-      	"logoUri": "https://health-services.com/logo.png",
-      	"clientId": "$ID:CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid_clientId$",
-      	"redirectUris": "https://health-services.com/userprofile",
-      	"userClaims1": "given_name",
-      	"userClaims2": "email",
-      	"userClaims3": "gender",
-      	"userClaims4": "phone_number",
-      	"userClaims5": "birthdate",
-      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
-      	"grantTypes": "authorization_code",
-      	"clientAuthMethods": "private_key_jwt"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_client_name",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
    IDP_UpdateOIDCClient_Invalid_status_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
       role: partner
