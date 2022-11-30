@@ -12,6 +12,7 @@ import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -57,17 +58,20 @@ public class S3Adapter {
 	private List<String> existingBuckets = new ArrayList<>();
 
 	private AmazonS3 getConnection(String bucketName) {
-		if (connection != null)
-			return connection;
 		
-		BucketLifecycleConfiguration.Rule rule1 = new BucketLifecycleConfiguration.Rule()
-                .withId("Archive and then delete rule")
-                .withFilter(new LifecycleFilter(new LifecycleTagPredicate(new Tag("archive", "true"))))
-                .withExpirationInDays(5)
-                .withStatus(BucketLifecycleConfiguration.ENABLED);
+		if (connection != null) {
+			return connection;
+		}
+		
+		BucketLifecycleConfiguration.Rule rule1 =
+			    new BucketLifecycleConfiguration.Rule()
+			      .withId("clear-content-rule")
+			      .withExpirationInDays(1)
+			      .withStatus(BucketLifecycleConfiguration.ENABLED.toString());
 		
 		BucketLifecycleConfiguration configuration = new BucketLifecycleConfiguration()
                 .withRules(Arrays.asList(rule1));
+		
 		try {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
 					ConfigManager.getS3SecretKey());
@@ -81,7 +85,7 @@ public class S3Adapter {
 			
 			connection.doesBucketExistV2(bucketName);
 			connection.setBucketLifecycleConfiguration(bucketName,configuration);
-
+			
 			
 			retry = 0;
 		} catch (Exception e) {
@@ -91,6 +95,7 @@ public class S3Adapter {
 				connection = null;
 //                LOGGER.error(SESSIONID, REGISTRATIONID,"Maximum retry limit exceeded. Could not obtain connection for "+ bucketName +". Retry count :" + retry, ExceptionUtils.getStackTrace(e));
 //                throw new ObjectStoreAdapterException(OBJECT_STORE_NOT_ACCESSIBLE.getErrorCode(), OBJECT_STORE_NOT_ACCESSIBLE.getErrorMessage(), e);
+				e.printStackTrace();
 			} else {
 				connection = null;
 				retry = retry + 1;
@@ -101,22 +106,6 @@ public class S3Adapter {
 		return connection;
 	}
 
-	/*
-	 * public boolean putObject(String account, final String container, String
-	 * source, String process, String objectName, File file) { String
-	 * finalObjectName = null; String bucketName = null;
-	 * System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname); if
-	 * (useAccountAsBucketname) { finalObjectName = getName(container, source,
-	 * process, objectName); bucketName = account; } else { finalObjectName =
-	 * getName(source, process, objectName); bucketName = container; }
-	 * System.out.println("bucketName :: "+bucketName); AmazonS3 connection =
-	 * getConnection(bucketName); if (!doesBucketExists(bucketName)) {
-	 * connection.createBucket(bucketName); if (useAccountAsBucketname)
-	 * existingBuckets.add(bucketName); }
-	 * 
-	 * connection.putObject(bucketName, finalObjectName, file); return true; }
-	 */
-	
 	public boolean putObject(String account, final String container, String source, String process, String objectName, File file) {
 		String finalObjectName = null;
 		String bucketName = null;
@@ -145,6 +134,9 @@ public class S3Adapter {
 
 	private boolean doesBucketExists(String bucketName) {
 		// use account as bucket name and bucket name is present in existing bucket list
+		System.out.println("File Name: "+getClass().getName());
+		System.out.println("BucketName*******: "+bucketName);
+		
 		if (useAccountAsBucketname && existingBuckets.contains(bucketName))
 			return true;
 		// use account as bucket name and bucket name is not present in existing bucket
@@ -158,27 +150,6 @@ public class S3Adapter {
 			return connection.doesBucketExistV2(bucketName);
 	}
 	
-	/*
-	 * public boolean reportRetentionPolicy(String bucketName) {
-	 * 
-	 * ObjectMetadata metadata = new ObjectMetadata(); System.out.println("size:" +
-	 * bytes.length); metadata.setContentLength(bytes.length);
-	 * metadata.setContentType(contentType); Date expirationTime = new Date(2025, 5,
-	 * 10); metadata.setExpirationTime(DateTime.now().toDate());
-	 * metadata.setHeader("x-amz-object-lock-retain-until-date", closerDate +
-	 * "T00:00:00.000Z"); metadata.setHeader("x-amz-object-lock-mode",
-	 * "COMPLIANCE"); byte[] md5 = Md5Utils.computeMD5Hash(baInputStream); String
-	 * md5Base64 = BinaryUtils.toBase64(md5); metadata.setHeader("Content-MD5",
-	 * md5Base64); baInputStream.reset(); PutObjectRequest putRequest = new
-	 * PutObjectRequest(bucketName, finalObjectName, baInputStream, metadata);
-	 * s3client.putObject(putRequest);
-	 * 
-	 * 
-	 * return true;
-	 * 
-	 * }
-	 */
-
 	public static String getName(String container, String source, String process, String objectName) {
 		String finalObjectName = "";
 		if (StringUtils.isNotEmpty(container))
