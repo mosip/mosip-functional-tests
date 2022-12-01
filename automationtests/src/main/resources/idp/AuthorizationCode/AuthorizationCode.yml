@@ -8,7 +8,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"redirectUri": "https://health-services.com/userprofile"
@@ -23,7 +23,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -43,7 +43,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -63,7 +63,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -83,7 +83,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -103,7 +103,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "EvOHK0ewF4AlCAVAw-aVZD1JXDNBVNtkIPGrsvxPTkw",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -123,7 +123,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: ""}]
 }'
       output: '{
@@ -144,7 +144,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: "abc"}]
 }'
       output: '{
@@ -165,7 +165,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: "null"}]
 }'
       output: '{
@@ -261,7 +261,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
@@ -281,7 +281,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "given_name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
       	"errors": [
