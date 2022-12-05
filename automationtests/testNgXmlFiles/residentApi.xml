@@ -229,6 +229,45 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequest">
+		<parameter name="ymlFile"
+			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
+			<parameter name="idKeyName"	value="transactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUser">
+		<parameter name="ymlFile"
+			value="resident/AuthenticateUser/AuthenticateUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthorizationCode">
+		<parameter name="ymlFile"
+			value="resident/AuthorizationCode/AuthorizationCode.yml" />
+			<parameter name="idKeyName"	value="code,state,redirectUri" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignJWT">
+		<parameter name="ymlFile"
+			value="resident/SignJWT/SignJWT.yml" />
+			<parameter name="idKeyName"	value="jwtSignedData" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateToken">
+		<parameter name="ymlFile"
+			value="resident/GenerateToken/GenerateToken.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
 	<test name="GetInputAttributeValues">
 		<parameter name="ymlFile"
 			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />

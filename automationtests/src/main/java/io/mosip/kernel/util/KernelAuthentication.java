@@ -1,9 +1,17 @@
 package io.mosip.kernel.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.util.StandardCharset;
+
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
@@ -59,6 +67,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authInternalRequest="config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
+	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
 
 	
 	
@@ -123,8 +132,12 @@ public class KernelAuthentication extends BaseTestCase{
 			return residentCookie;
 		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookie))
-				residentNewCookie = kernelAuthLib.getAuthForNewResident();
+			residentNewCookie = getUinAuthFromIdp();
 			return residentNewCookie;
+		case "residentnewkc":
+			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
+				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
+			return residentNewCookieKc;
 		case "hotlist":
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
@@ -141,6 +154,29 @@ public class KernelAuthentication extends BaseTestCase{
 		 
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public String getUinAuthFromIdp() {
+		String token = null;
+		if (IDPUINCookiesFile.exists()) {
+			String IDPUINCookiesFileString = null;
+			try {
+				IDPUINCookiesFileString = FileUtils.readFileToString(IDPUINCookiesFile, StandardCharset.UTF_8);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPUINCookiesFileString);
+			token = jsonCookies.get("access_token").toString();
+//			System.out.println("JSON " + jsonCookies);
+//			System.out.println("JSON " + token);
+//			System.out.println("id_token " + jsonCookies.get("id_token"));
+//			System.out.println("access_token " + jsonCookies.get("access_token"));
+		} else {
+			logger.error("IDPUINCookiesFile File not Found in location:" + IDPUINCookiesFile.getAbsolutePath());
+		}
+	return token;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
@@ -254,7 +290,7 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String getAuthForNewResident() {
+	public String getAuthForNewResidentKc() {
 
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 

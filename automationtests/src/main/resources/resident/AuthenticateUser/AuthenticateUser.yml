@@ -1,0 +1,17 @@
+AuthenticateUser:
+   Resident_IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthenticateUser/AuthenticateUser
+      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "9361573970",
+      	"authFactorType" : "PIN",
+      	"challenge" : "12345"
+}'
+      output: '{
+      
+}'
