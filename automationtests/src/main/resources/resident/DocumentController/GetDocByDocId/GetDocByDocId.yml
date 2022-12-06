@@ -1,7 +1,7 @@
 GetDocByDocId:
    Resident_GetDocByDocId_all_Valid_Smoke:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
       outputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocIdResult
@@ -15,7 +15,7 @@ GetDocByDocId:
 
    Resident_GetDocByDocId_Invalid_TransactionId:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
       outputTemplate: resident/error
@@ -34,7 +34,7 @@ GetDocByDocId:
 
    Resident_GetDocByDocId_Invalid_docId:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
       outputTemplate: resident/error

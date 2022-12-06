@@ -15,8 +15,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_GenerateVID_Temporary_VID2_Valid_Smoke_sid:
@@ -35,8 +35,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_GenerateVID_Onetimeuse_VID_Valid_Smoke_sid:
@@ -55,8 +55,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_Generate_Perpetual_VID_Phone_Valid_Smoke_sid:
@@ -75,7 +75,7 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact phone number",
-	    "maskedPhone": "******3210",
+	    "maskedPhone": "******7209",
 	    "maskedEmail": "$IGNORE$"
 }'
 
@@ -96,7 +96,7 @@ GenerateVIDNew:
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided email ",
 	    "maskedPhone": "$IGNORE$",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_Generate_Perpetual_VID_BothChannel_Valid_Smoke_sid:
@@ -115,8 +115,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
    Resident_Generate_Perpetual_VID_TransID_Invalid_Pos:
       endPoint: /resident/v1/generate-vid
@@ -134,8 +134,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_Generate_Perpetual_VID_EmptyChannel_Pos:
@@ -154,8 +154,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_Generate_Perpetual_VID_Empty_TransID_Invalid_Neg:
@@ -374,8 +374,8 @@ GenerateVIDNew:
       output: '{
       	"vid": "$IGNORE$",
 	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "******7209",
+	    "maskedEmail": "rit*******@gmail.com"
 }'
 
    Resident_GenerateVID_Perpetual_Invalid_Token:
@@ -394,7 +394,7 @@ GenerateVIDNew:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-439",
+      "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
   ]

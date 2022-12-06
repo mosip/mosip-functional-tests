@@ -48,5 +48,4 @@ RevokeVIDNew:
     }'
       output: '{
 		"message": "Notification has been sent to the provided contact detail(s)"
-  ]
 }'

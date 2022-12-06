@@ -1,7 +1,7 @@
 DeleteDoc:
    Resident_DeleteDoc_all_Valid_Smoke:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
       outputTemplate: resident/DocumentController/DeleteDoc/DeleteDocResult
@@ -16,7 +16,7 @@ DeleteDoc:
 
    Resident_DeleteDoc_Invalid_TransactionId:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
       outputTemplate: resident/error
@@ -35,7 +35,7 @@ DeleteDoc:
 
    Resident_DeleteDoc_Invalid_DocId:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
-      role: resident
+      role: residentNew
       restMethod: get
       inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
       outputTemplate: resident/error

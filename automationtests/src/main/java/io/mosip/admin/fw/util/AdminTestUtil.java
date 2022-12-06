@@ -3119,7 +3119,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId) {
-		String tempUrl = ApplnURI.replace("-internal", "");
+		String tempUrl = propsKernel.getProperty("idpBaseURI");
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 		
@@ -3128,7 +3128,7 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			// Prepare JWT with claims set
 			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(clientId)//
-					.audience(tempUrl + "/v1/idp")//
+					.audience(tempUrl)//
 					.issuer(clientId)//
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
 
