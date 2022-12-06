@@ -452,7 +452,7 @@ AuthUnlockNew:
       output: '{
   		"errors": [
 		    {
-		      "errorCode": "RES-SER-439",
+		      "errorCode": "KER-ATH-401",
 		      "message": "$IGNORE$"
 		    }
 		  ]

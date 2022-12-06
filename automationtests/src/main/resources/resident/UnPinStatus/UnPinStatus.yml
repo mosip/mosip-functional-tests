@@ -1,7 +1,7 @@
 UnPinStatus:
    Resident_UnPinStatus_all_Valid_Smoke:
       endPoint: /resident/v1/unpinned/{eventId}
-      role: resident
+      role: residentNew
       restMethod: post
       inputTemplate: resident/UnPinStatus/UnPinStatus
       outputTemplate: resident/UnPinStatus/UnPinStatusResult
@@ -15,7 +15,7 @@ UnPinStatus:
 
    Resident_UnPinStatus_Invalid_Input_Neg:
       endPoint: /resident/v1/pinned/{eventId}
-      role: resident
+      role: residentNew
       restMethod: post
       inputTemplate: resident/UnPinStatus/UnPinStatus
       outputTemplate: resident/error
@@ -26,6 +26,24 @@ UnPinStatus:
       	"errors": [
     {
       "errorCode": "RES-SER-459",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_UnPinStatus_Invalid_Token_Neg:
+      endPoint: /resident/v1/pinned/{eventId}
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UnPinStatus/UnPinStatus
+      outputTemplate: resident/error
+      input: '{
+      	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
   ]

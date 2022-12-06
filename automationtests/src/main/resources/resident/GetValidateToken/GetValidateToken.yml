@@ -1,7 +1,7 @@
 GetValidateToken:
    Resident_GetValidateToken_all_Valid_Smoke:
       endPoint: /resident/v1/authorize/admin/validateToken
-      role: residentNew
+      role: resident
       restMethod: get
       inputTemplate: resident/GetValidateToken/getValidateToken
       outputTemplate: resident/GetValidateToken/getValidateTokenResult
@@ -12,7 +12,7 @@ GetValidateToken:
 
    Resident_GetValidateToken_Invalid_Token:
       endPoint: /resident/v1/authorize/admin/validateToken
-      role: residen
+      role: null
       restMethod: get
       inputTemplate: resident/GetValidateToken/getValidateToken
       outputTemplate: resident/error
@@ -27,7 +27,7 @@ GetValidateToken:
   ]
 }'
 
-   Resident_GetValidateToken_Empty_Token:
+   Resident_GetValidateToken_Empty_Token_Neg:
       endPoint: /resident/v1/authorize/admin/validateToken
       role: 
       restMethod: get
@@ -36,4 +36,10 @@ GetValidateToken:
       input: '{
 }'
       output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
 }'

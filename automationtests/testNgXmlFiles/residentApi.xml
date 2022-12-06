@@ -215,13 +215,6 @@
 			<class name="io.mosip.testscripts.GetWithParamWithOtpGenerate" />
 		</classes>
 	</test>
-	<test name="GetRetrieveVidPolicy">
-		<parameter name="ymlFile"
-			value="resident/GetRetrieveVidPolicy/GetRetrieveVidPolicy.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="GetIdentityMapping">
 		<parameter name="ymlFile"
 			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
@@ -295,6 +288,13 @@
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetRetrieveVidPolicy">
+		<parameter name="ymlFile"
+			value="resident/GetRetrieveVidPolicy/GetRetrieveVidPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="GetPartnersByPartnerType">
