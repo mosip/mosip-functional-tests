@@ -1763,7 +1763,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$IDPUSER$", propsKernel.getProperty("idpClientId"));
 		}
 		if (jsonString.contains("$BASE64URI$")) {
-			String redirectUri = propsKernel.getProperty("residentDomainURI")+ propsKernel.getProperty("currentUserURI");
+			String redirectUri = ApplnURI.replace("api-internal", "resident")+ propsKernel.getProperty("currentUserURI");
 			String encodedRedirectUri = encodeBase64(redirectUri);
 			
 			jsonString = jsonString.replace("$BASE64URI$", encodedRedirectUri);
@@ -1779,7 +1779,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = propsKernel.getProperty("idpClientId");
-			String idpBaseURI = propsKernel.getProperty("idpBaseURI");
+			String idpBaseURI = ApplnURI.replace("-internal", "") + "/v1/idp";
 			Instant instant = Instant.now();
   
 	        // print Instant Value
@@ -3119,7 +3119,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId) {
-		String tempUrl = propsKernel.getProperty("idpBaseURI");
+		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp";
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 		
