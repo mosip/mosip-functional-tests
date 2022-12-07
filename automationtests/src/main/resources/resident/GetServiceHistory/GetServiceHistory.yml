@@ -7,7 +7,170 @@ GetServiceHistory:
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng"
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "$REMOVE$",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetServiceHistory_Invalid_LangCode_Neg:
+      endPoint: /resident/v1/service-history/{langcode}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/error
+      input: '{
+      	"langcode": "hinn",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "$REMOVE$",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetServiceHistory_StatusCode_Missing_Langcode_Neg:
+      endPoint: /resident/v1/service-history
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/error
+      input: '{
+      	"langcode": "$REMOVE$",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "$REMOVE$",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: "404"
+
+   Resident_GetServiceHistory_1_Valid_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "AUTHENTICATION_REQUEST",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetServiceHistory_2_Valid_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "SERVICE_REQUEST",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetServiceHistory_3_Valid_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "DATA_UPDATE_REQUEST",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetServiceHistory_4_Valid_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "ID_MANAGEMENT_REQUEST",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetServiceHistory_5_Valid_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetServiceHistory/GetServiceHistory
+      outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
+      input: '{
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "DATA_SHARE_REQUEST",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
 }'
       output: '{
       
@@ -20,7 +183,15 @@ GetServiceHistory:
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng"
+      	"langcode": "eng",
+      	"pageStart": "$REMOVE$",
+	    "pageFetch": "$REMOVE$",
+	    "fromDateTime": "$REMOVE$",
+	    "toDateTime": "$REMOVE$",
+	    "sortType": "$REMOVE$",
+	    "serviceType": "$REMOVE$",
+	    "statusFilter": "$REMOVE$",
+	    "searchText": "$REMOVE$"
 }'
       output: '{
       	"errors": [

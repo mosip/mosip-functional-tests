@@ -14,7 +14,26 @@ DeleteDoc:
         "message": "Document deleted successfully"
 }'
 
-   Resident_DeleteDoc_Invalid_TransactionId:
+   Resident_DeleteDoc_Invalid_TransactionId_Neg:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "Invalid",
+		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'
+
+   Resident_DeleteDoc_Invalid_Format_TransactionId_Neg:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
       role: residentNew
       restMethod: get
@@ -33,7 +52,45 @@ DeleteDoc:
   ]
 }'
 
-   Resident_DeleteDoc_Invalid_DocId:
+   Resident_DeleteDoc_Invalid_TransactionId_DocId_Neg:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "Invalid$#$%",
+		"docId": "Invalid$$#$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_DeleteDoc_Invalid_Format_TransactionId_DocId_Neg:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "Invalid",
+		"docId": "Invalid"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_DeleteDoc_Invalid_DocId_Neg:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
       role: residentNew
       restMethod: get
@@ -41,7 +98,7 @@ DeleteDoc:
       outputTemplate: resident/error
       input: '{
       	"transactionId": "1234567889",
-		"docId": "jhgf4324"
+		"docId": "Invalid"
 }'
       output: '{
   "errors": [
@@ -52,7 +109,26 @@ DeleteDoc:
   ]
 }'
 
-   Resident_DeleteDoc_Invalid_Token:
+   Resident_DeleteDoc_Invalid_Format_DocId_Neg:
+      endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/DocumentController/DeleteDoc/DeleteDoc
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "1234567889",
+		"docId": "4324567222"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- documentId"
+    }
+  ]
+}'
+
+   Resident_DeleteDoc_Invalid_Token_Neg:
       endPoint: /resident/v1/documents/{docId}?transactionId={transactionId}
       role: partner
       restMethod: get

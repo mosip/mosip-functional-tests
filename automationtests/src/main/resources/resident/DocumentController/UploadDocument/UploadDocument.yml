@@ -23,6 +23,47 @@ UploadDocument:
 	    "docFileFormat": "pdf"      
 }'
 
+   Resident_UploadDocument_StatusCode_Large_File_Neg:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/randomFile.pdf",
+	    "fileKeyName": "file"
+}'
+      output: "500"
+
+   Resident_UploadDocument_Invalid_File_Neg:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/UploadDocument.hbs",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]
+}'
+
    Resident_UploadDocument_Empty_docTypCode:
       endPoint: /resident/v1/documents/{transactionId}
       role: residentNew
@@ -44,7 +85,7 @@ UploadDocument:
       "errorCode": "RES-SER-418",
       "message": "Bad Request"
     }
-  ]   
+  ]
 }'
 
    Resident_UploadDocument_Missing_docTypCode:
@@ -143,6 +184,30 @@ UploadDocument:
   ]     
 }'
 
+   Resident_UploadDocument_Invalid_LangCode:
+      endPoint: /resident/v1/documents/{transactionId}
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "hinn",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Bad Request"
+    }
+  ]     
+}'
+
    Resident_UploadDocument_Empty_langCode:
       endPoint: /resident/v1/documents/{transactionId}
       role: residentNew
@@ -214,3 +279,20 @@ UploadDocument:
     }
   ] 
 }'
+
+   Resident_UploadDocument_StatusCode_Empty_Token:
+      endPoint: /resident/v1/documents/{transactionId}
+      role:
+      restMethod: post
+      inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
+      outputTemplate: resident/error
+      input: '{
+	    "docCatCode" : "POA",
+	    "docTypCode" : "doc008",
+	    "langCode" : "$1STLANG$",
+	    "requesttime" : "$TIMESTAMP$",
+	    "transactionId": "1234567889",
+	    "filePath": "resident/DocumentController/UploadDocument/doc_POA.pdf",
+	    "fileKeyName": "file"
+}'
+      output: "500"
