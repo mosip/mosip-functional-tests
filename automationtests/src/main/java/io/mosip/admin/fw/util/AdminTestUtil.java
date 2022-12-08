@@ -2958,7 +2958,7 @@ public class AdminTestUtil extends BaseTestCase {
 						{
 					         JSONObject studentJSON = new JSONObject();
 					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
-					         studentJSON.put("value", objIDJson3);
+					         studentJSON.put("value", propsMap.getProperty(objIDJson3));
 					         jArray.put(studentJSON);
 					    }
 						}
