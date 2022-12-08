@@ -4,7 +4,7 @@ InvalidateToken:
       role: batch
       restMethod: post
       inputTemplate: preReg/InvalidateToken/invalidatetoken
-      outputTemplate: preReg/InvalidateToken/invalidatetokenResult
+      outputTemplate: preReg/InvalidateToken/invalidatetokenresult
       input: '{
 }'
       output: '{
