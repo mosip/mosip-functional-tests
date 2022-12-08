@@ -1,0 +1,12 @@
+GetLastClickNotification:
+   Resident_GetLastClickNotification_all_Valid_Smoke:
+      endPoint: /resident/v1/bell/notification-click
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
+      outputTemplate: resident/GetLastClickNotification/GetLastClickNotificationResult
+      input: '{
+}'
+      output: '{
+      
+}'

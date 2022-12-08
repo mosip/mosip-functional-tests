@@ -268,6 +268,20 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetLastClickNotification">
+		<parameter name="ymlFile"
+			value="resident/GetLastClickNotification/GetLastClickNotification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
+		<parameter name="ymlFile"
+			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="AuditLog">
 		<parameter name="ymlFile"
 			value="resident/AuditLog/AuditLog.yml" />
