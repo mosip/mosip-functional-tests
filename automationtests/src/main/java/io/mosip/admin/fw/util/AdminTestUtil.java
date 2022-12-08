@@ -2958,7 +2958,7 @@ public class AdminTestUtil extends BaseTestCase {
 						{
 					         JSONObject studentJSON = new JSONObject();
 					         studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
-					         studentJSON.put("value", objIDJson3);
+					         studentJSON.put("value", propsMap.getProperty(objIDJson3));
 					         jArray.put(studentJSON);
 					    }
 						}
@@ -2978,7 +2978,7 @@ public class AdminTestUtil extends BaseTestCase {
 					myWriter.write(jArray.toString());
 					//myWriter.write("\n\t  ,\n");
 					myWriter.write("\t");
-					if (jArray.toString().contains("residenceStatus")) {
+					if (jArray.toString().contains("residenceStatus") || objIDJson3.contains("residenceStatus")) {
 						myWriter.write("\n\t  \n}\n}\n}\n}\n");
 					} else {
 						myWriter.write("\n\t  \n");
