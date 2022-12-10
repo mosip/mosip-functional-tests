@@ -437,7 +437,7 @@ AuthLockNew:
 
    Resident_AuthLockNew_Invalid_Token_Neg:
       endPoint: /resident/v1/auth-lock-unlock
-      role: resident
+      role: invalid
       restMethod: post
       inputTemplate: resident/AuthLockNew/CreateAuthLockNew
       outputTemplate: resident/error

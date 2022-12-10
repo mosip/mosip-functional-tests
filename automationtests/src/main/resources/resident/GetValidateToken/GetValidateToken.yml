@@ -12,7 +12,7 @@ GetValidateToken:
 
    Resident_GetValidateToken_Invalid_Token:
       endPoint: /resident/v1/authorize/admin/validateToken
-      role: null
+      role: invalid
       restMethod: get
       inputTemplate: resident/GetValidateToken/getValidateToken
       outputTemplate: resident/error
