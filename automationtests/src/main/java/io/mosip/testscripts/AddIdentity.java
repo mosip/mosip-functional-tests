@@ -105,6 +105,10 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
 			list.add(token);
 			attrmap.put("ida_token", list);
+			list = new ArrayList<String>();
+			String picture = props.getProperty("picturevalue");
+			list.add(picture);
+			attrmap.put("picture", list);
 			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"),
 					propsKernel.getProperty("new_Resident_Password"), propsKernel.getProperty("new_Resident_Role"),
 					attrmap);

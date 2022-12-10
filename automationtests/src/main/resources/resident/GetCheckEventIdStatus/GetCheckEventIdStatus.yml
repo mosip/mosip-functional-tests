@@ -1,0 +1,54 @@
+GetCheckEventIdStatus:
+   Resident_GetCheckEventIdStatus_all_Valid_Smoke:
+      endPoint: /resident/v1/events/{eventId}?langCode={langCode}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
+      outputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatusResult
+      input: '{
+      	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$",
+		"langCode": "eng"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetCheckEventIdStatus_Invalid_eventId_Neg:
+      endPoint: /resident/v1/events/{eventId}?langCode={langCode}
+      role: residentNew
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
+      outputTemplate: resident/error
+      input: '{
+      	"eventId": "164161sdsd##",
+		"langCode": "eng"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "RES-SER-459",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetCheckEventIdStatus_Invalid_LangCode_Neg:
+      endPoint: /resident/v1/events/{eventId}?langCode={langCode}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
+      outputTemplate: resident/error
+      input: '{
+      	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$",
+		"langCode": "hinn"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

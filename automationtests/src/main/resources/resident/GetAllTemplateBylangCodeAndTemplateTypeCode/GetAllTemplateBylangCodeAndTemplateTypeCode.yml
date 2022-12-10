@@ -85,7 +85,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
 
    Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_Invalid_Token:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
-      role: resident
+      role: invalid
       templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode

@@ -1,5 +1,21 @@
 AuthenticateUser:
-   Resident_IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
+#   Resident_IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
+#      endPoint: /v1/idp/authorization/authenticate
+#      role: resident
+#      restMethod: post
+#      inputTemplate: resident/AuthenticateUser/AuthenticateUser
+#      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
+#      input: '{
+#      	"requestTime": "$TIMESTAMP$",
+#      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+#      	"individualId": "2189753278",
+#      	"authFactorType" : "PIN",
+#      	"challenge" : "12345"
+#}'
+#      output: '{
+#      
+#}'
+   Resident_IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
       endPoint: /v1/idp/authorization/authenticate
       role: resident
       restMethod: post
@@ -8,9 +24,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "2189753278",
-      	"authFactorType" : "PIN",
-      	"challenge" : "12345"
+     	"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       
