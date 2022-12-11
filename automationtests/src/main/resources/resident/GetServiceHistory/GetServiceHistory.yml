@@ -701,13 +701,13 @@ GetServiceHistory:
       output: '{
       	"errors": [
 		    {
-		      "errorCode": "KER-ATH-401",
+		      "errorCode": "RES-SER-439",
 		      "message": "$IGNORE$"
 		    }
   ]
 }'
 
-   Resident_GetServiceHistory_Empty_Token:
+   Resident_GetServiceHistory_StatusCode_Empty_Token:
       endPoint: /resident/v1/service-history/{langcode}
       role:
       restMethod: get
@@ -724,11 +724,4 @@ GetServiceHistory:
 	    "statusFilter": "$REMOVE$",
 	    "searchText": "$REMOVE$"
 }'
-      output: '{
-      	"errors": [
-		    {
-		      "errorCode": "KER-ATH-401",
-		      "message": "$IGNORE$"
-		    }
-  ]
-}'
+      output: "500"

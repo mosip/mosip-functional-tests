@@ -21,7 +21,7 @@ GetValidateToken:
       output: '{
       "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-418",
       "message": "$IGNORE$"
     }
   ]
