@@ -1,0 +1,12 @@
+GetProfile:
+   Resident_GetProfile_all_Valid_Smoke:
+      endPoint: /resident/v1/profile
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetProfile/GetProfile
+      outputTemplate: resident/GetProfile/GetProfileResult
+      input: '{
+}'
+      output: '{
+        
+}'
