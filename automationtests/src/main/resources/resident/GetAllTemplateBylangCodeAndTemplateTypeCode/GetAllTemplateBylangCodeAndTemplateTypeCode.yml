@@ -95,10 +95,5 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
 		"templatetypecode": "tnc-update-demo"
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "KER-ATH-401",
-      "message": "$IGNORE$"
-    }
-  ]
+        
 }'

@@ -1,5 +1,5 @@
 AuditLog:
-   Resident_AuditLog_all_Valid_Smoke:
+   Resident_AuditLog_StatusCode_all_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/audit/log
       role: residentNew
       restMethod: post

@@ -31,20 +31,13 @@ UnPinStatus:
   ]
 }'
 
-   Resident_UnPinStatus_Invalid_Token_Neg:
+   Resident_UnPinStatus_StatusCode_Invalid_Token_Neg:
       endPoint: /resident/v1/pinned/{eventId}
-      role: resident
+      role: invalid
       restMethod: post
       inputTemplate: resident/UnPinStatus/UnPinStatus
       outputTemplate: resident/error
       input: '{
       	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$"
 }'
-      output: '{
-      	"errors": [
-    {
-      "errorCode": "KER-ATH-401",
-      "message": "$IGNORE$"
-    }
-  ]
-}'
+      output: "500"

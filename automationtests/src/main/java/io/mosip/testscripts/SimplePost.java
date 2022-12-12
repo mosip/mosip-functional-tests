@@ -122,23 +122,18 @@ public class SimplePost extends AdminTestUtil implements ITest {
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
-			if(testCaseDTO.getTestCaseName().contains("AuditLog")) {
-				OutputValidationDto customResponse = new OutputValidationDto();
-				customResponse.setActualValue(String.valueOf(response.getStatusCode()));
-				customResponse.setExpValue(testCaseDTO.getOutput());
-				customResponse.setFieldName("status");
-				if(customResponse.getActualValue().equals(customResponse.getExpValue())) {
-					customResponse.setStatus("PASS");
-				}else {
-					customResponse.setStatus("FAIL");
-				}
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 				
 				ouputValid = new HashMap<String, List<OutputValidationDto>>();
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
-			 ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			}
+			
+			System.out.println(ouputValid);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

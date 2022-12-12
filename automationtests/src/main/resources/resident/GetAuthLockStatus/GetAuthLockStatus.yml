@@ -21,7 +21,7 @@ GetAuthLockStatus:
       output: '{
   		"errors": [
 		    {
-		      "errorCode": "KER-ATH-401",
+		      "errorCode": "RES-SER-439",
 		      "message": "$IGNORE$"
 		    }
 		  ]
