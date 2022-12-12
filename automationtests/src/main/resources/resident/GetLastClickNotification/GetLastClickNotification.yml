@@ -10,3 +10,20 @@ GetLastClickNotification:
       output: '{
       
 }'
+
+   Resident_GetLastClickNotification_Invalid_Token:
+      endPoint: /resident/v1/bell/notification-click
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
+      outputTemplate: resident/error
+      input: '{
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-439",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

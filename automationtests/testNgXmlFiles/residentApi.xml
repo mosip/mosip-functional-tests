@@ -229,9 +229,9 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
+	<test name="GetProfile">
 		<parameter name="ymlFile"
-			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
+			value="resident/GetProfile/GetProfile.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -239,6 +239,34 @@
 	<test name="GetLastClickNotification">
 		<parameter name="ymlFile"
 			value="resident/GetLastClickNotification/GetLastClickNotification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="PutBellUpdatedTime">
+		<parameter name="ymlFile"
+			value="resident/PutBellUpdatedTime/PutBellUpdatedTime.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DownloadNearestRegCen">
+		<parameter name="ymlFile"
+			value="resident/DownloadNearestRegCen/DownloadNearestRegCen.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="DownloadRegCenterDetails">
+		<parameter name="ymlFile"
+			value="resident/DownloadRegCenterDetails/DownloadRegCenterDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
+		<parameter name="ymlFile"
+			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

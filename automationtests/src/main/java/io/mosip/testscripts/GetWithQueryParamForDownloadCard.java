@@ -1,9 +1,9 @@
 package io.mosip.testscripts;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +19,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
@@ -27,14 +30,14 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
-public class SimplePut extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePut.class);
+public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(GetWithQueryParamForDownloadCard.class);
 	protected String testCaseName = "";
 	public Response response = null;
-
+	public byte[] pdf=null;
+	public String pdfAsText =null;
 	/**
 	 * get current testcaseName
 	 */
@@ -51,7 +54,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: " + ymlFile);
+		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -61,64 +64,66 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	 * @param objTestParameters
 	 * @param testScenario
 	 * @param testcaseName
-	 * @throws AuthenticationTestException
-	 * @throws AdminTestException
+	 * @throws Exception 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws Exception {	
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
-			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
+//			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			//adding...
 			List<String> languageList = new ArrayList<>();
-
-			languageList =new ArrayList<String>(BaseTestCase.languageList);
+			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-
 		        	Innerloop:
 		            for (int j=i; j <languageList.size();) {
-		            	response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+		            	pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	
-		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
-						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-						
-						if (!OutputValidationUtil.publishOutputResult(ouputValid))
-							throw new AdminTestException("Failed at output validation");
-		                    break Innerloop;
+		            	try {
+		       			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
+		       			} catch (IOException e) {
+		       				Reporter.log("Exception : " + e.getMessage());
+		       			}
+		       		 
+			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
+			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+			       						+ "Not able to download UIN Card" + "</pre>");
+			       	//			 throw new Exception("Not able to download UIN Card");
+			       		 }
+			       		 else {
+			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+			       						+ pdfAsText+ "</pre>");
+			       		 }
+		            	break Innerloop;
 		            }
 		        }
-		} 
+		}  
+		
 		else {
-			response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-
-			Map<String, List<OutputValidationDto>> ouputValid = null;
-			if(testCaseName.contains("_StatusCode")) {
-				
-				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
-				
-				ouputValid = new HashMap<String, List<OutputValidationDto>>();
-				ouputValid.put("expected vs actual", List.of(customResponse));
-			}else {
-				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-			}
-			
-			System.out.println(ouputValid);
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-
-			if (!OutputValidationUtil.publishOutputResult(ouputValid))
-				throw new AdminTestException("Failed at output validation");
+			pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			try {
+				 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
+				} catch (IOException e) {
+					Reporter.log("Exception : " + e.getMessage());
+				}
+			 
+			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
+				 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+							+ "Not able to download UIN Card" + "</pre>");
+		//			 throw new Exception("Not able to download UIN Card");
+			 }
+			 else {
+				 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
+							+ pdfAsText+ "</pre>");
+			 }
 		}
-
+		 
+				
+		
 	}
 
 	/**
@@ -139,5 +144,5 @@ public class SimplePut extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}
+	}	
 }
