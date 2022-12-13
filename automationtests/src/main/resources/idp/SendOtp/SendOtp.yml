@@ -8,7 +8,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -25,7 +25,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "s m s"}]
 }'
       output: '{
@@ -46,7 +46,7 @@ SendOtp:
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -67,7 +67,7 @@ SendOtp:
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -88,7 +88,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -109,7 +109,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -130,7 +130,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -151,7 +151,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -172,7 +172,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
@@ -277,7 +277,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "Random1"},{channel: "Random2"}]
 }'
       output: '{
@@ -298,7 +298,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "$REMOVE$"},{channel: "$REMOVE$"}]
 }'
       output: '{
@@ -319,7 +319,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: ""},{channel: ""}]
 }'
       output: '{
@@ -340,7 +340,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "null"},{channel: "null"}]
 }'
       output: '{
@@ -361,7 +361,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": "$REMOVE$"
 }'
       output: '{
@@ -382,7 +382,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": ""
 }'
       output: '{
@@ -403,7 +403,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": "null"
 }'
       output: '{

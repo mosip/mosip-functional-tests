@@ -1,0 +1,390 @@
+SendBindingOtp:
+   IDP_SendBindingOtp_all_Valid_Smoke_sid:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/SendBindingOtp/SendBindingOtpResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
+}'
+
+   IDP_SendBindingOtp_Email_Valid_Smoke_sid:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/SendBindingOtp/SendBindingOtpResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"}]
+}'
+      output: '{
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
+}'
+
+   IDP_SendBindingOtp_Phone_Valid_Smoke_sid:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/SendBindingOtp/SendBindingOtpResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "mobile"}]
+}'
+      output: '{
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
+}'
+
+   IDP_SendBindingOtp_Invalid_RequestTime_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-08T06:35:53",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Past_RequestTime_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Future_RequestTime_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2033-11-07T06:51:30.195Z",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Missing_RequestTime_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$REMOVE$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Space_As_RequestTime_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": " ",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Invalid_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "168461341611351",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Invalid_Case_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "@#$#$##",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_NR_Email_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_NR_Phone_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Missing_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$REMOVE$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Empty_IndividualId_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Missing_OtpChannels_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Empty_OtpChannels_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: ""}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Invalid_OtpChannels_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "emaeill"},{channel: "moebileee"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Space_Sep_OtpChannels_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "em ail"},{channel: "mobi le"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otpChannels",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_Invalid_captchaToken_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtpWithCaptcha
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}],
+	    "captchaToken": "sfdfg"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_captchaToken",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendBindingOtp_SpaceVal_captchaToken_Neg:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtpWithCaptcha
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}],
+	    "captchaToken": " "
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_captchaToken",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
