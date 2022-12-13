@@ -91,7 +91,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 		       		 
 			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
 			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-			       						+ "Not able to download UIN Card" + "</pre>");
+			       						+ "Not able to download" + "</pre>");
 			       	//			 throw new Exception("Not able to download UIN Card");
 			       		 }
 			       		 else {
@@ -113,7 +113,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			 
 			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
 				 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-							+ "Not able to download UIN Card" + "</pre>");
+							+ "Not able to download" + "</pre>");
 		//			 throw new Exception("Not able to download UIN Card");
 			 }
 			 else {
