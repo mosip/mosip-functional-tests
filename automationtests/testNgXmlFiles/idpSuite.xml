@@ -12,11 +12,19 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
- 	<test name="ConfigurationEndpoint">
+	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
+			value="idp/AddIdentity/AddIdentity.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
+			<class name="io.mosip.testscripts.AddIdentity" />
+		</classes>
+	</test>
+	<test name="SendBindingOtp">
+		<parameter name="ymlFile"
+			value="idp/SendBindingOtp/SendBindingOtp.yml" />
+			<parameter name="idKeyName"	value="transactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="CreateOIDCClient">
@@ -100,6 +108,13 @@
 			value="idp/AuthorizationEndpoint/AuthorizationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
+		</classes>
+	</test>
+ 	<test name="ConfigurationEndpoint">
+		<parameter name="ymlFile"
+			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 </suite>
