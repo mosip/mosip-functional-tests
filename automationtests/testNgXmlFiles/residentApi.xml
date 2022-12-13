@@ -343,6 +343,13 @@
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
+	<test name="DownloadUinCardByEventId">
+		<parameter name="ymlFile"
+			value="resident/DownloadUinCardByEventId/DownloadUinCardByEventId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+		</classes>
+	</test>
 	<test name="GetCheckEventIdStatus">
 		<parameter name="ymlFile"
 			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
