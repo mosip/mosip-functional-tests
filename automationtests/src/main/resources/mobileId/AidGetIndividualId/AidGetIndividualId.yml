@@ -6,9 +6,8 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
-        "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_registrationId$"
+        "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$"
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)"
+  "aidStatus": "PROCESSED"
 }'

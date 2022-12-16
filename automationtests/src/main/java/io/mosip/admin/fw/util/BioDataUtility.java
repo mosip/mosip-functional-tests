@@ -43,6 +43,7 @@ public class BioDataUtility extends AdminTestUtil {
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 
 	private String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
+	//private static String jsonContent = "config/AuthPolicy.json";
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
 			String transactionId, boolean isInternal) {
@@ -59,7 +60,7 @@ public class BioDataUtility extends AdminTestUtil {
 		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
 		 * () - 12));
 		 */
-		if (isInternal)
+		if (isInternal) 
 			jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, props.getProperty("internalrefId"),
 					"request.referenceId");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
@@ -69,11 +70,13 @@ public class BioDataUtility extends AdminTestUtil {
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "request.timeStamp");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "requesttime");
+			
 		residentCookie = kernelAuthLib.getTokenByRole("resident");
 		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
+		System.out.println("data is" + data);
 		return EncryptionDecrptionUtil.splitEncryptedData(data);
 	}
 
@@ -99,8 +102,10 @@ public class BioDataUtility extends AdminTestUtil {
 			}
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 					AdminTestUtil.generateCurrentUTCTimeStamp(), biometricsMapper + ".data.timestamp");
-			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
-					biometricsMapper + ".data.domainUri");
+			/*
+			 * identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
+			 * BaseTestCase.ApplnURI, biometricsMapper + ".data.domainUri");
+			 */
 			/*
 			 * identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 			 * BaseTestCase.ApplnURI, biometricsMapper + ".data.env");

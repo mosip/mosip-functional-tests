@@ -7,7 +7,7 @@ DownloadCredential:
       outputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
       input: '{
         "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
-        "requesttime": "$TIMESTAMP$"
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
     }'
       output: ' {
         "Content-Type": "application/pdf",
@@ -21,9 +21,9 @@ DownloadCredential:
       outputTemplate: mobileId/error
       input: '{
         "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
-        "requesttime": "$TIMESTAMP$"
+        "individualId": "965337484848041697"
     }'
       output: ' {
-        "Content-Type": "application/pdf",
+        "Content-Type": "$IGNORE$",
         "filename": "$IGNORE$"
     }'

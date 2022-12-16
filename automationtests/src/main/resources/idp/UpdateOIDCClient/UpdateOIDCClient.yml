@@ -17,7 +17,7 @@ UpdateOIDCClient:
       	"userClaims3": "gender",
       	"userClaims4": "phone",
       	"userClaims5": "birthdate",
-      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
+      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"},{acrValues: "mosip:idp:acr:biometrics"}],
       	"grantTypes": "authorization_code",
       	"clientAuthMethods": "private_key_jwt"
 }'

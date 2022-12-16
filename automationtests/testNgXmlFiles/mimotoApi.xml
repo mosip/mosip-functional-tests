@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-	<suite name="MobileId Suite">
+<suite name="Mimoto Test Suite">
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
@@ -11,49 +11,19 @@
 		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
-		
- 
-	<!-- <test name="AddIdentity">
-		<parameter name="ymlFile"
-			value="mobileId/AddIdentity/AddIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AddIdentity" />
-		</classes>
-	</test>
-	<test name="RequestCredentials">
-		<parameter name="ymlFile"
-			value="mobileId/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
-			<parameter name="idKeyName"	value="requestId" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
-		</classes>
-	</test>
-	<test name="CredentialCheckStatus">
-		<parameter name="ymlFile"
-			value="mobileId/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="SendOTP">
-		<parameter name="ymlFile"
-			value="mobileId/SendOTP/SendOTP.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test> -->
+	
 	
 	
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="mobileId/AddIdentity/AddIdentity.yml" />
+			value="mimoto/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
-			value="mobileId/GenerateVID/createGenerateVID.yml" />
+			value="mimoto/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
@@ -62,14 +32,14 @@
 	
 	 <test name="AuthLock">
 		<parameter name="ymlFile"
-			value="mobileId/AuthLock/createAuthLock.yml" />
+			value="mimoto/AuthLock/createAuthLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthUnLock">
 		<parameter name="ymlFile"
-			value="mobileId/AuthUnLock/createAuthUnLock.yml" />
+			value="mimoto/AuthUnLock/createAuthUnLock.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
@@ -77,7 +47,7 @@
 	
 	<test name="RequestCredentials">
 		<parameter name="ymlFile"
-			value="mobileId/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
+			value="mimoto/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
 			<parameter name="idKeyName"	value="requestId" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
@@ -85,23 +55,23 @@
 	</test>
 	 <test name="CredentialCheckStatus">
 		<parameter name="ymlFile"
-			value="mobileId/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
+			value="mimoto/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	
-	<test name="DownloadCredential">
+	<test name="DownloadWithReqid">
 		<parameter name="ymlFile"
-			value="mobileId/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
+			value="mimoto/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
 	
 	<test name="SendOTPUIN">
 		<parameter name="ymlFile"
-			value="mobileId/SendOTPUIN/createSendOTP.yml" />
+			value="mimoto/SendOTPUIN/createSendOTP.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -109,10 +79,10 @@
 	
 	<test name="AidGetIndividualId">
 		<parameter name="ymlFile"
-			value="mobileId/AidGetIndividualId/AidGetIndividualId.yml" />
+			value="mimoto/AidGetIndividualId/AidGetIndividualId.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-
+	
 </suite>
