@@ -1535,8 +1535,10 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/idp");
+			File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
+			FileUtils.copyDirectoryToDirectory(config, destination);
 			logger.info("Copied the IDP test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: " + e.getMessage());
@@ -2375,13 +2377,24 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
+	
+	/*
+	 * public String getKeysDirPath() { // String path =
+	 * props.getProperty("getCertificatePath"); environment =
+	 * System.getProperty("env.user"); String path = "C:/Users/" +
+	 * System.getProperty("user.name") + "/.m2" + "/IDA-" + environment +
+	 * ".mosip.net"; path = path.replace("////", "\\"); return new
+	 * File(path).getAbsolutePath(); }
+	 */
+	 
+	
 	public String getKeysDirPath() {
-		// String path = props.getProperty("getCertificatePath");
-		environment = System.getProperty("env.user");
-		String path = "C:/Users/" + System.getProperty("user.name") + "/.m2" + "/IDA-" + environment + ".mosip.net";
-		path = path.replace("////", "\\");
+		//String path = props.getProperty("getCertificatePath");
+		//String path = System.getProperty("java.io.tmpdir")+props.getProperty("getCertificateFileName");
+		String path = System.getProperty("java.io.tmpdir")+ "/IDA-" + environment + ".mosip.net";
 		return new File(path).getAbsolutePath();
 	}
+
 
 	public static String buildIdentityRequest(String identityRequest) {
 		if (identityRequest.contains("$DATETIME$"))

@@ -43,6 +43,15 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	
+	<test name="BioAuthIdp">
+		<parameter name="ymlFile" value="idp/BioAuthIdp/BioAuthIdp.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.IdpBioAuth" />
+		</classes>
+	</test>
+	
 	<test name="SendOtp">
 		<parameter name="ymlFile"
 			value="idp/SendOtp/SendOtp.yml" />
@@ -50,6 +59,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	
 	<test name="AuthenticateUser">
 		<parameter name="ymlFile"
 			value="idp/AuthenticateUser/AuthenticateUser.yml" />
@@ -66,6 +76,8 @@
 		</classes>
 	</test>
 
+
+	
 	<test name="GenerateToken">
 		<parameter name="ymlFile"
 			value="idp/GenerateToken/GenerateToken.yml" />

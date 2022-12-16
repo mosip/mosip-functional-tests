@@ -8,7 +8,7 @@ SendOtp:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "8267411571",
+	    "individualId": "8206278072",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
 }'
       output: '{
