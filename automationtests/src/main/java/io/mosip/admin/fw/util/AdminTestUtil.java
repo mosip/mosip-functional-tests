@@ -2416,7 +2416,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public String getKeysDirPath() {
 		//String path = props.getProperty("getCertificatePath");
 		//String path = System.getProperty("java.io.tmpdir")+props.getProperty("getCertificateFileName");
-		String path = System.getProperty("java.io.tmpdir")+ "/IDA-" + environment + ".mosip.net";
+		String path = System.getProperty("java.io.tmpdir")+ File.pathSeparator + "IDA-" + environment + ".mosip.net";
+		System.out.println("certificate path is::" + path);
 		return new File(path).getAbsolutePath();
 	}
 
