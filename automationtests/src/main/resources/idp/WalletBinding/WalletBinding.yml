@@ -17,6 +17,24 @@ WalletBinding:
         
 }'
 
+   IDP_WalletBinding_Vid_OTP_Valid_Smoke:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/WalletBinding/WalletBindingResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_Vid_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        
+}'
+
    IDP_WalletBinding_OTP_Phone_Valid_Smoke:
       endPoint: /v1/idp/wallet-binding
       role: resident
@@ -51,6 +69,29 @@ WalletBinding:
 }'
       output: '{
         
+}'
+
+   IDP_WalletBinding_Vid_OTP_Invalid_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/WalletBinding/WalletBindingResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_Vid_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_WalletBinding_Invalid_RequestTime_Neg:

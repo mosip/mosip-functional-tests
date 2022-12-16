@@ -13,7 +13,7 @@ OAuthDetailsRequest:
       	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
       	"display": "popup",
 	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:biometrics",
+	    "acrValues": "mosip:idp:acr:biometrics mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en"

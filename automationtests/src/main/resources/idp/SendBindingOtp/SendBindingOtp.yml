@@ -15,6 +15,22 @@ SendBindingOtp:
     	"maskedMobile": "XXXXXX3210"
 }'
 
+   IDP_SendBindingOtp_Vid_Valid_Smoke_sid:
+      endPoint: /v1/idp/send-binding-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendBindingOtp/SendBindingOtp
+      outputTemplate: idp/SendBindingOtp/SendBindingOtpResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
+}'
+
    IDP_SendBindingOtp_Email_Valid_Smoke_sid:
       endPoint: /v1/idp/send-binding-otp
       role: resident
