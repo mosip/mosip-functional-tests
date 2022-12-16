@@ -543,18 +543,18 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
 		}
 		
-		if(testCaseName.contains("Login_Redirect")) {
+		if(testCaseName.contains("Resident_Login")) {
 			cookieName = COOKIENAMESTATE;
-			JSONObject request = new JSONObject(jsonInput);
-			String state = null;
-			if(request.has("state")) {
-				state = request.get("state").toString();
-				token = state;
-			}
+//			JSONObject request = new JSONObject(jsonInput);
+//			String state = null;
+//			if(request.has("state")) {
+//				state = request.get("state").toString();
+//				token = state;
+//			}
 		}
-		else {
-			token = kernelAuthLib.getTokenByRole(role);
-		}
+//		else {
+		token = kernelAuthLib.getTokenByRole(role);
+//		}
 		
 		logger.info("******get request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
@@ -1237,6 +1237,31 @@ public class AdminTestUtil extends BaseTestCase {
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
 			pdf = RestClient.getPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
+					token);
+			return pdf;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return pdf;
+		}
+	}
+	
+	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
+		byte[] pdf = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+		}
+
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******get request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		try {
+			pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
 					token);
 			return pdf;
 		} catch (Exception e) {

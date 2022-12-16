@@ -1,21 +1,21 @@
 AuthenticateUser:
-   IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
-      endPoint: /v1/idp/authorization/authenticate
-      role: resident
-      restMethod: post
-      inputTemplate: idp/AuthenticateUser/AuthenticateUser
-      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
-}'
-      output: '{
-      
-}'
-
+#   IDP_AuthenticateUserIDP_OTP_Valid_Smoke:
+#     endPoint: /v1/idp/authorization/authenticate
+#      role: resident
+#      restMethod: post
+#      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+#      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+#      input: '{
+#      	"requestTime": "$TIMESTAMP$",
+#      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+#      	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
+#      	"authFactorType" : "PIN",
+#      	"challenge" : "34789"
+#}'
+#      output: '{
+#      
+#}'
+#
    IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
       endPoint: /v1/idp/authorization/authenticate
       role: resident
@@ -25,7 +25,7 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8206278072",
+      	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111"
 }'
@@ -42,14 +42,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transactionId",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -64,9 +64,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "2022-11-07T06:51:30",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -86,9 +86,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -108,9 +108,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -130,9 +130,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -152,9 +152,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -174,9 +174,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -196,9 +196,9 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -219,13 +219,13 @@ AuthenticateUser:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -241,8 +241,8 @@ AuthenticateUser:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -263,8 +263,8 @@ AuthenticateUser:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
@@ -285,13 +285,13 @@ AuthenticateUser:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
-      	"authFactorType" : "PIN",
-      	"challenge" : "34789"
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -306,14 +306,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "#$%FDF",
-      	"challenge" : "34789"
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -328,14 +328,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "$REMOVE$",
-      	"challenge" : "34789"
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -350,14 +350,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "",
-      	"challenge" : "34789"
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -372,14 +372,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "null",
-      	"challenge" : "34789"
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -394,14 +394,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "bio",
-      	"challenge" : "34789"
+      	"challenge" : "111111"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -416,14 +416,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
       	"challenge" : "23432"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -438,14 +438,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
       	"challenge" : "$REMOVE$"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -460,14 +460,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
       	"challenge" : ""
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -482,14 +482,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
-      	"authFactorType" : "PIN",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
       	"challenge" : "null"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -504,14 +504,14 @@ AuthenticateUser:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "8267411571",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "113453"
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction",
+      "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
   ]

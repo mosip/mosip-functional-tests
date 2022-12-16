@@ -222,48 +222,51 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="OAuthDetailsRequest">
-		<parameter name="ymlFile"
-			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="AuthenticateUser">
-		<parameter name="ymlFile"
-			value="resident/AuthenticateUser/AuthenticateUser.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="AuthorizationCode">
-		<parameter name="ymlFile"
-			value="resident/AuthorizationCode/AuthorizationCode.yml" />
-			<parameter name="idKeyName"	value="code,state,redirectUri" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="SignJWT">
-		<parameter name="ymlFile"
-			value="resident/SignJWT/SignJWT.yml" />
-			<parameter name="idKeyName"	value="jwtSignedData" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="GenerateToken">
-		<parameter name="ymlFile"
-			value="resident/GenerateToken/GenerateToken.yml" />
-			<parameter name="idKeyName"	value="access_token" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
-		</classes>
-	</test>
 	<test name="GetInputAttributeValues">
 		<parameter name="ymlFile"
 			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetProfile">
+		<parameter name="ymlFile"
+			value="resident/GetProfile/GetProfile.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetLastClickNotification">
+		<parameter name="ymlFile"
+			value="resident/GetLastClickNotification/GetLastClickNotification.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="PutBellUpdatedTime">
+		<parameter name="ymlFile"
+			value="resident/PutBellUpdatedTime/PutBellUpdatedTime.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePut" />
+		</classes>
+	</test>
+	<test name="DownloadNearestRegCen">
+		<parameter name="ymlFile"
+			value="resident/DownloadNearestRegCen/DownloadNearestRegCen.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="DownloadRegCenterDetails">
+		<parameter name="ymlFile"
+			value="resident/DownloadRegCenterDetails/DownloadRegCenterDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
+		<parameter name="ymlFile"
+			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -338,6 +341,20 @@
 			<parameter name="idKeyName"	value="eventId" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
+	<test name="DownloadUinCardByEventId">
+		<parameter name="ymlFile"
+			value="resident/DownloadUinCardByEventId/DownloadUinCardByEventId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+		</classes>
+	</test>
+	<test name="GetCheckEventIdStatus">
+		<parameter name="ymlFile"
+			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="PinStatus">

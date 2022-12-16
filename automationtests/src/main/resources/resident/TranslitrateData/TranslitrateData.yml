@@ -1,0 +1,16 @@
+TranslitrateData:
+   Resident_TranslitrateData_all_Valid_Smoke:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: resident
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/TranslitrateData/TranslitrateDataResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "eng",
+	    "to_field_lang": "hin"
+}'
+      output: '{
+        
+}'

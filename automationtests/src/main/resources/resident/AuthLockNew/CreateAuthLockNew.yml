@@ -435,9 +435,9 @@ AuthLockNew:
   		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
-   Resident_AuthLockNew_Invalid_Token_Neg:
+   Resident_AuthLockNew_StatusCode_Invalid_Token_Neg:
       endPoint: /resident/v1/auth-lock-unlock
-      role: resident
+      role: invalid
       restMethod: post
       inputTemplate: resident/AuthLockNew/CreateAuthLockNew
       outputTemplate: resident/error
@@ -449,11 +449,4 @@ AuthLockNew:
         "locked": "true",
         "unlockForSeconds": "null"
     }'
-      output: '{
-  		"errors": [
-		    {
-		      "errorCode": "KER-ATH-401",
-		      "message": "$IGNORE$"
-		    }
-		  ]
-}'
+      output: "500"

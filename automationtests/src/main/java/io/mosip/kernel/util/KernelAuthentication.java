@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
@@ -130,11 +131,11 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
-		case "residentnew":
+		case "residentnewIdp":
 			if(!kernelCmnLib.isValidToken(residentNewCookie))
 			residentNewCookie = getUinAuthFromIdp();
 			return residentNewCookie;
-		case "residentnewkc":
+		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;
@@ -146,6 +147,12 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
+		case "state":
+			UUID uuid = UUID.randomUUID();
+			
+			//converts the randomly generated UUID into String  
+			String uuidAsString = uuid.toString();
+			return uuidAsString;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();

@@ -1,0 +1,628 @@
+WalletBinding:
+   IDP_WalletBinding_OTP_Valid_Smoke:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/WalletBinding/WalletBindingResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        
+}'
+
+   IDP_WalletBinding_OTP_Phone_Valid_Smoke:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/WalletBinding/WalletBindingResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        
+}'
+
+   IDP_WalletBinding_OTP_Email_Valid_Smoke:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/WalletBinding/WalletBindingResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        
+}'
+
+   IDP_WalletBinding_Invalid_RequestTime_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-08T06:35:53",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Past_RequestTime_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Future_RequestTime_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2033-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_invalid_transactionIdId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_TransactionId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$REMOVE$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Expired_TransactionId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Null_TransactionId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "null",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_TransactionId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_transactionId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Invalid_IndividualId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "184139896834",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Diff_IndividualId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_IndividualId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$REMOVE$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_IndividualId_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_ChallengeList_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBindingEmptyChallenge
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "challengeList": "$REMOVE$",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_ChallengeList_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "$REMOVE$",
+        "challenge": "$REMOVE$",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_Challenge_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "$REMOVE$",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_AuthFactorType_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "$REMOVE$",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "unknown error",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Invalid_AuthFactorType_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "gdkh",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_AuthFactorType_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_SpaceVal_AuthFactorType_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": " ",
+        "challenge": "111111",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_Challenge_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Invalid_Challenge_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "123123",
+        "publicKey": "$OIDCJWKKEY$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Missing_PublicKey_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Empty_PublicKey_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": ""
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Null_PublicKey_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "null"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_WalletBinding_Invalid_PublicKey_Neg:
+      endPoint: /v1/idp/wallet-binding
+      role: resident
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+	    "authFactorType": "OTP",
+        "challenge": "111111",
+        "publicKey": "xyz"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "auth_failed",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
