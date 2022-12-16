@@ -7,13 +7,279 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"clientId": "88Vjt34c5Twz1oJ",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
-      	"redirectUri": "https://health-services.com/userprofile",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
       	"display": "popup",
 	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:generated-code",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_2all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_3all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   IDP_OAuthDetailsRequest_4all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   IDP_OAuthDetailsRequest_5all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_6all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_7all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_8all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_9all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_10all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_11all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_12all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+   IDP_OAuthDetailsRequest_13all_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "88Vjt34c5Twz1oJ",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "https://healthservices.dev2.mosip.net/userprofile",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en"

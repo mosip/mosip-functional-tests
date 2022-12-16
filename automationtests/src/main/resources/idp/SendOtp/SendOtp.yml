@@ -36,7 +36,6 @@ SendOtp:
     }
   ]
 }'
-
    IDP_SendOtp_Invalid_RequestTime_Neg:
       endPoint: /v1/idp/authorization/send-otp
       role: resident
