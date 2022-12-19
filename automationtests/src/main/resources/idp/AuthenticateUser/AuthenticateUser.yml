@@ -1,5 +1,5 @@
 AuthenticateUser:
-#   IDP_AuthenticateUserIDP_OTP_Valid_Smoke:
+#   IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
 #     endPoint: /v1/idp/authorization/authenticate
 #      role: resident
 #      restMethod: post
@@ -26,6 +26,40 @@ AuthenticateUser:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
+}'
+      output: '{
+      
+}'
+
+   IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
+}'
+      output: '{
+      
+}'
+
+   IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111"
 }'
@@ -85,6 +119,28 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthenticateUserIDP_Future_RequestTime_Neg:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2033-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
