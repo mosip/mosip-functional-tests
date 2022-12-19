@@ -16,6 +16,65 @@ SendOtp:
     	"maskedMobile": "$IGNORE$"
 }'
 
+   IDP_SendOtp_NR_Email_Uin_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_NR_Phone_Uin_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_individualId",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Vid_all_Valid_Smoke:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/SendOtp/SendOtpResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+        "maskedEmail": "$IGNORE$",
+    	"maskedMobile": "$IGNORE$"
+}'
+
    IDP_SendOtp_SpaceSeparated_otpChannels_Neg:
       endPoint: /v1/idp/authorization/send-otp
       role: resident
@@ -36,6 +95,28 @@ SendOtp:
     }
   ]
 }'
+
+   IDP_SendOtp_Vid_SpaceSeparated_otpChannels_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "s m s"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
    IDP_SendOtp_Invalid_RequestTime_Neg:
       endPoint: /v1/idp/authorization/send-otp
       role: resident
@@ -65,6 +146,27 @@ SendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_Future_RequestTime_Neg:
+      endPoint: /v1/idp/authorization/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2033-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
