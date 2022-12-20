@@ -103,6 +103,14 @@
 	<test name="GenerateLinkCode">
 		<parameter name="ymlFile"
 			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />
+			<parameter name="idKeyName"	value="linkCode" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetLinkStatus">
+		<parameter name="ymlFile"
+			value="idp/GetLinkStatus/GetLinkStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
