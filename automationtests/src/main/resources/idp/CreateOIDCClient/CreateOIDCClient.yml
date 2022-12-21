@@ -40,7 +40,7 @@ CreateOIDCClient:
       	"logoUri": "https://health-services.com/logo.png",
       	"relyingPartyId": "Bharathi-Inc",
       	"redirectUris": "https://health-services.com/userprofile",
-      	"publicKey": "$OIDCJWKKEY$",
+      	"publicKey": "$OIDCJWKKEY2$",
       	"userClaims1": "name",
       	"userClaims2": "email",
       	"userClaims3": "gender",

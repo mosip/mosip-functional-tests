@@ -120,7 +120,6 @@ public class BaseTestCase {
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
-	public static String oidcJWKKeyString;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
