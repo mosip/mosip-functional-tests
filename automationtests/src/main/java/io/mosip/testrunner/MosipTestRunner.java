@@ -49,7 +49,7 @@ public class MosipTestRunner {
 	/*
 	 * These variables are created to store private key in a file and then use it for some apis
 	 */
-	private static File oidcJWK = new File("src/main/resources/oidcJWK.txt");
+	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 
 	/**
 	 * C Main method to start mosip test execution
@@ -197,9 +197,22 @@ public class MosipTestRunner {
 		}
 		return "Global Resource File Path Not Found";
 	}
-
+	
 	public static String generatePulicKey() {
 		String publicKey = null;
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, new SecureRandom());
+			final KeyPair keypair = keyGenerator.generateKeyPair();
+			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return publicKey;
+	}
+
+	public static String generateJWKPublicKey() {
+//		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, new SecureRandom());
@@ -208,14 +221,16 @@ public class MosipTestRunner {
 				    .privateKey(keypair.getPrivate())
 				    .build();
 			
-			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+//			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 			
-			FileUtils.touch(oidcJWK);//File got created
-			FileUtils.writeStringToFile(oidcJWK, jwk.toJSONString(), StandardCharset.UTF_8.name());
-		} catch (NoSuchAlgorithmException | IOException e) {
+//			FileUtils.touch(oidcJWK1);//File got created
+//			FileUtils.writeStringToFile(oidcJWK1, jwk.toJSONString(), StandardCharset.UTF_8.name());
+			return jwk.toJSONString();
+		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return publicKey;
+//		return jwk.toJSONString();
 	}
 	
 	public static Properties getproperty(String path) {

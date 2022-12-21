@@ -66,6 +66,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="LinkedSendOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	
 	<test name="AuthenticateUser">
 		<parameter name="ymlFile"
@@ -115,21 +122,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="SendBindingOtp">
-		<parameter name="ymlFile"
-			value="idp/SendBindingOtp/SendBindingOtp.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="WalletBinding">
-		<parameter name="ymlFile"
-			value="idp/WalletBinding/WalletBinding.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
+
 	<test name="IntrospectToken">
 		<parameter name="ymlFile"
 			value="idp/IntrospectToken/IntrospectToken.yml" />
@@ -158,4 +151,21 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+<!--
+Enable once wallet binding is deployed
+	<test name="SendBindingOtp">
+		<parameter name="ymlFile"
+			value="idp/SendBindingOtp/SendBindingOtp.yml" />
+			<parameter name="idKeyName"	value="transactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="WalletBinding">
+		<parameter name="ymlFile"
+			value="idp/WalletBinding/WalletBinding.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>-->
 </suite>

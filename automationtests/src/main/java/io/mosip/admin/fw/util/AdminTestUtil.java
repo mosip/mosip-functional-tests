@@ -130,7 +130,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String generatedRid = null;
 	public static String regDeviceResponse = null;
 	public static String generatedVID = null;
-	public static boolean triggerIdP = true;
+	public static boolean triggerIdPKeyGen1 = true;
+	public static boolean triggerIdPKeyGen2 = true;
 	public static String randomId = "mosip" + RandomStringUtils.randomNumeric(2)+ String.valueOf(Calendar.getInstance().getTimeInMillis());
 	public static String randomId2 = "mosip" + RandomStringUtils.randomNumeric(2)+ String.valueOf(Calendar.getInstance().getTimeInMillis());
 	public static final String AUTHORIZATHION_HEADERNAME = "Authorization";
@@ -165,9 +166,11 @@ public class AdminTestUtil extends BaseTestCase {
 	public static HashMap<String, String> keycloakRolesMap = new HashMap<String, String>();
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
 	private static File oidcJWKFile = new File("src/main/resources/oidcJWK.txt");
-	public static RSAKey oidcJWKKey = null;
+	public static RSAKey oidcJWKKey1 = null;
+	public static RSAKey oidcJWKKey2 = null;
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
-	
+	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
+	public static File oidcJWK2 = new File("src/main/resources/oidcJWK2.txt");
 	//These variables are created to store IdP Cookie in a file and then use it for some apis
 	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
 	// public static String prevrReqTime=null;
@@ -1744,14 +1747,6 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PUBLICKEY$", MosipTestRunner.generatePulicKey());
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
 		}
-		if (jsonString.contains("$OIDCJWKKEY$")) {
-			if (triggerIdP) {
-				MosipTestRunner.generatePulicKey();
-				triggerIdP = false;
-			}
-			getJWKKey();
-			jsonString = jsonString.replace("$OIDCJWKKEY$", oidcJWKKeyString);
-		}
 		if (jsonString.contains("$REMOVE$"))
 			jsonString = removeObject(new JSONObject(jsonString));
 		if (jsonString.contains("$ID:")) {
@@ -1795,14 +1790,42 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			jsonString = jsonString.replace("$BASE64URI$", encodedRedirectUri);
 		}
+		if (jsonString.contains("$OIDCJWKKEY$")) {
+			String oidcJwkKey = null;
+			if (triggerIdPKeyGen1) {
+				oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
+				writeFileAsString(oidcJWK1, oidcJwkKey);
+				triggerIdPKeyGen1 = false;
+			}else {
+				oidcJwkKey = getJWKKey(oidcJWK1);
+			}
+			jsonString = jsonString.replace("$OIDCJWKKEY$", oidcJwkKey);
+		}
+		if (jsonString.contains("$OIDCJWKKEY2$")) {
+			String oidcJwkKey = null;
+			if (triggerIdPKeyGen2) {
+				oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
+				writeFileAsString(oidcJWK2, oidcJwkKey);
+				triggerIdPKeyGen2 = false;
+			}else {
+				oidcJwkKey = getJWKKey(oidcJWK2);
+			}
+			jsonString = jsonString.replace("$OIDCJWKKEY2$", oidcJwkKey);
+		}
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
-			getJWKKey();
+			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			try {
+				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			JSONObject request = new JSONObject(jsonString);
 			String client_id = null;
 			if(request.has("client_id")) {
 				client_id = request.get("client_id").toString();
 			}
-			jsonString = jsonString.replace("$CLIENT_ASSERTION_JWK$", signJWKKey(client_id));
+			jsonString = jsonString.replace("$CLIENT_ASSERTION_JWK$", signJWKKey(client_id, oidcJWKKey1));
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = propsKernel.getProperty("idpClientId");
@@ -3145,26 +3168,27 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public static void getJWKKey() {
+	public static String getJWKKey(File fileName) {
+		String keyString = null;
 		try {
-			if (oidcJWKFile.exists()) {
-				oidcJWKKeyString = FileUtils.readFileToString(oidcJWKFile, StandardCharset.UTF_8);
-				oidcJWKKey = RSAKey.parse(oidcJWKKeyString);
-			} else {
-				logger.error("oidcJWKKey File not Found in location:" + oidcJWKFile.getAbsolutePath());
+			if (fileName.exists()) {
+				keyString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
+//				oidcJWKKey = RSAKey.parse(oidcJWKKeyString);
 			}
-		} catch (IOException | java.text.ParseException e1) {
+			return keyString;
+		} catch (IOException e1) {
 			logger.error("Exception while getting oidcJWKKey for client assertion: " + e1.getMessage());
+			return null;
 		}
 	}
 
-	public static String signJWKKey(String clientId) {
+	public static String signJWKKey(String clientId, RSAKey jwkKey) {
 		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp";
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 		
 		try {
-			signer = new RSASSASigner(oidcJWKKey);
+			signer = new RSASSASigner(jwkKey);
 			
 			// Prepare JWT with claims set
 			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(clientId)//
@@ -3173,7 +3197,7 @@ public class AdminTestUtil extends BaseTestCase {
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
 
 			SignedJWT signedJWT = new SignedJWT(
-					new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(oidcJWKKey.getKeyID()).build(), claimsSet);
+					new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(jwkKey.getKeyID()).build(), claimsSet);
 
 			// Compute the RSA signature
 			signedJWT.sign(signer);
@@ -3183,6 +3207,17 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error("Exception while signing oidcJWKKey for client assertion: " + e.getMessage());
 		}
 		return clientAssertionToken;
+	}
+	
+	public static void writeFileAsString(File fileName, String content) {
+		
+		try {
+			FileUtils.touch(fileName);//File got created
+			FileUtils.writeStringToFile(fileName, content, StandardCharset.UTF_8.name());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
