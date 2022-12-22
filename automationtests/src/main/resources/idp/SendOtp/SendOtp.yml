@@ -31,7 +31,7 @@ SendOtp:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_individualId",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -52,7 +52,7 @@ SendOtp:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_individualId",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -300,7 +300,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "mock-ida-001",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -363,7 +363,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "mock-ida-001",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]

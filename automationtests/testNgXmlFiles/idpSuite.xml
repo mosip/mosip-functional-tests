@@ -66,13 +66,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="LinkedSendOtp">
-		<parameter name="ymlFile"
-			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
+
 	
 	<test name="AuthenticateUser">
 		<parameter name="ymlFile"
@@ -90,8 +84,6 @@
 		</classes>
 	</test>
 
-
-	
 	<test name="GenerateToken">
 		<parameter name="ymlFile"
 			value="idp/GenerateToken/GenerateToken.yml" />
@@ -105,21 +97,6 @@
 			value="idp/GetOidcUserInfo/GetOidcUserInfo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GenerateLinkCode">
-		<parameter name="ymlFile"
-			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />
-			<parameter name="idKeyName"	value="linkCode" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
-	<test name="GetLinkStatus">
-		<parameter name="ymlFile"
-			value="idp/GetLinkStatus/GetLinkStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 
@@ -153,6 +130,28 @@
 	</test>
 <!--
 Enable once wallet binding is deployed
+	<test name="GenerateLinkCode">
+		<parameter name="ymlFile"
+			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />
+			<parameter name="idKeyName"	value="linkCode" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetLinkStatus">
+		<parameter name="ymlFile"
+			value="idp/GetLinkStatus/GetLinkStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedSendOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="SendBindingOtp">
 		<parameter name="ymlFile"
 			value="idp/SendBindingOtp/SendBindingOtp.yml" />
