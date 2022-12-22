@@ -169,38 +169,6 @@ CreateOIDCClient:
 }'
       output: "403"
 
-   IDP_CreateOIDCClient_Invalid_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
-      role: partner
-      restMethod: post
-      inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"clientId": "???><::}:",
-      	"clientName": "MOSIP OIDC Client",
-      	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "Bharathi-Inc",
-      	"redirectUris": "https://health-services.com/userprofile",
-      	"publicKey": "$OIDCJWKKEY$",
-      	"userClaims1": "name",
-      	"userClaims2": "email",
-      	"userClaims3": "gender",
-      	"userClaims4": "phone",
-      	"userClaims5": "birthdate",
-      	"authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}],
-      	"grantTypes": "authorization_code",
-      	"clientAuthMethods": "private_key_jwt"
-}'
-      output: '{
-      	"errors": [
-    {
-      "errorCode": "invalid_client_id",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
    IDP_CreateOIDCClient_Invalid_Range_ClientId_Neg:
       endPoint: /v1/idp/client-mgmt/oidc-client
       role: partner
@@ -241,7 +209,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
+      	"clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
       	"clientName": "MOSIP OIDC Client",
       	"logoUri": "https://health-services.com/logo.png",
       	"relyingPartyId": "Bharathi-Inc",
@@ -468,7 +436,7 @@ CreateOIDCClient:
       	"clientId": "8nr2xe4jlxa54n9okvcv1",
       	"clientName": "MOSIP OIDC CLIENT",
       	"logoUri": "https://health-services.com/logo.png",
-      	"relyingPartyId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
+      	"relyingPartyId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
       	"redirectUris": "https://health-services.com/userprofile",
       	"publicKey": "$OIDCJWKKEY$",
       	"userClaims1": "name",
