@@ -72,7 +72,7 @@ public class MosipTestRunner {
 		ConfigManager.init(); //Langauge Independent
 		BaseTestCase.suiteSetup();
 //		KeycloakUserManager.removeUser();  //Langauge Independent
-		//KeycloakUserManager.createUsers();  //Langauge Independent
+		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		
 		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
